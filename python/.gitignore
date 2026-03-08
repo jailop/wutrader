@@ -1,0 +1,17 @@
+# SWIG generated files
+tzu_wrap.c
+tzu.py
+
+# Python compiled files
+*.pyc
+__pycache__/
+*.so
+*.o
+
+# Build directories
+build/
+dist/
+*.egg-info/
+
+# Object files in source tree
+../src/**/*.o
