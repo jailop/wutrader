@@ -1,9 +1,8 @@
 # Wu - Low Level Backtesting Library for Trading
 
-A minimalist, performance-oriented backtesting library written
-in C. Wu is designed for researchers and traders who need full control
-over their backtesting infrastructure without the overhead and black-box
-complexity of high-level frameworks.
+This is a personal project, a backtesting library for trading strategies
+written in C. I use it to for learning, experimenting with different
+designs, and exploring ideas in algorithmic trading. 
 
 Build the library:
 
