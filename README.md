@@ -4,10 +4,17 @@ This is a personal project, a backtesting library for trading strategies
 written in C. I use it to for learning, experimenting with different
 designs, and exploring ideas in algorithmic trading. 
 
+Requirements:
+
+- C11 compatible compiler
+- Make
+- SWIG (for Python bindings)
+
 Build the library:
 
 ```bash
 make
+./tests/test_runner
 ```
 
 Run the example backtest:
@@ -16,7 +23,8 @@ Run the example backtest:
 ./examples/backtest/example01 ./tests/data/btcusd.csv -v
 ```
 
-Here is an example (the safeguards are ommitted for brevity):
+Here is an example. The safeguards are ommitted here for brevity. For
+more details check the source code:
 
 ```c
 #include <stdio.h>
@@ -120,6 +128,7 @@ structures.
 Here is a similar example in Python using the bindings:
 
 ```python
+import sys
 import wu
 
 def main():
@@ -152,4 +161,14 @@ if __name__ == "__main__":
 You see, I love C, but I also love Python and many other languages.
 Moreover, what I love the most is solving problems!
 
+## Contributing
 
+This is a personal project, so I'm not hopeful for contributions.
+However, if you have questions, suggestions, or want to share
+ideas, feel free to reach me out. If you feel interested on learning
+more about this project, I'll be happy to share more details about the
+design and implementation. Furthermore, if you want to contribute, by 
+reviewing the code, openning issues, or even submitting pull requests,
+I'll be very grateful.
+
+My email is: >> jailop \AT/ protonmail \DOT/ com <<
