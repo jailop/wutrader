@@ -1,16 +1,35 @@
 #include <stdlib.h>
 #include "wu.h"
 
-double moving_average_update(MovingAverage ma, double new_value) {
+static void* moving_average_update(struct Indicator_* ind, void* new_value) {
+    MovingAverage ma = (MovingAverage)ind;
+    double value = *(double*)new_value;
+    
     if (ma->len < ma->window_size)
         ma->len++;
     else
         ma->sum -= ma->prev_values[ma->pos];
-    ma->sum += new_value;
-    ma->prev_values[ma->pos] = new_value;
+    ma->sum += value;
+    ma->prev_values[ma->pos] = value;
     ma->pos = (ma->pos + 1) % ma->window_size;
-    ma->base.value = ma->len < ma->window_size ? NAN : ma->sum / ma->window_size;
-    return ma->base.value;
+    return &ma->sum;
+}
+
+static void* moving_average_value(struct Indicator_* ind) {
+    MovingAverage ma = (MovingAverage)ind;
+    if (ma->len < ma->window_size) {
+        static double nan_value = NAN;
+        return &nan_value;
+    }
+    static double result;
+    result = ma->sum / ma->window_size;
+    return &result;
+}
+
+static void moving_average_free(struct Indicator_* ind) {
+    MovingAverage ma = (MovingAverage)ind;
+    free(ma->prev_values);
+    free(ma);
 }
 
 MovingAverage moving_average_new(int window_size) {
@@ -20,14 +39,10 @@ MovingAverage moving_average_new(int window_size) {
     ma->pos = 0;
     ma->len = 0;
     ma->sum = 0.0;
-    ma->base.value = NAN;
-    ma->base.update = (void (*)(struct Indicator_*, double))moving_average_update;
+    ma->base.update = moving_average_update;
+    ma->base.value = moving_average_value;
+    ma->base.delete = moving_average_free;
     return ma;
-}
-
-void inline moving_average_free(MovingAverage ma) {
-    free(ma->prev_values);
-    free(ma);
 }
 
 

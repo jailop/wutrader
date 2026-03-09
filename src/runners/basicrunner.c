@@ -51,5 +51,8 @@ BasicRunner basic_runner_new(Portfolio portfolio, Strategy strategy, Reader read
 
 void basic_runner_free(BasicRunner runner) {
     if (!runner) return;
+    portfolio_delete(runner->portfolio);
+    strategy_delete(runner->strategy);
+    reader_delete(runner->reader);
     free(runner);
 }

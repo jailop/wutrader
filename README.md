@@ -1,30 +1,61 @@
 # Wu - Low Level Backtesting Library for Trading
 
-This is a personal project, a backtesting library for trading strategies
-written in C. I use it to for learning, experimenting with different
-designs, and exploring ideas in algorithmic trading. 
+This is a personal project – a backtesting library for trading strategies written in C. I use it for learning, experimenting with different designs, and exploring ideas in algorithmic trading.
 
-Requirements:
+## Requirements
 
 - C11 compatible compiler
 - Make
 - SWIG (for Python bindings)
+- Doxygen (optional, for API documentation)
+
+## Building
 
 Build the library:
 
 ```bash
 make
-./tests/test_runner
 ```
 
-Run the example backtest:
+Run the tests:
+
+```bash
+make run_tests
+```
+
+Generate API documentation:
+
+```bash
+make docs
+```
+
+This generates HTML documentation in `docs/html/index.html`.
+
+Install the library (requires sudo):
+
+```bash
+sudo make install
+```
+
+This installs to `/usr/local` by default. To install to a different location:
+
+```bash
+make install PREFIX=/custom/path
+```
+
+Uninstall:
+
+```bash
+sudo make uninstall
+```
+
+## Example
+
+Run a C example:
 
 ```bash
 ./examples/backtest/example01 ./tests/data/btcusd.csv -v
 ```
-
-Here is an example. The safeguards are ommitted here for brevity. For
-more details check the source code:
 
 ```c
 #include <stdio.h>
@@ -34,8 +65,16 @@ more details check the source code:
 
 int main(int argc, char** argv) {
     int ret = 0;
+    if (argc < 2) {
+        fprintf(stderr, "Usage: %s <csv_file> [-v]\n", argv[0]);
+        return 1;
+    }
     const char* filename = argv[1];
     FILE* file = fopen(filename, "r");
+    if (!file) {
+        fprintf(stderr, "Error: Cannot open file %s\n", filename);
+        return 1;
+    }
     SingleAssetPortfolioParams params = {
         .initial_cash = 100000.0,
         .tx_cost_pct = 0.001,
@@ -58,11 +97,21 @@ int main(int argc, char** argv) {
             DATA_TYPE_CANDLE,   // data type
             true                // has header
         );
+    if (!portfolio || !strategy || !reader) {
+        fprintf(stderr, "Error: Failed to initialize components\n");
+        ret = 1;
+        goto cleanup;
+    }
     BasicRunner runner = basic_runner_new(
         (Portfolio)portfolio,
         (Strategy)strategy,
         (Reader)reader
     );
+    if (!runner) {
+        fprintf(stderr, "Error: Failed to create runner\n");
+        ret = 1;
+        goto cleanup;
+    }
     runner_run(runner, argc > 2 && strcmp(argv[2], "-v") == 0);
     SingleAssetPortfolio sap = (SingleAssetPortfolio)portfolio;
     PortfolioStats stats = sap->track.stats;
@@ -71,104 +120,41 @@ int main(int argc, char** argv) {
     printf("P&L:               %.2f (%.2f%%)\n", 
            portfolio_pnl(portfolio),
            (portfolio_pnl(portfolio) / params.initial_cash) * 100.0);
+cleanup:
     if (runner) basic_runner_free(runner);
-    if (portfolio) single_asset_portfolio_free(portfolio);
-    if (strategy) cross_over_strat_free(strategy);
-    if (reader) csv_reader_free(reader);
     if (file) fclose(file);
     return ret;
 }
-
 ```
 
-This example demonstrates a complete backtesting workflow: reading historical candle data, computing moving average indicators, generating crossover signals, executing trades with realistic costs, and reporting comprehensive statistics.
+This example demonstrates a complete backtesting workflow: reading historical candle data, calculating moving average indicators, generating crossover signals, simulating trade executions, and generating statistical reports.
 
-The library uses C's struct-and-function-pointer pattern to achieve polymorphism without virtual tables or runtime overhead. Each major abstraction (`Portfolio`, `Strategy`, `Reader`, `Indicator`) is defined as a struct containing function pointers, allowing different implementations while maintaining a consistent interface.
+## Design Approach
 
-Wu is not a framework—it's a toolkit. The core abstractions (`Portfolio`, `Strategy`, `Reader`, `Indicator`) are designed to be composed freely. You can swap implementations, combine strategies, or bypass components entirely without fighting against framework constraints.
+The library utilizes C's struct-and-function-pointer pattern to achieve polymorphism without virtual tables or runtime overhead. Each major abstraction – `Portfolio`, `Strategy`, `Reader`, and `Indicator` – is defined as a struct containing function pointers, allowing different implementations while maintaining a consistent interface.
 
-The `BasicRunner` demonstrates this composability. It's just one way to wire together a portfolio, strategy, and data reader. I'm free to write other runners with custom logic, logging, or execution patterns.
+Wu is not a framework; it's a toolkit. The core abstractions are designed to be composed freely. I can swap implementations, combine strategies, or bypass components entirely without fighting against framework constraints.
 
-This design means I could implement custom portfolio types—multi-asset portfolios, portfolios with margin trading, portfolios with exotic risk models—without modifying the library. The type system stays while providing the structure needed for interoperability.
+The `BasicRunner` demonstrates this composability. It’s just one way to wire together a portfolio, strategy, and data reader. I’m free to write other runners with custom logic, logging, or execution patterns.
+
+This design allows me to implement custom portfolio types—such as multi-asset portfolios, portfolios with margin trading, or portfolios with exotic risk models—without modifying the library. The type system remains, while still providing the necessary structure for interoperability.
 
 Trading data comes in many forms. Wu supports three fundamental data types:
 
-- **Candles** (OHLCV): Standard bar data for time-series analysis
-- **Trades**: Tick-level trade data with price, volume, and side
-- **Single Values**: Generic time-series data for arbitrary indicators or derived signals
+- **Candles** (OHLCV): Standard bar data for time-series analysis.
+- **Trades**: Tick-level trade data, including price, volume, and side.
+- **Single Values**: Generic time-series data for arbitrary indicators or derived signals.
 
-The `Reader` abstraction allows you to plug in any data source: CSV files, databases, real-time feeds, or synthetic generators. The library doesn't care where data comes from—it just needs something that implements the `next()` method.
+The `Reader` abstraction allows me to plug in any data source—CSV files, databases, real-time feeds, or synthetic generators. The library doesn’t care where the data comes from; it just needs something that implements the `next()` method.
 
-Every stateful component in the maintains its state explicitly in its struct. When you create a `MovingAverage`, its circular buffer, position counter, and sum are right there in the struct. This makes debugging straightforward and allows me to snapshot or serialize state at any point.
+Every stateful component maintains its state explicitly within its struct. When I create a `MovingAverage`, its circular buffer, position counter, and sum are all defined within the struct. This makes debugging straightforward and allows me to snapshot or serialize state at any point.
 
-Using C is a personal preference. In my life, no other language has provided me more joy
-when writing code. With C, I have the feeling of being free to explore,
-experiment with different designs, and understand every detail of how my
-code executes, everythin at the same time. I can write code that is both high-level in its
-abstractions and low-level in its performance characteristics.
+Using C is a matter of personal preference. In my experience, no other language has provided me with as much joy when writing code. With C, I have the feeling of being free to explore, experiment with different designs, and understand the details of how my code executes. I can write code that is both high-level in its abstractions and low-level in its performance characteristics.
 
-That doesn't mean that I'm a C purist. On the contrary. I know how to
-gain insight and productivity by using higher-level languages when
-appropriate.  That is the reason this library include bindings for
-Python. Besides that, I maintain a more user oriented implementation of
-a similar library in C++
-([tzutrader](https://jailop.codeberg.page/tzutrader/docs/)). Often, I
-play exploring ideas between this implementations, moving back and forth
-between them. Their core ideas are the same.
-
-## Python Bindings
-
-The library includes Python bindings that expose the same core
-abstractions and functionality. The Python API is designed to be as
-close as possible to the C API, while providing a more Pythonic
-interface. The bindings are implemented using SWIG, which allows for
-automatic memory management and seamless integration with Python's data
-structures.
-
-Here is a similar example in Python using the bindings:
-
-```python
-import sys
-import wu
-
-def main():
-    filename = sys.argv[1]
-    verbose = len(sys.argv) > 2 and sys.argv[2] == "-v"
-    initial_cash = 100000.0
-    portfolio = wu.create_single_asset_portfolio(
-        initial_cash=initial_cash,
-        tx_cost_pct=0.001,
-        stop_loss_pct=0.10,
-        take_profit_pct=0.20,
-        slippage_pct=0.0005,
-        size_type=wu.POSITION_SIZE_PCT,
-        size_value=1.0
-    )
-    strategy = wu.cross_over_strat_new(10, 30, 0.0)
-    reader = wu.csv_reader_open(filename, wu.DATA_TYPE_CANDLE, True)
-    runner = wu.basic_runner_new(portfolio, strategy, reader)
-    wu.runner_call_run(runner, verbose)
-    pnl = wu.portfolio_call_pnl(portfolio)
-    pnl_pct = (pnl / initial_cash) * 100.0
-    print(f"Initial Cash:      {initial_cash:.2f}")
-    print(f"Final Value:       {wu.portfolio_call_value(portfolio):.2f}")
-    print(f"P&L:               {pnl:.2f} ({pnl_pct:.2f}%)")
-
-if __name__ == "__main__":
-    main()
-```
-
-You see, I love C, but I also love Python and many other languages.
-Moreover, what I love the most is solving problems!
+That doesn’t mean that I’m a C purist. On the contrary, I know how to gain insight and productivity by using higher-level languages when appropriate. That is the reason this library includes bindings for Python. Besides that, I maintain a more user-oriented implementation of a similar library in C++ ([tzutrader](https://jailop.codeberg.page/tzutrader/docs/)). Often, I enjoy exploring ideas between these implementations, moving back and forth between them. Their core ideas are the same.
 
 ## Contributing
 
-This is a personal project, so I'm not hopeful for contributions.
-However, if you have questions, suggestions, or want to share
-ideas, feel free to reach me out. If you feel interested on learning
-more about this project, I'll be happy to share more details about the
-design and implementation. Furthermore, if you want to contribute, by 
-reviewing the code, openning issues, or even submitting pull requests,
-I'll be very grateful.
+This is a personal project, so I’m not hopeful for contributions. However, if you have questions, suggestions, or want to share ideas, feel free to reach out to me. If you feel interested in learning more about this project, I’ll be happy to share more details about the design and implementation. Furthermore, if you want to contribute – by reviewing the code, opening issues, or even submitting pull requests – I’ll be very grateful.
 
 My email is: >> jailop \AT/ protonmail \DOT/ com <<

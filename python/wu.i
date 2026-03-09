@@ -9,6 +9,8 @@
 
 %array_functions(double, doubleArray);
 
+/* Typemaps must be defined BEFORE the headers that use them */
+
 /* Typemap to allow MovingAverage to be passed as Indicator */
 %typemap(in) Indicator {
     void *argp = 0;
@@ -64,18 +66,36 @@
     $1 = (Reader)argp;
 }
 
-%include "../include/wu.h"
+/* Include all header files for SWIG to process */
+%include "../include/wu/types.h"
+%include "../include/wu/data.h"
+%include "../include/wu/indicator.h"
+%include "../include/wu/reader.h"
+%include "../include/wu/portfolio.h"
+%include "../include/wu/strategy.h"
+
+/* Ignore the run function pointer field in BasicRunner to avoid conflicts */
+%ignore BasicRunner_::run;
+
+/* Ignore the run function pointer field in BasicRunner to avoid conflicts */
+%ignore BasicRunner_::run;
+
+%include "../include/wu/runner.h"
 
 %inline %{
 /* Indicator interface - wraps the C macros for Python use */
 void wu_indicator_update(Indicator ind, double value) {
     if (ind && ind->update) {
-        ind->update(ind, value);
+        ind->update(ind, &value);
     }
 }
 
 double wu_indicator_value(Indicator ind) {
-    return ind ? ind->value : 0.0;
+    if (ind && ind->value) {
+        double* val_ptr = (double*)ind->value(ind);
+        return val_ptr ? *val_ptr : 0.0;
+    }
+    return 0.0;
 }
 
 Signal strategy_call_update(Strategy strategy, void* data) {
@@ -145,63 +165,161 @@ CsvReader csv_reader_open(const char* filename, DataType data_type, bool has_hea
         return $self->track.stats->total_loss;
     }
     
+    void update(Signal signal) {
+        $self->base.update((Portfolio)$self, signal);
+    }
+    
+    double value() {
+        return $self->base.value((Portfolio)$self);
+    }
+    
+    double pnl() {
+        return $self->base.pnl((Portfolio)$self);
+    }
+    
     ~SingleAssetPortfolio_() {
-        single_asset_portfolio_free($self);
+        if ($self->base.delete)
+            $self->base.delete((Portfolio)$self);
     }
 }
 
 %extend CrossOverStrat_ {
+    Signal update(const void* data) {
+        return $self->base.update((Strategy)$self, data);
+    }
+    
     ~CrossOverStrat_() {
-        cross_over_strat_free($self);
+        if ($self->base.delete)
+            $self->base.delete((Strategy)$self);
     }
 }
 
 %extend CsvReader_ {
+    void* next() {
+        return $self->base.next((Reader)$self);
+    }
+    
+    CsvError get_last_error() {
+        return $self->last_error;
+    }
+    
+    Candle* read_candle() {
+        if ($self->data_type == DATA_TYPE_CANDLE) {
+            void* data = $self->base.next((Reader)$self);
+            return data ? (Candle*)data : NULL;
+        }
+        return NULL;
+    }
+    
+    Trade* read_trade() {
+        if ($self->data_type == DATA_TYPE_TRADE) {
+            void* data = $self->base.next((Reader)$self);
+            return data ? (Trade*)data : NULL;
+        }
+        return NULL;
+    }
+    
+    SingleValue* read_single_value() {
+        if ($self->data_type == DATA_TYPE_SINGLE_VALUE) {
+            void* data = $self->base.next((Reader)$self);
+            return data ? (SingleValue*)data : NULL;
+        }
+        return NULL;
+    }
+    
     ~CsvReader_() {
-        csv_reader_free($self);
+        if ($self->base.delete)
+            $self->base.delete((Reader)$self);
     }
 }
 
 %extend BasicRunner_ {
+    void execute(bool verbose) {
+        $self->run($self, verbose);
+    }
+    
     ~BasicRunner_() {
         basic_runner_free($self);
     }
 }
 
 %extend MovingAverage_ {
+    void update(double value) {
+        if ($self->base.update) {
+            $self->base.update((Indicator)$self, &value);
+        }
+    }
+    
+    double value() {
+        if ($self->base.value) {
+            double* val_ptr = (double*)$self->base.value((Indicator)$self);
+            return val_ptr ? *val_ptr : 0.0;
+        }
+        return 0.0;
+    }
+    
     ~MovingAverage_() {
-        moving_average_free($self);
+        if ($self->base.delete)
+            $self->base.delete((Indicator)$self);
     }
 }
 
 %extend ExponentialMovingAverage_ {
+    void update(double value) {
+        if ($self->base.update) {
+            $self->base.update((Indicator)$self, &value);
+        }
+    }
+    
+    double value() {
+        if ($self->base.value) {
+            double* val_ptr = (double*)$self->base.value((Indicator)$self);
+            return val_ptr ? *val_ptr : 0.0;
+        }
+        return 0.0;
+    }
+    
     ~ExponentialMovingAverage_() {
-        exponential_moving_average_free($self);
+        if ($self->base.delete)
+            $self->base.delete((Indicator)$self);
     }
 }
 
 %extend PositionVector {
     ~PositionVector() {
-        position_vector_free($self);
+        if ($self->delete)
+            $self->delete($self);
     }
 }
 
 %extend PortfolioStats_ {
     ~PortfolioStats_() {
-        portfolio_stats_free($self);
-    }
-}
-
-%extend CsvReader_ {
-    CsvError get_last_error() {
-        return $self->last_error;
+        portfolio_stats_delete($self);
     }
 }
 
 %pythoncode %{
+# Version information
+__version__ = '0.1.0'
+
 # Alias to match C macro names
 indicator_update = wu_indicator_update
 indicator_value = wu_indicator_value
+
+def create_signal(timestamp=0, side=SIDE_HOLD, price=0.0, quantity=0.0):
+    """
+    Create a Signal with the given parameters.
+    
+    Args:
+        timestamp: Unix timestamp (default: 0)
+        side: Signal side - SIDE_BUY, SIDE_SELL, or SIDE_HOLD (default: SIDE_HOLD)
+        price: Execution price (default: 0.0)
+        quantity: Quantity to trade (default: 0.0)
+    
+    Returns:
+        Signal instance
+    """
+    return signal_init(timestamp, side, price, quantity)
 
 def create_single_asset_portfolio(initial_cash=10000.0, tx_cost_pct=0.001, 
                                   stop_loss_pct=0.0, take_profit_pct=0.0,

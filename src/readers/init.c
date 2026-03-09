@@ -6,7 +6,7 @@
 
 #include "wu.h"
 
-Candle inline candle_init(int64_t timestamp, double open, double high, double low, double close, double volume) {
+inline Candle candle_init(int64_t timestamp, double open, double high, double low, double close, double volume) {
     Candle c;
     c.timestamp = timestamp;
     c.open = open;
@@ -18,7 +18,7 @@ Candle inline candle_init(int64_t timestamp, double open, double high, double lo
     return c;
 }
 
-Trade inline trade_init(int64_t timestamp, double price, double volume, Side side) {
+inline Trade trade_init(int64_t timestamp, double price, double volume, Side side) {
     Trade t;
     t.timestamp = timestamp;
     t.price = price;
@@ -28,10 +28,19 @@ Trade inline trade_init(int64_t timestamp, double price, double volume, Side sid
     return t;
 }
 
-SingleValue inline single_value_init(int64_t timestamp, double value) {
+inline SingleValue single_value_init(int64_t timestamp, double value) {
     SingleValue sv;
     sv.timestamp = timestamp;
     sv.value = value;
     sv.data_type = DATA_TYPE_SINGLE_VALUE;
     return sv;
+}
+
+inline Signal signal_init(int64_t timestamp, Side side, double price, double quantity) {
+    Signal s;
+    s.timestamp = timestamp;
+    s.side = side;
+    s.price = price;
+    s.quantity = quantity;
+    return s;
 }

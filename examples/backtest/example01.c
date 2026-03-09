@@ -144,9 +144,6 @@ int main(int argc, char** argv) {
     
 cleanup:
     if (runner) basic_runner_free(runner);
-    if (portfolio) single_asset_portfolio_free(portfolio);
-    if (strategy) cross_over_strat_free(strategy);
-    if (reader) csv_reader_free(reader);
     if (file) fclose(file);
     return ret;
 }

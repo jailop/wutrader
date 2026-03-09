@@ -1,1 +1,4 @@
 **/*.o
+python/docs/
+python/.venv/
+docs/

@@ -23,7 +23,7 @@ void test_csv_reader_reads_candles(void) {
     CU_ASSERT_EQUAL(candle->timestamp, 1420070000);
     CU_ASSERT_DOUBLE_EQUAL(candle->close, 315.03, 0.001);
     
-    csv_reader_free(reader);
+    reader_delete((Reader)reader);
     fclose(file);
 }
 
@@ -46,7 +46,7 @@ void test_csv_reader_reads_trades(void) {
     CU_ASSERT_EQUAL(trade->timestamp, 1420070000);
     CU_ASSERT_DOUBLE_EQUAL(trade->price, 314.08, 0.001);
     
-    csv_reader_free(reader);
+    reader_delete((Reader)reader);
     fclose(file);
 }
 
@@ -67,7 +67,7 @@ void test_csv_reader_reads_single_values(void) {
     CU_ASSERT_EQUAL(sv->timestamp, 1420070000);
     CU_ASSERT_DOUBLE_EQUAL(sv->value, 314.08, 0.001);
     
-    csv_reader_free(reader);
+    reader_delete((Reader)reader);
     fclose(file);
 }
 
@@ -87,7 +87,7 @@ void test_csv_reader_returns_null_at_eof(void) {
     CU_ASSERT_TRUE(count > 0);
     CU_ASSERT_EQUAL(reader_last_error(reader), CSV_ERROR_EOF);
     
-    csv_reader_free(reader);
+    reader_delete((Reader)reader);
     fclose(file);
 }
 
@@ -102,6 +102,6 @@ void test_csv_reader_handles_headers(void) {
     CU_ASSERT_PTR_NOT_NULL(candle);
     CU_ASSERT_EQUAL(candle->timestamp, 1419984000);
     
-    csv_reader_free(reader);
+    reader_delete((Reader)reader);
     fclose(file);
 }

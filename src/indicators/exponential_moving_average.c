@@ -1,20 +1,33 @@
 #include <stdlib.h>
 #include "wu.h"
 
-double exponential_moving_average_update(ExponentialMovingAverage ema, double new_value) {
+static void* exponential_moving_average_update(struct Indicator_* ind, void* new_value) {
+    ExponentialMovingAverage ema = (ExponentialMovingAverage)ind;
+    double value = *(double*)new_value;
+    
     ema->len++;
     if (ema->len < ema->period) {
-        ema->prev_value += new_value;
-        ema->base.value = NAN;
+        ema->prev_value += value;
     } else if (ema->len == ema->period) {
-        ema->prev_value += new_value;
+        ema->prev_value += value;
         ema->prev_value /= ema->period;
-        ema->base.value = ema->prev_value;
     } else {
-        ema->prev_value = ema->alpha * new_value + (1 - ema->alpha) * ema->prev_value;
-        ema->base.value = ema->prev_value;
+        ema->prev_value = ema->alpha * value + (1 - ema->alpha) * ema->prev_value;
     }
-    return ema->base.value;
+    return &ema->prev_value;
+}
+
+static void* exponential_moving_average_value(struct Indicator_* ind) {
+    ExponentialMovingAverage ema = (ExponentialMovingAverage)ind;
+    if (ema->len < ema->period) {
+        static double nan_value = NAN;
+        return &nan_value;
+    }
+    return &ema->prev_value;
+}
+
+static void exponential_moving_average_free(struct Indicator_* ind) {
+    free(ind);
 }
 
 ExponentialMovingAverage exponential_moving_average_new(int period, double smoothing) {
@@ -22,13 +35,11 @@ ExponentialMovingAverage exponential_moving_average_new(int period, double smoot
     ema->period = period;
     ema->alpha = smoothing / (period + 1);
     ema->prev_value = 0.0;
-    ema->base.value = NAN;
     ema->len = 0;
-    ema->base.update = (void (*)(struct Indicator_*, double))exponential_moving_average_update;
+    ema->base.update = exponential_moving_average_update;
+    ema->base.value = exponential_moving_average_value;
+    ema->base.delete = exponential_moving_average_free;
     return ema;
 }
 
-void inline exponential_moving_average_free(ExponentialMovingAverage ema) {
-    free(ema);
-}
 

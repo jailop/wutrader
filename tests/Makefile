@@ -1,5 +1,5 @@
 CFLAGS = -std=c11 -Wall -Wextra -Werror -pedantic -I../include
-LDLIBS = -L../lib -ltzu -lcunit
+LDLIBS = -L../lib -lwu -lcunit -Wl,-rpath,$(shell pwd)/../lib
 
 SOURCES = $(wildcard *.c) $(wildcard */*.c)
 OBJECTS = $(SOURCES:.c=.o)

@@ -1,15 +1,13 @@
 #!/usr/bin/env python3
 """
 Complete backtesting example using WU Python bindings
-
 Based on examples/backtest/example01.c
-
-Note: Memory management is automatic - no need to manually free objects
 """
 
 import wu
 import sys
 import os
+
 
 def main():
     if len(sys.argv) < 2:
@@ -28,7 +26,7 @@ def main():
         take_profit_pct=0.20,
         slippage_pct=0.0005,
         size_type=wu.POSITION_SIZE_PCT,
-        size_value=1.0
+        size_value=1.0,
     )
     strategy = wu.cross_over_strat_new(10, 30, 0.0)
     reader = wu.csv_reader_open(filename, wu.DATA_TYPE_CANDLE, True)
@@ -39,11 +37,14 @@ def main():
     if not runner:
         print("Error: Failed to create runner", file=sys.stderr)
         return 1
-    wu.runner_call_run(runner, verbose)
-    pnl = wu.portfolio_call_pnl(portfolio)
+
+    runner.execute(verbose)
+
+    pnl = portfolio.pnl()
     pnl_pct = (pnl / initial_cash) * 100.0
+
     print(f"Initial Cash:      {initial_cash:.2f}")
-    print(f"Final Value:       {wu.portfolio_call_value(portfolio):.2f}")
+    print(f"Final Value:       {portfolio.value():.2f}")
     print(f"P&L:               {pnl:.2f} ({pnl_pct:.2f}%)")
     print(f"Total Fees:        {portfolio.get_accum_expenses():.2f}")
     print(f"Total Trades:      {portfolio.get_total_trades()}")
@@ -53,9 +54,13 @@ def main():
     if total_trades > 0:
         win_rate = (portfolio.get_winning_trades() * 100.0) / total_trades
         print(f"Win Rate:          {win_rate:.2f}%")
-    
-    print(f"Stop Loss Exits:   {portfolio.get_total_trades() - portfolio.get_winning_trades() - portfolio.get_losing_trades()}")
-    print(f"Take Profit Exits: {portfolio.get_total_trades() - portfolio.get_winning_trades() - portfolio.get_losing_trades()}")
+
+    print(
+        f"Stop Loss Exits:   {portfolio.get_total_trades() - portfolio.get_winning_trades() - portfolio.get_losing_trades()}"
+    )
+    print(
+        f"Take Profit Exits: {portfolio.get_total_trades() - portfolio.get_winning_trades() - portfolio.get_losing_trades()}"
+    )
     print(f"Total Profit:      {portfolio.get_total_profit():.2f}")
     print(f"Total Loss:        {portfolio.get_total_loss():.2f}")
     winning = portfolio.get_winning_trades()
@@ -67,6 +72,7 @@ def main():
         avg_loss = portfolio.get_total_loss() / losing
         print(f"Avg Loss:          ${avg_loss:.2f}")
     return 0
+
 
 if __name__ == "__main__":
     sys.exit(main())

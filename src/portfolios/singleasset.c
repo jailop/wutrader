@@ -47,8 +47,6 @@ static void execute_buy(SingleAssetPortfolio portfolio, Signal signal) {
 static void execute_sell(SingleAssetPortfolio portfolio, Signal signal) {
     double total_quantity = position_total_quantity(portfolio->track.positions);
     if (total_quantity <= 0) return;
-    
-    double avg_price = 0;
     double total_cost = 0;
     PositionVector* vec = portfolio->track.positions;
     for (int i = 0; i < vec->capacity; i++) {
@@ -70,7 +68,7 @@ static void execute_sell(SingleAssetPortfolio portfolio, Signal signal) {
     position_clear(portfolio->track.positions);
 }
 
-static void check_and_close_positions(SingleAssetPortfolio portfolio, double current_price, int64_t timestamp) {
+static void check_and_close_positions(SingleAssetPortfolio portfolio, double current_price) {
     PositionVector* vec = portfolio->track.positions;
     if (vec->count == 0) return;
     for (int i = 0; i < vec->capacity; i++) {
@@ -103,46 +101,58 @@ static void check_and_close_positions(SingleAssetPortfolio portfolio, double cur
     }
 }
 
-double calculate_portfolio_value(SingleAssetPortfolio portfolio) {
+double calculate_portfolio_value(const struct Portfolio_ *portfolio) {
+    const SingleAssetPortfolio p = (const SingleAssetPortfolio) portfolio;
     double position_value = 0.0;
-    PositionVector* vec = portfolio->track.positions;
+    PositionVector* vec = p->track.positions;
     for (int i = 0; i < vec->capacity; i++) {
         bool found = false;
         struct Position_ pos = position_get(vec, i, &found);
         if (found) {
-            position_value += pos.quantity * portfolio->track.last_price;
+            position_value += pos.quantity * p->track.last_price;
         }
     }
-    return portfolio->track.cash + position_value;
+    return p->track.cash + position_value;
 }
 
-double calculate_portfolio_pnl(SingleAssetPortfolio portfolio) {
+static double calculate_portfolio_pnl(const struct Portfolio_ *portfolio) {
+    SingleAssetPortfolio p = (SingleAssetPortfolio) portfolio;
     double current_value = calculate_portfolio_value(portfolio);
-    return current_value - portfolio->params.initial_cash;
+    return current_value - p->params.initial_cash;
 }
 
-static void update_portfolio(SingleAssetPortfolio portfolio, Signal signal) {
-    portfolio->track.last_price = signal.price;
-    check_and_close_positions(portfolio, signal.price, signal.timestamp);
+static void update_portfolio(Portfolio portfolio, const Signal signal) {
+    SingleAssetPortfolio p = (SingleAssetPortfolio) portfolio;
+    p->track.last_price = signal.price;
+    check_and_close_positions(p, signal.price);
     switch (signal.side) {
         case SIDE_BUY:
-            execute_buy(portfolio, signal);
+            execute_buy(p, signal);
             break;
         case SIDE_SELL:
-            execute_sell(portfolio, signal);
+            execute_sell(p, signal);
             break;
         case SIDE_HOLD:
             break;
     }
 }
 
+static void single_asset_portfolio_free(struct Portfolio_* portfolio) {
+    SingleAssetPortfolio p = (SingleAssetPortfolio) portfolio;
+    if (!p) return;
+    position_vector_delete(p->track.positions);
+    portfolio_stats_delete(p->track.stats);
+    free(portfolio);
+}
+
 SingleAssetPortfolio single_asset_portfolio_new(SingleAssetPortfolioParams params) {
     SingleAssetPortfolio portfolio = malloc(sizeof(struct SingleAssetPortfolio_));
     if (!portfolio) return NULL;
     
-    portfolio->base.update = (void (*)(struct Portfolio_*, Signal))update_portfolio;
-    portfolio->base.value = (double (*)(struct Portfolio_*))calculate_portfolio_value;
-    portfolio->base.pnl = (double (*)(struct Portfolio_*))calculate_portfolio_pnl;
+    portfolio->base.update = update_portfolio;
+    portfolio->base.value = calculate_portfolio_value;
+    portfolio->base.pnl = calculate_portfolio_pnl;
+    portfolio->base.delete = single_asset_portfolio_free;
     
     portfolio->params = params;
     portfolio->track.cash = params.initial_cash;
@@ -154,9 +164,4 @@ SingleAssetPortfolio single_asset_portfolio_new(SingleAssetPortfolioParams param
     return portfolio;
 }
 
-void single_asset_portfolio_free(SingleAssetPortfolio portfolio) {
-    if (!portfolio) return;
-    position_vector_free(portfolio->track.positions);
-    portfolio_stats_free(portfolio->track.stats);
-    free(portfolio);
-}
+

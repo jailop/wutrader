@@ -51,15 +51,17 @@ static void* read_trade(CsvReader reader) {
         return NULL;
     }
     
+    int side_value;
     if (sscanf(reader->line_buffer, "%ld,%lf,%lf,%d",
                &(reader->data.trade.timestamp),
                &(reader->data.trade.price),
                &(reader->data.trade.volume),
-               &(reader->data.trade.side)) != 4) {
+               &side_value) != 4) {
         reader->last_error = CSV_ERROR_PARSE;
         return NULL;
     }
     
+    reader->data.trade.side = (Side)side_value;
     reader->data.trade.data_type = DATA_TYPE_TRADE;
     reader->last_error = CSV_OK;
     return &reader->data.trade;
@@ -80,6 +82,11 @@ static void* read_single_value(CsvReader reader) {
     reader->data.single_value.data_type = DATA_TYPE_SINGLE_VALUE;
     reader->last_error = CSV_OK;
     return &reader->data.single_value;
+}
+
+static void csv_reader_free(CsvReader reader) {
+    if (!reader) return;
+    free(reader);
 }
 
 CsvReader csv_reader_new(FILE* file, DataType data_type, bool has_headers) {
@@ -107,7 +114,7 @@ CsvReader csv_reader_new(FILE* file, DataType data_type, bool has_headers) {
             free(reader);
             return NULL;
     }
-    
+    reader->base.delete = (void (*)(struct Reader_*))csv_reader_free;    
     if (has_headers) {
         if (!fgets(reader->line_buffer, CSV_MAX_LINE_SIZE, reader->file)) {
             free(reader);
@@ -118,7 +125,4 @@ CsvReader csv_reader_new(FILE* file, DataType data_type, bool has_headers) {
     return reader;
 }
 
-void csv_reader_free(CsvReader reader) {
-    if (!reader) return;
-    free(reader);
-}
+

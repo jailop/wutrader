@@ -16,6 +16,10 @@ PYTHON_EXT_SUFFIX = $(shell $(PYTHON_CONFIG) --extension-suffix)
 # Source files
 SRC_DIR = ../src
 INCLUDE_DIR = ../include
+LIB_DIR = ../lib
+# Get version from parent Makefile
+WU_VERSION = $(shell grep "^VERSION = " ../Makefile | cut -d' ' -f3)
+WU_LIB = $(LIB_DIR)/libwu.so.$(WU_VERSION)
 SWIG_INTERFACE = wu.i
 SWIG_WRAPPER = wu_wrap.c
 MODULE_NAME = _wu
@@ -31,9 +35,9 @@ PYTHON_MODULE = wu.py
 
 # Compiler flags
 CFLAGS = -fPIC -I$(INCLUDE_DIR) $(PYTHON_INCLUDE) -std=c11 -O2
-LDFLAGS = -shared -lm
+LDFLAGS = -shared -lm -L../lib -lwu -Wl,-rpath,$(shell pwd)/../lib
 
-.PHONY: all clean swig build install test
+.PHONY: all clean swig build install test docs version
 
 all: swig build
 
@@ -53,8 +57,12 @@ $(WRAPPER_OBJ): $(SWIG_WRAPPER)
 # Build shared library
 build: $(SHARED_LIB)
 
-$(SHARED_LIB): $(WRAPPER_OBJ) $(WU_OBJS)
-	$(CC) $(LDFLAGS) $(WRAPPER_OBJ) $(WU_OBJS) -o $(SHARED_LIB)
+# Ensure C library is built first
+$(WU_LIB):
+	$(MAKE) -C ..
+
+$(SHARED_LIB): $(WRAPPER_OBJ) $(WU_LIB)
+	$(CC) -shared $(WRAPPER_OBJ) -L../lib -lwu -lm -Wl,-rpath,$(shell pwd)/../lib -o $(SHARED_LIB)
 
 # Install using setup.py (alternative method)
 install: swig
@@ -64,10 +72,25 @@ install: swig
 test: $(SHARED_LIB)
 	$(PYTHON) -c "import wu; print('Successfully imported wu module')"
 
+# Show version
+version:
+	@echo "WU Python Bindings version $(WU_VERSION)"
+
+# Generate API documentation
+docs: $(SHARED_LIB)
+	@echo "Generating API documentation..."
+	@if [ ! -d .venv ]; then \
+		echo "Creating virtual environment..."; \
+		$(PYTHON) -m venv .venv; \
+		.venv/bin/pip install pdoc --quiet; \
+	fi
+	@PYTHONPATH=. .venv/bin/pdoc wu -o docs/
+	@echo "Documentation generated in docs/wu.html"
+	@echo "Open with: xdg-open docs/wu.html or open docs/wu.html"
+
 # Clean build artifacts
 clean:
 	rm -f $(SWIG_WRAPPER) $(PYTHON_MODULE) $(WRAPPER_OBJ) $(SHARED_LIB)
-	find $(SRC_DIR) -name "*.o" -delete
-	rm -rf build/ dist/ *.egg-info/
+	rm -rf build/ dist/ *.egg-info/ docs/
 	find . -name "*.pyc" -delete
 	find . -name "__pycache__" -type d -delete

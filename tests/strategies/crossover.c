@@ -9,7 +9,7 @@ void test_crossover_initialization(void) {
     CU_ASSERT_PTR_NOT_NULL(strat->long_ma);
     CU_ASSERT_DOUBLE_EQUAL(strat->threshold, 0.01, 0.0001);
     CU_ASSERT_EQUAL(strat->last_signal, SIDE_HOLD);
-    cross_over_strat_free(strat);
+    strategy_delete((Strategy)strat);
 }
 
 void test_crossover_holds_during_warmup(void) {
@@ -20,7 +20,7 @@ void test_crossover_holds_during_warmup(void) {
     SingleValue sv2 = single_value_init(2000, 105.0);
     signal = strategy_update((Strategy)strat, &sv2);
     CU_ASSERT_EQUAL(signal.side, SIDE_HOLD);
-    cross_over_strat_free(strat);
+    strategy_delete((Strategy)strat);
 }
 
 void test_crossover_generates_buy_signal(void) {
@@ -34,12 +34,12 @@ void test_crossover_generates_buy_signal(void) {
         Signal signal = strategy_update((Strategy)strat, &sv);
         if (signal.side == SIDE_BUY) {
             CU_ASSERT_EQUAL(signal.side, SIDE_BUY);
-            cross_over_strat_free(strat);
+            strategy_delete((Strategy)strat);
             return;
         }
     }
     CU_FAIL("Expected to generate a BUY signal");
-    cross_over_strat_free(strat);
+    strategy_delete((Strategy)strat);
 }
 
 void test_crossover_generates_sell_signal(void) {
@@ -53,12 +53,12 @@ void test_crossover_generates_sell_signal(void) {
         Signal signal = strategy_update((Strategy)strat, &sv);
         if (signal.side == SIDE_SELL) {
             CU_ASSERT_EQUAL(signal.side, SIDE_SELL);
-            cross_over_strat_free(strat);
+            strategy_delete((Strategy)strat);
             return;
         }
     }
     CU_FAIL("Expected to generate a SELL signal");
-    cross_over_strat_free(strat);
+    strategy_delete((Strategy)strat);
 }
 
 void test_crossover_no_repeat_signals(void) {
@@ -80,7 +80,7 @@ void test_crossover_no_repeat_signals(void) {
     SingleValue sv3 = single_value_init(3000, 160.0);
     Signal signal2 = strategy_update((Strategy)strat, &sv3);
     CU_ASSERT_EQUAL(signal2.side, SIDE_HOLD);
-    cross_over_strat_free(strat);
+    strategy_delete((Strategy)strat);
 }
 
 void test_crossover_with_real_data(void) {
@@ -103,8 +103,8 @@ void test_crossover_with_real_data(void) {
     // Verify we processed data
     CU_ASSERT_TRUE(total > 0);
     
-    cross_over_strat_free(strat);
-    csv_reader_free(reader);
+    strategy_delete((Strategy)strat);
+    reader_delete((Reader)reader);
     fclose(file);
 }
 
@@ -119,5 +119,5 @@ void test_crossover_threshold_prevents_noise(void) {
         Signal signal = strategy_update((Strategy)strat, &sv);
         CU_ASSERT_EQUAL(signal.side, SIDE_HOLD);
     }
-    cross_over_strat_free(strat);
+    strategy_delete((Strategy)strat);
 }

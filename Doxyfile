@@ -1,0 +1,26 @@
+# Doxyfile for WU Library
+
+PROJECT_NAME           = "WU Trading Library"
+PROJECT_BRIEF          = "A backtesting and trading strategy library"
+PROJECT_NUMBER         = 0.1.0
+OUTPUT_DIRECTORY       = docs
+INPUT                  = include src
+RECURSIVE              = YES
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = YES
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+HTML_OUTPUT            = html
+FILE_PATTERNS          = *.h *.c
+EXCLUDE_PATTERNS       = */tests/* */examples/*
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = NO
+STRIP_CODE_COMMENTS    = NO
+JAVADOC_AUTOBRIEF      = YES
+OPTIMIZE_OUTPUT_FOR_C  = YES
+TYPEDEF_HIDES_STRUCT   = YES
+QUIET                  = YES
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = NO
+WARN_NO_PARAMDOC       = NO
