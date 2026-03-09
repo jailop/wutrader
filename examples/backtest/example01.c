@@ -72,7 +72,7 @@ int main(int argc, char** argv) {
      * The CSV reader can read single time series, trades and candle
      * data.
      */
-    WU_Csv_Reader reader = wu_csv_reader_new(
+    WU_CsvReader reader = wu_csv_reader_new(
             file,               // file pointer
             WU_DATA_TYPE_CANDLE,   // data type
             true                // has header

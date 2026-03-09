@@ -6,7 +6,7 @@ void test_csv_reader_reads_candles(void) {
     FILE* file = fopen("tests/data/btcusd.csv", "r");
     CU_ASSERT_PTR_NOT_NULL(file);
     
-    WU_Csv_Reader reader = wu_csv_reader_new(file, WU_DATA_TYPE_CANDLE, true);
+    WU_CsvReader reader = wu_csv_reader_new(file, WU_DATA_TYPE_CANDLE, true);
     CU_ASSERT_PTR_NOT_NULL(reader);
     
     WU_Candle* candle = (WU_Candle*)wu_reader_next(reader);
@@ -31,7 +31,7 @@ void test_csv_reader_reads_trades(void) {
     FILE* file = fopen("tests/data/btcusd_trade.csv", "r");
     CU_ASSERT_PTR_NOT_NULL(file);
     
-    WU_Csv_Reader reader = wu_csv_reader_new(file, WU_DATA_TYPE_TRADE, false);
+    WU_CsvReader reader = wu_csv_reader_new(file, WU_DATA_TYPE_TRADE, false);
     CU_ASSERT_PTR_NOT_NULL(reader);
     
     WU_Trade* trade = (WU_Trade*)wu_reader_next(reader);
@@ -54,7 +54,7 @@ void test_csv_reader_reads_single_values(void) {
     FILE* file = fopen("tests/data/btcusd_price.csv", "r");
     CU_ASSERT_PTR_NOT_NULL(file);
     
-    WU_Csv_Reader reader = wu_csv_reader_new(file, WU_DATA_TYPE_SINGLE_VALUE, false);
+    WU_CsvReader reader = wu_csv_reader_new(file, WU_DATA_TYPE_SINGLE_VALUE, false);
     CU_ASSERT_PTR_NOT_NULL(reader);
     
     WU_Single* sv = (WU_Single*)wu_reader_next(reader);
@@ -75,7 +75,7 @@ void test_csv_reader_returns_null_at_eof(void) {
     FILE* file = fopen("tests/data/btcusd_price.csv", "r");
     CU_ASSERT_PTR_NOT_NULL(file);
     
-    WU_Csv_Reader reader = wu_csv_reader_new(file, WU_DATA_TYPE_SINGLE_VALUE, false);
+    WU_CsvReader reader = wu_csv_reader_new(file, WU_DATA_TYPE_SINGLE_VALUE, false);
     CU_ASSERT_PTR_NOT_NULL(reader);
     
     WU_Single* sv;
@@ -95,7 +95,7 @@ void test_csv_reader_handles_headers(void) {
     FILE* file = fopen("tests/data/btcusd.csv", "r");
     CU_ASSERT_PTR_NOT_NULL(file);
     
-    WU_Csv_Reader reader = wu_csv_reader_new(file, WU_DATA_TYPE_CANDLE, true);
+    WU_CsvReader reader = wu_csv_reader_new(file, WU_DATA_TYPE_CANDLE, true);
     CU_ASSERT_PTR_NOT_NULL(reader);
     
     WU_Candle* candle = (WU_Candle*)wu_reader_next(reader);

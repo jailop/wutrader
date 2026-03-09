@@ -1,9 +1,9 @@
 #ifndef WU_RUNNER_H
 #define WU_RUNNER_H
 
-#include "portfolio.h"
-#include "strategy.h"
-#include "reader.h"
+#include "portfolios.h"
+#include "strategies.h"
+#include "readers.h"
 
 /**
  * WU_Runner is the base interface for a backtest runner.

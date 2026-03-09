@@ -14,16 +14,16 @@
 
 
 /* Typemap to allow SingleAssetPortfolio to be passed as Portfolio */
-%typemap(in) Portfolio {
+%typemap(in) WU_Portfolio {
     void *argp = 0;
-    int res = SWIG_ConvertPtr($input, &argp, $descriptor(struct SingleAssetPortfolio_ *), 0);
+    int res = SWIG_ConvertPtr($input, &argp, $descriptor(struct WU_SingleAssetPortfolio_ *), 0);
     if (!SWIG_IsOK(res)) {
-        res = SWIG_ConvertPtr($input, &argp, $descriptor(Portfolio), 0);
+        res = SWIG_ConvertPtr($input, &argp, $descriptor(WU_Portfolio), 0);
         if (!SWIG_IsOK(res)) {
             SWIG_exception_fail(SWIG_ArgError(res), "Expected Portfolio or SingleAssetPortfolio");
         }
     }
-    $1 = (Portfolio)argp;
+    $1 = (WU_Portfolio)argp;
 }
 
 /* Typemap to allow CrossOverStrat to be passed as Strategy */
@@ -39,26 +39,26 @@
     $1 = (Strategy)argp;
 }
 
-/* Typemap to allow CsvReader to be passed as Reader */
+/* Typemap to allow WU_CsvReader to be passed as Reader */
 %typemap(in) Reader {
     void *argp = 0;
-    int res = SWIG_ConvertPtr($input, &argp, $descriptor(struct CsvReader_ *), 0);
+    int res = SWIG_ConvertPtr($input, &argp, $descriptor(struct WU_CsvReader_ *), 0);
     if (!SWIG_IsOK(res)) {
-        res = SWIG_ConvertPtr($input, &argp, $descriptor(Reader), 0);
+        res = SWIG_ConvertPtr($input, &argp, $descriptor(WU_Reader), 0);
         if (!SWIG_IsOK(res)) {
-            SWIG_exception_fail(SWIG_ArgError(res), "Expected Reader or CsvReader");
+            SWIG_exception_fail(SWIG_ArgError(res), "Expected Reader or WU_CsvReader");
         }
     }
-    $1 = (Reader)argp;
+    $1 = (WU_Reader)argp;
 }
 
 /* Include all header files for SWIG to process */
 %include "../include/wu/types.h"
 %include "../include/wu/data.h"
-%include "../include/wu/indicator.h"
-%include "../include/wu/reader.h"
-%include "../include/wu/portfolio.h"
-%include "../include/wu/strategy.h"
+%include "../include/wu/indicators.h"
+%include "../include/wu/readers.h"
+%include "../include/wu/portfolios.h"
+%include "../include/wu/strategies.h"
 
 /* Ignore the run function pointer field in BasicRunner to avoid conflicts */
 %ignore BasicRunner_::run;
@@ -66,16 +66,16 @@
 /* Ignore the run function pointer field in BasicRunner to avoid conflicts */
 %ignore BasicRunner_::run;
 
-%include "../include/wu/runner.h"
+%include "../include/wu/runners.h"
 
 %inline %{
 /* Helper to open CSV file from filename */
-CsvReader csv_reader_open(const char* filename, DataType data_type, bool has_headers) {
+WU_CsvReader wu_csv_reader_open(const char* filename, WU_DataType data_type, bool has_headers) {
     FILE* file = fopen(filename, "r");
     if (file == NULL) {
         return NULL;
     }
-    return csv_reader_new(file, data_type, has_headers);
+    return wu_csv_reader_new(file, data_type, has_headers);
 }
 %}
 
@@ -141,42 +141,42 @@ CsvReader csv_reader_open(const char* filename, DataType data_type, bool has_hea
     }
 }
 
-%extend CsvReader_ {
+%extend WU_CsvReader_ {
     void* next() {
-        return $self->base.next((Reader)$self);
+        return $self->base.next((WU_Reader)$self);
     }
     
-    CsvError get_last_error() {
+    WU_CsvError get_last_error() {
         return $self->last_error;
     }
     
-    Candle* read_candle() {
-        if ($self->data_type == DATA_TYPE_CANDLE) {
-            void* data = $self->base.next((Reader)$self);
-            return data ? (Candle*)data : NULL;
+    WU_Candle* read_candle() {
+        if ($self->data_type == WU_DATA_TYPE_CANDLE) {
+            void* data = $self->base.next((WU_Reader)$self);
+            return data ? (WU_Candle*)data : NULL;
         }
         return NULL;
     }
     
-    Trade* read_trade() {
-        if ($self->data_type == DATA_TYPE_TRADE) {
-            void* data = $self->base.next((Reader)$self);
-            return data ? (Trade*)data : NULL;
+    WU_Trade* read_trade() {
+        if ($self->data_type == WU_DATA_TYPE_TRADE) {
+            void* data = $self->base.next((WU_Reader)$self);
+            return data ? (WU_Trade*)data : NULL;
         }
         return NULL;
     }
     
-    SingleValue* read_single_value() {
-        if ($self->data_type == DATA_TYPE_SINGLE_VALUE) {
-            void* data = $self->base.next((Reader)$self);
-            return data ? (SingleValue*)data : NULL;
+    WU_Single* read_single_value() {
+        if ($self->data_type == WU_DATA_TYPE_SINGLE_VALUE) {
+            void* data = $self->base.next((WU_Reader)$self);
+            return data ? (WU_Single*)data : NULL;
         }
         return NULL;
     }
     
-    ~CsvReader_() {
+    ~WU_CsvReader_() {
         if ($self->base.delete)
-            $self->base.delete((Reader)$self);
+            $self->base.delete((WU_Reader)$self);
     }
 }
 
@@ -254,22 +254,19 @@ def create_single_asset_portfolio(initial_cash=10000.0, tx_cost_pct=0.001,
     
     return single_asset_portfolio_new(params)
 
-def open_csv_reader(filename, data_type=DATA_TYPE_CANDLE, has_headers=True):
+def open_csv_reader(filename, data_type=WU_DATA_TYPE_CANDLE, has_headers=True):
     """
     Open a CSV file for reading market data.
     
     Args:
         filename: Path to CSV file
-        data_type: Type of data (DATA_TYPE_CANDLE, DATA_TYPE_TRADE, or DATA_TYPE_SINGLE_VALUE)
+        data_type: Type of data (WU_DATA_TYPE_CANDLE, WU_DATA_TYPE_TRADE, or WU_DATA_TYPE_SINGLE_VALUE)
         has_headers: Whether the CSV has headers (default: True)
     
     Returns:
-        CsvReader instance or None on error
+        WU_CsvReader instance or None on error
     """
-    return csv_reader_open(filename, data_type, has_headers)
-
-# Enable automatic memory management
-# Objects will be automatically freed when garbage collected
+    return wu_csv_reader_open(filename, data_type, has_headers)
 %}
 
 

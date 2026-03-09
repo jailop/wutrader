@@ -70,439 +70,441 @@ def doubleArray_getitem(ary, index):
 
 def doubleArray_setitem(ary, index, value):
     return _wu.doubleArray_setitem(ary, index, value)
-SIDE_HOLD = _wu.SIDE_HOLD
-SIDE_BUY = _wu.SIDE_BUY
-SIDE_SELL = _wu.SIDE_SELL
-DATA_TYPE_CANDLE = _wu.DATA_TYPE_CANDLE
-DATA_TYPE_TRADE = _wu.DATA_TYPE_TRADE
-DATA_TYPE_SINGLE_VALUE = _wu.DATA_TYPE_SINGLE_VALUE
-class Signal(object):
+WU_SIDE_HOLD = _wu.WU_SIDE_HOLD
+WU_SIDE_BUY = _wu.WU_SIDE_BUY
+WU_SIDE_SELL = _wu.WU_SIDE_SELL
+WU_DATA_TYPE_CANDLE = _wu.WU_DATA_TYPE_CANDLE
+WU_DATA_TYPE_TRADE = _wu.WU_DATA_TYPE_TRADE
+WU_DATA_TYPE_SINGLE_VALUE = _wu.WU_DATA_TYPE_SINGLE_VALUE
+class WU_Signal(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    timestamp = property(_wu.Signal_timestamp_get, _wu.Signal_timestamp_set)
-    side = property(_wu.Signal_side_get, _wu.Signal_side_set)
-    price = property(_wu.Signal_price_get, _wu.Signal_price_set)
-    quantity = property(_wu.Signal_quantity_get, _wu.Signal_quantity_set)
+    timestamp = property(_wu.WU_Signal_timestamp_get, _wu.WU_Signal_timestamp_set)
+    side = property(_wu.WU_Signal_side_get, _wu.WU_Signal_side_set)
+    price = property(_wu.WU_Signal_price_get, _wu.WU_Signal_price_set)
+    quantity = property(_wu.WU_Signal_quantity_get, _wu.WU_Signal_quantity_set)
 
     def __init__(self):
-        _wu.Signal_swiginit(self, _wu.new_Signal())
-    __swig_destroy__ = _wu.delete_Signal
+        _wu.WU_Signal_swiginit(self, _wu.new_WU_Signal())
+    __swig_destroy__ = _wu.delete_WU_Signal
 
-# Register Signal in _wu:
-_wu.Signal_swigregister(Signal)
-SECOND = _wu.SECOND
-MINUTE = _wu.MINUTE
-HOUR = _wu.HOUR
-DAY = _wu.DAY
-WEEK = _wu.WEEK
-MONTH = _wu.MONTH
-YEAR = _wu.YEAR
-CLOSE_REASON_SIGNAL = _wu.CLOSE_REASON_SIGNAL
-CLOSE_REASON_STOP_LOSS = _wu.CLOSE_REASON_STOP_LOSS
-CLOSE_REASON_TAKE_PROFIT = _wu.CLOSE_REASON_TAKE_PROFIT
-POSITION_SIZE_ABS = _wu.POSITION_SIZE_ABS
-POSITION_SIZE_PCT = _wu.POSITION_SIZE_PCT
-class Candle(object):
+# Register WU_Signal in _wu:
+_wu.WU_Signal_swigregister(WU_Signal)
+WU_SECOND = _wu.WU_SECOND
+WU_MINUTE = _wu.WU_MINUTE
+WU_HOUR = _wu.WU_HOUR
+WU_DAY = _wu.WU_DAY
+WU_WEEK = _wu.WU_WEEK
+WU_MONTH = _wu.WU_MONTH
+WU_YEAR = _wu.WU_YEAR
+WU_CLOSE_REASON_SIGNAL = _wu.WU_CLOSE_REASON_SIGNAL
+WU_CLOSE_REASON_STOP_LOSS = _wu.WU_CLOSE_REASON_STOP_LOSS
+WU_CLOSE_REASON_TAKE_PROFIT = _wu.WU_CLOSE_REASON_TAKE_PROFIT
+WU_POSITION_SIZE_ABS = _wu.WU_POSITION_SIZE_ABS
+WU_POSITION_SIZE_PCT = _wu.WU_POSITION_SIZE_PCT
+class WU_Candle(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    timestamp = property(_wu.Candle_timestamp_get, _wu.Candle_timestamp_set)
-    open = property(_wu.Candle_open_get, _wu.Candle_open_set)
-    high = property(_wu.Candle_high_get, _wu.Candle_high_set)
-    low = property(_wu.Candle_low_get, _wu.Candle_low_set)
-    close = property(_wu.Candle_close_get, _wu.Candle_close_set)
-    volume = property(_wu.Candle_volume_get, _wu.Candle_volume_set)
-    data_type = property(_wu.Candle_data_type_get, _wu.Candle_data_type_set)
+    timestamp = property(_wu.WU_Candle_timestamp_get, _wu.WU_Candle_timestamp_set)
+    open = property(_wu.WU_Candle_open_get, _wu.WU_Candle_open_set)
+    high = property(_wu.WU_Candle_high_get, _wu.WU_Candle_high_set)
+    low = property(_wu.WU_Candle_low_get, _wu.WU_Candle_low_set)
+    close = property(_wu.WU_Candle_close_get, _wu.WU_Candle_close_set)
+    volume = property(_wu.WU_Candle_volume_get, _wu.WU_Candle_volume_set)
+    data_type = property(_wu.WU_Candle_data_type_get, _wu.WU_Candle_data_type_set)
 
     def __init__(self):
-        _wu.Candle_swiginit(self, _wu.new_Candle())
-    __swig_destroy__ = _wu.delete_Candle
+        _wu.WU_Candle_swiginit(self, _wu.new_WU_Candle())
+    __swig_destroy__ = _wu.delete_WU_Candle
 
-# Register Candle in _wu:
-_wu.Candle_swigregister(Candle)
-class Trade(object):
+# Register WU_Candle in _wu:
+_wu.WU_Candle_swigregister(WU_Candle)
+class WU_Trade(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    timestamp = property(_wu.Trade_timestamp_get, _wu.Trade_timestamp_set)
-    price = property(_wu.Trade_price_get, _wu.Trade_price_set)
-    volume = property(_wu.Trade_volume_get, _wu.Trade_volume_set)
-    side = property(_wu.Trade_side_get, _wu.Trade_side_set)
-    data_type = property(_wu.Trade_data_type_get, _wu.Trade_data_type_set)
+    timestamp = property(_wu.WU_Trade_timestamp_get, _wu.WU_Trade_timestamp_set)
+    price = property(_wu.WU_Trade_price_get, _wu.WU_Trade_price_set)
+    volume = property(_wu.WU_Trade_volume_get, _wu.WU_Trade_volume_set)
+    side = property(_wu.WU_Trade_side_get, _wu.WU_Trade_side_set)
+    data_type = property(_wu.WU_Trade_data_type_get, _wu.WU_Trade_data_type_set)
 
     def __init__(self):
-        _wu.Trade_swiginit(self, _wu.new_Trade())
-    __swig_destroy__ = _wu.delete_Trade
+        _wu.WU_Trade_swiginit(self, _wu.new_WU_Trade())
+    __swig_destroy__ = _wu.delete_WU_Trade
 
-# Register Trade in _wu:
-_wu.Trade_swigregister(Trade)
-class SingleValue(object):
+# Register WU_Trade in _wu:
+_wu.WU_Trade_swigregister(WU_Trade)
+class WU_Single(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    timestamp = property(_wu.SingleValue_timestamp_get, _wu.SingleValue_timestamp_set)
-    value = property(_wu.SingleValue_value_get, _wu.SingleValue_value_set)
-    data_type = property(_wu.SingleValue_data_type_get, _wu.SingleValue_data_type_set)
+    timestamp = property(_wu.WU_Single_timestamp_get, _wu.WU_Single_timestamp_set)
+    value = property(_wu.WU_Single_value_get, _wu.WU_Single_value_set)
+    data_type = property(_wu.WU_Single_data_type_get, _wu.WU_Single_data_type_set)
 
     def __init__(self):
-        _wu.SingleValue_swiginit(self, _wu.new_SingleValue())
-    __swig_destroy__ = _wu.delete_SingleValue
+        _wu.WU_Single_swiginit(self, _wu.new_WU_Single())
+    __swig_destroy__ = _wu.delete_WU_Single
 
-# Register SingleValue in _wu:
-_wu.SingleValue_swigregister(SingleValue)
+# Register WU_Single in _wu:
+_wu.WU_Single_swigregister(WU_Single)
 
-def candle_init(timestamp, open, high, low, close, volume):
-    return _wu.candle_init(timestamp, open, high, low, close, volume)
+def wu_candle_init(timestamp, open, high, low, close, volume):
+    return _wu.wu_candle_init(timestamp, open, high, low, close, volume)
 
-def trade_init(timestamp, price, volume, side):
-    return _wu.trade_init(timestamp, price, volume, side)
+def wu_trade_init(timestamp, price, volume, side):
+    return _wu.wu_trade_init(timestamp, price, volume, side)
 
-def single_value_init(timestamp, value):
-    return _wu.single_value_init(timestamp, value)
+def wu_single_init(timestamp, value):
+    return _wu.wu_single_init(timestamp, value)
 
-def signal_init(timestamp, side, price, quantity):
-    return _wu.signal_init(timestamp, side, price, quantity)
-class SMA_(object):
+def wu_signal_init(timestamp, side, price, quantity):
+    return _wu.wu_signal_init(timestamp, side, price, quantity)
+class WU_SMA_(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    update = property(_wu.SMA__update_get, _wu.SMA__update_set)
-    get = property(_wu.SMA__get_get, _wu.SMA__get_set)
-    delete = property(_wu.SMA__delete_get, _wu.SMA__delete_set)
-    value = property(_wu.SMA__value_get, _wu.SMA__value_set)
-    prev_values = property(_wu.SMA__prev_values_get, _wu.SMA__prev_values_set)
-    window_size = property(_wu.SMA__window_size_get, _wu.SMA__window_size_set)
-    pos = property(_wu.SMA__pos_get, _wu.SMA__pos_set)
-    len = property(_wu.SMA__len_get, _wu.SMA__len_set)
-    sum = property(_wu.SMA__sum_get, _wu.SMA__sum_set)
+    update = property(_wu.WU_SMA__update_get, _wu.WU_SMA__update_set)
+    get = property(_wu.WU_SMA__get_get, _wu.WU_SMA__get_set)
+    delete = property(_wu.WU_SMA__delete_get, _wu.WU_SMA__delete_set)
+    value = property(_wu.WU_SMA__value_get, _wu.WU_SMA__value_set)
+    prev_values = property(_wu.WU_SMA__prev_values_get, _wu.WU_SMA__prev_values_set)
+    window_size = property(_wu.WU_SMA__window_size_get, _wu.WU_SMA__window_size_set)
+    pos = property(_wu.WU_SMA__pos_get, _wu.WU_SMA__pos_set)
+    len = property(_wu.WU_SMA__len_get, _wu.WU_SMA__len_set)
+    sum = property(_wu.WU_SMA__sum_get, _wu.WU_SMA__sum_set)
 
     def __init__(self):
-        _wu.SMA__swiginit(self, _wu.new_SMA_())
-    __swig_destroy__ = _wu.delete_SMA_
+        _wu.WU_SMA__swiginit(self, _wu.new_WU_SMA_())
+    __swig_destroy__ = _wu.delete_WU_SMA_
 
-# Register SMA_ in _wu:
-_wu.SMA__swigregister(SMA_)
+# Register WU_SMA_ in _wu:
+_wu.WU_SMA__swigregister(WU_SMA_)
 
-def moving_average_new(window_size):
-    return _wu.moving_average_new(window_size)
-class EMA_(object):
+def wu_sma_new(window_size):
+    return _wu.wu_sma_new(window_size)
+class WU_EMA_(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    update = property(_wu.EMA__update_get, _wu.EMA__update_set)
-    get = property(_wu.EMA__get_get, _wu.EMA__get_set)
-    delete = property(_wu.EMA__delete_get, _wu.EMA__delete_set)
-    value = property(_wu.EMA__value_get, _wu.EMA__value_set)
-    prev_value = property(_wu.EMA__prev_value_get, _wu.EMA__prev_value_set)
-    alpha = property(_wu.EMA__alpha_get, _wu.EMA__alpha_set)
-    len = property(_wu.EMA__len_get, _wu.EMA__len_set)
-    period = property(_wu.EMA__period_get, _wu.EMA__period_set)
+    update = property(_wu.WU_EMA__update_get, _wu.WU_EMA__update_set)
+    get = property(_wu.WU_EMA__get_get, _wu.WU_EMA__get_set)
+    delete = property(_wu.WU_EMA__delete_get, _wu.WU_EMA__delete_set)
+    value = property(_wu.WU_EMA__value_get, _wu.WU_EMA__value_set)
+    prev_value = property(_wu.WU_EMA__prev_value_get, _wu.WU_EMA__prev_value_set)
+    alpha = property(_wu.WU_EMA__alpha_get, _wu.WU_EMA__alpha_set)
+    len = property(_wu.WU_EMA__len_get, _wu.WU_EMA__len_set)
+    period = property(_wu.WU_EMA__period_get, _wu.WU_EMA__period_set)
 
     def __init__(self):
-        _wu.EMA__swiginit(self, _wu.new_EMA_())
-    __swig_destroy__ = _wu.delete_EMA_
+        _wu.WU_EMA__swiginit(self, _wu.new_WU_EMA_())
+    __swig_destroy__ = _wu.delete_WU_EMA_
 
-# Register EMA_ in _wu:
-_wu.EMA__swigregister(EMA_)
+# Register WU_EMA_ in _wu:
+_wu.WU_EMA__swigregister(WU_EMA_)
 
-def exponential_moving_average_new(period, smoothing):
-    return _wu.exponential_moving_average_new(period, smoothing)
-class Reader_(object):
+def wu_ema_new(window_size, smoothing):
+    return _wu.wu_ema_new(window_size, smoothing)
+class WU_MVar_(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    next = property(_wu.Reader__next_get, _wu.Reader__next_set)
-    delete = property(_wu.Reader__delete_get, _wu.Reader__delete_set)
+    update = property(_wu.WU_MVar__update_get, _wu.WU_MVar__update_set)
+    get = property(_wu.WU_MVar__get_get, _wu.WU_MVar__get_set)
+    delete = property(_wu.WU_MVar__delete_get, _wu.WU_MVar__delete_set)
+    value = property(_wu.WU_MVar__value_get, _wu.WU_MVar__value_set)
+    sma = property(_wu.WU_MVar__sma_get, _wu.WU_MVar__sma_set)
+    prev_values = property(_wu.WU_MVar__prev_values_get, _wu.WU_MVar__prev_values_set)
+    window_size = property(_wu.WU_MVar__window_size_get, _wu.WU_MVar__window_size_set)
+    pos = property(_wu.WU_MVar__pos_get, _wu.WU_MVar__pos_set)
+    len = property(_wu.WU_MVar__len_get, _wu.WU_MVar__len_set)
+    dof = property(_wu.WU_MVar__dof_get, _wu.WU_MVar__dof_set)
 
     def __init__(self):
-        _wu.Reader__swiginit(self, _wu.new_Reader_())
-    __swig_destroy__ = _wu.delete_Reader_
+        _wu.WU_MVar__swiginit(self, _wu.new_WU_MVar_())
+    __swig_destroy__ = _wu.delete_WU_MVar_
 
-# Register Reader_ in _wu:
-_wu.Reader__swigregister(Reader_)
-CSV_MAX_LINE_SIZE = _wu.CSV_MAX_LINE_SIZE
-CSV_OK = _wu.CSV_OK
-CSV_ERROR_EOF = _wu.CSV_ERROR_EOF
-CSV_ERROR_PARSE = _wu.CSV_ERROR_PARSE
-class CsvReader_(object):
+# Register WU_MVar_ in _wu:
+_wu.WU_MVar__swigregister(WU_MVar_)
+
+def wu_mvar_new(window_size, dof):
+    return _wu.wu_mvar_new(window_size, dof)
+class WU_StDev_(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    base = property(_wu.CsvReader__base_get, _wu.CsvReader__base_set)
-    file = property(_wu.CsvReader__file_get, _wu.CsvReader__file_set)
-    line_buffer = property(_wu.CsvReader__line_buffer_get, _wu.CsvReader__line_buffer_set)
-    has_headers = property(_wu.CsvReader__has_headers_get, _wu.CsvReader__has_headers_set)
-    data_type = property(_wu.CsvReader__data_type_get, _wu.CsvReader__data_type_set)
-    last_error = property(_wu.CsvReader__last_error_get, _wu.CsvReader__last_error_set)
-    data = property(_wu.CsvReader__data_get)
+    update = property(_wu.WU_StDev__update_get, _wu.WU_StDev__update_set)
+    get = property(_wu.WU_StDev__get_get, _wu.WU_StDev__get_set)
+    delete = property(_wu.WU_StDev__delete_get, _wu.WU_StDev__delete_set)
+    mvar = property(_wu.WU_StDev__mvar_get, _wu.WU_StDev__mvar_set)
+
+    def __init__(self):
+        _wu.WU_StDev__swiginit(self, _wu.new_WU_StDev_())
+    __swig_destroy__ = _wu.delete_WU_StDev_
+
+# Register WU_StDev_ in _wu:
+_wu.WU_StDev__swigregister(WU_StDev_)
+
+def wu_stdev_new(window_size, dof):
+    return _wu.wu_stdev_new(window_size, dof)
+class WU_Reader_(object):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+    next = property(_wu.WU_Reader__next_get, _wu.WU_Reader__next_set)
+    delete = property(_wu.WU_Reader__delete_get, _wu.WU_Reader__delete_set)
+
+    def __init__(self):
+        _wu.WU_Reader__swiginit(self, _wu.new_WU_Reader_())
+    __swig_destroy__ = _wu.delete_WU_Reader_
+
+# Register WU_Reader_ in _wu:
+_wu.WU_Reader__swigregister(WU_Reader_)
+WU_CSV_MAX_LINE_SIZE = _wu.WU_CSV_MAX_LINE_SIZE
+WU_CSV_OK = _wu.WU_CSV_OK
+WU_CSV_ERROR_EOF = _wu.WU_CSV_ERROR_EOF
+WU_CSV_ERROR_PARSE = _wu.WU_CSV_ERROR_PARSE
+class WU_CsvReader_(object):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+    base = property(_wu.WU_CsvReader__base_get, _wu.WU_CsvReader__base_set)
+    file = property(_wu.WU_CsvReader__file_get, _wu.WU_CsvReader__file_set)
+    line_buffer = property(_wu.WU_CsvReader__line_buffer_get, _wu.WU_CsvReader__line_buffer_set)
+    has_headers = property(_wu.WU_CsvReader__has_headers_get, _wu.WU_CsvReader__has_headers_set)
+    data_type = property(_wu.WU_CsvReader__data_type_get, _wu.WU_CsvReader__data_type_set)
+    last_error = property(_wu.WU_CsvReader__last_error_get, _wu.WU_CsvReader__last_error_set)
+    data = property(_wu.WU_CsvReader__data_get)
 
     def next(self):
-        return _wu.CsvReader__next(self)
+        return _wu.WU_CsvReader__next(self)
 
     def get_last_error(self):
-        return _wu.CsvReader__get_last_error(self)
+        return _wu.WU_CsvReader__get_last_error(self)
 
     def read_candle(self):
-        return _wu.CsvReader__read_candle(self)
+        return _wu.WU_CsvReader__read_candle(self)
 
     def read_trade(self):
-        return _wu.CsvReader__read_trade(self)
+        return _wu.WU_CsvReader__read_trade(self)
 
     def read_single_value(self):
-        return _wu.CsvReader__read_single_value(self)
-    __swig_destroy__ = _wu.delete_CsvReader_
+        return _wu.WU_CsvReader__read_single_value(self)
+    __swig_destroy__ = _wu.delete_WU_CsvReader_
 
     def __init__(self):
-        _wu.CsvReader__swiginit(self, _wu.new_CsvReader_())
+        _wu.WU_CsvReader__swiginit(self, _wu.new_WU_CsvReader_())
 
-# Register CsvReader_ in _wu:
-_wu.CsvReader__swigregister(CsvReader_)
-class CsvReader__data(object):
+# Register WU_CsvReader_ in _wu:
+_wu.WU_CsvReader__swigregister(WU_CsvReader_)
+class WU_CsvReader__data(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    candle = property(_wu.CsvReader__data_candle_get, _wu.CsvReader__data_candle_set)
-    trade = property(_wu.CsvReader__data_trade_get, _wu.CsvReader__data_trade_set)
-    single_value = property(_wu.CsvReader__data_single_value_get, _wu.CsvReader__data_single_value_set)
+    candle = property(_wu.WU_CsvReader__data_candle_get, _wu.WU_CsvReader__data_candle_set)
+    trade = property(_wu.WU_CsvReader__data_trade_get, _wu.WU_CsvReader__data_trade_set)
+    single_value = property(_wu.WU_CsvReader__data_single_value_get, _wu.WU_CsvReader__data_single_value_set)
 
     def __init__(self):
-        _wu.CsvReader__data_swiginit(self, _wu.new_CsvReader__data())
-    __swig_destroy__ = _wu.delete_CsvReader__data
+        _wu.WU_CsvReader__data_swiginit(self, _wu.new_WU_CsvReader__data())
+    __swig_destroy__ = _wu.delete_WU_CsvReader__data
 
-# Register CsvReader__data in _wu:
-_wu.CsvReader__data_swigregister(CsvReader__data)
+# Register WU_CsvReader__data in _wu:
+_wu.WU_CsvReader__data_swigregister(WU_CsvReader__data)
 
-def csv_reader_new(file, data_type, has_headers):
-    return _wu.csv_reader_new(file, data_type, has_headers)
-class Portfolio_(object):
+def wu_csv_reader_new(file, data_type, has_headers):
+    return _wu.wu_csv_reader_new(file, data_type, has_headers)
+class WU_Portfolio_(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    update = property(_wu.Portfolio__update_get, _wu.Portfolio__update_set)
-    value = property(_wu.Portfolio__value_get, _wu.Portfolio__value_set)
-    pnl = property(_wu.Portfolio__pnl_get, _wu.Portfolio__pnl_set)
-    delete = property(_wu.Portfolio__delete_get, _wu.Portfolio__delete_set)
+    update = property(_wu.WU_Portfolio__update_get, _wu.WU_Portfolio__update_set)
+    value = property(_wu.WU_Portfolio__value_get, _wu.WU_Portfolio__value_set)
+    pnl = property(_wu.WU_Portfolio__pnl_get, _wu.WU_Portfolio__pnl_set)
+    delete = property(_wu.WU_Portfolio__delete_get, _wu.WU_Portfolio__delete_set)
 
     def __init__(self):
-        _wu.Portfolio__swiginit(self, _wu.new_Portfolio_())
-    __swig_destroy__ = _wu.delete_Portfolio_
+        _wu.WU_Portfolio__swiginit(self, _wu.new_WU_Portfolio_())
+    __swig_destroy__ = _wu.delete_WU_Portfolio_
 
-# Register Portfolio_ in _wu:
-_wu.Portfolio__swigregister(Portfolio_)
-class Position_(object):
+# Register WU_Portfolio_ in _wu:
+_wu.WU_Portfolio__swigregister(WU_Portfolio_)
+class WU_Position_(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    timestamp = property(_wu.Position__timestamp_get, _wu.Position__timestamp_set)
-    quantity = property(_wu.Position__quantity_get, _wu.Position__quantity_set)
-    price = property(_wu.Position__price_get, _wu.Position__price_set)
-    active = property(_wu.Position__active_get, _wu.Position__active_set)
+    timestamp = property(_wu.WU_Position__timestamp_get, _wu.WU_Position__timestamp_set)
+    quantity = property(_wu.WU_Position__quantity_get, _wu.WU_Position__quantity_set)
+    price = property(_wu.WU_Position__price_get, _wu.WU_Position__price_set)
+    active = property(_wu.WU_Position__active_get, _wu.WU_Position__active_set)
 
     def __init__(self):
-        _wu.Position__swiginit(self, _wu.new_Position_())
-    __swig_destroy__ = _wu.delete_Position_
+        _wu.WU_Position__swiginit(self, _wu.new_WU_Position_())
+    __swig_destroy__ = _wu.delete_WU_Position_
 
-# Register Position_ in _wu:
-_wu.Position__swigregister(Position_)
-class PositionVector(object):
+# Register WU_Position_ in _wu:
+_wu.WU_Position__swigregister(WU_Position_)
+class WU_PositionVector(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    positions = property(_wu.PositionVector_positions_get, _wu.PositionVector_positions_set)
-    active = property(_wu.PositionVector_active_get, _wu.PositionVector_active_set)
-    count = property(_wu.PositionVector_count_get, _wu.PositionVector_count_set)
-    capacity = property(_wu.PositionVector_capacity_get, _wu.PositionVector_capacity_set)
-    add = property(_wu.PositionVector_add_get, _wu.PositionVector_add_set)
-    remove = property(_wu.PositionVector_remove_get, _wu.PositionVector_remove_set)
-    clear = property(_wu.PositionVector_clear_get, _wu.PositionVector_clear_set)
-    get = property(_wu.PositionVector_get_get, _wu.PositionVector_get_set)
-    total_quantity = property(_wu.PositionVector_total_quantity_get, _wu.PositionVector_total_quantity_set)
-    delete = property(_wu.PositionVector_delete_get, _wu.PositionVector_delete_set)
-    __swig_destroy__ = _wu.delete_PositionVector
+    positions = property(_wu.WU_PositionVector_positions_get, _wu.WU_PositionVector_positions_set)
+    active = property(_wu.WU_PositionVector_active_get, _wu.WU_PositionVector_active_set)
+    count = property(_wu.WU_PositionVector_count_get, _wu.WU_PositionVector_count_set)
+    capacity = property(_wu.WU_PositionVector_capacity_get, _wu.WU_PositionVector_capacity_set)
+    add = property(_wu.WU_PositionVector_add_get, _wu.WU_PositionVector_add_set)
+    remove = property(_wu.WU_PositionVector_remove_get, _wu.WU_PositionVector_remove_set)
+    clear = property(_wu.WU_PositionVector_clear_get, _wu.WU_PositionVector_clear_set)
+    get = property(_wu.WU_PositionVector_get_get, _wu.WU_PositionVector_get_set)
+    total_quantity = property(_wu.WU_PositionVector_total_quantity_get, _wu.WU_PositionVector_total_quantity_set)
+    delete = property(_wu.WU_PositionVector_delete_get, _wu.WU_PositionVector_delete_set)
 
     def __init__(self):
-        _wu.PositionVector_swiginit(self, _wu.new_PositionVector())
+        _wu.WU_PositionVector_swiginit(self, _wu.new_WU_PositionVector())
+    __swig_destroy__ = _wu.delete_WU_PositionVector
 
-# Register PositionVector in _wu:
-_wu.PositionVector_swigregister(PositionVector)
+# Register WU_PositionVector in _wu:
+_wu.WU_PositionVector_swigregister(WU_PositionVector)
 
-def position_vector_new():
-    return _wu.position_vector_new()
-class PortfolioStats_(object):
+def wu_position_vector_new():
+    return _wu.wu_position_vector_new()
+class WU_PortfolioStats_(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    total_trades = property(_wu.PortfolioStats__total_trades_get, _wu.PortfolioStats__total_trades_set)
-    winning_trades = property(_wu.PortfolioStats__winning_trades_get, _wu.PortfolioStats__winning_trades_set)
-    losing_trades = property(_wu.PortfolioStats__losing_trades_get, _wu.PortfolioStats__losing_trades_set)
-    stop_loss_exits = property(_wu.PortfolioStats__stop_loss_exits_get, _wu.PortfolioStats__stop_loss_exits_set)
-    take_profit_exits = property(_wu.PortfolioStats__take_profit_exits_get, _wu.PortfolioStats__take_profit_exits_set)
-    total_profit = property(_wu.PortfolioStats__total_profit_get, _wu.PortfolioStats__total_profit_set)
-    total_loss = property(_wu.PortfolioStats__total_loss_get, _wu.PortfolioStats__total_loss_set)
-    max_win = property(_wu.PortfolioStats__max_win_get, _wu.PortfolioStats__max_win_set)
-    max_loss = property(_wu.PortfolioStats__max_loss_get, _wu.PortfolioStats__max_loss_set)
-    record_trade = property(_wu.PortfolioStats__record_trade_get, _wu.PortfolioStats__record_trade_set)
-    reset = property(_wu.PortfolioStats__reset_get, _wu.PortfolioStats__reset_set)
-    delete = property(_wu.PortfolioStats__delete_get, _wu.PortfolioStats__delete_set)
-    __swig_destroy__ = _wu.delete_PortfolioStats_
+    total_trades = property(_wu.WU_PortfolioStats__total_trades_get, _wu.WU_PortfolioStats__total_trades_set)
+    winning_trades = property(_wu.WU_PortfolioStats__winning_trades_get, _wu.WU_PortfolioStats__winning_trades_set)
+    losing_trades = property(_wu.WU_PortfolioStats__losing_trades_get, _wu.WU_PortfolioStats__losing_trades_set)
+    stop_loss_exits = property(_wu.WU_PortfolioStats__stop_loss_exits_get, _wu.WU_PortfolioStats__stop_loss_exits_set)
+    take_profit_exits = property(_wu.WU_PortfolioStats__take_profit_exits_get, _wu.WU_PortfolioStats__take_profit_exits_set)
+    total_profit = property(_wu.WU_PortfolioStats__total_profit_get, _wu.WU_PortfolioStats__total_profit_set)
+    total_loss = property(_wu.WU_PortfolioStats__total_loss_get, _wu.WU_PortfolioStats__total_loss_set)
+    max_win = property(_wu.WU_PortfolioStats__max_win_get, _wu.WU_PortfolioStats__max_win_set)
+    max_loss = property(_wu.WU_PortfolioStats__max_loss_get, _wu.WU_PortfolioStats__max_loss_set)
+    record_trade = property(_wu.WU_PortfolioStats__record_trade_get, _wu.WU_PortfolioStats__record_trade_set)
+    reset = property(_wu.WU_PortfolioStats__reset_get, _wu.WU_PortfolioStats__reset_set)
+    delete = property(_wu.WU_PortfolioStats__delete_get, _wu.WU_PortfolioStats__delete_set)
 
     def __init__(self):
-        _wu.PortfolioStats__swiginit(self, _wu.new_PortfolioStats_())
+        _wu.WU_PortfolioStats__swiginit(self, _wu.new_WU_PortfolioStats_())
+    __swig_destroy__ = _wu.delete_WU_PortfolioStats_
 
-# Register PortfolioStats_ in _wu:
-_wu.PortfolioStats__swigregister(PortfolioStats_)
+# Register WU_PortfolioStats_ in _wu:
+_wu.WU_PortfolioStats__swigregister(WU_PortfolioStats_)
 
-def portfolio_stats_new():
-    return _wu.portfolio_stats_new()
-class PositionSizingParams(object):
+def wu_portfolio_stats_new():
+    return _wu.wu_portfolio_stats_new()
+class WU_PositionSizingParams(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    size_type = property(_wu.PositionSizingParams_size_type_get, _wu.PositionSizingParams_size_type_set)
-    size_value = property(_wu.PositionSizingParams_size_value_get, _wu.PositionSizingParams_size_value_set)
+    size_type = property(_wu.WU_PositionSizingParams_size_type_get, _wu.WU_PositionSizingParams_size_type_set)
+    size_value = property(_wu.WU_PositionSizingParams_size_value_get, _wu.WU_PositionSizingParams_size_value_set)
 
     def __init__(self):
-        _wu.PositionSizingParams_swiginit(self, _wu.new_PositionSizingParams())
-    __swig_destroy__ = _wu.delete_PositionSizingParams
+        _wu.WU_PositionSizingParams_swiginit(self, _wu.new_WU_PositionSizingParams())
+    __swig_destroy__ = _wu.delete_WU_PositionSizingParams
 
-# Register PositionSizingParams in _wu:
-_wu.PositionSizingParams_swigregister(PositionSizingParams)
-class SingleAssetPortfolioParams(object):
+# Register WU_PositionSizingParams in _wu:
+_wu.WU_PositionSizingParams_swigregister(WU_PositionSizingParams)
+class WU_SingleAssetPortfolioParams(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    initial_cash = property(_wu.SingleAssetPortfolioParams_initial_cash_get, _wu.SingleAssetPortfolioParams_initial_cash_set)
-    tx_cost_pct = property(_wu.SingleAssetPortfolioParams_tx_cost_pct_get, _wu.SingleAssetPortfolioParams_tx_cost_pct_set)
-    stop_loss_pct = property(_wu.SingleAssetPortfolioParams_stop_loss_pct_get, _wu.SingleAssetPortfolioParams_stop_loss_pct_set)
-    take_profit_pct = property(_wu.SingleAssetPortfolioParams_take_profit_pct_get, _wu.SingleAssetPortfolioParams_take_profit_pct_set)
-    slippage_pct = property(_wu.SingleAssetPortfolioParams_slippage_pct_get, _wu.SingleAssetPortfolioParams_slippage_pct_set)
-    position_sizing = property(_wu.SingleAssetPortfolioParams_position_sizing_get, _wu.SingleAssetPortfolioParams_position_sizing_set)
+    initial_cash = property(_wu.WU_SingleAssetPortfolioParams_initial_cash_get, _wu.WU_SingleAssetPortfolioParams_initial_cash_set)
+    tx_cost_pct = property(_wu.WU_SingleAssetPortfolioParams_tx_cost_pct_get, _wu.WU_SingleAssetPortfolioParams_tx_cost_pct_set)
+    stop_loss_pct = property(_wu.WU_SingleAssetPortfolioParams_stop_loss_pct_get, _wu.WU_SingleAssetPortfolioParams_stop_loss_pct_set)
+    take_profit_pct = property(_wu.WU_SingleAssetPortfolioParams_take_profit_pct_get, _wu.WU_SingleAssetPortfolioParams_take_profit_pct_set)
+    slippage_pct = property(_wu.WU_SingleAssetPortfolioParams_slippage_pct_get, _wu.WU_SingleAssetPortfolioParams_slippage_pct_set)
+    wu_position_sizing = property(_wu.WU_SingleAssetPortfolioParams_wu_position_sizing_get, _wu.WU_SingleAssetPortfolioParams_wu_position_sizing_set)
 
     def __init__(self):
-        _wu.SingleAssetPortfolioParams_swiginit(self, _wu.new_SingleAssetPortfolioParams())
-    __swig_destroy__ = _wu.delete_SingleAssetPortfolioParams
+        _wu.WU_SingleAssetPortfolioParams_swiginit(self, _wu.new_WU_SingleAssetPortfolioParams())
+    __swig_destroy__ = _wu.delete_WU_SingleAssetPortfolioParams
 
-# Register SingleAssetPortfolioParams in _wu:
-_wu.SingleAssetPortfolioParams_swigregister(SingleAssetPortfolioParams)
-class SingleAssetPortfolioTrack(object):
+# Register WU_SingleAssetPortfolioParams in _wu:
+_wu.WU_SingleAssetPortfolioParams_swigregister(WU_SingleAssetPortfolioParams)
+class WU_SingleAssetPortfolioTrack(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    cash = property(_wu.SingleAssetPortfolioTrack_cash_get, _wu.SingleAssetPortfolioTrack_cash_set)
-    positions = property(_wu.SingleAssetPortfolioTrack_positions_get, _wu.SingleAssetPortfolioTrack_positions_set)
-    last_price = property(_wu.SingleAssetPortfolioTrack_last_price_get, _wu.SingleAssetPortfolioTrack_last_price_set)
-    accum_expenses = property(_wu.SingleAssetPortfolioTrack_accum_expenses_get, _wu.SingleAssetPortfolioTrack_accum_expenses_set)
-    stats = property(_wu.SingleAssetPortfolioTrack_stats_get, _wu.SingleAssetPortfolioTrack_stats_set)
+    cash = property(_wu.WU_SingleAssetPortfolioTrack_cash_get, _wu.WU_SingleAssetPortfolioTrack_cash_set)
+    positions = property(_wu.WU_SingleAssetPortfolioTrack_positions_get, _wu.WU_SingleAssetPortfolioTrack_positions_set)
+    last_price = property(_wu.WU_SingleAssetPortfolioTrack_last_price_get, _wu.WU_SingleAssetPortfolioTrack_last_price_set)
+    accum_expenses = property(_wu.WU_SingleAssetPortfolioTrack_accum_expenses_get, _wu.WU_SingleAssetPortfolioTrack_accum_expenses_set)
+    stats = property(_wu.WU_SingleAssetPortfolioTrack_stats_get, _wu.WU_SingleAssetPortfolioTrack_stats_set)
 
     def __init__(self):
-        _wu.SingleAssetPortfolioTrack_swiginit(self, _wu.new_SingleAssetPortfolioTrack())
-    __swig_destroy__ = _wu.delete_SingleAssetPortfolioTrack
+        _wu.WU_SingleAssetPortfolioTrack_swiginit(self, _wu.new_WU_SingleAssetPortfolioTrack())
+    __swig_destroy__ = _wu.delete_WU_SingleAssetPortfolioTrack
 
-# Register SingleAssetPortfolioTrack in _wu:
-_wu.SingleAssetPortfolioTrack_swigregister(SingleAssetPortfolioTrack)
-class SingleAssetPortfolio_(object):
+# Register WU_SingleAssetPortfolioTrack in _wu:
+_wu.WU_SingleAssetPortfolioTrack_swigregister(WU_SingleAssetPortfolioTrack)
+class WU_SingleAssetPortfolio_(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    base = property(_wu.SingleAssetPortfolio__base_get, _wu.SingleAssetPortfolio__base_set)
-    params = property(_wu.SingleAssetPortfolio__params_get, _wu.SingleAssetPortfolio__params_set)
-    track = property(_wu.SingleAssetPortfolio__track_get, _wu.SingleAssetPortfolio__track_set)
-
-    def get_cash(self):
-        return _wu.SingleAssetPortfolio__get_cash(self)
-
-    def get_last_price(self):
-        return _wu.SingleAssetPortfolio__get_last_price(self)
-
-    def get_accum_expenses(self):
-        return _wu.SingleAssetPortfolio__get_accum_expenses(self)
-
-    def get_total_trades(self):
-        return _wu.SingleAssetPortfolio__get_total_trades(self)
-
-    def get_winning_trades(self):
-        return _wu.SingleAssetPortfolio__get_winning_trades(self)
-
-    def get_losing_trades(self):
-        return _wu.SingleAssetPortfolio__get_losing_trades(self)
-
-    def get_total_profit(self):
-        return _wu.SingleAssetPortfolio__get_total_profit(self)
-
-    def get_total_loss(self):
-        return _wu.SingleAssetPortfolio__get_total_loss(self)
-
-    def update(self, signal):
-        return _wu.SingleAssetPortfolio__update(self, signal)
-
-    def value(self):
-        return _wu.SingleAssetPortfolio__value(self)
-
-    def pnl(self):
-        return _wu.SingleAssetPortfolio__pnl(self)
-    __swig_destroy__ = _wu.delete_SingleAssetPortfolio_
+    base = property(_wu.WU_SingleAssetPortfolio__base_get, _wu.WU_SingleAssetPortfolio__base_set)
+    params = property(_wu.WU_SingleAssetPortfolio__params_get, _wu.WU_SingleAssetPortfolio__params_set)
+    track = property(_wu.WU_SingleAssetPortfolio__track_get, _wu.WU_SingleAssetPortfolio__track_set)
 
     def __init__(self):
-        _wu.SingleAssetPortfolio__swiginit(self, _wu.new_SingleAssetPortfolio_())
+        _wu.WU_SingleAssetPortfolio__swiginit(self, _wu.new_WU_SingleAssetPortfolio_())
+    __swig_destroy__ = _wu.delete_WU_SingleAssetPortfolio_
 
-# Register SingleAssetPortfolio_ in _wu:
-_wu.SingleAssetPortfolio__swigregister(SingleAssetPortfolio_)
+# Register WU_SingleAssetPortfolio_ in _wu:
+_wu.WU_SingleAssetPortfolio__swigregister(WU_SingleAssetPortfolio_)
 
-def single_asset_portfolio_new(params):
-    return _wu.single_asset_portfolio_new(params)
-class Strategy_(object):
+def wu_singleasset_portfolio_new(params):
+    return _wu.wu_singleasset_portfolio_new(params)
+class WU_Strategy_(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    update = property(_wu.Strategy__update_get, _wu.Strategy__update_set)
-    delete = property(_wu.Strategy__delete_get, _wu.Strategy__delete_set)
+    update = property(_wu.WU_Strategy__update_get, _wu.WU_Strategy__update_set)
+    delete = property(_wu.WU_Strategy__delete_get, _wu.WU_Strategy__delete_set)
 
     def __init__(self):
-        _wu.Strategy__swiginit(self, _wu.new_Strategy_())
-    __swig_destroy__ = _wu.delete_Strategy_
+        _wu.WU_Strategy__swiginit(self, _wu.new_WU_Strategy_())
+    __swig_destroy__ = _wu.delete_WU_Strategy_
 
-# Register Strategy_ in _wu:
-_wu.Strategy__swigregister(Strategy_)
-class CrossOverStrat_(object):
+# Register WU_Strategy_ in _wu:
+_wu.WU_Strategy__swigregister(WU_Strategy_)
+class WU_CrossOverStrat_(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    base = property(_wu.CrossOverStrat__base_get, _wu.CrossOverStrat__base_set)
-    short_ma = property(_wu.CrossOverStrat__short_ma_get, _wu.CrossOverStrat__short_ma_set)
-    long_ma = property(_wu.CrossOverStrat__long_ma_get, _wu.CrossOverStrat__long_ma_set)
-    threshold = property(_wu.CrossOverStrat__threshold_get, _wu.CrossOverStrat__threshold_set)
-    last_signal = property(_wu.CrossOverStrat__last_signal_get, _wu.CrossOverStrat__last_signal_set)
-
-    def update(self, data):
-        return _wu.CrossOverStrat__update(self, data)
-    __swig_destroy__ = _wu.delete_CrossOverStrat_
+    base = property(_wu.WU_CrossOverStrat__base_get, _wu.WU_CrossOverStrat__base_set)
+    short_ma = property(_wu.WU_CrossOverStrat__short_ma_get, _wu.WU_CrossOverStrat__short_ma_set)
+    long_ma = property(_wu.WU_CrossOverStrat__long_ma_get, _wu.WU_CrossOverStrat__long_ma_set)
+    threshold = property(_wu.WU_CrossOverStrat__threshold_get, _wu.WU_CrossOverStrat__threshold_set)
+    last_signal = property(_wu.WU_CrossOverStrat__last_signal_get, _wu.WU_CrossOverStrat__last_signal_set)
 
     def __init__(self):
-        _wu.CrossOverStrat__swiginit(self, _wu.new_CrossOverStrat_())
+        _wu.WU_CrossOverStrat__swiginit(self, _wu.new_WU_CrossOverStrat_())
+    __swig_destroy__ = _wu.delete_WU_CrossOverStrat_
 
-# Register CrossOverStrat_ in _wu:
-_wu.CrossOverStrat__swigregister(CrossOverStrat_)
+# Register WU_CrossOverStrat_ in _wu:
+_wu.WU_CrossOverStrat__swigregister(WU_CrossOverStrat_)
 
-def cross_over_strat_new(short_window, long_window, threshold):
-    return _wu.cross_over_strat_new(short_window, long_window, threshold)
-class Runner_(object):
+def wu_crossover_strat_new(short_window, long_window, threshold):
+    return _wu.wu_crossover_strat_new(short_window, long_window, threshold)
+class WU_Runner_(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    run = property(_wu.Runner__run_get, _wu.Runner__run_set)
+    _exec = property(_wu.WU_Runner___exec_get, _wu.WU_Runner___exec_set)
 
     def __init__(self):
-        _wu.Runner__swiginit(self, _wu.new_Runner_())
-    __swig_destroy__ = _wu.delete_Runner_
+        _wu.WU_Runner__swiginit(self, _wu.new_WU_Runner_())
+    __swig_destroy__ = _wu.delete_WU_Runner_
 
-# Register Runner_ in _wu:
-_wu.Runner__swigregister(Runner_)
-class BasicRunner_(object):
+# Register WU_Runner_ in _wu:
+_wu.WU_Runner__swigregister(WU_Runner_)
+class WU_BasicRunner_(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    portfolio = property(_wu.BasicRunner__portfolio_get, _wu.BasicRunner__portfolio_set)
-    strategy = property(_wu.BasicRunner__strategy_get, _wu.BasicRunner__strategy_set)
-    reader = property(_wu.BasicRunner__reader_get, _wu.BasicRunner__reader_set)
-
-    def execute(self, verbose):
-        return _wu.BasicRunner__execute(self, verbose)
-    __swig_destroy__ = _wu.delete_BasicRunner_
+    portfolio = property(_wu.WU_BasicRunner__portfolio_get, _wu.WU_BasicRunner__portfolio_set)
+    strategy = property(_wu.WU_BasicRunner__strategy_get, _wu.WU_BasicRunner__strategy_set)
+    reader = property(_wu.WU_BasicRunner__reader_get, _wu.WU_BasicRunner__reader_set)
+    run = property(_wu.WU_BasicRunner__run_get, _wu.WU_BasicRunner__run_set)
 
     def __init__(self):
-        _wu.BasicRunner__swiginit(self, _wu.new_BasicRunner_())
+        _wu.WU_BasicRunner__swiginit(self, _wu.new_WU_BasicRunner_())
+    __swig_destroy__ = _wu.delete_WU_BasicRunner_
 
-# Register BasicRunner_ in _wu:
-_wu.BasicRunner__swigregister(BasicRunner_)
+# Register WU_BasicRunner_ in _wu:
+_wu.WU_BasicRunner__swigregister(WU_BasicRunner_)
 
-def basic_runner_new(portfolio, strategy, reader):
-    return _wu.basic_runner_new(portfolio, strategy, reader)
+def wu_basic_runner_new(portfolio, strategy, reader):
+    return _wu.wu_basic_runner_new(portfolio, strategy, reader)
 
-def basic_runner_free(runner):
-    return _wu.basic_runner_free(runner)
+def wu_basic_runner_free(runner):
+    return _wu.wu_basic_runner_free(runner)
 
-def csv_reader_open(filename, data_type, has_headers):
-    return _wu.csv_reader_open(filename, data_type, has_headers)
+def wu_csv_reader_open(filename, data_type, has_headers):
+    return _wu.wu_csv_reader_open(filename, data_type, has_headers)
 
 # Version information
 __version__ = '0.1.0'
@@ -552,21 +554,18 @@ def create_single_asset_portfolio(initial_cash=10000.0, tx_cost_pct=0.001,
 
     return single_asset_portfolio_new(params)
 
-def open_csv_reader(filename, data_type=DATA_TYPE_CANDLE, has_headers=True):
+def open_csv_reader(filename, data_type=WU_DATA_TYPE_CANDLE, has_headers=True):
     """
     Open a CSV file for reading market data.
 
     Args:
         filename: Path to CSV file
-        data_type: Type of data (DATA_TYPE_CANDLE, DATA_TYPE_TRADE, or DATA_TYPE_SINGLE_VALUE)
+        data_type: Type of data (WU_DATA_TYPE_CANDLE, WU_DATA_TYPE_TRADE, or WU_DATA_TYPE_SINGLE_VALUE)
         has_headers: Whether the CSV has headers (default: True)
 
     Returns:
-        CsvReader instance or None on error
+        WU_CsvReader instance or None on error
     """
-    return csv_reader_open(filename, data_type, has_headers)
-
-# Enable automatic memory management
-# Objects will be automatically freed when garbage collected
+    return wu_csv_reader_open(filename, data_type, has_headers)
 
 

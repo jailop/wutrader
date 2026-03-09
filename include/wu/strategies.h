@@ -3,7 +3,7 @@
 
 #include "types.h"
 #include "data.h"
-#include "indicator.h"
+#include "indicators.h"
 
 /**
  * Base for a strategy, which defines the minimal interface for updating

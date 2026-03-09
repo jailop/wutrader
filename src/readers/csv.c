@@ -10,7 +10,7 @@ static void trim_line(char* line) {
     }
 }
 
-static bool read_line(WU_Csv_Reader reader) {
+static bool read_line(WU_CsvReader reader) {
     if (!reader->file) {
         reader->last_error = WU_CSV_ERROR_PARSE;
         return false;
@@ -25,7 +25,7 @@ static bool read_line(WU_Csv_Reader reader) {
     return true;
 }
 
-static void* read_candle(WU_Csv_Reader reader) {
+static void* read_candle(WU_CsvReader reader) {
     if (!read_line(reader)) {
         return NULL;
     }
@@ -46,7 +46,7 @@ static void* read_candle(WU_Csv_Reader reader) {
     return &reader->data.candle;
 }
 
-static void* read_trade(WU_Csv_Reader reader) {
+static void* read_trade(WU_CsvReader reader) {
     if (!read_line(reader)) {
         return NULL;
     }
@@ -67,7 +67,7 @@ static void* read_trade(WU_Csv_Reader reader) {
     return &reader->data.trade;
 }
 
-static void* read_single_value(WU_Csv_Reader reader) {
+static void* read_single_value(WU_CsvReader reader) {
     if (!read_line(reader)) {
         return NULL;
     }
@@ -84,15 +84,15 @@ static void* read_single_value(WU_Csv_Reader reader) {
     return &reader->data.single_value;
 }
 
-static void wu_csv_reader_free(WU_Csv_Reader reader) {
+static void wu_csv_reader_free(WU_CsvReader reader) {
     if (!reader) return;
     free(reader);
 }
 
-WU_Csv_Reader wu_csv_reader_new(FILE* file, WU_DataType data_type, bool has_headers) {
+WU_CsvReader wu_csv_reader_new(FILE* file, WU_DataType data_type, bool has_headers) {
     if (!file) return NULL;
     
-    WU_Csv_Reader reader = (WU_Csv_Reader)malloc(sizeof(struct WU_Csv_Reader_));
+    WU_CsvReader reader = (WU_CsvReader)malloc(sizeof(struct WU_CsvReader_));
     if (!reader) return NULL;
     
     reader->file = file;

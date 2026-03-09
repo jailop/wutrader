@@ -19,12 +19,22 @@ extern void test_crossover_generates_sell_signal(void);
 extern void test_crossover_no_repeat_signals(void);
 extern void test_crossover_with_real_data(void);
 extern void test_crossover_threshold_prevents_noise(void);
+extern void test_mvar_returns_nan_during_warmup(void);
+extern void test_mvar_calculates_population_variance(void);
+extern void test_mvar_calculates_sample_variance(void);
+extern void test_mvar_sliding_window_updates_correctly(void);
+extern void test_stdev_returns_nan_during_warmup(void);
+extern void test_stdev_calculates_population_stdev(void);
+extern void test_stdev_calculates_sample_stdev(void);
+extern void test_stdev_sliding_window_updates_correctly(void);
 
 int main(void) {
     CU_pSuite sma_suite = NULL;
     CU_pSuite ema_suite = NULL;
     CU_pSuite csv_suite = NULL;
     CU_pSuite crossover_suite = NULL;
+    CU_pSuite mvar_suite = NULL;
+    CU_pSuite stdev_suite = NULL;
 
     if (CU_initialize_registry() != CUE_SUCCESS) {
         return CU_get_error();
@@ -102,6 +112,42 @@ int main(void) {
                     test_crossover_with_real_data) == NULL ||
         CU_add_test(crossover_suite, "test_threshold_prevents_noise",
                     test_crossover_threshold_prevents_noise) == NULL) {
+        CU_cleanup_registry();
+        return CU_get_error();
+    }
+
+    mvar_suite = CU_add_suite("MVar_Suite", NULL, NULL);
+    if (mvar_suite == NULL) {
+        CU_cleanup_registry();
+        return CU_get_error();
+    }
+
+    if (CU_add_test(mvar_suite, "test_returns_nan_during_warmup",
+                    test_mvar_returns_nan_during_warmup) == NULL ||
+        CU_add_test(mvar_suite, "test_calculates_population_variance",
+                    test_mvar_calculates_population_variance) == NULL ||
+        CU_add_test(mvar_suite, "test_calculates_sample_variance",
+                    test_mvar_calculates_sample_variance) == NULL ||
+        CU_add_test(mvar_suite, "test_sliding_window_updates_correctly",
+                    test_mvar_sliding_window_updates_correctly) == NULL) {
+        CU_cleanup_registry();
+        return CU_get_error();
+    }
+
+    stdev_suite = CU_add_suite("Stdev_Suite", NULL, NULL);
+    if (stdev_suite == NULL) {
+        CU_cleanup_registry();
+        return CU_get_error();
+    }
+
+    if (CU_add_test(stdev_suite, "test_returns_nan_during_warmup",
+                    test_stdev_returns_nan_during_warmup) == NULL ||
+        CU_add_test(stdev_suite, "test_calculates_population_stdev",
+                    test_stdev_calculates_population_stdev) == NULL ||
+        CU_add_test(stdev_suite, "test_calculates_sample_stdev",
+                    test_stdev_calculates_sample_stdev) == NULL ||
+        CU_add_test(stdev_suite, "test_sliding_window_updates_correctly",
+                    test_stdev_sliding_window_updates_correctly) == NULL) {
         CU_cleanup_registry();
         return CU_get_error();
     }

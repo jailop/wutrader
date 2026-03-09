@@ -3437,69 +3437,80 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 
 /* -------- TYPES TABLE (BEGIN) -------- */
 
-#define SWIGTYPE_p_BasicRunner_ swig_types[0]
-#define SWIGTYPE_p_Candle_ swig_types[1]
-#define SWIGTYPE_p_CloseReason swig_types[2]
-#define SWIGTYPE_p_CrossOverStrat_ swig_types[3]
-#define SWIGTYPE_p_CsvError swig_types[4]
-#define SWIGTYPE_p_CsvReader_ swig_types[5]
-#define SWIGTYPE_p_CsvReader__data swig_types[6]
-#define SWIGTYPE_p_DataType swig_types[7]
-#define SWIGTYPE_p_EMA_ swig_types[8]
-#define SWIGTYPE_p_FILE swig_types[9]
-#define SWIGTYPE_p_PortfolioStats_ swig_types[10]
-#define SWIGTYPE_p_Portfolio_ swig_types[11]
-#define SWIGTYPE_p_PositionSizeType swig_types[12]
-#define SWIGTYPE_p_PositionSizingParams swig_types[13]
-#define SWIGTYPE_p_PositionVector swig_types[14]
-#define SWIGTYPE_p_Position_ swig_types[15]
-#define SWIGTYPE_p_Reader_ swig_types[16]
-#define SWIGTYPE_p_Runner_ swig_types[17]
-#define SWIGTYPE_p_SMA_ swig_types[18]
-#define SWIGTYPE_p_Side swig_types[19]
-#define SWIGTYPE_p_Signal swig_types[20]
-#define SWIGTYPE_p_SingleAssetPortfolioParams swig_types[21]
-#define SWIGTYPE_p_SingleAssetPortfolioTrack swig_types[22]
-#define SWIGTYPE_p_SingleAssetPortfolio_ swig_types[23]
-#define SWIGTYPE_p_SingleValue swig_types[24]
-#define SWIGTYPE_p_Strategy_ swig_types[25]
-#define SWIGTYPE_p_TimeUnit swig_types[26]
-#define SWIGTYPE_p_Trade swig_types[27]
-#define SWIGTYPE_p_bool swig_types[28]
-#define SWIGTYPE_p_char swig_types[29]
-#define SWIGTYPE_p_double swig_types[30]
-#define SWIGTYPE_p_f_p_q_const__struct_EMA___double swig_types[31]
-#define SWIGTYPE_p_f_p_q_const__struct_Portfolio___double swig_types[32]
-#define SWIGTYPE_p_f_p_q_const__struct_SMA___double swig_types[33]
-#define SWIGTYPE_p_f_p_struct_EMA___void swig_types[34]
-#define SWIGTYPE_p_f_p_struct_EMA__double__double swig_types[35]
-#define SWIGTYPE_p_f_p_struct_PortfolioStats___void swig_types[36]
-#define SWIGTYPE_p_f_p_struct_PortfolioStats__double_enum_CloseReason__void swig_types[37]
-#define SWIGTYPE_p_f_p_struct_Portfolio___void swig_types[38]
-#define SWIGTYPE_p_f_p_struct_Portfolio__q_const__Signal__void swig_types[39]
-#define SWIGTYPE_p_f_p_struct_PositionVector__double swig_types[40]
-#define SWIGTYPE_p_f_p_struct_PositionVector__void swig_types[41]
-#define SWIGTYPE_p_f_p_struct_PositionVector_int__void swig_types[42]
-#define SWIGTYPE_p_f_p_struct_PositionVector_int_p_bool__Position_ swig_types[43]
-#define SWIGTYPE_p_f_p_struct_PositionVector_p_struct_Position___void swig_types[44]
-#define SWIGTYPE_p_f_p_struct_Reader___p_void swig_types[45]
-#define SWIGTYPE_p_f_p_struct_Reader___void swig_types[46]
-#define SWIGTYPE_p_f_p_struct_Runner__bool__void swig_types[47]
-#define SWIGTYPE_p_f_p_struct_SMA___void swig_types[48]
-#define SWIGTYPE_p_f_p_struct_SMA__double__double swig_types[49]
-#define SWIGTYPE_p_f_p_struct_Strategy___void swig_types[50]
-#define SWIGTYPE_p_f_p_struct_Strategy__p_q_const__void__Signal swig_types[51]
-#define SWIGTYPE_p_int swig_types[52]
-#define SWIGTYPE_p_long_long swig_types[53]
-#define SWIGTYPE_p_short swig_types[54]
-#define SWIGTYPE_p_signed_char swig_types[55]
-#define SWIGTYPE_p_unsigned_char swig_types[56]
-#define SWIGTYPE_p_unsigned_int swig_types[57]
-#define SWIGTYPE_p_unsigned_long_long swig_types[58]
-#define SWIGTYPE_p_unsigned_short swig_types[59]
-#define SWIGTYPE_p_void swig_types[60]
-static swig_type_info *swig_types[62];
-static swig_module_info swig_module = {swig_types, 61, 0, 0, 0, 0};
+#define SWIGTYPE_Strategy swig_types[0]
+#define SWIGTYPE_p_CrossOverStrat_ swig_types[1]
+#define SWIGTYPE_p_FILE swig_types[2]
+#define SWIGTYPE_p_WU_BasicRunner_ swig_types[3]
+#define SWIGTYPE_p_WU_Candle_ swig_types[4]
+#define SWIGTYPE_p_WU_CloseReason swig_types[5]
+#define SWIGTYPE_p_WU_CrossOverStrat_ swig_types[6]
+#define SWIGTYPE_p_WU_CsvError swig_types[7]
+#define SWIGTYPE_p_WU_CsvReader_ swig_types[8]
+#define SWIGTYPE_p_WU_CsvReader__data swig_types[9]
+#define SWIGTYPE_p_WU_DataType swig_types[10]
+#define SWIGTYPE_p_WU_EMA_ swig_types[11]
+#define SWIGTYPE_p_WU_MVar_ swig_types[12]
+#define SWIGTYPE_p_WU_PortfolioStats_ swig_types[13]
+#define SWIGTYPE_p_WU_Portfolio_ swig_types[14]
+#define SWIGTYPE_p_WU_PositionSizeType swig_types[15]
+#define SWIGTYPE_p_WU_PositionSizingParams swig_types[16]
+#define SWIGTYPE_p_WU_PositionVector swig_types[17]
+#define SWIGTYPE_p_WU_Position_ swig_types[18]
+#define SWIGTYPE_p_WU_Reader_ swig_types[19]
+#define SWIGTYPE_p_WU_Runner_ swig_types[20]
+#define SWIGTYPE_p_WU_SMA_ swig_types[21]
+#define SWIGTYPE_p_WU_Side swig_types[22]
+#define SWIGTYPE_p_WU_Signal swig_types[23]
+#define SWIGTYPE_p_WU_Single swig_types[24]
+#define SWIGTYPE_p_WU_SingleAssetPortfolioParams swig_types[25]
+#define SWIGTYPE_p_WU_SingleAssetPortfolioTrack swig_types[26]
+#define SWIGTYPE_p_WU_SingleAssetPortfolio_ swig_types[27]
+#define SWIGTYPE_p_WU_StDev_ swig_types[28]
+#define SWIGTYPE_p_WU_Strategy_ swig_types[29]
+#define SWIGTYPE_p_WU_TimeUnit swig_types[30]
+#define SWIGTYPE_p_WU_Trade swig_types[31]
+#define SWIGTYPE_p_bool swig_types[32]
+#define SWIGTYPE_p_char swig_types[33]
+#define SWIGTYPE_p_double swig_types[34]
+#define SWIGTYPE_p_f_p_q_const__struct_WU_EMA___double swig_types[35]
+#define SWIGTYPE_p_f_p_q_const__struct_WU_MVar___double swig_types[36]
+#define SWIGTYPE_p_f_p_q_const__struct_WU_Portfolio___double swig_types[37]
+#define SWIGTYPE_p_f_p_q_const__struct_WU_SMA___double swig_types[38]
+#define SWIGTYPE_p_f_p_q_const__struct_WU_StDev___double swig_types[39]
+#define SWIGTYPE_p_f_p_struct_WU_BasicRunner__bool__void swig_types[40]
+#define SWIGTYPE_p_f_p_struct_WU_EMA___void swig_types[41]
+#define SWIGTYPE_p_f_p_struct_WU_EMA__double__double swig_types[42]
+#define SWIGTYPE_p_f_p_struct_WU_MVar___void swig_types[43]
+#define SWIGTYPE_p_f_p_struct_WU_MVar__double__double swig_types[44]
+#define SWIGTYPE_p_f_p_struct_WU_PortfolioStats___void swig_types[45]
+#define SWIGTYPE_p_f_p_struct_WU_PortfolioStats__double_enum_WU_CloseReason__void swig_types[46]
+#define SWIGTYPE_p_f_p_struct_WU_Portfolio___void swig_types[47]
+#define SWIGTYPE_p_f_p_struct_WU_Portfolio__q_const__WU_Signal__void swig_types[48]
+#define SWIGTYPE_p_f_p_struct_WU_PositionVector__double swig_types[49]
+#define SWIGTYPE_p_f_p_struct_WU_PositionVector__void swig_types[50]
+#define SWIGTYPE_p_f_p_struct_WU_PositionVector_int__void swig_types[51]
+#define SWIGTYPE_p_f_p_struct_WU_PositionVector_int_p_bool__WU_Position_ swig_types[52]
+#define SWIGTYPE_p_f_p_struct_WU_PositionVector_p_struct_WU_Position___void swig_types[53]
+#define SWIGTYPE_p_f_p_struct_WU_Reader___p_void swig_types[54]
+#define SWIGTYPE_p_f_p_struct_WU_Reader___void swig_types[55]
+#define SWIGTYPE_p_f_p_struct_WU_Runner__bool__void swig_types[56]
+#define SWIGTYPE_p_f_p_struct_WU_SMA___void swig_types[57]
+#define SWIGTYPE_p_f_p_struct_WU_SMA__double__double swig_types[58]
+#define SWIGTYPE_p_f_p_struct_WU_StDev___void swig_types[59]
+#define SWIGTYPE_p_f_p_struct_WU_StDev__double__double swig_types[60]
+#define SWIGTYPE_p_f_p_struct_WU_Strategy___void swig_types[61]
+#define SWIGTYPE_p_f_p_struct_WU_Strategy__p_q_const__void__WU_Signal swig_types[62]
+#define SWIGTYPE_p_int swig_types[63]
+#define SWIGTYPE_p_long_long swig_types[64]
+#define SWIGTYPE_p_short swig_types[65]
+#define SWIGTYPE_p_signed_char swig_types[66]
+#define SWIGTYPE_p_unsigned_char swig_types[67]
+#define SWIGTYPE_p_unsigned_int swig_types[68]
+#define SWIGTYPE_p_unsigned_long_long swig_types[69]
+#define SWIGTYPE_p_unsigned_short swig_types[70]
+#define SWIGTYPE_p_void swig_types[71]
+static swig_type_info *swig_types[73];
+static swig_module_info swig_module = {swig_types, 72, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -4068,107 +4079,50 @@ SWIGINTERNINLINE PyObject*
 }
 
 typedef union {
-  Candle candle;
-  Trade trade;
-  SingleValue single_value;
-} CsvReader__data;
+  WU_Candle candle;
+  WU_Trade trade;
+  WU_Single single_value;
+} WU_CsvReader__data;
 
-SWIGINTERN void *CsvReader__next(struct CsvReader_ *self){
-        return self->base.next((Reader)self);
+SWIGINTERN void *WU_CsvReader__next(struct WU_CsvReader_ *self){
+        return self->base.next((WU_Reader)self);
     }
-SWIGINTERN CsvError CsvReader__get_last_error(struct CsvReader_ *self){
+SWIGINTERN WU_CsvError WU_CsvReader__get_last_error(struct WU_CsvReader_ *self){
         return self->last_error;
     }
-SWIGINTERN Candle *CsvReader__read_candle(struct CsvReader_ *self){
-        if (self->data_type == DATA_TYPE_CANDLE) {
-            void* data = self->base.next((Reader)self);
-            return data ? (Candle*)data : NULL;
+SWIGINTERN WU_Candle *WU_CsvReader__read_candle(struct WU_CsvReader_ *self){
+        if (self->data_type == WU_DATA_TYPE_CANDLE) {
+            void* data = self->base.next((WU_Reader)self);
+            return data ? (WU_Candle*)data : NULL;
         }
         return NULL;
     }
-SWIGINTERN Trade *CsvReader__read_trade(struct CsvReader_ *self){
-        if (self->data_type == DATA_TYPE_TRADE) {
-            void* data = self->base.next((Reader)self);
-            return data ? (Trade*)data : NULL;
+SWIGINTERN WU_Trade *WU_CsvReader__read_trade(struct WU_CsvReader_ *self){
+        if (self->data_type == WU_DATA_TYPE_TRADE) {
+            void* data = self->base.next((WU_Reader)self);
+            return data ? (WU_Trade*)data : NULL;
         }
         return NULL;
     }
-SWIGINTERN SingleValue *CsvReader__read_single_value(struct CsvReader_ *self){
-        if (self->data_type == DATA_TYPE_SINGLE_VALUE) {
-            void* data = self->base.next((Reader)self);
-            return data ? (SingleValue*)data : NULL;
+SWIGINTERN WU_Single *WU_CsvReader__read_single_value(struct WU_CsvReader_ *self){
+        if (self->data_type == WU_DATA_TYPE_SINGLE_VALUE) {
+            void* data = self->base.next((WU_Reader)self);
+            return data ? (WU_Single*)data : NULL;
         }
         return NULL;
     }
-SWIGINTERN void delete_CsvReader_(struct CsvReader_ *self){
+SWIGINTERN void delete_WU_CsvReader_(struct WU_CsvReader_ *self){
         if (self->base.delete)
-            self->base.delete((Reader)self);
-    }
-SWIGINTERN void delete_PositionVector(struct PositionVector *self){
-        if (self->delete)
-            self->delete(self);
-    }
-SWIGINTERN void delete_PortfolioStats_(struct PortfolioStats_ *self){
-        do {      if ((self) && (self)->delete)          (self)->delete((self));  } while(0);
-    }
-SWIGINTERN double SingleAssetPortfolio__get_cash(struct SingleAssetPortfolio_ *self){
-        return self->track.cash;
-    }
-SWIGINTERN double SingleAssetPortfolio__get_last_price(struct SingleAssetPortfolio_ *self){
-        return self->track.last_price;
-    }
-SWIGINTERN double SingleAssetPortfolio__get_accum_expenses(struct SingleAssetPortfolio_ *self){
-        return self->track.accum_expenses;
-    }
-SWIGINTERN int64_t SingleAssetPortfolio__get_total_trades(struct SingleAssetPortfolio_ *self){
-        return self->track.stats->total_trades;
-    }
-SWIGINTERN int64_t SingleAssetPortfolio__get_winning_trades(struct SingleAssetPortfolio_ *self){
-        return self->track.stats->winning_trades;
-    }
-SWIGINTERN int64_t SingleAssetPortfolio__get_losing_trades(struct SingleAssetPortfolio_ *self){
-        return self->track.stats->losing_trades;
-    }
-SWIGINTERN double SingleAssetPortfolio__get_total_profit(struct SingleAssetPortfolio_ *self){
-        return self->track.stats->total_profit;
-    }
-SWIGINTERN double SingleAssetPortfolio__get_total_loss(struct SingleAssetPortfolio_ *self){
-        return self->track.stats->total_loss;
-    }
-SWIGINTERN void SingleAssetPortfolio__update(struct SingleAssetPortfolio_ *self,Signal signal){
-        self->base.update((Portfolio)self, signal);
-    }
-SWIGINTERN double SingleAssetPortfolio__value(struct SingleAssetPortfolio_ *self){
-        return self->base.value((Portfolio)self);
-    }
-SWIGINTERN double SingleAssetPortfolio__pnl(struct SingleAssetPortfolio_ *self){
-        return self->base.pnl((Portfolio)self);
-    }
-SWIGINTERN void delete_SingleAssetPortfolio_(struct SingleAssetPortfolio_ *self){
-        if (self->base.delete)
-            self->base.delete((Portfolio)self);
-    }
-SWIGINTERN Signal CrossOverStrat__update(struct CrossOverStrat_ *self,void const *data){
-        return self->base.update((Strategy)self, data);
-    }
-SWIGINTERN void delete_CrossOverStrat_(struct CrossOverStrat_ *self){
-        if (self->base.delete)
-            self->base.delete((Strategy)self);
-    }
-SWIGINTERN void BasicRunner__execute(struct BasicRunner_ *self,bool verbose){
-        self->run(self, verbose);
-    }
-SWIGINTERN void delete_BasicRunner_(struct BasicRunner_ *self){
-        basic_runner_free(self);
+            self->base.delete((WU_Reader)self);
     }
 
 /* Helper to open CSV file from filename */
-CsvReader csv_reader_open(const char* filename, DataType data_type, bool has_headers) {
+WU_CsvReader wu_csv_reader_open(const char* filename, WU_DataType data_type, bool has_headers) {
     FILE* file = fopen(filename, "r");
     if (file == NULL) {
         return NULL;
     }
-    return csv_reader_new(file, data_type, has_headers);
+    return wu_csv_reader_new(file, data_type, has_headers);
 }
 
 
@@ -4293,9 +4247,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Signal_timestamp_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Signal_timestamp_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  Signal *arg1 = 0 ;
+  WU_Signal *arg1 = 0 ;
   int64_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -4304,15 +4258,15 @@ SWIGINTERN PyObject *_wrap_Signal_timestamp_set(PyObject *self, PyObject *args) 
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Signal_timestamp_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Signal, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Signal_timestamp_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Signal, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Signal_timestamp_set" "', argument " "1"" of type '" "Signal *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Signal_timestamp_set" "', argument " "1"" of type '" "WU_Signal *""'"); 
   }
-  arg1 = (Signal *)(argp1);
+  arg1 = (WU_Signal *)(argp1);
   ecode2 = SWIG_AsVal_long_SS_long(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Signal_timestamp_set" "', argument " "2"" of type '" "int64_t""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_Signal_timestamp_set" "', argument " "2"" of type '" "int64_t""'");
   } 
   arg2 = (int64_t)(val2);
   if (arg1) (arg1)->timestamp = arg2;
@@ -4323,9 +4277,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Signal_timestamp_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Signal_timestamp_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  Signal *arg1 = 0 ;
+  WU_Signal *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -4334,11 +4288,11 @@ SWIGINTERN PyObject *_wrap_Signal_timestamp_get(PyObject *self, PyObject *args) 
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Signal, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Signal, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Signal_timestamp_get" "', argument " "1"" of type '" "Signal *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Signal_timestamp_get" "', argument " "1"" of type '" "WU_Signal *""'"); 
   }
-  arg1 = (Signal *)(argp1);
+  arg1 = (WU_Signal *)(argp1);
   result = (int64_t) ((arg1)->timestamp);
   resultobj = SWIG_From_long_SS_long((long long)(result));
   return resultobj;
@@ -4347,10 +4301,10 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Signal_side_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Signal_side_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  Signal *arg1 = 0 ;
-  Side arg2 ;
+  WU_Signal *arg1 = 0 ;
+  WU_Side arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int val2 ;
@@ -4358,17 +4312,17 @@ SWIGINTERN PyObject *_wrap_Signal_side_set(PyObject *self, PyObject *args) {
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Signal_side_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Signal, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Signal_side_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Signal, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Signal_side_set" "', argument " "1"" of type '" "Signal *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Signal_side_set" "', argument " "1"" of type '" "WU_Signal *""'"); 
   }
-  arg1 = (Signal *)(argp1);
+  arg1 = (WU_Signal *)(argp1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Signal_side_set" "', argument " "2"" of type '" "Side""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_Signal_side_set" "', argument " "2"" of type '" "WU_Side""'");
   } 
-  arg2 = (Side)(val2);
+  arg2 = (WU_Side)(val2);
   if (arg1) (arg1)->side = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -4377,23 +4331,23 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Signal_side_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Signal_side_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  Signal *arg1 = 0 ;
+  WU_Signal *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  Side result;
+  WU_Side result;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Signal, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Signal, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Signal_side_get" "', argument " "1"" of type '" "Signal *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Signal_side_get" "', argument " "1"" of type '" "WU_Signal *""'"); 
   }
-  arg1 = (Signal *)(argp1);
-  result = (Side) ((arg1)->side);
+  arg1 = (WU_Signal *)(argp1);
+  result = (WU_Side) ((arg1)->side);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
@@ -4401,9 +4355,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Signal_price_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Signal_price_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  Signal *arg1 = 0 ;
+  WU_Signal *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -4412,15 +4366,15 @@ SWIGINTERN PyObject *_wrap_Signal_price_set(PyObject *self, PyObject *args) {
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Signal_price_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Signal, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Signal_price_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Signal, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Signal_price_set" "', argument " "1"" of type '" "Signal *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Signal_price_set" "', argument " "1"" of type '" "WU_Signal *""'"); 
   }
-  arg1 = (Signal *)(argp1);
+  arg1 = (WU_Signal *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Signal_price_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_Signal_price_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->price = arg2;
@@ -4431,9 +4385,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Signal_price_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Signal_price_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  Signal *arg1 = 0 ;
+  WU_Signal *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -4442,11 +4396,11 @@ SWIGINTERN PyObject *_wrap_Signal_price_get(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Signal, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Signal, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Signal_price_get" "', argument " "1"" of type '" "Signal *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Signal_price_get" "', argument " "1"" of type '" "WU_Signal *""'"); 
   }
-  arg1 = (Signal *)(argp1);
+  arg1 = (WU_Signal *)(argp1);
   result = (double) ((arg1)->price);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -4455,9 +4409,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Signal_quantity_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Signal_quantity_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  Signal *arg1 = 0 ;
+  WU_Signal *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -4466,15 +4420,15 @@ SWIGINTERN PyObject *_wrap_Signal_quantity_set(PyObject *self, PyObject *args) {
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Signal_quantity_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Signal, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Signal_quantity_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Signal, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Signal_quantity_set" "', argument " "1"" of type '" "Signal *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Signal_quantity_set" "', argument " "1"" of type '" "WU_Signal *""'"); 
   }
-  arg1 = (Signal *)(argp1);
+  arg1 = (WU_Signal *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Signal_quantity_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_Signal_quantity_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->quantity = arg2;
@@ -4485,9 +4439,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Signal_quantity_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Signal_quantity_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  Signal *arg1 = 0 ;
+  WU_Signal *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -4496,11 +4450,11 @@ SWIGINTERN PyObject *_wrap_Signal_quantity_get(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Signal, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Signal, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Signal_quantity_get" "', argument " "1"" of type '" "Signal *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Signal_quantity_get" "', argument " "1"" of type '" "WU_Signal *""'"); 
   }
-  arg1 = (Signal *)(argp1);
+  arg1 = (WU_Signal *)(argp1);
   result = (double) ((arg1)->quantity);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -4509,23 +4463,23 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_Signal(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_WU_Signal(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  Signal *result = 0 ;
+  WU_Signal *result = 0 ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "new_Signal", 0, 0, 0)) SWIG_fail;
-  result = (Signal *)calloc(1, sizeof(Signal));
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Signal, SWIG_POINTER_NEW |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "new_WU_Signal", 0, 0, 0)) SWIG_fail;
+  result = (WU_Signal *)calloc(1, sizeof(WU_Signal));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_Signal, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_Signal(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_WU_Signal(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  Signal *arg1 = 0 ;
+  WU_Signal *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -4533,11 +4487,11 @@ SWIGINTERN PyObject *_wrap_delete_Signal(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Signal, SWIG_POINTER_DISOWN |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Signal, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Signal" "', argument " "1"" of type '" "Signal *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_WU_Signal" "', argument " "1"" of type '" "WU_Signal *""'"); 
   }
-  arg1 = (Signal *)(argp1);
+  arg1 = (WU_Signal *)(argp1);
   free((char *) arg1);
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -4546,20 +4500,20 @@ fail:
 }
 
 
-SWIGINTERN PyObject *Signal_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_Signal_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj = NULL;
   if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_Signal, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_WU_Signal, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *Signal_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_Signal_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_Candle_timestamp_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Candle_timestamp_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Candle_ *arg1 = 0 ;
+  struct WU_Candle_ *arg1 = 0 ;
   int64_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -4568,15 +4522,15 @@ SWIGINTERN PyObject *_wrap_Candle_timestamp_set(PyObject *self, PyObject *args) 
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Candle_timestamp_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Candle_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Candle_timestamp_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Candle_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Candle_timestamp_set" "', argument " "1"" of type '" "struct Candle_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Candle_timestamp_set" "', argument " "1"" of type '" "struct WU_Candle_ *""'"); 
   }
-  arg1 = (struct Candle_ *)(argp1);
+  arg1 = (struct WU_Candle_ *)(argp1);
   ecode2 = SWIG_AsVal_long_SS_long(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Candle_timestamp_set" "', argument " "2"" of type '" "int64_t""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_Candle_timestamp_set" "', argument " "2"" of type '" "int64_t""'");
   } 
   arg2 = (int64_t)(val2);
   if (arg1) (arg1)->timestamp = arg2;
@@ -4587,9 +4541,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Candle_timestamp_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Candle_timestamp_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Candle_ *arg1 = 0 ;
+  struct WU_Candle_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -4598,11 +4552,11 @@ SWIGINTERN PyObject *_wrap_Candle_timestamp_get(PyObject *self, PyObject *args) 
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Candle_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Candle_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Candle_timestamp_get" "', argument " "1"" of type '" "struct Candle_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Candle_timestamp_get" "', argument " "1"" of type '" "struct WU_Candle_ *""'"); 
   }
-  arg1 = (struct Candle_ *)(argp1);
+  arg1 = (struct WU_Candle_ *)(argp1);
   result = (int64_t) ((arg1)->timestamp);
   resultobj = SWIG_From_long_SS_long((long long)(result));
   return resultobj;
@@ -4611,9 +4565,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Candle_open_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Candle_open_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Candle_ *arg1 = 0 ;
+  struct WU_Candle_ *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -4622,15 +4576,15 @@ SWIGINTERN PyObject *_wrap_Candle_open_set(PyObject *self, PyObject *args) {
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Candle_open_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Candle_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Candle_open_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Candle_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Candle_open_set" "', argument " "1"" of type '" "struct Candle_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Candle_open_set" "', argument " "1"" of type '" "struct WU_Candle_ *""'"); 
   }
-  arg1 = (struct Candle_ *)(argp1);
+  arg1 = (struct WU_Candle_ *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Candle_open_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_Candle_open_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->open = arg2;
@@ -4641,9 +4595,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Candle_open_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Candle_open_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Candle_ *arg1 = 0 ;
+  struct WU_Candle_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -4652,11 +4606,11 @@ SWIGINTERN PyObject *_wrap_Candle_open_get(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Candle_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Candle_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Candle_open_get" "', argument " "1"" of type '" "struct Candle_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Candle_open_get" "', argument " "1"" of type '" "struct WU_Candle_ *""'"); 
   }
-  arg1 = (struct Candle_ *)(argp1);
+  arg1 = (struct WU_Candle_ *)(argp1);
   result = (double) ((arg1)->open);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -4665,9 +4619,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Candle_high_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Candle_high_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Candle_ *arg1 = 0 ;
+  struct WU_Candle_ *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -4676,15 +4630,15 @@ SWIGINTERN PyObject *_wrap_Candle_high_set(PyObject *self, PyObject *args) {
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Candle_high_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Candle_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Candle_high_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Candle_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Candle_high_set" "', argument " "1"" of type '" "struct Candle_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Candle_high_set" "', argument " "1"" of type '" "struct WU_Candle_ *""'"); 
   }
-  arg1 = (struct Candle_ *)(argp1);
+  arg1 = (struct WU_Candle_ *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Candle_high_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_Candle_high_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->high = arg2;
@@ -4695,9 +4649,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Candle_high_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Candle_high_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Candle_ *arg1 = 0 ;
+  struct WU_Candle_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -4706,11 +4660,11 @@ SWIGINTERN PyObject *_wrap_Candle_high_get(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Candle_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Candle_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Candle_high_get" "', argument " "1"" of type '" "struct Candle_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Candle_high_get" "', argument " "1"" of type '" "struct WU_Candle_ *""'"); 
   }
-  arg1 = (struct Candle_ *)(argp1);
+  arg1 = (struct WU_Candle_ *)(argp1);
   result = (double) ((arg1)->high);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -4719,9 +4673,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Candle_low_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Candle_low_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Candle_ *arg1 = 0 ;
+  struct WU_Candle_ *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -4730,15 +4684,15 @@ SWIGINTERN PyObject *_wrap_Candle_low_set(PyObject *self, PyObject *args) {
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Candle_low_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Candle_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Candle_low_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Candle_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Candle_low_set" "', argument " "1"" of type '" "struct Candle_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Candle_low_set" "', argument " "1"" of type '" "struct WU_Candle_ *""'"); 
   }
-  arg1 = (struct Candle_ *)(argp1);
+  arg1 = (struct WU_Candle_ *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Candle_low_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_Candle_low_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->low = arg2;
@@ -4749,9 +4703,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Candle_low_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Candle_low_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Candle_ *arg1 = 0 ;
+  struct WU_Candle_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -4760,11 +4714,11 @@ SWIGINTERN PyObject *_wrap_Candle_low_get(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Candle_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Candle_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Candle_low_get" "', argument " "1"" of type '" "struct Candle_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Candle_low_get" "', argument " "1"" of type '" "struct WU_Candle_ *""'"); 
   }
-  arg1 = (struct Candle_ *)(argp1);
+  arg1 = (struct WU_Candle_ *)(argp1);
   result = (double) ((arg1)->low);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -4773,9 +4727,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Candle_close_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Candle_close_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Candle_ *arg1 = 0 ;
+  struct WU_Candle_ *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -4784,15 +4738,15 @@ SWIGINTERN PyObject *_wrap_Candle_close_set(PyObject *self, PyObject *args) {
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Candle_close_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Candle_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Candle_close_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Candle_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Candle_close_set" "', argument " "1"" of type '" "struct Candle_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Candle_close_set" "', argument " "1"" of type '" "struct WU_Candle_ *""'"); 
   }
-  arg1 = (struct Candle_ *)(argp1);
+  arg1 = (struct WU_Candle_ *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Candle_close_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_Candle_close_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->close = arg2;
@@ -4803,9 +4757,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Candle_close_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Candle_close_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Candle_ *arg1 = 0 ;
+  struct WU_Candle_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -4814,11 +4768,11 @@ SWIGINTERN PyObject *_wrap_Candle_close_get(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Candle_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Candle_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Candle_close_get" "', argument " "1"" of type '" "struct Candle_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Candle_close_get" "', argument " "1"" of type '" "struct WU_Candle_ *""'"); 
   }
-  arg1 = (struct Candle_ *)(argp1);
+  arg1 = (struct WU_Candle_ *)(argp1);
   result = (double) ((arg1)->close);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -4827,9 +4781,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Candle_volume_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Candle_volume_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Candle_ *arg1 = 0 ;
+  struct WU_Candle_ *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -4838,15 +4792,15 @@ SWIGINTERN PyObject *_wrap_Candle_volume_set(PyObject *self, PyObject *args) {
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Candle_volume_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Candle_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Candle_volume_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Candle_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Candle_volume_set" "', argument " "1"" of type '" "struct Candle_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Candle_volume_set" "', argument " "1"" of type '" "struct WU_Candle_ *""'"); 
   }
-  arg1 = (struct Candle_ *)(argp1);
+  arg1 = (struct WU_Candle_ *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Candle_volume_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_Candle_volume_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->volume = arg2;
@@ -4857,9 +4811,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Candle_volume_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Candle_volume_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Candle_ *arg1 = 0 ;
+  struct WU_Candle_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -4868,11 +4822,11 @@ SWIGINTERN PyObject *_wrap_Candle_volume_get(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Candle_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Candle_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Candle_volume_get" "', argument " "1"" of type '" "struct Candle_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Candle_volume_get" "', argument " "1"" of type '" "struct WU_Candle_ *""'"); 
   }
-  arg1 = (struct Candle_ *)(argp1);
+  arg1 = (struct WU_Candle_ *)(argp1);
   result = (double) ((arg1)->volume);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -4881,10 +4835,10 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Candle_data_type_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Candle_data_type_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Candle_ *arg1 = 0 ;
-  DataType arg2 ;
+  struct WU_Candle_ *arg1 = 0 ;
+  WU_DataType arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int val2 ;
@@ -4892,17 +4846,17 @@ SWIGINTERN PyObject *_wrap_Candle_data_type_set(PyObject *self, PyObject *args) 
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Candle_data_type_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Candle_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Candle_data_type_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Candle_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Candle_data_type_set" "', argument " "1"" of type '" "struct Candle_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Candle_data_type_set" "', argument " "1"" of type '" "struct WU_Candle_ *""'"); 
   }
-  arg1 = (struct Candle_ *)(argp1);
+  arg1 = (struct WU_Candle_ *)(argp1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Candle_data_type_set" "', argument " "2"" of type '" "DataType""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_Candle_data_type_set" "', argument " "2"" of type '" "WU_DataType""'");
   } 
-  arg2 = (DataType)(val2);
+  arg2 = (WU_DataType)(val2);
   if (arg1) (arg1)->data_type = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -4911,23 +4865,23 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Candle_data_type_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Candle_data_type_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Candle_ *arg1 = 0 ;
+  struct WU_Candle_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  DataType result;
+  WU_DataType result;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Candle_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Candle_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Candle_data_type_get" "', argument " "1"" of type '" "struct Candle_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Candle_data_type_get" "', argument " "1"" of type '" "struct WU_Candle_ *""'"); 
   }
-  arg1 = (struct Candle_ *)(argp1);
-  result = (DataType) ((arg1)->data_type);
+  arg1 = (struct WU_Candle_ *)(argp1);
+  result = (WU_DataType) ((arg1)->data_type);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
@@ -4935,23 +4889,23 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_Candle(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_WU_Candle(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Candle_ *result = 0 ;
+  struct WU_Candle_ *result = 0 ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "new_Candle", 0, 0, 0)) SWIG_fail;
-  result = (struct Candle_ *)calloc(1, sizeof(struct Candle_));
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Candle_, SWIG_POINTER_NEW |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "new_WU_Candle", 0, 0, 0)) SWIG_fail;
+  result = (struct WU_Candle_ *)calloc(1, sizeof(struct WU_Candle_));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_Candle_, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_Candle(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_WU_Candle(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Candle_ *arg1 = 0 ;
+  struct WU_Candle_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -4959,11 +4913,11 @@ SWIGINTERN PyObject *_wrap_delete_Candle(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Candle_, SWIG_POINTER_DISOWN |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Candle_, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Candle" "', argument " "1"" of type '" "struct Candle_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_WU_Candle" "', argument " "1"" of type '" "struct WU_Candle_ *""'"); 
   }
-  arg1 = (struct Candle_ *)(argp1);
+  arg1 = (struct WU_Candle_ *)(argp1);
   free((char *) arg1);
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -4972,20 +4926,20 @@ fail:
 }
 
 
-SWIGINTERN PyObject *Candle_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_Candle_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj = NULL;
   if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_Candle_, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_WU_Candle_, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *Candle_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_Candle_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_Trade_timestamp_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Trade_timestamp_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  Trade *arg1 = 0 ;
+  WU_Trade *arg1 = 0 ;
   int64_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -4994,15 +4948,15 @@ SWIGINTERN PyObject *_wrap_Trade_timestamp_set(PyObject *self, PyObject *args) {
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Trade_timestamp_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Trade, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Trade_timestamp_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Trade, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Trade_timestamp_set" "', argument " "1"" of type '" "Trade *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Trade_timestamp_set" "', argument " "1"" of type '" "WU_Trade *""'"); 
   }
-  arg1 = (Trade *)(argp1);
+  arg1 = (WU_Trade *)(argp1);
   ecode2 = SWIG_AsVal_long_SS_long(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Trade_timestamp_set" "', argument " "2"" of type '" "int64_t""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_Trade_timestamp_set" "', argument " "2"" of type '" "int64_t""'");
   } 
   arg2 = (int64_t)(val2);
   if (arg1) (arg1)->timestamp = arg2;
@@ -5013,9 +4967,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Trade_timestamp_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Trade_timestamp_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  Trade *arg1 = 0 ;
+  WU_Trade *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -5024,11 +4978,11 @@ SWIGINTERN PyObject *_wrap_Trade_timestamp_get(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Trade, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Trade, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Trade_timestamp_get" "', argument " "1"" of type '" "Trade *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Trade_timestamp_get" "', argument " "1"" of type '" "WU_Trade *""'"); 
   }
-  arg1 = (Trade *)(argp1);
+  arg1 = (WU_Trade *)(argp1);
   result = (int64_t) ((arg1)->timestamp);
   resultobj = SWIG_From_long_SS_long((long long)(result));
   return resultobj;
@@ -5037,9 +4991,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Trade_price_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Trade_price_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  Trade *arg1 = 0 ;
+  WU_Trade *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -5048,15 +5002,15 @@ SWIGINTERN PyObject *_wrap_Trade_price_set(PyObject *self, PyObject *args) {
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Trade_price_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Trade, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Trade_price_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Trade, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Trade_price_set" "', argument " "1"" of type '" "Trade *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Trade_price_set" "', argument " "1"" of type '" "WU_Trade *""'"); 
   }
-  arg1 = (Trade *)(argp1);
+  arg1 = (WU_Trade *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Trade_price_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_Trade_price_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->price = arg2;
@@ -5067,9 +5021,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Trade_price_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Trade_price_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  Trade *arg1 = 0 ;
+  WU_Trade *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -5078,11 +5032,11 @@ SWIGINTERN PyObject *_wrap_Trade_price_get(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Trade, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Trade, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Trade_price_get" "', argument " "1"" of type '" "Trade *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Trade_price_get" "', argument " "1"" of type '" "WU_Trade *""'"); 
   }
-  arg1 = (Trade *)(argp1);
+  arg1 = (WU_Trade *)(argp1);
   result = (double) ((arg1)->price);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -5091,9 +5045,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Trade_volume_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Trade_volume_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  Trade *arg1 = 0 ;
+  WU_Trade *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -5102,15 +5056,15 @@ SWIGINTERN PyObject *_wrap_Trade_volume_set(PyObject *self, PyObject *args) {
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Trade_volume_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Trade, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Trade_volume_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Trade, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Trade_volume_set" "', argument " "1"" of type '" "Trade *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Trade_volume_set" "', argument " "1"" of type '" "WU_Trade *""'"); 
   }
-  arg1 = (Trade *)(argp1);
+  arg1 = (WU_Trade *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Trade_volume_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_Trade_volume_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->volume = arg2;
@@ -5121,9 +5075,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Trade_volume_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Trade_volume_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  Trade *arg1 = 0 ;
+  WU_Trade *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -5132,11 +5086,11 @@ SWIGINTERN PyObject *_wrap_Trade_volume_get(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Trade, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Trade, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Trade_volume_get" "', argument " "1"" of type '" "Trade *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Trade_volume_get" "', argument " "1"" of type '" "WU_Trade *""'"); 
   }
-  arg1 = (Trade *)(argp1);
+  arg1 = (WU_Trade *)(argp1);
   result = (double) ((arg1)->volume);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -5145,10 +5099,10 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Trade_side_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Trade_side_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  Trade *arg1 = 0 ;
-  Side arg2 ;
+  WU_Trade *arg1 = 0 ;
+  WU_Side arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int val2 ;
@@ -5156,17 +5110,17 @@ SWIGINTERN PyObject *_wrap_Trade_side_set(PyObject *self, PyObject *args) {
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Trade_side_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Trade, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Trade_side_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Trade, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Trade_side_set" "', argument " "1"" of type '" "Trade *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Trade_side_set" "', argument " "1"" of type '" "WU_Trade *""'"); 
   }
-  arg1 = (Trade *)(argp1);
+  arg1 = (WU_Trade *)(argp1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Trade_side_set" "', argument " "2"" of type '" "Side""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_Trade_side_set" "', argument " "2"" of type '" "WU_Side""'");
   } 
-  arg2 = (Side)(val2);
+  arg2 = (WU_Side)(val2);
   if (arg1) (arg1)->side = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -5175,23 +5129,23 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Trade_side_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Trade_side_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  Trade *arg1 = 0 ;
+  WU_Trade *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  Side result;
+  WU_Side result;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Trade, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Trade, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Trade_side_get" "', argument " "1"" of type '" "Trade *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Trade_side_get" "', argument " "1"" of type '" "WU_Trade *""'"); 
   }
-  arg1 = (Trade *)(argp1);
-  result = (Side) ((arg1)->side);
+  arg1 = (WU_Trade *)(argp1);
+  result = (WU_Side) ((arg1)->side);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
@@ -5199,10 +5153,10 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Trade_data_type_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Trade_data_type_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  Trade *arg1 = 0 ;
-  DataType arg2 ;
+  WU_Trade *arg1 = 0 ;
+  WU_DataType arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int val2 ;
@@ -5210,17 +5164,17 @@ SWIGINTERN PyObject *_wrap_Trade_data_type_set(PyObject *self, PyObject *args) {
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Trade_data_type_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Trade, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Trade_data_type_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Trade, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Trade_data_type_set" "', argument " "1"" of type '" "Trade *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Trade_data_type_set" "', argument " "1"" of type '" "WU_Trade *""'"); 
   }
-  arg1 = (Trade *)(argp1);
+  arg1 = (WU_Trade *)(argp1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Trade_data_type_set" "', argument " "2"" of type '" "DataType""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_Trade_data_type_set" "', argument " "2"" of type '" "WU_DataType""'");
   } 
-  arg2 = (DataType)(val2);
+  arg2 = (WU_DataType)(val2);
   if (arg1) (arg1)->data_type = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -5229,23 +5183,23 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Trade_data_type_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Trade_data_type_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  Trade *arg1 = 0 ;
+  WU_Trade *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  DataType result;
+  WU_DataType result;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Trade, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Trade, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Trade_data_type_get" "', argument " "1"" of type '" "Trade *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Trade_data_type_get" "', argument " "1"" of type '" "WU_Trade *""'"); 
   }
-  arg1 = (Trade *)(argp1);
-  result = (DataType) ((arg1)->data_type);
+  arg1 = (WU_Trade *)(argp1);
+  result = (WU_DataType) ((arg1)->data_type);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
@@ -5253,23 +5207,23 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_Trade(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_WU_Trade(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  Trade *result = 0 ;
+  WU_Trade *result = 0 ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "new_Trade", 0, 0, 0)) SWIG_fail;
-  result = (Trade *)calloc(1, sizeof(Trade));
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Trade, SWIG_POINTER_NEW |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "new_WU_Trade", 0, 0, 0)) SWIG_fail;
+  result = (WU_Trade *)calloc(1, sizeof(WU_Trade));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_Trade, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_Trade(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_WU_Trade(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  Trade *arg1 = 0 ;
+  WU_Trade *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -5277,11 +5231,11 @@ SWIGINTERN PyObject *_wrap_delete_Trade(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Trade, SWIG_POINTER_DISOWN |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Trade, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Trade" "', argument " "1"" of type '" "Trade *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_WU_Trade" "', argument " "1"" of type '" "WU_Trade *""'"); 
   }
-  arg1 = (Trade *)(argp1);
+  arg1 = (WU_Trade *)(argp1);
   free((char *) arg1);
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -5290,20 +5244,20 @@ fail:
 }
 
 
-SWIGINTERN PyObject *Trade_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_Trade_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj = NULL;
   if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_Trade, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_WU_Trade, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *Trade_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_Trade_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_SingleValue_timestamp_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Single_timestamp_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  SingleValue *arg1 = 0 ;
+  WU_Single *arg1 = 0 ;
   int64_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -5312,15 +5266,15 @@ SWIGINTERN PyObject *_wrap_SingleValue_timestamp_set(PyObject *self, PyObject *a
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SingleValue_timestamp_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleValue, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Single_timestamp_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Single, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleValue_timestamp_set" "', argument " "1"" of type '" "SingleValue *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Single_timestamp_set" "', argument " "1"" of type '" "WU_Single *""'"); 
   }
-  arg1 = (SingleValue *)(argp1);
+  arg1 = (WU_Single *)(argp1);
   ecode2 = SWIG_AsVal_long_SS_long(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SingleValue_timestamp_set" "', argument " "2"" of type '" "int64_t""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_Single_timestamp_set" "', argument " "2"" of type '" "int64_t""'");
   } 
   arg2 = (int64_t)(val2);
   if (arg1) (arg1)->timestamp = arg2;
@@ -5331,9 +5285,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleValue_timestamp_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Single_timestamp_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  SingleValue *arg1 = 0 ;
+  WU_Single *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -5342,11 +5296,11 @@ SWIGINTERN PyObject *_wrap_SingleValue_timestamp_get(PyObject *self, PyObject *a
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleValue, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Single, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleValue_timestamp_get" "', argument " "1"" of type '" "SingleValue *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Single_timestamp_get" "', argument " "1"" of type '" "WU_Single *""'"); 
   }
-  arg1 = (SingleValue *)(argp1);
+  arg1 = (WU_Single *)(argp1);
   result = (int64_t) ((arg1)->timestamp);
   resultobj = SWIG_From_long_SS_long((long long)(result));
   return resultobj;
@@ -5355,9 +5309,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleValue_value_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Single_value_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  SingleValue *arg1 = 0 ;
+  WU_Single *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -5366,15 +5320,15 @@ SWIGINTERN PyObject *_wrap_SingleValue_value_set(PyObject *self, PyObject *args)
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SingleValue_value_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleValue, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Single_value_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Single, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleValue_value_set" "', argument " "1"" of type '" "SingleValue *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Single_value_set" "', argument " "1"" of type '" "WU_Single *""'"); 
   }
-  arg1 = (SingleValue *)(argp1);
+  arg1 = (WU_Single *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SingleValue_value_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_Single_value_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->value = arg2;
@@ -5385,9 +5339,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleValue_value_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Single_value_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  SingleValue *arg1 = 0 ;
+  WU_Single *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -5396,11 +5350,11 @@ SWIGINTERN PyObject *_wrap_SingleValue_value_get(PyObject *self, PyObject *args)
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleValue, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Single, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleValue_value_get" "', argument " "1"" of type '" "SingleValue *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Single_value_get" "', argument " "1"" of type '" "WU_Single *""'"); 
   }
-  arg1 = (SingleValue *)(argp1);
+  arg1 = (WU_Single *)(argp1);
   result = (double) ((arg1)->value);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -5409,10 +5363,10 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleValue_data_type_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Single_data_type_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  SingleValue *arg1 = 0 ;
-  DataType arg2 ;
+  WU_Single *arg1 = 0 ;
+  WU_DataType arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int val2 ;
@@ -5420,17 +5374,17 @@ SWIGINTERN PyObject *_wrap_SingleValue_data_type_set(PyObject *self, PyObject *a
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SingleValue_data_type_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleValue, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Single_data_type_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Single, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleValue_data_type_set" "', argument " "1"" of type '" "SingleValue *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Single_data_type_set" "', argument " "1"" of type '" "WU_Single *""'"); 
   }
-  arg1 = (SingleValue *)(argp1);
+  arg1 = (WU_Single *)(argp1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SingleValue_data_type_set" "', argument " "2"" of type '" "DataType""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_Single_data_type_set" "', argument " "2"" of type '" "WU_DataType""'");
   } 
-  arg2 = (DataType)(val2);
+  arg2 = (WU_DataType)(val2);
   if (arg1) (arg1)->data_type = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -5439,23 +5393,23 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleValue_data_type_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Single_data_type_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  SingleValue *arg1 = 0 ;
+  WU_Single *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  DataType result;
+  WU_DataType result;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleValue, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Single, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleValue_data_type_get" "', argument " "1"" of type '" "SingleValue *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Single_data_type_get" "', argument " "1"" of type '" "WU_Single *""'"); 
   }
-  arg1 = (SingleValue *)(argp1);
-  result = (DataType) ((arg1)->data_type);
+  arg1 = (WU_Single *)(argp1);
+  result = (WU_DataType) ((arg1)->data_type);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
@@ -5463,23 +5417,23 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_SingleValue(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_WU_Single(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  SingleValue *result = 0 ;
+  WU_Single *result = 0 ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "new_SingleValue", 0, 0, 0)) SWIG_fail;
-  result = (SingleValue *)calloc(1, sizeof(SingleValue));
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SingleValue, SWIG_POINTER_NEW |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "new_WU_Single", 0, 0, 0)) SWIG_fail;
+  result = (WU_Single *)calloc(1, sizeof(WU_Single));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_Single, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_SingleValue(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_WU_Single(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  SingleValue *arg1 = 0 ;
+  WU_Single *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -5487,11 +5441,11 @@ SWIGINTERN PyObject *_wrap_delete_SingleValue(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleValue, SWIG_POINTER_DISOWN |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Single, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_SingleValue" "', argument " "1"" of type '" "SingleValue *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_WU_Single" "', argument " "1"" of type '" "WU_Single *""'"); 
   }
-  arg1 = (SingleValue *)(argp1);
+  arg1 = (WU_Single *)(argp1);
   free((char *) arg1);
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -5500,18 +5454,18 @@ fail:
 }
 
 
-SWIGINTERN PyObject *SingleValue_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_Single_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj = NULL;
   if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_SingleValue, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_WU_Single, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *SingleValue_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_Single_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_candle_init(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_wu_candle_init(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
   int64_t arg1 ;
   double arg2 ;
@@ -5532,54 +5486,54 @@ SWIGINTERN PyObject *_wrap_candle_init(PyObject *self, PyObject *args) {
   double val6 ;
   int ecode6 = 0 ;
   PyObject *swig_obj[6] ;
-  Candle result;
+  WU_Candle result;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "candle_init", 6, 6, swig_obj)) SWIG_fail;
+  if (!SWIG_Python_UnpackTuple(args, "wu_candle_init", 6, 6, swig_obj)) SWIG_fail;
   ecode1 = SWIG_AsVal_long_SS_long(swig_obj[0], &val1);
   if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "candle_init" "', argument " "1"" of type '" "int64_t""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "wu_candle_init" "', argument " "1"" of type '" "int64_t""'");
   } 
   arg1 = (int64_t)(val1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "candle_init" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "wu_candle_init" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   ecode3 = SWIG_AsVal_double(swig_obj[2], &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "candle_init" "', argument " "3"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "wu_candle_init" "', argument " "3"" of type '" "double""'");
   } 
   arg3 = (double)(val3);
   ecode4 = SWIG_AsVal_double(swig_obj[3], &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "candle_init" "', argument " "4"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "wu_candle_init" "', argument " "4"" of type '" "double""'");
   } 
   arg4 = (double)(val4);
   ecode5 = SWIG_AsVal_double(swig_obj[4], &val5);
   if (!SWIG_IsOK(ecode5)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "candle_init" "', argument " "5"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "wu_candle_init" "', argument " "5"" of type '" "double""'");
   } 
   arg5 = (double)(val5);
   ecode6 = SWIG_AsVal_double(swig_obj[5], &val6);
   if (!SWIG_IsOK(ecode6)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "candle_init" "', argument " "6"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "wu_candle_init" "', argument " "6"" of type '" "double""'");
   } 
   arg6 = (double)(val6);
-  result = candle_init(arg1,arg2,arg3,arg4,arg5,arg6);
-  resultobj = SWIG_NewPointerObj((Candle *)memcpy((Candle *)calloc(1,sizeof(Candle)),&result,sizeof(Candle)), SWIGTYPE_p_Candle_, SWIG_POINTER_OWN |  0 );
+  result = wu_candle_init(arg1,arg2,arg3,arg4,arg5,arg6);
+  resultobj = SWIG_NewPointerObj((WU_Candle *)memcpy((WU_Candle *)calloc(1,sizeof(WU_Candle)),&result,sizeof(WU_Candle)), SWIGTYPE_p_WU_Candle_, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_trade_init(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_wu_trade_init(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
   int64_t arg1 ;
   double arg2 ;
   double arg3 ;
-  Side arg4 ;
+  WU_Side arg4 ;
   long long val1 ;
   int ecode1 = 0 ;
   double val2 ;
@@ -5589,39 +5543,39 @@ SWIGINTERN PyObject *_wrap_trade_init(PyObject *self, PyObject *args) {
   int val4 ;
   int ecode4 = 0 ;
   PyObject *swig_obj[4] ;
-  Trade result;
+  WU_Trade result;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "trade_init", 4, 4, swig_obj)) SWIG_fail;
+  if (!SWIG_Python_UnpackTuple(args, "wu_trade_init", 4, 4, swig_obj)) SWIG_fail;
   ecode1 = SWIG_AsVal_long_SS_long(swig_obj[0], &val1);
   if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "trade_init" "', argument " "1"" of type '" "int64_t""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "wu_trade_init" "', argument " "1"" of type '" "int64_t""'");
   } 
   arg1 = (int64_t)(val1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "trade_init" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "wu_trade_init" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   ecode3 = SWIG_AsVal_double(swig_obj[2], &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "trade_init" "', argument " "3"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "wu_trade_init" "', argument " "3"" of type '" "double""'");
   } 
   arg3 = (double)(val3);
   ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "trade_init" "', argument " "4"" of type '" "Side""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "wu_trade_init" "', argument " "4"" of type '" "WU_Side""'");
   } 
-  arg4 = (Side)(val4);
-  result = trade_init(arg1,arg2,arg3,arg4);
-  resultobj = SWIG_NewPointerObj((Trade *)memcpy((Trade *)calloc(1,sizeof(Trade)),&result,sizeof(Trade)), SWIGTYPE_p_Trade, SWIG_POINTER_OWN |  0 );
+  arg4 = (WU_Side)(val4);
+  result = wu_trade_init(arg1,arg2,arg3,arg4);
+  resultobj = SWIG_NewPointerObj((WU_Trade *)memcpy((WU_Trade *)calloc(1,sizeof(WU_Trade)),&result,sizeof(WU_Trade)), SWIGTYPE_p_WU_Trade, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_single_value_init(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_wu_single_init(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
   int64_t arg1 ;
   double arg2 ;
@@ -5630,32 +5584,32 @@ SWIGINTERN PyObject *_wrap_single_value_init(PyObject *self, PyObject *args) {
   double val2 ;
   int ecode2 = 0 ;
   PyObject *swig_obj[2] ;
-  SingleValue result;
+  WU_Single result;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "single_value_init", 2, 2, swig_obj)) SWIG_fail;
+  if (!SWIG_Python_UnpackTuple(args, "wu_single_init", 2, 2, swig_obj)) SWIG_fail;
   ecode1 = SWIG_AsVal_long_SS_long(swig_obj[0], &val1);
   if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "single_value_init" "', argument " "1"" of type '" "int64_t""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "wu_single_init" "', argument " "1"" of type '" "int64_t""'");
   } 
   arg1 = (int64_t)(val1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "single_value_init" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "wu_single_init" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
-  result = single_value_init(arg1,arg2);
-  resultobj = SWIG_NewPointerObj((SingleValue *)memcpy((SingleValue *)calloc(1,sizeof(SingleValue)),&result,sizeof(SingleValue)), SWIGTYPE_p_SingleValue, SWIG_POINTER_OWN |  0 );
+  result = wu_single_init(arg1,arg2);
+  resultobj = SWIG_NewPointerObj((WU_Single *)memcpy((WU_Single *)calloc(1,sizeof(WU_Single)),&result,sizeof(WU_Single)), SWIGTYPE_p_WU_Single, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_signal_init(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_wu_signal_init(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
   int64_t arg1 ;
-  Side arg2 ;
+  WU_Side arg2 ;
   double arg3 ;
   double arg4 ;
   long long val1 ;
@@ -5667,57 +5621,57 @@ SWIGINTERN PyObject *_wrap_signal_init(PyObject *self, PyObject *args) {
   double val4 ;
   int ecode4 = 0 ;
   PyObject *swig_obj[4] ;
-  Signal result;
+  WU_Signal result;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "signal_init", 4, 4, swig_obj)) SWIG_fail;
+  if (!SWIG_Python_UnpackTuple(args, "wu_signal_init", 4, 4, swig_obj)) SWIG_fail;
   ecode1 = SWIG_AsVal_long_SS_long(swig_obj[0], &val1);
   if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "signal_init" "', argument " "1"" of type '" "int64_t""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "wu_signal_init" "', argument " "1"" of type '" "int64_t""'");
   } 
   arg1 = (int64_t)(val1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "signal_init" "', argument " "2"" of type '" "Side""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "wu_signal_init" "', argument " "2"" of type '" "WU_Side""'");
   } 
-  arg2 = (Side)(val2);
+  arg2 = (WU_Side)(val2);
   ecode3 = SWIG_AsVal_double(swig_obj[2], &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "signal_init" "', argument " "3"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "wu_signal_init" "', argument " "3"" of type '" "double""'");
   } 
   arg3 = (double)(val3);
   ecode4 = SWIG_AsVal_double(swig_obj[3], &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "signal_init" "', argument " "4"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "wu_signal_init" "', argument " "4"" of type '" "double""'");
   } 
   arg4 = (double)(val4);
-  result = signal_init(arg1,arg2,arg3,arg4);
-  resultobj = SWIG_NewPointerObj((Signal *)memcpy((Signal *)calloc(1,sizeof(Signal)),&result,sizeof(Signal)), SWIGTYPE_p_Signal, SWIG_POINTER_OWN |  0 );
+  result = wu_signal_init(arg1,arg2,arg3,arg4);
+  resultobj = SWIG_NewPointerObj((WU_Signal *)memcpy((WU_Signal *)calloc(1,sizeof(WU_Signal)),&result,sizeof(WU_Signal)), SWIGTYPE_p_WU_Signal, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_SMA__update_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SMA__update_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SMA_ *arg1 = 0 ;
-  double (*arg2)(struct SMA_ *,double) = 0 ;
+  struct WU_SMA_ *arg1 = 0 ;
+  double (*arg2)(struct WU_SMA_ *,double) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SMA__update_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_SMA__update_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__update_set" "', argument " "1"" of type '" "struct SMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SMA__update_set" "', argument " "1"" of type '" "struct WU_SMA_ *""'"); 
   }
-  arg1 = (struct SMA_ *)(argp1);
+  arg1 = (struct WU_SMA_ *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_SMA__double__double);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_WU_SMA__double__double);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "SMA__update_set" "', argument " "2"" of type '" "double (*)(struct SMA_ *,double)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_SMA__update_set" "', argument " "2"" of type '" "double (*)(struct WU_SMA_ *,double)""'"); 
     }
   }
   if (arg1) (arg1)->update = arg2;
@@ -5728,49 +5682,49 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SMA__update_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SMA__update_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SMA_ *arg1 = 0 ;
+  struct WU_SMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  double (*result)(struct SMA_ *,double) = 0 ;
+  double (*result)(struct WU_SMA_ *,double) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__update_get" "', argument " "1"" of type '" "struct SMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SMA__update_get" "', argument " "1"" of type '" "struct WU_SMA_ *""'"); 
   }
-  arg1 = (struct SMA_ *)(argp1);
-  result = (double (*)(struct SMA_ *,double)) ((arg1)->update);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_SMA__double__double);
+  arg1 = (struct WU_SMA_ *)(argp1);
+  result = (double (*)(struct WU_SMA_ *,double)) ((arg1)->update);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_WU_SMA__double__double);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_SMA__get_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SMA__get_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SMA_ *arg1 = 0 ;
-  double (*arg2)(struct SMA_ const *) = 0 ;
+  struct WU_SMA_ *arg1 = 0 ;
+  double (*arg2)(struct WU_SMA_ const *) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SMA__get_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_SMA__get_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__get_set" "', argument " "1"" of type '" "struct SMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SMA__get_set" "', argument " "1"" of type '" "struct WU_SMA_ *""'"); 
   }
-  arg1 = (struct SMA_ *)(argp1);
+  arg1 = (struct WU_SMA_ *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_q_const__struct_SMA___double);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_q_const__struct_WU_SMA___double);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "SMA__get_set" "', argument " "2"" of type '" "double (*)(struct SMA_ const *)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_SMA__get_set" "', argument " "2"" of type '" "double (*)(struct WU_SMA_ const *)""'"); 
     }
   }
   if (arg1) (arg1)->get = arg2;
@@ -5781,49 +5735,49 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SMA__get_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SMA__get_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SMA_ *arg1 = 0 ;
+  struct WU_SMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  double (*result)(struct SMA_ const *) = 0 ;
+  double (*result)(struct WU_SMA_ const *) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__get_get" "', argument " "1"" of type '" "struct SMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SMA__get_get" "', argument " "1"" of type '" "struct WU_SMA_ *""'"); 
   }
-  arg1 = (struct SMA_ *)(argp1);
-  result = (double (*)(struct SMA_ const *)) ((arg1)->get);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_q_const__struct_SMA___double);
+  arg1 = (struct WU_SMA_ *)(argp1);
+  result = (double (*)(struct WU_SMA_ const *)) ((arg1)->get);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_q_const__struct_WU_SMA___double);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_SMA__delete_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SMA__delete_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SMA_ *arg1 = 0 ;
-  void (*arg2)(struct SMA_ *) = 0 ;
+  struct WU_SMA_ *arg1 = 0 ;
+  void (*arg2)(struct WU_SMA_ *) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SMA__delete_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_SMA__delete_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__delete_set" "', argument " "1"" of type '" "struct SMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SMA__delete_set" "', argument " "1"" of type '" "struct WU_SMA_ *""'"); 
   }
-  arg1 = (struct SMA_ *)(argp1);
+  arg1 = (struct WU_SMA_ *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_SMA___void);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_WU_SMA___void);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "SMA__delete_set" "', argument " "2"" of type '" "void (*)(struct SMA_ *)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_SMA__delete_set" "', argument " "2"" of type '" "void (*)(struct WU_SMA_ *)""'"); 
     }
   }
   if (arg1) (arg1)->delete = arg2;
@@ -5834,33 +5788,33 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SMA__delete_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SMA__delete_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SMA_ *arg1 = 0 ;
+  struct WU_SMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  void (*result)(struct SMA_ *) = 0 ;
+  void (*result)(struct WU_SMA_ *) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__delete_get" "', argument " "1"" of type '" "struct SMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SMA__delete_get" "', argument " "1"" of type '" "struct WU_SMA_ *""'"); 
   }
-  arg1 = (struct SMA_ *)(argp1);
-  result = (void (*)(struct SMA_ *)) ((arg1)->delete);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_SMA___void);
+  arg1 = (struct WU_SMA_ *)(argp1);
+  result = (void (*)(struct WU_SMA_ *)) ((arg1)->delete);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_WU_SMA___void);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_SMA__value_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SMA__value_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SMA_ *arg1 = 0 ;
+  struct WU_SMA_ *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -5869,15 +5823,15 @@ SWIGINTERN PyObject *_wrap_SMA__value_set(PyObject *self, PyObject *args) {
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SMA__value_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_SMA__value_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__value_set" "', argument " "1"" of type '" "struct SMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SMA__value_set" "', argument " "1"" of type '" "struct WU_SMA_ *""'"); 
   }
-  arg1 = (struct SMA_ *)(argp1);
+  arg1 = (struct WU_SMA_ *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SMA__value_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_SMA__value_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->value = arg2;
@@ -5888,9 +5842,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SMA__value_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SMA__value_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SMA_ *arg1 = 0 ;
+  struct WU_SMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -5899,11 +5853,11 @@ SWIGINTERN PyObject *_wrap_SMA__value_get(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__value_get" "', argument " "1"" of type '" "struct SMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SMA__value_get" "', argument " "1"" of type '" "struct WU_SMA_ *""'"); 
   }
-  arg1 = (struct SMA_ *)(argp1);
+  arg1 = (struct WU_SMA_ *)(argp1);
   result = (double) ((arg1)->value);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -5912,9 +5866,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SMA__prev_values_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SMA__prev_values_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SMA_ *arg1 = 0 ;
+  struct WU_SMA_ *arg1 = 0 ;
   double *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -5923,15 +5877,15 @@ SWIGINTERN PyObject *_wrap_SMA__prev_values_set(PyObject *self, PyObject *args) 
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SMA__prev_values_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_SMA__prev_values_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__prev_values_set" "', argument " "1"" of type '" "struct SMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SMA__prev_values_set" "', argument " "1"" of type '" "struct WU_SMA_ *""'"); 
   }
-  arg1 = (struct SMA_ *)(argp1);
+  arg1 = (struct WU_SMA_ *)(argp1);
   res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_double, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SMA__prev_values_set" "', argument " "2"" of type '" "double *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WU_SMA__prev_values_set" "', argument " "2"" of type '" "double *""'"); 
   }
   arg2 = (double *)(argp2);
   if (arg1) (arg1)->prev_values = arg2;
@@ -5942,9 +5896,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SMA__prev_values_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SMA__prev_values_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SMA_ *arg1 = 0 ;
+  struct WU_SMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -5953,11 +5907,11 @@ SWIGINTERN PyObject *_wrap_SMA__prev_values_get(PyObject *self, PyObject *args) 
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__prev_values_get" "', argument " "1"" of type '" "struct SMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SMA__prev_values_get" "', argument " "1"" of type '" "struct WU_SMA_ *""'"); 
   }
-  arg1 = (struct SMA_ *)(argp1);
+  arg1 = (struct WU_SMA_ *)(argp1);
   result = (double *) ((arg1)->prev_values);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_double, 0 |  0 );
   return resultobj;
@@ -5966,9 +5920,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SMA__window_size_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SMA__window_size_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SMA_ *arg1 = 0 ;
+  struct WU_SMA_ *arg1 = 0 ;
   int arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -5977,15 +5931,15 @@ SWIGINTERN PyObject *_wrap_SMA__window_size_set(PyObject *self, PyObject *args) 
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SMA__window_size_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_SMA__window_size_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__window_size_set" "', argument " "1"" of type '" "struct SMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SMA__window_size_set" "', argument " "1"" of type '" "struct WU_SMA_ *""'"); 
   }
-  arg1 = (struct SMA_ *)(argp1);
+  arg1 = (struct WU_SMA_ *)(argp1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SMA__window_size_set" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_SMA__window_size_set" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = (int)(val2);
   if (arg1) (arg1)->window_size = arg2;
@@ -5996,9 +5950,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SMA__window_size_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SMA__window_size_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SMA_ *arg1 = 0 ;
+  struct WU_SMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -6007,11 +5961,11 @@ SWIGINTERN PyObject *_wrap_SMA__window_size_get(PyObject *self, PyObject *args) 
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__window_size_get" "', argument " "1"" of type '" "struct SMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SMA__window_size_get" "', argument " "1"" of type '" "struct WU_SMA_ *""'"); 
   }
-  arg1 = (struct SMA_ *)(argp1);
+  arg1 = (struct WU_SMA_ *)(argp1);
   result = (int) ((arg1)->window_size);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
@@ -6020,9 +5974,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SMA__pos_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SMA__pos_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SMA_ *arg1 = 0 ;
+  struct WU_SMA_ *arg1 = 0 ;
   int arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -6031,15 +5985,15 @@ SWIGINTERN PyObject *_wrap_SMA__pos_set(PyObject *self, PyObject *args) {
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SMA__pos_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_SMA__pos_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__pos_set" "', argument " "1"" of type '" "struct SMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SMA__pos_set" "', argument " "1"" of type '" "struct WU_SMA_ *""'"); 
   }
-  arg1 = (struct SMA_ *)(argp1);
+  arg1 = (struct WU_SMA_ *)(argp1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SMA__pos_set" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_SMA__pos_set" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = (int)(val2);
   if (arg1) (arg1)->pos = arg2;
@@ -6050,9 +6004,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SMA__pos_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SMA__pos_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SMA_ *arg1 = 0 ;
+  struct WU_SMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -6061,11 +6015,11 @@ SWIGINTERN PyObject *_wrap_SMA__pos_get(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__pos_get" "', argument " "1"" of type '" "struct SMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SMA__pos_get" "', argument " "1"" of type '" "struct WU_SMA_ *""'"); 
   }
-  arg1 = (struct SMA_ *)(argp1);
+  arg1 = (struct WU_SMA_ *)(argp1);
   result = (int) ((arg1)->pos);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
@@ -6074,9 +6028,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SMA__len_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SMA__len_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SMA_ *arg1 = 0 ;
+  struct WU_SMA_ *arg1 = 0 ;
   int arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -6085,15 +6039,15 @@ SWIGINTERN PyObject *_wrap_SMA__len_set(PyObject *self, PyObject *args) {
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SMA__len_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_SMA__len_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__len_set" "', argument " "1"" of type '" "struct SMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SMA__len_set" "', argument " "1"" of type '" "struct WU_SMA_ *""'"); 
   }
-  arg1 = (struct SMA_ *)(argp1);
+  arg1 = (struct WU_SMA_ *)(argp1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SMA__len_set" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_SMA__len_set" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = (int)(val2);
   if (arg1) (arg1)->len = arg2;
@@ -6104,9 +6058,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SMA__len_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SMA__len_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SMA_ *arg1 = 0 ;
+  struct WU_SMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -6115,11 +6069,11 @@ SWIGINTERN PyObject *_wrap_SMA__len_get(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__len_get" "', argument " "1"" of type '" "struct SMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SMA__len_get" "', argument " "1"" of type '" "struct WU_SMA_ *""'"); 
   }
-  arg1 = (struct SMA_ *)(argp1);
+  arg1 = (struct WU_SMA_ *)(argp1);
   result = (int) ((arg1)->len);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
@@ -6128,9 +6082,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SMA__sum_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SMA__sum_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SMA_ *arg1 = 0 ;
+  struct WU_SMA_ *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -6139,15 +6093,15 @@ SWIGINTERN PyObject *_wrap_SMA__sum_set(PyObject *self, PyObject *args) {
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SMA__sum_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_SMA__sum_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__sum_set" "', argument " "1"" of type '" "struct SMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SMA__sum_set" "', argument " "1"" of type '" "struct WU_SMA_ *""'"); 
   }
-  arg1 = (struct SMA_ *)(argp1);
+  arg1 = (struct WU_SMA_ *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SMA__sum_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_SMA__sum_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->sum = arg2;
@@ -6158,9 +6112,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SMA__sum_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SMA__sum_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SMA_ *arg1 = 0 ;
+  struct WU_SMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -6169,11 +6123,11 @@ SWIGINTERN PyObject *_wrap_SMA__sum_get(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__sum_get" "', argument " "1"" of type '" "struct SMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SMA__sum_get" "', argument " "1"" of type '" "struct WU_SMA_ *""'"); 
   }
-  arg1 = (struct SMA_ *)(argp1);
+  arg1 = (struct WU_SMA_ *)(argp1);
   result = (double) ((arg1)->sum);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -6182,23 +6136,23 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_SMA_(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_WU_SMA_(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SMA_ *result = 0 ;
+  struct WU_SMA_ *result = 0 ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "new_SMA_", 0, 0, 0)) SWIG_fail;
-  result = (struct SMA_ *)calloc(1, sizeof(struct SMA_));
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SMA_, SWIG_POINTER_NEW |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "new_WU_SMA_", 0, 0, 0)) SWIG_fail;
+  result = (struct WU_SMA_ *)calloc(1, sizeof(struct WU_SMA_));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_SMA_, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_SMA_(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_WU_SMA_(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SMA_ *arg1 = 0 ;
+  struct WU_SMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -6206,11 +6160,11 @@ SWIGINTERN PyObject *_wrap_delete_SMA_(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, SWIG_POINTER_DISOWN |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SMA_, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_SMA_" "', argument " "1"" of type '" "struct SMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_WU_SMA_" "', argument " "1"" of type '" "struct WU_SMA_ *""'"); 
   }
-  arg1 = (struct SMA_ *)(argp1);
+  arg1 = (struct WU_SMA_ *)(argp1);
   free((char *) arg1);
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -6219,60 +6173,60 @@ fail:
 }
 
 
-SWIGINTERN PyObject *SMA__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_SMA__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj = NULL;
   if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_SMA_, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_WU_SMA_, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *SMA__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_SMA__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_moving_average_new(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_wu_sma_new(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
   int arg1 ;
   int val1 ;
   int ecode1 = 0 ;
   PyObject *swig_obj[1] ;
-  SMA result;
+  WU_SMA result;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
   ecode1 = SWIG_AsVal_int(swig_obj[0], &val1);
   if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "moving_average_new" "', argument " "1"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "wu_sma_new" "', argument " "1"" of type '" "int""'");
   } 
   arg1 = (int)(val1);
-  result = (SMA)moving_average_new(arg1);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SMA_, 0 |  0 );
+  result = (WU_SMA)wu_sma_new(arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_SMA_, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_EMA__update_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_EMA__update_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct EMA_ *arg1 = 0 ;
-  double (*arg2)(struct EMA_ *,double) = 0 ;
+  struct WU_EMA_ *arg1 = 0 ;
+  double (*arg2)(struct WU_EMA_ *,double) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "EMA__update_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_EMA__update_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__update_set" "', argument " "1"" of type '" "struct EMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_EMA__update_set" "', argument " "1"" of type '" "struct WU_EMA_ *""'"); 
   }
-  arg1 = (struct EMA_ *)(argp1);
+  arg1 = (struct WU_EMA_ *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_EMA__double__double);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_WU_EMA__double__double);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "EMA__update_set" "', argument " "2"" of type '" "double (*)(struct EMA_ *,double)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_EMA__update_set" "', argument " "2"" of type '" "double (*)(struct WU_EMA_ *,double)""'"); 
     }
   }
   if (arg1) (arg1)->update = arg2;
@@ -6283,49 +6237,49 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_EMA__update_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_EMA__update_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct EMA_ *arg1 = 0 ;
+  struct WU_EMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  double (*result)(struct EMA_ *,double) = 0 ;
+  double (*result)(struct WU_EMA_ *,double) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__update_get" "', argument " "1"" of type '" "struct EMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_EMA__update_get" "', argument " "1"" of type '" "struct WU_EMA_ *""'"); 
   }
-  arg1 = (struct EMA_ *)(argp1);
-  result = (double (*)(struct EMA_ *,double)) ((arg1)->update);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_EMA__double__double);
+  arg1 = (struct WU_EMA_ *)(argp1);
+  result = (double (*)(struct WU_EMA_ *,double)) ((arg1)->update);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_WU_EMA__double__double);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_EMA__get_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_EMA__get_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct EMA_ *arg1 = 0 ;
-  double (*arg2)(struct EMA_ const *) = 0 ;
+  struct WU_EMA_ *arg1 = 0 ;
+  double (*arg2)(struct WU_EMA_ const *) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "EMA__get_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_EMA__get_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__get_set" "', argument " "1"" of type '" "struct EMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_EMA__get_set" "', argument " "1"" of type '" "struct WU_EMA_ *""'"); 
   }
-  arg1 = (struct EMA_ *)(argp1);
+  arg1 = (struct WU_EMA_ *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_q_const__struct_EMA___double);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_q_const__struct_WU_EMA___double);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "EMA__get_set" "', argument " "2"" of type '" "double (*)(struct EMA_ const *)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_EMA__get_set" "', argument " "2"" of type '" "double (*)(struct WU_EMA_ const *)""'"); 
     }
   }
   if (arg1) (arg1)->get = arg2;
@@ -6336,49 +6290,49 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_EMA__get_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_EMA__get_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct EMA_ *arg1 = 0 ;
+  struct WU_EMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  double (*result)(struct EMA_ const *) = 0 ;
+  double (*result)(struct WU_EMA_ const *) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__get_get" "', argument " "1"" of type '" "struct EMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_EMA__get_get" "', argument " "1"" of type '" "struct WU_EMA_ *""'"); 
   }
-  arg1 = (struct EMA_ *)(argp1);
-  result = (double (*)(struct EMA_ const *)) ((arg1)->get);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_q_const__struct_EMA___double);
+  arg1 = (struct WU_EMA_ *)(argp1);
+  result = (double (*)(struct WU_EMA_ const *)) ((arg1)->get);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_q_const__struct_WU_EMA___double);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_EMA__delete_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_EMA__delete_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct EMA_ *arg1 = 0 ;
-  void (*arg2)(struct EMA_ *) = 0 ;
+  struct WU_EMA_ *arg1 = 0 ;
+  void (*arg2)(struct WU_EMA_ *) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "EMA__delete_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_EMA__delete_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__delete_set" "', argument " "1"" of type '" "struct EMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_EMA__delete_set" "', argument " "1"" of type '" "struct WU_EMA_ *""'"); 
   }
-  arg1 = (struct EMA_ *)(argp1);
+  arg1 = (struct WU_EMA_ *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_EMA___void);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_WU_EMA___void);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "EMA__delete_set" "', argument " "2"" of type '" "void (*)(struct EMA_ *)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_EMA__delete_set" "', argument " "2"" of type '" "void (*)(struct WU_EMA_ *)""'"); 
     }
   }
   if (arg1) (arg1)->delete = arg2;
@@ -6389,33 +6343,33 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_EMA__delete_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_EMA__delete_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct EMA_ *arg1 = 0 ;
+  struct WU_EMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  void (*result)(struct EMA_ *) = 0 ;
+  void (*result)(struct WU_EMA_ *) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__delete_get" "', argument " "1"" of type '" "struct EMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_EMA__delete_get" "', argument " "1"" of type '" "struct WU_EMA_ *""'"); 
   }
-  arg1 = (struct EMA_ *)(argp1);
-  result = (void (*)(struct EMA_ *)) ((arg1)->delete);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_EMA___void);
+  arg1 = (struct WU_EMA_ *)(argp1);
+  result = (void (*)(struct WU_EMA_ *)) ((arg1)->delete);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_WU_EMA___void);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_EMA__value_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_EMA__value_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct EMA_ *arg1 = 0 ;
+  struct WU_EMA_ *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -6424,15 +6378,15 @@ SWIGINTERN PyObject *_wrap_EMA__value_set(PyObject *self, PyObject *args) {
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "EMA__value_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_EMA__value_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__value_set" "', argument " "1"" of type '" "struct EMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_EMA__value_set" "', argument " "1"" of type '" "struct WU_EMA_ *""'"); 
   }
-  arg1 = (struct EMA_ *)(argp1);
+  arg1 = (struct WU_EMA_ *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "EMA__value_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_EMA__value_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->value = arg2;
@@ -6443,9 +6397,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_EMA__value_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_EMA__value_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct EMA_ *arg1 = 0 ;
+  struct WU_EMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -6454,11 +6408,11 @@ SWIGINTERN PyObject *_wrap_EMA__value_get(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__value_get" "', argument " "1"" of type '" "struct EMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_EMA__value_get" "', argument " "1"" of type '" "struct WU_EMA_ *""'"); 
   }
-  arg1 = (struct EMA_ *)(argp1);
+  arg1 = (struct WU_EMA_ *)(argp1);
   result = (double) ((arg1)->value);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -6467,9 +6421,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_EMA__prev_value_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_EMA__prev_value_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct EMA_ *arg1 = 0 ;
+  struct WU_EMA_ *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -6478,15 +6432,15 @@ SWIGINTERN PyObject *_wrap_EMA__prev_value_set(PyObject *self, PyObject *args) {
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "EMA__prev_value_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_EMA__prev_value_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__prev_value_set" "', argument " "1"" of type '" "struct EMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_EMA__prev_value_set" "', argument " "1"" of type '" "struct WU_EMA_ *""'"); 
   }
-  arg1 = (struct EMA_ *)(argp1);
+  arg1 = (struct WU_EMA_ *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "EMA__prev_value_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_EMA__prev_value_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->prev_value = arg2;
@@ -6497,9 +6451,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_EMA__prev_value_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_EMA__prev_value_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct EMA_ *arg1 = 0 ;
+  struct WU_EMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -6508,11 +6462,11 @@ SWIGINTERN PyObject *_wrap_EMA__prev_value_get(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__prev_value_get" "', argument " "1"" of type '" "struct EMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_EMA__prev_value_get" "', argument " "1"" of type '" "struct WU_EMA_ *""'"); 
   }
-  arg1 = (struct EMA_ *)(argp1);
+  arg1 = (struct WU_EMA_ *)(argp1);
   result = (double) ((arg1)->prev_value);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -6521,9 +6475,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_EMA__alpha_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_EMA__alpha_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct EMA_ *arg1 = 0 ;
+  struct WU_EMA_ *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -6532,15 +6486,15 @@ SWIGINTERN PyObject *_wrap_EMA__alpha_set(PyObject *self, PyObject *args) {
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "EMA__alpha_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_EMA__alpha_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__alpha_set" "', argument " "1"" of type '" "struct EMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_EMA__alpha_set" "', argument " "1"" of type '" "struct WU_EMA_ *""'"); 
   }
-  arg1 = (struct EMA_ *)(argp1);
+  arg1 = (struct WU_EMA_ *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "EMA__alpha_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_EMA__alpha_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->alpha = arg2;
@@ -6551,9 +6505,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_EMA__alpha_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_EMA__alpha_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct EMA_ *arg1 = 0 ;
+  struct WU_EMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -6562,11 +6516,11 @@ SWIGINTERN PyObject *_wrap_EMA__alpha_get(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__alpha_get" "', argument " "1"" of type '" "struct EMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_EMA__alpha_get" "', argument " "1"" of type '" "struct WU_EMA_ *""'"); 
   }
-  arg1 = (struct EMA_ *)(argp1);
+  arg1 = (struct WU_EMA_ *)(argp1);
   result = (double) ((arg1)->alpha);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -6575,9 +6529,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_EMA__len_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_EMA__len_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct EMA_ *arg1 = 0 ;
+  struct WU_EMA_ *arg1 = 0 ;
   int arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -6586,15 +6540,15 @@ SWIGINTERN PyObject *_wrap_EMA__len_set(PyObject *self, PyObject *args) {
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "EMA__len_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_EMA__len_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__len_set" "', argument " "1"" of type '" "struct EMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_EMA__len_set" "', argument " "1"" of type '" "struct WU_EMA_ *""'"); 
   }
-  arg1 = (struct EMA_ *)(argp1);
+  arg1 = (struct WU_EMA_ *)(argp1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "EMA__len_set" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_EMA__len_set" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = (int)(val2);
   if (arg1) (arg1)->len = arg2;
@@ -6605,9 +6559,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_EMA__len_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_EMA__len_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct EMA_ *arg1 = 0 ;
+  struct WU_EMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -6616,11 +6570,11 @@ SWIGINTERN PyObject *_wrap_EMA__len_get(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__len_get" "', argument " "1"" of type '" "struct EMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_EMA__len_get" "', argument " "1"" of type '" "struct WU_EMA_ *""'"); 
   }
-  arg1 = (struct EMA_ *)(argp1);
+  arg1 = (struct WU_EMA_ *)(argp1);
   result = (int) ((arg1)->len);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
@@ -6629,9 +6583,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_EMA__period_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_EMA__period_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct EMA_ *arg1 = 0 ;
+  struct WU_EMA_ *arg1 = 0 ;
   int arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -6640,15 +6594,15 @@ SWIGINTERN PyObject *_wrap_EMA__period_set(PyObject *self, PyObject *args) {
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "EMA__period_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_EMA__period_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__period_set" "', argument " "1"" of type '" "struct EMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_EMA__period_set" "', argument " "1"" of type '" "struct WU_EMA_ *""'"); 
   }
-  arg1 = (struct EMA_ *)(argp1);
+  arg1 = (struct WU_EMA_ *)(argp1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "EMA__period_set" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_EMA__period_set" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = (int)(val2);
   if (arg1) (arg1)->period = arg2;
@@ -6659,9 +6613,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_EMA__period_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_EMA__period_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct EMA_ *arg1 = 0 ;
+  struct WU_EMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -6670,11 +6624,11 @@ SWIGINTERN PyObject *_wrap_EMA__period_get(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__period_get" "', argument " "1"" of type '" "struct EMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_EMA__period_get" "', argument " "1"" of type '" "struct WU_EMA_ *""'"); 
   }
-  arg1 = (struct EMA_ *)(argp1);
+  arg1 = (struct WU_EMA_ *)(argp1);
   result = (int) ((arg1)->period);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
@@ -6683,23 +6637,23 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_EMA_(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_WU_EMA_(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct EMA_ *result = 0 ;
+  struct WU_EMA_ *result = 0 ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "new_EMA_", 0, 0, 0)) SWIG_fail;
-  result = (struct EMA_ *)calloc(1, sizeof(struct EMA_));
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_EMA_, SWIG_POINTER_NEW |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "new_WU_EMA_", 0, 0, 0)) SWIG_fail;
+  result = (struct WU_EMA_ *)calloc(1, sizeof(struct WU_EMA_));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_EMA_, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_EMA_(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_WU_EMA_(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct EMA_ *arg1 = 0 ;
+  struct WU_EMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -6707,11 +6661,11 @@ SWIGINTERN PyObject *_wrap_delete_EMA_(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, SWIG_POINTER_DISOWN |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_EMA_, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_EMA_" "', argument " "1"" of type '" "struct EMA_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_WU_EMA_" "', argument " "1"" of type '" "struct WU_EMA_ *""'"); 
   }
-  arg1 = (struct EMA_ *)(argp1);
+  arg1 = (struct WU_EMA_ *)(argp1);
   free((char *) arg1);
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -6720,18 +6674,18 @@ fail:
 }
 
 
-SWIGINTERN PyObject *EMA__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_EMA__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj = NULL;
   if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_EMA_, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_WU_EMA_, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *EMA__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_EMA__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_exponential_moving_average_new(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_wu_ema_new(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
   int arg1 ;
   double arg2 ;
@@ -6740,50 +6694,50 @@ SWIGINTERN PyObject *_wrap_exponential_moving_average_new(PyObject *self, PyObje
   double val2 ;
   int ecode2 = 0 ;
   PyObject *swig_obj[2] ;
-  EMA result;
+  WU_EMA result;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "exponential_moving_average_new", 2, 2, swig_obj)) SWIG_fail;
+  if (!SWIG_Python_UnpackTuple(args, "wu_ema_new", 2, 2, swig_obj)) SWIG_fail;
   ecode1 = SWIG_AsVal_int(swig_obj[0], &val1);
   if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "exponential_moving_average_new" "', argument " "1"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "wu_ema_new" "', argument " "1"" of type '" "int""'");
   } 
   arg1 = (int)(val1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "exponential_moving_average_new" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "wu_ema_new" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
-  result = (EMA)exponential_moving_average_new(arg1,arg2);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_EMA_, 0 |  0 );
+  result = (WU_EMA)wu_ema_new(arg1,arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_EMA_, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Reader__next_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_MVar__update_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Reader_ *arg1 = 0 ;
-  void *(*arg2)(struct Reader_ *) = 0 ;
+  struct WU_MVar_ *arg1 = 0 ;
+  double (*arg2)(struct WU_MVar_ *,double) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Reader__next_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Reader_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_MVar__update_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_MVar_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Reader__next_set" "', argument " "1"" of type '" "struct Reader_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_MVar__update_set" "', argument " "1"" of type '" "struct WU_MVar_ *""'"); 
   }
-  arg1 = (struct Reader_ *)(argp1);
+  arg1 = (struct WU_MVar_ *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_Reader___p_void);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_WU_MVar__double__double);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "Reader__next_set" "', argument " "2"" of type '" "void *(*)(struct Reader_ *)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_MVar__update_set" "', argument " "2"" of type '" "double (*)(struct WU_MVar_ *,double)""'"); 
     }
   }
-  if (arg1) (arg1)->next = arg2;
+  if (arg1) (arg1)->update = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -6791,49 +6745,102 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Reader__next_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_MVar__update_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Reader_ *arg1 = 0 ;
+  struct WU_MVar_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  void *(*result)(struct Reader_ *) = 0 ;
+  double (*result)(struct WU_MVar_ *,double) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Reader_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_MVar_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Reader__next_get" "', argument " "1"" of type '" "struct Reader_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_MVar__update_get" "', argument " "1"" of type '" "struct WU_MVar_ *""'"); 
   }
-  arg1 = (struct Reader_ *)(argp1);
-  result = (void *(*)(struct Reader_ *)) ((arg1)->next);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_Reader___p_void);
+  arg1 = (struct WU_MVar_ *)(argp1);
+  result = (double (*)(struct WU_MVar_ *,double)) ((arg1)->update);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_WU_MVar__double__double);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Reader__delete_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_MVar__get_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Reader_ *arg1 = 0 ;
-  void (*arg2)(struct Reader_ *) = 0 ;
+  struct WU_MVar_ *arg1 = 0 ;
+  double (*arg2)(struct WU_MVar_ const *) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Reader__delete_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Reader_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_MVar__get_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_MVar_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Reader__delete_set" "', argument " "1"" of type '" "struct Reader_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_MVar__get_set" "', argument " "1"" of type '" "struct WU_MVar_ *""'"); 
   }
-  arg1 = (struct Reader_ *)(argp1);
+  arg1 = (struct WU_MVar_ *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_Reader___void);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_q_const__struct_WU_MVar___double);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "Reader__delete_set" "', argument " "2"" of type '" "void (*)(struct Reader_ *)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_MVar__get_set" "', argument " "2"" of type '" "double (*)(struct WU_MVar_ const *)""'"); 
+    }
+  }
+  if (arg1) (arg1)->get = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_MVar__get_get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_MVar_ *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  double (*result)(struct WU_MVar_ const *) = 0 ;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_MVar_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_MVar__get_get" "', argument " "1"" of type '" "struct WU_MVar_ *""'"); 
+  }
+  arg1 = (struct WU_MVar_ *)(argp1);
+  result = (double (*)(struct WU_MVar_ const *)) ((arg1)->get);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_q_const__struct_WU_MVar___double);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_MVar__delete_set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_MVar_ *arg1 = 0 ;
+  void (*arg2)(struct WU_MVar_ *) = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "WU_MVar__delete_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_MVar_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_MVar__delete_set" "', argument " "1"" of type '" "struct WU_MVar_ *""'"); 
+  }
+  arg1 = (struct WU_MVar_ *)(argp1);
+  {
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_WU_MVar___void);
+    if (!SWIG_IsOK(res)) {
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_MVar__delete_set" "', argument " "2"" of type '" "void (*)(struct WU_MVar_ *)""'"); 
     }
   }
   if (arg1) (arg1)->delete = arg2;
@@ -6844,47 +6851,425 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Reader__delete_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_MVar__delete_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Reader_ *arg1 = 0 ;
+  struct WU_MVar_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  void (*result)(struct Reader_ *) = 0 ;
+  void (*result)(struct WU_MVar_ *) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Reader_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_MVar_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Reader__delete_get" "', argument " "1"" of type '" "struct Reader_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_MVar__delete_get" "', argument " "1"" of type '" "struct WU_MVar_ *""'"); 
   }
-  arg1 = (struct Reader_ *)(argp1);
-  result = (void (*)(struct Reader_ *)) ((arg1)->delete);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_Reader___void);
+  arg1 = (struct WU_MVar_ *)(argp1);
+  result = (void (*)(struct WU_MVar_ *)) ((arg1)->delete);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_WU_MVar___void);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_new_Reader_(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_MVar__value_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Reader_ *result = 0 ;
+  struct WU_MVar_ *arg1 = 0 ;
+  double arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "new_Reader_", 0, 0, 0)) SWIG_fail;
-  result = (struct Reader_ *)calloc(1, sizeof(struct Reader_));
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Reader_, SWIG_POINTER_NEW |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_MVar__value_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_MVar_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_MVar__value_set" "', argument " "1"" of type '" "struct WU_MVar_ *""'"); 
+  }
+  arg1 = (struct WU_MVar_ *)(argp1);
+  ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_MVar__value_set" "', argument " "2"" of type '" "double""'");
+  } 
+  arg2 = (double)(val2);
+  if (arg1) (arg1)->value = arg2;
+  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_Reader_(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_MVar__value_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Reader_ *arg1 = 0 ;
+  struct WU_MVar_ *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  double result;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_MVar_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_MVar__value_get" "', argument " "1"" of type '" "struct WU_MVar_ *""'"); 
+  }
+  arg1 = (struct WU_MVar_ *)(argp1);
+  result = (double) ((arg1)->value);
+  resultobj = SWIG_From_double((double)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_MVar__sma_set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_MVar_ *arg1 = 0 ;
+  WU_SMA arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "WU_MVar__sma_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_MVar_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_MVar__sma_set" "', argument " "1"" of type '" "struct WU_MVar_ *""'"); 
+  }
+  arg1 = (struct WU_MVar_ *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_WU_SMA_, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WU_MVar__sma_set" "', argument " "2"" of type '" "WU_SMA""'"); 
+  }
+  arg2 = (WU_SMA)(argp2);
+  if (arg1) (arg1)->sma = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_MVar__sma_get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_MVar_ *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  WU_SMA result;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_MVar_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_MVar__sma_get" "', argument " "1"" of type '" "struct WU_MVar_ *""'"); 
+  }
+  arg1 = (struct WU_MVar_ *)(argp1);
+  result = (WU_SMA) ((arg1)->sma);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_SMA_, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_MVar__prev_values_set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_MVar_ *arg1 = 0 ;
+  double *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "WU_MVar__prev_values_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_MVar_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_MVar__prev_values_set" "', argument " "1"" of type '" "struct WU_MVar_ *""'"); 
+  }
+  arg1 = (struct WU_MVar_ *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_double, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WU_MVar__prev_values_set" "', argument " "2"" of type '" "double *""'"); 
+  }
+  arg2 = (double *)(argp2);
+  if (arg1) (arg1)->prev_values = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_MVar__prev_values_get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_MVar_ *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  double *result = 0 ;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_MVar_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_MVar__prev_values_get" "', argument " "1"" of type '" "struct WU_MVar_ *""'"); 
+  }
+  arg1 = (struct WU_MVar_ *)(argp1);
+  result = (double *) ((arg1)->prev_values);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_double, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_MVar__window_size_set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_MVar_ *arg1 = 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "WU_MVar__window_size_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_MVar_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_MVar__window_size_set" "', argument " "1"" of type '" "struct WU_MVar_ *""'"); 
+  }
+  arg1 = (struct WU_MVar_ *)(argp1);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_MVar__window_size_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->window_size = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_MVar__window_size_get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_MVar_ *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  int result;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_MVar_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_MVar__window_size_get" "', argument " "1"" of type '" "struct WU_MVar_ *""'"); 
+  }
+  arg1 = (struct WU_MVar_ *)(argp1);
+  result = (int) ((arg1)->window_size);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_MVar__pos_set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_MVar_ *arg1 = 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "WU_MVar__pos_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_MVar_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_MVar__pos_set" "', argument " "1"" of type '" "struct WU_MVar_ *""'"); 
+  }
+  arg1 = (struct WU_MVar_ *)(argp1);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_MVar__pos_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->pos = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_MVar__pos_get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_MVar_ *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  int result;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_MVar_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_MVar__pos_get" "', argument " "1"" of type '" "struct WU_MVar_ *""'"); 
+  }
+  arg1 = (struct WU_MVar_ *)(argp1);
+  result = (int) ((arg1)->pos);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_MVar__len_set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_MVar_ *arg1 = 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "WU_MVar__len_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_MVar_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_MVar__len_set" "', argument " "1"" of type '" "struct WU_MVar_ *""'"); 
+  }
+  arg1 = (struct WU_MVar_ *)(argp1);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_MVar__len_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->len = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_MVar__len_get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_MVar_ *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  int result;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_MVar_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_MVar__len_get" "', argument " "1"" of type '" "struct WU_MVar_ *""'"); 
+  }
+  arg1 = (struct WU_MVar_ *)(argp1);
+  result = (int) ((arg1)->len);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_MVar__dof_set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_MVar_ *arg1 = 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "WU_MVar__dof_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_MVar_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_MVar__dof_set" "', argument " "1"" of type '" "struct WU_MVar_ *""'"); 
+  }
+  arg1 = (struct WU_MVar_ *)(argp1);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_MVar__dof_set" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  if (arg1) (arg1)->dof = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_MVar__dof_get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_MVar_ *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  int result;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_MVar_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_MVar__dof_get" "', argument " "1"" of type '" "struct WU_MVar_ *""'"); 
+  }
+  arg1 = (struct WU_MVar_ *)(argp1);
+  result = (int) ((arg1)->dof);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_WU_MVar_(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_MVar_ *result = 0 ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "new_WU_MVar_", 0, 0, 0)) SWIG_fail;
+  result = (struct WU_MVar_ *)calloc(1, sizeof(struct WU_MVar_));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_MVar_, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_WU_MVar_(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_MVar_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -6892,11 +7277,11 @@ SWIGINTERN PyObject *_wrap_delete_Reader_(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Reader_, SWIG_POINTER_DISOWN |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_MVar_, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Reader_" "', argument " "1"" of type '" "struct Reader_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_WU_MVar_" "', argument " "1"" of type '" "struct WU_MVar_ *""'"); 
   }
-  arg1 = (struct Reader_ *)(argp1);
+  arg1 = (struct WU_MVar_ *)(argp1);
   free((char *) arg1);
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -6905,21 +7290,211 @@ fail:
 }
 
 
-SWIGINTERN PyObject *Reader__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_MVar__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj = NULL;
   if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_Reader_, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_WU_MVar_, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *Reader__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_MVar__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_CsvReader__base_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_wu_mvar_new(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CsvReader_ *arg1 = 0 ;
-  struct Reader_ *arg2 = 0 ;
+  int arg1 ;
+  int arg2 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  WU_MVar result;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "wu_mvar_new", 2, 2, swig_obj)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(swig_obj[0], &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "wu_mvar_new" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "wu_mvar_new" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  result = (WU_MVar)wu_mvar_new(arg1,arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_MVar_, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_StDev__update_set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_StDev_ *arg1 = 0 ;
+  double (*arg2)(struct WU_StDev_ *,double) = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "WU_StDev__update_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_StDev_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_StDev__update_set" "', argument " "1"" of type '" "struct WU_StDev_ *""'"); 
+  }
+  arg1 = (struct WU_StDev_ *)(argp1);
+  {
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_WU_StDev__double__double);
+    if (!SWIG_IsOK(res)) {
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_StDev__update_set" "', argument " "2"" of type '" "double (*)(struct WU_StDev_ *,double)""'"); 
+    }
+  }
+  if (arg1) (arg1)->update = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_StDev__update_get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_StDev_ *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  double (*result)(struct WU_StDev_ *,double) = 0 ;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_StDev_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_StDev__update_get" "', argument " "1"" of type '" "struct WU_StDev_ *""'"); 
+  }
+  arg1 = (struct WU_StDev_ *)(argp1);
+  result = (double (*)(struct WU_StDev_ *,double)) ((arg1)->update);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_WU_StDev__double__double);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_StDev__get_set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_StDev_ *arg1 = 0 ;
+  double (*arg2)(struct WU_StDev_ const *) = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "WU_StDev__get_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_StDev_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_StDev__get_set" "', argument " "1"" of type '" "struct WU_StDev_ *""'"); 
+  }
+  arg1 = (struct WU_StDev_ *)(argp1);
+  {
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_q_const__struct_WU_StDev___double);
+    if (!SWIG_IsOK(res)) {
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_StDev__get_set" "', argument " "2"" of type '" "double (*)(struct WU_StDev_ const *)""'"); 
+    }
+  }
+  if (arg1) (arg1)->get = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_StDev__get_get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_StDev_ *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  double (*result)(struct WU_StDev_ const *) = 0 ;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_StDev_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_StDev__get_get" "', argument " "1"" of type '" "struct WU_StDev_ *""'"); 
+  }
+  arg1 = (struct WU_StDev_ *)(argp1);
+  result = (double (*)(struct WU_StDev_ const *)) ((arg1)->get);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_q_const__struct_WU_StDev___double);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_StDev__delete_set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_StDev_ *arg1 = 0 ;
+  void (*arg2)(struct WU_StDev_ *) = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "WU_StDev__delete_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_StDev_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_StDev__delete_set" "', argument " "1"" of type '" "struct WU_StDev_ *""'"); 
+  }
+  arg1 = (struct WU_StDev_ *)(argp1);
+  {
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_WU_StDev___void);
+    if (!SWIG_IsOK(res)) {
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_StDev__delete_set" "', argument " "2"" of type '" "void (*)(struct WU_StDev_ *)""'"); 
+    }
+  }
+  if (arg1) (arg1)->delete = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_StDev__delete_get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_StDev_ *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  void (*result)(struct WU_StDev_ *) = 0 ;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_StDev_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_StDev__delete_get" "', argument " "1"" of type '" "struct WU_StDev_ *""'"); 
+  }
+  arg1 = (struct WU_StDev_ *)(argp1);
+  result = (void (*)(struct WU_StDev_ *)) ((arg1)->delete);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_WU_StDev___void);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_StDev__mvar_set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_StDev_ *arg1 = 0 ;
+  WU_MVar arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -6927,17 +7502,304 @@ SWIGINTERN PyObject *_wrap_CsvReader__base_set(PyObject *self, PyObject *args) {
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "CsvReader__base_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_StDev__mvar_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_StDev_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CsvReader__base_set" "', argument " "1"" of type '" "struct CsvReader_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_StDev__mvar_set" "', argument " "1"" of type '" "struct WU_StDev_ *""'"); 
   }
-  arg1 = (struct CsvReader_ *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_Reader_, 0 |  0 );
+  arg1 = (struct WU_StDev_ *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_WU_MVar_, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "CsvReader__base_set" "', argument " "2"" of type '" "struct Reader_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WU_StDev__mvar_set" "', argument " "2"" of type '" "WU_MVar""'"); 
   }
-  arg2 = (struct Reader_ *)(argp2);
+  arg2 = (WU_MVar)(argp2);
+  if (arg1) (arg1)->mvar = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_StDev__mvar_get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_StDev_ *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  WU_MVar result;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_StDev_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_StDev__mvar_get" "', argument " "1"" of type '" "struct WU_StDev_ *""'"); 
+  }
+  arg1 = (struct WU_StDev_ *)(argp1);
+  result = (WU_MVar) ((arg1)->mvar);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_MVar_, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_WU_StDev_(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_StDev_ *result = 0 ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "new_WU_StDev_", 0, 0, 0)) SWIG_fail;
+  result = (struct WU_StDev_ *)calloc(1, sizeof(struct WU_StDev_));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_StDev_, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_WU_StDev_(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_StDev_ *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_StDev_, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_WU_StDev_" "', argument " "1"" of type '" "struct WU_StDev_ *""'"); 
+  }
+  arg1 = (struct WU_StDev_ *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *WU_StDev__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj = NULL;
+  if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_WU_StDev_, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *WU_StDev__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
+}
+
+SWIGINTERN PyObject *_wrap_wu_stdev_new(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  int arg2 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  WU_StDev result;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "wu_stdev_new", 2, 2, swig_obj)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(swig_obj[0], &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "wu_stdev_new" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = (int)(val1);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "wu_stdev_new" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  result = (WU_StDev)wu_stdev_new(arg1,arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_StDev_, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_Reader__next_set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_Reader_ *arg1 = 0 ;
+  void *(*arg2)(struct WU_Reader_ *) = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "WU_Reader__next_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Reader_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Reader__next_set" "', argument " "1"" of type '" "struct WU_Reader_ *""'"); 
+  }
+  arg1 = (struct WU_Reader_ *)(argp1);
+  {
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_WU_Reader___p_void);
+    if (!SWIG_IsOK(res)) {
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_Reader__next_set" "', argument " "2"" of type '" "void *(*)(struct WU_Reader_ *)""'"); 
+    }
+  }
+  if (arg1) (arg1)->next = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_Reader__next_get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_Reader_ *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  void *(*result)(struct WU_Reader_ *) = 0 ;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Reader_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Reader__next_get" "', argument " "1"" of type '" "struct WU_Reader_ *""'"); 
+  }
+  arg1 = (struct WU_Reader_ *)(argp1);
+  result = (void *(*)(struct WU_Reader_ *)) ((arg1)->next);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_WU_Reader___p_void);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_Reader__delete_set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_Reader_ *arg1 = 0 ;
+  void (*arg2)(struct WU_Reader_ *) = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "WU_Reader__delete_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Reader_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Reader__delete_set" "', argument " "1"" of type '" "struct WU_Reader_ *""'"); 
+  }
+  arg1 = (struct WU_Reader_ *)(argp1);
+  {
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_WU_Reader___void);
+    if (!SWIG_IsOK(res)) {
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_Reader__delete_set" "', argument " "2"" of type '" "void (*)(struct WU_Reader_ *)""'"); 
+    }
+  }
+  if (arg1) (arg1)->delete = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_Reader__delete_get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_Reader_ *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  void (*result)(struct WU_Reader_ *) = 0 ;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Reader_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Reader__delete_get" "', argument " "1"" of type '" "struct WU_Reader_ *""'"); 
+  }
+  arg1 = (struct WU_Reader_ *)(argp1);
+  result = (void (*)(struct WU_Reader_ *)) ((arg1)->delete);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_WU_Reader___void);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_WU_Reader_(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_Reader_ *result = 0 ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "new_WU_Reader_", 0, 0, 0)) SWIG_fail;
+  result = (struct WU_Reader_ *)calloc(1, sizeof(struct WU_Reader_));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_Reader_, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_WU_Reader_(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_Reader_ *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Reader_, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_WU_Reader_" "', argument " "1"" of type '" "struct WU_Reader_ *""'"); 
+  }
+  arg1 = (struct WU_Reader_ *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *WU_Reader__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj = NULL;
+  if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_WU_Reader_, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *WU_Reader__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
+}
+
+SWIGINTERN PyObject *_wrap_WU_CsvReader__base_set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_CsvReader_ *arg1 = 0 ;
+  struct WU_Reader_ *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "WU_CsvReader__base_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CsvReader__base_set" "', argument " "1"" of type '" "struct WU_CsvReader_ *""'"); 
+  }
+  arg1 = (struct WU_CsvReader_ *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_WU_Reader_, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WU_CsvReader__base_set" "', argument " "2"" of type '" "struct WU_Reader_ *""'"); 
+  }
+  arg2 = (struct WU_Reader_ *)(argp2);
   if (arg1) (arg1)->base = *arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -6946,33 +7808,33 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_CsvReader__base_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CsvReader__base_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CsvReader_ *arg1 = 0 ;
+  struct WU_CsvReader_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  struct Reader_ *result = 0 ;
+  struct WU_Reader_ *result = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CsvReader__base_get" "', argument " "1"" of type '" "struct CsvReader_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CsvReader__base_get" "', argument " "1"" of type '" "struct WU_CsvReader_ *""'"); 
   }
-  arg1 = (struct CsvReader_ *)(argp1);
-  result = (struct Reader_ *)& ((arg1)->base);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Reader_, 0 |  0 );
+  arg1 = (struct WU_CsvReader_ *)(argp1);
+  result = (struct WU_Reader_ *)& ((arg1)->base);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_Reader_, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_CsvReader__file_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CsvReader__file_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CsvReader_ *arg1 = 0 ;
+  struct WU_CsvReader_ *arg1 = 0 ;
   FILE *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -6981,15 +7843,15 @@ SWIGINTERN PyObject *_wrap_CsvReader__file_set(PyObject *self, PyObject *args) {
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "CsvReader__file_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_CsvReader__file_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CsvReader__file_set" "', argument " "1"" of type '" "struct CsvReader_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CsvReader__file_set" "', argument " "1"" of type '" "struct WU_CsvReader_ *""'"); 
   }
-  arg1 = (struct CsvReader_ *)(argp1);
+  arg1 = (struct WU_CsvReader_ *)(argp1);
   res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_FILE, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "CsvReader__file_set" "', argument " "2"" of type '" "FILE *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WU_CsvReader__file_set" "', argument " "2"" of type '" "FILE *""'"); 
   }
   arg2 = (FILE *)(argp2);
   if (arg1) (arg1)->file = arg2;
@@ -7000,9 +7862,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_CsvReader__file_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CsvReader__file_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CsvReader_ *arg1 = 0 ;
+  struct WU_CsvReader_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -7011,11 +7873,11 @@ SWIGINTERN PyObject *_wrap_CsvReader__file_get(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CsvReader__file_get" "', argument " "1"" of type '" "struct CsvReader_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CsvReader__file_get" "', argument " "1"" of type '" "struct WU_CsvReader_ *""'"); 
   }
-  arg1 = (struct CsvReader_ *)(argp1);
+  arg1 = (struct WU_CsvReader_ *)(argp1);
   result = (FILE *) ((arg1)->file);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FILE, 0 |  0 );
   return resultobj;
@@ -7024,9 +7886,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_CsvReader__line_buffer_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CsvReader__line_buffer_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CsvReader_ *arg1 = 0 ;
+  struct WU_CsvReader_ *arg1 = 0 ;
   char *arg2 = (char *)0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -7035,15 +7897,15 @@ SWIGINTERN PyObject *_wrap_CsvReader__line_buffer_set(PyObject *self, PyObject *
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "CsvReader__line_buffer_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_CsvReader__line_buffer_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CsvReader__line_buffer_set" "', argument " "1"" of type '" "struct CsvReader_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CsvReader__line_buffer_set" "', argument " "1"" of type '" "struct WU_CsvReader_ *""'"); 
   }
-  arg1 = (struct CsvReader_ *)(argp1);
+  arg1 = (struct WU_CsvReader_ *)(argp1);
   res2 = SWIG_AsCharArray(swig_obj[1], temp2, 1024);
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "CsvReader__line_buffer_set" "', argument " "2"" of type '" "char [1024]""'");
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WU_CsvReader__line_buffer_set" "', argument " "2"" of type '" "char [1024]""'");
   }
   arg2 = (char *)(temp2);
   if (arg2) memcpy(arg1->line_buffer,arg2,1024*sizeof(char));
@@ -7055,9 +7917,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_CsvReader__line_buffer_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CsvReader__line_buffer_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CsvReader_ *arg1 = 0 ;
+  struct WU_CsvReader_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -7066,11 +7928,11 @@ SWIGINTERN PyObject *_wrap_CsvReader__line_buffer_get(PyObject *self, PyObject *
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CsvReader__line_buffer_get" "', argument " "1"" of type '" "struct CsvReader_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CsvReader__line_buffer_get" "', argument " "1"" of type '" "struct WU_CsvReader_ *""'"); 
   }
-  arg1 = (struct CsvReader_ *)(argp1);
+  arg1 = (struct WU_CsvReader_ *)(argp1);
   result = (char *)(char *) ((arg1)->line_buffer);
   {
     size_t size = SWIG_strnlen(result, 1024);
@@ -7085,9 +7947,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_CsvReader__has_headers_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CsvReader__has_headers_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CsvReader_ *arg1 = 0 ;
+  struct WU_CsvReader_ *arg1 = 0 ;
   bool arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -7096,15 +7958,15 @@ SWIGINTERN PyObject *_wrap_CsvReader__has_headers_set(PyObject *self, PyObject *
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "CsvReader__has_headers_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_CsvReader__has_headers_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CsvReader__has_headers_set" "', argument " "1"" of type '" "struct CsvReader_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CsvReader__has_headers_set" "', argument " "1"" of type '" "struct WU_CsvReader_ *""'"); 
   }
-  arg1 = (struct CsvReader_ *)(argp1);
+  arg1 = (struct WU_CsvReader_ *)(argp1);
   ecode2 = SWIG_AsVal_bool(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "CsvReader__has_headers_set" "', argument " "2"" of type '" "bool""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_CsvReader__has_headers_set" "', argument " "2"" of type '" "bool""'");
   } 
   arg2 = (bool)(val2);
   if (arg1) (arg1)->has_headers = arg2;
@@ -7115,9 +7977,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_CsvReader__has_headers_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CsvReader__has_headers_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CsvReader_ *arg1 = 0 ;
+  struct WU_CsvReader_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -7126,11 +7988,11 @@ SWIGINTERN PyObject *_wrap_CsvReader__has_headers_get(PyObject *self, PyObject *
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CsvReader__has_headers_get" "', argument " "1"" of type '" "struct CsvReader_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CsvReader__has_headers_get" "', argument " "1"" of type '" "struct WU_CsvReader_ *""'"); 
   }
-  arg1 = (struct CsvReader_ *)(argp1);
+  arg1 = (struct WU_CsvReader_ *)(argp1);
   result = (bool) ((arg1)->has_headers);
   resultobj = SWIG_From_bool((bool)(result));
   return resultobj;
@@ -7139,10 +8001,10 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_CsvReader__data_type_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CsvReader__data_type_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CsvReader_ *arg1 = 0 ;
-  DataType arg2 ;
+  struct WU_CsvReader_ *arg1 = 0 ;
+  WU_DataType arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int val2 ;
@@ -7150,17 +8012,17 @@ SWIGINTERN PyObject *_wrap_CsvReader__data_type_set(PyObject *self, PyObject *ar
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "CsvReader__data_type_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_CsvReader__data_type_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CsvReader__data_type_set" "', argument " "1"" of type '" "struct CsvReader_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CsvReader__data_type_set" "', argument " "1"" of type '" "struct WU_CsvReader_ *""'"); 
   }
-  arg1 = (struct CsvReader_ *)(argp1);
+  arg1 = (struct WU_CsvReader_ *)(argp1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "CsvReader__data_type_set" "', argument " "2"" of type '" "DataType""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_CsvReader__data_type_set" "', argument " "2"" of type '" "WU_DataType""'");
   } 
-  arg2 = (DataType)(val2);
+  arg2 = (WU_DataType)(val2);
   if (arg1) (arg1)->data_type = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -7169,23 +8031,23 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_CsvReader__data_type_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CsvReader__data_type_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CsvReader_ *arg1 = 0 ;
+  struct WU_CsvReader_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  DataType result;
+  WU_DataType result;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CsvReader__data_type_get" "', argument " "1"" of type '" "struct CsvReader_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CsvReader__data_type_get" "', argument " "1"" of type '" "struct WU_CsvReader_ *""'"); 
   }
-  arg1 = (struct CsvReader_ *)(argp1);
-  result = (DataType) ((arg1)->data_type);
+  arg1 = (struct WU_CsvReader_ *)(argp1);
+  result = (WU_DataType) ((arg1)->data_type);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
@@ -7193,10 +8055,10 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_CsvReader__last_error_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CsvReader__last_error_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CsvReader_ *arg1 = 0 ;
-  CsvError arg2 ;
+  struct WU_CsvReader_ *arg1 = 0 ;
+  WU_CsvError arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int val2 ;
@@ -7204,17 +8066,17 @@ SWIGINTERN PyObject *_wrap_CsvReader__last_error_set(PyObject *self, PyObject *a
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "CsvReader__last_error_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_CsvReader__last_error_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CsvReader__last_error_set" "', argument " "1"" of type '" "struct CsvReader_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CsvReader__last_error_set" "', argument " "1"" of type '" "struct WU_CsvReader_ *""'"); 
   }
-  arg1 = (struct CsvReader_ *)(argp1);
+  arg1 = (struct WU_CsvReader_ *)(argp1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "CsvReader__last_error_set" "', argument " "2"" of type '" "CsvError""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_CsvReader__last_error_set" "', argument " "2"" of type '" "WU_CsvError""'");
   } 
-  arg2 = (CsvError)(val2);
+  arg2 = (WU_CsvError)(val2);
   if (arg1) (arg1)->last_error = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -7223,23 +8085,23 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_CsvReader__last_error_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CsvReader__last_error_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CsvReader_ *arg1 = 0 ;
+  struct WU_CsvReader_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  CsvError result;
+  WU_CsvError result;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CsvReader__last_error_get" "', argument " "1"" of type '" "struct CsvReader_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CsvReader__last_error_get" "', argument " "1"" of type '" "struct WU_CsvReader_ *""'"); 
   }
-  arg1 = (struct CsvReader_ *)(argp1);
-  result = (CsvError) ((arg1)->last_error);
+  arg1 = (struct WU_CsvReader_ *)(argp1);
+  result = (WU_CsvError) ((arg1)->last_error);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
@@ -7247,33 +8109,33 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_CsvReader__data_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CsvReader__data_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CsvReader_ *arg1 = 0 ;
+  struct WU_CsvReader_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  CsvReader__data *result = 0 ;
+  WU_CsvReader__data *result = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CsvReader__data_get" "', argument " "1"" of type '" "struct CsvReader_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CsvReader__data_get" "', argument " "1"" of type '" "struct WU_CsvReader_ *""'"); 
   }
-  arg1 = (struct CsvReader_ *)(argp1);
-  result = (CsvReader__data *)& ((arg1)->data);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_CsvReader__data, 0 |  0 );
+  arg1 = (struct WU_CsvReader_ *)(argp1);
+  result = (WU_CsvReader__data *)& ((arg1)->data);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_CsvReader__data, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_CsvReader__next(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CsvReader__next(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CsvReader_ *arg1 = 0 ;
+  struct WU_CsvReader_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -7282,12 +8144,12 @@ SWIGINTERN PyObject *_wrap_CsvReader__next(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CsvReader__next" "', argument " "1"" of type '" "struct CsvReader_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CsvReader__next" "', argument " "1"" of type '" "struct WU_CsvReader_ *""'"); 
   }
-  arg1 = (struct CsvReader_ *)(argp1);
-  result = (void *)CsvReader__next(arg1);
+  arg1 = (struct WU_CsvReader_ *)(argp1);
+  result = (void *)WU_CsvReader__next(arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_void, 0 |  0 );
   return resultobj;
 fail:
@@ -7295,23 +8157,23 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_CsvReader__get_last_error(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CsvReader__get_last_error(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CsvReader_ *arg1 = 0 ;
+  struct WU_CsvReader_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  CsvError result;
+  WU_CsvError result;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CsvReader__get_last_error" "', argument " "1"" of type '" "struct CsvReader_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CsvReader__get_last_error" "', argument " "1"" of type '" "struct WU_CsvReader_ *""'"); 
   }
-  arg1 = (struct CsvReader_ *)(argp1);
-  result = (CsvError)CsvReader__get_last_error(arg1);
+  arg1 = (struct WU_CsvReader_ *)(argp1);
+  result = (WU_CsvError)WU_CsvReader__get_last_error(arg1);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
@@ -7319,81 +8181,81 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_CsvReader__read_candle(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CsvReader__read_candle(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CsvReader_ *arg1 = 0 ;
+  struct WU_CsvReader_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  Candle *result = 0 ;
+  WU_Candle *result = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CsvReader__read_candle" "', argument " "1"" of type '" "struct CsvReader_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CsvReader__read_candle" "', argument " "1"" of type '" "struct WU_CsvReader_ *""'"); 
   }
-  arg1 = (struct CsvReader_ *)(argp1);
-  result = (Candle *)CsvReader__read_candle(arg1);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Candle_, 0 |  0 );
+  arg1 = (struct WU_CsvReader_ *)(argp1);
+  result = (WU_Candle *)WU_CsvReader__read_candle(arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_Candle_, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_CsvReader__read_trade(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CsvReader__read_trade(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CsvReader_ *arg1 = 0 ;
+  struct WU_CsvReader_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  Trade *result = 0 ;
+  WU_Trade *result = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CsvReader__read_trade" "', argument " "1"" of type '" "struct CsvReader_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CsvReader__read_trade" "', argument " "1"" of type '" "struct WU_CsvReader_ *""'"); 
   }
-  arg1 = (struct CsvReader_ *)(argp1);
-  result = (Trade *)CsvReader__read_trade(arg1);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Trade, 0 |  0 );
+  arg1 = (struct WU_CsvReader_ *)(argp1);
+  result = (WU_Trade *)WU_CsvReader__read_trade(arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_Trade, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_CsvReader__read_single_value(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CsvReader__read_single_value(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CsvReader_ *arg1 = 0 ;
+  struct WU_CsvReader_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  SingleValue *result = 0 ;
+  WU_Single *result = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CsvReader__read_single_value" "', argument " "1"" of type '" "struct CsvReader_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CsvReader__read_single_value" "', argument " "1"" of type '" "struct WU_CsvReader_ *""'"); 
   }
-  arg1 = (struct CsvReader_ *)(argp1);
-  result = (SingleValue *)CsvReader__read_single_value(arg1);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SingleValue, 0 |  0 );
+  arg1 = (struct WU_CsvReader_ *)(argp1);
+  result = (WU_Single *)WU_CsvReader__read_single_value(arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_Single, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_CsvReader_(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_WU_CsvReader_(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CsvReader_ *arg1 = 0 ;
+  struct WU_CsvReader_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -7401,12 +8263,12 @@ SWIGINTERN PyObject *_wrap_delete_CsvReader_(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader_, SWIG_POINTER_DISOWN |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader_, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_CsvReader_" "', argument " "1"" of type '" "struct CsvReader_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_WU_CsvReader_" "', argument " "1"" of type '" "struct WU_CsvReader_ *""'"); 
   }
-  arg1 = (struct CsvReader_ *)(argp1);
-  delete_CsvReader_(arg1);
+  arg1 = (struct WU_CsvReader_ *)(argp1);
+  delete_WU_CsvReader_(arg1);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -7414,35 +8276,35 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_CsvReader_(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_WU_CsvReader_(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CsvReader_ *result = 0 ;
+  struct WU_CsvReader_ *result = 0 ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "new_CsvReader_", 0, 0, 0)) SWIG_fail;
-  result = (struct CsvReader_ *)calloc(1, sizeof(struct CsvReader_));
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_CsvReader_, SWIG_POINTER_NEW |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "new_WU_CsvReader_", 0, 0, 0)) SWIG_fail;
+  result = (struct WU_CsvReader_ *)calloc(1, sizeof(struct WU_CsvReader_));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_CsvReader_, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *CsvReader__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_CsvReader__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj = NULL;
   if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_CsvReader_, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_WU_CsvReader_, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *CsvReader__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_CsvReader__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_CsvReader__data_candle_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CsvReader__data_candle_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  CsvReader__data *arg1 = 0 ;
-  Candle *arg2 = 0 ;
+  WU_CsvReader__data *arg1 = 0 ;
+  WU_Candle *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -7450,17 +8312,17 @@ SWIGINTERN PyObject *_wrap_CsvReader__data_candle_set(PyObject *self, PyObject *
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "CsvReader__data_candle_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader__data, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_CsvReader__data_candle_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader__data, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CsvReader__data_candle_set" "', argument " "1"" of type '" "CsvReader__data *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CsvReader__data_candle_set" "', argument " "1"" of type '" "WU_CsvReader__data *""'"); 
   }
-  arg1 = (CsvReader__data *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_Candle_, 0 |  0 );
+  arg1 = (WU_CsvReader__data *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_WU_Candle_, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "CsvReader__data_candle_set" "', argument " "2"" of type '" "Candle *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WU_CsvReader__data_candle_set" "', argument " "2"" of type '" "WU_Candle *""'"); 
   }
-  arg2 = (Candle *)(argp2);
+  arg2 = (WU_Candle *)(argp2);
   if (arg1) (arg1)->candle = *arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -7469,34 +8331,34 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_CsvReader__data_candle_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CsvReader__data_candle_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  CsvReader__data *arg1 = 0 ;
+  WU_CsvReader__data *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  Candle *result = 0 ;
+  WU_Candle *result = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader__data, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader__data, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CsvReader__data_candle_get" "', argument " "1"" of type '" "CsvReader__data *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CsvReader__data_candle_get" "', argument " "1"" of type '" "WU_CsvReader__data *""'"); 
   }
-  arg1 = (CsvReader__data *)(argp1);
-  result = (Candle *)& ((arg1)->candle);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Candle_, 0 |  0 );
+  arg1 = (WU_CsvReader__data *)(argp1);
+  result = (WU_Candle *)& ((arg1)->candle);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_Candle_, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_CsvReader__data_trade_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CsvReader__data_trade_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  CsvReader__data *arg1 = 0 ;
-  Trade *arg2 = 0 ;
+  WU_CsvReader__data *arg1 = 0 ;
+  WU_Trade *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -7504,17 +8366,17 @@ SWIGINTERN PyObject *_wrap_CsvReader__data_trade_set(PyObject *self, PyObject *a
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "CsvReader__data_trade_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader__data, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_CsvReader__data_trade_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader__data, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CsvReader__data_trade_set" "', argument " "1"" of type '" "CsvReader__data *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CsvReader__data_trade_set" "', argument " "1"" of type '" "WU_CsvReader__data *""'"); 
   }
-  arg1 = (CsvReader__data *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_Trade, 0 |  0 );
+  arg1 = (WU_CsvReader__data *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_WU_Trade, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "CsvReader__data_trade_set" "', argument " "2"" of type '" "Trade *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WU_CsvReader__data_trade_set" "', argument " "2"" of type '" "WU_Trade *""'"); 
   }
-  arg2 = (Trade *)(argp2);
+  arg2 = (WU_Trade *)(argp2);
   if (arg1) (arg1)->trade = *arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -7523,34 +8385,34 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_CsvReader__data_trade_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CsvReader__data_trade_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  CsvReader__data *arg1 = 0 ;
+  WU_CsvReader__data *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  Trade *result = 0 ;
+  WU_Trade *result = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader__data, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader__data, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CsvReader__data_trade_get" "', argument " "1"" of type '" "CsvReader__data *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CsvReader__data_trade_get" "', argument " "1"" of type '" "WU_CsvReader__data *""'"); 
   }
-  arg1 = (CsvReader__data *)(argp1);
-  result = (Trade *)& ((arg1)->trade);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Trade, 0 |  0 );
+  arg1 = (WU_CsvReader__data *)(argp1);
+  result = (WU_Trade *)& ((arg1)->trade);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_Trade, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_CsvReader__data_single_value_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CsvReader__data_single_value_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  CsvReader__data *arg1 = 0 ;
-  SingleValue *arg2 = 0 ;
+  WU_CsvReader__data *arg1 = 0 ;
+  WU_Single *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -7558,17 +8420,17 @@ SWIGINTERN PyObject *_wrap_CsvReader__data_single_value_set(PyObject *self, PyOb
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "CsvReader__data_single_value_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader__data, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_CsvReader__data_single_value_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader__data, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CsvReader__data_single_value_set" "', argument " "1"" of type '" "CsvReader__data *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CsvReader__data_single_value_set" "', argument " "1"" of type '" "WU_CsvReader__data *""'"); 
   }
-  arg1 = (CsvReader__data *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_SingleValue, 0 |  0 );
+  arg1 = (WU_CsvReader__data *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_WU_Single, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "CsvReader__data_single_value_set" "', argument " "2"" of type '" "SingleValue *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WU_CsvReader__data_single_value_set" "', argument " "2"" of type '" "WU_Single *""'"); 
   }
-  arg2 = (SingleValue *)(argp2);
+  arg2 = (WU_Single *)(argp2);
   if (arg1) (arg1)->single_value = *arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -7577,47 +8439,47 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_CsvReader__data_single_value_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CsvReader__data_single_value_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  CsvReader__data *arg1 = 0 ;
+  WU_CsvReader__data *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  SingleValue *result = 0 ;
+  WU_Single *result = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader__data, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader__data, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CsvReader__data_single_value_get" "', argument " "1"" of type '" "CsvReader__data *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CsvReader__data_single_value_get" "', argument " "1"" of type '" "WU_CsvReader__data *""'"); 
   }
-  arg1 = (CsvReader__data *)(argp1);
-  result = (SingleValue *)& ((arg1)->single_value);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SingleValue, 0 |  0 );
+  arg1 = (WU_CsvReader__data *)(argp1);
+  result = (WU_Single *)& ((arg1)->single_value);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_Single, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_new_CsvReader__data(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_WU_CsvReader__data(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  CsvReader__data *result = 0 ;
+  WU_CsvReader__data *result = 0 ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "new_CsvReader__data", 0, 0, 0)) SWIG_fail;
-  result = (CsvReader__data *)calloc(1, sizeof(CsvReader__data));
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_CsvReader__data, SWIG_POINTER_NEW |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "new_WU_CsvReader__data", 0, 0, 0)) SWIG_fail;
+  result = (WU_CsvReader__data *)calloc(1, sizeof(WU_CsvReader__data));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_CsvReader__data, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_CsvReader__data(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_WU_CsvReader__data(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  CsvReader__data *arg1 = 0 ;
+  WU_CsvReader__data *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -7625,11 +8487,11 @@ SWIGINTERN PyObject *_wrap_delete_CsvReader__data(PyObject *self, PyObject *args
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CsvReader__data, SWIG_POINTER_DISOWN |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CsvReader__data, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_CsvReader__data" "', argument " "1"" of type '" "CsvReader__data *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_WU_CsvReader__data" "', argument " "1"" of type '" "WU_CsvReader__data *""'"); 
   }
-  arg1 = (CsvReader__data *)(argp1);
+  arg1 = (WU_CsvReader__data *)(argp1);
   free((char *) arg1);
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -7638,21 +8500,21 @@ fail:
 }
 
 
-SWIGINTERN PyObject *CsvReader__data_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_CsvReader__data_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj = NULL;
   if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_CsvReader__data, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_WU_CsvReader__data, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *CsvReader__data_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_CsvReader__data_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_csv_reader_new(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_wu_csv_reader_new(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
   FILE *arg1 = 0 ;
-  DataType arg2 ;
+  WU_DataType arg2 ;
   bool arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -7661,52 +8523,52 @@ SWIGINTERN PyObject *_wrap_csv_reader_new(PyObject *self, PyObject *args) {
   bool val3 ;
   int ecode3 = 0 ;
   PyObject *swig_obj[3] ;
-  CsvReader result;
+  WU_CsvReader result;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "csv_reader_new", 3, 3, swig_obj)) SWIG_fail;
+  if (!SWIG_Python_UnpackTuple(args, "wu_csv_reader_new", 3, 3, swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_FILE, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "csv_reader_new" "', argument " "1"" of type '" "FILE *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "wu_csv_reader_new" "', argument " "1"" of type '" "FILE *""'"); 
   }
   arg1 = (FILE *)(argp1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "csv_reader_new" "', argument " "2"" of type '" "DataType""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "wu_csv_reader_new" "', argument " "2"" of type '" "WU_DataType""'");
   } 
-  arg2 = (DataType)(val2);
+  arg2 = (WU_DataType)(val2);
   ecode3 = SWIG_AsVal_bool(swig_obj[2], &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "csv_reader_new" "', argument " "3"" of type '" "bool""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "wu_csv_reader_new" "', argument " "3"" of type '" "bool""'");
   } 
   arg3 = (bool)(val3);
-  result = (CsvReader)csv_reader_new(arg1,arg2,arg3);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_CsvReader_, 0 |  0 );
+  result = (WU_CsvReader)wu_csv_reader_new(arg1,arg2,arg3);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_CsvReader_, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Portfolio__update_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Portfolio__update_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Portfolio_ *arg1 = 0 ;
-  void (*arg2)(struct Portfolio_ *,Signal const) = 0 ;
+  struct WU_Portfolio_ *arg1 = 0 ;
+  void (*arg2)(struct WU_Portfolio_ *,WU_Signal const) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Portfolio__update_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Portfolio_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Portfolio__update_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Portfolio_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Portfolio__update_set" "', argument " "1"" of type '" "struct Portfolio_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Portfolio__update_set" "', argument " "1"" of type '" "struct WU_Portfolio_ *""'"); 
   }
-  arg1 = (struct Portfolio_ *)(argp1);
+  arg1 = (struct WU_Portfolio_ *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_Portfolio__q_const__Signal__void);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_WU_Portfolio__q_const__WU_Signal__void);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "Portfolio__update_set" "', argument " "2"" of type '" "void (*)(struct Portfolio_ *,Signal const)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_Portfolio__update_set" "', argument " "2"" of type '" "void (*)(struct WU_Portfolio_ *,WU_Signal const)""'"); 
     }
   }
   if (arg1) (arg1)->update = arg2;
@@ -7717,49 +8579,49 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Portfolio__update_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Portfolio__update_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Portfolio_ *arg1 = 0 ;
+  struct WU_Portfolio_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  void (*result)(struct Portfolio_ *,Signal const) = 0 ;
+  void (*result)(struct WU_Portfolio_ *,WU_Signal const) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Portfolio_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Portfolio_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Portfolio__update_get" "', argument " "1"" of type '" "struct Portfolio_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Portfolio__update_get" "', argument " "1"" of type '" "struct WU_Portfolio_ *""'"); 
   }
-  arg1 = (struct Portfolio_ *)(argp1);
-  result = (void (*)(struct Portfolio_ *,Signal const)) ((arg1)->update);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_Portfolio__q_const__Signal__void);
+  arg1 = (struct WU_Portfolio_ *)(argp1);
+  result = (void (*)(struct WU_Portfolio_ *,WU_Signal const)) ((arg1)->update);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_WU_Portfolio__q_const__WU_Signal__void);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Portfolio__value_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Portfolio__value_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Portfolio_ *arg1 = 0 ;
-  double (*arg2)(struct Portfolio_ const *) = 0 ;
+  struct WU_Portfolio_ *arg1 = 0 ;
+  double (*arg2)(struct WU_Portfolio_ const *) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Portfolio__value_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Portfolio_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Portfolio__value_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Portfolio_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Portfolio__value_set" "', argument " "1"" of type '" "struct Portfolio_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Portfolio__value_set" "', argument " "1"" of type '" "struct WU_Portfolio_ *""'"); 
   }
-  arg1 = (struct Portfolio_ *)(argp1);
+  arg1 = (struct WU_Portfolio_ *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_q_const__struct_Portfolio___double);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_q_const__struct_WU_Portfolio___double);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "Portfolio__value_set" "', argument " "2"" of type '" "double (*)(struct Portfolio_ const *)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_Portfolio__value_set" "', argument " "2"" of type '" "double (*)(struct WU_Portfolio_ const *)""'"); 
     }
   }
   if (arg1) (arg1)->value = arg2;
@@ -7770,49 +8632,49 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Portfolio__value_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Portfolio__value_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Portfolio_ *arg1 = 0 ;
+  struct WU_Portfolio_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  double (*result)(struct Portfolio_ const *) = 0 ;
+  double (*result)(struct WU_Portfolio_ const *) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Portfolio_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Portfolio_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Portfolio__value_get" "', argument " "1"" of type '" "struct Portfolio_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Portfolio__value_get" "', argument " "1"" of type '" "struct WU_Portfolio_ *""'"); 
   }
-  arg1 = (struct Portfolio_ *)(argp1);
-  result = (double (*)(struct Portfolio_ const *)) ((arg1)->value);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_q_const__struct_Portfolio___double);
+  arg1 = (struct WU_Portfolio_ *)(argp1);
+  result = (double (*)(struct WU_Portfolio_ const *)) ((arg1)->value);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_q_const__struct_WU_Portfolio___double);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Portfolio__pnl_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Portfolio__pnl_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Portfolio_ *arg1 = 0 ;
-  double (*arg2)(struct Portfolio_ const *) = 0 ;
+  struct WU_Portfolio_ *arg1 = 0 ;
+  double (*arg2)(struct WU_Portfolio_ const *) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Portfolio__pnl_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Portfolio_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Portfolio__pnl_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Portfolio_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Portfolio__pnl_set" "', argument " "1"" of type '" "struct Portfolio_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Portfolio__pnl_set" "', argument " "1"" of type '" "struct WU_Portfolio_ *""'"); 
   }
-  arg1 = (struct Portfolio_ *)(argp1);
+  arg1 = (struct WU_Portfolio_ *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_q_const__struct_Portfolio___double);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_q_const__struct_WU_Portfolio___double);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "Portfolio__pnl_set" "', argument " "2"" of type '" "double (*)(struct Portfolio_ const *)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_Portfolio__pnl_set" "', argument " "2"" of type '" "double (*)(struct WU_Portfolio_ const *)""'"); 
     }
   }
   if (arg1) (arg1)->pnl = arg2;
@@ -7823,49 +8685,49 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Portfolio__pnl_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Portfolio__pnl_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Portfolio_ *arg1 = 0 ;
+  struct WU_Portfolio_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  double (*result)(struct Portfolio_ const *) = 0 ;
+  double (*result)(struct WU_Portfolio_ const *) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Portfolio_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Portfolio_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Portfolio__pnl_get" "', argument " "1"" of type '" "struct Portfolio_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Portfolio__pnl_get" "', argument " "1"" of type '" "struct WU_Portfolio_ *""'"); 
   }
-  arg1 = (struct Portfolio_ *)(argp1);
-  result = (double (*)(struct Portfolio_ const *)) ((arg1)->pnl);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_q_const__struct_Portfolio___double);
+  arg1 = (struct WU_Portfolio_ *)(argp1);
+  result = (double (*)(struct WU_Portfolio_ const *)) ((arg1)->pnl);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_q_const__struct_WU_Portfolio___double);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Portfolio__delete_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Portfolio__delete_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Portfolio_ *arg1 = 0 ;
-  void (*arg2)(struct Portfolio_ *) = 0 ;
+  struct WU_Portfolio_ *arg1 = 0 ;
+  void (*arg2)(struct WU_Portfolio_ *) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Portfolio__delete_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Portfolio_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Portfolio__delete_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Portfolio_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Portfolio__delete_set" "', argument " "1"" of type '" "struct Portfolio_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Portfolio__delete_set" "', argument " "1"" of type '" "struct WU_Portfolio_ *""'"); 
   }
-  arg1 = (struct Portfolio_ *)(argp1);
+  arg1 = (struct WU_Portfolio_ *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_Portfolio___void);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_WU_Portfolio___void);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "Portfolio__delete_set" "', argument " "2"" of type '" "void (*)(struct Portfolio_ *)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_Portfolio__delete_set" "', argument " "2"" of type '" "void (*)(struct WU_Portfolio_ *)""'"); 
     }
   }
   if (arg1) (arg1)->delete = arg2;
@@ -7876,47 +8738,47 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Portfolio__delete_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Portfolio__delete_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Portfolio_ *arg1 = 0 ;
+  struct WU_Portfolio_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  void (*result)(struct Portfolio_ *) = 0 ;
+  void (*result)(struct WU_Portfolio_ *) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Portfolio_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Portfolio_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Portfolio__delete_get" "', argument " "1"" of type '" "struct Portfolio_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Portfolio__delete_get" "', argument " "1"" of type '" "struct WU_Portfolio_ *""'"); 
   }
-  arg1 = (struct Portfolio_ *)(argp1);
-  result = (void (*)(struct Portfolio_ *)) ((arg1)->delete);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_Portfolio___void);
+  arg1 = (struct WU_Portfolio_ *)(argp1);
+  result = (void (*)(struct WU_Portfolio_ *)) ((arg1)->delete);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_WU_Portfolio___void);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_new_Portfolio_(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_WU_Portfolio_(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Portfolio_ *result = 0 ;
+  struct WU_Portfolio_ *result = 0 ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "new_Portfolio_", 0, 0, 0)) SWIG_fail;
-  result = (struct Portfolio_ *)calloc(1, sizeof(struct Portfolio_));
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Portfolio_, SWIG_POINTER_NEW |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "new_WU_Portfolio_", 0, 0, 0)) SWIG_fail;
+  result = (struct WU_Portfolio_ *)calloc(1, sizeof(struct WU_Portfolio_));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_Portfolio_, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_Portfolio_(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_WU_Portfolio_(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Portfolio_ *arg1 = 0 ;
+  struct WU_Portfolio_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -7924,11 +8786,11 @@ SWIGINTERN PyObject *_wrap_delete_Portfolio_(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Portfolio_, SWIG_POINTER_DISOWN |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Portfolio_, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Portfolio_" "', argument " "1"" of type '" "struct Portfolio_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_WU_Portfolio_" "', argument " "1"" of type '" "struct WU_Portfolio_ *""'"); 
   }
-  arg1 = (struct Portfolio_ *)(argp1);
+  arg1 = (struct WU_Portfolio_ *)(argp1);
   free((char *) arg1);
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -7937,20 +8799,20 @@ fail:
 }
 
 
-SWIGINTERN PyObject *Portfolio__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_Portfolio__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj = NULL;
   if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_Portfolio_, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_WU_Portfolio_, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *Portfolio__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_Portfolio__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_Position__timestamp_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Position__timestamp_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Position_ *arg1 = 0 ;
+  struct WU_Position_ *arg1 = 0 ;
   int64_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -7959,15 +8821,15 @@ SWIGINTERN PyObject *_wrap_Position__timestamp_set(PyObject *self, PyObject *arg
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Position__timestamp_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Position_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Position__timestamp_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Position_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Position__timestamp_set" "', argument " "1"" of type '" "struct Position_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Position__timestamp_set" "', argument " "1"" of type '" "struct WU_Position_ *""'"); 
   }
-  arg1 = (struct Position_ *)(argp1);
+  arg1 = (struct WU_Position_ *)(argp1);
   ecode2 = SWIG_AsVal_long_SS_long(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Position__timestamp_set" "', argument " "2"" of type '" "int64_t""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_Position__timestamp_set" "', argument " "2"" of type '" "int64_t""'");
   } 
   arg2 = (int64_t)(val2);
   if (arg1) (arg1)->timestamp = arg2;
@@ -7978,9 +8840,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Position__timestamp_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Position__timestamp_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Position_ *arg1 = 0 ;
+  struct WU_Position_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -7989,11 +8851,11 @@ SWIGINTERN PyObject *_wrap_Position__timestamp_get(PyObject *self, PyObject *arg
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Position_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Position_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Position__timestamp_get" "', argument " "1"" of type '" "struct Position_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Position__timestamp_get" "', argument " "1"" of type '" "struct WU_Position_ *""'"); 
   }
-  arg1 = (struct Position_ *)(argp1);
+  arg1 = (struct WU_Position_ *)(argp1);
   result = (int64_t) ((arg1)->timestamp);
   resultobj = SWIG_From_long_SS_long((long long)(result));
   return resultobj;
@@ -8002,9 +8864,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Position__quantity_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Position__quantity_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Position_ *arg1 = 0 ;
+  struct WU_Position_ *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -8013,15 +8875,15 @@ SWIGINTERN PyObject *_wrap_Position__quantity_set(PyObject *self, PyObject *args
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Position__quantity_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Position_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Position__quantity_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Position_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Position__quantity_set" "', argument " "1"" of type '" "struct Position_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Position__quantity_set" "', argument " "1"" of type '" "struct WU_Position_ *""'"); 
   }
-  arg1 = (struct Position_ *)(argp1);
+  arg1 = (struct WU_Position_ *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Position__quantity_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_Position__quantity_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->quantity = arg2;
@@ -8032,9 +8894,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Position__quantity_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Position__quantity_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Position_ *arg1 = 0 ;
+  struct WU_Position_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -8043,11 +8905,11 @@ SWIGINTERN PyObject *_wrap_Position__quantity_get(PyObject *self, PyObject *args
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Position_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Position_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Position__quantity_get" "', argument " "1"" of type '" "struct Position_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Position__quantity_get" "', argument " "1"" of type '" "struct WU_Position_ *""'"); 
   }
-  arg1 = (struct Position_ *)(argp1);
+  arg1 = (struct WU_Position_ *)(argp1);
   result = (double) ((arg1)->quantity);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -8056,9 +8918,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Position__price_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Position__price_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Position_ *arg1 = 0 ;
+  struct WU_Position_ *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -8067,15 +8929,15 @@ SWIGINTERN PyObject *_wrap_Position__price_set(PyObject *self, PyObject *args) {
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Position__price_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Position_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Position__price_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Position_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Position__price_set" "', argument " "1"" of type '" "struct Position_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Position__price_set" "', argument " "1"" of type '" "struct WU_Position_ *""'"); 
   }
-  arg1 = (struct Position_ *)(argp1);
+  arg1 = (struct WU_Position_ *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Position__price_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_Position__price_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->price = arg2;
@@ -8086,9 +8948,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Position__price_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Position__price_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Position_ *arg1 = 0 ;
+  struct WU_Position_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -8097,11 +8959,11 @@ SWIGINTERN PyObject *_wrap_Position__price_get(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Position_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Position_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Position__price_get" "', argument " "1"" of type '" "struct Position_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Position__price_get" "', argument " "1"" of type '" "struct WU_Position_ *""'"); 
   }
-  arg1 = (struct Position_ *)(argp1);
+  arg1 = (struct WU_Position_ *)(argp1);
   result = (double) ((arg1)->price);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -8110,9 +8972,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Position__active_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Position__active_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Position_ *arg1 = 0 ;
+  struct WU_Position_ *arg1 = 0 ;
   bool arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -8121,15 +8983,15 @@ SWIGINTERN PyObject *_wrap_Position__active_set(PyObject *self, PyObject *args) 
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Position__active_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Position_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Position__active_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Position_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Position__active_set" "', argument " "1"" of type '" "struct Position_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Position__active_set" "', argument " "1"" of type '" "struct WU_Position_ *""'"); 
   }
-  arg1 = (struct Position_ *)(argp1);
+  arg1 = (struct WU_Position_ *)(argp1);
   ecode2 = SWIG_AsVal_bool(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Position__active_set" "', argument " "2"" of type '" "bool""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_Position__active_set" "', argument " "2"" of type '" "bool""'");
   } 
   arg2 = (bool)(val2);
   if (arg1) (arg1)->active = arg2;
@@ -8140,9 +9002,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Position__active_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Position__active_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Position_ *arg1 = 0 ;
+  struct WU_Position_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -8151,11 +9013,11 @@ SWIGINTERN PyObject *_wrap_Position__active_get(PyObject *self, PyObject *args) 
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Position_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Position_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Position__active_get" "', argument " "1"" of type '" "struct Position_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Position__active_get" "', argument " "1"" of type '" "struct WU_Position_ *""'"); 
   }
-  arg1 = (struct Position_ *)(argp1);
+  arg1 = (struct WU_Position_ *)(argp1);
   result = (bool) ((arg1)->active);
   resultobj = SWIG_From_bool((bool)(result));
   return resultobj;
@@ -8164,23 +9026,23 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_Position_(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_WU_Position_(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Position_ *result = 0 ;
+  struct WU_Position_ *result = 0 ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "new_Position_", 0, 0, 0)) SWIG_fail;
-  result = (struct Position_ *)calloc(1, sizeof(struct Position_));
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Position_, SWIG_POINTER_NEW |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "new_WU_Position_", 0, 0, 0)) SWIG_fail;
+  result = (struct WU_Position_ *)calloc(1, sizeof(struct WU_Position_));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_Position_, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_Position_(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_WU_Position_(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Position_ *arg1 = 0 ;
+  struct WU_Position_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -8188,11 +9050,11 @@ SWIGINTERN PyObject *_wrap_delete_Position_(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Position_, SWIG_POINTER_DISOWN |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Position_, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Position_" "', argument " "1"" of type '" "struct Position_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_WU_Position_" "', argument " "1"" of type '" "struct WU_Position_ *""'"); 
   }
-  arg1 = (struct Position_ *)(argp1);
+  arg1 = (struct WU_Position_ *)(argp1);
   free((char *) arg1);
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -8201,21 +9063,21 @@ fail:
 }
 
 
-SWIGINTERN PyObject *Position__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_Position__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj = NULL;
   if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_Position_, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_WU_Position_, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *Position__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_Position__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_PositionVector_positions_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PositionVector_positions_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionVector *arg1 = 0 ;
-  struct Position_ *arg2 = 0 ;
+  struct WU_PositionVector *arg1 = 0 ;
+  struct WU_Position_ *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -8223,17 +9085,17 @@ SWIGINTERN PyObject *_wrap_PositionVector_positions_set(PyObject *self, PyObject
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "PositionVector_positions_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionVector, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_PositionVector_positions_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionVector, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PositionVector_positions_set" "', argument " "1"" of type '" "struct PositionVector *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PositionVector_positions_set" "', argument " "1"" of type '" "struct WU_PositionVector *""'"); 
   }
-  arg1 = (struct PositionVector *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_Position_, SWIG_POINTER_DISOWN |  0 );
+  arg1 = (struct WU_PositionVector *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_WU_Position_, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "PositionVector_positions_set" "', argument " "2"" of type '" "struct Position_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WU_PositionVector_positions_set" "', argument " "2"" of type '" "struct WU_Position_ *""'"); 
   }
-  arg2 = (struct Position_ *)(argp2);
+  arg2 = (struct WU_Position_ *)(argp2);
   if (arg1) (arg1)->positions = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -8242,33 +9104,33 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PositionVector_positions_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PositionVector_positions_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionVector *arg1 = 0 ;
+  struct WU_PositionVector *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  struct Position_ *result = 0 ;
+  struct WU_Position_ *result = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionVector, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionVector, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PositionVector_positions_get" "', argument " "1"" of type '" "struct PositionVector *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PositionVector_positions_get" "', argument " "1"" of type '" "struct WU_PositionVector *""'"); 
   }
-  arg1 = (struct PositionVector *)(argp1);
-  result = (struct Position_ *) ((arg1)->positions);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Position_, 0 |  0 );
+  arg1 = (struct WU_PositionVector *)(argp1);
+  result = (struct WU_Position_ *) ((arg1)->positions);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_Position_, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_PositionVector_active_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PositionVector_active_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionVector *arg1 = 0 ;
+  struct WU_PositionVector *arg1 = 0 ;
   bool *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -8277,15 +9139,15 @@ SWIGINTERN PyObject *_wrap_PositionVector_active_set(PyObject *self, PyObject *a
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "PositionVector_active_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionVector, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_PositionVector_active_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionVector, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PositionVector_active_set" "', argument " "1"" of type '" "struct PositionVector *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PositionVector_active_set" "', argument " "1"" of type '" "struct WU_PositionVector *""'"); 
   }
-  arg1 = (struct PositionVector *)(argp1);
+  arg1 = (struct WU_PositionVector *)(argp1);
   res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_bool, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "PositionVector_active_set" "', argument " "2"" of type '" "bool *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WU_PositionVector_active_set" "', argument " "2"" of type '" "bool *""'"); 
   }
   arg2 = (bool *)(argp2);
   if (arg1) (arg1)->active = arg2;
@@ -8296,9 +9158,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PositionVector_active_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PositionVector_active_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionVector *arg1 = 0 ;
+  struct WU_PositionVector *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -8307,11 +9169,11 @@ SWIGINTERN PyObject *_wrap_PositionVector_active_get(PyObject *self, PyObject *a
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionVector, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionVector, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PositionVector_active_get" "', argument " "1"" of type '" "struct PositionVector *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PositionVector_active_get" "', argument " "1"" of type '" "struct WU_PositionVector *""'"); 
   }
-  arg1 = (struct PositionVector *)(argp1);
+  arg1 = (struct WU_PositionVector *)(argp1);
   result = (bool *) ((arg1)->active);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_bool, 0 |  0 );
   return resultobj;
@@ -8320,9 +9182,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PositionVector_count_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PositionVector_count_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionVector *arg1 = 0 ;
+  struct WU_PositionVector *arg1 = 0 ;
   int arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -8331,15 +9193,15 @@ SWIGINTERN PyObject *_wrap_PositionVector_count_set(PyObject *self, PyObject *ar
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "PositionVector_count_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionVector, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_PositionVector_count_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionVector, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PositionVector_count_set" "', argument " "1"" of type '" "struct PositionVector *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PositionVector_count_set" "', argument " "1"" of type '" "struct WU_PositionVector *""'"); 
   }
-  arg1 = (struct PositionVector *)(argp1);
+  arg1 = (struct WU_PositionVector *)(argp1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PositionVector_count_set" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_PositionVector_count_set" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = (int)(val2);
   if (arg1) (arg1)->count = arg2;
@@ -8350,9 +9212,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PositionVector_count_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PositionVector_count_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionVector *arg1 = 0 ;
+  struct WU_PositionVector *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -8361,11 +9223,11 @@ SWIGINTERN PyObject *_wrap_PositionVector_count_get(PyObject *self, PyObject *ar
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionVector, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionVector, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PositionVector_count_get" "', argument " "1"" of type '" "struct PositionVector *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PositionVector_count_get" "', argument " "1"" of type '" "struct WU_PositionVector *""'"); 
   }
-  arg1 = (struct PositionVector *)(argp1);
+  arg1 = (struct WU_PositionVector *)(argp1);
   result = (int) ((arg1)->count);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
@@ -8374,9 +9236,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PositionVector_capacity_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PositionVector_capacity_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionVector *arg1 = 0 ;
+  struct WU_PositionVector *arg1 = 0 ;
   int arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -8385,15 +9247,15 @@ SWIGINTERN PyObject *_wrap_PositionVector_capacity_set(PyObject *self, PyObject 
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "PositionVector_capacity_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionVector, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_PositionVector_capacity_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionVector, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PositionVector_capacity_set" "', argument " "1"" of type '" "struct PositionVector *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PositionVector_capacity_set" "', argument " "1"" of type '" "struct WU_PositionVector *""'"); 
   }
-  arg1 = (struct PositionVector *)(argp1);
+  arg1 = (struct WU_PositionVector *)(argp1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PositionVector_capacity_set" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_PositionVector_capacity_set" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = (int)(val2);
   if (arg1) (arg1)->capacity = arg2;
@@ -8404,9 +9266,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PositionVector_capacity_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PositionVector_capacity_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionVector *arg1 = 0 ;
+  struct WU_PositionVector *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -8415,11 +9277,11 @@ SWIGINTERN PyObject *_wrap_PositionVector_capacity_get(PyObject *self, PyObject 
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionVector, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionVector, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PositionVector_capacity_get" "', argument " "1"" of type '" "struct PositionVector *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PositionVector_capacity_get" "', argument " "1"" of type '" "struct WU_PositionVector *""'"); 
   }
-  arg1 = (struct PositionVector *)(argp1);
+  arg1 = (struct WU_PositionVector *)(argp1);
   result = (int) ((arg1)->capacity);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
@@ -8428,25 +9290,25 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PositionVector_add_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PositionVector_add_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionVector *arg1 = 0 ;
-  void (*arg2)(struct PositionVector *,Position) = 0 ;
+  struct WU_PositionVector *arg1 = 0 ;
+  void (*arg2)(struct WU_PositionVector *,WU_Position) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "PositionVector_add_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionVector, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_PositionVector_add_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionVector, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PositionVector_add_set" "', argument " "1"" of type '" "struct PositionVector *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PositionVector_add_set" "', argument " "1"" of type '" "struct WU_PositionVector *""'"); 
   }
-  arg1 = (struct PositionVector *)(argp1);
+  arg1 = (struct WU_PositionVector *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_PositionVector_p_struct_Position___void);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_WU_PositionVector_p_struct_WU_Position___void);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "PositionVector_add_set" "', argument " "2"" of type '" "void (*)(struct PositionVector *,Position)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_PositionVector_add_set" "', argument " "2"" of type '" "void (*)(struct WU_PositionVector *,WU_Position)""'"); 
     }
   }
   if (arg1) (arg1)->add = arg2;
@@ -8457,49 +9319,49 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PositionVector_add_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PositionVector_add_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionVector *arg1 = 0 ;
+  struct WU_PositionVector *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  void (*result)(struct PositionVector *,Position) = 0 ;
+  void (*result)(struct WU_PositionVector *,WU_Position) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionVector, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionVector, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PositionVector_add_get" "', argument " "1"" of type '" "struct PositionVector *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PositionVector_add_get" "', argument " "1"" of type '" "struct WU_PositionVector *""'"); 
   }
-  arg1 = (struct PositionVector *)(argp1);
-  result = (void (*)(struct PositionVector *,Position)) ((arg1)->add);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_PositionVector_p_struct_Position___void);
+  arg1 = (struct WU_PositionVector *)(argp1);
+  result = (void (*)(struct WU_PositionVector *,WU_Position)) ((arg1)->add);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_WU_PositionVector_p_struct_WU_Position___void);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_PositionVector_remove_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PositionVector_remove_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionVector *arg1 = 0 ;
-  void (*arg2)(struct PositionVector *,int) = 0 ;
+  struct WU_PositionVector *arg1 = 0 ;
+  void (*arg2)(struct WU_PositionVector *,int) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "PositionVector_remove_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionVector, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_PositionVector_remove_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionVector, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PositionVector_remove_set" "', argument " "1"" of type '" "struct PositionVector *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PositionVector_remove_set" "', argument " "1"" of type '" "struct WU_PositionVector *""'"); 
   }
-  arg1 = (struct PositionVector *)(argp1);
+  arg1 = (struct WU_PositionVector *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_PositionVector_int__void);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_WU_PositionVector_int__void);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "PositionVector_remove_set" "', argument " "2"" of type '" "void (*)(struct PositionVector *,int)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_PositionVector_remove_set" "', argument " "2"" of type '" "void (*)(struct WU_PositionVector *,int)""'"); 
     }
   }
   if (arg1) (arg1)->remove = arg2;
@@ -8510,49 +9372,49 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PositionVector_remove_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PositionVector_remove_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionVector *arg1 = 0 ;
+  struct WU_PositionVector *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  void (*result)(struct PositionVector *,int) = 0 ;
+  void (*result)(struct WU_PositionVector *,int) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionVector, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionVector, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PositionVector_remove_get" "', argument " "1"" of type '" "struct PositionVector *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PositionVector_remove_get" "', argument " "1"" of type '" "struct WU_PositionVector *""'"); 
   }
-  arg1 = (struct PositionVector *)(argp1);
-  result = (void (*)(struct PositionVector *,int)) ((arg1)->remove);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_PositionVector_int__void);
+  arg1 = (struct WU_PositionVector *)(argp1);
+  result = (void (*)(struct WU_PositionVector *,int)) ((arg1)->remove);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_WU_PositionVector_int__void);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_PositionVector_clear_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PositionVector_clear_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionVector *arg1 = 0 ;
-  void (*arg2)(struct PositionVector *) = 0 ;
+  struct WU_PositionVector *arg1 = 0 ;
+  void (*arg2)(struct WU_PositionVector *) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "PositionVector_clear_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionVector, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_PositionVector_clear_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionVector, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PositionVector_clear_set" "', argument " "1"" of type '" "struct PositionVector *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PositionVector_clear_set" "', argument " "1"" of type '" "struct WU_PositionVector *""'"); 
   }
-  arg1 = (struct PositionVector *)(argp1);
+  arg1 = (struct WU_PositionVector *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_PositionVector__void);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_WU_PositionVector__void);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "PositionVector_clear_set" "', argument " "2"" of type '" "void (*)(struct PositionVector *)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_PositionVector_clear_set" "', argument " "2"" of type '" "void (*)(struct WU_PositionVector *)""'"); 
     }
   }
   if (arg1) (arg1)->clear = arg2;
@@ -8563,49 +9425,49 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PositionVector_clear_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PositionVector_clear_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionVector *arg1 = 0 ;
+  struct WU_PositionVector *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  void (*result)(struct PositionVector *) = 0 ;
+  void (*result)(struct WU_PositionVector *) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionVector, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionVector, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PositionVector_clear_get" "', argument " "1"" of type '" "struct PositionVector *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PositionVector_clear_get" "', argument " "1"" of type '" "struct WU_PositionVector *""'"); 
   }
-  arg1 = (struct PositionVector *)(argp1);
-  result = (void (*)(struct PositionVector *)) ((arg1)->clear);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_PositionVector__void);
+  arg1 = (struct WU_PositionVector *)(argp1);
+  result = (void (*)(struct WU_PositionVector *)) ((arg1)->clear);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_WU_PositionVector__void);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_PositionVector_get_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PositionVector_get_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionVector *arg1 = 0 ;
-  struct Position_ (*arg2)(struct PositionVector *,int,bool *) = 0 ;
+  struct WU_PositionVector *arg1 = 0 ;
+  struct WU_Position_ (*arg2)(struct WU_PositionVector *,int,bool *) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "PositionVector_get_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionVector, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_PositionVector_get_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionVector, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PositionVector_get_set" "', argument " "1"" of type '" "struct PositionVector *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PositionVector_get_set" "', argument " "1"" of type '" "struct WU_PositionVector *""'"); 
   }
-  arg1 = (struct PositionVector *)(argp1);
+  arg1 = (struct WU_PositionVector *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_PositionVector_int_p_bool__Position_);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_WU_PositionVector_int_p_bool__WU_Position_);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "PositionVector_get_set" "', argument " "2"" of type '" "struct Position_ (*)(struct PositionVector *,int,bool *)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_PositionVector_get_set" "', argument " "2"" of type '" "struct WU_Position_ (*)(struct WU_PositionVector *,int,bool *)""'"); 
     }
   }
   if (arg1) (arg1)->get = arg2;
@@ -8616,49 +9478,49 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PositionVector_get_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PositionVector_get_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionVector *arg1 = 0 ;
+  struct WU_PositionVector *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  struct Position_ (*result)(struct PositionVector *,int,bool *) = 0 ;
+  struct WU_Position_ (*result)(struct WU_PositionVector *,int,bool *) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionVector, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionVector, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PositionVector_get_get" "', argument " "1"" of type '" "struct PositionVector *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PositionVector_get_get" "', argument " "1"" of type '" "struct WU_PositionVector *""'"); 
   }
-  arg1 = (struct PositionVector *)(argp1);
-  result = (struct Position_ (*)(struct PositionVector *,int,bool *)) ((arg1)->get);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_PositionVector_int_p_bool__Position_);
+  arg1 = (struct WU_PositionVector *)(argp1);
+  result = (struct WU_Position_ (*)(struct WU_PositionVector *,int,bool *)) ((arg1)->get);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_WU_PositionVector_int_p_bool__WU_Position_);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_PositionVector_total_quantity_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PositionVector_total_quantity_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionVector *arg1 = 0 ;
-  double (*arg2)(struct PositionVector *) = 0 ;
+  struct WU_PositionVector *arg1 = 0 ;
+  double (*arg2)(struct WU_PositionVector *) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "PositionVector_total_quantity_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionVector, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_PositionVector_total_quantity_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionVector, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PositionVector_total_quantity_set" "', argument " "1"" of type '" "struct PositionVector *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PositionVector_total_quantity_set" "', argument " "1"" of type '" "struct WU_PositionVector *""'"); 
   }
-  arg1 = (struct PositionVector *)(argp1);
+  arg1 = (struct WU_PositionVector *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_PositionVector__double);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_WU_PositionVector__double);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "PositionVector_total_quantity_set" "', argument " "2"" of type '" "double (*)(struct PositionVector *)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_PositionVector_total_quantity_set" "', argument " "2"" of type '" "double (*)(struct WU_PositionVector *)""'"); 
     }
   }
   if (arg1) (arg1)->total_quantity = arg2;
@@ -8669,49 +9531,49 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PositionVector_total_quantity_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PositionVector_total_quantity_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionVector *arg1 = 0 ;
+  struct WU_PositionVector *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  double (*result)(struct PositionVector *) = 0 ;
+  double (*result)(struct WU_PositionVector *) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionVector, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionVector, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PositionVector_total_quantity_get" "', argument " "1"" of type '" "struct PositionVector *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PositionVector_total_quantity_get" "', argument " "1"" of type '" "struct WU_PositionVector *""'"); 
   }
-  arg1 = (struct PositionVector *)(argp1);
-  result = (double (*)(struct PositionVector *)) ((arg1)->total_quantity);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_PositionVector__double);
+  arg1 = (struct WU_PositionVector *)(argp1);
+  result = (double (*)(struct WU_PositionVector *)) ((arg1)->total_quantity);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_WU_PositionVector__double);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_PositionVector_delete_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PositionVector_delete_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionVector *arg1 = 0 ;
-  void (*arg2)(struct PositionVector *) = 0 ;
+  struct WU_PositionVector *arg1 = 0 ;
+  void (*arg2)(struct WU_PositionVector *) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "PositionVector_delete_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionVector, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_PositionVector_delete_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionVector, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PositionVector_delete_set" "', argument " "1"" of type '" "struct PositionVector *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PositionVector_delete_set" "', argument " "1"" of type '" "struct WU_PositionVector *""'"); 
   }
-  arg1 = (struct PositionVector *)(argp1);
+  arg1 = (struct WU_PositionVector *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_PositionVector__void);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_WU_PositionVector__void);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "PositionVector_delete_set" "', argument " "2"" of type '" "void (*)(struct PositionVector *)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_PositionVector_delete_set" "', argument " "2"" of type '" "void (*)(struct WU_PositionVector *)""'"); 
     }
   }
   if (arg1) (arg1)->delete = arg2;
@@ -8722,33 +9584,47 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PositionVector_delete_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PositionVector_delete_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionVector *arg1 = 0 ;
+  struct WU_PositionVector *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  void (*result)(struct PositionVector *) = 0 ;
+  void (*result)(struct WU_PositionVector *) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionVector, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionVector, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PositionVector_delete_get" "', argument " "1"" of type '" "struct PositionVector *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PositionVector_delete_get" "', argument " "1"" of type '" "struct WU_PositionVector *""'"); 
   }
-  arg1 = (struct PositionVector *)(argp1);
-  result = (void (*)(struct PositionVector *)) ((arg1)->delete);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_PositionVector__void);
+  arg1 = (struct WU_PositionVector *)(argp1);
+  result = (void (*)(struct WU_PositionVector *)) ((arg1)->delete);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_WU_PositionVector__void);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_PositionVector(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_WU_PositionVector(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionVector *arg1 = 0 ;
+  struct WU_PositionVector *result = 0 ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "new_WU_PositionVector", 0, 0, 0)) SWIG_fail;
+  result = (struct WU_PositionVector *)calloc(1, sizeof(struct WU_PositionVector));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_PositionVector, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_WU_PositionVector(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_PositionVector *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -8756,12 +9632,12 @@ SWIGINTERN PyObject *_wrap_delete_PositionVector(PyObject *self, PyObject *args)
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionVector, SWIG_POINTER_DISOWN |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionVector, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_PositionVector" "', argument " "1"" of type '" "struct PositionVector *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_WU_PositionVector" "', argument " "1"" of type '" "struct WU_PositionVector *""'"); 
   }
-  arg1 = (struct PositionVector *)(argp1);
-  delete_PositionVector(arg1);
+  arg1 = (struct WU_PositionVector *)(argp1);
+  free((char *) arg1);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -8769,48 +9645,34 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_PositionVector(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct PositionVector *result = 0 ;
-  
-  (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "new_PositionVector", 0, 0, 0)) SWIG_fail;
-  result = (struct PositionVector *)calloc(1, sizeof(struct PositionVector));
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PositionVector, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *PositionVector_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_PositionVector_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj = NULL;
   if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_PositionVector, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_WU_PositionVector, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *PositionVector_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_PositionVector_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_position_vector_new(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_wu_position_vector_new(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  PositionVector *result = 0 ;
+  WU_PositionVector *result = 0 ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "position_vector_new", 0, 0, 0)) SWIG_fail;
-  result = (PositionVector *)position_vector_new();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PositionVector, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "wu_position_vector_new", 0, 0, 0)) SWIG_fail;
+  result = (WU_PositionVector *)wu_position_vector_new();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_PositionVector, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_PortfolioStats__total_trades_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PortfolioStats__total_trades_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PortfolioStats_ *arg1 = 0 ;
+  struct WU_PortfolioStats_ *arg1 = 0 ;
   int64_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -8819,15 +9681,15 @@ SWIGINTERN PyObject *_wrap_PortfolioStats__total_trades_set(PyObject *self, PyOb
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "PortfolioStats__total_trades_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_PortfolioStats__total_trades_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PortfolioStats__total_trades_set" "', argument " "1"" of type '" "struct PortfolioStats_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PortfolioStats__total_trades_set" "', argument " "1"" of type '" "struct WU_PortfolioStats_ *""'"); 
   }
-  arg1 = (struct PortfolioStats_ *)(argp1);
+  arg1 = (struct WU_PortfolioStats_ *)(argp1);
   ecode2 = SWIG_AsVal_long_SS_long(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PortfolioStats__total_trades_set" "', argument " "2"" of type '" "int64_t""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_PortfolioStats__total_trades_set" "', argument " "2"" of type '" "int64_t""'");
   } 
   arg2 = (int64_t)(val2);
   if (arg1) (arg1)->total_trades = arg2;
@@ -8838,9 +9700,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PortfolioStats__total_trades_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PortfolioStats__total_trades_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PortfolioStats_ *arg1 = 0 ;
+  struct WU_PortfolioStats_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -8849,11 +9711,11 @@ SWIGINTERN PyObject *_wrap_PortfolioStats__total_trades_get(PyObject *self, PyOb
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PortfolioStats__total_trades_get" "', argument " "1"" of type '" "struct PortfolioStats_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PortfolioStats__total_trades_get" "', argument " "1"" of type '" "struct WU_PortfolioStats_ *""'"); 
   }
-  arg1 = (struct PortfolioStats_ *)(argp1);
+  arg1 = (struct WU_PortfolioStats_ *)(argp1);
   result = (int64_t) ((arg1)->total_trades);
   resultobj = SWIG_From_long_SS_long((long long)(result));
   return resultobj;
@@ -8862,9 +9724,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PortfolioStats__winning_trades_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PortfolioStats__winning_trades_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PortfolioStats_ *arg1 = 0 ;
+  struct WU_PortfolioStats_ *arg1 = 0 ;
   int64_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -8873,15 +9735,15 @@ SWIGINTERN PyObject *_wrap_PortfolioStats__winning_trades_set(PyObject *self, Py
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "PortfolioStats__winning_trades_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_PortfolioStats__winning_trades_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PortfolioStats__winning_trades_set" "', argument " "1"" of type '" "struct PortfolioStats_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PortfolioStats__winning_trades_set" "', argument " "1"" of type '" "struct WU_PortfolioStats_ *""'"); 
   }
-  arg1 = (struct PortfolioStats_ *)(argp1);
+  arg1 = (struct WU_PortfolioStats_ *)(argp1);
   ecode2 = SWIG_AsVal_long_SS_long(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PortfolioStats__winning_trades_set" "', argument " "2"" of type '" "int64_t""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_PortfolioStats__winning_trades_set" "', argument " "2"" of type '" "int64_t""'");
   } 
   arg2 = (int64_t)(val2);
   if (arg1) (arg1)->winning_trades = arg2;
@@ -8892,9 +9754,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PortfolioStats__winning_trades_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PortfolioStats__winning_trades_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PortfolioStats_ *arg1 = 0 ;
+  struct WU_PortfolioStats_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -8903,11 +9765,11 @@ SWIGINTERN PyObject *_wrap_PortfolioStats__winning_trades_get(PyObject *self, Py
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PortfolioStats__winning_trades_get" "', argument " "1"" of type '" "struct PortfolioStats_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PortfolioStats__winning_trades_get" "', argument " "1"" of type '" "struct WU_PortfolioStats_ *""'"); 
   }
-  arg1 = (struct PortfolioStats_ *)(argp1);
+  arg1 = (struct WU_PortfolioStats_ *)(argp1);
   result = (int64_t) ((arg1)->winning_trades);
   resultobj = SWIG_From_long_SS_long((long long)(result));
   return resultobj;
@@ -8916,9 +9778,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PortfolioStats__losing_trades_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PortfolioStats__losing_trades_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PortfolioStats_ *arg1 = 0 ;
+  struct WU_PortfolioStats_ *arg1 = 0 ;
   int64_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -8927,15 +9789,15 @@ SWIGINTERN PyObject *_wrap_PortfolioStats__losing_trades_set(PyObject *self, PyO
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "PortfolioStats__losing_trades_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_PortfolioStats__losing_trades_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PortfolioStats__losing_trades_set" "', argument " "1"" of type '" "struct PortfolioStats_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PortfolioStats__losing_trades_set" "', argument " "1"" of type '" "struct WU_PortfolioStats_ *""'"); 
   }
-  arg1 = (struct PortfolioStats_ *)(argp1);
+  arg1 = (struct WU_PortfolioStats_ *)(argp1);
   ecode2 = SWIG_AsVal_long_SS_long(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PortfolioStats__losing_trades_set" "', argument " "2"" of type '" "int64_t""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_PortfolioStats__losing_trades_set" "', argument " "2"" of type '" "int64_t""'");
   } 
   arg2 = (int64_t)(val2);
   if (arg1) (arg1)->losing_trades = arg2;
@@ -8946,9 +9808,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PortfolioStats__losing_trades_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PortfolioStats__losing_trades_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PortfolioStats_ *arg1 = 0 ;
+  struct WU_PortfolioStats_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -8957,11 +9819,11 @@ SWIGINTERN PyObject *_wrap_PortfolioStats__losing_trades_get(PyObject *self, PyO
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PortfolioStats__losing_trades_get" "', argument " "1"" of type '" "struct PortfolioStats_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PortfolioStats__losing_trades_get" "', argument " "1"" of type '" "struct WU_PortfolioStats_ *""'"); 
   }
-  arg1 = (struct PortfolioStats_ *)(argp1);
+  arg1 = (struct WU_PortfolioStats_ *)(argp1);
   result = (int64_t) ((arg1)->losing_trades);
   resultobj = SWIG_From_long_SS_long((long long)(result));
   return resultobj;
@@ -8970,9 +9832,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PortfolioStats__stop_loss_exits_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PortfolioStats__stop_loss_exits_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PortfolioStats_ *arg1 = 0 ;
+  struct WU_PortfolioStats_ *arg1 = 0 ;
   int64_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -8981,15 +9843,15 @@ SWIGINTERN PyObject *_wrap_PortfolioStats__stop_loss_exits_set(PyObject *self, P
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "PortfolioStats__stop_loss_exits_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_PortfolioStats__stop_loss_exits_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PortfolioStats__stop_loss_exits_set" "', argument " "1"" of type '" "struct PortfolioStats_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PortfolioStats__stop_loss_exits_set" "', argument " "1"" of type '" "struct WU_PortfolioStats_ *""'"); 
   }
-  arg1 = (struct PortfolioStats_ *)(argp1);
+  arg1 = (struct WU_PortfolioStats_ *)(argp1);
   ecode2 = SWIG_AsVal_long_SS_long(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PortfolioStats__stop_loss_exits_set" "', argument " "2"" of type '" "int64_t""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_PortfolioStats__stop_loss_exits_set" "', argument " "2"" of type '" "int64_t""'");
   } 
   arg2 = (int64_t)(val2);
   if (arg1) (arg1)->stop_loss_exits = arg2;
@@ -9000,9 +9862,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PortfolioStats__stop_loss_exits_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PortfolioStats__stop_loss_exits_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PortfolioStats_ *arg1 = 0 ;
+  struct WU_PortfolioStats_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -9011,11 +9873,11 @@ SWIGINTERN PyObject *_wrap_PortfolioStats__stop_loss_exits_get(PyObject *self, P
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PortfolioStats__stop_loss_exits_get" "', argument " "1"" of type '" "struct PortfolioStats_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PortfolioStats__stop_loss_exits_get" "', argument " "1"" of type '" "struct WU_PortfolioStats_ *""'"); 
   }
-  arg1 = (struct PortfolioStats_ *)(argp1);
+  arg1 = (struct WU_PortfolioStats_ *)(argp1);
   result = (int64_t) ((arg1)->stop_loss_exits);
   resultobj = SWIG_From_long_SS_long((long long)(result));
   return resultobj;
@@ -9024,9 +9886,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PortfolioStats__take_profit_exits_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PortfolioStats__take_profit_exits_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PortfolioStats_ *arg1 = 0 ;
+  struct WU_PortfolioStats_ *arg1 = 0 ;
   int64_t arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -9035,15 +9897,15 @@ SWIGINTERN PyObject *_wrap_PortfolioStats__take_profit_exits_set(PyObject *self,
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "PortfolioStats__take_profit_exits_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_PortfolioStats__take_profit_exits_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PortfolioStats__take_profit_exits_set" "', argument " "1"" of type '" "struct PortfolioStats_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PortfolioStats__take_profit_exits_set" "', argument " "1"" of type '" "struct WU_PortfolioStats_ *""'"); 
   }
-  arg1 = (struct PortfolioStats_ *)(argp1);
+  arg1 = (struct WU_PortfolioStats_ *)(argp1);
   ecode2 = SWIG_AsVal_long_SS_long(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PortfolioStats__take_profit_exits_set" "', argument " "2"" of type '" "int64_t""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_PortfolioStats__take_profit_exits_set" "', argument " "2"" of type '" "int64_t""'");
   } 
   arg2 = (int64_t)(val2);
   if (arg1) (arg1)->take_profit_exits = arg2;
@@ -9054,9 +9916,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PortfolioStats__take_profit_exits_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PortfolioStats__take_profit_exits_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PortfolioStats_ *arg1 = 0 ;
+  struct WU_PortfolioStats_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -9065,11 +9927,11 @@ SWIGINTERN PyObject *_wrap_PortfolioStats__take_profit_exits_get(PyObject *self,
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PortfolioStats__take_profit_exits_get" "', argument " "1"" of type '" "struct PortfolioStats_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PortfolioStats__take_profit_exits_get" "', argument " "1"" of type '" "struct WU_PortfolioStats_ *""'"); 
   }
-  arg1 = (struct PortfolioStats_ *)(argp1);
+  arg1 = (struct WU_PortfolioStats_ *)(argp1);
   result = (int64_t) ((arg1)->take_profit_exits);
   resultobj = SWIG_From_long_SS_long((long long)(result));
   return resultobj;
@@ -9078,9 +9940,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PortfolioStats__total_profit_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PortfolioStats__total_profit_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PortfolioStats_ *arg1 = 0 ;
+  struct WU_PortfolioStats_ *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -9089,15 +9951,15 @@ SWIGINTERN PyObject *_wrap_PortfolioStats__total_profit_set(PyObject *self, PyOb
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "PortfolioStats__total_profit_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_PortfolioStats__total_profit_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PortfolioStats__total_profit_set" "', argument " "1"" of type '" "struct PortfolioStats_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PortfolioStats__total_profit_set" "', argument " "1"" of type '" "struct WU_PortfolioStats_ *""'"); 
   }
-  arg1 = (struct PortfolioStats_ *)(argp1);
+  arg1 = (struct WU_PortfolioStats_ *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PortfolioStats__total_profit_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_PortfolioStats__total_profit_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->total_profit = arg2;
@@ -9108,9 +9970,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PortfolioStats__total_profit_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PortfolioStats__total_profit_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PortfolioStats_ *arg1 = 0 ;
+  struct WU_PortfolioStats_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -9119,11 +9981,11 @@ SWIGINTERN PyObject *_wrap_PortfolioStats__total_profit_get(PyObject *self, PyOb
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PortfolioStats__total_profit_get" "', argument " "1"" of type '" "struct PortfolioStats_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PortfolioStats__total_profit_get" "', argument " "1"" of type '" "struct WU_PortfolioStats_ *""'"); 
   }
-  arg1 = (struct PortfolioStats_ *)(argp1);
+  arg1 = (struct WU_PortfolioStats_ *)(argp1);
   result = (double) ((arg1)->total_profit);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -9132,9 +9994,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PortfolioStats__total_loss_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PortfolioStats__total_loss_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PortfolioStats_ *arg1 = 0 ;
+  struct WU_PortfolioStats_ *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -9143,15 +10005,15 @@ SWIGINTERN PyObject *_wrap_PortfolioStats__total_loss_set(PyObject *self, PyObje
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "PortfolioStats__total_loss_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_PortfolioStats__total_loss_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PortfolioStats__total_loss_set" "', argument " "1"" of type '" "struct PortfolioStats_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PortfolioStats__total_loss_set" "', argument " "1"" of type '" "struct WU_PortfolioStats_ *""'"); 
   }
-  arg1 = (struct PortfolioStats_ *)(argp1);
+  arg1 = (struct WU_PortfolioStats_ *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PortfolioStats__total_loss_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_PortfolioStats__total_loss_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->total_loss = arg2;
@@ -9162,9 +10024,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PortfolioStats__total_loss_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PortfolioStats__total_loss_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PortfolioStats_ *arg1 = 0 ;
+  struct WU_PortfolioStats_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -9173,11 +10035,11 @@ SWIGINTERN PyObject *_wrap_PortfolioStats__total_loss_get(PyObject *self, PyObje
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PortfolioStats__total_loss_get" "', argument " "1"" of type '" "struct PortfolioStats_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PortfolioStats__total_loss_get" "', argument " "1"" of type '" "struct WU_PortfolioStats_ *""'"); 
   }
-  arg1 = (struct PortfolioStats_ *)(argp1);
+  arg1 = (struct WU_PortfolioStats_ *)(argp1);
   result = (double) ((arg1)->total_loss);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -9186,9 +10048,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PortfolioStats__max_win_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PortfolioStats__max_win_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PortfolioStats_ *arg1 = 0 ;
+  struct WU_PortfolioStats_ *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -9197,15 +10059,15 @@ SWIGINTERN PyObject *_wrap_PortfolioStats__max_win_set(PyObject *self, PyObject 
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "PortfolioStats__max_win_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_PortfolioStats__max_win_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PortfolioStats__max_win_set" "', argument " "1"" of type '" "struct PortfolioStats_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PortfolioStats__max_win_set" "', argument " "1"" of type '" "struct WU_PortfolioStats_ *""'"); 
   }
-  arg1 = (struct PortfolioStats_ *)(argp1);
+  arg1 = (struct WU_PortfolioStats_ *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PortfolioStats__max_win_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_PortfolioStats__max_win_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->max_win = arg2;
@@ -9216,9 +10078,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PortfolioStats__max_win_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PortfolioStats__max_win_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PortfolioStats_ *arg1 = 0 ;
+  struct WU_PortfolioStats_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -9227,11 +10089,11 @@ SWIGINTERN PyObject *_wrap_PortfolioStats__max_win_get(PyObject *self, PyObject 
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PortfolioStats__max_win_get" "', argument " "1"" of type '" "struct PortfolioStats_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PortfolioStats__max_win_get" "', argument " "1"" of type '" "struct WU_PortfolioStats_ *""'"); 
   }
-  arg1 = (struct PortfolioStats_ *)(argp1);
+  arg1 = (struct WU_PortfolioStats_ *)(argp1);
   result = (double) ((arg1)->max_win);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -9240,9 +10102,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PortfolioStats__max_loss_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PortfolioStats__max_loss_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PortfolioStats_ *arg1 = 0 ;
+  struct WU_PortfolioStats_ *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -9251,15 +10113,15 @@ SWIGINTERN PyObject *_wrap_PortfolioStats__max_loss_set(PyObject *self, PyObject
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "PortfolioStats__max_loss_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_PortfolioStats__max_loss_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PortfolioStats__max_loss_set" "', argument " "1"" of type '" "struct PortfolioStats_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PortfolioStats__max_loss_set" "', argument " "1"" of type '" "struct WU_PortfolioStats_ *""'"); 
   }
-  arg1 = (struct PortfolioStats_ *)(argp1);
+  arg1 = (struct WU_PortfolioStats_ *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PortfolioStats__max_loss_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_PortfolioStats__max_loss_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->max_loss = arg2;
@@ -9270,9 +10132,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PortfolioStats__max_loss_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PortfolioStats__max_loss_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PortfolioStats_ *arg1 = 0 ;
+  struct WU_PortfolioStats_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -9281,11 +10143,11 @@ SWIGINTERN PyObject *_wrap_PortfolioStats__max_loss_get(PyObject *self, PyObject
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PortfolioStats__max_loss_get" "', argument " "1"" of type '" "struct PortfolioStats_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PortfolioStats__max_loss_get" "', argument " "1"" of type '" "struct WU_PortfolioStats_ *""'"); 
   }
-  arg1 = (struct PortfolioStats_ *)(argp1);
+  arg1 = (struct WU_PortfolioStats_ *)(argp1);
   result = (double) ((arg1)->max_loss);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -9294,25 +10156,25 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PortfolioStats__record_trade_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PortfolioStats__record_trade_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PortfolioStats_ *arg1 = 0 ;
-  void (*arg2)(struct PortfolioStats_ *,double,CloseReason) = 0 ;
+  struct WU_PortfolioStats_ *arg1 = 0 ;
+  void (*arg2)(struct WU_PortfolioStats_ *,double,WU_CloseReason) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "PortfolioStats__record_trade_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_PortfolioStats__record_trade_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PortfolioStats__record_trade_set" "', argument " "1"" of type '" "struct PortfolioStats_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PortfolioStats__record_trade_set" "', argument " "1"" of type '" "struct WU_PortfolioStats_ *""'"); 
   }
-  arg1 = (struct PortfolioStats_ *)(argp1);
+  arg1 = (struct WU_PortfolioStats_ *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_PortfolioStats__double_enum_CloseReason__void);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_WU_PortfolioStats__double_enum_WU_CloseReason__void);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "PortfolioStats__record_trade_set" "', argument " "2"" of type '" "void (*)(struct PortfolioStats_ *,double,CloseReason)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_PortfolioStats__record_trade_set" "', argument " "2"" of type '" "void (*)(struct WU_PortfolioStats_ *,double,WU_CloseReason)""'"); 
     }
   }
   if (arg1) (arg1)->record_trade = arg2;
@@ -9323,49 +10185,49 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PortfolioStats__record_trade_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PortfolioStats__record_trade_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PortfolioStats_ *arg1 = 0 ;
+  struct WU_PortfolioStats_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  void (*result)(struct PortfolioStats_ *,double,CloseReason) = 0 ;
+  void (*result)(struct WU_PortfolioStats_ *,double,WU_CloseReason) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PortfolioStats__record_trade_get" "', argument " "1"" of type '" "struct PortfolioStats_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PortfolioStats__record_trade_get" "', argument " "1"" of type '" "struct WU_PortfolioStats_ *""'"); 
   }
-  arg1 = (struct PortfolioStats_ *)(argp1);
-  result = (void (*)(struct PortfolioStats_ *,double,CloseReason)) ((arg1)->record_trade);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_PortfolioStats__double_enum_CloseReason__void);
+  arg1 = (struct WU_PortfolioStats_ *)(argp1);
+  result = (void (*)(struct WU_PortfolioStats_ *,double,WU_CloseReason)) ((arg1)->record_trade);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_WU_PortfolioStats__double_enum_WU_CloseReason__void);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_PortfolioStats__reset_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PortfolioStats__reset_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PortfolioStats_ *arg1 = 0 ;
-  void (*arg2)(struct PortfolioStats_ *) = 0 ;
+  struct WU_PortfolioStats_ *arg1 = 0 ;
+  void (*arg2)(struct WU_PortfolioStats_ *) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "PortfolioStats__reset_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_PortfolioStats__reset_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PortfolioStats__reset_set" "', argument " "1"" of type '" "struct PortfolioStats_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PortfolioStats__reset_set" "', argument " "1"" of type '" "struct WU_PortfolioStats_ *""'"); 
   }
-  arg1 = (struct PortfolioStats_ *)(argp1);
+  arg1 = (struct WU_PortfolioStats_ *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_PortfolioStats___void);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_WU_PortfolioStats___void);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "PortfolioStats__reset_set" "', argument " "2"" of type '" "void (*)(struct PortfolioStats_ *)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_PortfolioStats__reset_set" "', argument " "2"" of type '" "void (*)(struct WU_PortfolioStats_ *)""'"); 
     }
   }
   if (arg1) (arg1)->reset = arg2;
@@ -9376,49 +10238,49 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PortfolioStats__reset_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PortfolioStats__reset_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PortfolioStats_ *arg1 = 0 ;
+  struct WU_PortfolioStats_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  void (*result)(struct PortfolioStats_ *) = 0 ;
+  void (*result)(struct WU_PortfolioStats_ *) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PortfolioStats__reset_get" "', argument " "1"" of type '" "struct PortfolioStats_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PortfolioStats__reset_get" "', argument " "1"" of type '" "struct WU_PortfolioStats_ *""'"); 
   }
-  arg1 = (struct PortfolioStats_ *)(argp1);
-  result = (void (*)(struct PortfolioStats_ *)) ((arg1)->reset);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_PortfolioStats___void);
+  arg1 = (struct WU_PortfolioStats_ *)(argp1);
+  result = (void (*)(struct WU_PortfolioStats_ *)) ((arg1)->reset);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_WU_PortfolioStats___void);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_PortfolioStats__delete_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PortfolioStats__delete_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PortfolioStats_ *arg1 = 0 ;
-  void (*arg2)(struct PortfolioStats_ *) = 0 ;
+  struct WU_PortfolioStats_ *arg1 = 0 ;
+  void (*arg2)(struct WU_PortfolioStats_ *) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "PortfolioStats__delete_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_PortfolioStats__delete_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PortfolioStats__delete_set" "', argument " "1"" of type '" "struct PortfolioStats_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PortfolioStats__delete_set" "', argument " "1"" of type '" "struct WU_PortfolioStats_ *""'"); 
   }
-  arg1 = (struct PortfolioStats_ *)(argp1);
+  arg1 = (struct WU_PortfolioStats_ *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_PortfolioStats___void);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_WU_PortfolioStats___void);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "PortfolioStats__delete_set" "', argument " "2"" of type '" "void (*)(struct PortfolioStats_ *)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_PortfolioStats__delete_set" "', argument " "2"" of type '" "void (*)(struct WU_PortfolioStats_ *)""'"); 
     }
   }
   if (arg1) (arg1)->delete = arg2;
@@ -9429,33 +10291,47 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PortfolioStats__delete_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PortfolioStats__delete_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PortfolioStats_ *arg1 = 0 ;
+  struct WU_PortfolioStats_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  void (*result)(struct PortfolioStats_ *) = 0 ;
+  void (*result)(struct WU_PortfolioStats_ *) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PortfolioStats__delete_get" "', argument " "1"" of type '" "struct PortfolioStats_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PortfolioStats__delete_get" "', argument " "1"" of type '" "struct WU_PortfolioStats_ *""'"); 
   }
-  arg1 = (struct PortfolioStats_ *)(argp1);
-  result = (void (*)(struct PortfolioStats_ *)) ((arg1)->delete);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_PortfolioStats___void);
+  arg1 = (struct WU_PortfolioStats_ *)(argp1);
+  result = (void (*)(struct WU_PortfolioStats_ *)) ((arg1)->delete);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_WU_PortfolioStats___void);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_PortfolioStats_(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_WU_PortfolioStats_(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PortfolioStats_ *arg1 = 0 ;
+  struct WU_PortfolioStats_ *result = 0 ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "new_WU_PortfolioStats_", 0, 0, 0)) SWIG_fail;
+  result = (struct WU_PortfolioStats_ *)calloc(1, sizeof(struct WU_PortfolioStats_));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_PortfolioStats_, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_WU_PortfolioStats_(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_PortfolioStats_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -9463,12 +10339,12 @@ SWIGINTERN PyObject *_wrap_delete_PortfolioStats_(PyObject *self, PyObject *args
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PortfolioStats_, SWIG_POINTER_DISOWN |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PortfolioStats_, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_PortfolioStats_" "', argument " "1"" of type '" "struct PortfolioStats_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_WU_PortfolioStats_" "', argument " "1"" of type '" "struct WU_PortfolioStats_ *""'"); 
   }
-  arg1 = (struct PortfolioStats_ *)(argp1);
-  delete_PortfolioStats_(arg1);
+  arg1 = (struct WU_PortfolioStats_ *)(argp1);
+  free((char *) arg1);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -9476,49 +10352,35 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_PortfolioStats_(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct PortfolioStats_ *result = 0 ;
-  
-  (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "new_PortfolioStats_", 0, 0, 0)) SWIG_fail;
-  result = (struct PortfolioStats_ *)calloc(1, sizeof(struct PortfolioStats_));
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PortfolioStats_, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *PortfolioStats__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_PortfolioStats__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj = NULL;
   if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_PortfolioStats_, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_WU_PortfolioStats_, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *PortfolioStats__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_PortfolioStats__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_portfolio_stats_new(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_wu_portfolio_stats_new(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  PortfolioStats result;
+  WU_PortfolioStats result;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "portfolio_stats_new", 0, 0, 0)) SWIG_fail;
-  result = (PortfolioStats)portfolio_stats_new();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "wu_portfolio_stats_new", 0, 0, 0)) SWIG_fail;
+  result = (WU_PortfolioStats)wu_portfolio_stats_new();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_PositionSizingParams_size_type_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PositionSizingParams_size_type_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionSizingParams *arg1 = 0 ;
-  PositionSizeType arg2 ;
+  struct WU_PositionSizingParams *arg1 = 0 ;
+  WU_PositionSizeType arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int val2 ;
@@ -9526,17 +10388,17 @@ SWIGINTERN PyObject *_wrap_PositionSizingParams_size_type_set(PyObject *self, Py
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "PositionSizingParams_size_type_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionSizingParams, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_PositionSizingParams_size_type_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionSizingParams, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PositionSizingParams_size_type_set" "', argument " "1"" of type '" "struct PositionSizingParams *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PositionSizingParams_size_type_set" "', argument " "1"" of type '" "struct WU_PositionSizingParams *""'"); 
   }
-  arg1 = (struct PositionSizingParams *)(argp1);
+  arg1 = (struct WU_PositionSizingParams *)(argp1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PositionSizingParams_size_type_set" "', argument " "2"" of type '" "PositionSizeType""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_PositionSizingParams_size_type_set" "', argument " "2"" of type '" "WU_PositionSizeType""'");
   } 
-  arg2 = (PositionSizeType)(val2);
+  arg2 = (WU_PositionSizeType)(val2);
   if (arg1) (arg1)->size_type = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -9545,23 +10407,23 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PositionSizingParams_size_type_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PositionSizingParams_size_type_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionSizingParams *arg1 = 0 ;
+  struct WU_PositionSizingParams *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  PositionSizeType result;
+  WU_PositionSizeType result;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionSizingParams, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionSizingParams, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PositionSizingParams_size_type_get" "', argument " "1"" of type '" "struct PositionSizingParams *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PositionSizingParams_size_type_get" "', argument " "1"" of type '" "struct WU_PositionSizingParams *""'"); 
   }
-  arg1 = (struct PositionSizingParams *)(argp1);
-  result = (PositionSizeType) ((arg1)->size_type);
+  arg1 = (struct WU_PositionSizingParams *)(argp1);
+  result = (WU_PositionSizeType) ((arg1)->size_type);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
@@ -9569,9 +10431,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PositionSizingParams_size_value_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PositionSizingParams_size_value_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionSizingParams *arg1 = 0 ;
+  struct WU_PositionSizingParams *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -9580,15 +10442,15 @@ SWIGINTERN PyObject *_wrap_PositionSizingParams_size_value_set(PyObject *self, P
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "PositionSizingParams_size_value_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionSizingParams, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_PositionSizingParams_size_value_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionSizingParams, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PositionSizingParams_size_value_set" "', argument " "1"" of type '" "struct PositionSizingParams *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PositionSizingParams_size_value_set" "', argument " "1"" of type '" "struct WU_PositionSizingParams *""'"); 
   }
-  arg1 = (struct PositionSizingParams *)(argp1);
+  arg1 = (struct WU_PositionSizingParams *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PositionSizingParams_size_value_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_PositionSizingParams_size_value_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->size_value = arg2;
@@ -9599,9 +10461,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PositionSizingParams_size_value_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_PositionSizingParams_size_value_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionSizingParams *arg1 = 0 ;
+  struct WU_PositionSizingParams *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -9610,11 +10472,11 @@ SWIGINTERN PyObject *_wrap_PositionSizingParams_size_value_get(PyObject *self, P
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionSizingParams, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionSizingParams, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PositionSizingParams_size_value_get" "', argument " "1"" of type '" "struct PositionSizingParams *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_PositionSizingParams_size_value_get" "', argument " "1"" of type '" "struct WU_PositionSizingParams *""'"); 
   }
-  arg1 = (struct PositionSizingParams *)(argp1);
+  arg1 = (struct WU_PositionSizingParams *)(argp1);
   result = (double) ((arg1)->size_value);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -9623,23 +10485,23 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_PositionSizingParams(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_WU_PositionSizingParams(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionSizingParams *result = 0 ;
+  struct WU_PositionSizingParams *result = 0 ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "new_PositionSizingParams", 0, 0, 0)) SWIG_fail;
-  result = (struct PositionSizingParams *)calloc(1, sizeof(struct PositionSizingParams));
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PositionSizingParams, SWIG_POINTER_NEW |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "new_WU_PositionSizingParams", 0, 0, 0)) SWIG_fail;
+  result = (struct WU_PositionSizingParams *)calloc(1, sizeof(struct WU_PositionSizingParams));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_PositionSizingParams, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_PositionSizingParams(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_WU_PositionSizingParams(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct PositionSizingParams *arg1 = 0 ;
+  struct WU_PositionSizingParams *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -9647,11 +10509,11 @@ SWIGINTERN PyObject *_wrap_delete_PositionSizingParams(PyObject *self, PyObject 
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_PositionSizingParams, SWIG_POINTER_DISOWN |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_PositionSizingParams, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_PositionSizingParams" "', argument " "1"" of type '" "struct PositionSizingParams *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_WU_PositionSizingParams" "', argument " "1"" of type '" "struct WU_PositionSizingParams *""'"); 
   }
-  arg1 = (struct PositionSizingParams *)(argp1);
+  arg1 = (struct WU_PositionSizingParams *)(argp1);
   free((char *) arg1);
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -9660,20 +10522,20 @@ fail:
 }
 
 
-SWIGINTERN PyObject *PositionSizingParams_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_PositionSizingParams_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj = NULL;
   if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_PositionSizingParams, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_WU_PositionSizingParams, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *PositionSizingParams_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_PositionSizingParams_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolioParams_initial_cash_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolioParams_initial_cash_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioParams *arg1 = 0 ;
+  struct WU_SingleAssetPortfolioParams *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -9682,15 +10544,15 @@ SWIGINTERN PyObject *_wrap_SingleAssetPortfolioParams_initial_cash_set(PyObject 
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SingleAssetPortfolioParams_initial_cash_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolioParams, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_SingleAssetPortfolioParams_initial_cash_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolioParams, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolioParams_initial_cash_set" "', argument " "1"" of type '" "struct SingleAssetPortfolioParams *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolioParams_initial_cash_set" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolioParams *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolioParams *)(argp1);
+  arg1 = (struct WU_SingleAssetPortfolioParams *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SingleAssetPortfolioParams_initial_cash_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_SingleAssetPortfolioParams_initial_cash_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->initial_cash = arg2;
@@ -9701,9 +10563,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolioParams_initial_cash_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolioParams_initial_cash_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioParams *arg1 = 0 ;
+  struct WU_SingleAssetPortfolioParams *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -9712,11 +10574,11 @@ SWIGINTERN PyObject *_wrap_SingleAssetPortfolioParams_initial_cash_get(PyObject 
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolioParams, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolioParams, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolioParams_initial_cash_get" "', argument " "1"" of type '" "struct SingleAssetPortfolioParams *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolioParams_initial_cash_get" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolioParams *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolioParams *)(argp1);
+  arg1 = (struct WU_SingleAssetPortfolioParams *)(argp1);
   result = (double) ((arg1)->initial_cash);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -9725,9 +10587,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolioParams_tx_cost_pct_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolioParams_tx_cost_pct_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioParams *arg1 = 0 ;
+  struct WU_SingleAssetPortfolioParams *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -9736,15 +10598,15 @@ SWIGINTERN PyObject *_wrap_SingleAssetPortfolioParams_tx_cost_pct_set(PyObject *
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SingleAssetPortfolioParams_tx_cost_pct_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolioParams, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_SingleAssetPortfolioParams_tx_cost_pct_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolioParams, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolioParams_tx_cost_pct_set" "', argument " "1"" of type '" "struct SingleAssetPortfolioParams *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolioParams_tx_cost_pct_set" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolioParams *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolioParams *)(argp1);
+  arg1 = (struct WU_SingleAssetPortfolioParams *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SingleAssetPortfolioParams_tx_cost_pct_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_SingleAssetPortfolioParams_tx_cost_pct_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->tx_cost_pct = arg2;
@@ -9755,9 +10617,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolioParams_tx_cost_pct_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolioParams_tx_cost_pct_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioParams *arg1 = 0 ;
+  struct WU_SingleAssetPortfolioParams *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -9766,11 +10628,11 @@ SWIGINTERN PyObject *_wrap_SingleAssetPortfolioParams_tx_cost_pct_get(PyObject *
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolioParams, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolioParams, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolioParams_tx_cost_pct_get" "', argument " "1"" of type '" "struct SingleAssetPortfolioParams *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolioParams_tx_cost_pct_get" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolioParams *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolioParams *)(argp1);
+  arg1 = (struct WU_SingleAssetPortfolioParams *)(argp1);
   result = (double) ((arg1)->tx_cost_pct);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -9779,9 +10641,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolioParams_stop_loss_pct_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolioParams_stop_loss_pct_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioParams *arg1 = 0 ;
+  struct WU_SingleAssetPortfolioParams *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -9790,15 +10652,15 @@ SWIGINTERN PyObject *_wrap_SingleAssetPortfolioParams_stop_loss_pct_set(PyObject
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SingleAssetPortfolioParams_stop_loss_pct_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolioParams, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_SingleAssetPortfolioParams_stop_loss_pct_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolioParams, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolioParams_stop_loss_pct_set" "', argument " "1"" of type '" "struct SingleAssetPortfolioParams *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolioParams_stop_loss_pct_set" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolioParams *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolioParams *)(argp1);
+  arg1 = (struct WU_SingleAssetPortfolioParams *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SingleAssetPortfolioParams_stop_loss_pct_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_SingleAssetPortfolioParams_stop_loss_pct_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->stop_loss_pct = arg2;
@@ -9809,9 +10671,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolioParams_stop_loss_pct_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolioParams_stop_loss_pct_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioParams *arg1 = 0 ;
+  struct WU_SingleAssetPortfolioParams *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -9820,11 +10682,11 @@ SWIGINTERN PyObject *_wrap_SingleAssetPortfolioParams_stop_loss_pct_get(PyObject
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolioParams, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolioParams, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolioParams_stop_loss_pct_get" "', argument " "1"" of type '" "struct SingleAssetPortfolioParams *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolioParams_stop_loss_pct_get" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolioParams *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolioParams *)(argp1);
+  arg1 = (struct WU_SingleAssetPortfolioParams *)(argp1);
   result = (double) ((arg1)->stop_loss_pct);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -9833,9 +10695,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolioParams_take_profit_pct_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolioParams_take_profit_pct_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioParams *arg1 = 0 ;
+  struct WU_SingleAssetPortfolioParams *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -9844,15 +10706,15 @@ SWIGINTERN PyObject *_wrap_SingleAssetPortfolioParams_take_profit_pct_set(PyObje
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SingleAssetPortfolioParams_take_profit_pct_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolioParams, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_SingleAssetPortfolioParams_take_profit_pct_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolioParams, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolioParams_take_profit_pct_set" "', argument " "1"" of type '" "struct SingleAssetPortfolioParams *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolioParams_take_profit_pct_set" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolioParams *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolioParams *)(argp1);
+  arg1 = (struct WU_SingleAssetPortfolioParams *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SingleAssetPortfolioParams_take_profit_pct_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_SingleAssetPortfolioParams_take_profit_pct_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->take_profit_pct = arg2;
@@ -9863,9 +10725,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolioParams_take_profit_pct_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolioParams_take_profit_pct_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioParams *arg1 = 0 ;
+  struct WU_SingleAssetPortfolioParams *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -9874,11 +10736,11 @@ SWIGINTERN PyObject *_wrap_SingleAssetPortfolioParams_take_profit_pct_get(PyObje
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolioParams, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolioParams, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolioParams_take_profit_pct_get" "', argument " "1"" of type '" "struct SingleAssetPortfolioParams *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolioParams_take_profit_pct_get" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolioParams *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolioParams *)(argp1);
+  arg1 = (struct WU_SingleAssetPortfolioParams *)(argp1);
   result = (double) ((arg1)->take_profit_pct);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -9887,9 +10749,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolioParams_slippage_pct_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolioParams_slippage_pct_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioParams *arg1 = 0 ;
+  struct WU_SingleAssetPortfolioParams *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -9898,15 +10760,15 @@ SWIGINTERN PyObject *_wrap_SingleAssetPortfolioParams_slippage_pct_set(PyObject 
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SingleAssetPortfolioParams_slippage_pct_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolioParams, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_SingleAssetPortfolioParams_slippage_pct_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolioParams, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolioParams_slippage_pct_set" "', argument " "1"" of type '" "struct SingleAssetPortfolioParams *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolioParams_slippage_pct_set" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolioParams *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolioParams *)(argp1);
+  arg1 = (struct WU_SingleAssetPortfolioParams *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SingleAssetPortfolioParams_slippage_pct_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_SingleAssetPortfolioParams_slippage_pct_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->slippage_pct = arg2;
@@ -9917,9 +10779,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolioParams_slippage_pct_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolioParams_slippage_pct_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioParams *arg1 = 0 ;
+  struct WU_SingleAssetPortfolioParams *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -9928,11 +10790,11 @@ SWIGINTERN PyObject *_wrap_SingleAssetPortfolioParams_slippage_pct_get(PyObject 
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolioParams, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolioParams, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolioParams_slippage_pct_get" "', argument " "1"" of type '" "struct SingleAssetPortfolioParams *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolioParams_slippage_pct_get" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolioParams *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolioParams *)(argp1);
+  arg1 = (struct WU_SingleAssetPortfolioParams *)(argp1);
   result = (double) ((arg1)->slippage_pct);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -9941,10 +10803,10 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolioParams_position_sizing_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolioParams_wu_position_sizing_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioParams *arg1 = 0 ;
-  PositionSizingParams *arg2 = 0 ;
+  struct WU_SingleAssetPortfolioParams *arg1 = 0 ;
+  WU_PositionSizingParams *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -9952,18 +10814,18 @@ SWIGINTERN PyObject *_wrap_SingleAssetPortfolioParams_position_sizing_set(PyObje
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SingleAssetPortfolioParams_position_sizing_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolioParams, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_SingleAssetPortfolioParams_wu_position_sizing_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolioParams, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolioParams_position_sizing_set" "', argument " "1"" of type '" "struct SingleAssetPortfolioParams *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolioParams_wu_position_sizing_set" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolioParams *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolioParams *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_PositionSizingParams, 0 |  0 );
+  arg1 = (struct WU_SingleAssetPortfolioParams *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_WU_PositionSizingParams, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SingleAssetPortfolioParams_position_sizing_set" "', argument " "2"" of type '" "PositionSizingParams *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WU_SingleAssetPortfolioParams_wu_position_sizing_set" "', argument " "2"" of type '" "WU_PositionSizingParams *""'"); 
   }
-  arg2 = (PositionSizingParams *)(argp2);
-  if (arg1) (arg1)->position_sizing = *arg2;
+  arg2 = (WU_PositionSizingParams *)(argp2);
+  if (arg1) (arg1)->wu_position_sizing = *arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -9971,47 +10833,47 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolioParams_position_sizing_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolioParams_wu_position_sizing_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioParams *arg1 = 0 ;
+  struct WU_SingleAssetPortfolioParams *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  PositionSizingParams *result = 0 ;
+  WU_PositionSizingParams *result = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolioParams, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolioParams, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolioParams_position_sizing_get" "', argument " "1"" of type '" "struct SingleAssetPortfolioParams *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolioParams_wu_position_sizing_get" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolioParams *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolioParams *)(argp1);
-  result = (PositionSizingParams *)& ((arg1)->position_sizing);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PositionSizingParams, 0 |  0 );
+  arg1 = (struct WU_SingleAssetPortfolioParams *)(argp1);
+  result = (WU_PositionSizingParams *)& ((arg1)->wu_position_sizing);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_PositionSizingParams, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_new_SingleAssetPortfolioParams(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_WU_SingleAssetPortfolioParams(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioParams *result = 0 ;
+  struct WU_SingleAssetPortfolioParams *result = 0 ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "new_SingleAssetPortfolioParams", 0, 0, 0)) SWIG_fail;
-  result = (struct SingleAssetPortfolioParams *)calloc(1, sizeof(struct SingleAssetPortfolioParams));
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SingleAssetPortfolioParams, SWIG_POINTER_NEW |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "new_WU_SingleAssetPortfolioParams", 0, 0, 0)) SWIG_fail;
+  result = (struct WU_SingleAssetPortfolioParams *)calloc(1, sizeof(struct WU_SingleAssetPortfolioParams));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_SingleAssetPortfolioParams, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_SingleAssetPortfolioParams(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_WU_SingleAssetPortfolioParams(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioParams *arg1 = 0 ;
+  struct WU_SingleAssetPortfolioParams *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -10019,11 +10881,11 @@ SWIGINTERN PyObject *_wrap_delete_SingleAssetPortfolioParams(PyObject *self, PyO
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolioParams, SWIG_POINTER_DISOWN |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolioParams, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_SingleAssetPortfolioParams" "', argument " "1"" of type '" "struct SingleAssetPortfolioParams *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_WU_SingleAssetPortfolioParams" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolioParams *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolioParams *)(argp1);
+  arg1 = (struct WU_SingleAssetPortfolioParams *)(argp1);
   free((char *) arg1);
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -10032,20 +10894,20 @@ fail:
 }
 
 
-SWIGINTERN PyObject *SingleAssetPortfolioParams_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_SingleAssetPortfolioParams_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj = NULL;
   if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_SingleAssetPortfolioParams, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_WU_SingleAssetPortfolioParams, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *SingleAssetPortfolioParams_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_SingleAssetPortfolioParams_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolioTrack_cash_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolioTrack_cash_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioTrack *arg1 = 0 ;
+  struct WU_SingleAssetPortfolioTrack *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -10054,15 +10916,15 @@ SWIGINTERN PyObject *_wrap_SingleAssetPortfolioTrack_cash_set(PyObject *self, Py
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SingleAssetPortfolioTrack_cash_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolioTrack, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_SingleAssetPortfolioTrack_cash_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolioTrack, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolioTrack_cash_set" "', argument " "1"" of type '" "struct SingleAssetPortfolioTrack *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolioTrack_cash_set" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolioTrack *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolioTrack *)(argp1);
+  arg1 = (struct WU_SingleAssetPortfolioTrack *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SingleAssetPortfolioTrack_cash_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_SingleAssetPortfolioTrack_cash_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->cash = arg2;
@@ -10073,9 +10935,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolioTrack_cash_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolioTrack_cash_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioTrack *arg1 = 0 ;
+  struct WU_SingleAssetPortfolioTrack *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -10084,11 +10946,11 @@ SWIGINTERN PyObject *_wrap_SingleAssetPortfolioTrack_cash_get(PyObject *self, Py
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolioTrack, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolioTrack, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolioTrack_cash_get" "', argument " "1"" of type '" "struct SingleAssetPortfolioTrack *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolioTrack_cash_get" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolioTrack *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolioTrack *)(argp1);
+  arg1 = (struct WU_SingleAssetPortfolioTrack *)(argp1);
   result = (double) ((arg1)->cash);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -10097,10 +10959,10 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolioTrack_positions_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolioTrack_positions_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioTrack *arg1 = 0 ;
-  PositionVector *arg2 = 0 ;
+  struct WU_SingleAssetPortfolioTrack *arg1 = 0 ;
+  WU_PositionVector *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -10108,17 +10970,17 @@ SWIGINTERN PyObject *_wrap_SingleAssetPortfolioTrack_positions_set(PyObject *sel
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SingleAssetPortfolioTrack_positions_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolioTrack, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_SingleAssetPortfolioTrack_positions_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolioTrack, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolioTrack_positions_set" "', argument " "1"" of type '" "struct SingleAssetPortfolioTrack *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolioTrack_positions_set" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolioTrack *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolioTrack *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_PositionVector, SWIG_POINTER_DISOWN |  0 );
+  arg1 = (struct WU_SingleAssetPortfolioTrack *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_WU_PositionVector, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SingleAssetPortfolioTrack_positions_set" "', argument " "2"" of type '" "PositionVector *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WU_SingleAssetPortfolioTrack_positions_set" "', argument " "2"" of type '" "WU_PositionVector *""'"); 
   }
-  arg2 = (PositionVector *)(argp2);
+  arg2 = (WU_PositionVector *)(argp2);
   if (arg1) (arg1)->positions = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -10127,33 +10989,33 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolioTrack_positions_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolioTrack_positions_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioTrack *arg1 = 0 ;
+  struct WU_SingleAssetPortfolioTrack *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  PositionVector *result = 0 ;
+  WU_PositionVector *result = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolioTrack, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolioTrack, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolioTrack_positions_get" "', argument " "1"" of type '" "struct SingleAssetPortfolioTrack *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolioTrack_positions_get" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolioTrack *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolioTrack *)(argp1);
-  result = (PositionVector *) ((arg1)->positions);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PositionVector, 0 |  0 );
+  arg1 = (struct WU_SingleAssetPortfolioTrack *)(argp1);
+  result = (WU_PositionVector *) ((arg1)->positions);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_PositionVector, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolioTrack_last_price_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolioTrack_last_price_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioTrack *arg1 = 0 ;
+  struct WU_SingleAssetPortfolioTrack *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -10162,15 +11024,15 @@ SWIGINTERN PyObject *_wrap_SingleAssetPortfolioTrack_last_price_set(PyObject *se
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SingleAssetPortfolioTrack_last_price_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolioTrack, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_SingleAssetPortfolioTrack_last_price_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolioTrack, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolioTrack_last_price_set" "', argument " "1"" of type '" "struct SingleAssetPortfolioTrack *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolioTrack_last_price_set" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolioTrack *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolioTrack *)(argp1);
+  arg1 = (struct WU_SingleAssetPortfolioTrack *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SingleAssetPortfolioTrack_last_price_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_SingleAssetPortfolioTrack_last_price_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->last_price = arg2;
@@ -10181,9 +11043,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolioTrack_last_price_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolioTrack_last_price_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioTrack *arg1 = 0 ;
+  struct WU_SingleAssetPortfolioTrack *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -10192,11 +11054,11 @@ SWIGINTERN PyObject *_wrap_SingleAssetPortfolioTrack_last_price_get(PyObject *se
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolioTrack, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolioTrack, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolioTrack_last_price_get" "', argument " "1"" of type '" "struct SingleAssetPortfolioTrack *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolioTrack_last_price_get" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolioTrack *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolioTrack *)(argp1);
+  arg1 = (struct WU_SingleAssetPortfolioTrack *)(argp1);
   result = (double) ((arg1)->last_price);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -10205,9 +11067,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolioTrack_accum_expenses_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolioTrack_accum_expenses_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioTrack *arg1 = 0 ;
+  struct WU_SingleAssetPortfolioTrack *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -10216,15 +11078,15 @@ SWIGINTERN PyObject *_wrap_SingleAssetPortfolioTrack_accum_expenses_set(PyObject
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SingleAssetPortfolioTrack_accum_expenses_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolioTrack, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_SingleAssetPortfolioTrack_accum_expenses_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolioTrack, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolioTrack_accum_expenses_set" "', argument " "1"" of type '" "struct SingleAssetPortfolioTrack *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolioTrack_accum_expenses_set" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolioTrack *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolioTrack *)(argp1);
+  arg1 = (struct WU_SingleAssetPortfolioTrack *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SingleAssetPortfolioTrack_accum_expenses_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_SingleAssetPortfolioTrack_accum_expenses_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->accum_expenses = arg2;
@@ -10235,9 +11097,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolioTrack_accum_expenses_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolioTrack_accum_expenses_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioTrack *arg1 = 0 ;
+  struct WU_SingleAssetPortfolioTrack *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -10246,11 +11108,11 @@ SWIGINTERN PyObject *_wrap_SingleAssetPortfolioTrack_accum_expenses_get(PyObject
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolioTrack, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolioTrack, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolioTrack_accum_expenses_get" "', argument " "1"" of type '" "struct SingleAssetPortfolioTrack *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolioTrack_accum_expenses_get" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolioTrack *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolioTrack *)(argp1);
+  arg1 = (struct WU_SingleAssetPortfolioTrack *)(argp1);
   result = (double) ((arg1)->accum_expenses);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -10259,10 +11121,10 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolioTrack_stats_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolioTrack_stats_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioTrack *arg1 = 0 ;
-  PortfolioStats arg2 = 0 ;
+  struct WU_SingleAssetPortfolioTrack *arg1 = 0 ;
+  WU_PortfolioStats arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -10270,17 +11132,17 @@ SWIGINTERN PyObject *_wrap_SingleAssetPortfolioTrack_stats_set(PyObject *self, P
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SingleAssetPortfolioTrack_stats_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolioTrack, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_SingleAssetPortfolioTrack_stats_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolioTrack, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolioTrack_stats_set" "', argument " "1"" of type '" "struct SingleAssetPortfolioTrack *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolioTrack_stats_set" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolioTrack *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolioTrack *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_PortfolioStats_, SWIG_POINTER_DISOWN |  0 );
+  arg1 = (struct WU_SingleAssetPortfolioTrack *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_WU_PortfolioStats_, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SingleAssetPortfolioTrack_stats_set" "', argument " "2"" of type '" "PortfolioStats""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WU_SingleAssetPortfolioTrack_stats_set" "', argument " "2"" of type '" "WU_PortfolioStats""'"); 
   }
-  arg2 = (PortfolioStats)(argp2);
+  arg2 = (WU_PortfolioStats)(argp2);
   if (arg1) (arg1)->stats = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -10289,47 +11151,47 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolioTrack_stats_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolioTrack_stats_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioTrack *arg1 = 0 ;
+  struct WU_SingleAssetPortfolioTrack *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  PortfolioStats result;
+  WU_PortfolioStats result;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolioTrack, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolioTrack, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolioTrack_stats_get" "', argument " "1"" of type '" "struct SingleAssetPortfolioTrack *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolioTrack_stats_get" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolioTrack *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolioTrack *)(argp1);
-  result = (PortfolioStats) ((arg1)->stats);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PortfolioStats_, 0 |  0 );
+  arg1 = (struct WU_SingleAssetPortfolioTrack *)(argp1);
+  result = (WU_PortfolioStats) ((arg1)->stats);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_PortfolioStats_, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_new_SingleAssetPortfolioTrack(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_WU_SingleAssetPortfolioTrack(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioTrack *result = 0 ;
+  struct WU_SingleAssetPortfolioTrack *result = 0 ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "new_SingleAssetPortfolioTrack", 0, 0, 0)) SWIG_fail;
-  result = (struct SingleAssetPortfolioTrack *)calloc(1, sizeof(struct SingleAssetPortfolioTrack));
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SingleAssetPortfolioTrack, SWIG_POINTER_NEW |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "new_WU_SingleAssetPortfolioTrack", 0, 0, 0)) SWIG_fail;
+  result = (struct WU_SingleAssetPortfolioTrack *)calloc(1, sizeof(struct WU_SingleAssetPortfolioTrack));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_SingleAssetPortfolioTrack, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_SingleAssetPortfolioTrack(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_WU_SingleAssetPortfolioTrack(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolioTrack *arg1 = 0 ;
+  struct WU_SingleAssetPortfolioTrack *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -10337,11 +11199,11 @@ SWIGINTERN PyObject *_wrap_delete_SingleAssetPortfolioTrack(PyObject *self, PyOb
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolioTrack, SWIG_POINTER_DISOWN |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolioTrack, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_SingleAssetPortfolioTrack" "', argument " "1"" of type '" "struct SingleAssetPortfolioTrack *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_WU_SingleAssetPortfolioTrack" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolioTrack *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolioTrack *)(argp1);
+  arg1 = (struct WU_SingleAssetPortfolioTrack *)(argp1);
   free((char *) arg1);
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -10350,21 +11212,21 @@ fail:
 }
 
 
-SWIGINTERN PyObject *SingleAssetPortfolioTrack_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_SingleAssetPortfolioTrack_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj = NULL;
   if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_SingleAssetPortfolioTrack, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_WU_SingleAssetPortfolioTrack, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *SingleAssetPortfolioTrack_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_SingleAssetPortfolioTrack_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolio__base_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolio__base_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolio_ *arg1 = 0 ;
-  struct Portfolio_ *arg2 = 0 ;
+  struct WU_SingleAssetPortfolio_ *arg1 = 0 ;
+  struct WU_Portfolio_ *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -10372,17 +11234,17 @@ SWIGINTERN PyObject *_wrap_SingleAssetPortfolio__base_set(PyObject *self, PyObje
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SingleAssetPortfolio__base_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolio_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_SingleAssetPortfolio__base_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolio_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolio__base_set" "', argument " "1"" of type '" "struct SingleAssetPortfolio_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolio__base_set" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolio_ *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolio_ *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_Portfolio_, 0 |  0 );
+  arg1 = (struct WU_SingleAssetPortfolio_ *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_WU_Portfolio_, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SingleAssetPortfolio__base_set" "', argument " "2"" of type '" "struct Portfolio_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WU_SingleAssetPortfolio__base_set" "', argument " "2"" of type '" "struct WU_Portfolio_ *""'"); 
   }
-  arg2 = (struct Portfolio_ *)(argp2);
+  arg2 = (struct WU_Portfolio_ *)(argp2);
   if (arg1) (arg1)->base = *arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -10391,34 +11253,34 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolio__base_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolio__base_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolio_ *arg1 = 0 ;
+  struct WU_SingleAssetPortfolio_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  struct Portfolio_ *result = 0 ;
+  struct WU_Portfolio_ *result = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolio_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolio_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolio__base_get" "', argument " "1"" of type '" "struct SingleAssetPortfolio_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolio__base_get" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolio_ *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolio_ *)(argp1);
-  result = (struct Portfolio_ *)& ((arg1)->base);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Portfolio_, 0 |  0 );
+  arg1 = (struct WU_SingleAssetPortfolio_ *)(argp1);
+  result = (struct WU_Portfolio_ *)& ((arg1)->base);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_Portfolio_, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolio__params_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolio__params_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolio_ *arg1 = 0 ;
-  SingleAssetPortfolioParams *arg2 = 0 ;
+  struct WU_SingleAssetPortfolio_ *arg1 = 0 ;
+  WU_SingleAssetPortfolioParams *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -10426,17 +11288,17 @@ SWIGINTERN PyObject *_wrap_SingleAssetPortfolio__params_set(PyObject *self, PyOb
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SingleAssetPortfolio__params_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolio_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_SingleAssetPortfolio__params_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolio_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolio__params_set" "', argument " "1"" of type '" "struct SingleAssetPortfolio_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolio__params_set" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolio_ *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolio_ *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_SingleAssetPortfolioParams, 0 |  0 );
+  arg1 = (struct WU_SingleAssetPortfolio_ *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_WU_SingleAssetPortfolioParams, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SingleAssetPortfolio__params_set" "', argument " "2"" of type '" "SingleAssetPortfolioParams *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WU_SingleAssetPortfolio__params_set" "', argument " "2"" of type '" "WU_SingleAssetPortfolioParams *""'"); 
   }
-  arg2 = (SingleAssetPortfolioParams *)(argp2);
+  arg2 = (WU_SingleAssetPortfolioParams *)(argp2);
   if (arg1) (arg1)->params = *arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -10445,34 +11307,34 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolio__params_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolio__params_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolio_ *arg1 = 0 ;
+  struct WU_SingleAssetPortfolio_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  SingleAssetPortfolioParams *result = 0 ;
+  WU_SingleAssetPortfolioParams *result = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolio_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolio_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolio__params_get" "', argument " "1"" of type '" "struct SingleAssetPortfolio_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolio__params_get" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolio_ *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolio_ *)(argp1);
-  result = (SingleAssetPortfolioParams *)& ((arg1)->params);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SingleAssetPortfolioParams, 0 |  0 );
+  arg1 = (struct WU_SingleAssetPortfolio_ *)(argp1);
+  result = (WU_SingleAssetPortfolioParams *)& ((arg1)->params);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_SingleAssetPortfolioParams, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolio__track_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolio__track_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolio_ *arg1 = 0 ;
-  SingleAssetPortfolioTrack *arg2 = 0 ;
+  struct WU_SingleAssetPortfolio_ *arg1 = 0 ;
+  WU_SingleAssetPortfolioTrack *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -10480,17 +11342,17 @@ SWIGINTERN PyObject *_wrap_SingleAssetPortfolio__track_set(PyObject *self, PyObj
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SingleAssetPortfolio__track_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolio_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_SingleAssetPortfolio__track_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolio_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolio__track_set" "', argument " "1"" of type '" "struct SingleAssetPortfolio_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolio__track_set" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolio_ *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolio_ *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_SingleAssetPortfolioTrack, 0 |  0 );
+  arg1 = (struct WU_SingleAssetPortfolio_ *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_WU_SingleAssetPortfolioTrack, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SingleAssetPortfolio__track_set" "', argument " "2"" of type '" "SingleAssetPortfolioTrack *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WU_SingleAssetPortfolio__track_set" "', argument " "2"" of type '" "WU_SingleAssetPortfolioTrack *""'"); 
   }
-  arg2 = (SingleAssetPortfolioTrack *)(argp2);
+  arg2 = (WU_SingleAssetPortfolioTrack *)(argp2);
   if (arg1) (arg1)->track = *arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -10499,251 +11361,60 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolio__track_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_SingleAssetPortfolio__track_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolio_ *arg1 = 0 ;
+  struct WU_SingleAssetPortfolio_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  SingleAssetPortfolioTrack *result = 0 ;
+  WU_SingleAssetPortfolioTrack *result = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolio_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolio_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolio__track_get" "', argument " "1"" of type '" "struct SingleAssetPortfolio_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_SingleAssetPortfolio__track_get" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolio_ *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolio_ *)(argp1);
-  result = (SingleAssetPortfolioTrack *)& ((arg1)->track);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SingleAssetPortfolioTrack, 0 |  0 );
+  arg1 = (struct WU_SingleAssetPortfolio_ *)(argp1);
+  result = (WU_SingleAssetPortfolioTrack *)& ((arg1)->track);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_SingleAssetPortfolioTrack, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolio__get_cash(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_WU_SingleAssetPortfolio_(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolio_ *arg1 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  double result;
+  struct WU_SingleAssetPortfolio_ *result = 0 ;
   
   (void)self;
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolio_, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolio__get_cash" "', argument " "1"" of type '" "struct SingleAssetPortfolio_ *""'"); 
-  }
-  arg1 = (struct SingleAssetPortfolio_ *)(argp1);
-  result = (double)SingleAssetPortfolio__get_cash(arg1);
-  resultobj = SWIG_From_double((double)(result));
+  if (!SWIG_Python_UnpackTuple(args, "new_WU_SingleAssetPortfolio_", 0, 0, 0)) SWIG_fail;
+  result = (struct WU_SingleAssetPortfolio_ *)calloc(1, sizeof(struct WU_SingleAssetPortfolio_));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_SingleAssetPortfolio_, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolio__get_last_price(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_WU_SingleAssetPortfolio_(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct SingleAssetPortfolio_ *arg1 = 0 ;
+  struct WU_SingleAssetPortfolio_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  double result;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolio_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_SingleAssetPortfolio_, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolio__get_last_price" "', argument " "1"" of type '" "struct SingleAssetPortfolio_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_WU_SingleAssetPortfolio_" "', argument " "1"" of type '" "struct WU_SingleAssetPortfolio_ *""'"); 
   }
-  arg1 = (struct SingleAssetPortfolio_ *)(argp1);
-  result = (double)SingleAssetPortfolio__get_last_price(arg1);
-  resultobj = SWIG_From_double((double)(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolio__get_accum_expenses(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct SingleAssetPortfolio_ *arg1 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  double result;
-  
-  (void)self;
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolio_, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolio__get_accum_expenses" "', argument " "1"" of type '" "struct SingleAssetPortfolio_ *""'"); 
-  }
-  arg1 = (struct SingleAssetPortfolio_ *)(argp1);
-  result = (double)SingleAssetPortfolio__get_accum_expenses(arg1);
-  resultobj = SWIG_From_double((double)(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolio__get_total_trades(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct SingleAssetPortfolio_ *arg1 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  int64_t result;
-  
-  (void)self;
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolio_, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolio__get_total_trades" "', argument " "1"" of type '" "struct SingleAssetPortfolio_ *""'"); 
-  }
-  arg1 = (struct SingleAssetPortfolio_ *)(argp1);
-  result = (int64_t)SingleAssetPortfolio__get_total_trades(arg1);
-  resultobj = SWIG_From_long_SS_long((long long)(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolio__get_winning_trades(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct SingleAssetPortfolio_ *arg1 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  int64_t result;
-  
-  (void)self;
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolio_, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolio__get_winning_trades" "', argument " "1"" of type '" "struct SingleAssetPortfolio_ *""'"); 
-  }
-  arg1 = (struct SingleAssetPortfolio_ *)(argp1);
-  result = (int64_t)SingleAssetPortfolio__get_winning_trades(arg1);
-  resultobj = SWIG_From_long_SS_long((long long)(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolio__get_losing_trades(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct SingleAssetPortfolio_ *arg1 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  int64_t result;
-  
-  (void)self;
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolio_, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolio__get_losing_trades" "', argument " "1"" of type '" "struct SingleAssetPortfolio_ *""'"); 
-  }
-  arg1 = (struct SingleAssetPortfolio_ *)(argp1);
-  result = (int64_t)SingleAssetPortfolio__get_losing_trades(arg1);
-  resultobj = SWIG_From_long_SS_long((long long)(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolio__get_total_profit(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct SingleAssetPortfolio_ *arg1 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  double result;
-  
-  (void)self;
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolio_, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolio__get_total_profit" "', argument " "1"" of type '" "struct SingleAssetPortfolio_ *""'"); 
-  }
-  arg1 = (struct SingleAssetPortfolio_ *)(argp1);
-  result = (double)SingleAssetPortfolio__get_total_profit(arg1);
-  resultobj = SWIG_From_double((double)(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolio__get_total_loss(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct SingleAssetPortfolio_ *arg1 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  double result;
-  
-  (void)self;
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolio_, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolio__get_total_loss" "', argument " "1"" of type '" "struct SingleAssetPortfolio_ *""'"); 
-  }
-  arg1 = (struct SingleAssetPortfolio_ *)(argp1);
-  result = (double)SingleAssetPortfolio__get_total_loss(arg1);
-  resultobj = SWIG_From_double((double)(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolio__update(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct SingleAssetPortfolio_ *arg1 = 0 ;
-  Signal arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 ;
-  int res2 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "SingleAssetPortfolio__update", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolio_, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolio__update" "', argument " "1"" of type '" "struct SingleAssetPortfolio_ *""'"); 
-  }
-  arg1 = (struct SingleAssetPortfolio_ *)(argp1);
-  {
-    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_Signal,  0 );
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SingleAssetPortfolio__update" "', argument " "2"" of type '" "Signal""'"); 
-    }  
-    if (!argp2) {
-      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "SingleAssetPortfolio__update" "', argument " "2"" of type '" "Signal""'");
-    } else {
-      arg2 = *((Signal *)(argp2));
-    }
-  }
-  SingleAssetPortfolio__update(arg1,arg2);
+  arg1 = (struct WU_SingleAssetPortfolio_ *)(argp1);
+  free((char *) arg1);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -10751,151 +11422,66 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolio__value(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct SingleAssetPortfolio_ *arg1 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  double result;
-  
-  (void)self;
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolio_, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolio__value" "', argument " "1"" of type '" "struct SingleAssetPortfolio_ *""'"); 
-  }
-  arg1 = (struct SingleAssetPortfolio_ *)(argp1);
-  result = (double)SingleAssetPortfolio__value(arg1);
-  resultobj = SWIG_From_double((double)(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_SingleAssetPortfolio__pnl(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct SingleAssetPortfolio_ *arg1 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  double result;
-  
-  (void)self;
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolio_, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleAssetPortfolio__pnl" "', argument " "1"" of type '" "struct SingleAssetPortfolio_ *""'"); 
-  }
-  arg1 = (struct SingleAssetPortfolio_ *)(argp1);
-  result = (double)SingleAssetPortfolio__pnl(arg1);
-  resultobj = SWIG_From_double((double)(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_delete_SingleAssetPortfolio_(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct SingleAssetPortfolio_ *arg1 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  (void)self;
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SingleAssetPortfolio_, SWIG_POINTER_DISOWN |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_SingleAssetPortfolio_" "', argument " "1"" of type '" "struct SingleAssetPortfolio_ *""'"); 
-  }
-  arg1 = (struct SingleAssetPortfolio_ *)(argp1);
-  delete_SingleAssetPortfolio_(arg1);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_SingleAssetPortfolio_(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct SingleAssetPortfolio_ *result = 0 ;
-  
-  (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "new_SingleAssetPortfolio_", 0, 0, 0)) SWIG_fail;
-  result = (struct SingleAssetPortfolio_ *)calloc(1, sizeof(struct SingleAssetPortfolio_));
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SingleAssetPortfolio_, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *SingleAssetPortfolio__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_SingleAssetPortfolio__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj = NULL;
   if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_SingleAssetPortfolio_, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_WU_SingleAssetPortfolio_, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *SingleAssetPortfolio__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_SingleAssetPortfolio__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_single_asset_portfolio_new(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_wu_singleasset_portfolio_new(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  SingleAssetPortfolioParams arg1 ;
+  WU_SingleAssetPortfolioParams arg1 ;
   void *argp1 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  SingleAssetPortfolio result;
+  WU_SingleAssetPortfolio result;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
   {
-    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_SingleAssetPortfolioParams,  0 );
+    res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_WU_SingleAssetPortfolioParams,  0 );
     if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "single_asset_portfolio_new" "', argument " "1"" of type '" "SingleAssetPortfolioParams""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "wu_singleasset_portfolio_new" "', argument " "1"" of type '" "WU_SingleAssetPortfolioParams""'"); 
     }  
     if (!argp1) {
-      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "single_asset_portfolio_new" "', argument " "1"" of type '" "SingleAssetPortfolioParams""'");
+      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "wu_singleasset_portfolio_new" "', argument " "1"" of type '" "WU_SingleAssetPortfolioParams""'");
     } else {
-      arg1 = *((SingleAssetPortfolioParams *)(argp1));
+      arg1 = *((WU_SingleAssetPortfolioParams *)(argp1));
     }
   }
-  result = (SingleAssetPortfolio)single_asset_portfolio_new(arg1);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SingleAssetPortfolio_, 0 |  0 );
+  result = (WU_SingleAssetPortfolio)wu_singleasset_portfolio_new(arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_SingleAssetPortfolio_, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Strategy__update_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Strategy__update_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Strategy_ *arg1 = 0 ;
-  Signal (*arg2)(struct Strategy_ *,void const *) = 0 ;
+  struct WU_Strategy_ *arg1 = 0 ;
+  WU_Signal (*arg2)(struct WU_Strategy_ *,void const *) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Strategy__update_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Strategy_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Strategy__update_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Strategy_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Strategy__update_set" "', argument " "1"" of type '" "struct Strategy_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Strategy__update_set" "', argument " "1"" of type '" "struct WU_Strategy_ *""'"); 
   }
-  arg1 = (struct Strategy_ *)(argp1);
+  arg1 = (struct WU_Strategy_ *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_Strategy__p_q_const__void__Signal);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_WU_Strategy__p_q_const__void__WU_Signal);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "Strategy__update_set" "', argument " "2"" of type '" "Signal (*)(struct Strategy_ *,void const *)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_Strategy__update_set" "', argument " "2"" of type '" "WU_Signal (*)(struct WU_Strategy_ *,void const *)""'"); 
     }
   }
   if (arg1) (arg1)->update = arg2;
@@ -10906,49 +11492,49 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Strategy__update_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Strategy__update_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Strategy_ *arg1 = 0 ;
+  struct WU_Strategy_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  Signal (*result)(struct Strategy_ *,void const *) = 0 ;
+  WU_Signal (*result)(struct WU_Strategy_ *,void const *) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Strategy_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Strategy_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Strategy__update_get" "', argument " "1"" of type '" "struct Strategy_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Strategy__update_get" "', argument " "1"" of type '" "struct WU_Strategy_ *""'"); 
   }
-  arg1 = (struct Strategy_ *)(argp1);
-  result = (Signal (*)(struct Strategy_ *,void const *)) ((arg1)->update);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_Strategy__p_q_const__void__Signal);
+  arg1 = (struct WU_Strategy_ *)(argp1);
+  result = (WU_Signal (*)(struct WU_Strategy_ *,void const *)) ((arg1)->update);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_WU_Strategy__p_q_const__void__WU_Signal);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Strategy__delete_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Strategy__delete_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Strategy_ *arg1 = 0 ;
-  void (*arg2)(struct Strategy_ *) = 0 ;
+  struct WU_Strategy_ *arg1 = 0 ;
+  void (*arg2)(struct WU_Strategy_ *) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Strategy__delete_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Strategy_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Strategy__delete_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Strategy_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Strategy__delete_set" "', argument " "1"" of type '" "struct Strategy_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Strategy__delete_set" "', argument " "1"" of type '" "struct WU_Strategy_ *""'"); 
   }
-  arg1 = (struct Strategy_ *)(argp1);
+  arg1 = (struct WU_Strategy_ *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_Strategy___void);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_WU_Strategy___void);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "Strategy__delete_set" "', argument " "2"" of type '" "void (*)(struct Strategy_ *)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_Strategy__delete_set" "', argument " "2"" of type '" "void (*)(struct WU_Strategy_ *)""'"); 
     }
   }
   if (arg1) (arg1)->delete = arg2;
@@ -10959,47 +11545,47 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Strategy__delete_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Strategy__delete_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Strategy_ *arg1 = 0 ;
+  struct WU_Strategy_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  void (*result)(struct Strategy_ *) = 0 ;
+  void (*result)(struct WU_Strategy_ *) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Strategy_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Strategy_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Strategy__delete_get" "', argument " "1"" of type '" "struct Strategy_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Strategy__delete_get" "', argument " "1"" of type '" "struct WU_Strategy_ *""'"); 
   }
-  arg1 = (struct Strategy_ *)(argp1);
-  result = (void (*)(struct Strategy_ *)) ((arg1)->delete);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_Strategy___void);
+  arg1 = (struct WU_Strategy_ *)(argp1);
+  result = (void (*)(struct WU_Strategy_ *)) ((arg1)->delete);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_WU_Strategy___void);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_new_Strategy_(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_WU_Strategy_(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Strategy_ *result = 0 ;
+  struct WU_Strategy_ *result = 0 ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "new_Strategy_", 0, 0, 0)) SWIG_fail;
-  result = (struct Strategy_ *)calloc(1, sizeof(struct Strategy_));
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Strategy_, SWIG_POINTER_NEW |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "new_WU_Strategy_", 0, 0, 0)) SWIG_fail;
+  result = (struct WU_Strategy_ *)calloc(1, sizeof(struct WU_Strategy_));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_Strategy_, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_Strategy_(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_WU_Strategy_(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Strategy_ *arg1 = 0 ;
+  struct WU_Strategy_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -11007,11 +11593,11 @@ SWIGINTERN PyObject *_wrap_delete_Strategy_(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Strategy_, SWIG_POINTER_DISOWN |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Strategy_, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Strategy_" "', argument " "1"" of type '" "struct Strategy_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_WU_Strategy_" "', argument " "1"" of type '" "struct WU_Strategy_ *""'"); 
   }
-  arg1 = (struct Strategy_ *)(argp1);
+  arg1 = (struct WU_Strategy_ *)(argp1);
   free((char *) arg1);
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -11020,21 +11606,21 @@ fail:
 }
 
 
-SWIGINTERN PyObject *Strategy__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_Strategy__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj = NULL;
   if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_Strategy_, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_WU_Strategy_, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *Strategy__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_Strategy__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_CrossOverStrat__base_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CrossOverStrat__base_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CrossOverStrat_ *arg1 = 0 ;
-  struct Strategy_ *arg2 = 0 ;
+  struct WU_CrossOverStrat_ *arg1 = 0 ;
+  struct WU_Strategy_ *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -11042,17 +11628,17 @@ SWIGINTERN PyObject *_wrap_CrossOverStrat__base_set(PyObject *self, PyObject *ar
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "CrossOverStrat__base_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CrossOverStrat_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_CrossOverStrat__base_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CrossOverStrat_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CrossOverStrat__base_set" "', argument " "1"" of type '" "struct CrossOverStrat_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CrossOverStrat__base_set" "', argument " "1"" of type '" "struct WU_CrossOverStrat_ *""'"); 
   }
-  arg1 = (struct CrossOverStrat_ *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_Strategy_, 0 |  0 );
+  arg1 = (struct WU_CrossOverStrat_ *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_WU_Strategy_, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "CrossOverStrat__base_set" "', argument " "2"" of type '" "struct Strategy_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WU_CrossOverStrat__base_set" "', argument " "2"" of type '" "struct WU_Strategy_ *""'"); 
   }
-  arg2 = (struct Strategy_ *)(argp2);
+  arg2 = (struct WU_Strategy_ *)(argp2);
   if (arg1) (arg1)->base = *arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -11061,34 +11647,34 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_CrossOverStrat__base_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CrossOverStrat__base_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CrossOverStrat_ *arg1 = 0 ;
+  struct WU_CrossOverStrat_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  struct Strategy_ *result = 0 ;
+  struct WU_Strategy_ *result = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CrossOverStrat_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CrossOverStrat_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CrossOverStrat__base_get" "', argument " "1"" of type '" "struct CrossOverStrat_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CrossOverStrat__base_get" "', argument " "1"" of type '" "struct WU_CrossOverStrat_ *""'"); 
   }
-  arg1 = (struct CrossOverStrat_ *)(argp1);
-  result = (struct Strategy_ *)& ((arg1)->base);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Strategy_, 0 |  0 );
+  arg1 = (struct WU_CrossOverStrat_ *)(argp1);
+  result = (struct WU_Strategy_ *)& ((arg1)->base);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_Strategy_, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_CrossOverStrat__short_ma_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CrossOverStrat__short_ma_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CrossOverStrat_ *arg1 = 0 ;
-  SMA arg2 = 0 ;
+  struct WU_CrossOverStrat_ *arg1 = 0 ;
+  WU_SMA arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -11096,17 +11682,17 @@ SWIGINTERN PyObject *_wrap_CrossOverStrat__short_ma_set(PyObject *self, PyObject
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "CrossOverStrat__short_ma_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CrossOverStrat_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_CrossOverStrat__short_ma_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CrossOverStrat_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CrossOverStrat__short_ma_set" "', argument " "1"" of type '" "struct CrossOverStrat_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CrossOverStrat__short_ma_set" "', argument " "1"" of type '" "struct WU_CrossOverStrat_ *""'"); 
   }
-  arg1 = (struct CrossOverStrat_ *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_SMA_, SWIG_POINTER_DISOWN |  0 );
+  arg1 = (struct WU_CrossOverStrat_ *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_WU_SMA_, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "CrossOverStrat__short_ma_set" "', argument " "2"" of type '" "SMA""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WU_CrossOverStrat__short_ma_set" "', argument " "2"" of type '" "WU_SMA""'"); 
   }
-  arg2 = (SMA)(argp2);
+  arg2 = (WU_SMA)(argp2);
   if (arg1) (arg1)->short_ma = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -11115,34 +11701,34 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_CrossOverStrat__short_ma_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CrossOverStrat__short_ma_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CrossOverStrat_ *arg1 = 0 ;
+  struct WU_CrossOverStrat_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  SMA result;
+  WU_SMA result;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CrossOverStrat_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CrossOverStrat_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CrossOverStrat__short_ma_get" "', argument " "1"" of type '" "struct CrossOverStrat_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CrossOverStrat__short_ma_get" "', argument " "1"" of type '" "struct WU_CrossOverStrat_ *""'"); 
   }
-  arg1 = (struct CrossOverStrat_ *)(argp1);
-  result = (SMA) ((arg1)->short_ma);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SMA_, 0 |  0 );
+  arg1 = (struct WU_CrossOverStrat_ *)(argp1);
+  result = (WU_SMA) ((arg1)->short_ma);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_SMA_, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_CrossOverStrat__long_ma_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CrossOverStrat__long_ma_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CrossOverStrat_ *arg1 = 0 ;
-  SMA arg2 = 0 ;
+  struct WU_CrossOverStrat_ *arg1 = 0 ;
+  WU_SMA arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -11150,17 +11736,17 @@ SWIGINTERN PyObject *_wrap_CrossOverStrat__long_ma_set(PyObject *self, PyObject 
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "CrossOverStrat__long_ma_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CrossOverStrat_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_CrossOverStrat__long_ma_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CrossOverStrat_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CrossOverStrat__long_ma_set" "', argument " "1"" of type '" "struct CrossOverStrat_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CrossOverStrat__long_ma_set" "', argument " "1"" of type '" "struct WU_CrossOverStrat_ *""'"); 
   }
-  arg1 = (struct CrossOverStrat_ *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_SMA_, SWIG_POINTER_DISOWN |  0 );
+  arg1 = (struct WU_CrossOverStrat_ *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_WU_SMA_, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "CrossOverStrat__long_ma_set" "', argument " "2"" of type '" "SMA""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WU_CrossOverStrat__long_ma_set" "', argument " "2"" of type '" "WU_SMA""'"); 
   }
-  arg2 = (SMA)(argp2);
+  arg2 = (WU_SMA)(argp2);
   if (arg1) (arg1)->long_ma = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -11169,33 +11755,33 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_CrossOverStrat__long_ma_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CrossOverStrat__long_ma_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CrossOverStrat_ *arg1 = 0 ;
+  struct WU_CrossOverStrat_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  SMA result;
+  WU_SMA result;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CrossOverStrat_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CrossOverStrat_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CrossOverStrat__long_ma_get" "', argument " "1"" of type '" "struct CrossOverStrat_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CrossOverStrat__long_ma_get" "', argument " "1"" of type '" "struct WU_CrossOverStrat_ *""'"); 
   }
-  arg1 = (struct CrossOverStrat_ *)(argp1);
-  result = (SMA) ((arg1)->long_ma);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SMA_, 0 |  0 );
+  arg1 = (struct WU_CrossOverStrat_ *)(argp1);
+  result = (WU_SMA) ((arg1)->long_ma);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_SMA_, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_CrossOverStrat__threshold_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CrossOverStrat__threshold_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CrossOverStrat_ *arg1 = 0 ;
+  struct WU_CrossOverStrat_ *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -11204,15 +11790,15 @@ SWIGINTERN PyObject *_wrap_CrossOverStrat__threshold_set(PyObject *self, PyObjec
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "CrossOverStrat__threshold_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CrossOverStrat_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_CrossOverStrat__threshold_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CrossOverStrat_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CrossOverStrat__threshold_set" "', argument " "1"" of type '" "struct CrossOverStrat_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CrossOverStrat__threshold_set" "', argument " "1"" of type '" "struct WU_CrossOverStrat_ *""'"); 
   }
-  arg1 = (struct CrossOverStrat_ *)(argp1);
+  arg1 = (struct WU_CrossOverStrat_ *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "CrossOverStrat__threshold_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_CrossOverStrat__threshold_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->threshold = arg2;
@@ -11223,9 +11809,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_CrossOverStrat__threshold_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CrossOverStrat__threshold_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CrossOverStrat_ *arg1 = 0 ;
+  struct WU_CrossOverStrat_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -11234,11 +11820,11 @@ SWIGINTERN PyObject *_wrap_CrossOverStrat__threshold_get(PyObject *self, PyObjec
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CrossOverStrat_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CrossOverStrat_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CrossOverStrat__threshold_get" "', argument " "1"" of type '" "struct CrossOverStrat_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CrossOverStrat__threshold_get" "', argument " "1"" of type '" "struct WU_CrossOverStrat_ *""'"); 
   }
-  arg1 = (struct CrossOverStrat_ *)(argp1);
+  arg1 = (struct WU_CrossOverStrat_ *)(argp1);
   result = (double) ((arg1)->threshold);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -11247,10 +11833,10 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_CrossOverStrat__last_signal_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CrossOverStrat__last_signal_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CrossOverStrat_ *arg1 = 0 ;
-  Side arg2 ;
+  struct WU_CrossOverStrat_ *arg1 = 0 ;
+  WU_Side arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int val2 ;
@@ -11258,17 +11844,17 @@ SWIGINTERN PyObject *_wrap_CrossOverStrat__last_signal_set(PyObject *self, PyObj
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "CrossOverStrat__last_signal_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CrossOverStrat_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_CrossOverStrat__last_signal_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CrossOverStrat_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CrossOverStrat__last_signal_set" "', argument " "1"" of type '" "struct CrossOverStrat_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CrossOverStrat__last_signal_set" "', argument " "1"" of type '" "struct WU_CrossOverStrat_ *""'"); 
   }
-  arg1 = (struct CrossOverStrat_ *)(argp1);
+  arg1 = (struct WU_CrossOverStrat_ *)(argp1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "CrossOverStrat__last_signal_set" "', argument " "2"" of type '" "Side""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WU_CrossOverStrat__last_signal_set" "', argument " "2"" of type '" "WU_Side""'");
   } 
-  arg2 = (Side)(val2);
+  arg2 = (WU_Side)(val2);
   if (arg1) (arg1)->last_signal = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -11277,23 +11863,23 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_CrossOverStrat__last_signal_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_CrossOverStrat__last_signal_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CrossOverStrat_ *arg1 = 0 ;
+  struct WU_CrossOverStrat_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  Side result;
+  WU_Side result;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CrossOverStrat_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CrossOverStrat_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CrossOverStrat__last_signal_get" "', argument " "1"" of type '" "struct CrossOverStrat_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_CrossOverStrat__last_signal_get" "', argument " "1"" of type '" "struct WU_CrossOverStrat_ *""'"); 
   }
-  arg1 = (struct CrossOverStrat_ *)(argp1);
-  result = (Side) ((arg1)->last_signal);
+  arg1 = (struct WU_CrossOverStrat_ *)(argp1);
+  result = (WU_Side) ((arg1)->last_signal);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
@@ -11301,38 +11887,23 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_CrossOverStrat__update(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_WU_CrossOverStrat_(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CrossOverStrat_ *arg1 = 0 ;
-  void *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int res2 ;
-  PyObject *swig_obj[2] ;
-  Signal result;
+  struct WU_CrossOverStrat_ *result = 0 ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "CrossOverStrat__update", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CrossOverStrat_, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CrossOverStrat__update" "', argument " "1"" of type '" "struct CrossOverStrat_ *""'"); 
-  }
-  arg1 = (struct CrossOverStrat_ *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1],SWIG_as_voidptrptr(&arg2), 0, 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "CrossOverStrat__update" "', argument " "2"" of type '" "void const *""'"); 
-  }
-  result = CrossOverStrat__update(arg1,(void const *)arg2);
-  resultobj = SWIG_NewPointerObj((Signal *)memcpy((Signal *)calloc(1,sizeof(Signal)),&result,sizeof(Signal)), SWIGTYPE_p_Signal, SWIG_POINTER_OWN |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "new_WU_CrossOverStrat_", 0, 0, 0)) SWIG_fail;
+  result = (struct WU_CrossOverStrat_ *)calloc(1, sizeof(struct WU_CrossOverStrat_));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_CrossOverStrat_, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_CrossOverStrat_(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_WU_CrossOverStrat_(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct CrossOverStrat_ *arg1 = 0 ;
+  struct WU_CrossOverStrat_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -11340,12 +11911,12 @@ SWIGINTERN PyObject *_wrap_delete_CrossOverStrat_(PyObject *self, PyObject *args
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_CrossOverStrat_, SWIG_POINTER_DISOWN |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_CrossOverStrat_, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_CrossOverStrat_" "', argument " "1"" of type '" "struct CrossOverStrat_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_WU_CrossOverStrat_" "', argument " "1"" of type '" "struct WU_CrossOverStrat_ *""'"); 
   }
-  arg1 = (struct CrossOverStrat_ *)(argp1);
-  delete_CrossOverStrat_(arg1);
+  arg1 = (struct WU_CrossOverStrat_ *)(argp1);
+  free((char *) arg1);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -11353,32 +11924,18 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_CrossOverStrat_(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct CrossOverStrat_ *result = 0 ;
-  
-  (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "new_CrossOverStrat_", 0, 0, 0)) SWIG_fail;
-  result = (struct CrossOverStrat_ *)calloc(1, sizeof(struct CrossOverStrat_));
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_CrossOverStrat_, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *CrossOverStrat__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_CrossOverStrat__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj = NULL;
   if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_CrossOverStrat_, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_WU_CrossOverStrat_, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *CrossOverStrat__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_CrossOverStrat__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_cross_over_strat_new(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_wu_crossover_strat_new(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
   int arg1 ;
   int arg2 ;
@@ -11390,52 +11947,319 @@ SWIGINTERN PyObject *_wrap_cross_over_strat_new(PyObject *self, PyObject *args) 
   double val3 ;
   int ecode3 = 0 ;
   PyObject *swig_obj[3] ;
-  CrossOverStrat result;
+  WU_CrossOverStrat result;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "cross_over_strat_new", 3, 3, swig_obj)) SWIG_fail;
+  if (!SWIG_Python_UnpackTuple(args, "wu_crossover_strat_new", 3, 3, swig_obj)) SWIG_fail;
   ecode1 = SWIG_AsVal_int(swig_obj[0], &val1);
   if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "cross_over_strat_new" "', argument " "1"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "wu_crossover_strat_new" "', argument " "1"" of type '" "int""'");
   } 
   arg1 = (int)(val1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "cross_over_strat_new" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "wu_crossover_strat_new" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = (int)(val2);
   ecode3 = SWIG_AsVal_double(swig_obj[2], &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "cross_over_strat_new" "', argument " "3"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "wu_crossover_strat_new" "', argument " "3"" of type '" "double""'");
   } 
   arg3 = (double)(val3);
-  result = (CrossOverStrat)cross_over_strat_new(arg1,arg2,arg3);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_CrossOverStrat_, 0 |  0 );
+  result = (WU_CrossOverStrat)wu_crossover_strat_new(arg1,arg2,arg3);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_CrossOverStrat_, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Runner__run_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_Runner___exec_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Runner_ *arg1 = 0 ;
-  void (*arg2)(struct Runner_ *,bool) = 0 ;
+  struct WU_Runner_ *arg1 = 0 ;
+  void (*arg2)(struct WU_Runner_ *,bool) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Runner__run_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Runner_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "WU_Runner___exec_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Runner_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Runner__run_set" "', argument " "1"" of type '" "struct Runner_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Runner___exec_set" "', argument " "1"" of type '" "struct WU_Runner_ *""'"); 
   }
-  arg1 = (struct Runner_ *)(argp1);
+  arg1 = (struct WU_Runner_ *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_Runner__bool__void);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_WU_Runner__bool__void);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "Runner__run_set" "', argument " "2"" of type '" "void (*)(struct Runner_ *,bool)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_Runner___exec_set" "', argument " "2"" of type '" "void (*)(struct WU_Runner_ *,bool)""'"); 
+    }
+  }
+  if (arg1) (arg1)->exec = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_Runner___exec_get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_Runner_ *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  void (*result)(struct WU_Runner_ *,bool) = 0 ;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Runner_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_Runner___exec_get" "', argument " "1"" of type '" "struct WU_Runner_ *""'"); 
+  }
+  arg1 = (struct WU_Runner_ *)(argp1);
+  result = (void (*)(struct WU_Runner_ *,bool)) ((arg1)->exec);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_WU_Runner__bool__void);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_WU_Runner_(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_Runner_ *result = 0 ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "new_WU_Runner_", 0, 0, 0)) SWIG_fail;
+  result = (struct WU_Runner_ *)calloc(1, sizeof(struct WU_Runner_));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_Runner_, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_WU_Runner_(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_Runner_ *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_Runner_, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_WU_Runner_" "', argument " "1"" of type '" "struct WU_Runner_ *""'"); 
+  }
+  arg1 = (struct WU_Runner_ *)(argp1);
+  free((char *) arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *WU_Runner__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj = NULL;
+  if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_WU_Runner_, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *WU_Runner__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
+}
+
+SWIGINTERN PyObject *_wrap_WU_BasicRunner__portfolio_set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_BasicRunner_ *arg1 = 0 ;
+  WU_Portfolio arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "WU_BasicRunner__portfolio_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_BasicRunner_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_BasicRunner__portfolio_set" "', argument " "1"" of type '" "struct WU_BasicRunner_ *""'"); 
+  }
+  arg1 = (struct WU_BasicRunner_ *)(argp1);
+  {
+    void *argp = 0;
+    int res = SWIG_ConvertPtr(swig_obj[1], &argp, SWIGTYPE_p_WU_SingleAssetPortfolio_, 0);
+    if (!SWIG_IsOK(res)) {
+      res = SWIG_ConvertPtr(swig_obj[1], &argp, SWIGTYPE_p_WU_Portfolio_, 0);
+      if (!SWIG_IsOK(res)) {
+        SWIG_exception_fail(SWIG_ArgError(res), "Expected Portfolio or SingleAssetPortfolio");
+      }
+    }
+    arg2 = (WU_Portfolio)argp;
+  }
+  if (arg1) (arg1)->portfolio = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_BasicRunner__portfolio_get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_BasicRunner_ *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  WU_Portfolio result;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_BasicRunner_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_BasicRunner__portfolio_get" "', argument " "1"" of type '" "struct WU_BasicRunner_ *""'"); 
+  }
+  arg1 = (struct WU_BasicRunner_ *)(argp1);
+  result = (WU_Portfolio) ((arg1)->portfolio);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_Portfolio_, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_BasicRunner__strategy_set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_BasicRunner_ *arg1 = 0 ;
+  WU_Strategy arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "WU_BasicRunner__strategy_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_BasicRunner_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_BasicRunner__strategy_set" "', argument " "1"" of type '" "struct WU_BasicRunner_ *""'"); 
+  }
+  arg1 = (struct WU_BasicRunner_ *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_WU_Strategy_, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WU_BasicRunner__strategy_set" "', argument " "2"" of type '" "WU_Strategy""'"); 
+  }
+  arg2 = (WU_Strategy)(argp2);
+  if (arg1) (arg1)->strategy = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_BasicRunner__strategy_get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_BasicRunner_ *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  WU_Strategy result;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_BasicRunner_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_BasicRunner__strategy_get" "', argument " "1"" of type '" "struct WU_BasicRunner_ *""'"); 
+  }
+  arg1 = (struct WU_BasicRunner_ *)(argp1);
+  result = (WU_Strategy) ((arg1)->strategy);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_Strategy_, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_BasicRunner__reader_set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_BasicRunner_ *arg1 = 0 ;
+  WU_Reader arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "WU_BasicRunner__reader_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_BasicRunner_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_BasicRunner__reader_set" "', argument " "1"" of type '" "struct WU_BasicRunner_ *""'"); 
+  }
+  arg1 = (struct WU_BasicRunner_ *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_WU_Reader_, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WU_BasicRunner__reader_set" "', argument " "2"" of type '" "WU_Reader""'"); 
+  }
+  arg2 = (WU_Reader)(argp2);
+  if (arg1) (arg1)->reader = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_BasicRunner__reader_get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_BasicRunner_ *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  WU_Reader result;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_BasicRunner_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_BasicRunner__reader_get" "', argument " "1"" of type '" "struct WU_BasicRunner_ *""'"); 
+  }
+  arg1 = (struct WU_BasicRunner_ *)(argp1);
+  result = (WU_Reader) ((arg1)->reader);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_Reader_, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WU_BasicRunner__run_set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct WU_BasicRunner_ *arg1 = 0 ;
+  void (*arg2)(struct WU_BasicRunner_ *,bool) = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "WU_BasicRunner__run_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_BasicRunner_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_BasicRunner__run_set" "', argument " "1"" of type '" "struct WU_BasicRunner_ *""'"); 
+  }
+  arg1 = (struct WU_BasicRunner_ *)(argp1);
+  {
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_WU_BasicRunner__bool__void);
+    if (!SWIG_IsOK(res)) {
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "WU_BasicRunner__run_set" "', argument " "2"" of type '" "void (*)(struct WU_BasicRunner_ *,bool)""'"); 
     }
   }
   if (arg1) (arg1)->run = arg2;
@@ -11446,47 +12270,47 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Runner__run_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_WU_BasicRunner__run_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Runner_ *arg1 = 0 ;
+  struct WU_BasicRunner_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  void (*result)(struct Runner_ *,bool) = 0 ;
+  void (*result)(struct WU_BasicRunner_ *,bool) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Runner_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_BasicRunner_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Runner__run_get" "', argument " "1"" of type '" "struct Runner_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WU_BasicRunner__run_get" "', argument " "1"" of type '" "struct WU_BasicRunner_ *""'"); 
   }
-  arg1 = (struct Runner_ *)(argp1);
-  result = (void (*)(struct Runner_ *,bool)) ((arg1)->run);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_Runner__bool__void);
+  arg1 = (struct WU_BasicRunner_ *)(argp1);
+  result = (void (*)(struct WU_BasicRunner_ *,bool)) ((arg1)->run);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_WU_BasicRunner__bool__void);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_new_Runner_(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_WU_BasicRunner_(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Runner_ *result = 0 ;
+  struct WU_BasicRunner_ *result = 0 ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "new_Runner_", 0, 0, 0)) SWIG_fail;
-  result = (struct Runner_ *)calloc(1, sizeof(struct Runner_));
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Runner_, SWIG_POINTER_NEW |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "new_WU_BasicRunner_", 0, 0, 0)) SWIG_fail;
+  result = (struct WU_BasicRunner_ *)calloc(1, sizeof(struct WU_BasicRunner_));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_BasicRunner_, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_Runner_(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_WU_BasicRunner_(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Runner_ *arg1 = 0 ;
+  struct WU_BasicRunner_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -11494,11 +12318,11 @@ SWIGINTERN PyObject *_wrap_delete_Runner_(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Runner_, SWIG_POINTER_DISOWN |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_BasicRunner_, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Runner_" "', argument " "1"" of type '" "struct Runner_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_WU_BasicRunner_" "', argument " "1"" of type '" "struct WU_BasicRunner_ *""'"); 
   }
-  arg1 = (struct Runner_ *)(argp1);
+  arg1 = (struct WU_BasicRunner_ *)(argp1);
   free((char *) arg1);
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -11507,323 +12331,63 @@ fail:
 }
 
 
-SWIGINTERN PyObject *Runner__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_BasicRunner__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj = NULL;
   if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_Runner_, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_WU_BasicRunner_, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *Runner__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *WU_BasicRunner__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_BasicRunner__portfolio_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_wu_basic_runner_new(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct BasicRunner_ *arg1 = 0 ;
-  Portfolio arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "BasicRunner__portfolio_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_BasicRunner_, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BasicRunner__portfolio_set" "', argument " "1"" of type '" "struct BasicRunner_ *""'"); 
-  }
-  arg1 = (struct BasicRunner_ *)(argp1);
-  {
-    void *argp = 0;
-    int res = SWIG_ConvertPtr(swig_obj[1], &argp, SWIGTYPE_p_SingleAssetPortfolio_, 0);
-    if (!SWIG_IsOK(res)) {
-      res = SWIG_ConvertPtr(swig_obj[1], &argp, SWIGTYPE_p_Portfolio_, 0);
-      if (!SWIG_IsOK(res)) {
-        SWIG_exception_fail(SWIG_ArgError(res), "Expected Portfolio or SingleAssetPortfolio");
-      }
-    }
-    arg2 = (Portfolio)argp;
-  }
-  if (arg1) (arg1)->portfolio = arg2;
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_BasicRunner__portfolio_get(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct BasicRunner_ *arg1 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  Portfolio result;
-  
-  (void)self;
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_BasicRunner_, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BasicRunner__portfolio_get" "', argument " "1"" of type '" "struct BasicRunner_ *""'"); 
-  }
-  arg1 = (struct BasicRunner_ *)(argp1);
-  result = (Portfolio) ((arg1)->portfolio);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Portfolio_, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_BasicRunner__strategy_set(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct BasicRunner_ *arg1 = 0 ;
-  Strategy arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "BasicRunner__strategy_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_BasicRunner_, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BasicRunner__strategy_set" "', argument " "1"" of type '" "struct BasicRunner_ *""'"); 
-  }
-  arg1 = (struct BasicRunner_ *)(argp1);
-  {
-    void *argp = 0;
-    int res = SWIG_ConvertPtr(swig_obj[1], &argp, SWIGTYPE_p_CrossOverStrat_, 0);
-    if (!SWIG_IsOK(res)) {
-      res = SWIG_ConvertPtr(swig_obj[1], &argp, SWIGTYPE_p_Strategy_, 0);
-      if (!SWIG_IsOK(res)) {
-        SWIG_exception_fail(SWIG_ArgError(res), "Expected Strategy or CrossOverStrat");
-      }
-    }
-    arg2 = (Strategy)argp;
-  }
-  if (arg1) (arg1)->strategy = arg2;
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_BasicRunner__strategy_get(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct BasicRunner_ *arg1 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  Strategy result;
-  
-  (void)self;
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_BasicRunner_, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BasicRunner__strategy_get" "', argument " "1"" of type '" "struct BasicRunner_ *""'"); 
-  }
-  arg1 = (struct BasicRunner_ *)(argp1);
-  result = (Strategy) ((arg1)->strategy);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Strategy_, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_BasicRunner__reader_set(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct BasicRunner_ *arg1 = 0 ;
-  Reader arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "BasicRunner__reader_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_BasicRunner_, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BasicRunner__reader_set" "', argument " "1"" of type '" "struct BasicRunner_ *""'"); 
-  }
-  arg1 = (struct BasicRunner_ *)(argp1);
-  {
-    void *argp = 0;
-    int res = SWIG_ConvertPtr(swig_obj[1], &argp, SWIGTYPE_p_CsvReader_, 0);
-    if (!SWIG_IsOK(res)) {
-      res = SWIG_ConvertPtr(swig_obj[1], &argp, SWIGTYPE_p_Reader_, 0);
-      if (!SWIG_IsOK(res)) {
-        SWIG_exception_fail(SWIG_ArgError(res), "Expected Reader or CsvReader");
-      }
-    }
-    arg2 = (Reader)argp;
-  }
-  if (arg1) (arg1)->reader = arg2;
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_BasicRunner__reader_get(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct BasicRunner_ *arg1 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  Reader result;
-  
-  (void)self;
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_BasicRunner_, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BasicRunner__reader_get" "', argument " "1"" of type '" "struct BasicRunner_ *""'"); 
-  }
-  arg1 = (struct BasicRunner_ *)(argp1);
-  result = (Reader) ((arg1)->reader);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Reader_, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_BasicRunner__execute(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct BasicRunner_ *arg1 = 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "BasicRunner__execute", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_BasicRunner_, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BasicRunner__execute" "', argument " "1"" of type '" "struct BasicRunner_ *""'"); 
-  }
-  arg1 = (struct BasicRunner_ *)(argp1);
-  ecode2 = SWIG_AsVal_bool(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "BasicRunner__execute" "', argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = (bool)(val2);
-  BasicRunner__execute(arg1,arg2);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_delete_BasicRunner_(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct BasicRunner_ *arg1 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  (void)self;
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_BasicRunner_, SWIG_POINTER_DISOWN |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_BasicRunner_" "', argument " "1"" of type '" "struct BasicRunner_ *""'"); 
-  }
-  arg1 = (struct BasicRunner_ *)(argp1);
-  delete_BasicRunner_(arg1);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_BasicRunner_(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct BasicRunner_ *result = 0 ;
-  
-  (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "new_BasicRunner_", 0, 0, 0)) SWIG_fail;
-  result = (struct BasicRunner_ *)calloc(1, sizeof(struct BasicRunner_));
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_BasicRunner_, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *BasicRunner__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *obj = NULL;
-  if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_BasicRunner_, SWIG_NewClientData(obj));
-  return SWIG_Py_Void();
-}
-
-SWIGINTERN PyObject *BasicRunner__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  return SWIG_Python_InitShadowInstance(args);
-}
-
-SWIGINTERN PyObject *_wrap_basic_runner_new(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  Portfolio arg1 = 0 ;
-  Strategy arg2 = 0 ;
-  Reader arg3 = 0 ;
+  WU_Portfolio arg1 = 0 ;
+  WU_Strategy arg2 = 0 ;
+  WU_Reader arg3 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
   PyObject *swig_obj[3] ;
-  BasicRunner result;
+  WU_BasicRunner result;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "basic_runner_new", 3, 3, swig_obj)) SWIG_fail;
+  if (!SWIG_Python_UnpackTuple(args, "wu_basic_runner_new", 3, 3, swig_obj)) SWIG_fail;
   {
     void *argp = 0;
-    int res = SWIG_ConvertPtr(swig_obj[0], &argp, SWIGTYPE_p_SingleAssetPortfolio_, 0);
+    int res = SWIG_ConvertPtr(swig_obj[0], &argp, SWIGTYPE_p_WU_SingleAssetPortfolio_, 0);
     if (!SWIG_IsOK(res)) {
-      res = SWIG_ConvertPtr(swig_obj[0], &argp, SWIGTYPE_p_Portfolio_, 0);
+      res = SWIG_ConvertPtr(swig_obj[0], &argp, SWIGTYPE_p_WU_Portfolio_, 0);
       if (!SWIG_IsOK(res)) {
         SWIG_exception_fail(SWIG_ArgError(res), "Expected Portfolio or SingleAssetPortfolio");
       }
     }
-    arg1 = (Portfolio)argp;
+    arg1 = (WU_Portfolio)argp;
   }
-  {
-    void *argp = 0;
-    int res = SWIG_ConvertPtr(swig_obj[1], &argp, SWIGTYPE_p_CrossOverStrat_, 0);
-    if (!SWIG_IsOK(res)) {
-      res = SWIG_ConvertPtr(swig_obj[1], &argp, SWIGTYPE_p_Strategy_, 0);
-      if (!SWIG_IsOK(res)) {
-        SWIG_exception_fail(SWIG_ArgError(res), "Expected Strategy or CrossOverStrat");
-      }
-    }
-    arg2 = (Strategy)argp;
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_WU_Strategy_, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "wu_basic_runner_new" "', argument " "2"" of type '" "WU_Strategy""'"); 
   }
-  {
-    void *argp = 0;
-    int res = SWIG_ConvertPtr(swig_obj[2], &argp, SWIGTYPE_p_CsvReader_, 0);
-    if (!SWIG_IsOK(res)) {
-      res = SWIG_ConvertPtr(swig_obj[2], &argp, SWIGTYPE_p_Reader_, 0);
-      if (!SWIG_IsOK(res)) {
-        SWIG_exception_fail(SWIG_ArgError(res), "Expected Reader or CsvReader");
-      }
-    }
-    arg3 = (Reader)argp;
+  arg2 = (WU_Strategy)(argp2);
+  res3 = SWIG_ConvertPtr(swig_obj[2], &argp3,SWIGTYPE_p_WU_Reader_, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "wu_basic_runner_new" "', argument " "3"" of type '" "WU_Reader""'"); 
   }
-  result = (BasicRunner)basic_runner_new(arg1,arg2,arg3);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_BasicRunner_, 0 |  0 );
+  arg3 = (WU_Reader)(argp3);
+  result = (WU_BasicRunner)wu_basic_runner_new(arg1,arg2,arg3);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_BasicRunner_, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_basic_runner_free(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_wu_basic_runner_free(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  BasicRunner arg1 = 0 ;
+  WU_BasicRunner arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -11831,12 +12395,12 @@ SWIGINTERN PyObject *_wrap_basic_runner_free(PyObject *self, PyObject *args) {
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_BasicRunner_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_WU_BasicRunner_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "basic_runner_free" "', argument " "1"" of type '" "BasicRunner""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "wu_basic_runner_free" "', argument " "1"" of type '" "WU_BasicRunner""'"); 
   }
-  arg1 = (BasicRunner)(argp1);
-  basic_runner_free(arg1);
+  arg1 = (WU_BasicRunner)(argp1);
+  wu_basic_runner_free(arg1);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -11844,10 +12408,10 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_csv_reader_open(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_wu_csv_reader_open(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
   char *arg1 = 0 ;
-  DataType arg2 ;
+  WU_DataType arg2 ;
   bool arg3 ;
   int res1 ;
   char *buf1 = 0 ;
@@ -11857,27 +12421,27 @@ SWIGINTERN PyObject *_wrap_csv_reader_open(PyObject *self, PyObject *args) {
   bool val3 ;
   int ecode3 = 0 ;
   PyObject *swig_obj[3] ;
-  CsvReader result;
+  WU_CsvReader result;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "csv_reader_open", 3, 3, swig_obj)) SWIG_fail;
+  if (!SWIG_Python_UnpackTuple(args, "wu_csv_reader_open", 3, 3, swig_obj)) SWIG_fail;
   res1 = SWIG_AsCharPtrAndSize(swig_obj[0], &buf1, NULL, &alloc1);
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "csv_reader_open" "', argument " "1"" of type '" "char const *""'");
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "wu_csv_reader_open" "', argument " "1"" of type '" "char const *""'");
   }
   arg1 = (char *)(buf1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "csv_reader_open" "', argument " "2"" of type '" "DataType""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "wu_csv_reader_open" "', argument " "2"" of type '" "WU_DataType""'");
   } 
-  arg2 = (DataType)(val2);
+  arg2 = (WU_DataType)(val2);
   ecode3 = SWIG_AsVal_bool(swig_obj[2], &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "csv_reader_open" "', argument " "3"" of type '" "bool""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "wu_csv_reader_open" "', argument " "3"" of type '" "bool""'");
   } 
   arg3 = (bool)(val3);
-  result = (CsvReader)csv_reader_open((char const *)arg1,arg2,arg3);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_CsvReader_, 0 |  0 );
+  result = (WU_CsvReader)wu_csv_reader_open((char const *)arg1,arg2,arg3);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_WU_CsvReader_, 0 |  0 );
   if (alloc1 == SWIG_NEWOBJ) free((char*)buf1);
   return resultobj;
 fail:
@@ -11891,389 +12455,427 @@ static PyMethodDef SwigMethods[] = {
 	 { "delete_doubleArray", _wrap_delete_doubleArray, METH_O, NULL},
 	 { "doubleArray_getitem", _wrap_doubleArray_getitem, METH_VARARGS, NULL},
 	 { "doubleArray_setitem", _wrap_doubleArray_setitem, METH_VARARGS, NULL},
-	 { "Signal_timestamp_set", _wrap_Signal_timestamp_set, METH_VARARGS, NULL},
-	 { "Signal_timestamp_get", _wrap_Signal_timestamp_get, METH_O, NULL},
-	 { "Signal_side_set", _wrap_Signal_side_set, METH_VARARGS, NULL},
-	 { "Signal_side_get", _wrap_Signal_side_get, METH_O, NULL},
-	 { "Signal_price_set", _wrap_Signal_price_set, METH_VARARGS, NULL},
-	 { "Signal_price_get", _wrap_Signal_price_get, METH_O, NULL},
-	 { "Signal_quantity_set", _wrap_Signal_quantity_set, METH_VARARGS, NULL},
-	 { "Signal_quantity_get", _wrap_Signal_quantity_get, METH_O, NULL},
-	 { "new_Signal", _wrap_new_Signal, METH_NOARGS, NULL},
-	 { "delete_Signal", _wrap_delete_Signal, METH_O, NULL},
-	 { "Signal_swigregister", Signal_swigregister, METH_O, NULL},
-	 { "Signal_swiginit", Signal_swiginit, METH_VARARGS, NULL},
-	 { "Candle_timestamp_set", _wrap_Candle_timestamp_set, METH_VARARGS, NULL},
-	 { "Candle_timestamp_get", _wrap_Candle_timestamp_get, METH_O, NULL},
-	 { "Candle_open_set", _wrap_Candle_open_set, METH_VARARGS, NULL},
-	 { "Candle_open_get", _wrap_Candle_open_get, METH_O, NULL},
-	 { "Candle_high_set", _wrap_Candle_high_set, METH_VARARGS, NULL},
-	 { "Candle_high_get", _wrap_Candle_high_get, METH_O, NULL},
-	 { "Candle_low_set", _wrap_Candle_low_set, METH_VARARGS, NULL},
-	 { "Candle_low_get", _wrap_Candle_low_get, METH_O, NULL},
-	 { "Candle_close_set", _wrap_Candle_close_set, METH_VARARGS, NULL},
-	 { "Candle_close_get", _wrap_Candle_close_get, METH_O, NULL},
-	 { "Candle_volume_set", _wrap_Candle_volume_set, METH_VARARGS, NULL},
-	 { "Candle_volume_get", _wrap_Candle_volume_get, METH_O, NULL},
-	 { "Candle_data_type_set", _wrap_Candle_data_type_set, METH_VARARGS, NULL},
-	 { "Candle_data_type_get", _wrap_Candle_data_type_get, METH_O, NULL},
-	 { "new_Candle", _wrap_new_Candle, METH_NOARGS, NULL},
-	 { "delete_Candle", _wrap_delete_Candle, METH_O, NULL},
-	 { "Candle_swigregister", Candle_swigregister, METH_O, NULL},
-	 { "Candle_swiginit", Candle_swiginit, METH_VARARGS, NULL},
-	 { "Trade_timestamp_set", _wrap_Trade_timestamp_set, METH_VARARGS, NULL},
-	 { "Trade_timestamp_get", _wrap_Trade_timestamp_get, METH_O, NULL},
-	 { "Trade_price_set", _wrap_Trade_price_set, METH_VARARGS, NULL},
-	 { "Trade_price_get", _wrap_Trade_price_get, METH_O, NULL},
-	 { "Trade_volume_set", _wrap_Trade_volume_set, METH_VARARGS, NULL},
-	 { "Trade_volume_get", _wrap_Trade_volume_get, METH_O, NULL},
-	 { "Trade_side_set", _wrap_Trade_side_set, METH_VARARGS, NULL},
-	 { "Trade_side_get", _wrap_Trade_side_get, METH_O, NULL},
-	 { "Trade_data_type_set", _wrap_Trade_data_type_set, METH_VARARGS, NULL},
-	 { "Trade_data_type_get", _wrap_Trade_data_type_get, METH_O, NULL},
-	 { "new_Trade", _wrap_new_Trade, METH_NOARGS, NULL},
-	 { "delete_Trade", _wrap_delete_Trade, METH_O, NULL},
-	 { "Trade_swigregister", Trade_swigregister, METH_O, NULL},
-	 { "Trade_swiginit", Trade_swiginit, METH_VARARGS, NULL},
-	 { "SingleValue_timestamp_set", _wrap_SingleValue_timestamp_set, METH_VARARGS, NULL},
-	 { "SingleValue_timestamp_get", _wrap_SingleValue_timestamp_get, METH_O, NULL},
-	 { "SingleValue_value_set", _wrap_SingleValue_value_set, METH_VARARGS, NULL},
-	 { "SingleValue_value_get", _wrap_SingleValue_value_get, METH_O, NULL},
-	 { "SingleValue_data_type_set", _wrap_SingleValue_data_type_set, METH_VARARGS, NULL},
-	 { "SingleValue_data_type_get", _wrap_SingleValue_data_type_get, METH_O, NULL},
-	 { "new_SingleValue", _wrap_new_SingleValue, METH_NOARGS, NULL},
-	 { "delete_SingleValue", _wrap_delete_SingleValue, METH_O, NULL},
-	 { "SingleValue_swigregister", SingleValue_swigregister, METH_O, NULL},
-	 { "SingleValue_swiginit", SingleValue_swiginit, METH_VARARGS, NULL},
-	 { "candle_init", _wrap_candle_init, METH_VARARGS, NULL},
-	 { "trade_init", _wrap_trade_init, METH_VARARGS, NULL},
-	 { "single_value_init", _wrap_single_value_init, METH_VARARGS, NULL},
-	 { "signal_init", _wrap_signal_init, METH_VARARGS, NULL},
-	 { "SMA__update_set", _wrap_SMA__update_set, METH_VARARGS, NULL},
-	 { "SMA__update_get", _wrap_SMA__update_get, METH_O, NULL},
-	 { "SMA__get_set", _wrap_SMA__get_set, METH_VARARGS, NULL},
-	 { "SMA__get_get", _wrap_SMA__get_get, METH_O, NULL},
-	 { "SMA__delete_set", _wrap_SMA__delete_set, METH_VARARGS, NULL},
-	 { "SMA__delete_get", _wrap_SMA__delete_get, METH_O, NULL},
-	 { "SMA__value_set", _wrap_SMA__value_set, METH_VARARGS, NULL},
-	 { "SMA__value_get", _wrap_SMA__value_get, METH_O, NULL},
-	 { "SMA__prev_values_set", _wrap_SMA__prev_values_set, METH_VARARGS, NULL},
-	 { "SMA__prev_values_get", _wrap_SMA__prev_values_get, METH_O, NULL},
-	 { "SMA__window_size_set", _wrap_SMA__window_size_set, METH_VARARGS, NULL},
-	 { "SMA__window_size_get", _wrap_SMA__window_size_get, METH_O, NULL},
-	 { "SMA__pos_set", _wrap_SMA__pos_set, METH_VARARGS, NULL},
-	 { "SMA__pos_get", _wrap_SMA__pos_get, METH_O, NULL},
-	 { "SMA__len_set", _wrap_SMA__len_set, METH_VARARGS, NULL},
-	 { "SMA__len_get", _wrap_SMA__len_get, METH_O, NULL},
-	 { "SMA__sum_set", _wrap_SMA__sum_set, METH_VARARGS, NULL},
-	 { "SMA__sum_get", _wrap_SMA__sum_get, METH_O, NULL},
-	 { "new_SMA_", _wrap_new_SMA_, METH_NOARGS, NULL},
-	 { "delete_SMA_", _wrap_delete_SMA_, METH_O, NULL},
-	 { "SMA__swigregister", SMA__swigregister, METH_O, NULL},
-	 { "SMA__swiginit", SMA__swiginit, METH_VARARGS, NULL},
-	 { "moving_average_new", _wrap_moving_average_new, METH_O, NULL},
-	 { "EMA__update_set", _wrap_EMA__update_set, METH_VARARGS, NULL},
-	 { "EMA__update_get", _wrap_EMA__update_get, METH_O, NULL},
-	 { "EMA__get_set", _wrap_EMA__get_set, METH_VARARGS, NULL},
-	 { "EMA__get_get", _wrap_EMA__get_get, METH_O, NULL},
-	 { "EMA__delete_set", _wrap_EMA__delete_set, METH_VARARGS, NULL},
-	 { "EMA__delete_get", _wrap_EMA__delete_get, METH_O, NULL},
-	 { "EMA__value_set", _wrap_EMA__value_set, METH_VARARGS, NULL},
-	 { "EMA__value_get", _wrap_EMA__value_get, METH_O, NULL},
-	 { "EMA__prev_value_set", _wrap_EMA__prev_value_set, METH_VARARGS, NULL},
-	 { "EMA__prev_value_get", _wrap_EMA__prev_value_get, METH_O, NULL},
-	 { "EMA__alpha_set", _wrap_EMA__alpha_set, METH_VARARGS, NULL},
-	 { "EMA__alpha_get", _wrap_EMA__alpha_get, METH_O, NULL},
-	 { "EMA__len_set", _wrap_EMA__len_set, METH_VARARGS, NULL},
-	 { "EMA__len_get", _wrap_EMA__len_get, METH_O, NULL},
-	 { "EMA__period_set", _wrap_EMA__period_set, METH_VARARGS, NULL},
-	 { "EMA__period_get", _wrap_EMA__period_get, METH_O, NULL},
-	 { "new_EMA_", _wrap_new_EMA_, METH_NOARGS, NULL},
-	 { "delete_EMA_", _wrap_delete_EMA_, METH_O, NULL},
-	 { "EMA__swigregister", EMA__swigregister, METH_O, NULL},
-	 { "EMA__swiginit", EMA__swiginit, METH_VARARGS, NULL},
-	 { "exponential_moving_average_new", _wrap_exponential_moving_average_new, METH_VARARGS, NULL},
-	 { "Reader__next_set", _wrap_Reader__next_set, METH_VARARGS, NULL},
-	 { "Reader__next_get", _wrap_Reader__next_get, METH_O, NULL},
-	 { "Reader__delete_set", _wrap_Reader__delete_set, METH_VARARGS, NULL},
-	 { "Reader__delete_get", _wrap_Reader__delete_get, METH_O, NULL},
-	 { "new_Reader_", _wrap_new_Reader_, METH_NOARGS, NULL},
-	 { "delete_Reader_", _wrap_delete_Reader_, METH_O, NULL},
-	 { "Reader__swigregister", Reader__swigregister, METH_O, NULL},
-	 { "Reader__swiginit", Reader__swiginit, METH_VARARGS, NULL},
-	 { "CsvReader__base_set", _wrap_CsvReader__base_set, METH_VARARGS, NULL},
-	 { "CsvReader__base_get", _wrap_CsvReader__base_get, METH_O, NULL},
-	 { "CsvReader__file_set", _wrap_CsvReader__file_set, METH_VARARGS, NULL},
-	 { "CsvReader__file_get", _wrap_CsvReader__file_get, METH_O, NULL},
-	 { "CsvReader__line_buffer_set", _wrap_CsvReader__line_buffer_set, METH_VARARGS, NULL},
-	 { "CsvReader__line_buffer_get", _wrap_CsvReader__line_buffer_get, METH_O, NULL},
-	 { "CsvReader__has_headers_set", _wrap_CsvReader__has_headers_set, METH_VARARGS, NULL},
-	 { "CsvReader__has_headers_get", _wrap_CsvReader__has_headers_get, METH_O, NULL},
-	 { "CsvReader__data_type_set", _wrap_CsvReader__data_type_set, METH_VARARGS, NULL},
-	 { "CsvReader__data_type_get", _wrap_CsvReader__data_type_get, METH_O, NULL},
-	 { "CsvReader__last_error_set", _wrap_CsvReader__last_error_set, METH_VARARGS, NULL},
-	 { "CsvReader__last_error_get", _wrap_CsvReader__last_error_get, METH_O, NULL},
-	 { "CsvReader__data_get", _wrap_CsvReader__data_get, METH_O, NULL},
-	 { "CsvReader__next", _wrap_CsvReader__next, METH_O, NULL},
-	 { "CsvReader__get_last_error", _wrap_CsvReader__get_last_error, METH_O, NULL},
-	 { "CsvReader__read_candle", _wrap_CsvReader__read_candle, METH_O, NULL},
-	 { "CsvReader__read_trade", _wrap_CsvReader__read_trade, METH_O, NULL},
-	 { "CsvReader__read_single_value", _wrap_CsvReader__read_single_value, METH_O, NULL},
-	 { "delete_CsvReader_", _wrap_delete_CsvReader_, METH_O, NULL},
-	 { "new_CsvReader_", _wrap_new_CsvReader_, METH_NOARGS, NULL},
-	 { "CsvReader__swigregister", CsvReader__swigregister, METH_O, NULL},
-	 { "CsvReader__swiginit", CsvReader__swiginit, METH_VARARGS, NULL},
-	 { "CsvReader__data_candle_set", _wrap_CsvReader__data_candle_set, METH_VARARGS, NULL},
-	 { "CsvReader__data_candle_get", _wrap_CsvReader__data_candle_get, METH_O, NULL},
-	 { "CsvReader__data_trade_set", _wrap_CsvReader__data_trade_set, METH_VARARGS, NULL},
-	 { "CsvReader__data_trade_get", _wrap_CsvReader__data_trade_get, METH_O, NULL},
-	 { "CsvReader__data_single_value_set", _wrap_CsvReader__data_single_value_set, METH_VARARGS, NULL},
-	 { "CsvReader__data_single_value_get", _wrap_CsvReader__data_single_value_get, METH_O, NULL},
-	 { "new_CsvReader__data", _wrap_new_CsvReader__data, METH_NOARGS, NULL},
-	 { "delete_CsvReader__data", _wrap_delete_CsvReader__data, METH_O, NULL},
-	 { "CsvReader__data_swigregister", CsvReader__data_swigregister, METH_O, NULL},
-	 { "CsvReader__data_swiginit", CsvReader__data_swiginit, METH_VARARGS, NULL},
-	 { "csv_reader_new", _wrap_csv_reader_new, METH_VARARGS, NULL},
-	 { "Portfolio__update_set", _wrap_Portfolio__update_set, METH_VARARGS, NULL},
-	 { "Portfolio__update_get", _wrap_Portfolio__update_get, METH_O, NULL},
-	 { "Portfolio__value_set", _wrap_Portfolio__value_set, METH_VARARGS, NULL},
-	 { "Portfolio__value_get", _wrap_Portfolio__value_get, METH_O, NULL},
-	 { "Portfolio__pnl_set", _wrap_Portfolio__pnl_set, METH_VARARGS, NULL},
-	 { "Portfolio__pnl_get", _wrap_Portfolio__pnl_get, METH_O, NULL},
-	 { "Portfolio__delete_set", _wrap_Portfolio__delete_set, METH_VARARGS, NULL},
-	 { "Portfolio__delete_get", _wrap_Portfolio__delete_get, METH_O, NULL},
-	 { "new_Portfolio_", _wrap_new_Portfolio_, METH_NOARGS, NULL},
-	 { "delete_Portfolio_", _wrap_delete_Portfolio_, METH_O, NULL},
-	 { "Portfolio__swigregister", Portfolio__swigregister, METH_O, NULL},
-	 { "Portfolio__swiginit", Portfolio__swiginit, METH_VARARGS, NULL},
-	 { "Position__timestamp_set", _wrap_Position__timestamp_set, METH_VARARGS, NULL},
-	 { "Position__timestamp_get", _wrap_Position__timestamp_get, METH_O, NULL},
-	 { "Position__quantity_set", _wrap_Position__quantity_set, METH_VARARGS, NULL},
-	 { "Position__quantity_get", _wrap_Position__quantity_get, METH_O, NULL},
-	 { "Position__price_set", _wrap_Position__price_set, METH_VARARGS, NULL},
-	 { "Position__price_get", _wrap_Position__price_get, METH_O, NULL},
-	 { "Position__active_set", _wrap_Position__active_set, METH_VARARGS, NULL},
-	 { "Position__active_get", _wrap_Position__active_get, METH_O, NULL},
-	 { "new_Position_", _wrap_new_Position_, METH_NOARGS, NULL},
-	 { "delete_Position_", _wrap_delete_Position_, METH_O, NULL},
-	 { "Position__swigregister", Position__swigregister, METH_O, NULL},
-	 { "Position__swiginit", Position__swiginit, METH_VARARGS, NULL},
-	 { "PositionVector_positions_set", _wrap_PositionVector_positions_set, METH_VARARGS, NULL},
-	 { "PositionVector_positions_get", _wrap_PositionVector_positions_get, METH_O, NULL},
-	 { "PositionVector_active_set", _wrap_PositionVector_active_set, METH_VARARGS, NULL},
-	 { "PositionVector_active_get", _wrap_PositionVector_active_get, METH_O, NULL},
-	 { "PositionVector_count_set", _wrap_PositionVector_count_set, METH_VARARGS, NULL},
-	 { "PositionVector_count_get", _wrap_PositionVector_count_get, METH_O, NULL},
-	 { "PositionVector_capacity_set", _wrap_PositionVector_capacity_set, METH_VARARGS, NULL},
-	 { "PositionVector_capacity_get", _wrap_PositionVector_capacity_get, METH_O, NULL},
-	 { "PositionVector_add_set", _wrap_PositionVector_add_set, METH_VARARGS, NULL},
-	 { "PositionVector_add_get", _wrap_PositionVector_add_get, METH_O, NULL},
-	 { "PositionVector_remove_set", _wrap_PositionVector_remove_set, METH_VARARGS, NULL},
-	 { "PositionVector_remove_get", _wrap_PositionVector_remove_get, METH_O, NULL},
-	 { "PositionVector_clear_set", _wrap_PositionVector_clear_set, METH_VARARGS, NULL},
-	 { "PositionVector_clear_get", _wrap_PositionVector_clear_get, METH_O, NULL},
-	 { "PositionVector_get_set", _wrap_PositionVector_get_set, METH_VARARGS, NULL},
-	 { "PositionVector_get_get", _wrap_PositionVector_get_get, METH_O, NULL},
-	 { "PositionVector_total_quantity_set", _wrap_PositionVector_total_quantity_set, METH_VARARGS, NULL},
-	 { "PositionVector_total_quantity_get", _wrap_PositionVector_total_quantity_get, METH_O, NULL},
-	 { "PositionVector_delete_set", _wrap_PositionVector_delete_set, METH_VARARGS, NULL},
-	 { "PositionVector_delete_get", _wrap_PositionVector_delete_get, METH_O, NULL},
-	 { "delete_PositionVector", _wrap_delete_PositionVector, METH_O, NULL},
-	 { "new_PositionVector", _wrap_new_PositionVector, METH_NOARGS, NULL},
-	 { "PositionVector_swigregister", PositionVector_swigregister, METH_O, NULL},
-	 { "PositionVector_swiginit", PositionVector_swiginit, METH_VARARGS, NULL},
-	 { "position_vector_new", _wrap_position_vector_new, METH_NOARGS, NULL},
-	 { "PortfolioStats__total_trades_set", _wrap_PortfolioStats__total_trades_set, METH_VARARGS, NULL},
-	 { "PortfolioStats__total_trades_get", _wrap_PortfolioStats__total_trades_get, METH_O, NULL},
-	 { "PortfolioStats__winning_trades_set", _wrap_PortfolioStats__winning_trades_set, METH_VARARGS, NULL},
-	 { "PortfolioStats__winning_trades_get", _wrap_PortfolioStats__winning_trades_get, METH_O, NULL},
-	 { "PortfolioStats__losing_trades_set", _wrap_PortfolioStats__losing_trades_set, METH_VARARGS, NULL},
-	 { "PortfolioStats__losing_trades_get", _wrap_PortfolioStats__losing_trades_get, METH_O, NULL},
-	 { "PortfolioStats__stop_loss_exits_set", _wrap_PortfolioStats__stop_loss_exits_set, METH_VARARGS, NULL},
-	 { "PortfolioStats__stop_loss_exits_get", _wrap_PortfolioStats__stop_loss_exits_get, METH_O, NULL},
-	 { "PortfolioStats__take_profit_exits_set", _wrap_PortfolioStats__take_profit_exits_set, METH_VARARGS, NULL},
-	 { "PortfolioStats__take_profit_exits_get", _wrap_PortfolioStats__take_profit_exits_get, METH_O, NULL},
-	 { "PortfolioStats__total_profit_set", _wrap_PortfolioStats__total_profit_set, METH_VARARGS, NULL},
-	 { "PortfolioStats__total_profit_get", _wrap_PortfolioStats__total_profit_get, METH_O, NULL},
-	 { "PortfolioStats__total_loss_set", _wrap_PortfolioStats__total_loss_set, METH_VARARGS, NULL},
-	 { "PortfolioStats__total_loss_get", _wrap_PortfolioStats__total_loss_get, METH_O, NULL},
-	 { "PortfolioStats__max_win_set", _wrap_PortfolioStats__max_win_set, METH_VARARGS, NULL},
-	 { "PortfolioStats__max_win_get", _wrap_PortfolioStats__max_win_get, METH_O, NULL},
-	 { "PortfolioStats__max_loss_set", _wrap_PortfolioStats__max_loss_set, METH_VARARGS, NULL},
-	 { "PortfolioStats__max_loss_get", _wrap_PortfolioStats__max_loss_get, METH_O, NULL},
-	 { "PortfolioStats__record_trade_set", _wrap_PortfolioStats__record_trade_set, METH_VARARGS, NULL},
-	 { "PortfolioStats__record_trade_get", _wrap_PortfolioStats__record_trade_get, METH_O, NULL},
-	 { "PortfolioStats__reset_set", _wrap_PortfolioStats__reset_set, METH_VARARGS, NULL},
-	 { "PortfolioStats__reset_get", _wrap_PortfolioStats__reset_get, METH_O, NULL},
-	 { "PortfolioStats__delete_set", _wrap_PortfolioStats__delete_set, METH_VARARGS, NULL},
-	 { "PortfolioStats__delete_get", _wrap_PortfolioStats__delete_get, METH_O, NULL},
-	 { "delete_PortfolioStats_", _wrap_delete_PortfolioStats_, METH_O, NULL},
-	 { "new_PortfolioStats_", _wrap_new_PortfolioStats_, METH_NOARGS, NULL},
-	 { "PortfolioStats__swigregister", PortfolioStats__swigregister, METH_O, NULL},
-	 { "PortfolioStats__swiginit", PortfolioStats__swiginit, METH_VARARGS, NULL},
-	 { "portfolio_stats_new", _wrap_portfolio_stats_new, METH_NOARGS, NULL},
-	 { "PositionSizingParams_size_type_set", _wrap_PositionSizingParams_size_type_set, METH_VARARGS, NULL},
-	 { "PositionSizingParams_size_type_get", _wrap_PositionSizingParams_size_type_get, METH_O, NULL},
-	 { "PositionSizingParams_size_value_set", _wrap_PositionSizingParams_size_value_set, METH_VARARGS, NULL},
-	 { "PositionSizingParams_size_value_get", _wrap_PositionSizingParams_size_value_get, METH_O, NULL},
-	 { "new_PositionSizingParams", _wrap_new_PositionSizingParams, METH_NOARGS, NULL},
-	 { "delete_PositionSizingParams", _wrap_delete_PositionSizingParams, METH_O, NULL},
-	 { "PositionSizingParams_swigregister", PositionSizingParams_swigregister, METH_O, NULL},
-	 { "PositionSizingParams_swiginit", PositionSizingParams_swiginit, METH_VARARGS, NULL},
-	 { "SingleAssetPortfolioParams_initial_cash_set", _wrap_SingleAssetPortfolioParams_initial_cash_set, METH_VARARGS, NULL},
-	 { "SingleAssetPortfolioParams_initial_cash_get", _wrap_SingleAssetPortfolioParams_initial_cash_get, METH_O, NULL},
-	 { "SingleAssetPortfolioParams_tx_cost_pct_set", _wrap_SingleAssetPortfolioParams_tx_cost_pct_set, METH_VARARGS, NULL},
-	 { "SingleAssetPortfolioParams_tx_cost_pct_get", _wrap_SingleAssetPortfolioParams_tx_cost_pct_get, METH_O, NULL},
-	 { "SingleAssetPortfolioParams_stop_loss_pct_set", _wrap_SingleAssetPortfolioParams_stop_loss_pct_set, METH_VARARGS, NULL},
-	 { "SingleAssetPortfolioParams_stop_loss_pct_get", _wrap_SingleAssetPortfolioParams_stop_loss_pct_get, METH_O, NULL},
-	 { "SingleAssetPortfolioParams_take_profit_pct_set", _wrap_SingleAssetPortfolioParams_take_profit_pct_set, METH_VARARGS, NULL},
-	 { "SingleAssetPortfolioParams_take_profit_pct_get", _wrap_SingleAssetPortfolioParams_take_profit_pct_get, METH_O, NULL},
-	 { "SingleAssetPortfolioParams_slippage_pct_set", _wrap_SingleAssetPortfolioParams_slippage_pct_set, METH_VARARGS, NULL},
-	 { "SingleAssetPortfolioParams_slippage_pct_get", _wrap_SingleAssetPortfolioParams_slippage_pct_get, METH_O, NULL},
-	 { "SingleAssetPortfolioParams_position_sizing_set", _wrap_SingleAssetPortfolioParams_position_sizing_set, METH_VARARGS, NULL},
-	 { "SingleAssetPortfolioParams_position_sizing_get", _wrap_SingleAssetPortfolioParams_position_sizing_get, METH_O, NULL},
-	 { "new_SingleAssetPortfolioParams", _wrap_new_SingleAssetPortfolioParams, METH_NOARGS, NULL},
-	 { "delete_SingleAssetPortfolioParams", _wrap_delete_SingleAssetPortfolioParams, METH_O, NULL},
-	 { "SingleAssetPortfolioParams_swigregister", SingleAssetPortfolioParams_swigregister, METH_O, NULL},
-	 { "SingleAssetPortfolioParams_swiginit", SingleAssetPortfolioParams_swiginit, METH_VARARGS, NULL},
-	 { "SingleAssetPortfolioTrack_cash_set", _wrap_SingleAssetPortfolioTrack_cash_set, METH_VARARGS, NULL},
-	 { "SingleAssetPortfolioTrack_cash_get", _wrap_SingleAssetPortfolioTrack_cash_get, METH_O, NULL},
-	 { "SingleAssetPortfolioTrack_positions_set", _wrap_SingleAssetPortfolioTrack_positions_set, METH_VARARGS, NULL},
-	 { "SingleAssetPortfolioTrack_positions_get", _wrap_SingleAssetPortfolioTrack_positions_get, METH_O, NULL},
-	 { "SingleAssetPortfolioTrack_last_price_set", _wrap_SingleAssetPortfolioTrack_last_price_set, METH_VARARGS, NULL},
-	 { "SingleAssetPortfolioTrack_last_price_get", _wrap_SingleAssetPortfolioTrack_last_price_get, METH_O, NULL},
-	 { "SingleAssetPortfolioTrack_accum_expenses_set", _wrap_SingleAssetPortfolioTrack_accum_expenses_set, METH_VARARGS, NULL},
-	 { "SingleAssetPortfolioTrack_accum_expenses_get", _wrap_SingleAssetPortfolioTrack_accum_expenses_get, METH_O, NULL},
-	 { "SingleAssetPortfolioTrack_stats_set", _wrap_SingleAssetPortfolioTrack_stats_set, METH_VARARGS, NULL},
-	 { "SingleAssetPortfolioTrack_stats_get", _wrap_SingleAssetPortfolioTrack_stats_get, METH_O, NULL},
-	 { "new_SingleAssetPortfolioTrack", _wrap_new_SingleAssetPortfolioTrack, METH_NOARGS, NULL},
-	 { "delete_SingleAssetPortfolioTrack", _wrap_delete_SingleAssetPortfolioTrack, METH_O, NULL},
-	 { "SingleAssetPortfolioTrack_swigregister", SingleAssetPortfolioTrack_swigregister, METH_O, NULL},
-	 { "SingleAssetPortfolioTrack_swiginit", SingleAssetPortfolioTrack_swiginit, METH_VARARGS, NULL},
-	 { "SingleAssetPortfolio__base_set", _wrap_SingleAssetPortfolio__base_set, METH_VARARGS, NULL},
-	 { "SingleAssetPortfolio__base_get", _wrap_SingleAssetPortfolio__base_get, METH_O, NULL},
-	 { "SingleAssetPortfolio__params_set", _wrap_SingleAssetPortfolio__params_set, METH_VARARGS, NULL},
-	 { "SingleAssetPortfolio__params_get", _wrap_SingleAssetPortfolio__params_get, METH_O, NULL},
-	 { "SingleAssetPortfolio__track_set", _wrap_SingleAssetPortfolio__track_set, METH_VARARGS, NULL},
-	 { "SingleAssetPortfolio__track_get", _wrap_SingleAssetPortfolio__track_get, METH_O, NULL},
-	 { "SingleAssetPortfolio__get_cash", _wrap_SingleAssetPortfolio__get_cash, METH_O, NULL},
-	 { "SingleAssetPortfolio__get_last_price", _wrap_SingleAssetPortfolio__get_last_price, METH_O, NULL},
-	 { "SingleAssetPortfolio__get_accum_expenses", _wrap_SingleAssetPortfolio__get_accum_expenses, METH_O, NULL},
-	 { "SingleAssetPortfolio__get_total_trades", _wrap_SingleAssetPortfolio__get_total_trades, METH_O, NULL},
-	 { "SingleAssetPortfolio__get_winning_trades", _wrap_SingleAssetPortfolio__get_winning_trades, METH_O, NULL},
-	 { "SingleAssetPortfolio__get_losing_trades", _wrap_SingleAssetPortfolio__get_losing_trades, METH_O, NULL},
-	 { "SingleAssetPortfolio__get_total_profit", _wrap_SingleAssetPortfolio__get_total_profit, METH_O, NULL},
-	 { "SingleAssetPortfolio__get_total_loss", _wrap_SingleAssetPortfolio__get_total_loss, METH_O, NULL},
-	 { "SingleAssetPortfolio__update", _wrap_SingleAssetPortfolio__update, METH_VARARGS, NULL},
-	 { "SingleAssetPortfolio__value", _wrap_SingleAssetPortfolio__value, METH_O, NULL},
-	 { "SingleAssetPortfolio__pnl", _wrap_SingleAssetPortfolio__pnl, METH_O, NULL},
-	 { "delete_SingleAssetPortfolio_", _wrap_delete_SingleAssetPortfolio_, METH_O, NULL},
-	 { "new_SingleAssetPortfolio_", _wrap_new_SingleAssetPortfolio_, METH_NOARGS, NULL},
-	 { "SingleAssetPortfolio__swigregister", SingleAssetPortfolio__swigregister, METH_O, NULL},
-	 { "SingleAssetPortfolio__swiginit", SingleAssetPortfolio__swiginit, METH_VARARGS, NULL},
-	 { "single_asset_portfolio_new", _wrap_single_asset_portfolio_new, METH_O, NULL},
-	 { "Strategy__update_set", _wrap_Strategy__update_set, METH_VARARGS, NULL},
-	 { "Strategy__update_get", _wrap_Strategy__update_get, METH_O, NULL},
-	 { "Strategy__delete_set", _wrap_Strategy__delete_set, METH_VARARGS, NULL},
-	 { "Strategy__delete_get", _wrap_Strategy__delete_get, METH_O, NULL},
-	 { "new_Strategy_", _wrap_new_Strategy_, METH_NOARGS, NULL},
-	 { "delete_Strategy_", _wrap_delete_Strategy_, METH_O, NULL},
-	 { "Strategy__swigregister", Strategy__swigregister, METH_O, NULL},
-	 { "Strategy__swiginit", Strategy__swiginit, METH_VARARGS, NULL},
-	 { "CrossOverStrat__base_set", _wrap_CrossOverStrat__base_set, METH_VARARGS, NULL},
-	 { "CrossOverStrat__base_get", _wrap_CrossOverStrat__base_get, METH_O, NULL},
-	 { "CrossOverStrat__short_ma_set", _wrap_CrossOverStrat__short_ma_set, METH_VARARGS, NULL},
-	 { "CrossOverStrat__short_ma_get", _wrap_CrossOverStrat__short_ma_get, METH_O, NULL},
-	 { "CrossOverStrat__long_ma_set", _wrap_CrossOverStrat__long_ma_set, METH_VARARGS, NULL},
-	 { "CrossOverStrat__long_ma_get", _wrap_CrossOverStrat__long_ma_get, METH_O, NULL},
-	 { "CrossOverStrat__threshold_set", _wrap_CrossOverStrat__threshold_set, METH_VARARGS, NULL},
-	 { "CrossOverStrat__threshold_get", _wrap_CrossOverStrat__threshold_get, METH_O, NULL},
-	 { "CrossOverStrat__last_signal_set", _wrap_CrossOverStrat__last_signal_set, METH_VARARGS, NULL},
-	 { "CrossOverStrat__last_signal_get", _wrap_CrossOverStrat__last_signal_get, METH_O, NULL},
-	 { "CrossOverStrat__update", _wrap_CrossOverStrat__update, METH_VARARGS, NULL},
-	 { "delete_CrossOverStrat_", _wrap_delete_CrossOverStrat_, METH_O, NULL},
-	 { "new_CrossOverStrat_", _wrap_new_CrossOverStrat_, METH_NOARGS, NULL},
-	 { "CrossOverStrat__swigregister", CrossOverStrat__swigregister, METH_O, NULL},
-	 { "CrossOverStrat__swiginit", CrossOverStrat__swiginit, METH_VARARGS, NULL},
-	 { "cross_over_strat_new", _wrap_cross_over_strat_new, METH_VARARGS, NULL},
-	 { "Runner__run_set", _wrap_Runner__run_set, METH_VARARGS, NULL},
-	 { "Runner__run_get", _wrap_Runner__run_get, METH_O, NULL},
-	 { "new_Runner_", _wrap_new_Runner_, METH_NOARGS, NULL},
-	 { "delete_Runner_", _wrap_delete_Runner_, METH_O, NULL},
-	 { "Runner__swigregister", Runner__swigregister, METH_O, NULL},
-	 { "Runner__swiginit", Runner__swiginit, METH_VARARGS, NULL},
-	 { "BasicRunner__portfolio_set", _wrap_BasicRunner__portfolio_set, METH_VARARGS, NULL},
-	 { "BasicRunner__portfolio_get", _wrap_BasicRunner__portfolio_get, METH_O, NULL},
-	 { "BasicRunner__strategy_set", _wrap_BasicRunner__strategy_set, METH_VARARGS, NULL},
-	 { "BasicRunner__strategy_get", _wrap_BasicRunner__strategy_get, METH_O, NULL},
-	 { "BasicRunner__reader_set", _wrap_BasicRunner__reader_set, METH_VARARGS, NULL},
-	 { "BasicRunner__reader_get", _wrap_BasicRunner__reader_get, METH_O, NULL},
-	 { "BasicRunner__execute", _wrap_BasicRunner__execute, METH_VARARGS, NULL},
-	 { "delete_BasicRunner_", _wrap_delete_BasicRunner_, METH_O, NULL},
-	 { "new_BasicRunner_", _wrap_new_BasicRunner_, METH_NOARGS, NULL},
-	 { "BasicRunner__swigregister", BasicRunner__swigregister, METH_O, NULL},
-	 { "BasicRunner__swiginit", BasicRunner__swiginit, METH_VARARGS, NULL},
-	 { "basic_runner_new", _wrap_basic_runner_new, METH_VARARGS, NULL},
-	 { "basic_runner_free", _wrap_basic_runner_free, METH_O, NULL},
-	 { "csv_reader_open", _wrap_csv_reader_open, METH_VARARGS, NULL},
+	 { "WU_Signal_timestamp_set", _wrap_WU_Signal_timestamp_set, METH_VARARGS, NULL},
+	 { "WU_Signal_timestamp_get", _wrap_WU_Signal_timestamp_get, METH_O, NULL},
+	 { "WU_Signal_side_set", _wrap_WU_Signal_side_set, METH_VARARGS, NULL},
+	 { "WU_Signal_side_get", _wrap_WU_Signal_side_get, METH_O, NULL},
+	 { "WU_Signal_price_set", _wrap_WU_Signal_price_set, METH_VARARGS, NULL},
+	 { "WU_Signal_price_get", _wrap_WU_Signal_price_get, METH_O, NULL},
+	 { "WU_Signal_quantity_set", _wrap_WU_Signal_quantity_set, METH_VARARGS, NULL},
+	 { "WU_Signal_quantity_get", _wrap_WU_Signal_quantity_get, METH_O, NULL},
+	 { "new_WU_Signal", _wrap_new_WU_Signal, METH_NOARGS, NULL},
+	 { "delete_WU_Signal", _wrap_delete_WU_Signal, METH_O, NULL},
+	 { "WU_Signal_swigregister", WU_Signal_swigregister, METH_O, NULL},
+	 { "WU_Signal_swiginit", WU_Signal_swiginit, METH_VARARGS, NULL},
+	 { "WU_Candle_timestamp_set", _wrap_WU_Candle_timestamp_set, METH_VARARGS, NULL},
+	 { "WU_Candle_timestamp_get", _wrap_WU_Candle_timestamp_get, METH_O, NULL},
+	 { "WU_Candle_open_set", _wrap_WU_Candle_open_set, METH_VARARGS, NULL},
+	 { "WU_Candle_open_get", _wrap_WU_Candle_open_get, METH_O, NULL},
+	 { "WU_Candle_high_set", _wrap_WU_Candle_high_set, METH_VARARGS, NULL},
+	 { "WU_Candle_high_get", _wrap_WU_Candle_high_get, METH_O, NULL},
+	 { "WU_Candle_low_set", _wrap_WU_Candle_low_set, METH_VARARGS, NULL},
+	 { "WU_Candle_low_get", _wrap_WU_Candle_low_get, METH_O, NULL},
+	 { "WU_Candle_close_set", _wrap_WU_Candle_close_set, METH_VARARGS, NULL},
+	 { "WU_Candle_close_get", _wrap_WU_Candle_close_get, METH_O, NULL},
+	 { "WU_Candle_volume_set", _wrap_WU_Candle_volume_set, METH_VARARGS, NULL},
+	 { "WU_Candle_volume_get", _wrap_WU_Candle_volume_get, METH_O, NULL},
+	 { "WU_Candle_data_type_set", _wrap_WU_Candle_data_type_set, METH_VARARGS, NULL},
+	 { "WU_Candle_data_type_get", _wrap_WU_Candle_data_type_get, METH_O, NULL},
+	 { "new_WU_Candle", _wrap_new_WU_Candle, METH_NOARGS, NULL},
+	 { "delete_WU_Candle", _wrap_delete_WU_Candle, METH_O, NULL},
+	 { "WU_Candle_swigregister", WU_Candle_swigregister, METH_O, NULL},
+	 { "WU_Candle_swiginit", WU_Candle_swiginit, METH_VARARGS, NULL},
+	 { "WU_Trade_timestamp_set", _wrap_WU_Trade_timestamp_set, METH_VARARGS, NULL},
+	 { "WU_Trade_timestamp_get", _wrap_WU_Trade_timestamp_get, METH_O, NULL},
+	 { "WU_Trade_price_set", _wrap_WU_Trade_price_set, METH_VARARGS, NULL},
+	 { "WU_Trade_price_get", _wrap_WU_Trade_price_get, METH_O, NULL},
+	 { "WU_Trade_volume_set", _wrap_WU_Trade_volume_set, METH_VARARGS, NULL},
+	 { "WU_Trade_volume_get", _wrap_WU_Trade_volume_get, METH_O, NULL},
+	 { "WU_Trade_side_set", _wrap_WU_Trade_side_set, METH_VARARGS, NULL},
+	 { "WU_Trade_side_get", _wrap_WU_Trade_side_get, METH_O, NULL},
+	 { "WU_Trade_data_type_set", _wrap_WU_Trade_data_type_set, METH_VARARGS, NULL},
+	 { "WU_Trade_data_type_get", _wrap_WU_Trade_data_type_get, METH_O, NULL},
+	 { "new_WU_Trade", _wrap_new_WU_Trade, METH_NOARGS, NULL},
+	 { "delete_WU_Trade", _wrap_delete_WU_Trade, METH_O, NULL},
+	 { "WU_Trade_swigregister", WU_Trade_swigregister, METH_O, NULL},
+	 { "WU_Trade_swiginit", WU_Trade_swiginit, METH_VARARGS, NULL},
+	 { "WU_Single_timestamp_set", _wrap_WU_Single_timestamp_set, METH_VARARGS, NULL},
+	 { "WU_Single_timestamp_get", _wrap_WU_Single_timestamp_get, METH_O, NULL},
+	 { "WU_Single_value_set", _wrap_WU_Single_value_set, METH_VARARGS, NULL},
+	 { "WU_Single_value_get", _wrap_WU_Single_value_get, METH_O, NULL},
+	 { "WU_Single_data_type_set", _wrap_WU_Single_data_type_set, METH_VARARGS, NULL},
+	 { "WU_Single_data_type_get", _wrap_WU_Single_data_type_get, METH_O, NULL},
+	 { "new_WU_Single", _wrap_new_WU_Single, METH_NOARGS, NULL},
+	 { "delete_WU_Single", _wrap_delete_WU_Single, METH_O, NULL},
+	 { "WU_Single_swigregister", WU_Single_swigregister, METH_O, NULL},
+	 { "WU_Single_swiginit", WU_Single_swiginit, METH_VARARGS, NULL},
+	 { "wu_candle_init", _wrap_wu_candle_init, METH_VARARGS, NULL},
+	 { "wu_trade_init", _wrap_wu_trade_init, METH_VARARGS, NULL},
+	 { "wu_single_init", _wrap_wu_single_init, METH_VARARGS, NULL},
+	 { "wu_signal_init", _wrap_wu_signal_init, METH_VARARGS, NULL},
+	 { "WU_SMA__update_set", _wrap_WU_SMA__update_set, METH_VARARGS, NULL},
+	 { "WU_SMA__update_get", _wrap_WU_SMA__update_get, METH_O, NULL},
+	 { "WU_SMA__get_set", _wrap_WU_SMA__get_set, METH_VARARGS, NULL},
+	 { "WU_SMA__get_get", _wrap_WU_SMA__get_get, METH_O, NULL},
+	 { "WU_SMA__delete_set", _wrap_WU_SMA__delete_set, METH_VARARGS, NULL},
+	 { "WU_SMA__delete_get", _wrap_WU_SMA__delete_get, METH_O, NULL},
+	 { "WU_SMA__value_set", _wrap_WU_SMA__value_set, METH_VARARGS, NULL},
+	 { "WU_SMA__value_get", _wrap_WU_SMA__value_get, METH_O, NULL},
+	 { "WU_SMA__prev_values_set", _wrap_WU_SMA__prev_values_set, METH_VARARGS, NULL},
+	 { "WU_SMA__prev_values_get", _wrap_WU_SMA__prev_values_get, METH_O, NULL},
+	 { "WU_SMA__window_size_set", _wrap_WU_SMA__window_size_set, METH_VARARGS, NULL},
+	 { "WU_SMA__window_size_get", _wrap_WU_SMA__window_size_get, METH_O, NULL},
+	 { "WU_SMA__pos_set", _wrap_WU_SMA__pos_set, METH_VARARGS, NULL},
+	 { "WU_SMA__pos_get", _wrap_WU_SMA__pos_get, METH_O, NULL},
+	 { "WU_SMA__len_set", _wrap_WU_SMA__len_set, METH_VARARGS, NULL},
+	 { "WU_SMA__len_get", _wrap_WU_SMA__len_get, METH_O, NULL},
+	 { "WU_SMA__sum_set", _wrap_WU_SMA__sum_set, METH_VARARGS, NULL},
+	 { "WU_SMA__sum_get", _wrap_WU_SMA__sum_get, METH_O, NULL},
+	 { "new_WU_SMA_", _wrap_new_WU_SMA_, METH_NOARGS, NULL},
+	 { "delete_WU_SMA_", _wrap_delete_WU_SMA_, METH_O, NULL},
+	 { "WU_SMA__swigregister", WU_SMA__swigregister, METH_O, NULL},
+	 { "WU_SMA__swiginit", WU_SMA__swiginit, METH_VARARGS, NULL},
+	 { "wu_sma_new", _wrap_wu_sma_new, METH_O, NULL},
+	 { "WU_EMA__update_set", _wrap_WU_EMA__update_set, METH_VARARGS, NULL},
+	 { "WU_EMA__update_get", _wrap_WU_EMA__update_get, METH_O, NULL},
+	 { "WU_EMA__get_set", _wrap_WU_EMA__get_set, METH_VARARGS, NULL},
+	 { "WU_EMA__get_get", _wrap_WU_EMA__get_get, METH_O, NULL},
+	 { "WU_EMA__delete_set", _wrap_WU_EMA__delete_set, METH_VARARGS, NULL},
+	 { "WU_EMA__delete_get", _wrap_WU_EMA__delete_get, METH_O, NULL},
+	 { "WU_EMA__value_set", _wrap_WU_EMA__value_set, METH_VARARGS, NULL},
+	 { "WU_EMA__value_get", _wrap_WU_EMA__value_get, METH_O, NULL},
+	 { "WU_EMA__prev_value_set", _wrap_WU_EMA__prev_value_set, METH_VARARGS, NULL},
+	 { "WU_EMA__prev_value_get", _wrap_WU_EMA__prev_value_get, METH_O, NULL},
+	 { "WU_EMA__alpha_set", _wrap_WU_EMA__alpha_set, METH_VARARGS, NULL},
+	 { "WU_EMA__alpha_get", _wrap_WU_EMA__alpha_get, METH_O, NULL},
+	 { "WU_EMA__len_set", _wrap_WU_EMA__len_set, METH_VARARGS, NULL},
+	 { "WU_EMA__len_get", _wrap_WU_EMA__len_get, METH_O, NULL},
+	 { "WU_EMA__period_set", _wrap_WU_EMA__period_set, METH_VARARGS, NULL},
+	 { "WU_EMA__period_get", _wrap_WU_EMA__period_get, METH_O, NULL},
+	 { "new_WU_EMA_", _wrap_new_WU_EMA_, METH_NOARGS, NULL},
+	 { "delete_WU_EMA_", _wrap_delete_WU_EMA_, METH_O, NULL},
+	 { "WU_EMA__swigregister", WU_EMA__swigregister, METH_O, NULL},
+	 { "WU_EMA__swiginit", WU_EMA__swiginit, METH_VARARGS, NULL},
+	 { "wu_ema_new", _wrap_wu_ema_new, METH_VARARGS, NULL},
+	 { "WU_MVar__update_set", _wrap_WU_MVar__update_set, METH_VARARGS, NULL},
+	 { "WU_MVar__update_get", _wrap_WU_MVar__update_get, METH_O, NULL},
+	 { "WU_MVar__get_set", _wrap_WU_MVar__get_set, METH_VARARGS, NULL},
+	 { "WU_MVar__get_get", _wrap_WU_MVar__get_get, METH_O, NULL},
+	 { "WU_MVar__delete_set", _wrap_WU_MVar__delete_set, METH_VARARGS, NULL},
+	 { "WU_MVar__delete_get", _wrap_WU_MVar__delete_get, METH_O, NULL},
+	 { "WU_MVar__value_set", _wrap_WU_MVar__value_set, METH_VARARGS, NULL},
+	 { "WU_MVar__value_get", _wrap_WU_MVar__value_get, METH_O, NULL},
+	 { "WU_MVar__sma_set", _wrap_WU_MVar__sma_set, METH_VARARGS, NULL},
+	 { "WU_MVar__sma_get", _wrap_WU_MVar__sma_get, METH_O, NULL},
+	 { "WU_MVar__prev_values_set", _wrap_WU_MVar__prev_values_set, METH_VARARGS, NULL},
+	 { "WU_MVar__prev_values_get", _wrap_WU_MVar__prev_values_get, METH_O, NULL},
+	 { "WU_MVar__window_size_set", _wrap_WU_MVar__window_size_set, METH_VARARGS, NULL},
+	 { "WU_MVar__window_size_get", _wrap_WU_MVar__window_size_get, METH_O, NULL},
+	 { "WU_MVar__pos_set", _wrap_WU_MVar__pos_set, METH_VARARGS, NULL},
+	 { "WU_MVar__pos_get", _wrap_WU_MVar__pos_get, METH_O, NULL},
+	 { "WU_MVar__len_set", _wrap_WU_MVar__len_set, METH_VARARGS, NULL},
+	 { "WU_MVar__len_get", _wrap_WU_MVar__len_get, METH_O, NULL},
+	 { "WU_MVar__dof_set", _wrap_WU_MVar__dof_set, METH_VARARGS, NULL},
+	 { "WU_MVar__dof_get", _wrap_WU_MVar__dof_get, METH_O, NULL},
+	 { "new_WU_MVar_", _wrap_new_WU_MVar_, METH_NOARGS, NULL},
+	 { "delete_WU_MVar_", _wrap_delete_WU_MVar_, METH_O, NULL},
+	 { "WU_MVar__swigregister", WU_MVar__swigregister, METH_O, NULL},
+	 { "WU_MVar__swiginit", WU_MVar__swiginit, METH_VARARGS, NULL},
+	 { "wu_mvar_new", _wrap_wu_mvar_new, METH_VARARGS, NULL},
+	 { "WU_StDev__update_set", _wrap_WU_StDev__update_set, METH_VARARGS, NULL},
+	 { "WU_StDev__update_get", _wrap_WU_StDev__update_get, METH_O, NULL},
+	 { "WU_StDev__get_set", _wrap_WU_StDev__get_set, METH_VARARGS, NULL},
+	 { "WU_StDev__get_get", _wrap_WU_StDev__get_get, METH_O, NULL},
+	 { "WU_StDev__delete_set", _wrap_WU_StDev__delete_set, METH_VARARGS, NULL},
+	 { "WU_StDev__delete_get", _wrap_WU_StDev__delete_get, METH_O, NULL},
+	 { "WU_StDev__mvar_set", _wrap_WU_StDev__mvar_set, METH_VARARGS, NULL},
+	 { "WU_StDev__mvar_get", _wrap_WU_StDev__mvar_get, METH_O, NULL},
+	 { "new_WU_StDev_", _wrap_new_WU_StDev_, METH_NOARGS, NULL},
+	 { "delete_WU_StDev_", _wrap_delete_WU_StDev_, METH_O, NULL},
+	 { "WU_StDev__swigregister", WU_StDev__swigregister, METH_O, NULL},
+	 { "WU_StDev__swiginit", WU_StDev__swiginit, METH_VARARGS, NULL},
+	 { "wu_stdev_new", _wrap_wu_stdev_new, METH_VARARGS, NULL},
+	 { "WU_Reader__next_set", _wrap_WU_Reader__next_set, METH_VARARGS, NULL},
+	 { "WU_Reader__next_get", _wrap_WU_Reader__next_get, METH_O, NULL},
+	 { "WU_Reader__delete_set", _wrap_WU_Reader__delete_set, METH_VARARGS, NULL},
+	 { "WU_Reader__delete_get", _wrap_WU_Reader__delete_get, METH_O, NULL},
+	 { "new_WU_Reader_", _wrap_new_WU_Reader_, METH_NOARGS, NULL},
+	 { "delete_WU_Reader_", _wrap_delete_WU_Reader_, METH_O, NULL},
+	 { "WU_Reader__swigregister", WU_Reader__swigregister, METH_O, NULL},
+	 { "WU_Reader__swiginit", WU_Reader__swiginit, METH_VARARGS, NULL},
+	 { "WU_CsvReader__base_set", _wrap_WU_CsvReader__base_set, METH_VARARGS, NULL},
+	 { "WU_CsvReader__base_get", _wrap_WU_CsvReader__base_get, METH_O, NULL},
+	 { "WU_CsvReader__file_set", _wrap_WU_CsvReader__file_set, METH_VARARGS, NULL},
+	 { "WU_CsvReader__file_get", _wrap_WU_CsvReader__file_get, METH_O, NULL},
+	 { "WU_CsvReader__line_buffer_set", _wrap_WU_CsvReader__line_buffer_set, METH_VARARGS, NULL},
+	 { "WU_CsvReader__line_buffer_get", _wrap_WU_CsvReader__line_buffer_get, METH_O, NULL},
+	 { "WU_CsvReader__has_headers_set", _wrap_WU_CsvReader__has_headers_set, METH_VARARGS, NULL},
+	 { "WU_CsvReader__has_headers_get", _wrap_WU_CsvReader__has_headers_get, METH_O, NULL},
+	 { "WU_CsvReader__data_type_set", _wrap_WU_CsvReader__data_type_set, METH_VARARGS, NULL},
+	 { "WU_CsvReader__data_type_get", _wrap_WU_CsvReader__data_type_get, METH_O, NULL},
+	 { "WU_CsvReader__last_error_set", _wrap_WU_CsvReader__last_error_set, METH_VARARGS, NULL},
+	 { "WU_CsvReader__last_error_get", _wrap_WU_CsvReader__last_error_get, METH_O, NULL},
+	 { "WU_CsvReader__data_get", _wrap_WU_CsvReader__data_get, METH_O, NULL},
+	 { "WU_CsvReader__next", _wrap_WU_CsvReader__next, METH_O, NULL},
+	 { "WU_CsvReader__get_last_error", _wrap_WU_CsvReader__get_last_error, METH_O, NULL},
+	 { "WU_CsvReader__read_candle", _wrap_WU_CsvReader__read_candle, METH_O, NULL},
+	 { "WU_CsvReader__read_trade", _wrap_WU_CsvReader__read_trade, METH_O, NULL},
+	 { "WU_CsvReader__read_single_value", _wrap_WU_CsvReader__read_single_value, METH_O, NULL},
+	 { "delete_WU_CsvReader_", _wrap_delete_WU_CsvReader_, METH_O, NULL},
+	 { "new_WU_CsvReader_", _wrap_new_WU_CsvReader_, METH_NOARGS, NULL},
+	 { "WU_CsvReader__swigregister", WU_CsvReader__swigregister, METH_O, NULL},
+	 { "WU_CsvReader__swiginit", WU_CsvReader__swiginit, METH_VARARGS, NULL},
+	 { "WU_CsvReader__data_candle_set", _wrap_WU_CsvReader__data_candle_set, METH_VARARGS, NULL},
+	 { "WU_CsvReader__data_candle_get", _wrap_WU_CsvReader__data_candle_get, METH_O, NULL},
+	 { "WU_CsvReader__data_trade_set", _wrap_WU_CsvReader__data_trade_set, METH_VARARGS, NULL},
+	 { "WU_CsvReader__data_trade_get", _wrap_WU_CsvReader__data_trade_get, METH_O, NULL},
+	 { "WU_CsvReader__data_single_value_set", _wrap_WU_CsvReader__data_single_value_set, METH_VARARGS, NULL},
+	 { "WU_CsvReader__data_single_value_get", _wrap_WU_CsvReader__data_single_value_get, METH_O, NULL},
+	 { "new_WU_CsvReader__data", _wrap_new_WU_CsvReader__data, METH_NOARGS, NULL},
+	 { "delete_WU_CsvReader__data", _wrap_delete_WU_CsvReader__data, METH_O, NULL},
+	 { "WU_CsvReader__data_swigregister", WU_CsvReader__data_swigregister, METH_O, NULL},
+	 { "WU_CsvReader__data_swiginit", WU_CsvReader__data_swiginit, METH_VARARGS, NULL},
+	 { "wu_csv_reader_new", _wrap_wu_csv_reader_new, METH_VARARGS, NULL},
+	 { "WU_Portfolio__update_set", _wrap_WU_Portfolio__update_set, METH_VARARGS, NULL},
+	 { "WU_Portfolio__update_get", _wrap_WU_Portfolio__update_get, METH_O, NULL},
+	 { "WU_Portfolio__value_set", _wrap_WU_Portfolio__value_set, METH_VARARGS, NULL},
+	 { "WU_Portfolio__value_get", _wrap_WU_Portfolio__value_get, METH_O, NULL},
+	 { "WU_Portfolio__pnl_set", _wrap_WU_Portfolio__pnl_set, METH_VARARGS, NULL},
+	 { "WU_Portfolio__pnl_get", _wrap_WU_Portfolio__pnl_get, METH_O, NULL},
+	 { "WU_Portfolio__delete_set", _wrap_WU_Portfolio__delete_set, METH_VARARGS, NULL},
+	 { "WU_Portfolio__delete_get", _wrap_WU_Portfolio__delete_get, METH_O, NULL},
+	 { "new_WU_Portfolio_", _wrap_new_WU_Portfolio_, METH_NOARGS, NULL},
+	 { "delete_WU_Portfolio_", _wrap_delete_WU_Portfolio_, METH_O, NULL},
+	 { "WU_Portfolio__swigregister", WU_Portfolio__swigregister, METH_O, NULL},
+	 { "WU_Portfolio__swiginit", WU_Portfolio__swiginit, METH_VARARGS, NULL},
+	 { "WU_Position__timestamp_set", _wrap_WU_Position__timestamp_set, METH_VARARGS, NULL},
+	 { "WU_Position__timestamp_get", _wrap_WU_Position__timestamp_get, METH_O, NULL},
+	 { "WU_Position__quantity_set", _wrap_WU_Position__quantity_set, METH_VARARGS, NULL},
+	 { "WU_Position__quantity_get", _wrap_WU_Position__quantity_get, METH_O, NULL},
+	 { "WU_Position__price_set", _wrap_WU_Position__price_set, METH_VARARGS, NULL},
+	 { "WU_Position__price_get", _wrap_WU_Position__price_get, METH_O, NULL},
+	 { "WU_Position__active_set", _wrap_WU_Position__active_set, METH_VARARGS, NULL},
+	 { "WU_Position__active_get", _wrap_WU_Position__active_get, METH_O, NULL},
+	 { "new_WU_Position_", _wrap_new_WU_Position_, METH_NOARGS, NULL},
+	 { "delete_WU_Position_", _wrap_delete_WU_Position_, METH_O, NULL},
+	 { "WU_Position__swigregister", WU_Position__swigregister, METH_O, NULL},
+	 { "WU_Position__swiginit", WU_Position__swiginit, METH_VARARGS, NULL},
+	 { "WU_PositionVector_positions_set", _wrap_WU_PositionVector_positions_set, METH_VARARGS, NULL},
+	 { "WU_PositionVector_positions_get", _wrap_WU_PositionVector_positions_get, METH_O, NULL},
+	 { "WU_PositionVector_active_set", _wrap_WU_PositionVector_active_set, METH_VARARGS, NULL},
+	 { "WU_PositionVector_active_get", _wrap_WU_PositionVector_active_get, METH_O, NULL},
+	 { "WU_PositionVector_count_set", _wrap_WU_PositionVector_count_set, METH_VARARGS, NULL},
+	 { "WU_PositionVector_count_get", _wrap_WU_PositionVector_count_get, METH_O, NULL},
+	 { "WU_PositionVector_capacity_set", _wrap_WU_PositionVector_capacity_set, METH_VARARGS, NULL},
+	 { "WU_PositionVector_capacity_get", _wrap_WU_PositionVector_capacity_get, METH_O, NULL},
+	 { "WU_PositionVector_add_set", _wrap_WU_PositionVector_add_set, METH_VARARGS, NULL},
+	 { "WU_PositionVector_add_get", _wrap_WU_PositionVector_add_get, METH_O, NULL},
+	 { "WU_PositionVector_remove_set", _wrap_WU_PositionVector_remove_set, METH_VARARGS, NULL},
+	 { "WU_PositionVector_remove_get", _wrap_WU_PositionVector_remove_get, METH_O, NULL},
+	 { "WU_PositionVector_clear_set", _wrap_WU_PositionVector_clear_set, METH_VARARGS, NULL},
+	 { "WU_PositionVector_clear_get", _wrap_WU_PositionVector_clear_get, METH_O, NULL},
+	 { "WU_PositionVector_get_set", _wrap_WU_PositionVector_get_set, METH_VARARGS, NULL},
+	 { "WU_PositionVector_get_get", _wrap_WU_PositionVector_get_get, METH_O, NULL},
+	 { "WU_PositionVector_total_quantity_set", _wrap_WU_PositionVector_total_quantity_set, METH_VARARGS, NULL},
+	 { "WU_PositionVector_total_quantity_get", _wrap_WU_PositionVector_total_quantity_get, METH_O, NULL},
+	 { "WU_PositionVector_delete_set", _wrap_WU_PositionVector_delete_set, METH_VARARGS, NULL},
+	 { "WU_PositionVector_delete_get", _wrap_WU_PositionVector_delete_get, METH_O, NULL},
+	 { "new_WU_PositionVector", _wrap_new_WU_PositionVector, METH_NOARGS, NULL},
+	 { "delete_WU_PositionVector", _wrap_delete_WU_PositionVector, METH_O, NULL},
+	 { "WU_PositionVector_swigregister", WU_PositionVector_swigregister, METH_O, NULL},
+	 { "WU_PositionVector_swiginit", WU_PositionVector_swiginit, METH_VARARGS, NULL},
+	 { "wu_position_vector_new", _wrap_wu_position_vector_new, METH_NOARGS, NULL},
+	 { "WU_PortfolioStats__total_trades_set", _wrap_WU_PortfolioStats__total_trades_set, METH_VARARGS, NULL},
+	 { "WU_PortfolioStats__total_trades_get", _wrap_WU_PortfolioStats__total_trades_get, METH_O, NULL},
+	 { "WU_PortfolioStats__winning_trades_set", _wrap_WU_PortfolioStats__winning_trades_set, METH_VARARGS, NULL},
+	 { "WU_PortfolioStats__winning_trades_get", _wrap_WU_PortfolioStats__winning_trades_get, METH_O, NULL},
+	 { "WU_PortfolioStats__losing_trades_set", _wrap_WU_PortfolioStats__losing_trades_set, METH_VARARGS, NULL},
+	 { "WU_PortfolioStats__losing_trades_get", _wrap_WU_PortfolioStats__losing_trades_get, METH_O, NULL},
+	 { "WU_PortfolioStats__stop_loss_exits_set", _wrap_WU_PortfolioStats__stop_loss_exits_set, METH_VARARGS, NULL},
+	 { "WU_PortfolioStats__stop_loss_exits_get", _wrap_WU_PortfolioStats__stop_loss_exits_get, METH_O, NULL},
+	 { "WU_PortfolioStats__take_profit_exits_set", _wrap_WU_PortfolioStats__take_profit_exits_set, METH_VARARGS, NULL},
+	 { "WU_PortfolioStats__take_profit_exits_get", _wrap_WU_PortfolioStats__take_profit_exits_get, METH_O, NULL},
+	 { "WU_PortfolioStats__total_profit_set", _wrap_WU_PortfolioStats__total_profit_set, METH_VARARGS, NULL},
+	 { "WU_PortfolioStats__total_profit_get", _wrap_WU_PortfolioStats__total_profit_get, METH_O, NULL},
+	 { "WU_PortfolioStats__total_loss_set", _wrap_WU_PortfolioStats__total_loss_set, METH_VARARGS, NULL},
+	 { "WU_PortfolioStats__total_loss_get", _wrap_WU_PortfolioStats__total_loss_get, METH_O, NULL},
+	 { "WU_PortfolioStats__max_win_set", _wrap_WU_PortfolioStats__max_win_set, METH_VARARGS, NULL},
+	 { "WU_PortfolioStats__max_win_get", _wrap_WU_PortfolioStats__max_win_get, METH_O, NULL},
+	 { "WU_PortfolioStats__max_loss_set", _wrap_WU_PortfolioStats__max_loss_set, METH_VARARGS, NULL},
+	 { "WU_PortfolioStats__max_loss_get", _wrap_WU_PortfolioStats__max_loss_get, METH_O, NULL},
+	 { "WU_PortfolioStats__record_trade_set", _wrap_WU_PortfolioStats__record_trade_set, METH_VARARGS, NULL},
+	 { "WU_PortfolioStats__record_trade_get", _wrap_WU_PortfolioStats__record_trade_get, METH_O, NULL},
+	 { "WU_PortfolioStats__reset_set", _wrap_WU_PortfolioStats__reset_set, METH_VARARGS, NULL},
+	 { "WU_PortfolioStats__reset_get", _wrap_WU_PortfolioStats__reset_get, METH_O, NULL},
+	 { "WU_PortfolioStats__delete_set", _wrap_WU_PortfolioStats__delete_set, METH_VARARGS, NULL},
+	 { "WU_PortfolioStats__delete_get", _wrap_WU_PortfolioStats__delete_get, METH_O, NULL},
+	 { "new_WU_PortfolioStats_", _wrap_new_WU_PortfolioStats_, METH_NOARGS, NULL},
+	 { "delete_WU_PortfolioStats_", _wrap_delete_WU_PortfolioStats_, METH_O, NULL},
+	 { "WU_PortfolioStats__swigregister", WU_PortfolioStats__swigregister, METH_O, NULL},
+	 { "WU_PortfolioStats__swiginit", WU_PortfolioStats__swiginit, METH_VARARGS, NULL},
+	 { "wu_portfolio_stats_new", _wrap_wu_portfolio_stats_new, METH_NOARGS, NULL},
+	 { "WU_PositionSizingParams_size_type_set", _wrap_WU_PositionSizingParams_size_type_set, METH_VARARGS, NULL},
+	 { "WU_PositionSizingParams_size_type_get", _wrap_WU_PositionSizingParams_size_type_get, METH_O, NULL},
+	 { "WU_PositionSizingParams_size_value_set", _wrap_WU_PositionSizingParams_size_value_set, METH_VARARGS, NULL},
+	 { "WU_PositionSizingParams_size_value_get", _wrap_WU_PositionSizingParams_size_value_get, METH_O, NULL},
+	 { "new_WU_PositionSizingParams", _wrap_new_WU_PositionSizingParams, METH_NOARGS, NULL},
+	 { "delete_WU_PositionSizingParams", _wrap_delete_WU_PositionSizingParams, METH_O, NULL},
+	 { "WU_PositionSizingParams_swigregister", WU_PositionSizingParams_swigregister, METH_O, NULL},
+	 { "WU_PositionSizingParams_swiginit", WU_PositionSizingParams_swiginit, METH_VARARGS, NULL},
+	 { "WU_SingleAssetPortfolioParams_initial_cash_set", _wrap_WU_SingleAssetPortfolioParams_initial_cash_set, METH_VARARGS, NULL},
+	 { "WU_SingleAssetPortfolioParams_initial_cash_get", _wrap_WU_SingleAssetPortfolioParams_initial_cash_get, METH_O, NULL},
+	 { "WU_SingleAssetPortfolioParams_tx_cost_pct_set", _wrap_WU_SingleAssetPortfolioParams_tx_cost_pct_set, METH_VARARGS, NULL},
+	 { "WU_SingleAssetPortfolioParams_tx_cost_pct_get", _wrap_WU_SingleAssetPortfolioParams_tx_cost_pct_get, METH_O, NULL},
+	 { "WU_SingleAssetPortfolioParams_stop_loss_pct_set", _wrap_WU_SingleAssetPortfolioParams_stop_loss_pct_set, METH_VARARGS, NULL},
+	 { "WU_SingleAssetPortfolioParams_stop_loss_pct_get", _wrap_WU_SingleAssetPortfolioParams_stop_loss_pct_get, METH_O, NULL},
+	 { "WU_SingleAssetPortfolioParams_take_profit_pct_set", _wrap_WU_SingleAssetPortfolioParams_take_profit_pct_set, METH_VARARGS, NULL},
+	 { "WU_SingleAssetPortfolioParams_take_profit_pct_get", _wrap_WU_SingleAssetPortfolioParams_take_profit_pct_get, METH_O, NULL},
+	 { "WU_SingleAssetPortfolioParams_slippage_pct_set", _wrap_WU_SingleAssetPortfolioParams_slippage_pct_set, METH_VARARGS, NULL},
+	 { "WU_SingleAssetPortfolioParams_slippage_pct_get", _wrap_WU_SingleAssetPortfolioParams_slippage_pct_get, METH_O, NULL},
+	 { "WU_SingleAssetPortfolioParams_wu_position_sizing_set", _wrap_WU_SingleAssetPortfolioParams_wu_position_sizing_set, METH_VARARGS, NULL},
+	 { "WU_SingleAssetPortfolioParams_wu_position_sizing_get", _wrap_WU_SingleAssetPortfolioParams_wu_position_sizing_get, METH_O, NULL},
+	 { "new_WU_SingleAssetPortfolioParams", _wrap_new_WU_SingleAssetPortfolioParams, METH_NOARGS, NULL},
+	 { "delete_WU_SingleAssetPortfolioParams", _wrap_delete_WU_SingleAssetPortfolioParams, METH_O, NULL},
+	 { "WU_SingleAssetPortfolioParams_swigregister", WU_SingleAssetPortfolioParams_swigregister, METH_O, NULL},
+	 { "WU_SingleAssetPortfolioParams_swiginit", WU_SingleAssetPortfolioParams_swiginit, METH_VARARGS, NULL},
+	 { "WU_SingleAssetPortfolioTrack_cash_set", _wrap_WU_SingleAssetPortfolioTrack_cash_set, METH_VARARGS, NULL},
+	 { "WU_SingleAssetPortfolioTrack_cash_get", _wrap_WU_SingleAssetPortfolioTrack_cash_get, METH_O, NULL},
+	 { "WU_SingleAssetPortfolioTrack_positions_set", _wrap_WU_SingleAssetPortfolioTrack_positions_set, METH_VARARGS, NULL},
+	 { "WU_SingleAssetPortfolioTrack_positions_get", _wrap_WU_SingleAssetPortfolioTrack_positions_get, METH_O, NULL},
+	 { "WU_SingleAssetPortfolioTrack_last_price_set", _wrap_WU_SingleAssetPortfolioTrack_last_price_set, METH_VARARGS, NULL},
+	 { "WU_SingleAssetPortfolioTrack_last_price_get", _wrap_WU_SingleAssetPortfolioTrack_last_price_get, METH_O, NULL},
+	 { "WU_SingleAssetPortfolioTrack_accum_expenses_set", _wrap_WU_SingleAssetPortfolioTrack_accum_expenses_set, METH_VARARGS, NULL},
+	 { "WU_SingleAssetPortfolioTrack_accum_expenses_get", _wrap_WU_SingleAssetPortfolioTrack_accum_expenses_get, METH_O, NULL},
+	 { "WU_SingleAssetPortfolioTrack_stats_set", _wrap_WU_SingleAssetPortfolioTrack_stats_set, METH_VARARGS, NULL},
+	 { "WU_SingleAssetPortfolioTrack_stats_get", _wrap_WU_SingleAssetPortfolioTrack_stats_get, METH_O, NULL},
+	 { "new_WU_SingleAssetPortfolioTrack", _wrap_new_WU_SingleAssetPortfolioTrack, METH_NOARGS, NULL},
+	 { "delete_WU_SingleAssetPortfolioTrack", _wrap_delete_WU_SingleAssetPortfolioTrack, METH_O, NULL},
+	 { "WU_SingleAssetPortfolioTrack_swigregister", WU_SingleAssetPortfolioTrack_swigregister, METH_O, NULL},
+	 { "WU_SingleAssetPortfolioTrack_swiginit", WU_SingleAssetPortfolioTrack_swiginit, METH_VARARGS, NULL},
+	 { "WU_SingleAssetPortfolio__base_set", _wrap_WU_SingleAssetPortfolio__base_set, METH_VARARGS, NULL},
+	 { "WU_SingleAssetPortfolio__base_get", _wrap_WU_SingleAssetPortfolio__base_get, METH_O, NULL},
+	 { "WU_SingleAssetPortfolio__params_set", _wrap_WU_SingleAssetPortfolio__params_set, METH_VARARGS, NULL},
+	 { "WU_SingleAssetPortfolio__params_get", _wrap_WU_SingleAssetPortfolio__params_get, METH_O, NULL},
+	 { "WU_SingleAssetPortfolio__track_set", _wrap_WU_SingleAssetPortfolio__track_set, METH_VARARGS, NULL},
+	 { "WU_SingleAssetPortfolio__track_get", _wrap_WU_SingleAssetPortfolio__track_get, METH_O, NULL},
+	 { "new_WU_SingleAssetPortfolio_", _wrap_new_WU_SingleAssetPortfolio_, METH_NOARGS, NULL},
+	 { "delete_WU_SingleAssetPortfolio_", _wrap_delete_WU_SingleAssetPortfolio_, METH_O, NULL},
+	 { "WU_SingleAssetPortfolio__swigregister", WU_SingleAssetPortfolio__swigregister, METH_O, NULL},
+	 { "WU_SingleAssetPortfolio__swiginit", WU_SingleAssetPortfolio__swiginit, METH_VARARGS, NULL},
+	 { "wu_singleasset_portfolio_new", _wrap_wu_singleasset_portfolio_new, METH_O, NULL},
+	 { "WU_Strategy__update_set", _wrap_WU_Strategy__update_set, METH_VARARGS, NULL},
+	 { "WU_Strategy__update_get", _wrap_WU_Strategy__update_get, METH_O, NULL},
+	 { "WU_Strategy__delete_set", _wrap_WU_Strategy__delete_set, METH_VARARGS, NULL},
+	 { "WU_Strategy__delete_get", _wrap_WU_Strategy__delete_get, METH_O, NULL},
+	 { "new_WU_Strategy_", _wrap_new_WU_Strategy_, METH_NOARGS, NULL},
+	 { "delete_WU_Strategy_", _wrap_delete_WU_Strategy_, METH_O, NULL},
+	 { "WU_Strategy__swigregister", WU_Strategy__swigregister, METH_O, NULL},
+	 { "WU_Strategy__swiginit", WU_Strategy__swiginit, METH_VARARGS, NULL},
+	 { "WU_CrossOverStrat__base_set", _wrap_WU_CrossOverStrat__base_set, METH_VARARGS, NULL},
+	 { "WU_CrossOverStrat__base_get", _wrap_WU_CrossOverStrat__base_get, METH_O, NULL},
+	 { "WU_CrossOverStrat__short_ma_set", _wrap_WU_CrossOverStrat__short_ma_set, METH_VARARGS, NULL},
+	 { "WU_CrossOverStrat__short_ma_get", _wrap_WU_CrossOverStrat__short_ma_get, METH_O, NULL},
+	 { "WU_CrossOverStrat__long_ma_set", _wrap_WU_CrossOverStrat__long_ma_set, METH_VARARGS, NULL},
+	 { "WU_CrossOverStrat__long_ma_get", _wrap_WU_CrossOverStrat__long_ma_get, METH_O, NULL},
+	 { "WU_CrossOverStrat__threshold_set", _wrap_WU_CrossOverStrat__threshold_set, METH_VARARGS, NULL},
+	 { "WU_CrossOverStrat__threshold_get", _wrap_WU_CrossOverStrat__threshold_get, METH_O, NULL},
+	 { "WU_CrossOverStrat__last_signal_set", _wrap_WU_CrossOverStrat__last_signal_set, METH_VARARGS, NULL},
+	 { "WU_CrossOverStrat__last_signal_get", _wrap_WU_CrossOverStrat__last_signal_get, METH_O, NULL},
+	 { "new_WU_CrossOverStrat_", _wrap_new_WU_CrossOverStrat_, METH_NOARGS, NULL},
+	 { "delete_WU_CrossOverStrat_", _wrap_delete_WU_CrossOverStrat_, METH_O, NULL},
+	 { "WU_CrossOverStrat__swigregister", WU_CrossOverStrat__swigregister, METH_O, NULL},
+	 { "WU_CrossOverStrat__swiginit", WU_CrossOverStrat__swiginit, METH_VARARGS, NULL},
+	 { "wu_crossover_strat_new", _wrap_wu_crossover_strat_new, METH_VARARGS, NULL},
+	 { "WU_Runner___exec_set", _wrap_WU_Runner___exec_set, METH_VARARGS, NULL},
+	 { "WU_Runner___exec_get", _wrap_WU_Runner___exec_get, METH_O, NULL},
+	 { "new_WU_Runner_", _wrap_new_WU_Runner_, METH_NOARGS, NULL},
+	 { "delete_WU_Runner_", _wrap_delete_WU_Runner_, METH_O, NULL},
+	 { "WU_Runner__swigregister", WU_Runner__swigregister, METH_O, NULL},
+	 { "WU_Runner__swiginit", WU_Runner__swiginit, METH_VARARGS, NULL},
+	 { "WU_BasicRunner__portfolio_set", _wrap_WU_BasicRunner__portfolio_set, METH_VARARGS, NULL},
+	 { "WU_BasicRunner__portfolio_get", _wrap_WU_BasicRunner__portfolio_get, METH_O, NULL},
+	 { "WU_BasicRunner__strategy_set", _wrap_WU_BasicRunner__strategy_set, METH_VARARGS, NULL},
+	 { "WU_BasicRunner__strategy_get", _wrap_WU_BasicRunner__strategy_get, METH_O, NULL},
+	 { "WU_BasicRunner__reader_set", _wrap_WU_BasicRunner__reader_set, METH_VARARGS, NULL},
+	 { "WU_BasicRunner__reader_get", _wrap_WU_BasicRunner__reader_get, METH_O, NULL},
+	 { "WU_BasicRunner__run_set", _wrap_WU_BasicRunner__run_set, METH_VARARGS, NULL},
+	 { "WU_BasicRunner__run_get", _wrap_WU_BasicRunner__run_get, METH_O, NULL},
+	 { "new_WU_BasicRunner_", _wrap_new_WU_BasicRunner_, METH_NOARGS, NULL},
+	 { "delete_WU_BasicRunner_", _wrap_delete_WU_BasicRunner_, METH_O, NULL},
+	 { "WU_BasicRunner__swigregister", WU_BasicRunner__swigregister, METH_O, NULL},
+	 { "WU_BasicRunner__swiginit", WU_BasicRunner__swiginit, METH_VARARGS, NULL},
+	 { "wu_basic_runner_new", _wrap_wu_basic_runner_new, METH_VARARGS, NULL},
+	 { "wu_basic_runner_free", _wrap_wu_basic_runner_free, METH_O, NULL},
+	 { "wu_csv_reader_open", _wrap_wu_csv_reader_open, METH_VARARGS, NULL},
 	 { NULL, NULL, 0, NULL }
 };
 
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
 
-static swig_type_info _swigt__p_BasicRunner_ = {"_p_BasicRunner_", "BasicRunner|struct BasicRunner_ *|BasicRunner_ *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_Candle_ = {"_p_Candle_", "Candle *|struct Candle_ *|Candle_ *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_CloseReason = {"_p_CloseReason", "CloseReason *|enum CloseReason *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_CrossOverStrat_ = {"_p_CrossOverStrat_", "CrossOverStrat|struct CrossOverStrat_ *|CrossOverStrat_ *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_CsvError = {"_p_CsvError", "CsvError *|enum CsvError *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_CsvReader_ = {"_p_CsvReader_", "CsvReader|struct CsvReader_ *|CsvReader_ *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_CsvReader__data = {"_p_CsvReader__data", "CsvReader__data *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_DataType = {"_p_DataType", "DataType *|enum DataType *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_EMA_ = {"_p_EMA_", "EMA|struct EMA_ *|EMA_ *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__Strategy = {"_Strategy", "Strategy", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_CrossOverStrat_ = {"_p_CrossOverStrat_", "struct CrossOverStrat_ *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FILE = {"_p_FILE", "FILE *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_PortfolioStats_ = {"_p_PortfolioStats_", "PortfolioStats|struct PortfolioStats_ *|PortfolioStats_ *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_Portfolio_ = {"_p_Portfolio_", "Portfolio|struct Portfolio_ *|Portfolio_ *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_PositionSizeType = {"_p_PositionSizeType", "PositionSizeType *|enum PositionSizeType *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_PositionSizingParams = {"_p_PositionSizingParams", "PositionSizingParams *|struct PositionSizingParams *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_PositionVector = {"_p_PositionVector", "PositionVector *|struct PositionVector *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_Position_ = {"_p_Position_", "struct Position_ *|Position_ *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_Reader_ = {"_p_Reader_", "Reader|struct Reader_ *|Reader_ *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_Runner_ = {"_p_Runner_", "struct Runner_ *|Runner_ *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_SMA_ = {"_p_SMA_", "SMA|struct SMA_ *|SMA_ *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_Side = {"_p_Side", "Side *|enum Side *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_Signal = {"_p_Signal", "Signal *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_SingleAssetPortfolioParams = {"_p_SingleAssetPortfolioParams", "SingleAssetPortfolioParams *|struct SingleAssetPortfolioParams *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_SingleAssetPortfolioTrack = {"_p_SingleAssetPortfolioTrack", "SingleAssetPortfolioTrack *|struct SingleAssetPortfolioTrack *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_SingleAssetPortfolio_ = {"_p_SingleAssetPortfolio_", "SingleAssetPortfolio|struct SingleAssetPortfolio_ *|SingleAssetPortfolio_ *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_SingleValue = {"_p_SingleValue", "SingleValue *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_Strategy_ = {"_p_Strategy_", "Strategy|struct Strategy_ *|Strategy_ *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_TimeUnit = {"_p_TimeUnit", "TimeUnit *|enum TimeUnit *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_Trade = {"_p_Trade", "Trade *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_BasicRunner_ = {"_p_WU_BasicRunner_", "WU_BasicRunner|struct WU_BasicRunner_ *|WU_BasicRunner_ *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_Candle_ = {"_p_WU_Candle_", "WU_Candle *|struct WU_Candle_ *|WU_Candle_ *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_CloseReason = {"_p_WU_CloseReason", "WU_CloseReason *|enum WU_CloseReason *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_CrossOverStrat_ = {"_p_WU_CrossOverStrat_", "WU_CrossOverStrat|struct WU_CrossOverStrat_ *|WU_CrossOverStrat_ *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_CsvError = {"_p_WU_CsvError", "WU_CsvError *|enum WU_CsvError *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_CsvReader_ = {"_p_WU_CsvReader_", "WU_CsvReader|struct WU_CsvReader_ *|WU_CsvReader_ *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_CsvReader__data = {"_p_WU_CsvReader__data", "WU_CsvReader__data *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_DataType = {"_p_WU_DataType", "WU_DataType *|enum WU_DataType *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_EMA_ = {"_p_WU_EMA_", "WU_EMA|struct WU_EMA_ *|WU_EMA_ *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_MVar_ = {"_p_WU_MVar_", "WU_MVar|struct WU_MVar_ *|WU_MVar_ *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_PortfolioStats_ = {"_p_WU_PortfolioStats_", "WU_PortfolioStats|struct WU_PortfolioStats_ *|WU_PortfolioStats_ *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_Portfolio_ = {"_p_WU_Portfolio_", "WU_Portfolio|struct WU_Portfolio_ *|WU_Portfolio_ *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_PositionSizeType = {"_p_WU_PositionSizeType", "WU_PositionSizeType *|enum WU_PositionSizeType *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_PositionSizingParams = {"_p_WU_PositionSizingParams", "WU_PositionSizingParams *|struct WU_PositionSizingParams *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_PositionVector = {"_p_WU_PositionVector", "WU_PositionVector *|struct WU_PositionVector *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_Position_ = {"_p_WU_Position_", "struct WU_Position_ *|WU_Position_ *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_Reader_ = {"_p_WU_Reader_", "WU_Reader|struct WU_Reader_ *|WU_Reader_ *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_Runner_ = {"_p_WU_Runner_", "struct WU_Runner_ *|WU_Runner_ *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_SMA_ = {"_p_WU_SMA_", "WU_SMA|struct WU_SMA_ *|WU_SMA_ *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_Side = {"_p_WU_Side", "WU_Side *|enum WU_Side *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_Signal = {"_p_WU_Signal", "WU_Signal *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_Single = {"_p_WU_Single", "WU_Single *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_SingleAssetPortfolioParams = {"_p_WU_SingleAssetPortfolioParams", "WU_SingleAssetPortfolioParams *|struct WU_SingleAssetPortfolioParams *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_SingleAssetPortfolioTrack = {"_p_WU_SingleAssetPortfolioTrack", "WU_SingleAssetPortfolioTrack *|struct WU_SingleAssetPortfolioTrack *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_SingleAssetPortfolio_ = {"_p_WU_SingleAssetPortfolio_", "WU_SingleAssetPortfolio|struct WU_SingleAssetPortfolio_ *|WU_SingleAssetPortfolio_ *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_StDev_ = {"_p_WU_StDev_", "WU_StDev|struct WU_StDev_ *|WU_StDev_ *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_Strategy_ = {"_p_WU_Strategy_", "WU_Strategy|struct WU_Strategy_ *|WU_Strategy_ *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_TimeUnit = {"_p_WU_TimeUnit", "WU_TimeUnit *|enum WU_TimeUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_WU_Trade = {"_p_WU_Trade", "WU_Trade *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_bool = {"_p_bool", "bool *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_double = {"_p_double", "double *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_q_const__struct_EMA___double = {"_p_f_p_q_const__struct_EMA___double", "double (*)(struct EMA_ const *)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_q_const__struct_Portfolio___double = {"_p_f_p_q_const__struct_Portfolio___double", "double (*)(struct Portfolio_ const *)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_q_const__struct_SMA___double = {"_p_f_p_q_const__struct_SMA___double", "double (*)(struct SMA_ const *)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_struct_EMA___void = {"_p_f_p_struct_EMA___void", "void (*)(struct EMA_ *)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_struct_EMA__double__double = {"_p_f_p_struct_EMA__double__double", "double (*)(struct EMA_ *,double)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_struct_PortfolioStats___void = {"_p_f_p_struct_PortfolioStats___void", "void (*)(struct PortfolioStats_ *)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_struct_PortfolioStats__double_enum_CloseReason__void = {"_p_f_p_struct_PortfolioStats__double_enum_CloseReason__void", "void (*)(struct PortfolioStats_ *,double,CloseReason)|void (*)(struct PortfolioStats_ *,double,enum CloseReason)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_struct_Portfolio___void = {"_p_f_p_struct_Portfolio___void", "void (*)(struct Portfolio_ *)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_struct_Portfolio__q_const__Signal__void = {"_p_f_p_struct_Portfolio__q_const__Signal__void", "void (*)(struct Portfolio_ *,Signal const)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_struct_PositionVector__double = {"_p_f_p_struct_PositionVector__double", "double (*)(struct PositionVector *)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_struct_PositionVector__void = {"_p_f_p_struct_PositionVector__void", "void (*)(struct PositionVector *)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_struct_PositionVector_int__void = {"_p_f_p_struct_PositionVector_int__void", "void (*)(struct PositionVector *,int)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_struct_PositionVector_int_p_bool__Position_ = {"_p_f_p_struct_PositionVector_int_p_bool__Position_", "struct Position_ (*)(struct PositionVector *,int,bool *)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_struct_PositionVector_p_struct_Position___void = {"_p_f_p_struct_PositionVector_p_struct_Position___void", "void (*)(struct PositionVector *,Position)|void (*)(struct PositionVector *,struct Position_ *)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_struct_Reader___p_void = {"_p_f_p_struct_Reader___p_void", "void *(*)(struct Reader_ *)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_struct_Reader___void = {"_p_f_p_struct_Reader___void", "void (*)(struct Reader_ *)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_struct_Runner__bool__void = {"_p_f_p_struct_Runner__bool__void", "void (*)(struct Runner_ *,bool)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_struct_SMA___void = {"_p_f_p_struct_SMA___void", "void (*)(struct SMA_ *)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_struct_SMA__double__double = {"_p_f_p_struct_SMA__double__double", "double (*)(struct SMA_ *,double)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_struct_Strategy___void = {"_p_f_p_struct_Strategy___void", "void (*)(struct Strategy_ *)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_struct_Strategy__p_q_const__void__Signal = {"_p_f_p_struct_Strategy__p_q_const__void__Signal", "Signal (*)(struct Strategy_ *,void const *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_q_const__struct_WU_EMA___double = {"_p_f_p_q_const__struct_WU_EMA___double", "double (*)(struct WU_EMA_ const *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_q_const__struct_WU_MVar___double = {"_p_f_p_q_const__struct_WU_MVar___double", "double (*)(struct WU_MVar_ const *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_q_const__struct_WU_Portfolio___double = {"_p_f_p_q_const__struct_WU_Portfolio___double", "double (*)(struct WU_Portfolio_ const *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_q_const__struct_WU_SMA___double = {"_p_f_p_q_const__struct_WU_SMA___double", "double (*)(struct WU_SMA_ const *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_q_const__struct_WU_StDev___double = {"_p_f_p_q_const__struct_WU_StDev___double", "double (*)(struct WU_StDev_ const *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_WU_BasicRunner__bool__void = {"_p_f_p_struct_WU_BasicRunner__bool__void", "void (*)(struct WU_BasicRunner_ *,bool)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_WU_EMA___void = {"_p_f_p_struct_WU_EMA___void", "void (*)(struct WU_EMA_ *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_WU_EMA__double__double = {"_p_f_p_struct_WU_EMA__double__double", "double (*)(struct WU_EMA_ *,double)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_WU_MVar___void = {"_p_f_p_struct_WU_MVar___void", "void (*)(struct WU_MVar_ *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_WU_MVar__double__double = {"_p_f_p_struct_WU_MVar__double__double", "double (*)(struct WU_MVar_ *,double)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_WU_PortfolioStats___void = {"_p_f_p_struct_WU_PortfolioStats___void", "void (*)(struct WU_PortfolioStats_ *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_WU_PortfolioStats__double_enum_WU_CloseReason__void = {"_p_f_p_struct_WU_PortfolioStats__double_enum_WU_CloseReason__void", "void (*)(struct WU_PortfolioStats_ *,double,WU_CloseReason)|void (*)(struct WU_PortfolioStats_ *,double,enum WU_CloseReason)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_WU_Portfolio___void = {"_p_f_p_struct_WU_Portfolio___void", "void (*)(struct WU_Portfolio_ *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_WU_Portfolio__q_const__WU_Signal__void = {"_p_f_p_struct_WU_Portfolio__q_const__WU_Signal__void", "void (*)(struct WU_Portfolio_ *,WU_Signal const)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_WU_PositionVector__double = {"_p_f_p_struct_WU_PositionVector__double", "double (*)(struct WU_PositionVector *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_WU_PositionVector__void = {"_p_f_p_struct_WU_PositionVector__void", "void (*)(struct WU_PositionVector *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_WU_PositionVector_int__void = {"_p_f_p_struct_WU_PositionVector_int__void", "void (*)(struct WU_PositionVector *,int)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_WU_PositionVector_int_p_bool__WU_Position_ = {"_p_f_p_struct_WU_PositionVector_int_p_bool__WU_Position_", "struct WU_Position_ (*)(struct WU_PositionVector *,int,bool *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_WU_PositionVector_p_struct_WU_Position___void = {"_p_f_p_struct_WU_PositionVector_p_struct_WU_Position___void", "void (*)(struct WU_PositionVector *,WU_Position)|void (*)(struct WU_PositionVector *,struct WU_Position_ *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_WU_Reader___p_void = {"_p_f_p_struct_WU_Reader___p_void", "void *(*)(struct WU_Reader_ *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_WU_Reader___void = {"_p_f_p_struct_WU_Reader___void", "void (*)(struct WU_Reader_ *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_WU_Runner__bool__void = {"_p_f_p_struct_WU_Runner__bool__void", "void (*)(struct WU_Runner_ *,bool)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_WU_SMA___void = {"_p_f_p_struct_WU_SMA___void", "void (*)(struct WU_SMA_ *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_WU_SMA__double__double = {"_p_f_p_struct_WU_SMA__double__double", "double (*)(struct WU_SMA_ *,double)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_WU_StDev___void = {"_p_f_p_struct_WU_StDev___void", "void (*)(struct WU_StDev_ *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_WU_StDev__double__double = {"_p_f_p_struct_WU_StDev__double__double", "double (*)(struct WU_StDev_ *,double)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_WU_Strategy___void = {"_p_f_p_struct_WU_Strategy___void", "void (*)(struct WU_Strategy_ *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_WU_Strategy__p_q_const__void__WU_Signal = {"_p_f_p_struct_WU_Strategy__p_q_const__void__WU_Signal", "WU_Signal (*)(struct WU_Strategy_ *,void const *)", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_int = {"_p_int", "int32_t *|int_fast16_t *|int_fast32_t *|int_least32_t *|intptr_t *|int *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_long_long = {"_p_long_long", "int64_t *|int_fast64_t *|int_least64_t *|intmax_t *|long long *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_short = {"_p_short", "int16_t *|int_least16_t *|short *", 0, 0, (void*)0, 0};
@@ -12285,58 +12887,69 @@ static swig_type_info _swigt__p_unsigned_short = {"_p_unsigned_short", "uint16_t
 static swig_type_info _swigt__p_void = {"_p_void", "void *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
-  &_swigt__p_BasicRunner_,
-  &_swigt__p_Candle_,
-  &_swigt__p_CloseReason,
+  &_swigt__Strategy,
   &_swigt__p_CrossOverStrat_,
-  &_swigt__p_CsvError,
-  &_swigt__p_CsvReader_,
-  &_swigt__p_CsvReader__data,
-  &_swigt__p_DataType,
-  &_swigt__p_EMA_,
   &_swigt__p_FILE,
-  &_swigt__p_PortfolioStats_,
-  &_swigt__p_Portfolio_,
-  &_swigt__p_PositionSizeType,
-  &_swigt__p_PositionSizingParams,
-  &_swigt__p_PositionVector,
-  &_swigt__p_Position_,
-  &_swigt__p_Reader_,
-  &_swigt__p_Runner_,
-  &_swigt__p_SMA_,
-  &_swigt__p_Side,
-  &_swigt__p_Signal,
-  &_swigt__p_SingleAssetPortfolioParams,
-  &_swigt__p_SingleAssetPortfolioTrack,
-  &_swigt__p_SingleAssetPortfolio_,
-  &_swigt__p_SingleValue,
-  &_swigt__p_Strategy_,
-  &_swigt__p_TimeUnit,
-  &_swigt__p_Trade,
+  &_swigt__p_WU_BasicRunner_,
+  &_swigt__p_WU_Candle_,
+  &_swigt__p_WU_CloseReason,
+  &_swigt__p_WU_CrossOverStrat_,
+  &_swigt__p_WU_CsvError,
+  &_swigt__p_WU_CsvReader_,
+  &_swigt__p_WU_CsvReader__data,
+  &_swigt__p_WU_DataType,
+  &_swigt__p_WU_EMA_,
+  &_swigt__p_WU_MVar_,
+  &_swigt__p_WU_PortfolioStats_,
+  &_swigt__p_WU_Portfolio_,
+  &_swigt__p_WU_PositionSizeType,
+  &_swigt__p_WU_PositionSizingParams,
+  &_swigt__p_WU_PositionVector,
+  &_swigt__p_WU_Position_,
+  &_swigt__p_WU_Reader_,
+  &_swigt__p_WU_Runner_,
+  &_swigt__p_WU_SMA_,
+  &_swigt__p_WU_Side,
+  &_swigt__p_WU_Signal,
+  &_swigt__p_WU_Single,
+  &_swigt__p_WU_SingleAssetPortfolioParams,
+  &_swigt__p_WU_SingleAssetPortfolioTrack,
+  &_swigt__p_WU_SingleAssetPortfolio_,
+  &_swigt__p_WU_StDev_,
+  &_swigt__p_WU_Strategy_,
+  &_swigt__p_WU_TimeUnit,
+  &_swigt__p_WU_Trade,
   &_swigt__p_bool,
   &_swigt__p_char,
   &_swigt__p_double,
-  &_swigt__p_f_p_q_const__struct_EMA___double,
-  &_swigt__p_f_p_q_const__struct_Portfolio___double,
-  &_swigt__p_f_p_q_const__struct_SMA___double,
-  &_swigt__p_f_p_struct_EMA___void,
-  &_swigt__p_f_p_struct_EMA__double__double,
-  &_swigt__p_f_p_struct_PortfolioStats___void,
-  &_swigt__p_f_p_struct_PortfolioStats__double_enum_CloseReason__void,
-  &_swigt__p_f_p_struct_Portfolio___void,
-  &_swigt__p_f_p_struct_Portfolio__q_const__Signal__void,
-  &_swigt__p_f_p_struct_PositionVector__double,
-  &_swigt__p_f_p_struct_PositionVector__void,
-  &_swigt__p_f_p_struct_PositionVector_int__void,
-  &_swigt__p_f_p_struct_PositionVector_int_p_bool__Position_,
-  &_swigt__p_f_p_struct_PositionVector_p_struct_Position___void,
-  &_swigt__p_f_p_struct_Reader___p_void,
-  &_swigt__p_f_p_struct_Reader___void,
-  &_swigt__p_f_p_struct_Runner__bool__void,
-  &_swigt__p_f_p_struct_SMA___void,
-  &_swigt__p_f_p_struct_SMA__double__double,
-  &_swigt__p_f_p_struct_Strategy___void,
-  &_swigt__p_f_p_struct_Strategy__p_q_const__void__Signal,
+  &_swigt__p_f_p_q_const__struct_WU_EMA___double,
+  &_swigt__p_f_p_q_const__struct_WU_MVar___double,
+  &_swigt__p_f_p_q_const__struct_WU_Portfolio___double,
+  &_swigt__p_f_p_q_const__struct_WU_SMA___double,
+  &_swigt__p_f_p_q_const__struct_WU_StDev___double,
+  &_swigt__p_f_p_struct_WU_BasicRunner__bool__void,
+  &_swigt__p_f_p_struct_WU_EMA___void,
+  &_swigt__p_f_p_struct_WU_EMA__double__double,
+  &_swigt__p_f_p_struct_WU_MVar___void,
+  &_swigt__p_f_p_struct_WU_MVar__double__double,
+  &_swigt__p_f_p_struct_WU_PortfolioStats___void,
+  &_swigt__p_f_p_struct_WU_PortfolioStats__double_enum_WU_CloseReason__void,
+  &_swigt__p_f_p_struct_WU_Portfolio___void,
+  &_swigt__p_f_p_struct_WU_Portfolio__q_const__WU_Signal__void,
+  &_swigt__p_f_p_struct_WU_PositionVector__double,
+  &_swigt__p_f_p_struct_WU_PositionVector__void,
+  &_swigt__p_f_p_struct_WU_PositionVector_int__void,
+  &_swigt__p_f_p_struct_WU_PositionVector_int_p_bool__WU_Position_,
+  &_swigt__p_f_p_struct_WU_PositionVector_p_struct_WU_Position___void,
+  &_swigt__p_f_p_struct_WU_Reader___p_void,
+  &_swigt__p_f_p_struct_WU_Reader___void,
+  &_swigt__p_f_p_struct_WU_Runner__bool__void,
+  &_swigt__p_f_p_struct_WU_SMA___void,
+  &_swigt__p_f_p_struct_WU_SMA__double__double,
+  &_swigt__p_f_p_struct_WU_StDev___void,
+  &_swigt__p_f_p_struct_WU_StDev__double__double,
+  &_swigt__p_f_p_struct_WU_Strategy___void,
+  &_swigt__p_f_p_struct_WU_Strategy__p_q_const__void__WU_Signal,
   &_swigt__p_int,
   &_swigt__p_long_long,
   &_swigt__p_short,
@@ -12348,58 +12961,69 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_void,
 };
 
-static swig_cast_info _swigc__p_BasicRunner_[] = {  {&_swigt__p_BasicRunner_, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_Candle_[] = {  {&_swigt__p_Candle_, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CloseReason[] = {  {&_swigt__p_CloseReason, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__Strategy[] = {  {&_swigt__Strategy, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CrossOverStrat_[] = {  {&_swigt__p_CrossOverStrat_, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CsvError[] = {  {&_swigt__p_CsvError, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CsvReader_[] = {  {&_swigt__p_CsvReader_, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_CsvReader__data[] = {  {&_swigt__p_CsvReader__data, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_DataType[] = {  {&_swigt__p_DataType, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_EMA_[] = {  {&_swigt__p_EMA_, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FILE[] = {  {&_swigt__p_FILE, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_PortfolioStats_[] = {  {&_swigt__p_PortfolioStats_, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_Portfolio_[] = {  {&_swigt__p_Portfolio_, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_PositionSizeType[] = {  {&_swigt__p_PositionSizeType, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_PositionSizingParams[] = {  {&_swigt__p_PositionSizingParams, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_PositionVector[] = {  {&_swigt__p_PositionVector, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_Position_[] = {  {&_swigt__p_Position_, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_Reader_[] = {  {&_swigt__p_Reader_, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_Runner_[] = {  {&_swigt__p_Runner_, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_SMA_[] = {  {&_swigt__p_SMA_, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_Side[] = {  {&_swigt__p_Side, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_Signal[] = {  {&_swigt__p_Signal, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_SingleAssetPortfolioParams[] = {  {&_swigt__p_SingleAssetPortfolioParams, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_SingleAssetPortfolioTrack[] = {  {&_swigt__p_SingleAssetPortfolioTrack, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_SingleAssetPortfolio_[] = {  {&_swigt__p_SingleAssetPortfolio_, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_SingleValue[] = {  {&_swigt__p_SingleValue, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_Strategy_[] = {  {&_swigt__p_Strategy_, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_TimeUnit[] = {  {&_swigt__p_TimeUnit, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_Trade[] = {  {&_swigt__p_Trade, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_BasicRunner_[] = {  {&_swigt__p_WU_BasicRunner_, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_Candle_[] = {  {&_swigt__p_WU_Candle_, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_CloseReason[] = {  {&_swigt__p_WU_CloseReason, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_CrossOverStrat_[] = {  {&_swigt__p_WU_CrossOverStrat_, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_CsvError[] = {  {&_swigt__p_WU_CsvError, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_CsvReader_[] = {  {&_swigt__p_WU_CsvReader_, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_CsvReader__data[] = {  {&_swigt__p_WU_CsvReader__data, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_DataType[] = {  {&_swigt__p_WU_DataType, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_EMA_[] = {  {&_swigt__p_WU_EMA_, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_MVar_[] = {  {&_swigt__p_WU_MVar_, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_PortfolioStats_[] = {  {&_swigt__p_WU_PortfolioStats_, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_Portfolio_[] = {  {&_swigt__p_WU_Portfolio_, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_PositionSizeType[] = {  {&_swigt__p_WU_PositionSizeType, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_PositionSizingParams[] = {  {&_swigt__p_WU_PositionSizingParams, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_PositionVector[] = {  {&_swigt__p_WU_PositionVector, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_Position_[] = {  {&_swigt__p_WU_Position_, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_Reader_[] = {  {&_swigt__p_WU_Reader_, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_Runner_[] = {  {&_swigt__p_WU_Runner_, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_SMA_[] = {  {&_swigt__p_WU_SMA_, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_Side[] = {  {&_swigt__p_WU_Side, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_Signal[] = {  {&_swigt__p_WU_Signal, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_Single[] = {  {&_swigt__p_WU_Single, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_SingleAssetPortfolioParams[] = {  {&_swigt__p_WU_SingleAssetPortfolioParams, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_SingleAssetPortfolioTrack[] = {  {&_swigt__p_WU_SingleAssetPortfolioTrack, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_SingleAssetPortfolio_[] = {  {&_swigt__p_WU_SingleAssetPortfolio_, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_StDev_[] = {  {&_swigt__p_WU_StDev_, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_Strategy_[] = {  {&_swigt__p_WU_Strategy_, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_TimeUnit[] = {  {&_swigt__p_WU_TimeUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_WU_Trade[] = {  {&_swigt__p_WU_Trade, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_bool[] = {  {&_swigt__p_bool, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_double[] = {  {&_swigt__p_double, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_q_const__struct_EMA___double[] = {  {&_swigt__p_f_p_q_const__struct_EMA___double, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_q_const__struct_Portfolio___double[] = {  {&_swigt__p_f_p_q_const__struct_Portfolio___double, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_q_const__struct_SMA___double[] = {  {&_swigt__p_f_p_q_const__struct_SMA___double, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_struct_EMA___void[] = {  {&_swigt__p_f_p_struct_EMA___void, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_struct_EMA__double__double[] = {  {&_swigt__p_f_p_struct_EMA__double__double, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_struct_PortfolioStats___void[] = {  {&_swigt__p_f_p_struct_PortfolioStats___void, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_struct_PortfolioStats__double_enum_CloseReason__void[] = {  {&_swigt__p_f_p_struct_PortfolioStats__double_enum_CloseReason__void, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_struct_Portfolio___void[] = {  {&_swigt__p_f_p_struct_Portfolio___void, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_struct_Portfolio__q_const__Signal__void[] = {  {&_swigt__p_f_p_struct_Portfolio__q_const__Signal__void, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_struct_PositionVector__double[] = {  {&_swigt__p_f_p_struct_PositionVector__double, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_struct_PositionVector__void[] = {  {&_swigt__p_f_p_struct_PositionVector__void, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_struct_PositionVector_int__void[] = {  {&_swigt__p_f_p_struct_PositionVector_int__void, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_struct_PositionVector_int_p_bool__Position_[] = {  {&_swigt__p_f_p_struct_PositionVector_int_p_bool__Position_, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_struct_PositionVector_p_struct_Position___void[] = {  {&_swigt__p_f_p_struct_PositionVector_p_struct_Position___void, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_struct_Reader___p_void[] = {  {&_swigt__p_f_p_struct_Reader___p_void, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_struct_Reader___void[] = {  {&_swigt__p_f_p_struct_Reader___void, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_struct_Runner__bool__void[] = {  {&_swigt__p_f_p_struct_Runner__bool__void, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_struct_SMA___void[] = {  {&_swigt__p_f_p_struct_SMA___void, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_struct_SMA__double__double[] = {  {&_swigt__p_f_p_struct_SMA__double__double, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_struct_Strategy___void[] = {  {&_swigt__p_f_p_struct_Strategy___void, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_struct_Strategy__p_q_const__void__Signal[] = {  {&_swigt__p_f_p_struct_Strategy__p_q_const__void__Signal, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_q_const__struct_WU_EMA___double[] = {  {&_swigt__p_f_p_q_const__struct_WU_EMA___double, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_q_const__struct_WU_MVar___double[] = {  {&_swigt__p_f_p_q_const__struct_WU_MVar___double, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_q_const__struct_WU_Portfolio___double[] = {  {&_swigt__p_f_p_q_const__struct_WU_Portfolio___double, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_q_const__struct_WU_SMA___double[] = {  {&_swigt__p_f_p_q_const__struct_WU_SMA___double, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_q_const__struct_WU_StDev___double[] = {  {&_swigt__p_f_p_q_const__struct_WU_StDev___double, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_WU_BasicRunner__bool__void[] = {  {&_swigt__p_f_p_struct_WU_BasicRunner__bool__void, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_WU_EMA___void[] = {  {&_swigt__p_f_p_struct_WU_EMA___void, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_WU_EMA__double__double[] = {  {&_swigt__p_f_p_struct_WU_EMA__double__double, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_WU_MVar___void[] = {  {&_swigt__p_f_p_struct_WU_MVar___void, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_WU_MVar__double__double[] = {  {&_swigt__p_f_p_struct_WU_MVar__double__double, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_WU_PortfolioStats___void[] = {  {&_swigt__p_f_p_struct_WU_PortfolioStats___void, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_WU_PortfolioStats__double_enum_WU_CloseReason__void[] = {  {&_swigt__p_f_p_struct_WU_PortfolioStats__double_enum_WU_CloseReason__void, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_WU_Portfolio___void[] = {  {&_swigt__p_f_p_struct_WU_Portfolio___void, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_WU_Portfolio__q_const__WU_Signal__void[] = {  {&_swigt__p_f_p_struct_WU_Portfolio__q_const__WU_Signal__void, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_WU_PositionVector__double[] = {  {&_swigt__p_f_p_struct_WU_PositionVector__double, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_WU_PositionVector__void[] = {  {&_swigt__p_f_p_struct_WU_PositionVector__void, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_WU_PositionVector_int__void[] = {  {&_swigt__p_f_p_struct_WU_PositionVector_int__void, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_WU_PositionVector_int_p_bool__WU_Position_[] = {  {&_swigt__p_f_p_struct_WU_PositionVector_int_p_bool__WU_Position_, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_WU_PositionVector_p_struct_WU_Position___void[] = {  {&_swigt__p_f_p_struct_WU_PositionVector_p_struct_WU_Position___void, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_WU_Reader___p_void[] = {  {&_swigt__p_f_p_struct_WU_Reader___p_void, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_WU_Reader___void[] = {  {&_swigt__p_f_p_struct_WU_Reader___void, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_WU_Runner__bool__void[] = {  {&_swigt__p_f_p_struct_WU_Runner__bool__void, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_WU_SMA___void[] = {  {&_swigt__p_f_p_struct_WU_SMA___void, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_WU_SMA__double__double[] = {  {&_swigt__p_f_p_struct_WU_SMA__double__double, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_WU_StDev___void[] = {  {&_swigt__p_f_p_struct_WU_StDev___void, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_WU_StDev__double__double[] = {  {&_swigt__p_f_p_struct_WU_StDev__double__double, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_WU_Strategy___void[] = {  {&_swigt__p_f_p_struct_WU_Strategy___void, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_WU_Strategy__p_q_const__void__WU_Signal[] = {  {&_swigt__p_f_p_struct_WU_Strategy__p_q_const__void__WU_Signal, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_long_long[] = {  {&_swigt__p_long_long, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_short[] = {  {&_swigt__p_short, 0, 0, 0},{0, 0, 0, 0}};
@@ -12411,58 +13035,69 @@ static swig_cast_info _swigc__p_unsigned_short[] = {  {&_swigt__p_unsigned_short
 static swig_cast_info _swigc__p_void[] = {  {&_swigt__p_void, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
-  _swigc__p_BasicRunner_,
-  _swigc__p_Candle_,
-  _swigc__p_CloseReason,
+  _swigc__Strategy,
   _swigc__p_CrossOverStrat_,
-  _swigc__p_CsvError,
-  _swigc__p_CsvReader_,
-  _swigc__p_CsvReader__data,
-  _swigc__p_DataType,
-  _swigc__p_EMA_,
   _swigc__p_FILE,
-  _swigc__p_PortfolioStats_,
-  _swigc__p_Portfolio_,
-  _swigc__p_PositionSizeType,
-  _swigc__p_PositionSizingParams,
-  _swigc__p_PositionVector,
-  _swigc__p_Position_,
-  _swigc__p_Reader_,
-  _swigc__p_Runner_,
-  _swigc__p_SMA_,
-  _swigc__p_Side,
-  _swigc__p_Signal,
-  _swigc__p_SingleAssetPortfolioParams,
-  _swigc__p_SingleAssetPortfolioTrack,
-  _swigc__p_SingleAssetPortfolio_,
-  _swigc__p_SingleValue,
-  _swigc__p_Strategy_,
-  _swigc__p_TimeUnit,
-  _swigc__p_Trade,
+  _swigc__p_WU_BasicRunner_,
+  _swigc__p_WU_Candle_,
+  _swigc__p_WU_CloseReason,
+  _swigc__p_WU_CrossOverStrat_,
+  _swigc__p_WU_CsvError,
+  _swigc__p_WU_CsvReader_,
+  _swigc__p_WU_CsvReader__data,
+  _swigc__p_WU_DataType,
+  _swigc__p_WU_EMA_,
+  _swigc__p_WU_MVar_,
+  _swigc__p_WU_PortfolioStats_,
+  _swigc__p_WU_Portfolio_,
+  _swigc__p_WU_PositionSizeType,
+  _swigc__p_WU_PositionSizingParams,
+  _swigc__p_WU_PositionVector,
+  _swigc__p_WU_Position_,
+  _swigc__p_WU_Reader_,
+  _swigc__p_WU_Runner_,
+  _swigc__p_WU_SMA_,
+  _swigc__p_WU_Side,
+  _swigc__p_WU_Signal,
+  _swigc__p_WU_Single,
+  _swigc__p_WU_SingleAssetPortfolioParams,
+  _swigc__p_WU_SingleAssetPortfolioTrack,
+  _swigc__p_WU_SingleAssetPortfolio_,
+  _swigc__p_WU_StDev_,
+  _swigc__p_WU_Strategy_,
+  _swigc__p_WU_TimeUnit,
+  _swigc__p_WU_Trade,
   _swigc__p_bool,
   _swigc__p_char,
   _swigc__p_double,
-  _swigc__p_f_p_q_const__struct_EMA___double,
-  _swigc__p_f_p_q_const__struct_Portfolio___double,
-  _swigc__p_f_p_q_const__struct_SMA___double,
-  _swigc__p_f_p_struct_EMA___void,
-  _swigc__p_f_p_struct_EMA__double__double,
-  _swigc__p_f_p_struct_PortfolioStats___void,
-  _swigc__p_f_p_struct_PortfolioStats__double_enum_CloseReason__void,
-  _swigc__p_f_p_struct_Portfolio___void,
-  _swigc__p_f_p_struct_Portfolio__q_const__Signal__void,
-  _swigc__p_f_p_struct_PositionVector__double,
-  _swigc__p_f_p_struct_PositionVector__void,
-  _swigc__p_f_p_struct_PositionVector_int__void,
-  _swigc__p_f_p_struct_PositionVector_int_p_bool__Position_,
-  _swigc__p_f_p_struct_PositionVector_p_struct_Position___void,
-  _swigc__p_f_p_struct_Reader___p_void,
-  _swigc__p_f_p_struct_Reader___void,
-  _swigc__p_f_p_struct_Runner__bool__void,
-  _swigc__p_f_p_struct_SMA___void,
-  _swigc__p_f_p_struct_SMA__double__double,
-  _swigc__p_f_p_struct_Strategy___void,
-  _swigc__p_f_p_struct_Strategy__p_q_const__void__Signal,
+  _swigc__p_f_p_q_const__struct_WU_EMA___double,
+  _swigc__p_f_p_q_const__struct_WU_MVar___double,
+  _swigc__p_f_p_q_const__struct_WU_Portfolio___double,
+  _swigc__p_f_p_q_const__struct_WU_SMA___double,
+  _swigc__p_f_p_q_const__struct_WU_StDev___double,
+  _swigc__p_f_p_struct_WU_BasicRunner__bool__void,
+  _swigc__p_f_p_struct_WU_EMA___void,
+  _swigc__p_f_p_struct_WU_EMA__double__double,
+  _swigc__p_f_p_struct_WU_MVar___void,
+  _swigc__p_f_p_struct_WU_MVar__double__double,
+  _swigc__p_f_p_struct_WU_PortfolioStats___void,
+  _swigc__p_f_p_struct_WU_PortfolioStats__double_enum_WU_CloseReason__void,
+  _swigc__p_f_p_struct_WU_Portfolio___void,
+  _swigc__p_f_p_struct_WU_Portfolio__q_const__WU_Signal__void,
+  _swigc__p_f_p_struct_WU_PositionVector__double,
+  _swigc__p_f_p_struct_WU_PositionVector__void,
+  _swigc__p_f_p_struct_WU_PositionVector_int__void,
+  _swigc__p_f_p_struct_WU_PositionVector_int_p_bool__WU_Position_,
+  _swigc__p_f_p_struct_WU_PositionVector_p_struct_WU_Position___void,
+  _swigc__p_f_p_struct_WU_Reader___p_void,
+  _swigc__p_f_p_struct_WU_Reader___void,
+  _swigc__p_f_p_struct_WU_Runner__bool__void,
+  _swigc__p_f_p_struct_WU_SMA___void,
+  _swigc__p_f_p_struct_WU_SMA__double__double,
+  _swigc__p_f_p_struct_WU_StDev___void,
+  _swigc__p_f_p_struct_WU_StDev__double__double,
+  _swigc__p_f_p_struct_WU_Strategy___void,
+  _swigc__p_f_p_struct_WU_Strategy__p_q_const__void__WU_Signal,
   _swigc__p_int,
   _swigc__p_long_long,
   _swigc__p_short,
@@ -13129,28 +13764,28 @@ SWIGINTERN int SWIG_mod_exec(PyObject *m) {
   
   SWIG_InstallConstants(d,swig_const_table);
   
-  SWIG_Python_SetConstant(d, "SIDE_HOLD",SWIG_From_int((int)(SIDE_HOLD)));
-  SWIG_Python_SetConstant(d, "SIDE_BUY",SWIG_From_int((int)(SIDE_BUY)));
-  SWIG_Python_SetConstant(d, "SIDE_SELL",SWIG_From_int((int)(SIDE_SELL)));
-  SWIG_Python_SetConstant(d, "DATA_TYPE_CANDLE",SWIG_From_int((int)(DATA_TYPE_CANDLE)));
-  SWIG_Python_SetConstant(d, "DATA_TYPE_TRADE",SWIG_From_int((int)(DATA_TYPE_TRADE)));
-  SWIG_Python_SetConstant(d, "DATA_TYPE_SINGLE_VALUE",SWIG_From_int((int)(DATA_TYPE_SINGLE_VALUE)));
-  SWIG_Python_SetConstant(d, "SECOND",SWIG_From_int((int)(SECOND)));
-  SWIG_Python_SetConstant(d, "MINUTE",SWIG_From_int((int)(MINUTE)));
-  SWIG_Python_SetConstant(d, "HOUR",SWIG_From_int((int)(HOUR)));
-  SWIG_Python_SetConstant(d, "DAY",SWIG_From_int((int)(DAY)));
-  SWIG_Python_SetConstant(d, "WEEK",SWIG_From_int((int)(WEEK)));
-  SWIG_Python_SetConstant(d, "MONTH",SWIG_From_int((int)(MONTH)));
-  SWIG_Python_SetConstant(d, "YEAR",SWIG_From_int((int)(YEAR)));
-  SWIG_Python_SetConstant(d, "CLOSE_REASON_SIGNAL",SWIG_From_int((int)(CLOSE_REASON_SIGNAL)));
-  SWIG_Python_SetConstant(d, "CLOSE_REASON_STOP_LOSS",SWIG_From_int((int)(CLOSE_REASON_STOP_LOSS)));
-  SWIG_Python_SetConstant(d, "CLOSE_REASON_TAKE_PROFIT",SWIG_From_int((int)(CLOSE_REASON_TAKE_PROFIT)));
-  SWIG_Python_SetConstant(d, "POSITION_SIZE_ABS",SWIG_From_int((int)(POSITION_SIZE_ABS)));
-  SWIG_Python_SetConstant(d, "POSITION_SIZE_PCT",SWIG_From_int((int)(POSITION_SIZE_PCT)));
-  SWIG_Python_SetConstant(d, "CSV_MAX_LINE_SIZE",SWIG_From_int((int)(1024)));
-  SWIG_Python_SetConstant(d, "CSV_OK",SWIG_From_int((int)(CSV_OK)));
-  SWIG_Python_SetConstant(d, "CSV_ERROR_EOF",SWIG_From_int((int)(CSV_ERROR_EOF)));
-  SWIG_Python_SetConstant(d, "CSV_ERROR_PARSE",SWIG_From_int((int)(CSV_ERROR_PARSE)));
+  SWIG_Python_SetConstant(d, "WU_SIDE_HOLD",SWIG_From_int((int)(WU_SIDE_HOLD)));
+  SWIG_Python_SetConstant(d, "WU_SIDE_BUY",SWIG_From_int((int)(WU_SIDE_BUY)));
+  SWIG_Python_SetConstant(d, "WU_SIDE_SELL",SWIG_From_int((int)(WU_SIDE_SELL)));
+  SWIG_Python_SetConstant(d, "WU_DATA_TYPE_CANDLE",SWIG_From_int((int)(WU_DATA_TYPE_CANDLE)));
+  SWIG_Python_SetConstant(d, "WU_DATA_TYPE_TRADE",SWIG_From_int((int)(WU_DATA_TYPE_TRADE)));
+  SWIG_Python_SetConstant(d, "WU_DATA_TYPE_SINGLE_VALUE",SWIG_From_int((int)(WU_DATA_TYPE_SINGLE_VALUE)));
+  SWIG_Python_SetConstant(d, "WU_SECOND",SWIG_From_int((int)(WU_SECOND)));
+  SWIG_Python_SetConstant(d, "WU_MINUTE",SWIG_From_int((int)(WU_MINUTE)));
+  SWIG_Python_SetConstant(d, "WU_HOUR",SWIG_From_int((int)(WU_HOUR)));
+  SWIG_Python_SetConstant(d, "WU_DAY",SWIG_From_int((int)(WU_DAY)));
+  SWIG_Python_SetConstant(d, "WU_WEEK",SWIG_From_int((int)(WU_WEEK)));
+  SWIG_Python_SetConstant(d, "WU_MONTH",SWIG_From_int((int)(WU_MONTH)));
+  SWIG_Python_SetConstant(d, "WU_YEAR",SWIG_From_int((int)(WU_YEAR)));
+  SWIG_Python_SetConstant(d, "WU_CLOSE_REASON_SIGNAL",SWIG_From_int((int)(WU_CLOSE_REASON_SIGNAL)));
+  SWIG_Python_SetConstant(d, "WU_CLOSE_REASON_STOP_LOSS",SWIG_From_int((int)(WU_CLOSE_REASON_STOP_LOSS)));
+  SWIG_Python_SetConstant(d, "WU_CLOSE_REASON_TAKE_PROFIT",SWIG_From_int((int)(WU_CLOSE_REASON_TAKE_PROFIT)));
+  SWIG_Python_SetConstant(d, "WU_POSITION_SIZE_ABS",SWIG_From_int((int)(WU_POSITION_SIZE_ABS)));
+  SWIG_Python_SetConstant(d, "WU_POSITION_SIZE_PCT",SWIG_From_int((int)(WU_POSITION_SIZE_PCT)));
+  SWIG_Python_SetConstant(d, "WU_CSV_MAX_LINE_SIZE",SWIG_From_int((int)(1024)));
+  SWIG_Python_SetConstant(d, "WU_CSV_OK",SWIG_From_int((int)(WU_CSV_OK)));
+  SWIG_Python_SetConstant(d, "WU_CSV_ERROR_EOF",SWIG_From_int((int)(WU_CSV_ERROR_EOF)));
+  SWIG_Python_SetConstant(d, "WU_CSV_ERROR_PARSE",SWIG_From_int((int)(WU_CSV_ERROR_PARSE)));
   return 0;
 }
 

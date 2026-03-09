@@ -36,10 +36,10 @@ typedef enum {
 } WU_CsvError;
 
 /**
- * WU_Csv_Reader is a concrete implementation of the WU_Reader interface that
+ * WU_CsvReader is a concrete implementation of the WU_Reader interface that
  * reads data from a CSV file.
  */
-typedef struct WU_Csv_Reader_ {
+typedef struct WU_CsvReader_ {
     struct WU_Reader_ base;
     FILE* file;
     char line_buffer[WU_CSV_MAX_LINE_SIZE];
@@ -51,8 +51,8 @@ typedef struct WU_Csv_Reader_ {
         WU_Trade trade;
         WU_Single single_value;
     } data;
-}* WU_Csv_Reader;
+}* WU_CsvReader;
 
-WU_Csv_Reader wu_csv_reader_new(FILE *file, WU_DataType data_type, bool has_headers);
+WU_CsvReader wu_csv_reader_new(FILE *file, WU_DataType data_type, bool has_headers);
 
 #endif // WU_READER_H

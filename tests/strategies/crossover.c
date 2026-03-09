@@ -86,7 +86,7 @@ void test_crossover_no_repeat_signals(void) {
 void test_crossover_with_real_data(void) {
     FILE* file = fopen("tests/data/btcusd_price.csv", "r");
     CU_ASSERT_PTR_NOT_NULL(file);
-    WU_Csv_Reader reader = wu_csv_reader_new(file, WU_DATA_TYPE_SINGLE_VALUE, false);
+    WU_CsvReader reader = wu_csv_reader_new(file, WU_DATA_TYPE_SINGLE_VALUE, false);
     CU_ASSERT_PTR_NOT_NULL(reader);
     WU_CrossOverStrat strat = wu_crossover_strat_new(5, 20, 0.02);
     int total = 0;

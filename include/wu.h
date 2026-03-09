@@ -3,10 +3,10 @@
 
 #include "wu/types.h"
 #include "wu/data.h"
-#include "wu/indicator.h"
-#include "wu/reader.h"
-#include "wu/portfolio.h"
-#include "wu/strategy.h"
-#include "wu/runner.h"
+#include "wu/indicators.h"
+#include "wu/readers.h"
+#include "wu/portfolios.h"
+#include "wu/strategies.h"
+#include "wu/runners.h"
 
 #endif // TZU_H
