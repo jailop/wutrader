@@ -3445,34 +3445,34 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 #define SWIGTYPE_p_CsvReader_ swig_types[5]
 #define SWIGTYPE_p_CsvReader__data swig_types[6]
 #define SWIGTYPE_p_DataType swig_types[7]
-#define SWIGTYPE_p_ExponentialMovingAverage_ swig_types[8]
+#define SWIGTYPE_p_EMA_ swig_types[8]
 #define SWIGTYPE_p_FILE swig_types[9]
-#define SWIGTYPE_p_Indicator_ swig_types[10]
-#define SWIGTYPE_p_MovingAverage_ swig_types[11]
-#define SWIGTYPE_p_PortfolioStats_ swig_types[12]
-#define SWIGTYPE_p_Portfolio_ swig_types[13]
-#define SWIGTYPE_p_PositionSizeType swig_types[14]
-#define SWIGTYPE_p_PositionSizingParams swig_types[15]
-#define SWIGTYPE_p_PositionVector swig_types[16]
-#define SWIGTYPE_p_Position_ swig_types[17]
-#define SWIGTYPE_p_Reader_ swig_types[18]
-#define SWIGTYPE_p_Runner_ swig_types[19]
-#define SWIGTYPE_p_Side swig_types[20]
-#define SWIGTYPE_p_Signal swig_types[21]
-#define SWIGTYPE_p_SingleAssetPortfolioParams swig_types[22]
-#define SWIGTYPE_p_SingleAssetPortfolioTrack swig_types[23]
-#define SWIGTYPE_p_SingleAssetPortfolio_ swig_types[24]
-#define SWIGTYPE_p_SingleValue swig_types[25]
-#define SWIGTYPE_p_Strategy_ swig_types[26]
-#define SWIGTYPE_p_TimeUnit swig_types[27]
-#define SWIGTYPE_p_Trade swig_types[28]
-#define SWIGTYPE_p_bool swig_types[29]
-#define SWIGTYPE_p_char swig_types[30]
-#define SWIGTYPE_p_double swig_types[31]
+#define SWIGTYPE_p_PortfolioStats_ swig_types[10]
+#define SWIGTYPE_p_Portfolio_ swig_types[11]
+#define SWIGTYPE_p_PositionSizeType swig_types[12]
+#define SWIGTYPE_p_PositionSizingParams swig_types[13]
+#define SWIGTYPE_p_PositionVector swig_types[14]
+#define SWIGTYPE_p_Position_ swig_types[15]
+#define SWIGTYPE_p_Reader_ swig_types[16]
+#define SWIGTYPE_p_Runner_ swig_types[17]
+#define SWIGTYPE_p_SMA_ swig_types[18]
+#define SWIGTYPE_p_Side swig_types[19]
+#define SWIGTYPE_p_Signal swig_types[20]
+#define SWIGTYPE_p_SingleAssetPortfolioParams swig_types[21]
+#define SWIGTYPE_p_SingleAssetPortfolioTrack swig_types[22]
+#define SWIGTYPE_p_SingleAssetPortfolio_ swig_types[23]
+#define SWIGTYPE_p_SingleValue swig_types[24]
+#define SWIGTYPE_p_Strategy_ swig_types[25]
+#define SWIGTYPE_p_TimeUnit swig_types[26]
+#define SWIGTYPE_p_Trade swig_types[27]
+#define SWIGTYPE_p_bool swig_types[28]
+#define SWIGTYPE_p_char swig_types[29]
+#define SWIGTYPE_p_double swig_types[30]
+#define SWIGTYPE_p_f_p_q_const__struct_EMA___double swig_types[31]
 #define SWIGTYPE_p_f_p_q_const__struct_Portfolio___double swig_types[32]
-#define SWIGTYPE_p_f_p_struct_Indicator___p_void swig_types[33]
-#define SWIGTYPE_p_f_p_struct_Indicator___void swig_types[34]
-#define SWIGTYPE_p_f_p_struct_Indicator__p_void__p_void swig_types[35]
+#define SWIGTYPE_p_f_p_q_const__struct_SMA___double swig_types[33]
+#define SWIGTYPE_p_f_p_struct_EMA___void swig_types[34]
+#define SWIGTYPE_p_f_p_struct_EMA__double__double swig_types[35]
 #define SWIGTYPE_p_f_p_struct_PortfolioStats___void swig_types[36]
 #define SWIGTYPE_p_f_p_struct_PortfolioStats__double_enum_CloseReason__void swig_types[37]
 #define SWIGTYPE_p_f_p_struct_Portfolio___void swig_types[38]
@@ -3485,19 +3485,21 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 #define SWIGTYPE_p_f_p_struct_Reader___p_void swig_types[45]
 #define SWIGTYPE_p_f_p_struct_Reader___void swig_types[46]
 #define SWIGTYPE_p_f_p_struct_Runner__bool__void swig_types[47]
-#define SWIGTYPE_p_f_p_struct_Strategy___void swig_types[48]
-#define SWIGTYPE_p_f_p_struct_Strategy__p_q_const__void__Signal swig_types[49]
-#define SWIGTYPE_p_int swig_types[50]
-#define SWIGTYPE_p_long_long swig_types[51]
-#define SWIGTYPE_p_short swig_types[52]
-#define SWIGTYPE_p_signed_char swig_types[53]
-#define SWIGTYPE_p_unsigned_char swig_types[54]
-#define SWIGTYPE_p_unsigned_int swig_types[55]
-#define SWIGTYPE_p_unsigned_long_long swig_types[56]
-#define SWIGTYPE_p_unsigned_short swig_types[57]
-#define SWIGTYPE_p_void swig_types[58]
-static swig_type_info *swig_types[60];
-static swig_module_info swig_module = {swig_types, 59, 0, 0, 0, 0};
+#define SWIGTYPE_p_f_p_struct_SMA___void swig_types[48]
+#define SWIGTYPE_p_f_p_struct_SMA__double__double swig_types[49]
+#define SWIGTYPE_p_f_p_struct_Strategy___void swig_types[50]
+#define SWIGTYPE_p_f_p_struct_Strategy__p_q_const__void__Signal swig_types[51]
+#define SWIGTYPE_p_int swig_types[52]
+#define SWIGTYPE_p_long_long swig_types[53]
+#define SWIGTYPE_p_short swig_types[54]
+#define SWIGTYPE_p_signed_char swig_types[55]
+#define SWIGTYPE_p_unsigned_char swig_types[56]
+#define SWIGTYPE_p_unsigned_int swig_types[57]
+#define SWIGTYPE_p_unsigned_long_long swig_types[58]
+#define SWIGTYPE_p_unsigned_short swig_types[59]
+#define SWIGTYPE_p_void swig_types[60]
+static swig_type_info *swig_types[62];
+static swig_module_info swig_module = {swig_types, 61, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3886,38 +3888,6 @@ SWIG_AsVal_int (PyObject * obj, int *val)
   return res;
 }
 
-SWIGINTERN void MovingAverage__update(struct MovingAverage_ *self,double value){
-        if (self->base.update) {
-            self->base.update((Indicator)self, &value);
-        }
-    }
-SWIGINTERN double MovingAverage__value(struct MovingAverage_ *self){
-        if (self->base.value) {
-            double* val_ptr = (double*)self->base.value((Indicator)self);
-            return val_ptr ? *val_ptr : 0.0;
-        }
-        return 0.0;
-    }
-SWIGINTERN void delete_MovingAverage_(struct MovingAverage_ *self){
-        if (self->base.delete)
-            self->base.delete((Indicator)self);
-    }
-SWIGINTERN void ExponentialMovingAverage__update(struct ExponentialMovingAverage_ *self,double value){
-        if (self->base.update) {
-            self->base.update((Indicator)self, &value);
-        }
-    }
-SWIGINTERN double ExponentialMovingAverage__value(struct ExponentialMovingAverage_ *self){
-        if (self->base.value) {
-            double* val_ptr = (double*)self->base.value((Indicator)self);
-            return val_ptr ? *val_ptr : 0.0;
-        }
-        return 0.0;
-    }
-SWIGINTERN void delete_ExponentialMovingAverage_(struct ExponentialMovingAverage_ *self){
-        if (self->base.delete)
-            self->base.delete((Indicator)self);
-    }
 
 SWIGINTERN swig_type_info*
 SWIG_pchar_descriptor(void)
@@ -4191,45 +4161,6 @@ SWIGINTERN void BasicRunner__execute(struct BasicRunner_ *self,bool verbose){
 SWIGINTERN void delete_BasicRunner_(struct BasicRunner_ *self){
         basic_runner_free(self);
     }
-
-/* Indicator interface - wraps the C macros for Python use */
-void wu_indicator_update(Indicator ind, double value) {
-    if (ind && ind->update) {
-        ind->update(ind, &value);
-    }
-}
-
-double wu_indicator_value(Indicator ind) {
-    if (ind && ind->value) {
-        double* val_ptr = (double*)ind->value(ind);
-        return val_ptr ? *val_ptr : 0.0;
-    }
-    return 0.0;
-}
-
-Signal strategy_call_update(Strategy strategy, void* data) {
-    return strategy->update(strategy, data);
-}
-
-void* reader_call_next(Reader reader) {
-    return reader->next(reader);
-}
-
-void portfolio_call_update(Portfolio portfolio, Signal signal) {
-    portfolio->update(portfolio, signal);
-}
-
-double portfolio_call_value(Portfolio portfolio) {
-    return portfolio->value(portfolio);
-}
-
-double portfolio_call_pnl(Portfolio portfolio) {
-    return portfolio->pnl(portfolio);
-}
-
-void runner_call_run(BasicRunner runner, bool verbose) {
-    runner->run(runner, verbose);
-}
 
 /* Helper to open CSV file from filename */
 CsvReader csv_reader_open(const char* filename, DataType data_type, bool has_headers) {
@@ -5768,25 +5699,25 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Indicator__update_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_SMA__update_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Indicator_ *arg1 = 0 ;
-  void *(*arg2)(struct Indicator_ *,void *) = 0 ;
+  struct SMA_ *arg1 = 0 ;
+  double (*arg2)(struct SMA_ *,double) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Indicator__update_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Indicator_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "SMA__update_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Indicator__update_set" "', argument " "1"" of type '" "struct Indicator_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__update_set" "', argument " "1"" of type '" "struct SMA_ *""'"); 
   }
-  arg1 = (struct Indicator_ *)(argp1);
+  arg1 = (struct SMA_ *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_Indicator__p_void__p_void);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_SMA__double__double);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "Indicator__update_set" "', argument " "2"" of type '" "void *(*)(struct Indicator_ *,void *)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "SMA__update_set" "', argument " "2"" of type '" "double (*)(struct SMA_ *,double)""'"); 
     }
   }
   if (arg1) (arg1)->update = arg2;
@@ -5797,52 +5728,52 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Indicator__update_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_SMA__update_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Indicator_ *arg1 = 0 ;
+  struct SMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  void *(*result)(struct Indicator_ *,void *) = 0 ;
+  double (*result)(struct SMA_ *,double) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Indicator_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Indicator__update_get" "', argument " "1"" of type '" "struct Indicator_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__update_get" "', argument " "1"" of type '" "struct SMA_ *""'"); 
   }
-  arg1 = (struct Indicator_ *)(argp1);
-  result = (void *(*)(struct Indicator_ *,void *)) ((arg1)->update);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_Indicator__p_void__p_void);
+  arg1 = (struct SMA_ *)(argp1);
+  result = (double (*)(struct SMA_ *,double)) ((arg1)->update);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_SMA__double__double);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Indicator__value_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_SMA__get_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Indicator_ *arg1 = 0 ;
-  void *(*arg2)(struct Indicator_ *) = 0 ;
+  struct SMA_ *arg1 = 0 ;
+  double (*arg2)(struct SMA_ const *) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Indicator__value_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Indicator_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "SMA__get_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Indicator__value_set" "', argument " "1"" of type '" "struct Indicator_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__get_set" "', argument " "1"" of type '" "struct SMA_ *""'"); 
   }
-  arg1 = (struct Indicator_ *)(argp1);
+  arg1 = (struct SMA_ *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_Indicator___p_void);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_q_const__struct_SMA___double);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "Indicator__value_set" "', argument " "2"" of type '" "void *(*)(struct Indicator_ *)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "SMA__get_set" "', argument " "2"" of type '" "double (*)(struct SMA_ const *)""'"); 
     }
   }
-  if (arg1) (arg1)->value = arg2;
+  if (arg1) (arg1)->get = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -5850,49 +5781,49 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Indicator__value_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_SMA__get_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Indicator_ *arg1 = 0 ;
+  struct SMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  void *(*result)(struct Indicator_ *) = 0 ;
+  double (*result)(struct SMA_ const *) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Indicator_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Indicator__value_get" "', argument " "1"" of type '" "struct Indicator_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__get_get" "', argument " "1"" of type '" "struct SMA_ *""'"); 
   }
-  arg1 = (struct Indicator_ *)(argp1);
-  result = (void *(*)(struct Indicator_ *)) ((arg1)->value);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_Indicator___p_void);
+  arg1 = (struct SMA_ *)(argp1);
+  result = (double (*)(struct SMA_ const *)) ((arg1)->get);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_q_const__struct_SMA___double);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Indicator__delete_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_SMA__delete_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Indicator_ *arg1 = 0 ;
-  void (*arg2)(struct Indicator_ *) = 0 ;
+  struct SMA_ *arg1 = 0 ;
+  void (*arg2)(struct SMA_ *) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "Indicator__delete_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Indicator_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "SMA__delete_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Indicator__delete_set" "', argument " "1"" of type '" "struct Indicator_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__delete_set" "', argument " "1"" of type '" "struct SMA_ *""'"); 
   }
-  arg1 = (struct Indicator_ *)(argp1);
+  arg1 = (struct SMA_ *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_Indicator___void);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_SMA___void);
     if (!SWIG_IsOK(res)) {
-      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "Indicator__delete_set" "', argument " "2"" of type '" "void (*)(struct Indicator_ *)""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "SMA__delete_set" "', argument " "2"" of type '" "void (*)(struct SMA_ *)""'"); 
     }
   }
   if (arg1) (arg1)->delete = arg2;
@@ -5903,101 +5834,53 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Indicator__delete_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_SMA__delete_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Indicator_ *arg1 = 0 ;
+  struct SMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  void (*result)(struct Indicator_ *) = 0 ;
+  void (*result)(struct SMA_ *) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Indicator_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Indicator__delete_get" "', argument " "1"" of type '" "struct Indicator_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__delete_get" "', argument " "1"" of type '" "struct SMA_ *""'"); 
   }
-  arg1 = (struct Indicator_ *)(argp1);
-  result = (void (*)(struct Indicator_ *)) ((arg1)->delete);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_Indicator___void);
+  arg1 = (struct SMA_ *)(argp1);
+  result = (void (*)(struct SMA_ *)) ((arg1)->delete);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_SMA___void);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_new_Indicator_(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_SMA__value_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct Indicator_ *result = 0 ;
-  
-  (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "new_Indicator_", 0, 0, 0)) SWIG_fail;
-  result = (struct Indicator_ *)calloc(1, sizeof(struct Indicator_));
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Indicator_, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_delete_Indicator_(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct Indicator_ *arg1 = 0 ;
+  struct SMA_ *arg1 = 0 ;
+  double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  (void)self;
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Indicator_, SWIG_POINTER_DISOWN |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Indicator_" "', argument " "1"" of type '" "struct Indicator_ *""'"); 
-  }
-  arg1 = (struct Indicator_ *)(argp1);
-  free((char *) arg1);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *Indicator__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *obj = NULL;
-  if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_Indicator_, SWIG_NewClientData(obj));
-  return SWIG_Py_Void();
-}
-
-SWIGINTERN PyObject *Indicator__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  return SWIG_Python_InitShadowInstance(args);
-}
-
-SWIGINTERN PyObject *_wrap_MovingAverage__base_set(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct MovingAverage_ *arg1 = 0 ;
-  struct Indicator_ *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  double val2 ;
+  int ecode2 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "MovingAverage__base_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_MovingAverage_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "SMA__value_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MovingAverage__base_set" "', argument " "1"" of type '" "struct MovingAverage_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__value_set" "', argument " "1"" of type '" "struct SMA_ *""'"); 
   }
-  arg1 = (struct MovingAverage_ *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_Indicator_, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "MovingAverage__base_set" "', argument " "2"" of type '" "struct Indicator_ *""'"); 
-  }
-  arg2 = (struct Indicator_ *)(argp2);
-  if (arg1) (arg1)->base = *arg2;
+  arg1 = (struct SMA_ *)(argp1);
+  ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SMA__value_set" "', argument " "2"" of type '" "double""'");
+  } 
+  arg2 = (double)(val2);
+  if (arg1) (arg1)->value = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -6005,33 +5888,33 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_MovingAverage__base_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_SMA__value_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct MovingAverage_ *arg1 = 0 ;
+  struct SMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  struct Indicator_ *result = 0 ;
+  double result;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_MovingAverage_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MovingAverage__base_get" "', argument " "1"" of type '" "struct MovingAverage_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__value_get" "', argument " "1"" of type '" "struct SMA_ *""'"); 
   }
-  arg1 = (struct MovingAverage_ *)(argp1);
-  result = (struct Indicator_ *)& ((arg1)->base);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Indicator_, 0 |  0 );
+  arg1 = (struct SMA_ *)(argp1);
+  result = (double) ((arg1)->value);
+  resultobj = SWIG_From_double((double)(result));
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_MovingAverage__prev_values_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_SMA__prev_values_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct MovingAverage_ *arg1 = 0 ;
+  struct SMA_ *arg1 = 0 ;
   double *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -6040,15 +5923,15 @@ SWIGINTERN PyObject *_wrap_MovingAverage__prev_values_set(PyObject *self, PyObje
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "MovingAverage__prev_values_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_MovingAverage_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "SMA__prev_values_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MovingAverage__prev_values_set" "', argument " "1"" of type '" "struct MovingAverage_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__prev_values_set" "', argument " "1"" of type '" "struct SMA_ *""'"); 
   }
-  arg1 = (struct MovingAverage_ *)(argp1);
+  arg1 = (struct SMA_ *)(argp1);
   res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_double, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "MovingAverage__prev_values_set" "', argument " "2"" of type '" "double *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SMA__prev_values_set" "', argument " "2"" of type '" "double *""'"); 
   }
   arg2 = (double *)(argp2);
   if (arg1) (arg1)->prev_values = arg2;
@@ -6059,9 +5942,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_MovingAverage__prev_values_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_SMA__prev_values_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct MovingAverage_ *arg1 = 0 ;
+  struct SMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -6070,11 +5953,11 @@ SWIGINTERN PyObject *_wrap_MovingAverage__prev_values_get(PyObject *self, PyObje
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_MovingAverage_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MovingAverage__prev_values_get" "', argument " "1"" of type '" "struct MovingAverage_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__prev_values_get" "', argument " "1"" of type '" "struct SMA_ *""'"); 
   }
-  arg1 = (struct MovingAverage_ *)(argp1);
+  arg1 = (struct SMA_ *)(argp1);
   result = (double *) ((arg1)->prev_values);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_double, 0 |  0 );
   return resultobj;
@@ -6083,9 +5966,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_MovingAverage__window_size_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_SMA__window_size_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct MovingAverage_ *arg1 = 0 ;
+  struct SMA_ *arg1 = 0 ;
   int arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -6094,15 +5977,15 @@ SWIGINTERN PyObject *_wrap_MovingAverage__window_size_set(PyObject *self, PyObje
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "MovingAverage__window_size_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_MovingAverage_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "SMA__window_size_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MovingAverage__window_size_set" "', argument " "1"" of type '" "struct MovingAverage_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__window_size_set" "', argument " "1"" of type '" "struct SMA_ *""'"); 
   }
-  arg1 = (struct MovingAverage_ *)(argp1);
+  arg1 = (struct SMA_ *)(argp1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MovingAverage__window_size_set" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SMA__window_size_set" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = (int)(val2);
   if (arg1) (arg1)->window_size = arg2;
@@ -6113,9 +5996,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_MovingAverage__window_size_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_SMA__window_size_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct MovingAverage_ *arg1 = 0 ;
+  struct SMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -6124,11 +6007,11 @@ SWIGINTERN PyObject *_wrap_MovingAverage__window_size_get(PyObject *self, PyObje
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_MovingAverage_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MovingAverage__window_size_get" "', argument " "1"" of type '" "struct MovingAverage_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__window_size_get" "', argument " "1"" of type '" "struct SMA_ *""'"); 
   }
-  arg1 = (struct MovingAverage_ *)(argp1);
+  arg1 = (struct SMA_ *)(argp1);
   result = (int) ((arg1)->window_size);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
@@ -6137,9 +6020,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_MovingAverage__pos_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_SMA__pos_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct MovingAverage_ *arg1 = 0 ;
+  struct SMA_ *arg1 = 0 ;
   int arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -6148,15 +6031,15 @@ SWIGINTERN PyObject *_wrap_MovingAverage__pos_set(PyObject *self, PyObject *args
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "MovingAverage__pos_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_MovingAverage_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "SMA__pos_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MovingAverage__pos_set" "', argument " "1"" of type '" "struct MovingAverage_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__pos_set" "', argument " "1"" of type '" "struct SMA_ *""'"); 
   }
-  arg1 = (struct MovingAverage_ *)(argp1);
+  arg1 = (struct SMA_ *)(argp1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MovingAverage__pos_set" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SMA__pos_set" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = (int)(val2);
   if (arg1) (arg1)->pos = arg2;
@@ -6167,9 +6050,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_MovingAverage__pos_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_SMA__pos_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct MovingAverage_ *arg1 = 0 ;
+  struct SMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -6178,11 +6061,11 @@ SWIGINTERN PyObject *_wrap_MovingAverage__pos_get(PyObject *self, PyObject *args
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_MovingAverage_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MovingAverage__pos_get" "', argument " "1"" of type '" "struct MovingAverage_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__pos_get" "', argument " "1"" of type '" "struct SMA_ *""'"); 
   }
-  arg1 = (struct MovingAverage_ *)(argp1);
+  arg1 = (struct SMA_ *)(argp1);
   result = (int) ((arg1)->pos);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
@@ -6191,9 +6074,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_MovingAverage__len_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_SMA__len_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct MovingAverage_ *arg1 = 0 ;
+  struct SMA_ *arg1 = 0 ;
   int arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -6202,15 +6085,15 @@ SWIGINTERN PyObject *_wrap_MovingAverage__len_set(PyObject *self, PyObject *args
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "MovingAverage__len_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_MovingAverage_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "SMA__len_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MovingAverage__len_set" "', argument " "1"" of type '" "struct MovingAverage_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__len_set" "', argument " "1"" of type '" "struct SMA_ *""'"); 
   }
-  arg1 = (struct MovingAverage_ *)(argp1);
+  arg1 = (struct SMA_ *)(argp1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MovingAverage__len_set" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SMA__len_set" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = (int)(val2);
   if (arg1) (arg1)->len = arg2;
@@ -6221,9 +6104,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_MovingAverage__len_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_SMA__len_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct MovingAverage_ *arg1 = 0 ;
+  struct SMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -6232,11 +6115,11 @@ SWIGINTERN PyObject *_wrap_MovingAverage__len_get(PyObject *self, PyObject *args
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_MovingAverage_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MovingAverage__len_get" "', argument " "1"" of type '" "struct MovingAverage_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__len_get" "', argument " "1"" of type '" "struct SMA_ *""'"); 
   }
-  arg1 = (struct MovingAverage_ *)(argp1);
+  arg1 = (struct SMA_ *)(argp1);
   result = (int) ((arg1)->len);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
@@ -6245,9 +6128,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_MovingAverage__sum_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_SMA__sum_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct MovingAverage_ *arg1 = 0 ;
+  struct SMA_ *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -6256,15 +6139,15 @@ SWIGINTERN PyObject *_wrap_MovingAverage__sum_set(PyObject *self, PyObject *args
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "MovingAverage__sum_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_MovingAverage_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "SMA__sum_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MovingAverage__sum_set" "', argument " "1"" of type '" "struct MovingAverage_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__sum_set" "', argument " "1"" of type '" "struct SMA_ *""'"); 
   }
-  arg1 = (struct MovingAverage_ *)(argp1);
+  arg1 = (struct SMA_ *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MovingAverage__sum_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SMA__sum_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->sum = arg2;
@@ -6275,9 +6158,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_MovingAverage__sum_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_SMA__sum_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct MovingAverage_ *arg1 = 0 ;
+  struct SMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -6286,11 +6169,11 @@ SWIGINTERN PyObject *_wrap_MovingAverage__sum_get(PyObject *self, PyObject *args
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_MovingAverage_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MovingAverage__sum_get" "', argument " "1"" of type '" "struct MovingAverage_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMA__sum_get" "', argument " "1"" of type '" "struct SMA_ *""'"); 
   }
-  arg1 = (struct MovingAverage_ *)(argp1);
+  arg1 = (struct SMA_ *)(argp1);
   result = (double) ((arg1)->sum);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -6299,63 +6182,23 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_MovingAverage__update(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_SMA_(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct MovingAverage_ *arg1 = 0 ;
-  double arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  double val2 ;
-  int ecode2 = 0 ;
-  PyObject *swig_obj[2] ;
+  struct SMA_ *result = 0 ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "MovingAverage__update", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_MovingAverage_, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MovingAverage__update" "', argument " "1"" of type '" "struct MovingAverage_ *""'"); 
-  }
-  arg1 = (struct MovingAverage_ *)(argp1);
-  ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MovingAverage__update" "', argument " "2"" of type '" "double""'");
-  } 
-  arg2 = (double)(val2);
-  MovingAverage__update(arg1,arg2);
-  resultobj = SWIG_Py_Void();
+  if (!SWIG_Python_UnpackTuple(args, "new_SMA_", 0, 0, 0)) SWIG_fail;
+  result = (struct SMA_ *)calloc(1, sizeof(struct SMA_));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SMA_, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_MovingAverage__value(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_SMA_(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct MovingAverage_ *arg1 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  double result;
-  
-  (void)self;
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_MovingAverage_, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MovingAverage__value" "', argument " "1"" of type '" "struct MovingAverage_ *""'"); 
-  }
-  arg1 = (struct MovingAverage_ *)(argp1);
-  result = (double)MovingAverage__value(arg1);
-  resultobj = SWIG_From_double((double)(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_delete_MovingAverage_(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct MovingAverage_ *arg1 = 0 ;
+  struct SMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -6363,12 +6206,12 @@ SWIGINTERN PyObject *_wrap_delete_MovingAverage_(PyObject *self, PyObject *args)
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_MovingAverage_, SWIG_POINTER_DISOWN |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_SMA_, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_MovingAverage_" "', argument " "1"" of type '" "struct MovingAverage_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_SMA_" "', argument " "1"" of type '" "struct SMA_ *""'"); 
   }
-  arg1 = (struct MovingAverage_ *)(argp1);
-  delete_MovingAverage_(arg1);
+  arg1 = (struct SMA_ *)(argp1);
+  free((char *) arg1);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -6376,28 +6219,14 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_MovingAverage_(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct MovingAverage_ *result = 0 ;
-  
-  (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "new_MovingAverage_", 0, 0, 0)) SWIG_fail;
-  result = (struct MovingAverage_ *)calloc(1, sizeof(struct MovingAverage_));
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MovingAverage_, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *MovingAverage__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *SMA__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj = NULL;
   if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_MovingAverage_, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_SMA_, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *MovingAverage__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *SMA__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
@@ -6407,7 +6236,7 @@ SWIGINTERN PyObject *_wrap_moving_average_new(PyObject *self, PyObject *args) {
   int val1 ;
   int ecode1 = 0 ;
   PyObject *swig_obj[1] ;
-  MovingAverage result;
+  SMA result;
   
   (void)self;
   if (!args) SWIG_fail;
@@ -6417,37 +6246,36 @@ SWIGINTERN PyObject *_wrap_moving_average_new(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "moving_average_new" "', argument " "1"" of type '" "int""'");
   } 
   arg1 = (int)(val1);
-  result = (MovingAverage)moving_average_new(arg1);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MovingAverage_, 0 |  0 );
+  result = (SMA)moving_average_new(arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SMA_, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_ExponentialMovingAverage__base_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_EMA__update_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct ExponentialMovingAverage_ *arg1 = 0 ;
-  struct Indicator_ *arg2 = 0 ;
+  struct EMA_ *arg1 = 0 ;
+  double (*arg2)(struct EMA_ *,double) = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "ExponentialMovingAverage__base_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_ExponentialMovingAverage_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "EMA__update_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ExponentialMovingAverage__base_set" "', argument " "1"" of type '" "struct ExponentialMovingAverage_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__update_set" "', argument " "1"" of type '" "struct EMA_ *""'"); 
   }
-  arg1 = (struct ExponentialMovingAverage_ *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_Indicator_, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ExponentialMovingAverage__base_set" "', argument " "2"" of type '" "struct Indicator_ *""'"); 
+  arg1 = (struct EMA_ *)(argp1);
+  {
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_EMA__double__double);
+    if (!SWIG_IsOK(res)) {
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "EMA__update_set" "', argument " "2"" of type '" "double (*)(struct EMA_ *,double)""'"); 
+    }
   }
-  arg2 = (struct Indicator_ *)(argp2);
-  if (arg1) (arg1)->base = *arg2;
+  if (arg1) (arg1)->update = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -6455,33 +6283,139 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_ExponentialMovingAverage__base_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_EMA__update_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct ExponentialMovingAverage_ *arg1 = 0 ;
+  struct EMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  struct Indicator_ *result = 0 ;
+  double (*result)(struct EMA_ *,double) = 0 ;
   
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_ExponentialMovingAverage_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ExponentialMovingAverage__base_get" "', argument " "1"" of type '" "struct ExponentialMovingAverage_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__update_get" "', argument " "1"" of type '" "struct EMA_ *""'"); 
   }
-  arg1 = (struct ExponentialMovingAverage_ *)(argp1);
-  result = (struct Indicator_ *)& ((arg1)->base);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Indicator_, 0 |  0 );
+  arg1 = (struct EMA_ *)(argp1);
+  result = (double (*)(struct EMA_ *,double)) ((arg1)->update);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_EMA__double__double);
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_ExponentialMovingAverage__prev_value_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_EMA__get_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct ExponentialMovingAverage_ *arg1 = 0 ;
+  struct EMA_ *arg1 = 0 ;
+  double (*arg2)(struct EMA_ const *) = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "EMA__get_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__get_set" "', argument " "1"" of type '" "struct EMA_ *""'"); 
+  }
+  arg1 = (struct EMA_ *)(argp1);
+  {
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_q_const__struct_EMA___double);
+    if (!SWIG_IsOK(res)) {
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "EMA__get_set" "', argument " "2"" of type '" "double (*)(struct EMA_ const *)""'"); 
+    }
+  }
+  if (arg1) (arg1)->get = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_EMA__get_get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct EMA_ *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  double (*result)(struct EMA_ const *) = 0 ;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__get_get" "', argument " "1"" of type '" "struct EMA_ *""'"); 
+  }
+  arg1 = (struct EMA_ *)(argp1);
+  result = (double (*)(struct EMA_ const *)) ((arg1)->get);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_q_const__struct_EMA___double);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_EMA__delete_set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct EMA_ *arg1 = 0 ;
+  void (*arg2)(struct EMA_ *) = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "EMA__delete_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__delete_set" "', argument " "1"" of type '" "struct EMA_ *""'"); 
+  }
+  arg1 = (struct EMA_ *)(argp1);
+  {
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_EMA___void);
+    if (!SWIG_IsOK(res)) {
+      SWIG_exception_fail(SWIG_ArgError(res), "in method '" "EMA__delete_set" "', argument " "2"" of type '" "void (*)(struct EMA_ *)""'"); 
+    }
+  }
+  if (arg1) (arg1)->delete = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_EMA__delete_get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct EMA_ *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  void (*result)(struct EMA_ *) = 0 ;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__delete_get" "', argument " "1"" of type '" "struct EMA_ *""'"); 
+  }
+  arg1 = (struct EMA_ *)(argp1);
+  result = (void (*)(struct EMA_ *)) ((arg1)->delete);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_EMA___void);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_EMA__value_set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct EMA_ *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -6490,15 +6424,69 @@ SWIGINTERN PyObject *_wrap_ExponentialMovingAverage__prev_value_set(PyObject *se
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "ExponentialMovingAverage__prev_value_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_ExponentialMovingAverage_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "EMA__value_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ExponentialMovingAverage__prev_value_set" "', argument " "1"" of type '" "struct ExponentialMovingAverage_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__value_set" "', argument " "1"" of type '" "struct EMA_ *""'"); 
   }
-  arg1 = (struct ExponentialMovingAverage_ *)(argp1);
+  arg1 = (struct EMA_ *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ExponentialMovingAverage__prev_value_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "EMA__value_set" "', argument " "2"" of type '" "double""'");
+  } 
+  arg2 = (double)(val2);
+  if (arg1) (arg1)->value = arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_EMA__value_get(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct EMA_ *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  double result;
+  
+  (void)self;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__value_get" "', argument " "1"" of type '" "struct EMA_ *""'"); 
+  }
+  arg1 = (struct EMA_ *)(argp1);
+  result = (double) ((arg1)->value);
+  resultobj = SWIG_From_double((double)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_EMA__prev_value_set(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct EMA_ *arg1 = 0 ;
+  double arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "EMA__prev_value_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__prev_value_set" "', argument " "1"" of type '" "struct EMA_ *""'"); 
+  }
+  arg1 = (struct EMA_ *)(argp1);
+  ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "EMA__prev_value_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->prev_value = arg2;
@@ -6509,9 +6497,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_ExponentialMovingAverage__prev_value_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_EMA__prev_value_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct ExponentialMovingAverage_ *arg1 = 0 ;
+  struct EMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -6520,11 +6508,11 @@ SWIGINTERN PyObject *_wrap_ExponentialMovingAverage__prev_value_get(PyObject *se
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_ExponentialMovingAverage_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ExponentialMovingAverage__prev_value_get" "', argument " "1"" of type '" "struct ExponentialMovingAverage_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__prev_value_get" "', argument " "1"" of type '" "struct EMA_ *""'"); 
   }
-  arg1 = (struct ExponentialMovingAverage_ *)(argp1);
+  arg1 = (struct EMA_ *)(argp1);
   result = (double) ((arg1)->prev_value);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -6533,9 +6521,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_ExponentialMovingAverage__alpha_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_EMA__alpha_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct ExponentialMovingAverage_ *arg1 = 0 ;
+  struct EMA_ *arg1 = 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -6544,15 +6532,15 @@ SWIGINTERN PyObject *_wrap_ExponentialMovingAverage__alpha_set(PyObject *self, P
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "ExponentialMovingAverage__alpha_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_ExponentialMovingAverage_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "EMA__alpha_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ExponentialMovingAverage__alpha_set" "', argument " "1"" of type '" "struct ExponentialMovingAverage_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__alpha_set" "', argument " "1"" of type '" "struct EMA_ *""'"); 
   }
-  arg1 = (struct ExponentialMovingAverage_ *)(argp1);
+  arg1 = (struct EMA_ *)(argp1);
   ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ExponentialMovingAverage__alpha_set" "', argument " "2"" of type '" "double""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "EMA__alpha_set" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
   if (arg1) (arg1)->alpha = arg2;
@@ -6563,9 +6551,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_ExponentialMovingAverage__alpha_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_EMA__alpha_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct ExponentialMovingAverage_ *arg1 = 0 ;
+  struct EMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -6574,11 +6562,11 @@ SWIGINTERN PyObject *_wrap_ExponentialMovingAverage__alpha_get(PyObject *self, P
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_ExponentialMovingAverage_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ExponentialMovingAverage__alpha_get" "', argument " "1"" of type '" "struct ExponentialMovingAverage_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__alpha_get" "', argument " "1"" of type '" "struct EMA_ *""'"); 
   }
-  arg1 = (struct ExponentialMovingAverage_ *)(argp1);
+  arg1 = (struct EMA_ *)(argp1);
   result = (double) ((arg1)->alpha);
   resultobj = SWIG_From_double((double)(result));
   return resultobj;
@@ -6587,9 +6575,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_ExponentialMovingAverage__len_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_EMA__len_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct ExponentialMovingAverage_ *arg1 = 0 ;
+  struct EMA_ *arg1 = 0 ;
   int arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -6598,15 +6586,15 @@ SWIGINTERN PyObject *_wrap_ExponentialMovingAverage__len_set(PyObject *self, PyO
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "ExponentialMovingAverage__len_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_ExponentialMovingAverage_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "EMA__len_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ExponentialMovingAverage__len_set" "', argument " "1"" of type '" "struct ExponentialMovingAverage_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__len_set" "', argument " "1"" of type '" "struct EMA_ *""'"); 
   }
-  arg1 = (struct ExponentialMovingAverage_ *)(argp1);
+  arg1 = (struct EMA_ *)(argp1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ExponentialMovingAverage__len_set" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "EMA__len_set" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = (int)(val2);
   if (arg1) (arg1)->len = arg2;
@@ -6617,9 +6605,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_ExponentialMovingAverage__len_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_EMA__len_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct ExponentialMovingAverage_ *arg1 = 0 ;
+  struct EMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -6628,11 +6616,11 @@ SWIGINTERN PyObject *_wrap_ExponentialMovingAverage__len_get(PyObject *self, PyO
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_ExponentialMovingAverage_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ExponentialMovingAverage__len_get" "', argument " "1"" of type '" "struct ExponentialMovingAverage_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__len_get" "', argument " "1"" of type '" "struct EMA_ *""'"); 
   }
-  arg1 = (struct ExponentialMovingAverage_ *)(argp1);
+  arg1 = (struct EMA_ *)(argp1);
   result = (int) ((arg1)->len);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
@@ -6641,9 +6629,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_ExponentialMovingAverage__period_set(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_EMA__period_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct ExponentialMovingAverage_ *arg1 = 0 ;
+  struct EMA_ *arg1 = 0 ;
   int arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -6652,15 +6640,15 @@ SWIGINTERN PyObject *_wrap_ExponentialMovingAverage__period_set(PyObject *self, 
   PyObject *swig_obj[2] ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "ExponentialMovingAverage__period_set", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_ExponentialMovingAverage_, 0 |  0 );
+  if (!SWIG_Python_UnpackTuple(args, "EMA__period_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ExponentialMovingAverage__period_set" "', argument " "1"" of type '" "struct ExponentialMovingAverage_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__period_set" "', argument " "1"" of type '" "struct EMA_ *""'"); 
   }
-  arg1 = (struct ExponentialMovingAverage_ *)(argp1);
+  arg1 = (struct EMA_ *)(argp1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ExponentialMovingAverage__period_set" "', argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "EMA__period_set" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = (int)(val2);
   if (arg1) (arg1)->period = arg2;
@@ -6671,9 +6659,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_ExponentialMovingAverage__period_get(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_EMA__period_get(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct ExponentialMovingAverage_ *arg1 = 0 ;
+  struct EMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -6682,11 +6670,11 @@ SWIGINTERN PyObject *_wrap_ExponentialMovingAverage__period_get(PyObject *self, 
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_ExponentialMovingAverage_, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ExponentialMovingAverage__period_get" "', argument " "1"" of type '" "struct ExponentialMovingAverage_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EMA__period_get" "', argument " "1"" of type '" "struct EMA_ *""'"); 
   }
-  arg1 = (struct ExponentialMovingAverage_ *)(argp1);
+  arg1 = (struct EMA_ *)(argp1);
   result = (int) ((arg1)->period);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
@@ -6695,63 +6683,23 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_ExponentialMovingAverage__update(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_EMA_(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct ExponentialMovingAverage_ *arg1 = 0 ;
-  double arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  double val2 ;
-  int ecode2 = 0 ;
-  PyObject *swig_obj[2] ;
+  struct EMA_ *result = 0 ;
   
   (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "ExponentialMovingAverage__update", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_ExponentialMovingAverage_, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ExponentialMovingAverage__update" "', argument " "1"" of type '" "struct ExponentialMovingAverage_ *""'"); 
-  }
-  arg1 = (struct ExponentialMovingAverage_ *)(argp1);
-  ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ExponentialMovingAverage__update" "', argument " "2"" of type '" "double""'");
-  } 
-  arg2 = (double)(val2);
-  ExponentialMovingAverage__update(arg1,arg2);
-  resultobj = SWIG_Py_Void();
+  if (!SWIG_Python_UnpackTuple(args, "new_EMA_", 0, 0, 0)) SWIG_fail;
+  result = (struct EMA_ *)calloc(1, sizeof(struct EMA_));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_EMA_, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_ExponentialMovingAverage__value(PyObject *self, PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_EMA_(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
-  struct ExponentialMovingAverage_ *arg1 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  double result;
-  
-  (void)self;
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_ExponentialMovingAverage_, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ExponentialMovingAverage__value" "', argument " "1"" of type '" "struct ExponentialMovingAverage_ *""'"); 
-  }
-  arg1 = (struct ExponentialMovingAverage_ *)(argp1);
-  result = (double)ExponentialMovingAverage__value(arg1);
-  resultobj = SWIG_From_double((double)(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_delete_ExponentialMovingAverage_(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct ExponentialMovingAverage_ *arg1 = 0 ;
+  struct EMA_ *arg1 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -6759,12 +6707,12 @@ SWIGINTERN PyObject *_wrap_delete_ExponentialMovingAverage_(PyObject *self, PyOb
   (void)self;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_ExponentialMovingAverage_, SWIG_POINTER_DISOWN |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EMA_, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_ExponentialMovingAverage_" "', argument " "1"" of type '" "struct ExponentialMovingAverage_ *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_EMA_" "', argument " "1"" of type '" "struct EMA_ *""'"); 
   }
-  arg1 = (struct ExponentialMovingAverage_ *)(argp1);
-  delete_ExponentialMovingAverage_(arg1);
+  arg1 = (struct EMA_ *)(argp1);
+  free((char *) arg1);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -6772,28 +6720,14 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_ExponentialMovingAverage_(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct ExponentialMovingAverage_ *result = 0 ;
-  
-  (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "new_ExponentialMovingAverage_", 0, 0, 0)) SWIG_fail;
-  result = (struct ExponentialMovingAverage_ *)calloc(1, sizeof(struct ExponentialMovingAverage_));
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_ExponentialMovingAverage_, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *ExponentialMovingAverage__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *EMA__swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj = NULL;
   if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_ExponentialMovingAverage_, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_EMA_, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *ExponentialMovingAverage__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *EMA__swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
@@ -6806,7 +6740,7 @@ SWIGINTERN PyObject *_wrap_exponential_moving_average_new(PyObject *self, PyObje
   double val2 ;
   int ecode2 = 0 ;
   PyObject *swig_obj[2] ;
-  ExponentialMovingAverage result;
+  EMA result;
   
   (void)self;
   if (!SWIG_Python_UnpackTuple(args, "exponential_moving_average_new", 2, 2, swig_obj)) SWIG_fail;
@@ -6820,8 +6754,8 @@ SWIGINTERN PyObject *_wrap_exponential_moving_average_new(PyObject *self, PyObje
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "exponential_moving_average_new" "', argument " "2"" of type '" "double""'");
   } 
   arg2 = (double)(val2);
-  result = (ExponentialMovingAverage)exponential_moving_average_new(arg1,arg2);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_ExponentialMovingAverage_, 0 |  0 );
+  result = (EMA)exponential_moving_average_new(arg1,arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_EMA_, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -11154,7 +11088,7 @@ fail:
 SWIGINTERN PyObject *_wrap_CrossOverStrat__short_ma_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
   struct CrossOverStrat_ *arg1 = 0 ;
-  MovingAverage arg2 = 0 ;
+  SMA arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -11168,11 +11102,11 @@ SWIGINTERN PyObject *_wrap_CrossOverStrat__short_ma_set(PyObject *self, PyObject
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CrossOverStrat__short_ma_set" "', argument " "1"" of type '" "struct CrossOverStrat_ *""'"); 
   }
   arg1 = (struct CrossOverStrat_ *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_MovingAverage_, SWIG_POINTER_DISOWN |  0 );
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_SMA_, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "CrossOverStrat__short_ma_set" "', argument " "2"" of type '" "MovingAverage""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "CrossOverStrat__short_ma_set" "', argument " "2"" of type '" "SMA""'"); 
   }
-  arg2 = (MovingAverage)(argp2);
+  arg2 = (SMA)(argp2);
   if (arg1) (arg1)->short_ma = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -11187,7 +11121,7 @@ SWIGINTERN PyObject *_wrap_CrossOverStrat__short_ma_get(PyObject *self, PyObject
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  MovingAverage result;
+  SMA result;
   
   (void)self;
   if (!args) SWIG_fail;
@@ -11197,8 +11131,8 @@ SWIGINTERN PyObject *_wrap_CrossOverStrat__short_ma_get(PyObject *self, PyObject
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CrossOverStrat__short_ma_get" "', argument " "1"" of type '" "struct CrossOverStrat_ *""'"); 
   }
   arg1 = (struct CrossOverStrat_ *)(argp1);
-  result = (MovingAverage) ((arg1)->short_ma);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MovingAverage_, 0 |  0 );
+  result = (SMA) ((arg1)->short_ma);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SMA_, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -11208,7 +11142,7 @@ fail:
 SWIGINTERN PyObject *_wrap_CrossOverStrat__long_ma_set(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
   struct CrossOverStrat_ *arg1 = 0 ;
-  MovingAverage arg2 = 0 ;
+  SMA arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -11222,11 +11156,11 @@ SWIGINTERN PyObject *_wrap_CrossOverStrat__long_ma_set(PyObject *self, PyObject 
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CrossOverStrat__long_ma_set" "', argument " "1"" of type '" "struct CrossOverStrat_ *""'"); 
   }
   arg1 = (struct CrossOverStrat_ *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_MovingAverage_, SWIG_POINTER_DISOWN |  0 );
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_SMA_, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "CrossOverStrat__long_ma_set" "', argument " "2"" of type '" "MovingAverage""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "CrossOverStrat__long_ma_set" "', argument " "2"" of type '" "SMA""'"); 
   }
-  arg2 = (MovingAverage)(argp2);
+  arg2 = (SMA)(argp2);
   if (arg1) (arg1)->long_ma = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -11241,7 +11175,7 @@ SWIGINTERN PyObject *_wrap_CrossOverStrat__long_ma_get(PyObject *self, PyObject 
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
-  MovingAverage result;
+  SMA result;
   
   (void)self;
   if (!args) SWIG_fail;
@@ -11251,8 +11185,8 @@ SWIGINTERN PyObject *_wrap_CrossOverStrat__long_ma_get(PyObject *self, PyObject 
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CrossOverStrat__long_ma_get" "', argument " "1"" of type '" "struct CrossOverStrat_ *""'"); 
   }
   arg1 = (struct CrossOverStrat_ *)(argp1);
-  result = (MovingAverage) ((arg1)->long_ma);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MovingAverage_, 0 |  0 );
+  result = (SMA) ((arg1)->long_ma);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SMA_, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -11910,261 +11844,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_wu_indicator_update(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  Indicator arg1 = 0 ;
-  double arg2 ;
-  double val2 ;
-  int ecode2 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "wu_indicator_update", 2, 2, swig_obj)) SWIG_fail;
-  {
-    void *argp = 0;
-    int res = SWIG_ConvertPtr(swig_obj[0], &argp, SWIGTYPE_p_MovingAverage_, 0);
-    if (!SWIG_IsOK(res)) {
-      res = SWIG_ConvertPtr(swig_obj[0], &argp, SWIGTYPE_p_ExponentialMovingAverage_, 0);
-      if (!SWIG_IsOK(res)) {
-        res = SWIG_ConvertPtr(swig_obj[0], &argp, SWIGTYPE_p_Indicator_, 0);
-        if (!SWIG_IsOK(res)) {
-          SWIG_exception_fail(SWIG_ArgError(res), "Expected Indicator, MovingAverage, or ExponentialMovingAverage");
-        }
-      }
-    }
-    arg1 = (Indicator)argp;
-  }
-  ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "wu_indicator_update" "', argument " "2"" of type '" "double""'");
-  } 
-  arg2 = (double)(val2);
-  wu_indicator_update(arg1,arg2);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_wu_indicator_value(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  Indicator arg1 = 0 ;
-  PyObject *swig_obj[1] ;
-  double result;
-  
-  (void)self;
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  {
-    void *argp = 0;
-    int res = SWIG_ConvertPtr(swig_obj[0], &argp, SWIGTYPE_p_MovingAverage_, 0);
-    if (!SWIG_IsOK(res)) {
-      res = SWIG_ConvertPtr(swig_obj[0], &argp, SWIGTYPE_p_ExponentialMovingAverage_, 0);
-      if (!SWIG_IsOK(res)) {
-        res = SWIG_ConvertPtr(swig_obj[0], &argp, SWIGTYPE_p_Indicator_, 0);
-        if (!SWIG_IsOK(res)) {
-          SWIG_exception_fail(SWIG_ArgError(res), "Expected Indicator, MovingAverage, or ExponentialMovingAverage");
-        }
-      }
-    }
-    arg1 = (Indicator)argp;
-  }
-  result = (double)wu_indicator_value(arg1);
-  resultobj = SWIG_From_double((double)(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_strategy_call_update(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  Strategy arg1 = 0 ;
-  void *arg2 = 0 ;
-  int res2 ;
-  PyObject *swig_obj[2] ;
-  Signal result;
-  
-  (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "strategy_call_update", 2, 2, swig_obj)) SWIG_fail;
-  {
-    void *argp = 0;
-    int res = SWIG_ConvertPtr(swig_obj[0], &argp, SWIGTYPE_p_CrossOverStrat_, 0);
-    if (!SWIG_IsOK(res)) {
-      res = SWIG_ConvertPtr(swig_obj[0], &argp, SWIGTYPE_p_Strategy_, 0);
-      if (!SWIG_IsOK(res)) {
-        SWIG_exception_fail(SWIG_ArgError(res), "Expected Strategy or CrossOverStrat");
-      }
-    }
-    arg1 = (Strategy)argp;
-  }
-  res2 = SWIG_ConvertPtr(swig_obj[1],SWIG_as_voidptrptr(&arg2), 0, 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "strategy_call_update" "', argument " "2"" of type '" "void *""'"); 
-  }
-  result = strategy_call_update(arg1,arg2);
-  resultobj = SWIG_NewPointerObj((Signal *)memcpy((Signal *)calloc(1,sizeof(Signal)),&result,sizeof(Signal)), SWIGTYPE_p_Signal, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_reader_call_next(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  Reader arg1 = 0 ;
-  PyObject *swig_obj[1] ;
-  void *result = 0 ;
-  
-  (void)self;
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  {
-    void *argp = 0;
-    int res = SWIG_ConvertPtr(swig_obj[0], &argp, SWIGTYPE_p_CsvReader_, 0);
-    if (!SWIG_IsOK(res)) {
-      res = SWIG_ConvertPtr(swig_obj[0], &argp, SWIGTYPE_p_Reader_, 0);
-      if (!SWIG_IsOK(res)) {
-        SWIG_exception_fail(SWIG_ArgError(res), "Expected Reader or CsvReader");
-      }
-    }
-    arg1 = (Reader)argp;
-  }
-  result = (void *)reader_call_next(arg1);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_void, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_portfolio_call_update(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  Portfolio arg1 = 0 ;
-  Signal arg2 ;
-  void *argp2 ;
-  int res2 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "portfolio_call_update", 2, 2, swig_obj)) SWIG_fail;
-  {
-    void *argp = 0;
-    int res = SWIG_ConvertPtr(swig_obj[0], &argp, SWIGTYPE_p_SingleAssetPortfolio_, 0);
-    if (!SWIG_IsOK(res)) {
-      res = SWIG_ConvertPtr(swig_obj[0], &argp, SWIGTYPE_p_Portfolio_, 0);
-      if (!SWIG_IsOK(res)) {
-        SWIG_exception_fail(SWIG_ArgError(res), "Expected Portfolio or SingleAssetPortfolio");
-      }
-    }
-    arg1 = (Portfolio)argp;
-  }
-  {
-    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_Signal,  0 );
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "portfolio_call_update" "', argument " "2"" of type '" "Signal""'"); 
-    }  
-    if (!argp2) {
-      SWIG_exception_fail(SWIG_NullReferenceError, "invalid null reference " "in method '" "portfolio_call_update" "', argument " "2"" of type '" "Signal""'");
-    } else {
-      arg2 = *((Signal *)(argp2));
-    }
-  }
-  portfolio_call_update(arg1,arg2);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_portfolio_call_value(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  Portfolio arg1 = 0 ;
-  PyObject *swig_obj[1] ;
-  double result;
-  
-  (void)self;
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  {
-    void *argp = 0;
-    int res = SWIG_ConvertPtr(swig_obj[0], &argp, SWIGTYPE_p_SingleAssetPortfolio_, 0);
-    if (!SWIG_IsOK(res)) {
-      res = SWIG_ConvertPtr(swig_obj[0], &argp, SWIGTYPE_p_Portfolio_, 0);
-      if (!SWIG_IsOK(res)) {
-        SWIG_exception_fail(SWIG_ArgError(res), "Expected Portfolio or SingleAssetPortfolio");
-      }
-    }
-    arg1 = (Portfolio)argp;
-  }
-  result = (double)portfolio_call_value(arg1);
-  resultobj = SWIG_From_double((double)(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_portfolio_call_pnl(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  Portfolio arg1 = 0 ;
-  PyObject *swig_obj[1] ;
-  double result;
-  
-  (void)self;
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  {
-    void *argp = 0;
-    int res = SWIG_ConvertPtr(swig_obj[0], &argp, SWIGTYPE_p_SingleAssetPortfolio_, 0);
-    if (!SWIG_IsOK(res)) {
-      res = SWIG_ConvertPtr(swig_obj[0], &argp, SWIGTYPE_p_Portfolio_, 0);
-      if (!SWIG_IsOK(res)) {
-        SWIG_exception_fail(SWIG_ArgError(res), "Expected Portfolio or SingleAssetPortfolio");
-      }
-    }
-    arg1 = (Portfolio)argp;
-  }
-  result = (double)portfolio_call_pnl(arg1);
-  resultobj = SWIG_From_double((double)(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_runner_call_run(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  BasicRunner arg1 = 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  (void)self;
-  if (!SWIG_Python_UnpackTuple(args, "runner_call_run", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_BasicRunner_, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "runner_call_run" "', argument " "1"" of type '" "BasicRunner""'"); 
-  }
-  arg1 = (BasicRunner)(argp1);
-  ecode2 = SWIG_AsVal_bool(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "runner_call_run" "', argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = (bool)(val2);
-  runner_call_run(arg1,arg2);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_csv_reader_open(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
   char *arg1 = 0 ;
@@ -12270,51 +11949,49 @@ static PyMethodDef SwigMethods[] = {
 	 { "trade_init", _wrap_trade_init, METH_VARARGS, NULL},
 	 { "single_value_init", _wrap_single_value_init, METH_VARARGS, NULL},
 	 { "signal_init", _wrap_signal_init, METH_VARARGS, NULL},
-	 { "Indicator__update_set", _wrap_Indicator__update_set, METH_VARARGS, NULL},
-	 { "Indicator__update_get", _wrap_Indicator__update_get, METH_O, NULL},
-	 { "Indicator__value_set", _wrap_Indicator__value_set, METH_VARARGS, NULL},
-	 { "Indicator__value_get", _wrap_Indicator__value_get, METH_O, NULL},
-	 { "Indicator__delete_set", _wrap_Indicator__delete_set, METH_VARARGS, NULL},
-	 { "Indicator__delete_get", _wrap_Indicator__delete_get, METH_O, NULL},
-	 { "new_Indicator_", _wrap_new_Indicator_, METH_NOARGS, NULL},
-	 { "delete_Indicator_", _wrap_delete_Indicator_, METH_O, NULL},
-	 { "Indicator__swigregister", Indicator__swigregister, METH_O, NULL},
-	 { "Indicator__swiginit", Indicator__swiginit, METH_VARARGS, NULL},
-	 { "MovingAverage__base_set", _wrap_MovingAverage__base_set, METH_VARARGS, NULL},
-	 { "MovingAverage__base_get", _wrap_MovingAverage__base_get, METH_O, NULL},
-	 { "MovingAverage__prev_values_set", _wrap_MovingAverage__prev_values_set, METH_VARARGS, NULL},
-	 { "MovingAverage__prev_values_get", _wrap_MovingAverage__prev_values_get, METH_O, NULL},
-	 { "MovingAverage__window_size_set", _wrap_MovingAverage__window_size_set, METH_VARARGS, NULL},
-	 { "MovingAverage__window_size_get", _wrap_MovingAverage__window_size_get, METH_O, NULL},
-	 { "MovingAverage__pos_set", _wrap_MovingAverage__pos_set, METH_VARARGS, NULL},
-	 { "MovingAverage__pos_get", _wrap_MovingAverage__pos_get, METH_O, NULL},
-	 { "MovingAverage__len_set", _wrap_MovingAverage__len_set, METH_VARARGS, NULL},
-	 { "MovingAverage__len_get", _wrap_MovingAverage__len_get, METH_O, NULL},
-	 { "MovingAverage__sum_set", _wrap_MovingAverage__sum_set, METH_VARARGS, NULL},
-	 { "MovingAverage__sum_get", _wrap_MovingAverage__sum_get, METH_O, NULL},
-	 { "MovingAverage__update", _wrap_MovingAverage__update, METH_VARARGS, NULL},
-	 { "MovingAverage__value", _wrap_MovingAverage__value, METH_O, NULL},
-	 { "delete_MovingAverage_", _wrap_delete_MovingAverage_, METH_O, NULL},
-	 { "new_MovingAverage_", _wrap_new_MovingAverage_, METH_NOARGS, NULL},
-	 { "MovingAverage__swigregister", MovingAverage__swigregister, METH_O, NULL},
-	 { "MovingAverage__swiginit", MovingAverage__swiginit, METH_VARARGS, NULL},
+	 { "SMA__update_set", _wrap_SMA__update_set, METH_VARARGS, NULL},
+	 { "SMA__update_get", _wrap_SMA__update_get, METH_O, NULL},
+	 { "SMA__get_set", _wrap_SMA__get_set, METH_VARARGS, NULL},
+	 { "SMA__get_get", _wrap_SMA__get_get, METH_O, NULL},
+	 { "SMA__delete_set", _wrap_SMA__delete_set, METH_VARARGS, NULL},
+	 { "SMA__delete_get", _wrap_SMA__delete_get, METH_O, NULL},
+	 { "SMA__value_set", _wrap_SMA__value_set, METH_VARARGS, NULL},
+	 { "SMA__value_get", _wrap_SMA__value_get, METH_O, NULL},
+	 { "SMA__prev_values_set", _wrap_SMA__prev_values_set, METH_VARARGS, NULL},
+	 { "SMA__prev_values_get", _wrap_SMA__prev_values_get, METH_O, NULL},
+	 { "SMA__window_size_set", _wrap_SMA__window_size_set, METH_VARARGS, NULL},
+	 { "SMA__window_size_get", _wrap_SMA__window_size_get, METH_O, NULL},
+	 { "SMA__pos_set", _wrap_SMA__pos_set, METH_VARARGS, NULL},
+	 { "SMA__pos_get", _wrap_SMA__pos_get, METH_O, NULL},
+	 { "SMA__len_set", _wrap_SMA__len_set, METH_VARARGS, NULL},
+	 { "SMA__len_get", _wrap_SMA__len_get, METH_O, NULL},
+	 { "SMA__sum_set", _wrap_SMA__sum_set, METH_VARARGS, NULL},
+	 { "SMA__sum_get", _wrap_SMA__sum_get, METH_O, NULL},
+	 { "new_SMA_", _wrap_new_SMA_, METH_NOARGS, NULL},
+	 { "delete_SMA_", _wrap_delete_SMA_, METH_O, NULL},
+	 { "SMA__swigregister", SMA__swigregister, METH_O, NULL},
+	 { "SMA__swiginit", SMA__swiginit, METH_VARARGS, NULL},
 	 { "moving_average_new", _wrap_moving_average_new, METH_O, NULL},
-	 { "ExponentialMovingAverage__base_set", _wrap_ExponentialMovingAverage__base_set, METH_VARARGS, NULL},
-	 { "ExponentialMovingAverage__base_get", _wrap_ExponentialMovingAverage__base_get, METH_O, NULL},
-	 { "ExponentialMovingAverage__prev_value_set", _wrap_ExponentialMovingAverage__prev_value_set, METH_VARARGS, NULL},
-	 { "ExponentialMovingAverage__prev_value_get", _wrap_ExponentialMovingAverage__prev_value_get, METH_O, NULL},
-	 { "ExponentialMovingAverage__alpha_set", _wrap_ExponentialMovingAverage__alpha_set, METH_VARARGS, NULL},
-	 { "ExponentialMovingAverage__alpha_get", _wrap_ExponentialMovingAverage__alpha_get, METH_O, NULL},
-	 { "ExponentialMovingAverage__len_set", _wrap_ExponentialMovingAverage__len_set, METH_VARARGS, NULL},
-	 { "ExponentialMovingAverage__len_get", _wrap_ExponentialMovingAverage__len_get, METH_O, NULL},
-	 { "ExponentialMovingAverage__period_set", _wrap_ExponentialMovingAverage__period_set, METH_VARARGS, NULL},
-	 { "ExponentialMovingAverage__period_get", _wrap_ExponentialMovingAverage__period_get, METH_O, NULL},
-	 { "ExponentialMovingAverage__update", _wrap_ExponentialMovingAverage__update, METH_VARARGS, NULL},
-	 { "ExponentialMovingAverage__value", _wrap_ExponentialMovingAverage__value, METH_O, NULL},
-	 { "delete_ExponentialMovingAverage_", _wrap_delete_ExponentialMovingAverage_, METH_O, NULL},
-	 { "new_ExponentialMovingAverage_", _wrap_new_ExponentialMovingAverage_, METH_NOARGS, NULL},
-	 { "ExponentialMovingAverage__swigregister", ExponentialMovingAverage__swigregister, METH_O, NULL},
-	 { "ExponentialMovingAverage__swiginit", ExponentialMovingAverage__swiginit, METH_VARARGS, NULL},
+	 { "EMA__update_set", _wrap_EMA__update_set, METH_VARARGS, NULL},
+	 { "EMA__update_get", _wrap_EMA__update_get, METH_O, NULL},
+	 { "EMA__get_set", _wrap_EMA__get_set, METH_VARARGS, NULL},
+	 { "EMA__get_get", _wrap_EMA__get_get, METH_O, NULL},
+	 { "EMA__delete_set", _wrap_EMA__delete_set, METH_VARARGS, NULL},
+	 { "EMA__delete_get", _wrap_EMA__delete_get, METH_O, NULL},
+	 { "EMA__value_set", _wrap_EMA__value_set, METH_VARARGS, NULL},
+	 { "EMA__value_get", _wrap_EMA__value_get, METH_O, NULL},
+	 { "EMA__prev_value_set", _wrap_EMA__prev_value_set, METH_VARARGS, NULL},
+	 { "EMA__prev_value_get", _wrap_EMA__prev_value_get, METH_O, NULL},
+	 { "EMA__alpha_set", _wrap_EMA__alpha_set, METH_VARARGS, NULL},
+	 { "EMA__alpha_get", _wrap_EMA__alpha_get, METH_O, NULL},
+	 { "EMA__len_set", _wrap_EMA__len_set, METH_VARARGS, NULL},
+	 { "EMA__len_get", _wrap_EMA__len_get, METH_O, NULL},
+	 { "EMA__period_set", _wrap_EMA__period_set, METH_VARARGS, NULL},
+	 { "EMA__period_get", _wrap_EMA__period_get, METH_O, NULL},
+	 { "new_EMA_", _wrap_new_EMA_, METH_NOARGS, NULL},
+	 { "delete_EMA_", _wrap_delete_EMA_, METH_O, NULL},
+	 { "EMA__swigregister", EMA__swigregister, METH_O, NULL},
+	 { "EMA__swiginit", EMA__swiginit, METH_VARARGS, NULL},
 	 { "exponential_moving_average_new", _wrap_exponential_moving_average_new, METH_VARARGS, NULL},
 	 { "Reader__next_set", _wrap_Reader__next_set, METH_VARARGS, NULL},
 	 { "Reader__next_get", _wrap_Reader__next_get, METH_O, NULL},
@@ -12538,14 +12215,6 @@ static PyMethodDef SwigMethods[] = {
 	 { "BasicRunner__swiginit", BasicRunner__swiginit, METH_VARARGS, NULL},
 	 { "basic_runner_new", _wrap_basic_runner_new, METH_VARARGS, NULL},
 	 { "basic_runner_free", _wrap_basic_runner_free, METH_O, NULL},
-	 { "wu_indicator_update", _wrap_wu_indicator_update, METH_VARARGS, NULL},
-	 { "wu_indicator_value", _wrap_wu_indicator_value, METH_O, NULL},
-	 { "strategy_call_update", _wrap_strategy_call_update, METH_VARARGS, NULL},
-	 { "reader_call_next", _wrap_reader_call_next, METH_O, NULL},
-	 { "portfolio_call_update", _wrap_portfolio_call_update, METH_VARARGS, NULL},
-	 { "portfolio_call_value", _wrap_portfolio_call_value, METH_O, NULL},
-	 { "portfolio_call_pnl", _wrap_portfolio_call_pnl, METH_O, NULL},
-	 { "runner_call_run", _wrap_runner_call_run, METH_VARARGS, NULL},
 	 { "csv_reader_open", _wrap_csv_reader_open, METH_VARARGS, NULL},
 	 { NULL, NULL, 0, NULL }
 };
@@ -12561,10 +12230,8 @@ static swig_type_info _swigt__p_CsvError = {"_p_CsvError", "CsvError *|enum CsvE
 static swig_type_info _swigt__p_CsvReader_ = {"_p_CsvReader_", "CsvReader|struct CsvReader_ *|CsvReader_ *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_CsvReader__data = {"_p_CsvReader__data", "CsvReader__data *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_DataType = {"_p_DataType", "DataType *|enum DataType *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_ExponentialMovingAverage_ = {"_p_ExponentialMovingAverage_", "ExponentialMovingAverage|struct ExponentialMovingAverage_ *|ExponentialMovingAverage_ *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_EMA_ = {"_p_EMA_", "EMA|struct EMA_ *|EMA_ *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FILE = {"_p_FILE", "FILE *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_Indicator_ = {"_p_Indicator_", "Indicator|struct Indicator_ *|Indicator_ *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_MovingAverage_ = {"_p_MovingAverage_", "MovingAverage|struct MovingAverage_ *|MovingAverage_ *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_PortfolioStats_ = {"_p_PortfolioStats_", "PortfolioStats|struct PortfolioStats_ *|PortfolioStats_ *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Portfolio_ = {"_p_Portfolio_", "Portfolio|struct Portfolio_ *|Portfolio_ *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_PositionSizeType = {"_p_PositionSizeType", "PositionSizeType *|enum PositionSizeType *", 0, 0, (void*)0, 0};
@@ -12573,6 +12240,7 @@ static swig_type_info _swigt__p_PositionVector = {"_p_PositionVector", "Position
 static swig_type_info _swigt__p_Position_ = {"_p_Position_", "struct Position_ *|Position_ *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Reader_ = {"_p_Reader_", "Reader|struct Reader_ *|Reader_ *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Runner_ = {"_p_Runner_", "struct Runner_ *|Runner_ *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_SMA_ = {"_p_SMA_", "SMA|struct SMA_ *|SMA_ *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Side = {"_p_Side", "Side *|enum Side *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Signal = {"_p_Signal", "Signal *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_SingleAssetPortfolioParams = {"_p_SingleAssetPortfolioParams", "SingleAssetPortfolioParams *|struct SingleAssetPortfolioParams *", 0, 0, (void*)0, 0};
@@ -12585,10 +12253,11 @@ static swig_type_info _swigt__p_Trade = {"_p_Trade", "Trade *", 0, 0, (void*)0, 
 static swig_type_info _swigt__p_bool = {"_p_bool", "bool *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_double = {"_p_double", "double *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_q_const__struct_EMA___double = {"_p_f_p_q_const__struct_EMA___double", "double (*)(struct EMA_ const *)", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_f_p_q_const__struct_Portfolio___double = {"_p_f_p_q_const__struct_Portfolio___double", "double (*)(struct Portfolio_ const *)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_struct_Indicator___p_void = {"_p_f_p_struct_Indicator___p_void", "void *(*)(struct Indicator_ *)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_struct_Indicator___void = {"_p_f_p_struct_Indicator___void", "void (*)(struct Indicator_ *)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_struct_Indicator__p_void__p_void = {"_p_f_p_struct_Indicator__p_void__p_void", "void *(*)(struct Indicator_ *,void *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_q_const__struct_SMA___double = {"_p_f_p_q_const__struct_SMA___double", "double (*)(struct SMA_ const *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_EMA___void = {"_p_f_p_struct_EMA___void", "void (*)(struct EMA_ *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_EMA__double__double = {"_p_f_p_struct_EMA__double__double", "double (*)(struct EMA_ *,double)", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_f_p_struct_PortfolioStats___void = {"_p_f_p_struct_PortfolioStats___void", "void (*)(struct PortfolioStats_ *)", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_f_p_struct_PortfolioStats__double_enum_CloseReason__void = {"_p_f_p_struct_PortfolioStats__double_enum_CloseReason__void", "void (*)(struct PortfolioStats_ *,double,CloseReason)|void (*)(struct PortfolioStats_ *,double,enum CloseReason)", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_f_p_struct_Portfolio___void = {"_p_f_p_struct_Portfolio___void", "void (*)(struct Portfolio_ *)", 0, 0, (void*)0, 0};
@@ -12601,6 +12270,8 @@ static swig_type_info _swigt__p_f_p_struct_PositionVector_p_struct_Position___vo
 static swig_type_info _swigt__p_f_p_struct_Reader___p_void = {"_p_f_p_struct_Reader___p_void", "void *(*)(struct Reader_ *)", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_f_p_struct_Reader___void = {"_p_f_p_struct_Reader___void", "void (*)(struct Reader_ *)", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_f_p_struct_Runner__bool__void = {"_p_f_p_struct_Runner__bool__void", "void (*)(struct Runner_ *,bool)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_SMA___void = {"_p_f_p_struct_SMA___void", "void (*)(struct SMA_ *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_SMA__double__double = {"_p_f_p_struct_SMA__double__double", "double (*)(struct SMA_ *,double)", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_f_p_struct_Strategy___void = {"_p_f_p_struct_Strategy___void", "void (*)(struct Strategy_ *)", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_f_p_struct_Strategy__p_q_const__void__Signal = {"_p_f_p_struct_Strategy__p_q_const__void__Signal", "Signal (*)(struct Strategy_ *,void const *)", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_int = {"_p_int", "int32_t *|int_fast16_t *|int_fast32_t *|int_least32_t *|intptr_t *|int *", 0, 0, (void*)0, 0};
@@ -12622,10 +12293,8 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_CsvReader_,
   &_swigt__p_CsvReader__data,
   &_swigt__p_DataType,
-  &_swigt__p_ExponentialMovingAverage_,
+  &_swigt__p_EMA_,
   &_swigt__p_FILE,
-  &_swigt__p_Indicator_,
-  &_swigt__p_MovingAverage_,
   &_swigt__p_PortfolioStats_,
   &_swigt__p_Portfolio_,
   &_swigt__p_PositionSizeType,
@@ -12634,6 +12303,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_Position_,
   &_swigt__p_Reader_,
   &_swigt__p_Runner_,
+  &_swigt__p_SMA_,
   &_swigt__p_Side,
   &_swigt__p_Signal,
   &_swigt__p_SingleAssetPortfolioParams,
@@ -12646,10 +12316,11 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_bool,
   &_swigt__p_char,
   &_swigt__p_double,
+  &_swigt__p_f_p_q_const__struct_EMA___double,
   &_swigt__p_f_p_q_const__struct_Portfolio___double,
-  &_swigt__p_f_p_struct_Indicator___p_void,
-  &_swigt__p_f_p_struct_Indicator___void,
-  &_swigt__p_f_p_struct_Indicator__p_void__p_void,
+  &_swigt__p_f_p_q_const__struct_SMA___double,
+  &_swigt__p_f_p_struct_EMA___void,
+  &_swigt__p_f_p_struct_EMA__double__double,
   &_swigt__p_f_p_struct_PortfolioStats___void,
   &_swigt__p_f_p_struct_PortfolioStats__double_enum_CloseReason__void,
   &_swigt__p_f_p_struct_Portfolio___void,
@@ -12662,6 +12333,8 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_f_p_struct_Reader___p_void,
   &_swigt__p_f_p_struct_Reader___void,
   &_swigt__p_f_p_struct_Runner__bool__void,
+  &_swigt__p_f_p_struct_SMA___void,
+  &_swigt__p_f_p_struct_SMA__double__double,
   &_swigt__p_f_p_struct_Strategy___void,
   &_swigt__p_f_p_struct_Strategy__p_q_const__void__Signal,
   &_swigt__p_int,
@@ -12683,10 +12356,8 @@ static swig_cast_info _swigc__p_CsvError[] = {  {&_swigt__p_CsvError, 0, 0, 0},{
 static swig_cast_info _swigc__p_CsvReader_[] = {  {&_swigt__p_CsvReader_, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_CsvReader__data[] = {  {&_swigt__p_CsvReader__data, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_DataType[] = {  {&_swigt__p_DataType, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_ExponentialMovingAverage_[] = {  {&_swigt__p_ExponentialMovingAverage_, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_EMA_[] = {  {&_swigt__p_EMA_, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FILE[] = {  {&_swigt__p_FILE, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_Indicator_[] = {  {&_swigt__p_Indicator_, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_MovingAverage_[] = {  {&_swigt__p_MovingAverage_, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_PortfolioStats_[] = {  {&_swigt__p_PortfolioStats_, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Portfolio_[] = {  {&_swigt__p_Portfolio_, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_PositionSizeType[] = {  {&_swigt__p_PositionSizeType, 0, 0, 0},{0, 0, 0, 0}};
@@ -12695,6 +12366,7 @@ static swig_cast_info _swigc__p_PositionVector[] = {  {&_swigt__p_PositionVector
 static swig_cast_info _swigc__p_Position_[] = {  {&_swigt__p_Position_, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Reader_[] = {  {&_swigt__p_Reader_, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Runner_[] = {  {&_swigt__p_Runner_, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_SMA_[] = {  {&_swigt__p_SMA_, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Side[] = {  {&_swigt__p_Side, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Signal[] = {  {&_swigt__p_Signal, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_SingleAssetPortfolioParams[] = {  {&_swigt__p_SingleAssetPortfolioParams, 0, 0, 0},{0, 0, 0, 0}};
@@ -12707,10 +12379,11 @@ static swig_cast_info _swigc__p_Trade[] = {  {&_swigt__p_Trade, 0, 0, 0},{0, 0, 
 static swig_cast_info _swigc__p_bool[] = {  {&_swigt__p_bool, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_double[] = {  {&_swigt__p_double, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_q_const__struct_EMA___double[] = {  {&_swigt__p_f_p_q_const__struct_EMA___double, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_f_p_q_const__struct_Portfolio___double[] = {  {&_swigt__p_f_p_q_const__struct_Portfolio___double, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_struct_Indicator___p_void[] = {  {&_swigt__p_f_p_struct_Indicator___p_void, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_struct_Indicator___void[] = {  {&_swigt__p_f_p_struct_Indicator___void, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_struct_Indicator__p_void__p_void[] = {  {&_swigt__p_f_p_struct_Indicator__p_void__p_void, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_q_const__struct_SMA___double[] = {  {&_swigt__p_f_p_q_const__struct_SMA___double, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_EMA___void[] = {  {&_swigt__p_f_p_struct_EMA___void, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_EMA__double__double[] = {  {&_swigt__p_f_p_struct_EMA__double__double, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_f_p_struct_PortfolioStats___void[] = {  {&_swigt__p_f_p_struct_PortfolioStats___void, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_f_p_struct_PortfolioStats__double_enum_CloseReason__void[] = {  {&_swigt__p_f_p_struct_PortfolioStats__double_enum_CloseReason__void, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_f_p_struct_Portfolio___void[] = {  {&_swigt__p_f_p_struct_Portfolio___void, 0, 0, 0},{0, 0, 0, 0}};
@@ -12723,6 +12396,8 @@ static swig_cast_info _swigc__p_f_p_struct_PositionVector_p_struct_Position___vo
 static swig_cast_info _swigc__p_f_p_struct_Reader___p_void[] = {  {&_swigt__p_f_p_struct_Reader___p_void, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_f_p_struct_Reader___void[] = {  {&_swigt__p_f_p_struct_Reader___void, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_f_p_struct_Runner__bool__void[] = {  {&_swigt__p_f_p_struct_Runner__bool__void, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_SMA___void[] = {  {&_swigt__p_f_p_struct_SMA___void, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_SMA__double__double[] = {  {&_swigt__p_f_p_struct_SMA__double__double, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_f_p_struct_Strategy___void[] = {  {&_swigt__p_f_p_struct_Strategy___void, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_f_p_struct_Strategy__p_q_const__void__Signal[] = {  {&_swigt__p_f_p_struct_Strategy__p_q_const__void__Signal, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
@@ -12744,10 +12419,8 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_CsvReader_,
   _swigc__p_CsvReader__data,
   _swigc__p_DataType,
-  _swigc__p_ExponentialMovingAverage_,
+  _swigc__p_EMA_,
   _swigc__p_FILE,
-  _swigc__p_Indicator_,
-  _swigc__p_MovingAverage_,
   _swigc__p_PortfolioStats_,
   _swigc__p_Portfolio_,
   _swigc__p_PositionSizeType,
@@ -12756,6 +12429,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_Position_,
   _swigc__p_Reader_,
   _swigc__p_Runner_,
+  _swigc__p_SMA_,
   _swigc__p_Side,
   _swigc__p_Signal,
   _swigc__p_SingleAssetPortfolioParams,
@@ -12768,10 +12442,11 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_bool,
   _swigc__p_char,
   _swigc__p_double,
+  _swigc__p_f_p_q_const__struct_EMA___double,
   _swigc__p_f_p_q_const__struct_Portfolio___double,
-  _swigc__p_f_p_struct_Indicator___p_void,
-  _swigc__p_f_p_struct_Indicator___void,
-  _swigc__p_f_p_struct_Indicator__p_void__p_void,
+  _swigc__p_f_p_q_const__struct_SMA___double,
+  _swigc__p_f_p_struct_EMA___void,
+  _swigc__p_f_p_struct_EMA__double__double,
   _swigc__p_f_p_struct_PortfolioStats___void,
   _swigc__p_f_p_struct_PortfolioStats__double_enum_CloseReason__void,
   _swigc__p_f_p_struct_Portfolio___void,
@@ -12784,6 +12459,8 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_f_p_struct_Reader___p_void,
   _swigc__p_f_p_struct_Reader___void,
   _swigc__p_f_p_struct_Runner__bool__void,
+  _swigc__p_f_p_struct_SMA___void,
+  _swigc__p_f_p_struct_SMA__double__double,
   _swigc__p_f_p_struct_Strategy___void,
   _swigc__p_f_p_struct_Strategy__p_q_const__void__Signal,
   _swigc__p_int,

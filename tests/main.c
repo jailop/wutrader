@@ -2,7 +2,7 @@
 #include <CUnit/CUnit.h>
 
 extern void test_sma_returns_nan_during_warmup(void);
-extern void test_sma_calculates_correct_moving_average(void);
+extern void test_sma_calculates_correct_sma(void);
 extern void test_sma_sliding_window_updates_correctly(void);
 extern void test_ema_returns_nan_during_warmup(void);
 extern void test_ema_first_value_is_sma_of_warmup_period(void);
@@ -39,7 +39,7 @@ int main(void) {
     if (CU_add_test(sma_suite, "test_returns_nan_during_warmup",
                     test_sma_returns_nan_during_warmup) == NULL ||
         CU_add_test(sma_suite, "test_calculates_correct_moving_average",
-                    test_sma_calculates_correct_moving_average) == NULL ||
+                    test_sma_calculates_correct_sma) == NULL ||
         CU_add_test(sma_suite, "test_sliding_window_updates_correctly",
                     test_sma_sliding_window_updates_correctly) == NULL) {
         CU_cleanup_registry();

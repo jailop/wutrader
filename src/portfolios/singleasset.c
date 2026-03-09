@@ -1,5 +1,5 @@
 /**
- * Single Asset Portfolio implementation for backtesting.
+ * Single Asset WU_Portfolio implementation for backtesting.
  * Manages positions, cash, and transaction costs for a single asset.
  * 
  * (C) 2026 Jaime Lopez
@@ -9,9 +9,9 @@
 #include <string.h>
 #include "wu.h"
 
-static double calculate_position_size(SingleAssetPortfolio portfolio, double price) {
-    struct PositionSizingParams* ps = &portfolio->params.position_sizing;
-    if (ps->size_type == POSITION_SIZE_ABS) {
+static double calculate_wu_position_size(WU_SingleAssetPortfolio portfolio, double price) {
+    struct WU_PositionSizingParams* ps = &portfolio->params.wu_position_sizing;
+    if (ps->size_type == WU_POSITION_SIZE_ABS) {
         return ps->size_value;
     } else {
         double available_cash = portfolio->track.cash;
@@ -20,9 +20,9 @@ static double calculate_position_size(SingleAssetPortfolio portfolio, double pri
     }
 }
 
-static void execute_buy(SingleAssetPortfolio portfolio, Signal signal) {
+static void execute_buy(WU_SingleAssetPortfolio portfolio, WU_Signal signal) {
     if (portfolio->track.cash <= 0) return;
-    double quantity = calculate_position_size(portfolio, signal.price);
+    double quantity = calculate_wu_position_size(portfolio, signal.price);
     double slippage_price = signal.price * (1.0 + portfolio->params.slippage_pct);
     double cost = quantity * slippage_price;
     double tx_cost = cost * portfolio->params.tx_cost_pct;
@@ -34,24 +34,24 @@ static void execute_buy(SingleAssetPortfolio portfolio, Signal signal) {
         total_cost = cost + tx_cost;
     }
     if (quantity <= 0) return;
-    struct Position_ pos = {
+    struct WU_Position_ pos = {
         .timestamp = signal.timestamp,
         .quantity = quantity,
         .price = slippage_price
     };
-    position_add(portfolio->track.positions, &pos);
+    wu_position_add(portfolio->track.positions, &pos);
     portfolio->track.cash -= total_cost;
     portfolio->track.accum_expenses += tx_cost;
 }
 
-static void execute_sell(SingleAssetPortfolio portfolio, Signal signal) {
-    double total_quantity = position_total_quantity(portfolio->track.positions);
+static void execute_sell(WU_SingleAssetPortfolio portfolio, WU_Signal signal) {
+    double total_quantity = wu_position_total_quantity(portfolio->track.positions);
     if (total_quantity <= 0) return;
     double total_cost = 0;
-    PositionVector* vec = portfolio->track.positions;
+    WU_PositionVector* vec = portfolio->track.positions;
     for (int i = 0; i < vec->capacity; i++) {
         bool found = false;
-        struct Position_ pos = position_get(vec, i, &found);
+        struct WU_Position_ pos = wu_position_get(vec, i, &found);
         if (found) {
             total_cost += pos.quantity * pos.price;
         }
@@ -64,28 +64,28 @@ static void execute_sell(SingleAssetPortfolio portfolio, Signal signal) {
     
     portfolio->track.cash += proceeds - tx_cost;
     portfolio->track.accum_expenses += tx_cost;
-    portfolio_stats_record_trade(portfolio->track.stats, pnl, CLOSE_REASON_SIGNAL);
-    position_clear(portfolio->track.positions);
+    wu_portfolio_stats_record_trade(portfolio->track.stats, pnl, WU_CLOSE_REASON_SIGNAL);
+    wu_position_clear(portfolio->track.positions);
 }
 
-static void check_and_close_positions(SingleAssetPortfolio portfolio, double current_price) {
-    PositionVector* vec = portfolio->track.positions;
+static void check_and_close_positions(WU_SingleAssetPortfolio portfolio, double current_price) {
+    WU_PositionVector* vec = portfolio->track.positions;
     if (vec->count == 0) return;
     for (int i = 0; i < vec->capacity; i++) {
         bool found = false;
-        struct Position_ pos = position_get(vec, i, &found);
+        struct WU_Position_ pos = wu_position_get(vec, i, &found);
         if (!found) continue;
         double pnl_pct = (current_price - pos.price) / pos.price;
         bool should_close = false;
-        CloseReason reason = CLOSE_REASON_SIGNAL;
+        WU_CloseReason reason = WU_CLOSE_REASON_SIGNAL;
         
         if (portfolio->params.stop_loss_pct > 0 && pnl_pct <= -portfolio->params.stop_loss_pct) {
             should_close = true;
-            reason = CLOSE_REASON_STOP_LOSS;
+            reason = WU_CLOSE_REASON_STOP_LOSS;
         }
         if (portfolio->params.take_profit_pct > 0 && pnl_pct >= portfolio->params.take_profit_pct) {
             should_close = true;
-            reason = CLOSE_REASON_TAKE_PROFIT;
+            reason = WU_CLOSE_REASON_TAKE_PROFIT;
         }
         if (should_close) {
             double slippage_price = current_price * (1.0 - portfolio->params.slippage_pct);
@@ -95,71 +95,71 @@ static void check_and_close_positions(SingleAssetPortfolio portfolio, double cur
             
             portfolio->track.cash += proceeds - tx_cost;
             portfolio->track.accum_expenses += tx_cost;
-            portfolio_stats_record_trade(portfolio->track.stats, pnl, reason);
-            position_remove(vec, i);
+            wu_portfolio_stats_record_trade(portfolio->track.stats, pnl, reason);
+            wu_position_remove(vec, i);
         }
     }
 }
 
-double calculate_portfolio_value(const struct Portfolio_ *portfolio) {
-    const SingleAssetPortfolio p = (const SingleAssetPortfolio) portfolio;
-    double position_value = 0.0;
-    PositionVector* vec = p->track.positions;
+double calculate_wu_portfolio_value(const struct WU_Portfolio_ *portfolio) {
+    const WU_SingleAssetPortfolio p = (const WU_SingleAssetPortfolio) portfolio;
+    double wu_position_value = 0.0;
+    WU_PositionVector* vec = p->track.positions;
     for (int i = 0; i < vec->capacity; i++) {
         bool found = false;
-        struct Position_ pos = position_get(vec, i, &found);
+        struct WU_Position_ pos = wu_position_get(vec, i, &found);
         if (found) {
-            position_value += pos.quantity * p->track.last_price;
+            wu_position_value += pos.quantity * p->track.last_price;
         }
     }
-    return p->track.cash + position_value;
+    return p->track.cash + wu_position_value;
 }
 
-static double calculate_portfolio_pnl(const struct Portfolio_ *portfolio) {
-    SingleAssetPortfolio p = (SingleAssetPortfolio) portfolio;
-    double current_value = calculate_portfolio_value(portfolio);
+static double calculate_wu_portfolio_pnl(const struct WU_Portfolio_ *portfolio) {
+    WU_SingleAssetPortfolio p = (WU_SingleAssetPortfolio) portfolio;
+    double current_value = calculate_wu_portfolio_value(portfolio);
     return current_value - p->params.initial_cash;
 }
 
-static void update_portfolio(Portfolio portfolio, const Signal signal) {
-    SingleAssetPortfolio p = (SingleAssetPortfolio) portfolio;
+static void update_portfolio(WU_Portfolio portfolio, const WU_Signal signal) {
+    WU_SingleAssetPortfolio p = (WU_SingleAssetPortfolio) portfolio;
     p->track.last_price = signal.price;
     check_and_close_positions(p, signal.price);
     switch (signal.side) {
-        case SIDE_BUY:
+        case WU_SIDE_BUY:
             execute_buy(p, signal);
             break;
-        case SIDE_SELL:
+        case WU_SIDE_SELL:
             execute_sell(p, signal);
             break;
-        case SIDE_HOLD:
+        case WU_SIDE_HOLD:
             break;
     }
 }
 
-static void single_asset_portfolio_free(struct Portfolio_* portfolio) {
-    SingleAssetPortfolio p = (SingleAssetPortfolio) portfolio;
+static void wu_singleasset_portfolio_free(struct WU_Portfolio_* portfolio) {
+    WU_SingleAssetPortfolio p = (WU_SingleAssetPortfolio) portfolio;
     if (!p) return;
-    position_vector_delete(p->track.positions);
-    portfolio_stats_delete(p->track.stats);
+    wu_position_vector_delete(p->track.positions);
+    wu_portfolio_stats_delete(p->track.stats);
     free(portfolio);
 }
 
-SingleAssetPortfolio single_asset_portfolio_new(SingleAssetPortfolioParams params) {
-    SingleAssetPortfolio portfolio = malloc(sizeof(struct SingleAssetPortfolio_));
+WU_SingleAssetPortfolio wu_singleasset_portfolio_new(WU_SingleAssetPortfolioParams params) {
+    WU_SingleAssetPortfolio portfolio = malloc(sizeof(struct WU_SingleAssetPortfolio_));
     if (!portfolio) return NULL;
     
     portfolio->base.update = update_portfolio;
-    portfolio->base.value = calculate_portfolio_value;
-    portfolio->base.pnl = calculate_portfolio_pnl;
-    portfolio->base.delete = single_asset_portfolio_free;
+    portfolio->base.value = calculate_wu_portfolio_value;
+    portfolio->base.pnl = calculate_wu_portfolio_pnl;
+    portfolio->base.delete = wu_singleasset_portfolio_free;
     
     portfolio->params = params;
     portfolio->track.cash = params.initial_cash;
-    portfolio->track.positions = position_vector_new();
+    portfolio->track.positions = wu_position_vector_new();
     portfolio->track.last_price = 0.0;
     portfolio->track.accum_expenses = 0.0;
-    portfolio->track.stats = portfolio_stats_new();
+    portfolio->track.stats = wu_portfolio_stats_new();
     
     return portfolio;
 }

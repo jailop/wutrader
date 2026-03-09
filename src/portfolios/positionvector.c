@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "wu.h"
 
-static void add_position(PositionVector* vec, Position pos) {
+static void add_position(WU_PositionVector* vec, WU_Position pos) {
     if (!vec || !pos) return;
     int slot = -1;
     for (int i = 0; i < vec->capacity; i++) {
@@ -12,7 +12,7 @@ static void add_position(PositionVector* vec, Position pos) {
     }
     if (slot == -1) {
         int new_capacity = vec->capacity == 0 ? 4 : vec->capacity * 2;
-        vec->positions = realloc(vec->positions, new_capacity * sizeof(struct Position_));
+        vec->positions = realloc(vec->positions, new_capacity * sizeof(struct WU_Position_));
         vec->active = realloc(vec->active, new_capacity * sizeof(bool));
         for (int i = vec->capacity; i < new_capacity; i++) {
             vec->active[i] = false;
@@ -26,14 +26,14 @@ static void add_position(PositionVector* vec, Position pos) {
     vec->count++;
 }
 
-static void remove_position(PositionVector* vec, int index) {
+static void remove_position(WU_PositionVector* vec, int index) {
     if (!vec || index < 0 || index >= vec->capacity) return;
     if (!vec->active[index]) return;
     vec->active[index] = false;
     vec->count--;
 }
 
-static void clear_positions(PositionVector* vec) {
+static void clear_positions(WU_PositionVector* vec) {
     if (!vec) return;
     for (int i = 0; i < vec->capacity; i++) {
         vec->active[i] = false;
@@ -41,8 +41,8 @@ static void clear_positions(PositionVector* vec) {
     vec->count = 0;
 }
 
-static struct Position_ get_position(PositionVector* vec, int index, bool* found) {
-    struct Position_ empty = {0};
+static struct WU_Position_ get_position(WU_PositionVector* vec, int index, bool* found) {
+    struct WU_Position_ empty = {0};
     if (!vec || index < 0 || index >= vec->capacity || !vec->active[index]) {
         if (found) *found = false;
         return empty;
@@ -51,7 +51,7 @@ static struct Position_ get_position(PositionVector* vec, int index, bool* found
     return vec->positions[index];
 }
 
-static double get_total_quantity(PositionVector* vec) {
+static double get_total_quantity(WU_PositionVector* vec) {
     if (!vec) return 0.0;
     double total = 0.0;
     for (int i = 0; i < vec->capacity; i++) {
@@ -62,8 +62,8 @@ static double get_total_quantity(PositionVector* vec) {
     return total;
 }
 
-PositionVector* position_vector_new(void) {
-    PositionVector* vec = malloc(sizeof(PositionVector));
+WU_PositionVector* wu_position_vector_new(void) {
+    WU_PositionVector* vec = malloc(sizeof(WU_PositionVector));
     if (!vec) return NULL;
     vec->positions = NULL;
     vec->active = NULL;
@@ -77,7 +77,7 @@ PositionVector* position_vector_new(void) {
     return vec;
 }
 
-void position_vector_free(PositionVector* vec) {
+void wu_position_vector_free(WU_PositionVector* vec) {
     if (!vec) return;
     free(vec->positions);
     free(vec->active);

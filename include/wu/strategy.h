@@ -13,31 +13,31 @@
  * is expected that specific strategy implementations will extend this
  * base structure and implement the defined methods.
  */
-typedef struct Strategy_ {
-    Signal (*update)(struct Strategy_* strategy, const void* data);
-    void (*delete)(struct Strategy_* strategy);
-}* Strategy;
+typedef struct WU_Strategy_ {
+    WU_Signal (*update)(struct WU_Strategy_* strategy, const void* data);
+    void (*delete)(struct WU_Strategy_* strategy);
+}* WU_Strategy;
 
-#define strategy_update(strategy, data) ((strategy)->update((strategy), (data)))
+#define wu_strategy_update(strategy, data) ((strategy)->update((strategy), (data)))
 
-#define strategy_delete(strategy) do { \
+#define wu_strategy_delete(strategy) do { \
     if ((strategy)->delete) \
-        (strategy)->delete((Strategy)(strategy)); \
+        (strategy)->delete((WU_Strategy)(strategy)); \
 } while(0)
 
 /**
- * CrossOverStrat is a simple crossover strategy that generates buy and
+ * WU_CrossOverStrat is a simple crossover strategy that generates buy and
  * sell signals based on the crossover of two moving averages.
  */
-typedef struct CrossOverStrat_ {
-    struct Strategy_ base;
-    MovingAverage short_ma;
-    MovingAverage long_ma;
+typedef struct WU_CrossOverStrat_ {
+    struct WU_Strategy_ base;
+    WU_SMA short_ma;
+    WU_SMA long_ma;
     double threshold;
-    Side last_signal;
-}* CrossOverStrat;
+    WU_Side last_signal;
+}* WU_CrossOverStrat;
 
-CrossOverStrat cross_over_strat_new(int short_window, int long_window,
+WU_CrossOverStrat wu_crossover_strat_new(int short_window, int long_window,
         double threshold);
 
 #endif // WU_STRATEGY_H

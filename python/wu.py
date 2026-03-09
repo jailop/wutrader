@@ -159,65 +159,46 @@ def single_value_init(timestamp, value):
 
 def signal_init(timestamp, side, price, quantity):
     return _wu.signal_init(timestamp, side, price, quantity)
-class Indicator_(object):
+class SMA_(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    update = property(_wu.Indicator__update_get, _wu.Indicator__update_set)
-    value = property(_wu.Indicator__value_get, _wu.Indicator__value_set)
-    delete = property(_wu.Indicator__delete_get, _wu.Indicator__delete_set)
+    update = property(_wu.SMA__update_get, _wu.SMA__update_set)
+    get = property(_wu.SMA__get_get, _wu.SMA__get_set)
+    delete = property(_wu.SMA__delete_get, _wu.SMA__delete_set)
+    value = property(_wu.SMA__value_get, _wu.SMA__value_set)
+    prev_values = property(_wu.SMA__prev_values_get, _wu.SMA__prev_values_set)
+    window_size = property(_wu.SMA__window_size_get, _wu.SMA__window_size_set)
+    pos = property(_wu.SMA__pos_get, _wu.SMA__pos_set)
+    len = property(_wu.SMA__len_get, _wu.SMA__len_set)
+    sum = property(_wu.SMA__sum_get, _wu.SMA__sum_set)
 
     def __init__(self):
-        _wu.Indicator__swiginit(self, _wu.new_Indicator_())
-    __swig_destroy__ = _wu.delete_Indicator_
+        _wu.SMA__swiginit(self, _wu.new_SMA_())
+    __swig_destroy__ = _wu.delete_SMA_
 
-# Register Indicator_ in _wu:
-_wu.Indicator__swigregister(Indicator_)
-class MovingAverage_(object):
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-    __repr__ = _swig_repr
-    base = property(_wu.MovingAverage__base_get, _wu.MovingAverage__base_set)
-    prev_values = property(_wu.MovingAverage__prev_values_get, _wu.MovingAverage__prev_values_set)
-    window_size = property(_wu.MovingAverage__window_size_get, _wu.MovingAverage__window_size_set)
-    pos = property(_wu.MovingAverage__pos_get, _wu.MovingAverage__pos_set)
-    len = property(_wu.MovingAverage__len_get, _wu.MovingAverage__len_set)
-    sum = property(_wu.MovingAverage__sum_get, _wu.MovingAverage__sum_set)
-
-    def update(self, value):
-        return _wu.MovingAverage__update(self, value)
-
-    def value(self):
-        return _wu.MovingAverage__value(self)
-    __swig_destroy__ = _wu.delete_MovingAverage_
-
-    def __init__(self):
-        _wu.MovingAverage__swiginit(self, _wu.new_MovingAverage_())
-
-# Register MovingAverage_ in _wu:
-_wu.MovingAverage__swigregister(MovingAverage_)
+# Register SMA_ in _wu:
+_wu.SMA__swigregister(SMA_)
 
 def moving_average_new(window_size):
     return _wu.moving_average_new(window_size)
-class ExponentialMovingAverage_(object):
+class EMA_(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    base = property(_wu.ExponentialMovingAverage__base_get, _wu.ExponentialMovingAverage__base_set)
-    prev_value = property(_wu.ExponentialMovingAverage__prev_value_get, _wu.ExponentialMovingAverage__prev_value_set)
-    alpha = property(_wu.ExponentialMovingAverage__alpha_get, _wu.ExponentialMovingAverage__alpha_set)
-    len = property(_wu.ExponentialMovingAverage__len_get, _wu.ExponentialMovingAverage__len_set)
-    period = property(_wu.ExponentialMovingAverage__period_get, _wu.ExponentialMovingAverage__period_set)
-
-    def update(self, value):
-        return _wu.ExponentialMovingAverage__update(self, value)
-
-    def value(self):
-        return _wu.ExponentialMovingAverage__value(self)
-    __swig_destroy__ = _wu.delete_ExponentialMovingAverage_
+    update = property(_wu.EMA__update_get, _wu.EMA__update_set)
+    get = property(_wu.EMA__get_get, _wu.EMA__get_set)
+    delete = property(_wu.EMA__delete_get, _wu.EMA__delete_set)
+    value = property(_wu.EMA__value_get, _wu.EMA__value_set)
+    prev_value = property(_wu.EMA__prev_value_get, _wu.EMA__prev_value_set)
+    alpha = property(_wu.EMA__alpha_get, _wu.EMA__alpha_set)
+    len = property(_wu.EMA__len_get, _wu.EMA__len_set)
+    period = property(_wu.EMA__period_get, _wu.EMA__period_set)
 
     def __init__(self):
-        _wu.ExponentialMovingAverage__swiginit(self, _wu.new_ExponentialMovingAverage_())
+        _wu.EMA__swiginit(self, _wu.new_EMA_())
+    __swig_destroy__ = _wu.delete_EMA_
 
-# Register ExponentialMovingAverage_ in _wu:
-_wu.ExponentialMovingAverage__swigregister(ExponentialMovingAverage_)
+# Register EMA_ in _wu:
+_wu.EMA__swigregister(EMA_)
 
 def exponential_moving_average_new(period, smoothing):
     return _wu.exponential_moving_average_new(period, smoothing)
@@ -520,39 +501,11 @@ def basic_runner_new(portfolio, strategy, reader):
 def basic_runner_free(runner):
     return _wu.basic_runner_free(runner)
 
-def wu_indicator_update(ind, value):
-    return _wu.wu_indicator_update(ind, value)
-
-def wu_indicator_value(ind):
-    return _wu.wu_indicator_value(ind)
-
-def strategy_call_update(strategy, data):
-    return _wu.strategy_call_update(strategy, data)
-
-def reader_call_next(reader):
-    return _wu.reader_call_next(reader)
-
-def portfolio_call_update(portfolio, signal):
-    return _wu.portfolio_call_update(portfolio, signal)
-
-def portfolio_call_value(portfolio):
-    return _wu.portfolio_call_value(portfolio)
-
-def portfolio_call_pnl(portfolio):
-    return _wu.portfolio_call_pnl(portfolio)
-
-def runner_call_run(runner, verbose):
-    return _wu.runner_call_run(runner, verbose)
-
 def csv_reader_open(filename, data_type, has_headers):
     return _wu.csv_reader_open(filename, data_type, has_headers)
 
 # Version information
 __version__ = '0.1.0'
-
-# Alias to match C macro names
-indicator_update = wu_indicator_update
-indicator_value = wu_indicator_value
 
 def create_signal(timestamp=0, side=SIDE_HOLD, price=0.0, quantity=0.0):
     """

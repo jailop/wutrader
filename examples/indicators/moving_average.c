@@ -2,11 +2,11 @@
 #include <stdio.h>
 
 int main() {
-    MovingAverage ma = moving_average_new(3);
-    indicator_update(ma, 1.0);
-    indicator_update(ma, 2.0);
-    indicator_update(ma, 3.0);
-    printf("Moving Average: %f\n", DOUBLE(ma)); // Should print 2.0
-    indicator_delete(ma);
+    WU_SMA ma = wu_sma_new(3);
+    wu_indicator_update(ma, 1.0);
+    wu_indicator_update(ma, 2.0);
+    wu_indicator_update(ma, 3.0);
+    printf("Moving Average: %f\n", wu_indicator_get(ma));
+    wu_indicator_delete(ma);
     return 0;
 }

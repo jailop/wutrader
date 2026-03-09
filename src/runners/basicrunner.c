@@ -1,46 +1,46 @@
 #include <stdlib.h>
 #include "wu.h"
 
-static void run_backtest(BasicRunner runner, bool verbose) {
+static void run_backtest(WU_BasicRunner runner, bool verbose) {
     if (!runner) return;
     
-    Portfolio portfolio = runner->portfolio;
-    Strategy strategy = runner->strategy;
-    Reader reader = runner->reader;
+    WU_Portfolio portfolio = runner->portfolio;
+    WU_Strategy strategy = runner->strategy;
+    WU_Reader reader = runner->reader;
     
     void* data;
-    while ((data = reader_next(reader)) != NULL) {
-        void* strategy_data = data;
-        SingleValue converted;
+    while ((data = wu_reader_next(reader)) != NULL) {
+        void* wu_strategy_data = data;
+        WU_Single converted;
         
-        Candle* candle = (Candle*)data;
-        if (candle->data_type == DATA_TYPE_CANDLE) {
-            converted = candle_to_single_value(candle);
-            strategy_data = &converted;
+        WU_Candle* candle = (WU_Candle*)data;
+        if (candle->data_type == WU_DATA_TYPE_CANDLE) {
+            converted = wu_candle_to_single_value(candle);
+            wu_strategy_data = &converted;
         }
         
-        Signal sig = strategy_update(strategy, strategy_data);
-        portfolio_update(portfolio, sig);
+        WU_Signal sig = wu_strategy_update(strategy, wu_strategy_data);
+        wu_portfolio_update(portfolio, sig);
         
         if (verbose) {
-            SingleAssetPortfolio p = (SingleAssetPortfolio)portfolio;
-            const char* side_str = sig.side == SIDE_BUY ? "BUY" : 
-                                   sig.side == SIDE_SELL ? "SELL" : "HOLD";
-            printf("Time: %ld | Signal: %-4s | Price: %.2f | Qty: %.4f | "
+            WU_SingleAssetPortfolio p = (WU_SingleAssetPortfolio)portfolio;
+            const char* side_str = sig.side == WU_SIDE_BUY ? "BUY" : 
+                                   sig.side == WU_SIDE_SELL ? "SELL" : "HOLD";
+            printf("Time: %ld | WU_Signal: %-4s | Price: %.2f | Qty: %.4f | "
                     "Cash: %.2f | Value: %.2f | P&L: %.2f\n",
                    sig.timestamp,
                    side_str,
                    sig.price,
                    sig.quantity,
                    p->track.cash,
-                   portfolio_value(portfolio),
-                   portfolio_pnl(portfolio));
+                   wu_portfolio_value(portfolio),
+                   wu_portfolio_pnl(portfolio));
         }
     }
 }
 
-BasicRunner basic_runner_new(Portfolio portfolio, Strategy strategy, Reader reader) {
-    BasicRunner runner = malloc(sizeof(struct BasicRunner_));
+WU_BasicRunner wu_basic_runner_new(WU_Portfolio portfolio, WU_Strategy strategy, WU_Reader reader) {
+    WU_BasicRunner runner = malloc(sizeof(struct WU_BasicRunner_));
     if (!runner) return NULL;
     runner->portfolio = portfolio;
     runner->strategy = strategy;
@@ -49,10 +49,10 @@ BasicRunner basic_runner_new(Portfolio portfolio, Strategy strategy, Reader read
     return runner;
 }
 
-void basic_runner_free(BasicRunner runner) {
+void wu_basic_runner_free(WU_BasicRunner runner) {
     if (!runner) return;
-    portfolio_delete(runner->portfolio);
-    strategy_delete(runner->strategy);
-    reader_delete(runner->reader);
+    wu_portfolio_delete(runner->portfolio);
+    wu_strategy_delete(runner->strategy);
+    wu_reader_delete(runner->reader);
     free(runner);
 }

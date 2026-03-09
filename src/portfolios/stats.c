@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "wu.h"
 
-static void stats_record_trade(struct PortfolioStats_* stats, double pnl, CloseReason reason) {
+static void stats_record_trade(struct WU_PortfolioStats_* stats, double pnl, WU_CloseReason reason) {
     if (!stats) return;
     
     stats->total_trades++;
@@ -18,13 +18,13 @@ static void stats_record_trade(struct PortfolioStats_* stats, double pnl, CloseR
             stats->max_loss = pnl;
     }
     
-    if (reason == CLOSE_REASON_STOP_LOSS)
+    if (reason == WU_CLOSE_REASON_STOP_LOSS)
         stats->stop_loss_exits++;
-    else if (reason == CLOSE_REASON_TAKE_PROFIT)
+    else if (reason == WU_CLOSE_REASON_TAKE_PROFIT)
         stats->take_profit_exits++;
 }
 
-static void stats_reset(struct PortfolioStats_* stats) {
+static void stats_reset(struct WU_PortfolioStats_* stats) {
     if (!stats) return;
     stats->total_trades = 0;
     stats->winning_trades = 0;
@@ -37,12 +37,12 @@ static void stats_reset(struct PortfolioStats_* stats) {
     stats->max_loss = 0.0;
 }
 
-static void stats_free(struct PortfolioStats_* stats) {
+static void stats_free(struct WU_PortfolioStats_* stats) {
     if (stats) free(stats);
 }
 
-PortfolioStats portfolio_stats_new(void) {
-    PortfolioStats stats = malloc(sizeof(struct PortfolioStats_));
+WU_PortfolioStats wu_portfolio_stats_new(void) {
+    WU_PortfolioStats stats = malloc(sizeof(struct WU_PortfolioStats_));
     if (!stats) return NULL;
     
     stats->record_trade = stats_record_trade;

@@ -11,21 +11,7 @@
 
 /* Typemaps must be defined BEFORE the headers that use them */
 
-/* Typemap to allow MovingAverage to be passed as Indicator */
-%typemap(in) Indicator {
-    void *argp = 0;
-    int res = SWIG_ConvertPtr($input, &argp, $descriptor(struct MovingAverage_ *), 0);
-    if (!SWIG_IsOK(res)) {
-        res = SWIG_ConvertPtr($input, &argp, $descriptor(struct ExponentialMovingAverage_ *), 0);
-        if (!SWIG_IsOK(res)) {
-            res = SWIG_ConvertPtr($input, &argp, $descriptor(Indicator), 0);
-            if (!SWIG_IsOK(res)) {
-                SWIG_exception_fail(SWIG_ArgError(res), "Expected Indicator, MovingAverage, or ExponentialMovingAverage");
-            }
-        }
-    }
-    $1 = (Indicator)argp;
-}
+
 
 /* Typemap to allow SingleAssetPortfolio to be passed as Portfolio */
 %typemap(in) Portfolio {
@@ -83,45 +69,6 @@
 %include "../include/wu/runner.h"
 
 %inline %{
-/* Indicator interface - wraps the C macros for Python use */
-void wu_indicator_update(Indicator ind, double value) {
-    if (ind && ind->update) {
-        ind->update(ind, &value);
-    }
-}
-
-double wu_indicator_value(Indicator ind) {
-    if (ind && ind->value) {
-        double* val_ptr = (double*)ind->value(ind);
-        return val_ptr ? *val_ptr : 0.0;
-    }
-    return 0.0;
-}
-
-Signal strategy_call_update(Strategy strategy, void* data) {
-    return strategy->update(strategy, data);
-}
-
-void* reader_call_next(Reader reader) {
-    return reader->next(reader);
-}
-
-void portfolio_call_update(Portfolio portfolio, Signal signal) {
-    portfolio->update(portfolio, signal);
-}
-
-double portfolio_call_value(Portfolio portfolio) {
-    return portfolio->value(portfolio);
-}
-
-double portfolio_call_pnl(Portfolio portfolio) {
-    return portfolio->pnl(portfolio);
-}
-
-void runner_call_run(BasicRunner runner, bool verbose) {
-    runner->run(runner, verbose);
-}
-
 /* Helper to open CSV file from filename */
 CsvReader csv_reader_open(const char* filename, DataType data_type, bool has_headers) {
     FILE* file = fopen(filename, "r");
@@ -243,47 +190,7 @@ CsvReader csv_reader_open(const char* filename, DataType data_type, bool has_hea
     }
 }
 
-%extend MovingAverage_ {
-    void update(double value) {
-        if ($self->base.update) {
-            $self->base.update((Indicator)$self, &value);
-        }
-    }
-    
-    double value() {
-        if ($self->base.value) {
-            double* val_ptr = (double*)$self->base.value((Indicator)$self);
-            return val_ptr ? *val_ptr : 0.0;
-        }
-        return 0.0;
-    }
-    
-    ~MovingAverage_() {
-        if ($self->base.delete)
-            $self->base.delete((Indicator)$self);
-    }
-}
 
-%extend ExponentialMovingAverage_ {
-    void update(double value) {
-        if ($self->base.update) {
-            $self->base.update((Indicator)$self, &value);
-        }
-    }
-    
-    double value() {
-        if ($self->base.value) {
-            double* val_ptr = (double*)$self->base.value((Indicator)$self);
-            return val_ptr ? *val_ptr : 0.0;
-        }
-        return 0.0;
-    }
-    
-    ~ExponentialMovingAverage_() {
-        if ($self->base.delete)
-            $self->base.delete((Indicator)$self);
-    }
-}
 
 %extend PositionVector {
     ~PositionVector() {
@@ -301,10 +208,6 @@ CsvReader csv_reader_open(const char* filename, DataType data_type, bool has_hea
 %pythoncode %{
 # Version information
 __version__ = '0.1.0'
-
-# Alias to match C macro names
-indicator_update = wu_indicator_update
-indicator_value = wu_indicator_value
 
 def create_signal(timestamp=0, side=SIDE_HOLD, price=0.0, quantity=0.0):
     """
@@ -369,11 +272,4 @@ def open_csv_reader(filename, data_type=DATA_TYPE_CANDLE, has_headers=True):
 # Objects will be automatically freed when garbage collected
 %}
 
-%feature("python:annotations", "c") SingleAssetPortfolio_;
-%feature("python:annotations", "c") CrossOverStrat_;
-%feature("python:annotations", "c") CsvReader_;
-%feature("python:annotations", "c") BasicRunner_;
-%feature("python:annotations", "c") MovingAverage_;
-%feature("python:annotations", "c") ExponentialMovingAverage_;
-%feature("python:annotations", "c") PositionVector;
-%feature("python:annotations", "c") PortfolioStats_;
+

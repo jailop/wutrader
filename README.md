@@ -85,26 +85,26 @@ int main(int argc, char** argv) {
         fprintf(stderr, "Error: Cannot open file %s\n", filename);
         return 1;
     }
-    SingleAssetPortfolioParams params = {
+    WU_SingleAssetPortfolioParams params = {
         .initial_cash = 100000.0,
         .tx_cost_pct = 0.001,
         .stop_loss_pct = 0.10,
         .take_profit_pct = 0.20,
         .slippage_pct = 0.0005,
-        .position_sizing = {
-            .size_type = POSITION_SIZE_PCT,
+        .wu_position_sizing = {
+            .size_type = WU_POSITION_SIZE_PCT,
             .size_value = 1.0
         }
     };
-    SingleAssetPortfolio portfolio = single_asset_portfolio_new(params);
-    CrossOverStrat strategy = cross_over_strat_new(
+    WU_SingleAssetPortfolio portfolio = wu_singleasset_portfolio_new(params);
+    WU_CrossOverStrat strategy = wu_crossover_strat_new(
             10,  // short window
             30,  // long window
             0.0  // no threshold
         );
-    CsvReader reader = csv_reader_new(
+    WU_Csv_Reader reader = wu_csv_reader_new(
             file,               // file pointer
-            DATA_TYPE_CANDLE,   // data type
+            WU_DATA_TYPE_CANDLE,   // data type
             true                // has header
         );
     if (!portfolio || !strategy || !reader) {
@@ -112,26 +112,23 @@ int main(int argc, char** argv) {
         ret = 1;
         goto cleanup;
     }
-    BasicRunner runner = basic_runner_new(
-        (Portfolio)portfolio,
-        (Strategy)strategy,
-        (Reader)reader
+    WU_BasicRunner runner = wu_basic_runner_new(
+        (WU_Portfolio)portfolio,
+        (WU_Strategy)strategy,
+        (WU_Reader)reader
     );
     if (!runner) {
         fprintf(stderr, "Error: Failed to create runner\n");
         ret = 1;
         goto cleanup;
     }
-    runner_run(runner, argc > 2 && strcmp(argv[2], "-v") == 0);
-    SingleAssetPortfolio sap = (SingleAssetPortfolio)portfolio;
-    PortfolioStats stats = sap->track.stats;
+    runner_exec(runner, argc > 2 && strcmp(argv[2], "-v") == 0);
+    WU_SingleAssetPortfolio sap = (WU_SingleAssetPortfolio)portfolio;
+    WU_PortfolioStats stats = sap->track.stats;
     printf("Initial Cash:      %.2f\n", params.initial_cash);
-    printf("Final Value:       %.2f\n", portfolio_value(portfolio));
-    printf("P&L:               %.2f (%.2f%%)\n", 
-           portfolio_pnl(portfolio),
-           (portfolio_pnl(portfolio) / params.initial_cash) * 100.0);
+    printf("Final Value:       %.2f\n", wu_portfolio_value(portfolio));
 cleanup:
-    if (runner) basic_runner_free(runner);
+    if (runner) wu_basic_runner_free(runner);
     if (file) fclose(file);
     return ret;
 }

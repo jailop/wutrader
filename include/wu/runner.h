@@ -6,26 +6,26 @@
 #include "reader.h"
 
 /**
- * Runner is the base interface for a backtest runner.
+ * WU_Runner is the base interface for a backtest runner.
  */
-typedef struct Runner_ {
-    void (*run)(struct Runner_* runner, bool verbose);
-}* Runner;
+typedef struct WU_Runner_ {
+    void (*exec)(struct WU_Runner_* runner, bool verbose);
+}* WU_Runner;
 
-#define runner_run(runner, verbose) ((runner)->run((runner), (verbose)))
+#define runner_exec(runner, verbose) ((runner)->run((runner), (verbose)))
 
 /**
- * BasicRunner is a simple runner implementation that processes data
+ * WU_BasicRunner is a simple runner implementation that processes data
  * from a reader, updates a strategy, and executes trades in a portfolio.
  */
-typedef struct BasicRunner_ {
-    Portfolio portfolio;
-    Strategy strategy;
-    Reader reader;
-    void (*run)(struct BasicRunner_* runner, bool verbose);
-}* BasicRunner;
+typedef struct WU_BasicRunner_ {
+    WU_Portfolio portfolio;
+    WU_Strategy strategy;
+    WU_Reader reader;
+    void (*run)(struct WU_BasicRunner_* runner, bool verbose);
+}* WU_BasicRunner;
 
-BasicRunner basic_runner_new(Portfolio portfolio, Strategy strategy, Reader reader);
-void basic_runner_free(BasicRunner runner);
+WU_BasicRunner wu_basic_runner_new(WU_Portfolio portfolio, WU_Strategy strategy, WU_Reader reader);
+void wu_basic_runner_free(WU_BasicRunner runner);
 
 #endif // WU_RUNNER_H

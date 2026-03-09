@@ -3,121 +3,121 @@
 #include "wu.h"
 
 void test_crossover_initialization(void) {
-    CrossOverStrat strat = cross_over_strat_new(5, 10, 0.01);
+    WU_CrossOverStrat strat = wu_crossover_strat_new(5, 10, 0.01);
     CU_ASSERT_PTR_NOT_NULL(strat);
     CU_ASSERT_PTR_NOT_NULL(strat->short_ma);
     CU_ASSERT_PTR_NOT_NULL(strat->long_ma);
     CU_ASSERT_DOUBLE_EQUAL(strat->threshold, 0.01, 0.0001);
-    CU_ASSERT_EQUAL(strat->last_signal, SIDE_HOLD);
-    strategy_delete((Strategy)strat);
+    CU_ASSERT_EQUAL(strat->last_signal, WU_SIDE_HOLD);
+    wu_strategy_delete((WU_Strategy)strat);
 }
 
 void test_crossover_holds_during_warmup(void) {
-    CrossOverStrat strat = cross_over_strat_new(3, 5, 0.01);
-    SingleValue sv1 = single_value_init(1000, 100.0);
-    Signal signal = strategy_update((Strategy)strat, &sv1);
-    CU_ASSERT_EQUAL(signal.side, SIDE_HOLD);
-    SingleValue sv2 = single_value_init(2000, 105.0);
-    signal = strategy_update((Strategy)strat, &sv2);
-    CU_ASSERT_EQUAL(signal.side, SIDE_HOLD);
-    strategy_delete((Strategy)strat);
+    WU_CrossOverStrat strat = wu_crossover_strat_new(3, 5, 0.01);
+    WU_Single sv1 = wu_single_init(1000, 100.0);
+    WU_Signal signal = wu_strategy_update((WU_Strategy)strat, &sv1);
+    CU_ASSERT_EQUAL(signal.side, WU_SIDE_HOLD);
+    WU_Single sv2 = wu_single_init(2000, 105.0);
+    signal = wu_strategy_update((WU_Strategy)strat, &sv2);
+    CU_ASSERT_EQUAL(signal.side, WU_SIDE_HOLD);
+    wu_strategy_delete((WU_Strategy)strat);
 }
 
 void test_crossover_generates_buy_signal(void) {
-    CrossOverStrat strat = cross_over_strat_new(2, 5, 0.0);
+    WU_CrossOverStrat strat = wu_crossover_strat_new(2, 5, 0.0);
     for (int i = 0; i < 10; i++) {
-        SingleValue sv = single_value_init(1000 + i, 100.0);
-        strategy_update((Strategy)strat, &sv);
+        WU_Single sv = wu_single_init(1000 + i, 100.0);
+        wu_strategy_update((WU_Strategy)strat, &sv);
     }
     for (int i = 0; i < 3; i++) {
-        SingleValue sv = single_value_init(2000 + i, 150.0);
-        Signal signal = strategy_update((Strategy)strat, &sv);
-        if (signal.side == SIDE_BUY) {
-            CU_ASSERT_EQUAL(signal.side, SIDE_BUY);
-            strategy_delete((Strategy)strat);
+        WU_Single sv = wu_single_init(2000 + i, 150.0);
+        WU_Signal signal = wu_strategy_update((WU_Strategy)strat, &sv);
+        if (signal.side == WU_SIDE_BUY) {
+            CU_ASSERT_EQUAL(signal.side, WU_SIDE_BUY);
+            wu_strategy_delete((WU_Strategy)strat);
             return;
         }
     }
     CU_FAIL("Expected to generate a BUY signal");
-    strategy_delete((Strategy)strat);
+    wu_strategy_delete((WU_Strategy)strat);
 }
 
 void test_crossover_generates_sell_signal(void) {
-    CrossOverStrat strat = cross_over_strat_new(2, 5, 0.0);
+    WU_CrossOverStrat strat = wu_crossover_strat_new(2, 5, 0.0);
     for (int i = 0; i < 10; i++) {
-        SingleValue sv = single_value_init(1000 + i, 100.0);
-        strategy_update((Strategy)strat, &sv);
+        WU_Single sv = wu_single_init(1000 + i, 100.0);
+        wu_strategy_update((WU_Strategy)strat, &sv);
     }
     for (int i = 0; i < 3; i++) {
-        SingleValue sv = single_value_init(2000 + i, 50.0);
-        Signal signal = strategy_update((Strategy)strat, &sv);
-        if (signal.side == SIDE_SELL) {
-            CU_ASSERT_EQUAL(signal.side, SIDE_SELL);
-            strategy_delete((Strategy)strat);
+        WU_Single sv = wu_single_init(2000 + i, 50.0);
+        WU_Signal signal = wu_strategy_update((WU_Strategy)strat, &sv);
+        if (signal.side == WU_SIDE_SELL) {
+            CU_ASSERT_EQUAL(signal.side, WU_SIDE_SELL);
+            wu_strategy_delete((WU_Strategy)strat);
             return;
         }
     }
     CU_FAIL("Expected to generate a SELL signal");
-    strategy_delete((Strategy)strat);
+    wu_strategy_delete((WU_Strategy)strat);
 }
 
 void test_crossover_no_repeat_signals(void) {
-    CrossOverStrat strat = cross_over_strat_new(2, 5, 0.0);
+    WU_CrossOverStrat strat = wu_crossover_strat_new(2, 5, 0.0);
     for (int i = 0; i < 10; i++) {
-        SingleValue sv = single_value_init(1000 + i, 100.0);
-        strategy_update((Strategy)strat, &sv);
+        WU_Single sv = wu_single_init(1000 + i, 100.0);
+        wu_strategy_update((WU_Strategy)strat, &sv);
     }
     bool got_buy = false;
     for (int i = 0; i < 5; i++) {
-        SingleValue sv = single_value_init(2000 + i, 150.0);
-        Signal signal = strategy_update((Strategy)strat, &sv);
-        if (signal.side == SIDE_BUY) {
+        WU_Single sv = wu_single_init(2000 + i, 150.0);
+        WU_Signal signal = wu_strategy_update((WU_Strategy)strat, &sv);
+        if (signal.side == WU_SIDE_BUY) {
             got_buy = true;
             break;
         }
     }
     CU_ASSERT_TRUE(got_buy);
-    SingleValue sv3 = single_value_init(3000, 160.0);
-    Signal signal2 = strategy_update((Strategy)strat, &sv3);
-    CU_ASSERT_EQUAL(signal2.side, SIDE_HOLD);
-    strategy_delete((Strategy)strat);
+    WU_Single sv3 = wu_single_init(3000, 160.0);
+    WU_Signal signal2 = wu_strategy_update((WU_Strategy)strat, &sv3);
+    CU_ASSERT_EQUAL(signal2.side, WU_SIDE_HOLD);
+    wu_strategy_delete((WU_Strategy)strat);
 }
 
 void test_crossover_with_real_data(void) {
     FILE* file = fopen("tests/data/btcusd_price.csv", "r");
     CU_ASSERT_PTR_NOT_NULL(file);
-    CsvReader reader = csv_reader_new(file, DATA_TYPE_SINGLE_VALUE, false);
+    WU_Csv_Reader reader = wu_csv_reader_new(file, WU_DATA_TYPE_SINGLE_VALUE, false);
     CU_ASSERT_PTR_NOT_NULL(reader);
-    CrossOverStrat strat = cross_over_strat_new(5, 20, 0.02);
+    WU_CrossOverStrat strat = wu_crossover_strat_new(5, 20, 0.02);
     int total = 0;
-    SingleValue* sv;
-    while ((sv = (SingleValue*)reader_next(reader)) != NULL && total < 100) {
+    WU_Single* sv;
+    while ((sv = (WU_Single*)wu_reader_next(reader)) != NULL && total < 100) {
         // Verify data_type is set correctly
-        CU_ASSERT_EQUAL(sv->data_type, DATA_TYPE_SINGLE_VALUE);
-        Signal signal = strategy_update((Strategy)strat, sv);
+        CU_ASSERT_EQUAL(sv->data_type, WU_DATA_TYPE_SINGLE_VALUE);
+        WU_Signal signal = wu_strategy_update((WU_Strategy)strat, sv);
         // Just verify signal is valid
-        CU_ASSERT_TRUE(signal.side == SIDE_BUY || signal.side == SIDE_SELL || signal.side == SIDE_HOLD);
+        CU_ASSERT_TRUE(signal.side == WU_SIDE_BUY || signal.side == WU_SIDE_SELL || signal.side == WU_SIDE_HOLD);
         total++;
     }
     
     // Verify we processed data
     CU_ASSERT_TRUE(total > 0);
     
-    strategy_delete((Strategy)strat);
-    reader_delete((Reader)reader);
+    wu_strategy_delete((WU_Strategy)strat);
+    wu_reader_delete((WU_Reader)reader);
     fclose(file);
 }
 
 void test_crossover_threshold_prevents_noise(void) {
-    CrossOverStrat strat = cross_over_strat_new(2, 5, 0.05);  // 5% threshold
+    WU_CrossOverStrat strat = wu_crossover_strat_new(2, 5, 0.05);  // 5% threshold
     for (int i = 0; i < 10; i++) {
-        SingleValue sv = single_value_init(1000 + i, 100.0);
-        strategy_update((Strategy)strat, &sv);
+        WU_Single sv = wu_single_init(1000 + i, 100.0);
+        wu_strategy_update((WU_Strategy)strat, &sv);
     }
     for (int i = 0; i < 3; i++) {
-        SingleValue sv = single_value_init(2000 + i, 103.0);
-        Signal signal = strategy_update((Strategy)strat, &sv);
-        CU_ASSERT_EQUAL(signal.side, SIDE_HOLD);
+        WU_Single sv = wu_single_init(2000 + i, 103.0);
+        WU_Signal signal = wu_strategy_update((WU_Strategy)strat, &sv);
+        CU_ASSERT_EQUAL(signal.side, WU_SIDE_HOLD);
     }
-    strategy_delete((Strategy)strat);
+    wu_strategy_delete((WU_Strategy)strat);
 }
