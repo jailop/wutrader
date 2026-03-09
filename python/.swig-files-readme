@@ -1,0 +1,38 @@
+# SWIG Wrapper Files
+
+This directory contains pre-generated SWIG wrapper files:
+- `wu_wrap.c` - C wrapper code
+- `wu.py` - Python module interface
+
+## Why are these committed?
+
+These files are included in the repository so that **end users don't need SWIG installed** to use the Python bindings via pip install.
+
+## When to regenerate
+
+SWIG wrappers only need to be regenerated when:
+- The C interface changes (`include/wu/*.h`)
+- The SWIG interface file changes (`wu.i`)
+- New Python extensions are added (`%extend` blocks in wu.i)
+
+## How to regenerate
+
+```bash
+# For developers only
+make swig          # Regenerates wu_wrap.c and wu.py
+
+# Or full rebuild
+make distclean     # Removes all generated files including SWIG wrappers
+make              # Regenerates everything
+```
+
+## For developers
+
+If you modify `wu.i` or the C headers:
+1. Run `make swig` to regenerate wrappers
+2. Test the changes: `make test`
+3. Commit the updated `wu_wrap.c` and `wu.py` files
+
+## For users
+
+If you're installing via pip, you don't need to worry about SWIG at all. The pre-generated files are ready to compile.

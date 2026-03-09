@@ -15,6 +15,3 @@ dist/
 
 # Object files in source tree
 ../src/**/*.o
-
-wu.py
-wu_wrap.c

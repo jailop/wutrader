@@ -6,10 +6,13 @@ This is a personal project – a backtesting library for trading strategies writ
 
 - C11 compatible compiler
 - Make
-- SWIG (for Python bindings)
 - Doxygen (optional, for API documentation)
 
-## Building
+For Python bindings:
+- Python 3.7+
+- SWIG (only for development, not for pip install)
+
+## Installation
 
 Build the library:
 
@@ -21,6 +24,13 @@ Run the tests:
 
 ```bash
 make run_tests
+```
+
+Install system-wide:
+
+```bash
+sudo make install
+sudo ldconfig
 ```
 
 Generate API documentation:

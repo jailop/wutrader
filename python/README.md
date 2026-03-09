@@ -9,7 +9,24 @@ make          # Build the Python module
 make test     # Test the bindings
 make docs     # Generate API documentation
 make clean    # Clean build artifacts
+make version  # Show version
 ```
+
+## Installation
+
+### From Codeberg with pip
+
+```bash
+# Install C library first
+git clone https://codeberg.org/jailop/wu.git
+cd wu
+make && sudo make install && sudo ldconfig
+
+# Install Python bindings
+pip install git+https://codeberg.org/jailop/wu.git#subdirectory=python
+```
+
+See [INSTALL.md](INSTALL.md) for detailed installation instructions.
 
 ## Quick Start
 
@@ -32,8 +49,9 @@ runner.execute(verbose=False)
 ## Requirements
 
 - Python 3.7+
-- SWIG 4.0+
-- C library built with `make` in the parent directory
+- C compiler (gcc or clang)
+- Make
+- **SWIG 4.0+ (only for development)** - Pre-generated wrapper files are included
 
 For documentation generation:
 

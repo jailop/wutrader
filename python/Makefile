@@ -37,7 +37,7 @@ PYTHON_MODULE = wu.py
 CFLAGS = -fPIC -I$(INCLUDE_DIR) $(PYTHON_INCLUDE) -std=c11 -O2
 LDFLAGS = -shared -lm -L../lib -lwu -Wl,-rpath,$(shell pwd)/../lib
 
-.PHONY: all clean swig build install test docs version
+.PHONY: all clean distclean swig build install test docs version
 
 all: swig build
 
@@ -88,9 +88,14 @@ docs: $(SHARED_LIB)
 	@echo "Documentation generated in docs/wu.html"
 	@echo "Open with: xdg-open docs/wu.html or open docs/wu.html"
 
-# Clean build artifacts
+# Clean build artifacts (keep SWIG generated files for distribution)
 clean:
-	rm -f $(SWIG_WRAPPER) $(PYTHON_MODULE) $(WRAPPER_OBJ) $(SHARED_LIB)
+	rm -f $(WRAPPER_OBJ) $(SHARED_LIB)
 	rm -rf build/ dist/ *.egg-info/ docs/
 	find . -name "*.pyc" -delete
 	find . -name "__pycache__" -type d -delete
+
+# Deep clean including SWIG generated files (for development)
+distclean: clean
+	rm -f $(SWIG_WRAPPER) $(PYTHON_MODULE)
+	rm -rf .venv/

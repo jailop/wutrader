@@ -1,0 +1,6 @@
+include README.md
+include PYTHONIC_API.md
+include wu.i
+include wu_wrap.c
+include wu.py
+recursive-include ../include *.h
