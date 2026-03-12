@@ -2,6 +2,7 @@
 #define WU_INDICATOR_H
 
 #include "types.h"
+#include "data.h"
 #include <stdlib.h>
 #include <math.h>
 
@@ -96,19 +97,65 @@ WU_MVar wu_mvar_new(int window_size, int dof);
  * the population standard deviation formula. If `dof` is 1, the standard
  * deviation is calculated using the sample standard deviation formula.
  */
-typedef struct WU_StDev_ *WU_StDev;
-
-struct WU_StDev_ {
+typedef struct WU_StDev_ {
     double (*update)(struct WU_StDev_ *self, double value);
     double (*get)(const struct WU_StDev_ *self);
     void (*delete)(struct WU_StDev_ *self);
     WU_MVar mvar;
-};
+}* WU_StDev;
 
 /**
  * Creates a new WU_StDev (Moving Standard Deviation) indicator with the
  * specified window size and degree of freedom.
  */
 WU_StDev wu_stdev_new(int window_size, int dof);
+
+/**
+ * The WU_RSI (Relative Strength Index) is a momentum oscillator that measures
+ * the speed and change of price movements. It is calculated using the
+ * average gain and average loss over a specified period. The RSI ranges
+ * from 0 to 100, with values above 70 typically indicating overbought
+ * conditions and values below 30 indicating oversold conditions.
+ */
+typedef struct WU_RSI_ {
+    double (*update)(struct WU_RSI_ *self, const WU_Candle* candle);
+    double (*get)(const struct WU_RSI_ *self);
+    void (*delete)(struct WU_RSI_ *self);
+    WU_EMA gain;
+    WU_EMA loss;
+    double data;
+}* WU_RSI;
+
+/**
+ * Creates a new WU_RSI (Relative Strength Index) indicator with the
+ * specified window size.
+ */
+WU_RSI wu_rsi_new(int window_size);
+
+typedef struct MACDResult_ {
+    double macd;
+    double signal;
+    double histogram;
+} WU_MACDResult;
+
+typedef struct WU_MACD_ {
+    WU_MACDResult (*update)(struct WU_MACD_ *self, double value);
+    WU_MACDResult (*get)(const struct WU_MACD_ *self);
+    void (*delete)(struct WU_MACD_ *self);
+    WU_EMA ema_short;
+    WU_EMA ema_long;
+    WU_EMA signal_line;
+    WU_MACDResult data;
+    int len;
+    int start;
+}* WU_MACD;
+
+/**
+ * Creates a new WU_MACD (Moving Average Convergence Divergence) indicator
+ * with the specified short and long window sizes, and signal line window
+ * size.
+ */
+WU_MACD wu_macd_new(int short_window, int long_window, int signal_window,
+        double smoothing);
 
 #endif // WU_INDICATOR_H

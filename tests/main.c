@@ -27,6 +27,17 @@ extern void test_stdev_returns_nan_during_warmup(void);
 extern void test_stdev_calculates_population_stdev(void);
 extern void test_stdev_calculates_sample_stdev(void);
 extern void test_stdev_sliding_window_updates_correctly(void);
+extern void test_rsi_returns_nan_during_warmup(void);
+extern void test_rsi_calculates_correct_value(void);
+extern void test_rsi_handles_all_gains(void);
+extern void test_rsi_handles_all_losses(void);
+extern void test_rsi_range_is_valid(void);
+extern void test_macd_returns_nan_during_warmup(void);
+extern void test_macd_signal_warmup(void);
+extern void test_macd_calculates_correct_values(void);
+extern void test_macd_histogram_consistency(void);
+extern void test_macd_uptrend_produces_positive_macd(void);
+extern void test_macd_downtrend_produces_negative_macd(void);
 
 int main(void) {
     CU_pSuite sma_suite = NULL;
@@ -35,6 +46,8 @@ int main(void) {
     CU_pSuite crossover_suite = NULL;
     CU_pSuite mvar_suite = NULL;
     CU_pSuite stdev_suite = NULL;
+    CU_pSuite rsi_suite = NULL;
+    CU_pSuite macd_suite = NULL;
 
     if (CU_initialize_registry() != CUE_SUCCESS) {
         return CU_get_error();
@@ -148,6 +161,48 @@ int main(void) {
                     test_stdev_calculates_sample_stdev) == NULL ||
         CU_add_test(stdev_suite, "test_sliding_window_updates_correctly",
                     test_stdev_sliding_window_updates_correctly) == NULL) {
+        CU_cleanup_registry();
+        return CU_get_error();
+    }
+
+    rsi_suite = CU_add_suite("RSI_Suite", NULL, NULL);
+    if (rsi_suite == NULL) {
+        CU_cleanup_registry();
+        return CU_get_error();
+    }
+
+    if (CU_add_test(rsi_suite, "test_returns_nan_during_warmup",
+                    test_rsi_returns_nan_during_warmup) == NULL ||
+        CU_add_test(rsi_suite, "test_calculates_correct_value",
+                    test_rsi_calculates_correct_value) == NULL ||
+        CU_add_test(rsi_suite, "test_handles_all_gains",
+                    test_rsi_handles_all_gains) == NULL ||
+        CU_add_test(rsi_suite, "test_handles_all_losses",
+                    test_rsi_handles_all_losses) == NULL ||
+        CU_add_test(rsi_suite, "test_range_is_valid",
+                    test_rsi_range_is_valid) == NULL) {
+        CU_cleanup_registry();
+        return CU_get_error();
+    }
+
+    macd_suite = CU_add_suite("MACD_Suite", NULL, NULL);
+    if (macd_suite == NULL) {
+        CU_cleanup_registry();
+        return CU_get_error();
+    }
+
+    if (CU_add_test(macd_suite, "test_returns_nan_during_warmup",
+                    test_macd_returns_nan_during_warmup) == NULL ||
+        CU_add_test(macd_suite, "test_signal_warmup",
+                    test_macd_signal_warmup) == NULL ||
+        CU_add_test(macd_suite, "test_calculates_correct_values",
+                    test_macd_calculates_correct_values) == NULL ||
+        CU_add_test(macd_suite, "test_histogram_consistency",
+                    test_macd_histogram_consistency) == NULL ||
+        CU_add_test(macd_suite, "test_uptrend_produces_positive_macd",
+                    test_macd_uptrend_produces_positive_macd) == NULL ||
+        CU_add_test(macd_suite, "test_downtrend_produces_negative_macd",
+                    test_macd_downtrend_produces_negative_macd) == NULL) {
         CU_cleanup_registry();
         return CU_get_error();
     }
