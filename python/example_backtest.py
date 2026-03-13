@@ -19,21 +19,22 @@ def main():
         print(f"Error: Cannot open file {filename}", file=sys.stderr)
         return 1
     initial_cash = 100000.0
-    portfolio = wu.create_single_asset_portfolio(
+    portfolio = wu.create_basic_portfolio(
         initial_cash=initial_cash,
         tx_cost_pct=0.001,
         stop_loss_pct=0.10,
         take_profit_pct=0.20,
         slippage_pct=0.0005,
-        size_type=wu.POSITION_SIZE_PCT,
+        size_type=wu.WU_POSITION_SIZE_PCT,
         size_value=1.0,
+        symbols=["BTCUSD"],
     )
-    strategy = wu.cross_over_strat_new(10, 30, 0.0)
-    reader = wu.csv_reader_open(filename, wu.DATA_TYPE_CANDLE, True)
+    strategy = wu.wu_crossover_strat_new(10, 30, 0.0)
+    reader = wu.open_csv_reader(filename, wu.WU_DATA_TYPE_CANDLE, True)
     if not portfolio or not strategy or not reader:
         print("Error: Failed to initialize components", file=sys.stderr)
         return 1
-    runner = wu.basic_runner_new(portfolio, strategy, reader)
+    runner = wu.wu_runner_new_single(portfolio, strategy, reader)
     if not runner:
         print("Error: Failed to create runner", file=sys.stderr)
         return 1

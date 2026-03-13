@@ -40,18 +40,19 @@ int main(int argc, char** argv) {
      * for initial cash, transaction costs, stop loss and take profit
      * levels, slippage, and position sizing.
      */
-    WU_SingleAssetPortfolioParams params = {
+    WU_PortfolioParams params = {
         .initial_cash = 100000.0,
         .tx_cost_pct = 0.001,
         .stop_loss_pct = 0.10,
         .take_profit_pct = 0.20,
         .slippage_pct = 0.0005,
-        .wu_position_sizing = {
+        .position_sizing = {
             .size_type = WU_POSITION_SIZE_PCT,
             .size_value = 1.0
         }
     };
-    WU_SingleAssetPortfolio portfolio = wu_singleasset_portfolio_new(params);
+    WU_AssetSymbol symbols[] = {"ASSET"};
+    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const WU_AssetSymbol*)symbols, 1);
 
     /*
      * This strategy uses a simple moving average crossover. When the 
@@ -73,9 +74,9 @@ int main(int argc, char** argv) {
      * data.
      */
     WU_CsvReader reader = wu_csv_reader_new(
-            file,               // file pointer
-            WU_DATA_TYPE_CANDLE,   // data type
-            true                // has header
+            file,                   // file pointer
+            WU_DATA_TYPE_CANDLE,    // data type
+            true                    // has header
         );
     
     if (!portfolio || !strategy || !reader) {
@@ -97,10 +98,10 @@ int main(int argc, char** argv) {
      * implementations without changing the overall structure of the
      * backtest.
      */
-    WU_BasicRunner runner = wu_basic_runner_new(
-        (WU_Portfolio)portfolio,
-        (WU_Strategy)strategy,
-        (WU_Reader)reader
+    WU_Runner runner = wu_runner_new(
+        WU_PORTFOLIO(portfolio),
+        WU_STRATEGY(strategy),
+        wu_reader_list(WU_READER(reader))
     );
     
     if (!runner) {
@@ -109,17 +110,15 @@ int main(int argc, char** argv) {
         goto cleanup;
     }
     
-    runner_exec(runner, argc > 2 && strcmp(argv[2], "-v") == 0);
+    wu_runner_exec(runner, argc > 2 && strcmp(argv[2], "-v") == 0);
     
-    WU_SingleAssetPortfolio sap = (WU_SingleAssetPortfolio)portfolio;
-    WU_PortfolioStats stats = sap->track.stats;
-    
+    WU_PortfolioStats stats = portfolio->stats;
     printf("Initial Cash:      %.2f\n", params.initial_cash);
     printf("Final Value:       %.2f\n", wu_portfolio_value(portfolio));
     printf("P&L:               %.2f (%.2f%%)\n", 
            wu_portfolio_pnl(portfolio),
            (wu_portfolio_pnl(portfolio) / params.initial_cash) * 100.0);
-    printf("Total Fees:        %.2f\n", sap->track.accum_expenses);
+    printf("Total Fees:        %.2f\n", portfolio->accum_expenses);
     printf("Total WU_Trades:      %ld\n", stats->total_trades);
     printf("Winning WU_Trades:    %ld\n", stats->winning_trades);
     printf("Losing WU_Trades:     %ld\n", stats->losing_trades);
@@ -143,7 +142,7 @@ int main(int argc, char** argv) {
     }
     
 cleanup:
-    if (runner) wu_basic_runner_free(runner);
+    if (runner) wu_runner_free(runner);
     if (file) fclose(file);
     return ret;
 }

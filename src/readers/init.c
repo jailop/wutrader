@@ -44,3 +44,26 @@ inline WU_Signal wu_signal_init(int64_t timestamp, WU_Side side, double price, d
     s.quantity = quantity;
     return s;
 }
+
+bool wu_signal_validate(const WU_Signal* signal) {
+    if (!signal) return false;
+    
+    // Validate price is positive
+    if (signal->price <= 0.0) {
+        return false;
+    }
+    
+    // Validate quantity is non-negative (can be 0 for HOLD signals)
+    if (signal->quantity < 0.0) {
+        return false;
+    }
+    
+    // Validate side is a known value
+    if (signal->side != WU_SIDE_HOLD && 
+        signal->side != WU_SIDE_BUY && 
+        signal->side != WU_SIDE_SELL) {
+        return false;
+    }
+    
+    return true;
+}

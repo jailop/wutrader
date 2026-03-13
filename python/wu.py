@@ -102,6 +102,9 @@ WU_CLOSE_REASON_STOP_LOSS = _wu.WU_CLOSE_REASON_STOP_LOSS
 WU_CLOSE_REASON_TAKE_PROFIT = _wu.WU_CLOSE_REASON_TAKE_PROFIT
 WU_POSITION_SIZE_ABS = _wu.WU_POSITION_SIZE_ABS
 WU_POSITION_SIZE_PCT = _wu.WU_POSITION_SIZE_PCT
+WU_POSITION_SIZE_PCT_EQUAL = _wu.WU_POSITION_SIZE_PCT_EQUAL
+WU_POSITION_SIZE_STRATEGY_GUIDED = _wu.WU_POSITION_SIZE_STRATEGY_GUIDED
+WU_SYMBOL_MAX_LEN = _wu.WU_SYMBOL_MAX_LEN
 class WU_Candle(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
@@ -159,6 +162,9 @@ def wu_single_init(timestamp, value):
 
 def wu_signal_init(timestamp, side, price, quantity):
     return _wu.wu_signal_init(timestamp, side, price, quantity)
+
+def wu_signal_validate(signal):
+    return _wu.wu_signal_validate(signal)
 class WU_SMA_(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
@@ -242,6 +248,60 @@ _wu.WU_StDev__swigregister(WU_StDev_)
 
 def wu_stdev_new(window_size, dof):
     return _wu.wu_stdev_new(window_size, dof)
+class WU_RSI_(object):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+    update = property(_wu.WU_RSI__update_get, _wu.WU_RSI__update_set)
+    get = property(_wu.WU_RSI__get_get, _wu.WU_RSI__get_set)
+    delete = property(_wu.WU_RSI__delete_get, _wu.WU_RSI__delete_set)
+    gain = property(_wu.WU_RSI__gain_get, _wu.WU_RSI__gain_set)
+    loss = property(_wu.WU_RSI__loss_get, _wu.WU_RSI__loss_set)
+    data = property(_wu.WU_RSI__data_get, _wu.WU_RSI__data_set)
+
+    def __init__(self):
+        _wu.WU_RSI__swiginit(self, _wu.new_WU_RSI_())
+    __swig_destroy__ = _wu.delete_WU_RSI_
+
+# Register WU_RSI_ in _wu:
+_wu.WU_RSI__swigregister(WU_RSI_)
+
+def wu_rsi_new(window_size):
+    return _wu.wu_rsi_new(window_size)
+class WU_MACDResult(object):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+    macd = property(_wu.WU_MACDResult_macd_get, _wu.WU_MACDResult_macd_set)
+    signal = property(_wu.WU_MACDResult_signal_get, _wu.WU_MACDResult_signal_set)
+    histogram = property(_wu.WU_MACDResult_histogram_get, _wu.WU_MACDResult_histogram_set)
+
+    def __init__(self):
+        _wu.WU_MACDResult_swiginit(self, _wu.new_WU_MACDResult())
+    __swig_destroy__ = _wu.delete_WU_MACDResult
+
+# Register WU_MACDResult in _wu:
+_wu.WU_MACDResult_swigregister(WU_MACDResult)
+class WU_MACD_(object):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+    update = property(_wu.WU_MACD__update_get, _wu.WU_MACD__update_set)
+    get = property(_wu.WU_MACD__get_get, _wu.WU_MACD__get_set)
+    delete = property(_wu.WU_MACD__delete_get, _wu.WU_MACD__delete_set)
+    ema_short = property(_wu.WU_MACD__ema_short_get, _wu.WU_MACD__ema_short_set)
+    ema_long = property(_wu.WU_MACD__ema_long_get, _wu.WU_MACD__ema_long_set)
+    signal_line = property(_wu.WU_MACD__signal_line_get, _wu.WU_MACD__signal_line_set)
+    data = property(_wu.WU_MACD__data_get, _wu.WU_MACD__data_set)
+    len = property(_wu.WU_MACD__len_get, _wu.WU_MACD__len_set)
+    start = property(_wu.WU_MACD__start_get, _wu.WU_MACD__start_set)
+
+    def __init__(self):
+        _wu.WU_MACD__swiginit(self, _wu.new_WU_MACD_())
+    __swig_destroy__ = _wu.delete_WU_MACD_
+
+# Register WU_MACD_ in _wu:
+_wu.WU_MACD__swigregister(WU_MACD_)
+
+def wu_macd_new(short_window, long_window, signal_window, smoothing):
+    return _wu.wu_macd_new(short_window, long_window, signal_window, smoothing)
 class WU_Reader_(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
@@ -320,43 +380,6 @@ class WU_Portfolio_(object):
 
 # Register WU_Portfolio_ in _wu:
 _wu.WU_Portfolio__swigregister(WU_Portfolio_)
-class WU_Position_(object):
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-    __repr__ = _swig_repr
-    timestamp = property(_wu.WU_Position__timestamp_get, _wu.WU_Position__timestamp_set)
-    quantity = property(_wu.WU_Position__quantity_get, _wu.WU_Position__quantity_set)
-    price = property(_wu.WU_Position__price_get, _wu.WU_Position__price_set)
-    active = property(_wu.WU_Position__active_get, _wu.WU_Position__active_set)
-
-    def __init__(self):
-        _wu.WU_Position__swiginit(self, _wu.new_WU_Position_())
-    __swig_destroy__ = _wu.delete_WU_Position_
-
-# Register WU_Position_ in _wu:
-_wu.WU_Position__swigregister(WU_Position_)
-class WU_PositionVector(object):
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-    __repr__ = _swig_repr
-    positions = property(_wu.WU_PositionVector_positions_get, _wu.WU_PositionVector_positions_set)
-    active = property(_wu.WU_PositionVector_active_get, _wu.WU_PositionVector_active_set)
-    count = property(_wu.WU_PositionVector_count_get, _wu.WU_PositionVector_count_set)
-    capacity = property(_wu.WU_PositionVector_capacity_get, _wu.WU_PositionVector_capacity_set)
-    add = property(_wu.WU_PositionVector_add_get, _wu.WU_PositionVector_add_set)
-    remove = property(_wu.WU_PositionVector_remove_get, _wu.WU_PositionVector_remove_set)
-    clear = property(_wu.WU_PositionVector_clear_get, _wu.WU_PositionVector_clear_set)
-    get = property(_wu.WU_PositionVector_get_get, _wu.WU_PositionVector_get_set)
-    total_quantity = property(_wu.WU_PositionVector_total_quantity_get, _wu.WU_PositionVector_total_quantity_set)
-    delete = property(_wu.WU_PositionVector_delete_get, _wu.WU_PositionVector_delete_set)
-
-    def __init__(self):
-        _wu.WU_PositionVector_swiginit(self, _wu.new_WU_PositionVector())
-    __swig_destroy__ = _wu.delete_WU_PositionVector
-
-# Register WU_PositionVector in _wu:
-_wu.WU_PositionVector_swigregister(WU_PositionVector)
-
-def wu_position_vector_new():
-    return _wu.wu_position_vector_new()
 class WU_PortfolioStats_(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
@@ -394,58 +417,88 @@ class WU_PositionSizingParams(object):
 
 # Register WU_PositionSizingParams in _wu:
 _wu.WU_PositionSizingParams_swigregister(WU_PositionSizingParams)
-class WU_SingleAssetPortfolioParams(object):
+class WU_PortfolioParams(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    initial_cash = property(_wu.WU_SingleAssetPortfolioParams_initial_cash_get, _wu.WU_SingleAssetPortfolioParams_initial_cash_set)
-    tx_cost_pct = property(_wu.WU_SingleAssetPortfolioParams_tx_cost_pct_get, _wu.WU_SingleAssetPortfolioParams_tx_cost_pct_set)
-    stop_loss_pct = property(_wu.WU_SingleAssetPortfolioParams_stop_loss_pct_get, _wu.WU_SingleAssetPortfolioParams_stop_loss_pct_set)
-    take_profit_pct = property(_wu.WU_SingleAssetPortfolioParams_take_profit_pct_get, _wu.WU_SingleAssetPortfolioParams_take_profit_pct_set)
-    slippage_pct = property(_wu.WU_SingleAssetPortfolioParams_slippage_pct_get, _wu.WU_SingleAssetPortfolioParams_slippage_pct_set)
-    wu_position_sizing = property(_wu.WU_SingleAssetPortfolioParams_wu_position_sizing_get, _wu.WU_SingleAssetPortfolioParams_wu_position_sizing_set)
+    initial_cash = property(_wu.WU_PortfolioParams_initial_cash_get, _wu.WU_PortfolioParams_initial_cash_set)
+    tx_cost_pct = property(_wu.WU_PortfolioParams_tx_cost_pct_get, _wu.WU_PortfolioParams_tx_cost_pct_set)
+    stop_loss_pct = property(_wu.WU_PortfolioParams_stop_loss_pct_get, _wu.WU_PortfolioParams_stop_loss_pct_set)
+    take_profit_pct = property(_wu.WU_PortfolioParams_take_profit_pct_get, _wu.WU_PortfolioParams_take_profit_pct_set)
+    slippage_pct = property(_wu.WU_PortfolioParams_slippage_pct_get, _wu.WU_PortfolioParams_slippage_pct_set)
+    position_sizing = property(_wu.WU_PortfolioParams_position_sizing_get, _wu.WU_PortfolioParams_position_sizing_set)
 
     def __init__(self):
-        _wu.WU_SingleAssetPortfolioParams_swiginit(self, _wu.new_WU_SingleAssetPortfolioParams())
-    __swig_destroy__ = _wu.delete_WU_SingleAssetPortfolioParams
+        _wu.WU_PortfolioParams_swiginit(self, _wu.new_WU_PortfolioParams())
+    __swig_destroy__ = _wu.delete_WU_PortfolioParams
 
-# Register WU_SingleAssetPortfolioParams in _wu:
-_wu.WU_SingleAssetPortfolioParams_swigregister(WU_SingleAssetPortfolioParams)
-class WU_SingleAssetPortfolioTrack(object):
+# Register WU_PortfolioParams in _wu:
+_wu.WU_PortfolioParams_swigregister(WU_PortfolioParams)
+class WU_BasicPortfolio_(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    cash = property(_wu.WU_SingleAssetPortfolioTrack_cash_get, _wu.WU_SingleAssetPortfolioTrack_cash_set)
-    positions = property(_wu.WU_SingleAssetPortfolioTrack_positions_get, _wu.WU_SingleAssetPortfolioTrack_positions_set)
-    last_price = property(_wu.WU_SingleAssetPortfolioTrack_last_price_get, _wu.WU_SingleAssetPortfolioTrack_last_price_set)
-    accum_expenses = property(_wu.WU_SingleAssetPortfolioTrack_accum_expenses_get, _wu.WU_SingleAssetPortfolioTrack_accum_expenses_set)
-    stats = property(_wu.WU_SingleAssetPortfolioTrack_stats_get, _wu.WU_SingleAssetPortfolioTrack_stats_set)
+    base = property(_wu.WU_BasicPortfolio__base_get, _wu.WU_BasicPortfolio__base_set)
+    params = property(_wu.WU_BasicPortfolio__params_get, _wu.WU_BasicPortfolio__params_set)
+    cash = property(_wu.WU_BasicPortfolio__cash_get, _wu.WU_BasicPortfolio__cash_set)
+    positions = property(_wu.WU_BasicPortfolio__positions_get, _wu.WU_BasicPortfolio__positions_set)
+    num_assets = property(_wu.WU_BasicPortfolio__num_assets_get, _wu.WU_BasicPortfolio__num_assets_set)
+    accum_expenses = property(_wu.WU_BasicPortfolio__accum_expenses_get, _wu.WU_BasicPortfolio__accum_expenses_set)
+    stats = property(_wu.WU_BasicPortfolio__stats_get, _wu.WU_BasicPortfolio__stats_set)
+
+    def get_cash(self):
+        return _wu.WU_BasicPortfolio__get_cash(self)
+
+    def get_accum_expenses(self):
+        return _wu.WU_BasicPortfolio__get_accum_expenses(self)
+
+    def get_total_trades(self):
+        return _wu.WU_BasicPortfolio__get_total_trades(self)
+
+    def get_winning_trades(self):
+        return _wu.WU_BasicPortfolio__get_winning_trades(self)
+
+    def get_losing_trades(self):
+        return _wu.WU_BasicPortfolio__get_losing_trades(self)
+
+    def get_total_profit(self):
+        return _wu.WU_BasicPortfolio__get_total_profit(self)
+
+    def get_total_loss(self):
+        return _wu.WU_BasicPortfolio__get_total_loss(self)
+
+    def update(self, signals):
+        return _wu.WU_BasicPortfolio__update(self, signals)
+
+    def value(self):
+        return _wu.WU_BasicPortfolio__value(self)
+
+    def pnl(self):
+        return _wu.WU_BasicPortfolio__pnl(self)
+    __swig_destroy__ = _wu.delete_WU_BasicPortfolio_
 
     def __init__(self):
-        _wu.WU_SingleAssetPortfolioTrack_swiginit(self, _wu.new_WU_SingleAssetPortfolioTrack())
-    __swig_destroy__ = _wu.delete_WU_SingleAssetPortfolioTrack
+        _wu.WU_BasicPortfolio__swiginit(self, _wu.new_WU_BasicPortfolio_())
 
-# Register WU_SingleAssetPortfolioTrack in _wu:
-_wu.WU_SingleAssetPortfolioTrack_swigregister(WU_SingleAssetPortfolioTrack)
-class WU_SingleAssetPortfolio_(object):
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-    __repr__ = _swig_repr
-    base = property(_wu.WU_SingleAssetPortfolio__base_get, _wu.WU_SingleAssetPortfolio__base_set)
-    params = property(_wu.WU_SingleAssetPortfolio__params_get, _wu.WU_SingleAssetPortfolio__params_set)
-    track = property(_wu.WU_SingleAssetPortfolio__track_get, _wu.WU_SingleAssetPortfolio__track_set)
+# Register WU_BasicPortfolio_ in _wu:
+_wu.WU_BasicPortfolio__swigregister(WU_BasicPortfolio_)
 
-    def __init__(self):
-        _wu.WU_SingleAssetPortfolio__swiginit(self, _wu.new_WU_SingleAssetPortfolio_())
-    __swig_destroy__ = _wu.delete_WU_SingleAssetPortfolio_
+def wu_basic_portfolio_new(params, symbols):
+    return _wu.wu_basic_portfolio_new(params, symbols)
 
-# Register WU_SingleAssetPortfolio_ in _wu:
-_wu.WU_SingleAssetPortfolio__swigregister(WU_SingleAssetPortfolio_)
+def wu_basic_portfolio_asset_value(portfolio, asset_index):
+    return _wu.wu_basic_portfolio_asset_value(portfolio, asset_index)
 
-def wu_singleasset_portfolio_new(params):
-    return _wu.wu_singleasset_portfolio_new(params)
+def wu_basic_portfolio_asset_quantity(portfolio, asset_index):
+    return _wu.wu_basic_portfolio_asset_quantity(portfolio, asset_index)
 class WU_Strategy_(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
     update = property(_wu.WU_Strategy__update_get, _wu.WU_Strategy__update_set)
     delete = property(_wu.WU_Strategy__delete_get, _wu.WU_Strategy__delete_set)
+    input_types = property(_wu.WU_Strategy__input_types_get, _wu.WU_Strategy__input_types_set)
+    output_symbols = property(_wu.WU_Strategy__output_symbols_get, _wu.WU_Strategy__output_symbols_set)
+    signal_buffer = property(_wu.WU_Strategy__signal_buffer_get, _wu.WU_Strategy__signal_buffer_set)
+    num_inputs = property(_wu.WU_Strategy__num_inputs_get, _wu.WU_Strategy__num_inputs_set)
+    num_outputs = property(_wu.WU_Strategy__num_outputs_get, _wu.WU_Strategy__num_outputs_set)
 
     def __init__(self):
         _wu.WU_Strategy__swiginit(self, _wu.new_WU_Strategy_())
@@ -471,37 +524,52 @@ _wu.WU_CrossOverStrat__swigregister(WU_CrossOverStrat_)
 
 def wu_crossover_strat_new(short_window, long_window, threshold):
     return _wu.wu_crossover_strat_new(short_window, long_window, threshold)
+class WU_PairsTradingStrat_(object):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+    base = property(_wu.WU_PairsTradingStrat__base_get, _wu.WU_PairsTradingStrat__base_set)
+    spread_ma = property(_wu.WU_PairsTradingStrat__spread_ma_get, _wu.WU_PairsTradingStrat__spread_ma_set)
+    spread_std = property(_wu.WU_PairsTradingStrat__spread_std_get, _wu.WU_PairsTradingStrat__spread_std_set)
+    threshold = property(_wu.WU_PairsTradingStrat__threshold_get, _wu.WU_PairsTradingStrat__threshold_set)
+    ratio = property(_wu.WU_PairsTradingStrat__ratio_get, _wu.WU_PairsTradingStrat__ratio_set)
+    last_signal = property(_wu.WU_PairsTradingStrat__last_signal_get, _wu.WU_PairsTradingStrat__last_signal_set)
+
+    def __init__(self):
+        _wu.WU_PairsTradingStrat__swiginit(self, _wu.new_WU_PairsTradingStrat_())
+    __swig_destroy__ = _wu.delete_WU_PairsTradingStrat_
+
+# Register WU_PairsTradingStrat_ in _wu:
+_wu.WU_PairsTradingStrat__swigregister(WU_PairsTradingStrat_)
+
+def wu_pairs_trading_strat_new(window, threshold, ratio):
+    return _wu.wu_pairs_trading_strat_new(window, threshold, ratio)
 class WU_Runner_(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    _exec = property(_wu.WU_Runner___exec_get, _wu.WU_Runner___exec_set)
+    portfolio = property(_wu.WU_Runner__portfolio_get, _wu.WU_Runner__portfolio_set)
+    strategy = property(_wu.WU_Runner__strategy_get, _wu.WU_Runner__strategy_set)
+    readers = property(_wu.WU_Runner__readers_get, _wu.WU_Runner__readers_set)
+    num_readers = property(_wu.WU_Runner__num_readers_get, _wu.WU_Runner__num_readers_set)
+    run = property(_wu.WU_Runner__run_get, _wu.WU_Runner__run_set)
+
+    def execute(self, verbose):
+        return _wu.WU_Runner__execute(self, verbose)
+    __swig_destroy__ = _wu.delete_WU_Runner_
 
     def __init__(self):
         _wu.WU_Runner__swiginit(self, _wu.new_WU_Runner_())
-    __swig_destroy__ = _wu.delete_WU_Runner_
 
 # Register WU_Runner_ in _wu:
 _wu.WU_Runner__swigregister(WU_Runner_)
-class WU_BasicRunner_(object):
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-    __repr__ = _swig_repr
-    portfolio = property(_wu.WU_BasicRunner__portfolio_get, _wu.WU_BasicRunner__portfolio_set)
-    strategy = property(_wu.WU_BasicRunner__strategy_get, _wu.WU_BasicRunner__strategy_set)
-    reader = property(_wu.WU_BasicRunner__reader_get, _wu.WU_BasicRunner__reader_set)
-    run = property(_wu.WU_BasicRunner__run_get, _wu.WU_BasicRunner__run_set)
 
-    def __init__(self):
-        _wu.WU_BasicRunner__swiginit(self, _wu.new_WU_BasicRunner_())
-    __swig_destroy__ = _wu.delete_WU_BasicRunner_
+def wu_runner_new(portfolio, strategy, readers):
+    return _wu.wu_runner_new(portfolio, strategy, readers)
 
-# Register WU_BasicRunner_ in _wu:
-_wu.WU_BasicRunner__swigregister(WU_BasicRunner_)
+def wu_runner_new_single(portfolio, strategy, reader):
+    return _wu.wu_runner_new_single(portfolio, strategy, reader)
 
-def wu_basic_runner_new(portfolio, strategy, reader):
-    return _wu.wu_basic_runner_new(portfolio, strategy, reader)
-
-def wu_basic_runner_free(runner):
-    return _wu.wu_basic_runner_free(runner)
+def wu_runner_free(runner):
+    return _wu.wu_runner_free(runner)
 
 def wu_csv_reader_open(filename, data_type, has_headers):
     return _wu.wu_csv_reader_open(filename, data_type, has_headers)
@@ -509,13 +577,13 @@ def wu_csv_reader_open(filename, data_type, has_headers):
 # Version information
 __version__ = '0.1.0'
 
-def create_signal(timestamp=0, side=SIDE_HOLD, price=0.0, quantity=0.0):
+def create_signal(timestamp=0, side=WU_SIDE_HOLD, price=0.0, quantity=0.0):
     """
     Create a Signal with the given parameters.
 
     Args:
         timestamp: Unix timestamp (default: 0)
-        side: Signal side - SIDE_BUY, SIDE_SELL, or SIDE_HOLD (default: SIDE_HOLD)
+        side: Signal side - WU_SIDE_BUY, WU_SIDE_SELL, or WU_SIDE_HOLD (default: WU_SIDE_HOLD)
         price: Execution price (default: 0.0)
         quantity: Quantity to trade (default: 0.0)
 
@@ -524,12 +592,12 @@ def create_signal(timestamp=0, side=SIDE_HOLD, price=0.0, quantity=0.0):
     """
     return signal_init(timestamp, side, price, quantity)
 
-def create_single_asset_portfolio(initial_cash=10000.0, tx_cost_pct=0.001, 
-                                  stop_loss_pct=0.0, take_profit_pct=0.0,
-                                  slippage_pct=0.0, size_type=POSITION_SIZE_ABS,
-                                  size_value=1.0):
+def create_basic_portfolio(initial_cash=10000.0, tx_cost_pct=0.001, 
+                          stop_loss_pct=0.0, take_profit_pct=0.0,
+                          slippage_pct=0.0, size_type=WU_POSITION_SIZE_ABS,
+                          size_value=1.0, symbols=["ASSET"]):
     """
-    Create a SingleAssetPortfolio with the given parameters.
+    Create a BasicPortfolio with the given parameters.
 
     Args:
         initial_cash: Initial cash amount (default: 10000.0)
@@ -537,13 +605,45 @@ def create_single_asset_portfolio(initial_cash=10000.0, tx_cost_pct=0.001,
         stop_loss_pct: Stop loss percentage (default: 0.0)
         take_profit_pct: Take profit percentage (default: 0.0)
         slippage_pct: Slippage percentage (default: 0.0)
-        size_type: Position size type (POSITION_SIZE_ABS or POSITION_SIZE_PCT, default: POSITION_SIZE_ABS)
+        size_type: Position size type (default: WU_POSITION_SIZE_ABS)
+            - WU_POSITION_SIZE_ABS: Absolute quantity (e.g., 100 shares)
+            - WU_POSITION_SIZE_PCT: Percentage of available cash (e.g., 0.5 = 50%)
+            - WU_POSITION_SIZE_PCT_EQUAL: Equal distribution among all assets
+            - WU_POSITION_SIZE_STRATEGY_GUIDED: Strategy specifies target proportion via signal.quantity
         size_value: Position size value (default: 1.0)
+            - For ABS: quantity to buy
+            - For PCT: percentage (0.0 to 1.0)
+            - For PCT_EQUAL: allocation multiplier (0.0 to 1.0)
+            - For STRATEGY_GUIDED: allocation multiplier (0.0 to 1.0)
+        symbols: List of asset symbols (default: ["ASSET"])
 
     Returns:
-        SingleAssetPortfolio instance
+        BasicPortfolio instance
+
+    Example:
+# Equal distribution among 3 assets
+        portfolio = create_basic_portfolio(
+            initial_cash=100000.0,
+            size_type=WU_POSITION_SIZE_PCT_EQUAL,
+            size_value=0.95,
+            symbols=["SPY", "QQQ", "TLT"]
+        )
+
+# Strategy-guided allocation
+        portfolio = create_basic_portfolio(
+            initial_cash=100000.0,
+            size_type=WU_POSITION_SIZE_STRATEGY_GUIDED,
+            size_value=1.0,
+            symbols=["SPY", "QQQ", "TLT"]
+        )
+# Strategy sets allocations via signal.quantity:
+        signals = [
+            create_signal(timestamp=1000, side=WU_SIDE_BUY, price=100.0, quantity=0.5),  # 50% SPY
+            create_signal(timestamp=1000, side=WU_SIDE_BUY, price=50.0, quantity=0.3),   # 30% QQQ
+            create_signal(timestamp=1000, side=WU_SIDE_BUY, price=100.0, quantity=0.2),  # 20% TLT
+        ]
     """
-    params = SingleAssetPortfolioParams()
+    params = WU_PortfolioParams()
     params.initial_cash = initial_cash
     params.tx_cost_pct = tx_cost_pct
     params.stop_loss_pct = stop_loss_pct
@@ -552,7 +652,8 @@ def create_single_asset_portfolio(initial_cash=10000.0, tx_cost_pct=0.001,
     params.position_sizing.size_type = size_type
     params.position_sizing.size_value = size_value
 
-    return single_asset_portfolio_new(params)
+# typemap handles conversion: symbols list -> (WU_AssetSymbol*, int)
+    return wu_basic_portfolio_new(params, symbols)
 
 def open_csv_reader(filename, data_type=WU_DATA_TYPE_CANDLE, has_headers=True):
     """

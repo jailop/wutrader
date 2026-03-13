@@ -1,0 +1,7 @@
+2026-03-12:
+
+- RSI and MACD indicators implemented
+
+2026-03-13:
+
+- Multi-asset support
