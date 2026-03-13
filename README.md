@@ -2,6 +2,14 @@
 
 This is a personal project – a backtesting library for trading strategies written in C. I use it for learning, experimenting with different designs, and exploring ideas in algorithmic trading.
 
+## Core Components
+
+- **Portfolios**: Multi-asset portfolio management with shared cash pool
+- **Strategies**: Pluggable strategy interface for signal generation
+- **Indicators**: Technical analysis building blocks
+- **Data Readers**: Flexible data input abstraction
+- **Runner**: Backtest execution engine
+
 ## Requirements
 
 - C11 compatible compiler
@@ -59,109 +67,50 @@ Uninstall:
 sudo make uninstall
 ```
 
-## Example
+## Examples
 
-Run a C example:
+### Single Asset Strategy
+
+Run a moving average crossover strategy on Bitcoin:
 
 ```bash
 ./examples/backtest/example01 ./tests/data/btcusd.csv -v
 ```
 
-```c
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "wu.h"
+This reads OHLCV data, calculates short and long moving averages, generates buy/sell signals when they cross, and tracks portfolio performance including transaction costs and slippage.
 
-int main(int argc, char** argv) {
-    int ret = 0;
-    if (argc < 2) {
-        fprintf(stderr, "Usage: %s <csv_file> [-v]\n", argv[0]);
-        return 1;
-    }
-    const char* filename = argv[1];
-    FILE* file = fopen(filename, "r");
-    if (!file) {
-        fprintf(stderr, "Error: Cannot open file %s\n", filename);
-        return 1;
-    }
-    WU_SingleAssetPortfolioParams params = {
-        .initial_cash = 100000.0,
-        .tx_cost_pct = 0.001,
-        .stop_loss_pct = 0.10,
-        .take_profit_pct = 0.20,
-        .slippage_pct = 0.0005,
-        .wu_position_sizing = {
-            .size_type = WU_POSITION_SIZE_PCT,
-            .size_value = 1.0
-        }
-    };
-    WU_SingleAssetPortfolio portfolio = wu_singleasset_portfolio_new(params);
-    WU_CrossOverStrat strategy = wu_crossover_strat_new(
-            10,  // short window
-            30,  // long window
-            0.0  // no threshold
-        );
-    WU_Csv_Reader reader = wu_csv_reader_new(
-            file,               // file pointer
-            WU_DATA_TYPE_CANDLE,   // data type
-            true                // has header
-        );
-    if (!portfolio || !strategy || !reader) {
-        fprintf(stderr, "Error: Failed to initialize components\n");
-        ret = 1;
-        goto cleanup;
-    }
-    WU_BasicRunner runner = wu_basic_runner_new(
-        (WU_Portfolio)portfolio,
-        (WU_Strategy)strategy,
-        (WU_Reader)reader
-    );
-    if (!runner) {
-        fprintf(stderr, "Error: Failed to create runner\n");
-        ret = 1;
-        goto cleanup;
-    }
-    runner_exec(runner, argc > 2 && strcmp(argv[2], "-v") == 0);
-    WU_SingleAssetPortfolio sap = (WU_SingleAssetPortfolio)portfolio;
-    WU_PortfolioStats stats = sap->track.stats;
-    printf("Initial Cash:      %.2f\n", params.initial_cash);
-    printf("Final Value:       %.2f\n", wu_portfolio_value(portfolio));
-cleanup:
-    if (runner) wu_basic_runner_free(runner);
-    if (file) fclose(file);
-    return ret;
-}
+### Pairs Trading Strategy
+
+Run a pairs trading strategy on SPY and QQQ:
+
+```bash
+./examples/backtest/pairs_trading ./tests/data/spy.csv ./tests/data/qqq.csv -v
 ```
 
-This example demonstrates a complete backtesting workflow: reading historical candle data, calculating moving average indicators, generating crossover signals, simulating trade executions, and generating statistical reports.
+This monitors the spread between two correlated assets, enters positions when the spread deviates from its mean, and exits when it reverts. The multi-asset portfolio manages both positions with a shared cash pool.
 
-## Design Approach
+## Design
 
-The library utilizes C's struct-and-function-pointer pattern to achieve polymorphism without virtual tables or runtime overhead. Each major abstraction – `Portfolio`, `Strategy`, `Reader`, and `Indicator` – is defined as a struct containing function pointers, allowing different implementations while maintaining a consistent interface.
+The library uses C's struct-and-function-pointer pattern for polymorphism. Each abstraction – Portfolio, Strategy, Reader, and Indicator – is a struct with function pointers, allowing different implementations with a consistent interface.
 
-Wu is not a framework; it's a toolkit. The core abstractions are designed to be composed freely. I can swap implementations, combine strategies, or bypass components entirely without fighting against framework constraints.
+Wu is a toolkit, not a framework. The core abstractions compose freely. You can swap implementations, combine strategies, or bypass components without constraints.
 
-The `BasicRunner` demonstrates this composability. It’s just one way to wire together a portfolio, strategy, and data reader. I’m free to write other runners with custom logic, logging, or execution patterns.
+The Runner shows this composability. It wires together a portfolio, strategy, and one or more assets. You can also write custom runners with different logic or bypass the runner entirely.
 
-This design allows me to implement custom portfolio types—such as multi-asset portfolios, portfolios with margin trading, or portfolios with exotic risk models—without modifying the library. The type system remains, while still providing the necessary structure for interoperability.
+Wu supports three data types:
 
-Trading data comes in many forms. Wu supports three fundamental data types:
+- **Candles** (OHLCV): Standard bar data
+- **Trades**: Tick-level data with price, volume, and side
+- **Single Values**: Generic time-series data
 
-- **Candles** (OHLCV): Standard bar data for time-series analysis.
-- **Trades**: Tick-level trade data, including price, volume, and side.
-- **Single Values**: Generic time-series data for arbitrary indicators or derived signals.
+The Reader abstraction accepts any data source—CSV files, databases, real-time feeds, or synthetic generators. It just needs a next() method.
 
-The `Reader` abstraction allows me to plug in any data source—CSV files, databases, real-time feeds, or synthetic generators. The library doesn’t care where the data comes from; it just needs something that implements the `next()` method.
+Every component maintains its state explicitly in its struct. This makes debugging straightforward and allows state snapshots at any point.
 
-Every stateful component maintains its state explicitly within its struct. When I create a `MovingAverage`, its circular buffer, position counter, and sum are all defined within the struct. This makes debugging straightforward and allows me to snapshot or serialize state at any point.
-
-Using C is a matter of personal preference. In my experience, no other language has provided me with as much joy when writing code. With C, I have the feeling of being free to explore, experiment with different designs, and understand the details of how my code executes. I can write code that is both high-level in its abstractions and low-level in its performance characteristics.
-
-That doesn’t mean that I’m a C purist. On the contrary, I know how to gain insight and productivity by using higher-level languages when appropriate. That is the reason this library includes bindings for Python. Besides that, I maintain a more user-oriented implementation of a similar library in C++ ([tzutrader](https://jailop.codeberg.page/tzutrader/docs/)). Often, I enjoy exploring ideas between these implementations, moving back and forth between them. Their core ideas are the same.
+I use C because I enjoy it. I like having control over the details while building high-level abstractions. That said, I'm not dogmatic about it. This library includes Python bindings, and I maintain a similar library in C++ ([tzutrader](https://jailop.codeberg.page/tzutrader/docs/)). I move between implementations to explore different ideas.
 
 ## Contributing
 
-This is a personal project, so I’m not hopeful for contributions. However, if you have questions, suggestions, or want to share ideas, feel free to reach out to me. If you feel interested in learning more about this project, I’ll be happy to share more details about the design and implementation. Furthermore, if you want to contribute – by reviewing the code, opening issues, or even submitting pull requests – I’ll be very grateful.
+This is a personal project, so I'm not hopeful for contributions. However, if you have questions, suggestions, or want to share ideas, feel free to reach out to me. If you feel interested in learning more about this project, I'll be happy to share more details about the design and implementation. Furthermore, if you want to contribute – by reviewing the code, opening issues, or even submitting pull requests – I'll be very grateful.
 
 My email is: >> jailop \AT/ protonmail \DOT/ com <<

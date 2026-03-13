@@ -55,4 +55,7 @@ typedef struct WU_CsvReader_ {
 
 WU_CsvReader wu_csv_reader_new(FILE *file, WU_DataType data_type, bool has_headers);
 
+#define WU_READER(r) ((WU_Reader)(r))
+#define wu_reader_list(...) ((WU_Reader[]){__VA_ARGS__, NULL})
+
 #endif // WU_READER_H

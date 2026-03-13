@@ -51,13 +51,17 @@ typedef struct {
 } WU_Single;
 
 WU_Candle wu_candle_init(int64_t timestamp, double open, double high, double low,
-                   double close, double volume);
+        double close, double volume);
 
-WU_Trade wu_trade_init(int64_t timestamp, double price, double volume, WU_Side side);
+WU_Trade wu_trade_init(int64_t timestamp, double price, double volume,
+        WU_Side side);
 
 WU_Single wu_single_init(int64_t timestamp, double value);
 
-WU_Signal wu_signal_init(int64_t timestamp, WU_Side side, double price, double quantity);
+WU_Signal wu_signal_init(int64_t timestamp, WU_Side side, double price, 
+        double quantity);
+
+bool wu_signal_validate(const WU_Signal* signal);
 
 #define wu_candle_to_single_value(candle) \
     wu_single_init((candle)->timestamp, (candle)->close)
