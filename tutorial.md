@@ -3,7 +3,7 @@
 Jaime Lopez  
 Mar. 13, 2026
 
-**Disclaimer**: This tutorial has been produced with AI assistance, based on the
+**Disclaimer**: This tutorial has been elaborated with AI assistance, based on the
 current codebase and examples. Qustions and suggestions are very
 welcome.
 
@@ -118,6 +118,7 @@ Date,Open,High,Low,Close,Volume
 
 The timestamp in the `Date` column is a Unix epoch value (seconds since January 1, 1970). This keeps things simple and avoids the complexity of parsing date strings. You can convert dates to Unix timestamps using tools like `date -d "2024-01-15" +%s` on Unix systems or Python's `datetime` module.
 
+<<<<<<< HEAD
 ### Getting Historical Data with yfnim
 
 Need historical price data for your backtests? The [yfnim](https://jailop.codeberg.page/yfnim/docs/) tool makes it trivial to pull data from Yahoo Finance in exactly the format Wu expects. It's a command-line utility that outputs clean CSV with Unix timestamps—no parsing gymnastics required.
@@ -158,6 +159,8 @@ yf history -s:spy --start:2020-01-01 --end:2023-12-31 --format:csv --date_format
 
 This makes it easy to test how your strategy performs across different market regimes—bull markets, bear markets, high volatility periods, or calm sideways action.
 
+=======
+>>>>>>> ff08aa0dc84db5cd84718a50b2a6e1307d3265d0
 ---
 
 ## Understanding the Data Flow
