@@ -2,6 +2,9 @@
 
 This is a personal project – a backtesting library for trading strategies written in C. I use it for learning, experimenting with different designs, and exploring ideas in algorithmic trading.
 
+Check the [tutorial](./tutorial.md) for a step-by-step introduction to
+using the library.
+
 ## Core Components
 
 - **Portfolios**: Multi-asset portfolio management with shared cash pool

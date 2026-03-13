@@ -1,9 +1,11 @@
 # Wu Trading Library Tutorial: Building a Pairs Trading Strategy
 
+Jaime Lopez  
 Mar. 13, 2026
 
-**Disclaimer**: This tutorial was produced using AI, based on the
-current codebase and examples.
+**Disclaimer**: This tutorial has been produced with AI assistance, based on the
+current codebase and examples. Qustions and suggestions are very
+welcome.
 
 Let's build something interesting together: a pairs trading backtester. We'll start from scratch and work our way through the complete `examples/backtest/pairs_trading.c` example. Along the journey, you'll discover how the Wu library is architected and how its pieces fit together like building blocks.
 
@@ -115,6 +117,46 @@ Date,Open,High,Low,Close,Volume
 ```
 
 The timestamp in the `Date` column is a Unix epoch value (seconds since January 1, 1970). This keeps things simple and avoids the complexity of parsing date strings. You can convert dates to Unix timestamps using tools like `date -d "2024-01-15" +%s` on Unix systems or Python's `datetime` module.
+
+### Getting Historical Data with yfnim
+
+Need historical price data for your backtests? The [yfnim](https://jailop.codeberg.page/yfnim/docs/) tool makes it trivial to pull data from Yahoo Finance in exactly the format Wu expects. It's a command-line utility that outputs clean CSV with Unix timestamps—no parsing gymnastics required.
+
+Here's how to fetch 20 years of SPY data:
+
+```bash
+yf history -s:spy --lookback:20y --format:csv --date_format:unix > spy.csv
+```
+
+For our pairs trading example, you need both SPY and QQQ:
+
+```bash
+# Pull SPY data
+yf history -s:spy --lookback:20y --format:csv --date_format:unix > spy.csv
+
+# Pull QQQ data
+yf history -s:qqq --lookback:20y --format:csv --date_format:unix > qqq.csv
+
+# Now run the backtest
+./pairs_trading spy.csv qqq.csv -v
+```
+
+The `--date_format:unix` flag is key—it outputs timestamps as Unix epoch values, which Wu expects. Without it, you'd get human-readable dates that would require parsing. The `--format:csv` flag ensures the output is CSV with proper headers.
+
+Want to test different time periods? Adjust the lookback:
+
+```bash
+# Last 5 years
+yf history -s:spy --lookback:5y --format:csv --date_format:unix > spy_5y.csv
+
+# Last 1 year
+yf history -s:spy --lookback:1y --format:csv --date_format:unix > spy_1y.csv
+
+# Specific date range
+yf history -s:spy --start:2020-01-01 --end:2023-12-31 --format:csv --date_format:unix > spy_2020_2023.csv
+```
+
+This makes it easy to test how your strategy performs across different market regimes—bull markets, bear markets, high volatility periods, or calm sideways action.
 
 ---
 
