@@ -3,10 +3,6 @@
 Jaime Lopez  
 Mar. 13, 2026
 
-**Disclaimer**: This tutorial has been elaborated with AI assistance, based on the
-current codebase and examples. Questions or suggestions are very
-welcome.
-
 Let's build something interesting together: a pairs trading backtester. We'll start from scratch and work our way through the complete `examples/backtest/pairs_trading.c` example. Along the journey, you'll discover how the Wu library is architected and how its pieces fit together like building blocks.
 
 Think of this as a guided tour through both the code and the design philosophy behind it. By the end, you'll understand not just how to use Wu, but why it's structured the way it is.
@@ -118,7 +114,6 @@ Date,Open,High,Low,Close,Volume
 
 The timestamp in the `Date` column is a Unix epoch value (seconds since January 1, 1970). This keeps things simple and avoids the complexity of parsing date strings. You can convert dates to Unix timestamps using tools like `date -d "2024-01-15" +%s` on Unix systems or Python's `datetime` module.
 
-<<<<<<< HEAD
 ### Getting Historical Data with yfnim
 
 Need historical price data for your backtests? The [yfnim](https://jailop.codeberg.page/yfnim/docs/) tool makes it trivial to pull data from Yahoo Finance in exactly the format Wu expects. It's a command-line utility that outputs clean CSV with Unix timestamps—no parsing gymnastics required.
@@ -159,8 +154,6 @@ yf history -s:spy --start:2020-01-01 --end:2023-12-31 --format:csv --date_format
 
 This makes it easy to test how your strategy performs across different market regimes—bull markets, bear markets, high volatility periods, or calm sideways action.
 
-=======
->>>>>>> ff08aa0dc84db5cd84718a50b2a6e1307d3265d0
 ---
 
 ## Understanding the Data Flow
@@ -487,12 +480,16 @@ Eventually, the spread crosses back through its mean. The strategy recognizes th
 If you passed the `-v` flag, you get to watch this drama unfold in real-time:
 
 ```
-[BUY] Asset 0 @ 450.25: 100.00 shares (cost: $45,070.03)
-[SELL] Asset 1 @ 375.80: -120.00 shares (proceeds: $45,024.24)
-Portfolio Value: $100,123.45 (Cash: $9,929.18)
+Iteration 0 | Signals: 2 | Value: 100000.00 | P&L: 0.00
+Iteration 100 | Signals: 2 | Value: 96570.30 | P&L: -3429.70
+Iteration 200 | Signals: 2 | Value: 101458.51 | P&L: 1458.51
+Iteration 300 | Signals: 2 | Value: 106875.01 | P&L: 6875.01
+...
+Iteration 5000 | Signals: 2 | Value: 269392.49 | P&L: 169392.49
+Backtest completed after 5028 iterations
 ```
 
-Each line shows a trade execution with the asset index, price, quantity, and dollar amount. You can see exactly when positions open and close, how much they cost, and how the portfolio value fluctuates. This verbose output is invaluable when you're debugging a strategy or trying to understand why it behaved unexpectedly on certain dates.
+Each line shows an iteration milestone with the number of signals generated (always 2 for pairs), current portfolio value, and cumulative P&L. You can see the strategy's performance evolve over time—starting slightly negative, then steadily climbing as mean-reversion opportunities are captured and profitable positions closed. This verbose output is invaluable when you're debugging a strategy or trying to understand why it behaved unexpectedly on certain dates.
 
 The backtest continues until one of the CSV files runs out of data. Since we need both assets for pairs trading, the runner stops as soon as either file ends, ensuring we never try to trade on incomplete information.
 
@@ -754,21 +751,23 @@ Position Sizing: 45% cash per asset
 
 === Backtest Results ===
 Initial Cash:      100000.00
-Final Value:       102345.67
-P&L:               2345.67 (2.35%)
-Total Fees:        543.21
-Total Trades:      24
-Winning Trades:    15
-Losing Trades:     9
-Win Rate:          62.50%
+Final Value:       263352.29
+P&L:               163352.29 (163.35%)
+Total Fees:        42719.01
+Total Trades:      250
+Winning Trades:    154
+Losing Trades:     96
+Win Rate:          61.60%
 Stop Loss Exits:   0
 Take Profit Exits: 0
 
 === Asset Holdings ===
-SPY: 0.0000 shares (value: $0.00)
+SPY: 272.9530 shares (value: $181803.08)
 QQQ: 0.0000 shares (value: $0.00)
-Cash: $102345.67
+Cash: $81549.21
 ```
+
+The strategy more than doubled the initial capital over the test period, with a 61.6% win rate across 250 trades. The remaining SPY position shows we're still long at the end of the backtest, waiting for the next mean-reversion signal. Transaction costs ate up over $42,000—a significant drag that real-world backtests must account for.
 
 ---
 
