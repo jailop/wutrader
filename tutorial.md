@@ -255,10 +255,10 @@ if (!spy_file || !qqq_file) {
 }
 
 // Create CSV readers for both assets
-WU_Reader spy_reader = (WU_Reader)wu_csv_reader_new(spy_file, WU_DATA_TYPE_CANDLE, true);
-WU_Reader qqq_reader = (WU_Reader)wu_csv_reader_new(qqq_file, WU_DATA_TYPE_CANDLE, true);
+WU_CsvReader spy_csv = wu_csv_reader_new(spy_file, WU_DATA_TYPE_CANDLE, true);
+WU_CsvReader qqq_csv = wu_csv_reader_new(qqq_file, WU_DATA_TYPE_CANDLE, true);
 
-if (!spy_reader || !qqq_reader) {
+if (!spy_csv || !qqq_csv) {
     fprintf(stderr, "Error: Could not create CSV readers\n");
     fclose(spy_file);
     fclose(qqq_file);
@@ -270,7 +270,7 @@ The `WU_CsvReader` is a concrete implementation of the abstract `WU_Reader` inte
 
 When we call `wu_csv_reader_new()`, we pass three arguments: an open file handle, the type of data we expect to find in that file, and whether the file has headers. The reader will parse each line, converting strings to numbers, and package them into `WU_Candle` structs. The `true` for headers tells it to skip the first line.
 
-Why does the reader return `void*` instead of a specific type? Because different readers might produce different types of data. The runner will handle type checking and conversion when it wires everything together. This abstraction keeps the reader simple while maintaining flexibility.
+Why does the reader return `void*` instead of a specific type? Because different readers might produce different types of data. The runner will handle type checking and conversion when it wires everything together. This abstraction keeps the reader simple while maintaining flexibility. When we pass these to the runner later, we'll use the `WU_READER()` macro to cast them to the base interface type.
 
 ---
 
@@ -280,11 +280,7 @@ Pairs trading is a classic mean-reversion strategy. The idea is simple but elega
 
 ```c
 // Create pairs trading strategy
-// Parameters:
-//   window = 20 (lookback for spread statistics)
-//   threshold = 2.0 (entry/exit at 2 standard deviations)
-//   ratio = 1.0 (1:1 hedge ratio for simplicity)
-WU_Strategy strategy = (WU_Strategy)wu_pairs_trading_strat_new(20, 2.0, 1.0);
+WU_PairsTradingStrat pairs_strat = wu_pairs_trading_strat_new(20, 2.0, 1.0);
 ```
 
 Here's how it works. The strategy calculates the spread between two assets—in our case, `spread = SPY_close - QQQ_close`. Over a rolling window (20 periods in our example), it tracks the mean and standard deviation of this spread. When the spread deviates significantly from its mean, that's our signal.
@@ -370,21 +366,25 @@ Now we bring everything together. The runner is the conductor of our backtest or
 ```c
 WU_Runner runner = wu_runner_new(
     WU_PORTFOLIO(portfolio),
-    strategy,
-    wu_reader_list(WU_READER(spy_reader), WU_READER(qqq_reader))
+    WU_STRATEGY(pairs_strat),
+    wu_reader_list(WU_READER(spy_csv), WU_READER(qqq_csv))
 );
 
 if (!runner) {
     fprintf(stderr, "Error: Could not create runner\n");
-    wu_portfolio_delete((WU_Portfolio)portfolio);
-    wu_strategy_delete(strategy);
-    wu_reader_delete(spy_reader);
-    wu_reader_delete(qqq_reader);
+    wu_portfolio_delete(WU_PORTFOLIO(portfolio));
+    wu_strategy_delete(WU_STRATEGY(pairs_strat));
+    wu_reader_delete(WU_READER(spy_csv));
+    wu_reader_delete(WU_READER(qqq_csv));
     return 1;
 }
 ```
 
 When you call `wu_runner_new()`, the runner does some important validation work before it gives you the green light. It checks that the number of readers matches what the strategy expects. Our pairs trading strategy needs two inputs, and we're giving it two readers—check. It verifies that each reader's data type is compatible with what the strategy wants. Both readers produce Candles, and the strategy expects Candles—check. If anything doesn't line up, the runner returns NULL and refuses to proceed. Better to fail fast at setup than crash mysteriously mid-backtest.
+
+The macros `WU_PORTFOLIO()`, `WU_STRATEGY()`, and `WU_READER()` cast our concrete types (BasicPortfolio, PairsTradingStrat, CsvReader) to their base interface types (WU_Portfolio, WU_Strategy, WU_Reader). This is C's way of doing polymorphism—the runner works with interfaces, not concrete implementations, so it can handle any portfolio, strategy, or reader that implements the required interface.
+
+The `wu_reader_list()` macro is a convenience that creates a NULL-terminated array. It's like saying "here are all my readers" without having to manually create and populate an array. Wu uses the NULL terminator to know when it's reached the end of the list.
 
 Once validation passes, the runner takes ownership of all the components. You hand it the portfolio, strategy, and readers, and from that point on, the runner is responsible for their lifecycle. When you eventually call `wu_runner_free()`, it cleans up everything for you. This ownership model keeps memory management straightforward and prevents leaks.
 
@@ -587,10 +587,10 @@ int main(int argc, char* argv[]) {
     }
     
     // Create CSV readers for both assets
-    WU_Reader spy_reader = (WU_Reader)wu_csv_reader_new(spy_file, WU_DATA_TYPE_CANDLE, true);
-    WU_Reader qqq_reader = (WU_Reader)wu_csv_reader_new(qqq_file, WU_DATA_TYPE_CANDLE, true);
+    WU_CsvReader spy_csv = wu_csv_reader_new(spy_file, WU_DATA_TYPE_CANDLE, true);
+    WU_CsvReader qqq_csv = wu_csv_reader_new(qqq_file, WU_DATA_TYPE_CANDLE, true);
     
-    if (!spy_reader || !qqq_reader) {
+    if (!spy_csv || !qqq_csv) {
         fprintf(stderr, "Error: Could not create CSV readers\n");
         fclose(spy_file);
         fclose(qqq_file);
@@ -602,7 +602,7 @@ int main(int argc, char* argv[]) {
     //   window = 20 (lookback for spread statistics)
     //   threshold = 2.0 (entry/exit at 2 standard deviations)
     //   ratio = 1.0 (1:1 hedge ratio for simplicity)
-    WU_Strategy strategy = (WU_Strategy)wu_pairs_trading_strat_new(20, 2.0, 1.0);
+    WU_PairsTradingStrat pairs_strat = wu_pairs_trading_strat_new(20, 2.0, 1.0);
     
     // Define asset symbols
     WU_AssetSymbol symbols[2];
@@ -641,18 +641,19 @@ int main(int argc, char* argv[]) {
     printf("Initial Capital: $%.2f\n", params.initial_cash);
     printf("Position Sizing: %.0f%% cash per asset\n", params.position_sizing.size_value * 100);
     
+    // Create runner - note the use of cast macros for polymorphism
     WU_Runner runner = wu_runner_new(
         WU_PORTFOLIO(portfolio),
-        strategy,
-        wu_reader_list(WU_READER(spy_reader), WU_READER(qqq_reader))
+        WU_STRATEGY(pairs_strat),
+        wu_reader_list(WU_READER(spy_csv), WU_READER(qqq_csv))
     );
     
     if (!runner) {
         fprintf(stderr, "Error: Could not create runner\n");
-        wu_portfolio_delete((WU_Portfolio)portfolio);
-        wu_strategy_delete(strategy);
-        wu_reader_delete(spy_reader);
-        wu_reader_delete(qqq_reader);
+        wu_portfolio_delete(WU_PORTFOLIO(portfolio));
+        wu_strategy_delete(WU_STRATEGY(pairs_strat));
+        wu_reader_delete(WU_READER(spy_csv));
+        wu_reader_delete(WU_READER(qqq_csv));
         return 1;
     }
     
@@ -789,6 +790,191 @@ WU_Signal* my_custom_strat_update(WU_Strategy strategy, const void* inputs[]) {
 ```
 
 The pattern is always the same: maintain your state in a struct, implement an update function that processes new data and generates signals, and populate the signal buffer. Want to build a momentum strategy? Track rate-of-change indicators. Mean reversion? Use Bollinger Bands. Machine learning? Feed the price data through your model and convert predictions to signals.
+
+### How the Pairs Trading Strategy is Implemented
+
+Let's peek under the hood and see how the pairs trading strategy actually works. Understanding the implementation will help you build your own strategies and appreciate the design patterns Wu uses.
+
+The strategy lives in `src/strategies/pairs_trading.c`. Here's the complete implementation with detailed explanation:
+
+```c
+#include <assert.h>
+#include <stdlib.h>
+#include <math.h>
+#include "wu.h"
+
+#define NUM_INPUTS 2
+#define NUM_OUTPUTS 2
+
+static const WU_DataType input_types[] = {
+    WU_DATA_TYPE_SINGLE_VALUE,
+    WU_DATA_TYPE_SINGLE_VALUE
+};
+
+static WU_Signal signal_buffer[NUM_OUTPUTS];
+```
+
+The strategy declares its requirements upfront using static constants. It needs two inputs, both `WU_DATA_TYPE_SINGLE_VALUE` (just prices, not full candles). It produces two outputs—one signal per asset. The signal buffer is static because we only ever need one instance shared across all calls. This saves allocations and keeps things simple.
+
+Now for the heart of the strategy—the update function that runs on every new data point:
+
+```c
+static WU_Signal* pairs_trading_strat_update(struct WU_Strategy_* strat_,
+                                             const void* inputs[]) {
+    WU_PairsTradingStrat strat = (WU_PairsTradingStrat)strat_;
+    
+    // Validate input count
+    assert(strat->base.num_inputs == NUM_INPUTS);
+    
+    // Cast inputs with proper types
+    const WU_Single* asset_a = (const WU_Single*)inputs[0];
+    const WU_Single* asset_b = (const WU_Single*)inputs[1];
+    
+    // Validate input types
+    assert(asset_a->data_type == WU_DATA_TYPE_SINGLE_VALUE);
+    assert(asset_b->data_type == WU_DATA_TYPE_SINGLE_VALUE);
+    
+    // Initialize signal buffer with HOLD signals for both assets
+    strat->base.signal_buffer[0] = wu_signal_init(asset_a->timestamp, WU_SIDE_HOLD, 
+                                                     asset_a->value, 1.0);
+    strat->base.signal_buffer[1] = wu_signal_init(asset_b->timestamp, WU_SIDE_HOLD, 
+                                                     asset_b->value, 1.0);
+```
+
+The function starts defensively with assertions. In production, you might use runtime checks instead, but during development, assertions catch bugs early. We cast the void pointers to the expected types—`WU_Single` in this case—and verify that we actually received what we expected.
+
+The signal buffer gets initialized with HOLD signals as the default. If nothing interesting happens with the spread, we'll just return these hold signals and the portfolio will do nothing. This is the base case.
+
+```c
+    // Calculate the spread: spread = asset_a - (ratio * asset_b)
+    double spread = asset_a->value - (strat->ratio * asset_b->value);
+    
+    // Update spread statistics
+    double spread_mean = wu_indicator_update(strat->spread_ma, spread);
+    double spread_stddev = wu_indicator_update(strat->spread_std, spread);
+    
+    // Wait for indicators to warm up
+    if (isnan(spread_mean) || isnan(spread_stddev))
+        return strat->base.signal_buffer;
+```
+
+Here's where the math happens. We calculate the spread between the two assets, adjusted by the hedge ratio. If the ratio is 1.0, it's just `SPY - QQQ`. If we determined through regression that the optimal ratio is 1.2, we'd calculate `SPY - (1.2 × QQQ)`.
+
+Then we update our indicators. The simple moving average tracks the spread's mean over our window (20 periods by default). The standard deviation measures how much the spread typically bounces around that mean. These indicators return `NaN` initially because they need a full window of data before they can produce valid values. We check for this and return early if the indicators aren't ready yet.
+
+```c
+    // Calculate entry/exit thresholds
+    double upper_band = spread_mean + strat->threshold * spread_stddev;
+    double lower_band = spread_mean - strat->threshold * spread_stddev;
+    
+    if (spread < lower_band && strat->last_signal != WU_SIDE_BUY) {
+        // Spread below lower band: Asset A undervalued
+        // Signal to BUY Asset A and SELL Asset B
+        strat->last_signal = WU_SIDE_BUY;
+        strat->base.signal_buffer[0].side = WU_SIDE_BUY;
+        strat->base.signal_buffer[1].side = WU_SIDE_SELL;
+    } 
+    else if (spread > upper_band && strat->last_signal != WU_SIDE_SELL) {
+        // Spread above upper band: Asset A overvalued
+        // Signal to SELL Asset A and BUY Asset B
+        strat->last_signal = WU_SIDE_SELL;
+        strat->base.signal_buffer[0].side = WU_SIDE_SELL;
+        strat->base.signal_buffer[1].side = WU_SIDE_BUY;
+    }
+```
+
+Now we apply the pairs trading logic. We calculate Bollinger-Band-style thresholds: mean plus or minus some multiple of standard deviation. With a threshold of 2.0, we're looking at 2-sigma events—roughly the most extreme 5% of historical spread values.
+
+When the spread drops below the lower band, we interpret that as asset A being undervalued. We generate a buy signal for asset A (index 0) and a sell signal for asset B (index 1). We're going long-short, betting the spread will widen back toward the mean.
+
+The `last_signal` check prevents duplicate entries. If we're already long from a previous signal, we don't want to enter again just because the spread is still below the lower band. We only act on state transitions.
+
+```c
+    else if (strat->last_signal != WU_SIDE_HOLD) {
+        // Check if spread has mean-reverted (exit condition)
+        bool spread_reverted = false;
+        
+        if (strat->last_signal == WU_SIDE_BUY && spread > spread_mean) {
+            // We were long (bought at low spread), now spread returned to mean
+            spread_reverted = true;
+        }
+        else if (strat->last_signal == WU_SIDE_SELL && spread < spread_mean) {
+            // We were short (sold at high spread), now spread returned to mean
+            spread_reverted = true;
+        }
+        
+        if (spread_reverted) {
+            // Mean reversion occurred - close position
+            // Generate opposite signals to close both positions
+            strat->base.signal_buffer[0].side = (strat->last_signal == WU_SIDE_BUY) ? 
+                                                  WU_SIDE_SELL : WU_SIDE_BUY;
+            strat->base.signal_buffer[1].side = (strat->last_signal == WU_SIDE_BUY) ? 
+                                                  WU_SIDE_BUY : WU_SIDE_SELL;
+            strat->last_signal = WU_SIDE_HOLD;
+        }
+    }
+    
+    return strat->base.signal_buffer;
+}
+```
+
+The exit logic is where mean reversion pays off—or doesn't. If we have an open position (`last_signal != WU_SIDE_HOLD`), we watch for the spread to cross back through its mean. If we bought when the spread was low and it's now risen above the mean, that's our exit. If we sold when the spread was high and it's now fallen below the mean, that's also our exit.
+
+When mean reversion occurs, we generate closing signals. If we were long asset A and short asset B, we now sell asset A and buy asset B to flatten both positions. The portfolio will calculate our profit or loss, deduct costs, and update the statistics.
+
+Notice how the strategy maintains state across calls. The `last_signal` field remembers what we did last time, the indicators accumulate history internally, and all this state lives explicitly in the struct. No hidden globals, no mysterious side effects.
+
+Here's the cleanup function:
+
+```c
+static void pairs_trading_strat_free(struct WU_Strategy_* strategy) {
+    WU_PairsTradingStrat strat = (WU_PairsTradingStrat)strategy;
+    wu_indicator_delete(strat->spread_ma);
+    wu_indicator_delete(strat->spread_std);
+    free(strat);
+}
+```
+
+When the runner frees the strategy, we need to clean up our indicators first. They allocated memory internally for their rolling windows, and we're responsible for releasing that. After the indicators are deleted, we free the strategy struct itself.
+
+Finally, the constructor that wires everything together:
+
+```c
+WU_PairsTradingStrat wu_pairs_trading_strat_new(int window, double threshold, 
+                                                  double ratio) {
+    WU_PairsTradingStrat strat = malloc(sizeof(struct WU_PairsTradingStrat_));
+    
+    // Set up base strategy interface
+    strat->base.update = pairs_trading_strat_update;
+    strat->base.delete = pairs_trading_strat_free;
+    
+    // Declare input requirements (point to static const)
+    strat->base.input_types = input_types;
+    strat->base.num_inputs = NUM_INPUTS;
+    
+    // Declare output count (symbols set by runner)
+    strat->base.output_symbols = NULL;  // Will be set by runner
+    strat->base.num_outputs = NUM_OUTPUTS;
+    strat->base.signal_buffer = signal_buffer;
+    
+    // Initialize spread statistics indicators
+    strat->spread_ma = wu_sma_new(window);
+    strat->spread_std = wu_stdev_new(window, 1);  // dof=1 for sample std deviation
+    
+    // Initialize strategy parameters
+    strat->threshold = threshold;
+    strat->ratio = ratio;
+    strat->last_signal = WU_SIDE_HOLD;
+    
+    return strat;
+}
+```
+
+The constructor allocates the strategy struct and populates the base interface—the function pointers that make polymorphism work in C. It points to our static input type array so the runner knows what data we expect. It creates the indicators we need (SMA and standard deviation) with the specified window size. And it stores the parameters we'll use during signal generation.
+
+Notice that `output_symbols` is NULL. The runner will fill this in based on the portfolio's asset list. This separation keeps the strategy generic—it doesn't need to know whether it's trading SPY/QQQ, XOM/CVX, or any other pair. The strategy just deals with "asset 0" and "asset 1", and the portfolio maps those indices to real symbols.
+
+This implementation pattern—struct with function pointers, explicit state, static metadata—is how all Wu strategies work. Once you understand this pattern, you can implement any strategy you can imagine.
 
 ### Advanced Topics Worth Exploring
 

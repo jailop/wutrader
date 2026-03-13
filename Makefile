@@ -24,8 +24,8 @@ examples: $(TARGET)
 	$(MAKE) -C examples
 
 run_examples: examples
-	LD_LIBRARY_PATH=./lib ./examples/backtest/example01 ./tests/data/btcusd.csv
-	LD_LIBRARY_PATH=./lib ./examples/backtest/pairs_trading ./tests/data/spy.csv ./tests/data/qqq.csv 
+	LD_LIBRARY_PATH=./lib ./examples/backtest/example01 ./tests/data/btcusd.csv -v
+	LD_LIBRARY_PATH=./lib ./examples/backtest/pairs_trading ./tests/data/spy.csv ./tests/data/qqq.csv  -v
 
 $(TARGET): $(OBJECTS)
 	@mkdir -p lib
