@@ -770,17 +770,15 @@ QQQ: 0.0000 shares (value: $0.00)
 Cash: $81549.21
 ```
 
-```
-
 The strategy more than doubled the initial capital over the test period, with a 61.6% win rate across 250 trades. The remaining SPY position shows we're still long at the end of the backtest, waiting for the next mean-reversion signal. Transaction costs ate up over $42,000—a significant drag that real-world backtests must account for.
 
-**But before you get excited about these returns, we need a serious conversation about what these numbers actually mean—and what they absolutely do not mean.**
+But before you get excited about these returns, we need a serious conversation about what these numbers actually mean—and what they absolutely do not mean.
 
 ---
 
 ## Critical Limitations and Warnings
 
-### This is NOT Evidence of Profitability
+### This is not Evidence of Profitability
 
 Let's be brutally honest: that 163% return is **in-sample testing**. We're running the strategy on historical data, which means we're testing on the past—a past we already know. This is the most dangerous trap in algorithmic trading, and beginners fall into it constantly.
 
