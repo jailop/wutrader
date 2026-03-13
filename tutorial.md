@@ -7,6 +7,8 @@ Let's build something interesting together: a pairs trading backtester. We'll st
 
 Think of this as a guided tour through both the code and the design philosophy behind it. By the end, you'll understand not just how to use Wu, but why it's structured the way it is.
 
+**Important Note**: Wu is an experimental library designed for learning and exploring algorithmic trading concepts. It's a tool for understanding design patterns and architecture in backtesting systems, not a production-ready trading platform. The examples demonstrate functionality but come with significant limitations that we'll discuss throughout this tutorial.
+
 ## Table of Contents
 
 1. [Library Architecture Overview](#library-architecture-overview)
@@ -20,9 +22,10 @@ Think of this as a guided tour through both the code and the design philosophy b
 9. [Step 6: Creating the Runner](#step-6-creating-the-runner)
 10. [Step 7: Running the Backtest](#step-7-running-the-backtest)
 11. [Step 8: Analyzing Results](#step-8-analyzing-results)
-12. [Complete Code](#complete-code)
-13. [Building and Running](#building-and-running)
-14. [Next Steps](#next-steps)
+12. [Critical Limitations and Warnings](#critical-limitations-and-warnings)
+13. [Complete Code](#complete-code)
+14. [Building and Running](#building-and-running)
+15. [Next Steps](#next-steps)
 
 ---
 
@@ -767,7 +770,93 @@ QQQ: 0.0000 shares (value: $0.00)
 Cash: $81549.21
 ```
 
+```
+
 The strategy more than doubled the initial capital over the test period, with a 61.6% win rate across 250 trades. The remaining SPY position shows we're still long at the end of the backtest, waiting for the next mean-reversion signal. Transaction costs ate up over $42,000—a significant drag that real-world backtests must account for.
+
+**But before you get excited about these returns, we need a serious conversation about what these numbers actually mean—and what they absolutely do not mean.**
+
+---
+
+## Critical Limitations and Warnings
+
+### This is NOT Evidence of Profitability
+
+Let's be brutally honest: that 163% return is **in-sample testing**. We're running the strategy on historical data, which means we're testing on the past—a past we already know. This is the most dangerous trap in algorithmic trading, and beginners fall into it constantly.
+
+**The Backtest Bias Problem**: Even though Wu processes data chronologically (no peeking into the future), the strategy parameters—20-period window, 2.0 standard deviation threshold, 1.0 hedge ratio—were chosen because they work on this specific dataset. That's information from the future contaminating the past. In real trading, you don't know what parameters will work ahead of time.
+
+**Overfitting Risk**: Try enough parameter combinations and you'll find something that looks profitable on historical data. That's not skill, that's data mining. The strategy might be perfectly tuned to noise in this particular sample, capturing patterns that will never repeat.
+
+**Data Snooping**: Every time you test a variation, you're consuming degrees of freedom from your dataset. Test 100 different strategies and one will look great by pure chance. It won't work going forward, but the backtest won't tell you that.
+
+Real trading is unforgiving. Strategies that return 163% in backtests often return -30% in live trading. The difference isn't a mystery—it's the gap between idealized historical simulation and messy reality.
+
+### Missing Risk Metrics
+
+Profit and loss tells you what happened, but not how painful the journey was. Wu currently lacks essential risk metrics that professional traders consider mandatory:
+
+**Sharpe Ratio**: Risk-adjusted returns, calculated as `(average_return - risk_free_rate) / standard_deviation_of_returns`. A 163% return with 200% volatility is far scarier than 20% with 5% volatility. The Sharpe ratio captures this trade-off. Anything below 1.0 is questionable, above 2.0 is excellent, above 3.0 is suspicious (probably overfit).
+
+**Maximum Drawdown**: The worst peak-to-trough decline your account experienced. Wu doesn't track this, but it's crucial. A 50% drawdown means you need 100% gains just to break even. Many traders would have abandoned the strategy in panic before it recovered. Can you really tolerate that psychologically?
+
+**Volatility**: How much does your equity curve bounce around? High volatility means sleepless nights and higher risk of catastrophic losses. It also affects position sizing—volatile strategies need smaller positions to avoid blowing up.
+
+**Calmar Ratio**: Annual return divided by maximum drawdown. It tells you how much you earn per unit of worst-case risk. Better than Sharpe for strategies with non-normal return distributions.
+
+Without these metrics, you're driving blind. You see the destination but not the cliffs you almost drove off along the way.
+
+### Unrealistic Execution Model
+
+Wu's execution model is deliberately simplified to keep the code clean and the architecture clear. That simplicity comes at the cost of realism:
+
+**Infinite Liquidity Assumption**: Wu assumes you can instantly trade any quantity at the current price. Real markets have limited liquidity. Try buying $100 million of a small-cap stock and watch your order move the market against you. Wu's fixed slippage percentage (0.05%) doesn't capture this nonlinear effect.
+
+**Market Orders Only**: Wu executes trades immediately at the signal price. Reality offers a choice: market orders execute fast at uncertain prices, limit orders execute at your price but might not fill at all. Wu models neither correctly—it's a hybrid that gives you both instant execution and price certainty, which doesn't exist.
+
+**No Partial Fills**: Your order for 100 shares might only get 50 filled, leaving you under-allocated. Wu assumes all-or-nothing execution, which is optimistic.
+
+**Shorting Without Consequences**: The pairs trading example shorts QQQ freely. Real shorting requires margin, incurs borrow fees that vary daily, faces risk of forced buybacks if shares become unavailable, and can trigger regulatory restrictions during market crashes. Wu ignores all of this complexity.
+
+**No Slippage During Volatility**: Wu's 0.05% slippage is constant. Real slippage explodes during market stress—precisely when you most need to exit positions. That March 2020 crash? Good luck executing at any reasonable price.
+
+### Pairs Trading Specific Weaknesses
+
+Our implementation demonstrates the architecture, but it's not a serious pairs trading strategy:
+
+**No Cointegration Validation**: Professional pairs traders test for cointegration using Augmented Dickey-Fuller tests, Johansen tests, or similar statistical methods. They verify that the spread is mean-reverting, not just correlated. We assume SPY and QQQ will revert because they look correlated, but correlation ≠ cointegration. The relationship could be spurious or degrading over time.
+
+**Fixed Hedge Ratio**: We use `ratio = 1.0` for simplicity. Real implementations estimate the hedge ratio using rolling regression or Kalman filters, updating it as the relationship between assets evolves. A fixed ratio becomes stale quickly.
+
+**Naive Spread Definition**: We calculate `spread = SPY - (ratio × QQQ)` in price space. More sophisticated approaches work in log-price space to capture multiplicative relationships, or use more complex models like Error Correction Models or state-space models.
+
+**No Regime Detection**: Markets have regimes—trending, mean-reverting, high-volatility, low-volatility. Our strategy trades blindly through all of them. A production strategy would detect regime changes and adapt or shut down.
+
+**No Out-of-Sample Testing**: We should develop parameters on one time period (say, 2006-2015), then validate on a separate period (2016-2021). This guards against overfitting. Wu doesn't enforce this workflow, making it easy to fool yourself.
+
+### What About Real Trading?
+
+If you wanted to trade this strategy with real money, you'd need to address:
+
+- **Position Limits**: Can you actually deploy $45,000 per asset without moving the market?
+- **Margin Requirements**: Your broker won't give you unlimited margin for the short leg
+- **Borrow Costs**: Shorting QQQ costs money daily (borrow fees)
+- **Regulatory Constraints**: Pattern day trader rules, margin maintenance requirements
+- **Execution Latency**: By the time your order reaches the exchange, prices have moved
+- **Overnight Risk**: Markets gap. You can't stop-loss your way out of a gap down
+- **Black Swans**: March 2020, September 2008—correlations break down exactly when you need them most
+
+### Wu's Purpose and Your Responsibility
+
+Wu is a teaching tool and an architecture exploration platform. It demonstrates how to structure a backtesting system using clean abstractions and composable components. The code is meant to be read, understood, and modified.
+
+Use Wu to learn how backtesting systems work, experiment with strategy ideas, and understand the interplay between data, signals, and execution. Use it to build intuition about trading mechanics.
+
+**But**: Treat backtest results with extreme skepticism. Add proper validation workflows. Calculate risk metrics. Test out-of-sample. Understand that profitable backtests are a starting point for investigation, not proof of profitability.
+
+And most importantly: never trade real money based solely on a backtest, especially one from an experimental learning library. If you decide to move toward real trading, engage with the existing research literature, implement proper risk management, and start with small position sizes while you validate your assumptions against reality.
+
+Wu gives you the building blocks. What you build with them, and whether it actually works in live markets, is entirely your responsibility.
 
 ---
 
