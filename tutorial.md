@@ -4,7 +4,7 @@ Jaime Lopez
 Mar. 13, 2026
 
 **Disclaimer**: This tutorial has been elaborated with AI assistance, based on the
-current codebase and examples. Qustions and suggestions are very
+current codebase and examples. Questions or suggestions are very
 welcome.
 
 Let's build something interesting together: a pairs trading backtester. We'll start from scratch and work our way through the complete `examples/backtest/pairs_trading.c` example. Along the journey, you'll discover how the Wu library is architected and how its pieces fit together like building blocks.
