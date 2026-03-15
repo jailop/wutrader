@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['calculate_5fportfolio_5fpnl_0',['calculate_portfolio_pnl',['../basic_8c.html#ab6d63bb9f55557859c1a49f7555257ad',1,'basic.c']]],
+  ['calculate_5fportfolio_5fvalue_1',['calculate_portfolio_value',['../basic_8c.html#ae81d98f2108c69977133a5beee20007d',1,'basic.c']]],
+  ['calculate_5fposition_5fsize_2',['calculate_position_size',['../basic_8c.html#a0ef8a4166f170c4f9d1650bbc1543e6b',1,'basic.c']]],
+  ['calculate_5fpositions_5fvalue_3',['calculate_positions_value',['../basic_8c.html#afdc70fc18d096957c96e3f135c54892a',1,'basic.c']]],
+  ['calculate_5ftotal_5fcost_5fbasis_4',['calculate_total_cost_basis',['../basic_8c.html#abcb35d1b59f4007b2c9623c7fe1d650f',1,'basic.c']]],
+  ['candle_5',['candle',['../structWU__CsvReader__.html#a6c565444677c491623cf52d48db8342e',1,'WU_CsvReader_']]],
+  ['capacity_6',['capacity',['../structWU__PositionVector.html#ae6edaae18b738aabca4c12ca39baf6e3',1,'WU_PositionVector']]],
+  ['cash_7',['cash',['../structWU__BasicPortfolio__.html#ad8407b71537575c0bf2338d2fcbc56cb',1,'WU_BasicPortfolio_']]],
+  ['check_5fand_5fclose_5fpositions_8',['check_and_close_positions',['../basic_8c.html#a4f701adb921eb62de8d503d412d98153',1,'basic.c']]],
+  ['clear_9',['clear',['../structWU__PositionVector.html#a6bbb73dd1211075d7c5ccbc647913152',1,'WU_PositionVector']]],
+  ['clear_5fpositions_10',['clear_positions',['../positionvector_8c.html#abd42adbc4c866aab4c1d05a2b5afece4',1,'positionvector.c']]],
+  ['close_11',['close',['../structWU__Candle.html#a2438c2a2d14ccdaba89cf074434d0de0',1,'WU_Candle']]],
+  ['close_5fand_5fupdate_5fportfolio_12',['close_and_update_portfolio',['../basic_8c.html#a6b9749658a2926f2d5688addb77cbd72',1,'basic.c']]],
+  ['close_5fposition_13',['close_position',['../basic_8c.html#a72da7e1c8192d2074b0940439ed50c77',1,'basic.c']]],
+  ['compute_5ftotal_5fcost_14',['compute_total_cost',['../basic_8c.html#a6b8a762bf085dde08bbb5811422edaa5',1,'basic.c']]],
+  ['count_15',['count',['../structWU__PositionVector.html#ac42c7535bb1945c6a083121427b2e8a2',1,'WU_PositionVector']]],
+  ['count_5fbuy_5fsignals_16',['count_buy_signals',['../basic_8c.html#a32ac0dd485ad5deb74e2cc64a93ff45a',1,'basic.c']]],
+  ['crossover_2ec_17',['crossover.c',['../crossover_8c.html',1,'']]],
+  ['csv_2ec_18',['csv.c',['../csv_8c.html',1,'']]]
+];

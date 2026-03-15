@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['wu_5fclose_5freason_5fsignal_0',['WU_CLOSE_REASON_SIGNAL',['../types_8h.html#a6600a0737149ca543a2ac589b5453490ade339995f7e23a8e872887a2c2342814',1,'types.h']]],
+  ['wu_5fclose_5freason_5fstop_5floss_1',['WU_CLOSE_REASON_STOP_LOSS',['../types_8h.html#a6600a0737149ca543a2ac589b5453490a3ac471a375ea6e5e467394cd97270339',1,'types.h']]],
+  ['wu_5fclose_5freason_5ftake_5fprofit_2',['WU_CLOSE_REASON_TAKE_PROFIT',['../types_8h.html#a6600a0737149ca543a2ac589b5453490a128f3c4ebcda4f76784f20ea3667a599',1,'types.h']]],
+  ['wu_5fcsv_5ferror_5feof_3',['WU_CSV_ERROR_EOF',['../readers_8h.html#a67302bd1ff8bc35bf4369194e3d0fcb1a7c57aef28706b94f175e7169a489e37e',1,'readers.h']]],
+  ['wu_5fcsv_5ferror_5fparse_4',['WU_CSV_ERROR_PARSE',['../readers_8h.html#a67302bd1ff8bc35bf4369194e3d0fcb1a95d125284e1bf0e8647fc2ba09679c7e',1,'readers.h']]],
+  ['wu_5fcsv_5fok_5',['WU_CSV_OK',['../readers_8h.html#a67302bd1ff8bc35bf4369194e3d0fcb1a469441889f1d34c0ba5f0d245b6f71c4',1,'readers.h']]],
+  ['wu_5fdata_5ftype_5fcandle_6',['WU_DATA_TYPE_CANDLE',['../types_8h.html#aa61141c2305acd8346c0f0390aad8efaaf025a7e3dc4927539131c1d6c499b084',1,'types.h']]],
+  ['wu_5fdata_5ftype_5fsingle_5fvalue_7',['WU_DATA_TYPE_SINGLE_VALUE',['../types_8h.html#aa61141c2305acd8346c0f0390aad8efaae4ca65c64d9d1db313003c18c17593a6',1,'types.h']]],
+  ['wu_5fdata_5ftype_5ftrade_8',['WU_DATA_TYPE_TRADE',['../types_8h.html#aa61141c2305acd8346c0f0390aad8efaac2bc40b8f93af0a9df11baf910c488d2',1,'types.h']]],
+  ['wu_5fday_9',['WU_DAY',['../types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3a671cfe9db204305dfe0f9652ca7eb631',1,'types.h']]],
+  ['wu_5fhour_10',['WU_HOUR',['../types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3a59f4aa2843a307effc72351b37632ce8',1,'types.h']]],
+  ['wu_5fminute_11',['WU_MINUTE',['../types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3a7393f0929b4987c632860b65e92a80ae',1,'types.h']]],
+  ['wu_5fmonth_12',['WU_MONTH',['../types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3aa3132a409956b245a423d62618ce9e2e',1,'types.h']]],
+  ['wu_5fposition_5fsize_5fabs_13',['WU_POSITION_SIZE_ABS',['../positions_8h.html#aa60a6afb2af7e73f2d3848b68db0e930a95433b079a46c5b62f83716b0d22af18',1,'positions.h']]],
+  ['wu_5fposition_5fsize_5fpct_14',['WU_POSITION_SIZE_PCT',['../positions_8h.html#aa60a6afb2af7e73f2d3848b68db0e930adea60b04e557074cfef8a600ace85161',1,'positions.h']]],
+  ['wu_5fposition_5fsize_5fpct_5fequal_15',['WU_POSITION_SIZE_PCT_EQUAL',['../positions_8h.html#aa60a6afb2af7e73f2d3848b68db0e930a1e70b5340bbb0a7ddf7d5895a2ead52f',1,'positions.h']]],
+  ['wu_5fposition_5fsize_5fstrategy_5fguided_16',['WU_POSITION_SIZE_STRATEGY_GUIDED',['../positions_8h.html#aa60a6afb2af7e73f2d3848b68db0e930a2b97651e120a38638b0f119bdc8e155b',1,'positions.h']]],
+  ['wu_5fsecond_17',['WU_SECOND',['../types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3a1f1dc9f3a8c0554adb222dc8109ca5cd',1,'types.h']]],
+  ['wu_5fside_5fbuy_18',['WU_SIDE_BUY',['../types_8h.html#a2f2e3c024ac1b136533c4d84c12a3956ab60ae8c62e61a4a3ba70c83b88ef5142',1,'types.h']]],
+  ['wu_5fside_5fhold_19',['WU_SIDE_HOLD',['../types_8h.html#a2f2e3c024ac1b136533c4d84c12a3956a09300e1f209d471230bcaef5648ada3f',1,'types.h']]],
+  ['wu_5fside_5fsell_20',['WU_SIDE_SELL',['../types_8h.html#a2f2e3c024ac1b136533c4d84c12a3956a2324b36323cea91fe827a41b4760bb34',1,'types.h']]],
+  ['wu_5fweek_21',['WU_WEEK',['../types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3a664687c4349007a365968afc26d12b5c',1,'types.h']]],
+  ['wu_5fyear_22',['WU_YEAR',['../types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3ac571314b5406bf6b179b814e4a60ee0e',1,'types.h']]]
+];

@@ -1,0 +1,28 @@
+var annotated_dup =
+[
+    [ "BuyPositionResult", "structBuyPositionResult.html", "structBuyPositionResult" ],
+    [ "WU_BasicPortfolio", "structWU__BasicPortfolio__.html", "structWU__BasicPortfolio__" ],
+    [ "WU_Candle", "structWU__Candle.html", "structWU__Candle" ],
+    [ "WU_CrossOverStrat", "structWU__CrossOverStrat__.html", "structWU__CrossOverStrat__" ],
+    [ "WU_CsvReader", "structWU__CsvReader__.html", "structWU__CsvReader__" ],
+    [ "WU_EMA", "structWU__EMA__.html", "structWU__EMA__" ],
+    [ "WU_MACD", "structWU__MACD__.html", "structWU__MACD__" ],
+    [ "WU_MACDResult", "structWU__MACDResult.html", "structWU__MACDResult" ],
+    [ "WU_MVar", "structWU__MVar__.html", "structWU__MVar__" ],
+    [ "WU_PairsTradingStrat", "structWU__PairsTradingStrat__.html", "structWU__PairsTradingStrat__" ],
+    [ "WU_Portfolio", "structWU__Portfolio__.html", "structWU__Portfolio__" ],
+    [ "WU_PortfolioParams", "structWU__PortfolioParams.html", "structWU__PortfolioParams" ],
+    [ "WU_PortfolioStats", "structWU__PortfolioStats__.html", "structWU__PortfolioStats__" ],
+    [ "WU_Position", "structWU__Position__.html", "structWU__Position__" ],
+    [ "WU_PositionSizingParams", "structWU__PositionSizingParams.html", "structWU__PositionSizingParams" ],
+    [ "WU_PositionVector", "structWU__PositionVector.html", "structWU__PositionVector" ],
+    [ "WU_Reader", "structWU__Reader__.html", "structWU__Reader__" ],
+    [ "WU_RSI", "structWU__RSI__.html", "structWU__RSI__" ],
+    [ "WU_Runner", "structWU__Runner__.html", "structWU__Runner__" ],
+    [ "WU_Signal", "structWU__Signal.html", "structWU__Signal" ],
+    [ "WU_Single", "structWU__Single.html", "structWU__Single" ],
+    [ "WU_SMA", "structWU__SMA__.html", "structWU__SMA__" ],
+    [ "WU_StDev", "structWU__StDev__.html", "structWU__StDev__" ],
+    [ "WU_Strategy", "structWU__Strategy__.html", "structWU__Strategy__" ],
+    [ "WU_Trade", "structWU__Trade.html", "structWU__Trade" ]
+];

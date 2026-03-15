@@ -1,0 +1,27 @@
+var basic_8c =
+[
+    [ "BuyPositionResult", "structBuyPositionResult.html", "structBuyPositionResult" ],
+    [ "calculate_portfolio_pnl", "basic_8c.html#ab6d63bb9f55557859c1a49f7555257ad", null ],
+    [ "calculate_portfolio_value", "basic_8c.html#ae81d98f2108c69977133a5beee20007d", null ],
+    [ "calculate_position_size", "basic_8c.html#a0ef8a4166f170c4f9d1650bbc1543e6b", null ],
+    [ "calculate_positions_value", "basic_8c.html#afdc70fc18d096957c96e3f135c54892a", null ],
+    [ "calculate_total_cost_basis", "basic_8c.html#abcb35d1b59f4007b2c9623c7fe1d650f", null ],
+    [ "check_and_close_positions", "basic_8c.html#a4f701adb921eb62de8d503d412d98153", null ],
+    [ "close_and_update_portfolio", "basic_8c.html#a6b9749658a2926f2d5688addb77cbd72", null ],
+    [ "close_position", "basic_8c.html#a72da7e1c8192d2074b0940439ed50c77", null ],
+    [ "compute_total_cost", "basic_8c.html#a6b8a762bf085dde08bbb5811422edaa5", null ],
+    [ "count_buy_signals", "basic_8c.html#a32ac0dd485ad5deb74e2cc64a93ff45a", null ],
+    [ "execute_buy", "basic_8c.html#a60919b9209b770e4ddf77e582f626c8a", null ],
+    [ "execute_sell", "basic_8c.html#afc56373ddcc0ade5733d4b04f4792c6a", null ],
+    [ "initialize_positions", "basic_8c.html#ace02adcf8bd40900d52f9c72ed9c6326", null ],
+    [ "process_buy_signals", "basic_8c.html#a200e79412bb662f6684f7604c2d9147b", null ],
+    [ "process_sell_signals", "basic_8c.html#a66ec39d89e48a004713dc4e2aabe55c9", null ],
+    [ "set_buy_position", "basic_8c.html#a9aab070bcf80f1819cc5dfdb424fc52d", null ],
+    [ "slippage_price", "basic_8c.html#a63a7a8fb74c5479524aabac9f18c8dd2", null ],
+    [ "update_portfolio", "basic_8c.html#ae46e89faa71bdeb25544471d70739d38", null ],
+    [ "update_prices_and_check_exits", "basic_8c.html#aefc40797050e08d0e6695c4f2a1455aa", null ],
+    [ "wu_basic_portfolio_asset_quantity", "basic_8c.html#a3301ffdac9f94a7ee56295a5d2b78331", null ],
+    [ "wu_basic_portfolio_asset_value", "basic_8c.html#aa1bdb9216a82a4f058a6d0e4da12e8e6", null ],
+    [ "wu_basic_portfolio_free", "basic_8c.html#acff28664e0f0d59857a4b5f6dd160383", null ],
+    [ "wu_basic_portfolio_new", "basic_8c.html#a0d0341adb332ca990d1076ba417d39cd", null ]
+];

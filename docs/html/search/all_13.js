@@ -1,0 +1,6 @@
+var searchData=
+[
+  ['update_0',['update',['../structWU__SMA__.html#afe833afa1bd6e7085fa67bb58c2abbf4',1,'WU_SMA_::update'],['../structWU__EMA__.html#a1fc57e1446a416b4a193415c3f8bd9e6',1,'WU_EMA_::update'],['../structWU__MVar__.html#aaa3d4ea9a0db470296fd75deea0158db',1,'WU_MVar_::update'],['../structWU__StDev__.html#af0306a7cac35c87cd6e4ebd0695d2b21',1,'WU_StDev_::update'],['../structWU__RSI__.html#a41b264ab6744e77c207b4c1e29318b9f',1,'WU_RSI_::update'],['../structWU__MACD__.html#ac5dbaa5d4db7402d1fe788cf365bc71f',1,'WU_MACD_::update'],['../structWU__Portfolio__.html#a0db8a9b83b5b672c2be23b95f30cb1a3',1,'WU_Portfolio_::update'],['../structWU__Strategy__.html#a368dab83ddae825218b929140ffafff3',1,'WU_Strategy_::update'],['../mvar_8c.html#af00d8bc523a38ab1b1f67017ae76cdb0',1,'update(WU_MVar mvar, double value):&#160;mvar.c'],['../stdev_8c.html#a8b0364b3b7e3ec6482462ac622bc6ea7',1,'update(WU_StDev stdev, double value):&#160;stdev.c'],['../crossover_8c.html#a126e2944297e0ba4fcb1410239abe12c',1,'update(WU_Strategy strat_, const void *inputs[]):&#160;crossover.c']]],
+  ['update_5fportfolio_1',['update_portfolio',['../basic_8c.html#ae46e89faa71bdeb25544471d70739d38',1,'basic.c']]],
+  ['update_5fprices_5fand_5fcheck_5fexits_2',['update_prices_and_check_exits',['../basic_8c.html#aefc40797050e08d0e6695c4f2a1455aa',1,'basic.c']]]
+];
