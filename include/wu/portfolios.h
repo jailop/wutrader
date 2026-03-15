@@ -54,15 +54,24 @@ typedef struct WU_Portfolio_ {
         (portfolio)->delete((WU_Portfolio)(portfolio)); \
 } while(0)
 
+typedef enum {
+    WU_DIRECTION_LONG,
+    WU_DIRECTION_SHORT,
+    WU_DIRECTION_BOTH
+} WU_Direction;
+
 /**
  * The parameters to define a portfolio.
  */
 typedef struct WU_PortfolioParams {
+    WU_Direction direction;
     double initial_cash;
     double tx_cost_pct;
     double stop_loss_pct;
     double take_profit_pct;
     double slippage_pct;
+    double borrow_rate;
+    double borrow_limit;
     WU_PositionSizingParams position_sizing;
 } WU_PortfolioParams;
 
@@ -78,13 +87,18 @@ typedef struct WU_PortfolioParams {
 
 typedef struct WU_BasicPortfolio_ {
     struct WU_Portfolio_ base;
-    WU_PortfolioParams params;
     double cash;
-    WU_PositionVector** positions;
     int num_assets;
-    double accum_expenses;
+    WU_TimeStamp last_update_time;
+    WU_PortfolioParams params;
+    WU_PositionVector** positions;
     WU_PortfolioStats stats;
 }* WU_BasicPortfolio;
+
+/**
+ * Returns default portfolio parameters with reasonable values.
+ */
+WU_PortfolioParams wu_portfolio_params_default(void);
 
 /**
  * Creates a new basic portfolio instance with the specified parameters

@@ -13,6 +13,54 @@
 #include "wu.h"
 
 /**
+ * Returns default portfolio parameters with reasonable values.
+ */
+WU_PortfolioParams wu_portfolio_params_default(void) {
+    return (WU_PortfolioParams) {
+        .direction = WU_DIRECTION_LONG,
+        .initial_cash = 100000.0,
+        .tx_cost_pct = 0.001,
+        .stop_loss_pct = 0.0,
+        .take_profit_pct = 0.0,
+        .slippage_pct = 0.0,
+        .borrow_rate = 0.0,
+        .borrow_limit = 0.0,
+        .position_sizing = {
+            .size_type = WU_POSITION_SIZE_PCT,
+            .size_value = 0.5
+        }
+    };
+}
+
+/**
+ * Helper function to calculate the time difference in years between
+ * two timestamps, accounting for different time units.
+ */
+static double calculate_years_held(WU_TimeStamp open_time, 
+        WU_TimeStamp close_time) {
+    if (open_time.units != close_time.units) return 0.0;
+    int64_t diff = close_time.mark - open_time.mark;
+    double seconds;
+    switch (open_time.units) {
+        case WU_TIME_UNIT_SECONDS:
+            seconds = (double)diff;
+            break;
+        case WU_TIME_UNIT_MILLIS:
+            seconds = (double)diff / 1000.0;
+            break;
+        case WU_TIME_UNIT_MICROS:
+            seconds = (double)diff / 1000000.0;
+            break;
+        case WU_TIME_UNIT_NANOS:
+            seconds = (double)diff / 1000000000.0;
+            break;
+        default:
+            seconds = 0.0;
+    }
+    return seconds / (365.0 * 86400.0);
+}
+
+/**
  * At this moment, the slippage is calculated in a deterministic way
  * based on a fixed percentage defined in the portfolio parameters.
  * If the signal is a buy, the slippage increases the price, and if it's
@@ -83,22 +131,34 @@ static double calculate_position_size(WU_BasicPortfolio portfolio,
     switch (ps->size_type) {
         case WU_POSITION_SIZE_ABS:
             return ps->size_value;
-        case WU_POSITION_SIZE_PCT:
-            return (portfolio->cash * ps->size_value) / price;
-        case WU_POSITION_SIZE_PCT_EQUAL: 
+        case WU_POSITION_SIZE_PCT: {
+            double portfolio_value = calculate_portfolio_value(
+                    (WU_Portfolio) portfolio);
+            // If signal.quantity is between 0 and 1, treat as target allocation %
+            // Otherwise use size_value as % of available cash
+            if (signal.quantity > 0.0 && signal.quantity < 1.0) {
+                double target_proportion = signal.quantity;
+                return portfolio_value * target_proportion * ps->size_value / price;
+            } else {
+                return (portfolio->cash * ps->size_value) / price;
+            }
+        }
+        case WU_POSITION_SIZE_PCT_EQUAL: {
             double portfolio_value = calculate_portfolio_value(
                     (WU_Portfolio) portfolio);
             double alloc_per_asset = portfolio_value / portfolio->num_assets;
             double target_value = alloc_per_asset * ps->size_value;
             return target_value / price;
-        case WU_POSITION_SIZE_STRATEGY_GUIDED:
-            portfolio_value = calculate_portfolio_value(
+        }
+        case WU_POSITION_SIZE_STRATEGY_GUIDED: {
+            double portfolio_value = calculate_portfolio_value(
                     (WU_Portfolio) portfolio);
             double target_proportion = signal.quantity;
             if (target_proportion < 0.0) target_proportion = 0.0;
             if (target_proportion > 1.0) target_proportion = 1.0;
             return portfolio_value * target_proportion * ps->size_value
                 / price;
+        }
         default: // unreachable
             return 0.0;
     }
@@ -162,23 +222,6 @@ static struct BuyPositionResult set_buy_position(WU_BasicPortfolio portfolio,
 }
 
 /**
- * This function executes a buy signal by creating a new position
- * based on the calculated position size and the signal's price. 
- * It also updates the portfolio's cash balance and the accumulated
- * expenses.
- */
-static void execute_buy(WU_BasicPortfolio portfolio, WU_Signal signal,
-        int asset_index) {
-    if (asset_index < 0 || asset_index >= portfolio->num_assets) return;
-    if (portfolio->cash <= 0) return;
-    struct BuyPositionResult result = set_buy_position(portfolio, signal);
-    if (result.position.quantity <= 0) return;
-    wu_position_add(portfolio->positions[asset_index], &result.position);
-    portfolio->cash -= result.total_cost;
-    portfolio->accum_expenses += result.tx_cost;
-}
-
-/**
  * This function calculates the total cost basis for all active
  * positions in a given position vector. It iterates through each
  * position, checks if it is active, and if so, it multiplies the
@@ -200,15 +243,52 @@ static double calculate_total_cost_basis(WU_PositionVector* vec) {
 }
 
 /**
+ * This function executes a buy signal. For portfolios without positions or
+ * with long positions, it creates new long positions. When there are short
+ * positions (negative quantity), it closes them (buy to cover). It updates
+ * the portfolio's cash balance and tracks transaction fees in stats.
+ */
+static void execute_buy(WU_BasicPortfolio portfolio, WU_Signal signal,
+        int asset_index) {
+    if (asset_index < 0 || asset_index >= portfolio->num_assets) return;
+    if (portfolio->params.direction == WU_DIRECTION_SHORT) return;
+    
+    WU_PositionVector* vec = portfolio->positions[asset_index];
+    double total_quantity = wu_position_total_quantity(vec);
+    
+    if (total_quantity < 0) {
+        // Closing short positions (buying to cover)
+        double abs_quantity = -total_quantity;
+        double total_cost = calculate_total_cost_basis(vec);
+        double abs_cost = -total_cost;
+        double buy_price = slippage_price(signal.price,
+                portfolio->params.slippage_pct, true);
+        double cost_to_close = abs_quantity * buy_price;
+        double tx_cost = cost_to_close * portfolio->params.tx_cost_pct;
+        double pnl = abs_cost - cost_to_close - tx_cost;
+        portfolio->cash -= cost_to_close + tx_cost;
+        portfolio->stats->accum_tx_fees += tx_cost;
+        wu_portfolio_stats_record_trade(portfolio->stats, pnl, WU_CLOSE_REASON_SIGNAL);
+        wu_position_clear(vec);
+    }
+    
+    // Check borrow limit
+    if (portfolio->cash < -portfolio->params.borrow_limit) return;
+    
+    struct BuyPositionResult result = set_buy_position(portfolio, signal);
+    if (result.position.quantity <= 0) return;
+    wu_position_add(portfolio->positions[asset_index], &result.position);
+    portfolio->cash -= result.total_cost;
+    portfolio->stats->accum_tx_fees += result.tx_cost;
+}
+
+/**
  * This function handles the logic for closing a position and updating
  * the portfolio's cash balance and trading statistics. It calculates
  * the proceeds from the sale, the transaction cost based on the defined
  * transaction cost percentage, and the profit and loss (PnL) from the
  * trade. The portfolio's cash balance is updated by adding the proceeds
- * and subtracting the transaction cost, and the accumulated expenses
- * are updated with the transaction cost. Finally, the trade is recorded
- * in the portfolio statistics with the calculated PnL and the reason
- * for closing the position.
+ * and subtracting the transaction cost, and fees are tracked in stats.
  */
 static void close_and_update_portfolio(WU_BasicPortfolio portfolio,
         double quantity, double cost_basis, double sell_price,
@@ -217,44 +297,93 @@ static void close_and_update_portfolio(WU_BasicPortfolio portfolio,
     double tx_cost = proceeds * portfolio->params.tx_cost_pct;
     double pnl = proceeds - cost_basis - tx_cost;
     portfolio->cash += proceeds - tx_cost;
-    portfolio->accum_expenses += tx_cost;
+    portfolio->stats->accum_tx_fees += tx_cost;
     wu_portfolio_stats_record_trade(portfolio->stats, pnl, reason);
 }
 
 /**
- * This function executes a sell signal by closing all active positions
- * for the specified asset. It calculates the total quantity held and
- * the total cost basis for those positions, applies slippage to
- * determine the effective sell price, and then updates the portfolio's
- * cash balance.
+ * This function executes a sell signal. For long positions, it closes
+ * existing positions. For short and both-direction portfolios, it can
+ * initiate a short sale even without existing positions (borrowing assets).
  */
 static void execute_sell(WU_BasicPortfolio portfolio, WU_Signal signal,
         int asset_index) {
     if (asset_index < 0 || asset_index >= portfolio->num_assets) return;
+    
     WU_PositionVector* vec = portfolio->positions[asset_index];
     double total_quantity = wu_position_total_quantity(vec);
-    if (total_quantity <= 0) return;
-    double total_cost = calculate_total_cost_basis(vec);
-    double sell_price = slippage_price(signal.price,
-            portfolio->params.slippage_pct, false);
-    close_and_update_portfolio(portfolio, total_quantity, total_cost,
-            sell_price, WU_CLOSE_REASON_SIGNAL);
-    wu_position_clear(vec);
+    bool can_short = (portfolio->params.direction == WU_DIRECTION_SHORT ||
+                      portfolio->params.direction == WU_DIRECTION_BOTH);
+    
+    if (total_quantity > 0) {
+        // Closing long positions
+        double total_cost = calculate_total_cost_basis(vec);
+        double sell_price = slippage_price(signal.price,
+                portfolio->params.slippage_pct, false);
+        close_and_update_portfolio(portfolio, total_quantity, total_cost,
+                sell_price, WU_CLOSE_REASON_SIGNAL);
+        wu_position_clear(vec);
+    } else if (total_quantity < 0) {
+        // Closing short positions (buying to cover)
+        double abs_quantity = -total_quantity;
+        double total_cost = calculate_total_cost_basis(vec);
+        double abs_cost = -total_cost;
+        double buy_price = slippage_price(signal.price,
+                portfolio->params.slippage_pct, true);
+        double cost_to_close = abs_quantity * buy_price;
+        double tx_cost = cost_to_close * portfolio->params.tx_cost_pct;
+        double pnl = abs_cost - cost_to_close - tx_cost;
+        portfolio->cash -= cost_to_close + tx_cost;
+        portfolio->stats->accum_tx_fees += tx_cost;
+        wu_portfolio_stats_record_trade(portfolio->stats, pnl, WU_CLOSE_REASON_SIGNAL);
+        wu_position_clear(vec);
+    }
+    
+    if (can_short && total_quantity == 0) {
+        // Calculate total current short exposure
+        double total_short_value = 0.0;
+        for (int i = 0; i < portfolio->num_assets; i++) {
+            double qty = wu_position_total_quantity(portfolio->positions[i]);
+            if (qty < 0) {
+                total_short_value += (-qty) * portfolio->positions[i]->last_price;
+            }
+        }
+        
+        // Check borrow limit
+        double quantity = calculate_position_size(portfolio, signal);
+        double slippage = slippage_price(signal.price,
+                portfolio->params.slippage_pct, false);
+        double new_short_value = quantity * slippage;
+        
+        if (total_short_value + new_short_value > portfolio->params.borrow_limit) return;
+        
+        double proceeds = new_short_value;
+        double tx_cost = proceeds * portfolio->params.tx_cost_pct;
+        
+        struct WU_Position_ short_pos = {
+            .timestamp = signal.timestamp,
+            .quantity = -quantity,
+            .price = slippage,
+            .active = true
+        };
+        wu_position_add(vec, &short_pos);
+        portfolio->cash += proceeds - tx_cost;
+        portfolio->stats->accum_tx_fees += tx_cost;
+    }
 }
 
 /**
  * This function checks if a position should be closed based on the
  * current price and the portfolio's stop-loss and take-profit
- * thresholds. It calculates the profit and loss percentage for the
- * position and compares it against the defined thresholds. If the
- * position meets the criteria for closing, it calculates the sell price
- * with slippage, updates the portfolio's cash balance and trading
- * statistics, and returns true to indicate that the position was
- * closed.
+ * thresholds. For short positions (negative quantity), the PnL logic
+ * is inverted.
  */
 static bool close_position(WU_BasicPortfolio portfolio,
         struct WU_Position_ pos, double current_price) {
-    double pnl_pct = (current_price - pos.price) / pos.price;
+    bool is_short = (pos.quantity < 0);
+    double pnl_pct = is_short ? 
+        (pos.price - current_price) / pos.price :
+        (current_price - pos.price) / pos.price;
     bool should_close = false;
     WU_CloseReason reason = WU_CLOSE_REASON_SIGNAL;
     if (portfolio->params.stop_loss_pct > 0 && 
@@ -267,12 +396,15 @@ static bool close_position(WU_BasicPortfolio portfolio,
         should_close = true;
         reason = WU_CLOSE_REASON_TAKE_PROFIT;
     }
-    if (!should_close) return false; 
-    double sell_price = slippage_price(current_price,
-            portfolio->params.slippage_pct, false);
-    double cost_basis = pos.quantity * pos.price;
-    close_and_update_portfolio(portfolio, pos.quantity, cost_basis,
-            sell_price, reason);
+    if (!should_close) return false;
+    
+    double abs_quantity = is_short ? -pos.quantity : pos.quantity;
+    double price = is_short ? 
+        slippage_price(current_price, portfolio->params.slippage_pct, true) :
+        slippage_price(current_price, portfolio->params.slippage_pct, false);
+    double cost_basis = abs_quantity * pos.price;
+    close_and_update_portfolio(portfolio, abs_quantity, cost_basis,
+            price, reason);
     return true;
 }
 
@@ -309,21 +441,68 @@ static double calculate_portfolio_pnl(const struct WU_Portfolio_ *portfolio) {
 }
 
 /**
- * Helper function to update last prices and check for
- * stop-loss/take-profit exits. It iterates through the signals,
- * validates them, and updates the last price for each asset in the
- * portfolio. After updating the price, it checks all active positions
- * for that asset to see if any of them meet the stop-loss or
- * take-profit conditions, and if so, it closes those positions and
- * updates the portfolio state accordingly.
+ * Helper function to calculate total value of all short positions across
+ * all assets in the portfolio.
+ */
+static double calculate_total_short_value(WU_BasicPortfolio p) {
+    double total_short_value = 0.0;
+    for (int i = 0; i < p->num_assets; i++) {
+        double qty = wu_position_total_quantity(p->positions[i]);
+        if (qty < 0) {
+            total_short_value += (-qty) * p->positions[i]->last_price;
+        }
+    }
+    return total_short_value;
+}
+
+/**
+ * Helper function to update last prices, apply borrow interest on short
+ * positions, check exits, and update stats with current portfolio state.
  */
 static void update_prices_and_check_exits(WU_BasicPortfolio p,
         const WU_Signal* signals, int count) {
+    // Get current timestamp from first valid signal
+    bool has_valid_signal = false;
+    WU_TimeStamp current_time;
+    for (int i = 0; i < count && !has_valid_signal; i++) {
+        if (wu_signal_validate(&signals[i])) {
+            current_time = signals[i].timestamp;
+            has_valid_signal = true;
+        }
+    }
+    
+    if (!has_valid_signal) return;
+    
+    // Apply borrow interest if we have short positions
+    double total_short_value = calculate_total_short_value(p);
+    if (total_short_value > 0.0 && p->params.borrow_rate > 0.0 && 
+        p->last_update_time.mark != 0) {
+        double years_elapsed = calculate_years_held(p->last_update_time, current_time);
+        double borrow_interest = total_short_value * p->params.borrow_rate * years_elapsed;
+        p->cash -= borrow_interest;
+        p->stats->accum_borrow_interest += borrow_interest;
+    }
+    
+    p->last_update_time = current_time;
+    
+    // Update prices and check exits
     for (int i = 0; i < count; i++) {
         WU_Signal signal = signals[i];
         if (!wu_signal_validate(&signal)) continue;
         p->positions[i]->last_price = signal.price;
         check_and_close_positions(p, i, signal.price);
+    }
+    
+    // Update stats with current portfolio state
+    double pf_value = wu_portfolio_value((WU_Portfolio)p);
+    wu_portfolio_stats_update(p->stats, p->cash, pf_value, current_time);
+    
+    // Update position info in stats
+    for (int i = 0; i < p->num_assets; i++) {
+        double qty = wu_position_total_quantity(p->positions[i]);
+        double value = wu_basic_portfolio_asset_value(p, i);
+        wu_portfolio_stats_update_position(p->stats, i, 
+            p->positions[i]->symbol, qty, value, p->positions[i]->last_price);
     }
 }
 
@@ -360,6 +539,24 @@ static int count_buy_signals(const WU_Signal* signals, int count) {
 }
 
 /**
+ * Helper function to check if signals use strategy-guided allocation.
+ */
+static bool uses_strategy_guided_allocation(WU_BasicPortfolio p,
+        const WU_Signal* signals, int count) {
+    if (p->params.position_sizing.size_type == WU_POSITION_SIZE_PCT) {
+        for (int i = 0; i < count; i++) {
+            if (wu_signal_validate(&signals[i]) && signals[i].side == WU_SIDE_BUY) {
+                if (signals[i].quantity > 0.0 && signals[i].quantity < 1.0) {
+                    return true;
+                }
+            }
+        }
+    }
+    return (p->params.position_sizing.size_type == WU_POSITION_SIZE_STRATEGY_GUIDED ||
+            p->params.position_sizing.size_type == WU_POSITION_SIZE_PCT_EQUAL);
+}
+
+/**
  * Helper function to process all buy signals. If cash splitting is
  * enabled, it divides the available cash equally among the buy signals
  * to ensure that the total allocated cash does not exceed the
@@ -374,11 +571,7 @@ static int count_buy_signals(const WU_Signal* signals, int count) {
  */
 static void process_buy_signals(WU_BasicPortfolio p,
         const WU_Signal* signals, int count, int buy_count) {
-    bool use_cash_splitting = (
-            p->params.position_sizing.size_type 
-                != WU_POSITION_SIZE_PCT_EQUAL &&
-            p->params.position_sizing.size_type
-                != WU_POSITION_SIZE_STRATEGY_GUIDED);
+    bool use_cash_splitting = !uses_strategy_guided_allocation(p, signals, count);
     double cash_per_signal = use_cash_splitting
             ? (p->cash / buy_count) : 0.0;
     for (int i = 0; i < count; i++) {
@@ -490,8 +683,15 @@ WU_BasicPortfolio wu_basic_portfolio_new(WU_PortfolioParams params,
     portfolio->params = params;
     portfolio->cash = params.initial_cash;
     portfolio->num_assets = num_assets;
-    portfolio->accum_expenses = 0.0;
-    portfolio->stats = wu_portfolio_stats_new();
+    portfolio->last_update_time = (WU_TimeStamp){.mark = 0, .units = WU_TIME_UNIT_SECONDS};
+    portfolio->stats = wu_portfolio_stats_new(params.initial_cash);
+    
+    // Initialize stats with asset symbols
+    for (int i = 0; i < num_assets; i++) {
+        wu_portfolio_stats_update_position(portfolio->stats, i,
+            portfolio->positions[i]->symbol, 0.0, 0.0, 0.0);
+    }
+    
     return portfolio;
 }
 

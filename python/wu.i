@@ -115,8 +115,12 @@ WU_CsvReader wu_csv_reader_open(const char* filename, WU_DataType data_type, boo
         return $self->cash;
     }
     
-    double get_accum_expenses() {
-        return $self->accum_expenses;
+    double get_accum_tx_fees() {
+        return $self->stats->accum_tx_fees;
+    }
+    
+    double get_accum_borrow_interest() {
+        return $self->stats->accum_borrow_interest;
     }
     
     int64_t get_total_trades() {
@@ -138,6 +142,17 @@ WU_CsvReader wu_csv_reader_open(const char* filename, WU_DataType data_type, boo
     double get_total_loss() {
         return $self->stats->total_loss;
     }
+    
+    char* get_keyvalue_stats() {
+        if (!$self->stats || !$self->stats->to_keyvalue) return NULL;
+        return $self->stats->to_keyvalue($self->stats);
+    }
+    
+    char* get_json_stats(bool pretty) {
+        if (!$self->stats || !$self->stats->to_json) return NULL;
+        return $self->stats->to_json($self->stats, pretty);
+    }
+}
     
     void update(WU_Signal* signals) {
         $self->base.update((WU_Portfolio)$self, signals);

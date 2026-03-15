@@ -9,20 +9,18 @@ void test_basic_portfolio_initialization(void) {
         .stop_loss_pct = 0.05,
         .take_profit_pct = 0.10,
         .slippage_pct = 0.0005,
+        .direction = WU_DIRECTION_LONG,
+        .borrow_rate = 0.0,
+        .borrow_limit = 0.0,
         .position_sizing = {
             .size_type = WU_POSITION_SIZE_PCT,
             .size_value = 0.45
         }
     };
     
-    WU_AssetSymbol symbols[3];
-    strncpy(symbols[0], "SPY", WU_SYMBOL_MAX_LEN);
-    strncpy(symbols[1], "QQQ", WU_SYMBOL_MAX_LEN);
-    strncpy(symbols[2], "IWM", WU_SYMBOL_MAX_LEN);
+    const char* symbols[] = {"SPY", "QQQ", "TLT", NULL};
     
-    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(
-        params, (const WU_AssetSymbol*)symbols, 3
-    );
+    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const char**)symbols);
     
     CU_ASSERT_PTR_NOT_NULL(portfolio);
     CU_ASSERT_EQUAL(portfolio->num_assets, 3);
@@ -44,28 +42,27 @@ void test_basic_portfolio_single_buy_signal(void) {
         .stop_loss_pct = 0.0,
         .take_profit_pct = 0.0,
         .slippage_pct = 0.0,
+        .direction = WU_DIRECTION_LONG,
+        .borrow_rate = 0.0,
+        .borrow_limit = 0.0,
         .position_sizing = {
             .size_type = WU_POSITION_SIZE_PCT,
             .size_value = 0.50
         }
     };
     
-    WU_AssetSymbol symbols[2];
-    strncpy(symbols[0], "SPY", WU_SYMBOL_MAX_LEN);
-    strncpy(symbols[1], "QQQ", WU_SYMBOL_MAX_LEN);
+    const char* symbols[] = {"SPY", "QQQ", NULL};
     
-    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(
-        params, (const WU_AssetSymbol*)symbols, 2
-    );
+    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const char**)symbols);
     
     // Create a BUY signal for SPY at $100
     WU_Signal signals[2];
-    signals[0].timestamp = 1000;
+    signals[0].timestamp = (WU_TimeStamp){.mark = 1000, .units = WU_TIME_UNIT_SECONDS};
     signals[0].side = WU_SIDE_BUY;
     signals[0].price = 100.0;
     signals[0].quantity = 1.0;
     
-    signals[1].timestamp = 1000;
+    signals[1].timestamp = (WU_TimeStamp){.mark = 1000, .units = WU_TIME_UNIT_SECONDS};
     signals[1].side = WU_SIDE_HOLD;
     signals[1].price = 50.0;
     signals[1].quantity = 0.0;
@@ -91,28 +88,27 @@ void test_basic_portfolio_multiple_buy_signals(void) {
         .stop_loss_pct = 0.0,
         .take_profit_pct = 0.0,
         .slippage_pct = 0.0,
+        .direction = WU_DIRECTION_LONG,
+        .borrow_rate = 0.0,
+        .borrow_limit = 0.0,
         .position_sizing = {
             .size_type = WU_POSITION_SIZE_PCT,
             .size_value = 0.50  // 50% per position
         }
     };
     
-    WU_AssetSymbol symbols[2];
-    strncpy(symbols[0], "SPY", WU_SYMBOL_MAX_LEN);
-    strncpy(symbols[1], "QQQ", WU_SYMBOL_MAX_LEN);
+    const char* symbols[] = {"SPY", "QQQ", NULL};
     
-    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(
-        params, (const WU_AssetSymbol*)symbols, 2
-    );
+    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const char**)symbols);
     
     // Create BUY signals for both assets
     WU_Signal signals[2];
-    signals[0].timestamp = 1000;
+    signals[0].timestamp = (WU_TimeStamp){.mark = 1000, .units = WU_TIME_UNIT_SECONDS};
     signals[0].side = WU_SIDE_BUY;
     signals[0].price = 100.0;
     signals[0].quantity = 1.0;
     
-    signals[1].timestamp = 1000;
+    signals[1].timestamp = (WU_TimeStamp){.mark = 1000, .units = WU_TIME_UNIT_SECONDS};
     signals[1].side = WU_SIDE_BUY;
     signals[1].price = 50.0;
     signals[1].quantity = 1.0;
@@ -144,23 +140,22 @@ void test_basic_portfolio_sell_before_buy(void) {
         .stop_loss_pct = 0.0,
         .take_profit_pct = 0.0,
         .slippage_pct = 0.0,
+        .direction = WU_DIRECTION_LONG,
+        .borrow_rate = 0.0,
+        .borrow_limit = 0.0,
         .position_sizing = {
             .size_type = WU_POSITION_SIZE_PCT,
             .size_value = 1.0
         }
     };
     
-    WU_AssetSymbol symbols[2];
-    strncpy(symbols[0], "SPY", WU_SYMBOL_MAX_LEN);
-    strncpy(symbols[1], "QQQ", WU_SYMBOL_MAX_LEN);
+    const char* symbols[] = {"SPY", "QQQ", NULL};
     
-    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(
-        params, (const WU_AssetSymbol*)symbols, 2
-    );
+    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const char**)symbols);
     
     // First, buy SPY
     WU_Signal buy_signals[2];
-    buy_signals[0].timestamp = 1000;
+    buy_signals[0].timestamp = (WU_TimeStamp){.mark = 1000, .units = WU_TIME_UNIT_SECONDS};
     buy_signals[0].side = WU_SIDE_BUY;
     buy_signals[0].price = 100.0;
     buy_signals[0].quantity = 1.0;
@@ -173,12 +168,12 @@ void test_basic_portfolio_sell_before_buy(void) {
     
     // Now SELL SPY and BUY QQQ in same update
     WU_Signal mixed_signals[2];
-    mixed_signals[0].timestamp = 2000;
+    mixed_signals[0].timestamp = (WU_TimeStamp){.mark = 2000, .units = WU_TIME_UNIT_SECONDS};
     mixed_signals[0].side = WU_SIDE_SELL;
     mixed_signals[0].price = 110.0;  // Sold at profit
     mixed_signals[0].quantity = spy_qty;
     
-    mixed_signals[1].timestamp = 2000;
+    mixed_signals[1].timestamp = (WU_TimeStamp){.mark = 2000, .units = WU_TIME_UNIT_SECONDS};
     mixed_signals[1].side = WU_SIDE_BUY;
     mixed_signals[1].price = 50.0;
     mixed_signals[1].quantity = 1.0;
@@ -206,23 +201,22 @@ void test_basic_portfolio_asset_value(void) {
         .stop_loss_pct = 0.0,
         .take_profit_pct = 0.0,
         .slippage_pct = 0.0,
+        .direction = WU_DIRECTION_LONG,
+        .borrow_rate = 0.0,
+        .borrow_limit = 0.0,
         .position_sizing = {
             .size_type = WU_POSITION_SIZE_PCT,
             .size_value = 1.0
         }
     };
     
-    WU_AssetSymbol symbols[2];
-    strncpy(symbols[0], "SPY", WU_SYMBOL_MAX_LEN);
-    strncpy(symbols[1], "QQQ", WU_SYMBOL_MAX_LEN);
+    const char* symbols[] = {"SPY", "QQQ", NULL};
     
-    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(
-        params, (const WU_AssetSymbol*)symbols, 2
-    );
+    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const char**)symbols);
     
     // Buy SPY at $100
     WU_Signal signals[2];
-    signals[0].timestamp = 1000;
+    signals[0].timestamp = (WU_TimeStamp){.mark = 1000, .units = WU_TIME_UNIT_SECONDS};
     signals[0].side = WU_SIDE_BUY;
     signals[0].price = 100.0;
     signals[0].quantity = 1.0;
@@ -233,7 +227,7 @@ void test_basic_portfolio_asset_value(void) {
     double spy_qty = wu_basic_portfolio_asset_quantity(portfolio, 0);
     
     // Update price to $110 via HOLD signal
-    signals[0].timestamp = 2000;
+    signals[0].timestamp = (WU_TimeStamp){.mark = 2000, .units = WU_TIME_UNIT_SECONDS};
     signals[0].side = WU_SIDE_HOLD;
     signals[0].price = 110.0;
     
@@ -254,28 +248,27 @@ void test_basic_portfolio_total_value(void) {
         .stop_loss_pct = 0.0,
         .take_profit_pct = 0.0,
         .slippage_pct = 0.0,
+        .direction = WU_DIRECTION_LONG,
+        .borrow_rate = 0.0,
+        .borrow_limit = 0.0,
         .position_sizing = {
             .size_type = WU_POSITION_SIZE_PCT,
             .size_value = 0.50
         }
     };
     
-    WU_AssetSymbol symbols[2];
-    strncpy(symbols[0], "SPY", WU_SYMBOL_MAX_LEN);
-    strncpy(symbols[1], "QQQ", WU_SYMBOL_MAX_LEN);
+    const char* symbols[] = {"SPY", "QQQ", NULL};
     
-    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(
-        params, (const WU_AssetSymbol*)symbols, 2
-    );
+    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const char**)symbols);
     
     // Buy both assets
     WU_Signal signals[2];
-    signals[0].timestamp = 1000;
+    signals[0].timestamp = (WU_TimeStamp){.mark = 1000, .units = WU_TIME_UNIT_SECONDS};
     signals[0].side = WU_SIDE_BUY;
     signals[0].price = 100.0;
     signals[0].quantity = 1.0;
     
-    signals[1].timestamp = 1000;
+    signals[1].timestamp = (WU_TimeStamp){.mark = 1000, .units = WU_TIME_UNIT_SECONDS};
     signals[1].side = WU_SIDE_BUY;
     signals[1].price = 50.0;
     signals[1].quantity = 1.0;
@@ -298,6 +291,9 @@ void test_basic_portfolio_equal_distribution_sizing(void) {
         .stop_loss_pct = 0.0,
         .take_profit_pct = 0.0,
         .slippage_pct = 0.0,
+        .direction = WU_DIRECTION_LONG,
+        .borrow_rate = 0.0,
+        .borrow_limit = 0.0,
         .position_sizing = {
             .size_type = WU_POSITION_SIZE_PCT_EQUAL,
             .size_value = 1.0     // Use 100% of target allocation
@@ -305,31 +301,26 @@ void test_basic_portfolio_equal_distribution_sizing(void) {
     };
     
     // Create 3-asset portfolio
-    WU_AssetSymbol symbols[3];
-    strncpy(symbols[0], "SPY", WU_SYMBOL_MAX_LEN);
-    strncpy(symbols[1], "QQQ", WU_SYMBOL_MAX_LEN);
-    strncpy(symbols[2], "TLT", WU_SYMBOL_MAX_LEN);
+    const char* symbols[] = {"SPY", "QQQ", "TLT", NULL};
     
-    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(
-        params, (const WU_AssetSymbol*)symbols, 3
-    );
+    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const char**)symbols);
     
     // Initial state: $90k cash, 0 positions
     // Each asset should target: $90k / 3 = $30k
     
     // BUY SPY at $100/share -> should buy ~300 shares ($30k worth)
     WU_Signal signals[3];
-    signals[0].timestamp = 1000;
+    signals[0].timestamp = (WU_TimeStamp){.mark = 1000, .units = WU_TIME_UNIT_SECONDS};
     signals[0].side = WU_SIDE_BUY;
     signals[0].price = 100.0;
     signals[0].quantity = 1.0;
     
-    signals[1].timestamp = 1000;
+    signals[1].timestamp = (WU_TimeStamp){.mark = 1000, .units = WU_TIME_UNIT_SECONDS};
     signals[1].side = WU_SIDE_HOLD;
     signals[1].price = 50.0;
     signals[1].quantity = 0.0;
     
-    signals[2].timestamp = 1000;
+    signals[2].timestamp = (WU_TimeStamp){.mark = 1000, .units = WU_TIME_UNIT_SECONDS};
     signals[2].side = WU_SIDE_HOLD;
     signals[2].price = 100.0;
     signals[2].quantity = 0.0;
@@ -351,15 +342,15 @@ void test_basic_portfolio_equal_distribution_sizing(void) {
     // TLT should target $30k at $100/share -> 300 shares
     // Total needed: $60k, which is exactly what we have in cash
     
-    signals[0].timestamp = 2000;
+    signals[0].timestamp = (WU_TimeStamp){.mark = 2000, .units = WU_TIME_UNIT_SECONDS};
     signals[0].side = WU_SIDE_HOLD;
     signals[0].price = 100.0;  // SPY still at $100
     
-    signals[1].timestamp = 2000;
+    signals[1].timestamp = (WU_TimeStamp){.mark = 2000, .units = WU_TIME_UNIT_SECONDS};
     signals[1].side = WU_SIDE_BUY;
     signals[1].price = 50.0;   // QQQ at $50
     
-    signals[2].timestamp = 2000;
+    signals[2].timestamp = (WU_TimeStamp){.mark = 2000, .units = WU_TIME_UNIT_SECONDS};
     signals[2].side = WU_SIDE_BUY;
     signals[2].price = 100.0;  // TLT at $100
     
@@ -383,19 +374,19 @@ void test_basic_portfolio_equal_distribution_sizing(void) {
     wu_portfolio_delete((WU_Portfolio)portfolio);
     
     params.position_sizing.size_value = 0.5;  // Only 50% of target
-    portfolio = wu_basic_portfolio_new(params, (const WU_AssetSymbol*)symbols, 3);
+    portfolio = wu_basic_portfolio_new(params, (const char**)symbols);
     
     // With 3 assets and 50% allocation, each asset targets:
     // ($90k / 3) * 0.5 = $15k
-    signals[0].timestamp = 3000;
+    signals[0].timestamp = (WU_TimeStamp){.mark = 3000, .units = WU_TIME_UNIT_SECONDS};
     signals[0].side = WU_SIDE_BUY;
     signals[0].price = 100.0;
     
-    signals[1].timestamp = 3000;
+    signals[1].timestamp = (WU_TimeStamp){.mark = 3000, .units = WU_TIME_UNIT_SECONDS};
     signals[1].side = WU_SIDE_HOLD;
     signals[1].price = 50.0;
     
-    signals[2].timestamp = 3000;
+    signals[2].timestamp = (WU_TimeStamp){.mark = 3000, .units = WU_TIME_UNIT_SECONDS};
     signals[2].side = WU_SIDE_HOLD;
     signals[2].price = 100.0;
     
@@ -412,7 +403,7 @@ void test_basic_portfolio_equal_distribution_sizing(void) {
 }
 
 void test_basic_portfolio_strategy_guided_sizing(void) {
-    // Test WU_POSITION_SIZE_STRATEGY_GUIDED position sizing policy
+    // Test WU_POSITION_SIZE_PCT position sizing policy
     // Strategy specifies target proportion via signal.quantity
     WU_PortfolioParams params = {
         .initial_cash = 100000.0,  // $100k initial cash
@@ -420,37 +411,35 @@ void test_basic_portfolio_strategy_guided_sizing(void) {
         .stop_loss_pct = 0.0,
         .take_profit_pct = 0.0,
         .slippage_pct = 0.0,
+        .direction = WU_DIRECTION_LONG,
+        .borrow_rate = 0.0,
+        .borrow_limit = 0.0,
         .position_sizing = {
-            .size_type = WU_POSITION_SIZE_STRATEGY_GUIDED,
+            .size_type = WU_POSITION_SIZE_PCT,
             .size_value = 1.0      // Use 100% of strategy-specified allocation
         }
     };
     
     // Create 3-asset portfolio
-    WU_AssetSymbol symbols[3];
-    strncpy(symbols[0], "SPY", WU_SYMBOL_MAX_LEN);
-    strncpy(symbols[1], "QQQ", WU_SYMBOL_MAX_LEN);
-    strncpy(symbols[2], "TLT", WU_SYMBOL_MAX_LEN);
+    const char* symbols[] = {"SPY", "QQQ", "TLT", NULL};
     
-    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(
-        params, (const WU_AssetSymbol*)symbols, 3
-    );
+    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const char**)symbols);
     
     // Test 1: Strategy specifies 50% SPY, 30% QQQ, 20% TLT
     // Portfolio value = $100k
     WU_Signal signals[3];
     
-    signals[0].timestamp = 1000;
+    signals[0].timestamp = (WU_TimeStamp){.mark = 1000, .units = WU_TIME_UNIT_SECONDS};
     signals[0].side = WU_SIDE_BUY;
     signals[0].price = 100.0;
     signals[0].quantity = 0.5;  // 50% target allocation
     
-    signals[1].timestamp = 1000;
+    signals[1].timestamp = (WU_TimeStamp){.mark = 1000, .units = WU_TIME_UNIT_SECONDS};
     signals[1].side = WU_SIDE_BUY;
     signals[1].price = 50.0;
     signals[1].quantity = 0.3;  // 30% target allocation
     
-    signals[2].timestamp = 1000;
+    signals[2].timestamp = (WU_TimeStamp){.mark = 1000, .units = WU_TIME_UNIT_SECONDS};
     signals[2].side = WU_SIDE_BUY;
     signals[2].price = 100.0;
     signals[2].quantity = 0.2;  // 20% target allocation
@@ -484,17 +473,17 @@ void test_basic_portfolio_strategy_guided_sizing(void) {
     
     // Test 2: Strategy changes allocation - now 70% SPY, 20% QQQ, 10% TLT
     // Sell all and reallocate
-    signals[0].timestamp = 2000;
+    signals[0].timestamp = (WU_TimeStamp){.mark = 2000, .units = WU_TIME_UNIT_SECONDS};
     signals[0].side = WU_SIDE_SELL;
     signals[0].price = 105.0;  // SPY up 5%
     signals[0].quantity = 0.0;
     
-    signals[1].timestamp = 2000;
+    signals[1].timestamp = (WU_TimeStamp){.mark = 2000, .units = WU_TIME_UNIT_SECONDS};
     signals[1].side = WU_SIDE_SELL;
     signals[1].price = 52.0;   // QQQ up 4%
     signals[1].quantity = 0.0;
     
-    signals[2].timestamp = 2000;
+    signals[2].timestamp = (WU_TimeStamp){.mark = 2000, .units = WU_TIME_UNIT_SECONDS};
     signals[2].side = WU_SIDE_SELL;
     signals[2].price = 98.0;   // TLT down 2%
     signals[2].quantity = 0.0;
@@ -511,17 +500,17 @@ void test_basic_portfolio_strategy_guided_sizing(void) {
     CU_ASSERT_TRUE(total_value > 102000.0 && total_value < 104000.0);
     
     // Now buy with new allocation: 70% SPY, 20% QQQ, 10% TLT
-    signals[0].timestamp = 3000;
+    signals[0].timestamp = (WU_TimeStamp){.mark = 3000, .units = WU_TIME_UNIT_SECONDS};
     signals[0].side = WU_SIDE_BUY;
     signals[0].price = 105.0;
     signals[0].quantity = 0.7;  // 70% target allocation
     
-    signals[1].timestamp = 3000;
+    signals[1].timestamp = (WU_TimeStamp){.mark = 3000, .units = WU_TIME_UNIT_SECONDS};
     signals[1].side = WU_SIDE_BUY;
     signals[1].price = 52.0;
     signals[1].quantity = 0.2;  // 20% target allocation
     
-    signals[2].timestamp = 3000;
+    signals[2].timestamp = (WU_TimeStamp){.mark = 3000, .units = WU_TIME_UNIT_SECONDS};
     signals[2].side = WU_SIDE_BUY;
     signals[2].price = 98.0;
     signals[2].quantity = 0.1;  // 10% target allocation
@@ -548,20 +537,20 @@ void test_basic_portfolio_strategy_guided_sizing(void) {
     wu_portfolio_delete((WU_Portfolio)portfolio);
     
     params.position_sizing.size_value = 0.8;  // Only 80% of target
-    portfolio = wu_basic_portfolio_new(params, (const WU_AssetSymbol*)symbols, 3);
+    portfolio = wu_basic_portfolio_new(params, (const char**)symbols);
     
     // Strategy wants 50% allocation, but we'll only use 80% of that = 40%
-    signals[0].timestamp = 4000;
+    signals[0].timestamp = (WU_TimeStamp){.mark = 4000, .units = WU_TIME_UNIT_SECONDS};
     signals[0].side = WU_SIDE_BUY;
     signals[0].price = 100.0;
     signals[0].quantity = 0.5;  // 50% target, but 80% multiplier = 40% actual
     
-    signals[1].timestamp = 4000;
+    signals[1].timestamp = (WU_TimeStamp){.mark = 4000, .units = WU_TIME_UNIT_SECONDS};
     signals[1].side = WU_SIDE_HOLD;
     signals[1].price = 50.0;
     signals[1].quantity = 0.0;
     
-    signals[2].timestamp = 4000;
+    signals[2].timestamp = (WU_TimeStamp){.mark = 4000, .units = WU_TIME_UNIT_SECONDS};
     signals[2].side = WU_SIDE_HOLD;
     signals[2].price = 100.0;
     signals[2].quantity = 0.0;
@@ -585,24 +574,22 @@ void test_basic_portfolio_invalid_asset_index(void) {
         .stop_loss_pct = 0.0,
         .take_profit_pct = 0.0,
         .slippage_pct = 0.0,
+        .direction = WU_DIRECTION_BOTH,
+        .borrow_rate = 0.05,
+        .borrow_limit = 100000.0,
         .position_sizing = {
             .size_type = WU_POSITION_SIZE_PCT,
             .size_value = 1.0
         }
     };
     
-    WU_AssetSymbol symbols[2];
-    strncpy(symbols[0], "SPY", WU_SYMBOL_MAX_LEN);
-    strncpy(symbols[1], "QQQ", WU_SYMBOL_MAX_LEN);
-    
-    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(
-        params, (const WU_AssetSymbol*)symbols, 2
-    );
+    const char* symbols[] = {"SPY", "QQQ", NULL};
+    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const char**)symbols);
     
     // Create signal array with only 1 signal for portfolio with 2 assets
     // This tests that the portfolio handles partial signal arrays gracefully
     WU_Signal signals[1];
-    signals[0].timestamp = 1000;
+    signals[0].timestamp = (WU_TimeStamp){.mark = 1000, .units = WU_TIME_UNIT_SECONDS};
     signals[0].side = WU_SIDE_BUY;
     signals[0].price = 100.0;
     signals[0].quantity = 1.0;

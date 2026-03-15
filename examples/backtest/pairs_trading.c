@@ -14,39 +14,23 @@
 #include "wu.h"
 
 static void print_stats(WU_BasicPortfolio portfolio) {
-    double final_value = wu_portfolio_value((WU_Portfolio)portfolio);
-    double pnl = wu_portfolio_pnl((WU_Portfolio)portfolio);
-    double pnl_pct = (pnl / portfolio->params.initial_cash) * 100.0;
+    WU_PortfolioStats stats = portfolio->stats;
     
     printf("\n=== Backtest Results ===\n");
-    printf("Initial Cash:      %.2f\n", portfolio->params.initial_cash);
-    printf("Final Value:       %.2f\n", final_value);
-    printf("P&L:               %.2f (%.2f%%)\n", pnl, pnl_pct);
-    printf("Total Fees:        %.2f\n", portfolio->accum_expenses);
-    printf("Total Trades:      %ld\n", portfolio->stats->total_trades);
-    printf("Winning Trades:    %ld\n", portfolio->stats->winning_trades);
-    printf("Losing Trades:     %ld\n", portfolio->stats->losing_trades);
     
-    if (portfolio->stats->total_trades > 0) {
-        double win_rate = (portfolio->stats->winning_trades * 100.0) / 
-                          portfolio->stats->total_trades;
-        printf("Win Rate:          %.2f%%\n", win_rate);
+    // Key-value format
+    char* kv = wu_portfolio_stats_to_keyvalue(stats);
+    if (kv) {
+        printf("%s\n\n", kv);
+        free(kv);
     }
     
-    printf("Stop Loss Exits:   %ld\n", portfolio->stats->stop_loss_exits);
-    printf("Take Profit Exits: %ld\n", portfolio->stats->take_profit_exits);
-    printf("\n");
-    
-    // Asset-specific stats
-    double spy_qty = wu_basic_portfolio_asset_quantity(portfolio, 0);
-    double qqq_qty = wu_basic_portfolio_asset_quantity(portfolio, 1);
-    double spy_value = wu_basic_portfolio_asset_value(portfolio, 0);
-    double qqq_value = wu_basic_portfolio_asset_value(portfolio, 1);
-    
-    printf("=== Asset Holdings ===\n");
-    printf("SPY: %.4f shares (value: $%.2f)\n", spy_qty, spy_value);
-    printf("QQQ: %.4f shares (value: $%.2f)\n", qqq_qty, qqq_value);
-    printf("Cash: $%.2f\n", portfolio->cash);
+    // JSON format (pretty)
+    char* json = wu_portfolio_stats_to_json(stats, true);
+    if (json) {
+        printf("=== JSON Format ===\n%s\n", json);
+        free(json);
+    }
 }
 
 int main(int argc, char* argv[]) {
@@ -58,7 +42,6 @@ int main(int argc, char* argv[]) {
     
     bool verbose = (argc > 3 && strcmp(argv[3], "-v") == 0);
     
-    // Open CSV files
     FILE* spy_file = fopen(argv[1], "r");
     FILE* qqq_file = fopen(argv[2], "r");
     
@@ -70,8 +53,10 @@ int main(int argc, char* argv[]) {
     }
     
     // Create CSV readers for both assets
-    WU_Reader spy_reader = (WU_Reader)wu_csv_reader_new(spy_file, WU_DATA_TYPE_CANDLE, true);
-    WU_Reader qqq_reader = (WU_Reader)wu_csv_reader_new(qqq_file, WU_DATA_TYPE_CANDLE, true);
+    WU_Reader spy_reader = (WU_Reader)wu_csv_reader_new(spy_file,
+            WU_DATA_TYPE_CANDLE, WU_TIME_UNIT_SECONDS, true);
+    WU_Reader qqq_reader = (WU_Reader)wu_csv_reader_new(qqq_file,
+            WU_DATA_TYPE_CANDLE, WU_TIME_UNIT_SECONDS, true);
     
     if (!spy_reader || !qqq_reader) {
         fprintf(stderr, "Error: Could not create CSV readers\n");
@@ -80,23 +65,25 @@ int main(int argc, char* argv[]) {
         return 1;
     }
     
-    // Create pairs trading strategy
-    // Parameters:
-    //   window = 20 (lookback for spread statistics)
-    //   threshold = 2.0 (entry/exit at 2 standard deviations)
-    //   ratio = 1.0 (1:1 hedge ratio for simplicity)
-    WU_Strategy strategy = (WU_Strategy)wu_pairs_trading_strat_new(20, 2.0, 1.0);
+    WU_Strategy strategy = (WU_Strategy)wu_pairs_trading_strat_new(
+            20,     // window
+            2.0,    // threshold
+            1.0     // hedge ratio 1:1
+        );
     
     WU_PortfolioParams params = {
         .initial_cash = 100000.0,
-        .tx_cost_pct = 0.001,        // 0.1% transaction cost
-        .stop_loss_pct = 0.0,        // No stop loss (rely on mean reversion)
-        .take_profit_pct = 0.0,      // No take profit (rely on mean reversion)
-        .slippage_pct = 0.0005,      // 0.05% slippage
+        .tx_cost_pct = 0.001,
+        .stop_loss_pct = 0.0,
+        .take_profit_pct = 0.0,
+        .slippage_pct = 0.0005,
+        .borrow_rate = 0.05,
+        .borrow_limit = 100000.0,
         .position_sizing = {
             .size_type = WU_POSITION_SIZE_PCT,
-            .size_value = 0.45       // Use 45% of cash per asset (90% total exposure)
-        }
+            .size_value = 0.45
+        },
+        .direction = WU_DIRECTION_BOTH
     };
     
     WU_BasicPortfolio portfolio = wu_basic_portfolio_new(
@@ -128,13 +115,8 @@ int main(int argc, char* argv[]) {
         return 1;
     }
     
-    // Run backtest using the unified runner
     wu_runner_exec(runner, verbose);
-    
-    // Print final statistics (before freeing runner which owns the portfolio)
     print_stats(portfolio);
-    
-    // Cleanup (runner frees portfolio, strategy, and readers)
     wu_runner_free(runner);
     
     return 0;
