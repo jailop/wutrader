@@ -41,8 +41,10 @@ int main(int argc, char* argv[]) {
     }
     
     // Create CSV readers for both assets
-    WU_Reader spy_reader = (WU_Reader)wu_csv_reader_new(spy_file, WU_DATA_TYPE_CANDLE, true);
-    WU_Reader qqq_reader = (WU_Reader)wu_csv_reader_new(qqq_file, WU_DATA_TYPE_CANDLE, true);
+    WU_Reader spy_reader = (WU_Reader)wu_csv_reader_new(spy_file,
+            WU_DATA_TYPE_CANDLE, WU_TIME_UNIT_SECONDS, true);
+    WU_Reader qqq_reader = (WU_Reader)wu_csv_reader_new(qqq_file,
+            WU_DATA_TYPE_CANDLE, WU_TIME_UNIT_SECONDS, true);
     
     if (!spy_reader || !qqq_reader) {
         fprintf(stderr, "Error: Could not create CSV readers\n");

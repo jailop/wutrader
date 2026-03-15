@@ -14,11 +14,11 @@ void test_crossover_initialization(void) {
 
 void test_crossover_holds_during_warmup(void) {
     WU_CrossOverStrat strat = wu_crossover_strat_new(3, 5, 0.01);
-    WU_Single sv1 = wu_single_init(1000, 100.0);
+    WU_Single sv1 = wu_single_init((WU_TimeStamp){.mark = 1000, .units = WU_TIME_UNIT_SECONDS}, 100.0);
     const void* inputs1[] = {&sv1};
     WU_Signal* signals = wu_strategy_update((WU_Strategy)strat, inputs1);
     CU_ASSERT_EQUAL(signals[0].side, WU_SIDE_HOLD);
-    WU_Single sv2 = wu_single_init(2000, 105.0);
+    WU_Single sv2 = wu_single_init((WU_TimeStamp){.mark = 2000, .units = WU_TIME_UNIT_SECONDS}, 105.0);
     const void* inputs2[] = {&sv2};
     signals = wu_strategy_update((WU_Strategy)strat, inputs2);
     CU_ASSERT_EQUAL(signals[0].side, WU_SIDE_HOLD);
@@ -28,12 +28,12 @@ void test_crossover_holds_during_warmup(void) {
 void test_crossover_generates_buy_signal(void) {
     WU_CrossOverStrat strat = wu_crossover_strat_new(2, 5, 0.0);
     for (int i = 0; i < 10; i++) {
-        WU_Single sv = wu_single_init(1000 + i, 100.0);
+        WU_Single sv = wu_single_init((WU_TimeStamp){.mark = 1000 + i, .units = WU_TIME_UNIT_SECONDS}, 100.0);
         const void* inputs[] = {&sv};
         wu_strategy_update((WU_Strategy)strat, inputs);
     }
     for (int i = 0; i < 3; i++) {
-        WU_Single sv = wu_single_init(2000 + i, 150.0);
+        WU_Single sv = wu_single_init((WU_TimeStamp){.mark = 2000 + i, .units = WU_TIME_UNIT_SECONDS}, 150.0);
         const void* inputs[] = {&sv};
         WU_Signal* signals = wu_strategy_update((WU_Strategy)strat, inputs);
         if (signals[0].side == WU_SIDE_BUY) {
@@ -49,12 +49,12 @@ void test_crossover_generates_buy_signal(void) {
 void test_crossover_generates_sell_signal(void) {
     WU_CrossOverStrat strat = wu_crossover_strat_new(2, 5, 0.0);
     for (int i = 0; i < 10; i++) {
-        WU_Single sv = wu_single_init(1000 + i, 100.0);
+        WU_Single sv = wu_single_init((WU_TimeStamp){.mark = 1000 + i, .units = WU_TIME_UNIT_SECONDS}, 100.0);
         const void* inputs[] = {&sv};
         wu_strategy_update((WU_Strategy)strat, inputs);
     }
     for (int i = 0; i < 3; i++) {
-        WU_Single sv = wu_single_init(2000 + i, 50.0);
+        WU_Single sv = wu_single_init((WU_TimeStamp){.mark = 2000 + i, .units = WU_TIME_UNIT_SECONDS}, 50.0);
         const void* inputs[] = {&sv};
         WU_Signal* signals = wu_strategy_update((WU_Strategy)strat, inputs);
         if (signals[0].side == WU_SIDE_SELL) {
@@ -70,13 +70,13 @@ void test_crossover_generates_sell_signal(void) {
 void test_crossover_no_repeat_signals(void) {
     WU_CrossOverStrat strat = wu_crossover_strat_new(2, 5, 0.0);
     for (int i = 0; i < 10; i++) {
-        WU_Single sv = wu_single_init(1000 + i, 100.0);
+        WU_Single sv = wu_single_init((WU_TimeStamp){.mark = 1000 + i, .units = WU_TIME_UNIT_SECONDS}, 100.0);
         const void* inputs[] = {&sv};
         wu_strategy_update((WU_Strategy)strat, inputs);
     }
     bool got_buy = false;
     for (int i = 0; i < 5; i++) {
-        WU_Single sv = wu_single_init(2000 + i, 150.0);
+        WU_Single sv = wu_single_init((WU_TimeStamp){.mark = 2000 + i, .units = WU_TIME_UNIT_SECONDS}, 150.0);
         const void* inputs[] = {&sv};
         WU_Signal* signals = wu_strategy_update((WU_Strategy)strat, inputs);
         if (signals[0].side == WU_SIDE_BUY) {
@@ -85,7 +85,7 @@ void test_crossover_no_repeat_signals(void) {
         }
     }
     CU_ASSERT_TRUE(got_buy);
-    WU_Single sv3 = wu_single_init(3000, 160.0);
+    WU_Single sv3 = wu_single_init((WU_TimeStamp){.mark = 3000, .units = WU_TIME_UNIT_SECONDS}, 160.0);
     const void* inputs3[] = {&sv3};
     WU_Signal* signals2 = wu_strategy_update((WU_Strategy)strat, inputs3);
     CU_ASSERT_EQUAL(signals2[0].side, WU_SIDE_HOLD);
@@ -95,7 +95,7 @@ void test_crossover_no_repeat_signals(void) {
 void test_crossover_with_real_data(void) {
     FILE* file = fopen("tests/data/btcusd_price.csv", "r");
     CU_ASSERT_PTR_NOT_NULL(file);
-    WU_CsvReader reader = wu_csv_reader_new(file, WU_DATA_TYPE_SINGLE_VALUE, false);
+    WU_CsvReader reader = wu_csv_reader_new(file, WU_DATA_TYPE_SINGLE_VALUE, WU_TIME_UNIT_SECONDS, false);
     CU_ASSERT_PTR_NOT_NULL(reader);
     WU_CrossOverStrat strat = wu_crossover_strat_new(5, 20, 0.02);
     int total = 0;
@@ -123,12 +123,12 @@ void test_crossover_with_real_data(void) {
 void test_crossover_threshold_prevents_noise(void) {
     WU_CrossOverStrat strat = wu_crossover_strat_new(2, 5, 0.05);  // 5% threshold
     for (int i = 0; i < 10; i++) {
-        WU_Single sv = wu_single_init(1000 + i, 100.0);
+        WU_Single sv = wu_single_init((WU_TimeStamp){.mark = 1000 + i, .units = WU_TIME_UNIT_SECONDS}, 100.0);
         const void* inputs[] = {&sv};
         wu_strategy_update((WU_Strategy)strat, inputs);
     }
     for (int i = 0; i < 3; i++) {
-        WU_Single sv = wu_single_init(2000 + i, 103.0);
+        WU_Single sv = wu_single_init((WU_TimeStamp){.mark = 2000 + i, .units = WU_TIME_UNIT_SECONDS}, 103.0);
         const void* inputs[] = {&sv};
         WU_Signal* signals = wu_strategy_update((WU_Strategy)strat, inputs);
         CU_ASSERT_EQUAL(signals[0].side, WU_SIDE_HOLD);

@@ -13,7 +13,7 @@
  * properly initialized.
  */
 typedef struct WU_Candle_ {
-    int64_t timestamp;
+    WU_TimeStamp timestamp;
     double open;
     double high;
     double low;
@@ -30,7 +30,7 @@ typedef struct WU_Candle_ {
  * to create a new WU_Trade instance.
  */
 typedef struct {
-    int64_t timestamp;
+    WU_TimeStamp timestamp;
     double price;
     double volume;
     WU_Side side;
@@ -45,20 +45,20 @@ typedef struct {
  * function should be used to create a new WU_Single instance.
  */
 typedef struct {
-    int64_t timestamp;
+    WU_TimeStamp timestamp;
     double value;
     WU_DataType data_type;
 } WU_Single;
 
-WU_Candle wu_candle_init(int64_t timestamp, double open, double high, double low,
+WU_Candle wu_candle_init(WU_TimeStamp timestamp, double open, double high, double low,
         double close, double volume);
 
-WU_Trade wu_trade_init(int64_t timestamp, double price, double volume,
+WU_Trade wu_trade_init(WU_TimeStamp timestamp, double price, double volume,
         WU_Side side);
 
-WU_Single wu_single_init(int64_t timestamp, double value);
+WU_Single wu_single_init(WU_TimeStamp timestamp, double value);
 
-WU_Signal wu_signal_init(int64_t timestamp, WU_Side side, double price, 
+WU_Signal wu_signal_init(WU_TimeStamp timestamp, WU_Side side, double price, 
         double quantity);
 
 bool wu_signal_validate(const WU_Signal* signal);

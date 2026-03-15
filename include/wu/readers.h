@@ -27,7 +27,7 @@ typedef struct WU_Reader_ {
         (reader)->delete((WU_Reader)(reader)); \
 } while(0)
 
-#define WU_CSV_MAX_LINE_SIZE 1024
+#define WU_CSV_MAX_LINE_SIZE 2048
 
 typedef enum {
     WU_CSV_OK = 0,
@@ -53,7 +53,8 @@ typedef struct WU_CsvReader_ {
     } data;
 }* WU_CsvReader;
 
-WU_CsvReader wu_csv_reader_new(FILE *file, WU_DataType data_type, bool has_headers);
+WU_CsvReader wu_csv_reader_new(FILE *file, WU_DataType data_type,
+        WU_TimeUnit time_units, bool has_headers);
 
 #define WU_READER(r) ((WU_Reader)(r))
 #define wu_reader_list(...) ((WU_Reader[]){__VA_ARGS__, NULL})

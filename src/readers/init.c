@@ -6,7 +6,7 @@
 
 #include "wu.h"
 
-inline WU_Candle wu_candle_init(int64_t timestamp, double open, double high, double low, double close, double volume) {
+inline WU_Candle wu_candle_init(WU_TimeStamp timestamp, double open, double high, double low, double close, double volume) {
     WU_Candle c;
     c.timestamp = timestamp;
     c.open = open;
@@ -18,7 +18,7 @@ inline WU_Candle wu_candle_init(int64_t timestamp, double open, double high, dou
     return c;
 }
 
-inline WU_Trade wu_trade_init(int64_t timestamp, double price, double volume, WU_Side side) {
+inline WU_Trade wu_trade_init(WU_TimeStamp timestamp, double price, double volume, WU_Side side) {
     WU_Trade t;
     t.timestamp = timestamp;
     t.price = price;
@@ -28,7 +28,7 @@ inline WU_Trade wu_trade_init(int64_t timestamp, double price, double volume, WU
     return t;
 }
 
-inline WU_Single wu_single_init(int64_t timestamp, double value) {
+inline WU_Single wu_single_init(WU_TimeStamp timestamp, double value) {
     WU_Single sv;
     sv.timestamp = timestamp;
     sv.value = value;
@@ -36,7 +36,7 @@ inline WU_Single wu_single_init(int64_t timestamp, double value) {
     return sv;
 }
 
-inline WU_Signal wu_signal_init(int64_t timestamp, WU_Side side, double price, double quantity) {
+inline WU_Signal wu_signal_init(WU_TimeStamp timestamp, WU_Side side, double price, double quantity) {
     WU_Signal s;
     s.timestamp = timestamp;
     s.side = side;
@@ -47,23 +47,16 @@ inline WU_Signal wu_signal_init(int64_t timestamp, WU_Side side, double price, d
 
 bool wu_signal_validate(const WU_Signal* signal) {
     if (!signal) return false;
-    
-    // Validate price is positive
     if (signal->price <= 0.0) {
         return false;
     }
-    
-    // Validate quantity is non-negative (can be 0 for HOLD signals)
     if (signal->quantity < 0.0) {
         return false;
     }
-    
-    // Validate side is a known value
     if (signal->side != WU_SIDE_HOLD && 
         signal->side != WU_SIDE_BUY && 
         signal->side != WU_SIDE_SELL) {
         return false;
     }
-    
     return true;
 }
