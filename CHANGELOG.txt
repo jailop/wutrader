@@ -9,3 +9,10 @@
 2026-03-14:
 
 - basic portfolio implementation refactored
+
+2026-03-15:
+
+- Bump to version 0.2.0
+- New type: WU_TimeStamp. It includes a mark and the time units
+- Short direction implemented (includes borrowing interest rate and
+  limit)

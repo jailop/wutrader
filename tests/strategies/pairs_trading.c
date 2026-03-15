@@ -19,8 +19,8 @@ void test_pairs_trading_holds_during_warmup(void) {
     
     // Feed 10 periods (less than window of 20)
     for (int i = 0; i < 10; i++) {
-        WU_Single asset_a = wu_single_init(1000 + i, 100.0);
-        WU_Single asset_b = wu_single_init(1000 + i, 50.0);
+        WU_Single asset_a = wu_single_init((WU_TimeStamp){.mark = 1000 + i, .units = WU_TIME_UNIT_SECONDS}, 100.0);
+        WU_Single asset_b = wu_single_init((WU_TimeStamp){.mark = 1000 + i, .units = WU_TIME_UNIT_SECONDS}, 50.0);
         const void* inputs[] = {&asset_a, &asset_b};
         
         WU_Signal* signals = wu_strategy_update((WU_Strategy)strat, inputs);
@@ -38,16 +38,16 @@ void test_pairs_trading_detects_low_spread(void) {
     
     // Establish baseline with stable spread around 50
     for (int i = 0; i < 15; i++) {
-        WU_Single asset_a = wu_single_init(1000 + i, 100.0);
-        WU_Single asset_b = wu_single_init(1000 + i, 50.0);
+        WU_Single asset_a = wu_single_init((WU_TimeStamp){.mark = 1000 + i, .units = WU_TIME_UNIT_SECONDS}, 100.0);
+        WU_Single asset_b = wu_single_init((WU_TimeStamp){.mark = 1000 + i, .units = WU_TIME_UNIT_SECONDS}, 50.0);
         const void* inputs[] = {&asset_a, &asset_b};
         wu_strategy_update((WU_Strategy)strat, inputs);
     }
     
     // Now push spread significantly lower (asset_a undervalued)
     // Spread = 80 - 50 = 30, mean ~50, so this should trigger signal
-    WU_Single asset_a = wu_single_init(2000, 80.0);
-    WU_Single asset_b = wu_single_init(2000, 50.0);
+    WU_Single asset_a = wu_single_init((WU_TimeStamp){.mark = 2000, .units = WU_TIME_UNIT_SECONDS}, 80.0);
+    WU_Single asset_b = wu_single_init((WU_TimeStamp){.mark = 2000, .units = WU_TIME_UNIT_SECONDS}, 50.0);
     const void* inputs[] = {&asset_a, &asset_b};
     
     WU_Signal* signals = wu_strategy_update((WU_Strategy)strat, inputs);
@@ -66,16 +66,16 @@ void test_pairs_trading_detects_high_spread(void) {
     
     // Establish baseline with stable spread around 50
     for (int i = 0; i < 15; i++) {
-        WU_Single asset_a = wu_single_init(1000 + i, 100.0);
-        WU_Single asset_b = wu_single_init(1000 + i, 50.0);
+        WU_Single asset_a = wu_single_init((WU_TimeStamp){.mark = 1000 + i, .units = WU_TIME_UNIT_SECONDS}, 100.0);
+        WU_Single asset_b = wu_single_init((WU_TimeStamp){.mark = 1000 + i, .units = WU_TIME_UNIT_SECONDS}, 50.0);
         const void* inputs[] = {&asset_a, &asset_b};
         wu_strategy_update((WU_Strategy)strat, inputs);
     }
     
     // Now push spread significantly higher (asset_a overvalued)
     // Spread = 120 - 50 = 70, mean ~50, so this should trigger signal
-    WU_Single asset_a = wu_single_init(2000, 120.0);
-    WU_Single asset_b = wu_single_init(2000, 50.0);
+    WU_Single asset_a = wu_single_init((WU_TimeStamp){.mark = 2000, .units = WU_TIME_UNIT_SECONDS}, 120.0);
+    WU_Single asset_b = wu_single_init((WU_TimeStamp){.mark = 2000, .units = WU_TIME_UNIT_SECONDS}, 50.0);
     const void* inputs[] = {&asset_a, &asset_b};
     
     WU_Signal* signals = wu_strategy_update((WU_Strategy)strat, inputs);
@@ -92,8 +92,8 @@ void test_pairs_trading_detects_high_spread(void) {
 void test_pairs_trading_signal_vector_structure(void) {
     WU_PairsTradingStrat strat = wu_pairs_trading_strat_new(5, 2.0, 1.0);
     
-    WU_Single asset_a = wu_single_init(1000, 100.0);
-    WU_Single asset_b = wu_single_init(1000, 50.0);
+    WU_Single asset_a = wu_single_init((WU_TimeStamp){.mark = 1000, .units = WU_TIME_UNIT_SECONDS}, 100.0);
+    WU_Single asset_b = wu_single_init((WU_TimeStamp){.mark = 1000, .units = WU_TIME_UNIT_SECONDS}, 50.0);
     const void* inputs[] = {&asset_a, &asset_b};
     
     WU_Signal* signals = wu_strategy_update((WU_Strategy)strat, inputs);
@@ -107,8 +107,8 @@ void test_pairs_trading_signal_vector_structure(void) {
     CU_ASSERT_DOUBLE_EQUAL(signals[1].price, 50.0, 0.001);
     
     // Verify timestamps match
-    CU_ASSERT_EQUAL(signals[0].timestamp, 1000);
-    CU_ASSERT_EQUAL(signals[1].timestamp, 1000);
+    CU_ASSERT_EQUAL(signals[0].timestamp.mark, 1000);
+    CU_ASSERT_EQUAL(signals[1].timestamp.mark, 1000);
     
     wu_strategy_delete((WU_Strategy)strat);
 }
@@ -121,8 +121,8 @@ void test_pairs_trading_with_custom_ratio(void) {
     
     // Feed some data
     for (int i = 0; i < 15; i++) {
-        WU_Single asset_a = wu_single_init(1000 + i, 200.0);
-        WU_Single asset_b = wu_single_init(1000 + i, 50.0);  // 2:1 ratio = 100
+        WU_Single asset_a = wu_single_init((WU_TimeStamp){.mark = 1000 + i, .units = WU_TIME_UNIT_SECONDS}, 200.0);
+        WU_Single asset_b = wu_single_init((WU_TimeStamp){.mark = 1000 + i, .units = WU_TIME_UNIT_SECONDS}, 50.0);  // 2:1 ratio = 100
         const void* inputs[] = {&asset_a, &asset_b};
         wu_strategy_update((WU_Strategy)strat, inputs);
     }

@@ -1,7 +1,7 @@
 # Wu Trading Library Tutorial: Building a Pairs Trading Strategy
 
 Jaime Lopez  
-Mar. 13, 2026
+Mar. 13, 2026 (updated Mar. 15, 2026)
 
 Let's build something interesting together: a pairs trading backtester.
 We'll start from scratch and work our way through the complete
@@ -321,7 +321,7 @@ and butter of most trading strategies:
 
 ```c
 typedef struct WU_Candle_ {
-    int64_t timestamp;
+    WU_TimeStamp timestamp;
     double open;
     double high;
     double low;
@@ -336,7 +336,7 @@ the tick level:
 
 ```c
 typedef struct {
-    int64_t timestamp;
+    WU_TimeStamp timestamp;
     double price;
     double volume;
     WU_Side side;           // WU_SIDE_BUY or WU_SIDE_SELL
@@ -349,7 +349,7 @@ for indicators, prices, or any other scalar time series:
 
 ```c
 typedef struct {
-    int64_t timestamp;
+    WU_TimeStamp timestamp;
     double value;
     WU_DataType data_type;  // Always WU_DATA_TYPE_SINGLE_VALUE
 } WU_Single;
@@ -399,8 +399,10 @@ if (!spy_file || !qqq_file) {
 }
 
 // Create CSV readers for both assets
-WU_CsvReader spy_csv = wu_csv_reader_new(spy_file, WU_DATA_TYPE_CANDLE, true);
-WU_CsvReader qqq_csv = wu_csv_reader_new(qqq_file, WU_DATA_TYPE_CANDLE, true);
+WU_CsvReader spy_csv = wu_csv_reader_new(spy_file, WU_DATA_TYPE_CANDLE, 
+        WU_TIME_UNIT_SECONDS, true);
+WU_CsvReader qqq_csv = wu_csv_reader_new(qqq_file, WU_DATA_TYPE_CANDLE,
+        WU_TIME_UNIT_SECONDS, true);
 
 if (!spy_csv || !qqq_csv) {
     fprintf(stderr, "Error: Could not create CSV readers\n");
@@ -514,10 +516,13 @@ WU_PortfolioParams params = {
     .stop_loss_pct = 0.0,        // No stop loss (rely on mean reversion)
     .take_profit_pct = 0.0,      // No take profit (rely on mean reversion)
     .slippage_pct = 0.0005,      // 0.05% slippage
+    .borrow_rate = 0.05,         // 5% annual rate for borrowing assets
+    .borrow_limit = 100000.0,    // Can borrow up to $100k worth of assets
     .position_sizing = {
         .size_type = WU_POSITION_SIZE_PCT,
         .size_value = 0.45       // Use 45% of cash per asset (90% total exposure)
-    }
+    },
+    .direction = WU_DIRECTION_BOTH  // Allow both long and short positions
 };
 
 // Create multi-asset portfolio
@@ -532,6 +537,10 @@ if (!portfolio) {
 ```
 
 We start with $100,000 in virtual cash. The parameters capture the friction of real trading. Every trade costs us 0.1% in transaction fees—think broker commissions and exchange fees. Slippage adds another 0.05% to account for the price impact of our orders. On a $10,000 trade, that's $15 total cost. These numbers might seem small, but they add up over dozens or hundreds of trades, and ignoring them gives you unrealistic backtest results.
+
+The `direction` parameter controls what trading directions are allowed: `WU_DIRECTION_LONG` for long-only, `WU_DIRECTION_SHORT` for short-only, or `WU_DIRECTION_BOTH` for bidirectional trading. Pairs trading requires `WU_DIRECTION_BOTH` since we go long one asset while shorting the other.
+
+When shorting, you borrow assets to sell them, paying the owner interest via `borrow_rate` (5% annually in our example). The cost is prorated by time held—shorting $50,000 for one day costs about $6.85. The `borrow_limit` caps total short exposure at $100,000, preventing excessive leverage.
 
 We've disabled stop losses and take profit exits (`0.0` means off) because pairs trading is a mean-reversion strategy. We're explicitly betting on prices returning to normal, so we don't want automated exits cutting our positions short. If we were running a momentum strategy, we'd set these to protect against runaway losses or lock in gains.
 
@@ -649,58 +658,37 @@ The backtest continues until one of the CSV files runs out of data. Since we nee
 
 ## Step 8: Analyzing Results
 
-The backtest has finished running, and now we want to know: did we make money? How many trades did we take? What was the win rate? Let's extract and display the performance metrics:
+The backtest has finished running, and now we want to know: did we make money? How many trades did we take? What was the win rate?
 
-```c
-static void print_stats(WU_BasicPortfolio portfolio) {
-    double final_value = wu_portfolio_value((WU_Portfolio)portfolio);
-    double pnl = wu_portfolio_pnl((WU_Portfolio)portfolio);
-    double pnl_pct = (pnl / portfolio->params.initial_cash) * 100.0;
-    
-    printf("\n=== Backtest Results ===\n");
-    printf("Initial Cash:      %.2f\n", portfolio->params.initial_cash);
-    printf("Final Value:       %.2f\n", final_value);
-    printf("P&L:               %.2f (%.2f%%)\n", pnl, pnl_pct);
-    printf("Total Fees:        %.2f\n", portfolio->accum_expenses);
-    printf("Total Trades:      %ld\n", portfolio->stats->total_trades);
-    printf("Winning Trades:    %ld\n", portfolio->stats->winning_trades);
-    printf("Losing Trades:     %ld\n", portfolio->stats->losing_trades);
-    
-    if (portfolio->stats->total_trades > 0) {
-        double win_rate = (portfolio->stats->winning_trades * 100.0) / 
-                          portfolio->stats->total_trades;
-        printf("Win Rate:          %.2f%%\n", win_rate);
-    }
-    
-    printf("Stop Loss Exits:   %ld\n", portfolio->stats->stop_loss_exits);
-    printf("Take Profit Exits: %ld\n", portfolio->stats->take_profit_exits);
-    printf("\n");
-    
-    // Asset-specific stats
-    double spy_qty = wu_basic_portfolio_asset_quantity(portfolio, 0);
-    double qqq_qty = wu_basic_portfolio_asset_quantity(portfolio, 1);
-    double spy_value = wu_basic_portfolio_asset_value(portfolio, 0);
-    double qqq_value = wu_basic_portfolio_asset_value(portfolio, 1);
-    
-    printf("=== Asset Holdings ===\n");
-    printf("SPY: %.4f shares (value: $%.2f)\n", spy_qty, spy_value);
-    printf("QQQ: %.4f shares (value: $%.2f)\n", qqq_qty, qqq_value);
-    printf("Cash: $%.2f\n", portfolio->cash);
+```json
+{
+  "portfolio": {
+    "initial_cash": 100000.00,
+    "current_cash": 91232.89,
+    "portfolio_value": 203736.87,
+    "pnl": 103736.87,
+    "pnl_pct": 103.74,
+    "tx_fees": 46902.85,
+    "borrow_interest": 9279.91
+  },
+  "trades": {
+    "total": 339,
+    "winning": 191,
+    "losing": 148,
+    "win_rate": 56.34,
+    "max_win": 25274.93,
+    "max_loss": -18127.48,
+    "stop_loss_exits": 0,
+    "take_profit_exits": 0
+  },
+  "positions": [
+    { "symbol": "SPY", "quantity": 244.6679, "value": 162963.49, "last_price": 666.06 },
+    { "symbol": "QQQ", "quantity": -84.4850, "value": -50459.52, "last_price": 597.26 }
+  ]
 }
-
-// In main()
-print_stats(portfolio);
 ```
 
-The portfolio tracks everything that matters for evaluating a strategy. The final value includes both remaining cash and the current market value of any open positions. The P&L tells you how much you gained or lost relative to your initial capital, both in dollars and percentage terms. That percentage is what really matters—a $5,000 gain means something very different if you started with $10,000 versus $1,000,000.
-
-The total fees number often surprises people. Even with modest transaction costs (0.1%) and slippage (0.05%), the expenses add up fast if you're trading frequently. This is why high-frequency strategies need massive alpha just to break even after costs.
-
-The portfolio stats object maintains detailed trade-level metrics. Every time a position closes, the portfolio records whether it was a winner or a loser, why it closed (signal, stop loss, or take profit), and the size of the gain or loss. This lets you see not just overall performance, but the character of the strategy. A 60% win rate with small losers and big winners? That's very different from a 60% win rate with big losers and small winners, even if the final P&L is the same.
-
-For multi-asset portfolios like ours, we can query each asset individually to see current holdings. This helps you understand the final state—did we exit all positions cleanly, or are we still holding SPY and QQQ? If we have lingering positions, their unrealized P&L is included in the final portfolio value.
-
-The portfolio exposes a clean interface for these queries. The `wu_portfolio_value()` and `wu_portfolio_pnl()` functions work with any portfolio implementation. The `wu_basic_portfolio_asset_quantity()` and `wu_basic_portfolio_asset_value()` functions are specific to the BasicPortfolio and let you drill down to individual asset holdings. This layering means you can write generic code that works with any portfolio, while still having access to implementation-specific details when you need them.
+The stats module provides `wu_portfolio_stats_to_keyvalue()` for compact logging and `wu_portfolio_stats_to_json(stats, pretty)` for structured output.
 
 ---
 
@@ -709,15 +697,6 @@ The portfolio exposes a clean interface for these queries. The `wu_portfolio_val
 Here's the full `pairs_trading.c` file:
 
 ```c
-/**
- * Pairs Trading Backtest
- * 
- * This example demonstrates a complete pairs trading strategy using:
- * - Multi-input strategy (2 assets)
- * - Multi-asset portfolio (shared cash pool across both assets)
- * - Spread-based mean reversion signals
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -725,39 +704,17 @@ Here's the full `pairs_trading.c` file:
 #include "wu.h"
 
 static void print_stats(WU_BasicPortfolio portfolio) {
-    double final_value = wu_portfolio_value((WU_Portfolio)portfolio);
-    double pnl = wu_portfolio_pnl((WU_Portfolio)portfolio);
-    double pnl_pct = (pnl / portfolio->params.initial_cash) * 100.0;
-    
-    printf("\n=== Backtest Results ===\n");
-    printf("Initial Cash:      %.2f\n", portfolio->params.initial_cash);
-    printf("Final Value:       %.2f\n", final_value);
-    printf("P&L:               %.2f (%.2f%%)\n", pnl, pnl_pct);
-    printf("Total Fees:        %.2f\n", portfolio->accum_expenses);
-    printf("Total Trades:      %ld\n", portfolio->stats->total_trades);
-    printf("Winning Trades:    %ld\n", portfolio->stats->winning_trades);
-    printf("Losing Trades:     %ld\n", portfolio->stats->losing_trades);
-    
-    if (portfolio->stats->total_trades > 0) {
-        double win_rate = (portfolio->stats->winning_trades * 100.0) / 
-                          portfolio->stats->total_trades;
-        printf("Win Rate:          %.2f%%\n", win_rate);
+    WU_PortfolioStats stats = portfolio->stats;
+    char* kv = wu_portfolio_stats_to_keyvalue(stats);
+    if (kv) {
+        printf("%s\n\n", kv);
+        free(kv);
     }
-    
-    printf("Stop Loss Exits:   %ld\n", portfolio->stats->stop_loss_exits);
-    printf("Take Profit Exits: %ld\n", portfolio->stats->take_profit_exits);
-    printf("\n");
-    
-    // Asset-specific stats
-    double spy_qty = wu_basic_portfolio_asset_quantity(portfolio, 0);
-    double qqq_qty = wu_basic_portfolio_asset_quantity(portfolio, 1);
-    double spy_value = wu_basic_portfolio_asset_value(portfolio, 0);
-    double qqq_value = wu_basic_portfolio_asset_value(portfolio, 1);
-    
-    printf("=== Asset Holdings ===\n");
-    printf("SPY: %.4f shares (value: $%.2f)\n", spy_qty, spy_value);
-    printf("QQQ: %.4f shares (value: $%.2f)\n", qqq_qty, qqq_value);
-    printf("Cash: $%.2f\n", portfolio->cash);
+    char* json = wu_portfolio_stats_to_json(stats, true);
+    if (json) {
+        printf("=== JSON Format ===\n%s\n", json);
+        free(json);
+    }
 }
 
 int main(int argc, char* argv[]) {
@@ -766,25 +723,20 @@ int main(int argc, char* argv[]) {
         fprintf(stderr, "  -v: verbose output (shows trading activity)\n");
         return 1;
     }
-    
     bool verbose = (argc > 3 && strcmp(argv[3], "-v") == 0);
-    
-    // Open CSV files
     FILE* spy_file = fopen(argv[1], "r");
     FILE* qqq_file = fopen(argv[2], "r");
-    
     if (!spy_file || !qqq_file) {
         fprintf(stderr, "Error: Could not open CSV files\n");
         if (spy_file) fclose(spy_file);
         if (qqq_file) fclose(qqq_file);
         return 1;
     }
-    
-    // Create CSV readers for both assets
-    WU_CsvReader spy_csv = wu_csv_reader_new(spy_file, WU_DATA_TYPE_CANDLE, true);
-    WU_CsvReader qqq_csv = wu_csv_reader_new(qqq_file, WU_DATA_TYPE_CANDLE, true);
-    
-    if (!spy_csv || !qqq_csv) {
+    WU_Reader spy_reader = (WU_Reader)wu_csv_reader_new(spy_file,
+            WU_DATA_TYPE_CANDLE, WU_TIME_UNIT_SECONDS, true);
+    WU_Reader qqq_reader = (WU_Reader)wu_csv_reader_new(qqq_file,
+            WU_DATA_TYPE_CANDLE, WU_TIME_UNIT_SECONDS, true);
+    if (!spy_reader || !qqq_reader) {
         fprintf(stderr, "Error: Could not create CSV readers\n");
         fclose(spy_file);
         fclose(qqq_file);
@@ -796,22 +748,23 @@ int main(int argc, char* argv[]) {
     //   window = 20 (lookback for spread statistics)
     //   threshold = 2.0 (entry/exit at 2 standard deviations)
     //   ratio = 1.0 (1:1 hedge ratio for simplicity)
-    WU_PairsTradingStrat pairs_strat = wu_pairs_trading_strat_new(20, 2.0, 1.0);
+    WU_Strategy strategy = (WU_Strategy)wu_pairs_trading_strat_new(20, 2.0, 1.0);
     
-    // Configure multi-asset portfolio
     WU_PortfolioParams params = {
         .initial_cash = 100000.0,
-        .tx_cost_pct = 0.001,        // 0.1% transaction cost
-        .stop_loss_pct = 0.0,        // No stop loss (rely on mean reversion)
-        .take_profit_pct = 0.0,      // No take profit (rely on mean reversion)
-        .slippage_pct = 0.0005,      // 0.05% slippage
+        .tx_cost_pct = 0.001,
+        .stop_loss_pct = 0.0,
+        .take_profit_pct = 0.0,
+        .slippage_pct = 0.0005,
+        .borrow_rate = 0.05,
+        .borrow_limit = 100000.0,
         .position_sizing = {
             .size_type = WU_POSITION_SIZE_PCT,
-            .size_value = 0.45       // Use 45% of cash per asset (90% total exposure)
-        }
+            .size_value = 0.45
+        },
+        .direction = WU_DIRECTION_BOTH
     };
     
-    // Create multi-asset portfolio
     WU_BasicPortfolio portfolio = wu_basic_portfolio_new(
         params, 
         wu_symbol_list("SPY", "QQQ"));
@@ -826,19 +779,18 @@ int main(int argc, char* argv[]) {
     printf("Initial Capital: $%.2f\n", params.initial_cash);
     printf("Position Sizing: %.0f%% cash per asset\n", params.position_sizing.size_value * 100);
     
-    // Create runner - note the use of cast macros for polymorphism
     WU_Runner runner = wu_runner_new(
         WU_PORTFOLIO(portfolio),
-        WU_STRATEGY(pairs_strat),
-        wu_reader_list(WU_READER(spy_csv), WU_READER(qqq_csv))
+        strategy,
+        wu_reader_list(WU_READER(spy_reader), WU_READER(qqq_reader))
     );
     
     if (!runner) {
         fprintf(stderr, "Error: Could not create runner\n");
-        wu_portfolio_delete(WU_PORTFOLIO(portfolio));
-        wu_strategy_delete(WU_STRATEGY(pairs_strat));
-        wu_reader_delete(WU_READER(spy_csv));
-        wu_reader_delete(WU_READER(qqq_csv));
+        wu_portfolio_delete((WU_Portfolio)portfolio);
+        wu_strategy_delete(strategy);
+        wu_reader_delete(spy_reader);
+        wu_reader_delete(qqq_reader);
         return 1;
     }
     
@@ -869,7 +821,7 @@ cd examples/backtest
 make
 
 # Or build just this example
-gcc -std=c11 -g -Wall -Wextra -Werror -pedantic -I../../include \
+gcc -I../../include \
     -o pairs_trading pairs_trading.c \
     -L../../lib -lwu -Wl,-rpath,$(pwd)/../../lib
 ```
@@ -882,32 +834,6 @@ gcc -std=c11 -g -Wall -Wextra -Werror -pedantic -I../../include \
 
 # Verbose mode (shows each trade)
 ./pairs_trading ../../tests/data/spy.csv ../../tests/data/qqq.csv -v
-```
-
-### Expected Output
-
-```
-=== Pairs Trading Backtest: SPY vs QQQ ===
-Strategy: Mean Reversion (20-period window, 2.0 std threshold)
-Initial Capital: $100000.00
-Position Sizing: 45% cash per asset
-
-=== Backtest Results ===
-Initial Cash:      100000.00
-Final Value:       263352.29
-P&L:               163352.29 (163.35%)
-Total Fees:        42719.01
-Total Trades:      250
-Winning Trades:    154
-Losing Trades:     96
-Win Rate:          61.60%
-Stop Loss Exits:   0
-Take Profit Exits: 0
-
-=== Asset Holdings ===
-SPY: 272.9530 shares (value: $181803.08)
-QQQ: 0.0000 shares (value: $0.00)
-Cash: $81549.21
 ```
 
 The strategy more than doubled the initial capital over the test period, with a 61.6% win rate across 250 trades. The remaining SPY position shows we're still long at the end of the backtest, waiting for the next mean-reversion signal. Transaction costs ate up over $42,000—a significant drag that real-world backtests must account for.
@@ -954,7 +880,7 @@ Wu's execution model is deliberately simplified to keep the code clean and the a
 
 **No Partial Fills**: Your order for 100 shares might only get 50 filled, leaving you under-allocated. Wu assumes all-or-nothing execution, which is optimistic.
 
-**Shorting Without Consequences**: The pairs trading example shorts QQQ freely. Real shorting requires margin, incurs borrow fees that vary daily, faces risk of forced buybacks if shares become unavailable, and can trigger regulatory restrictions during market crashes. Wu ignores all of this complexity.
+**Simplified Shorting Model**: Wu models basic borrowing costs via a fixed annual rate, but real shorting is more complex. Borrow rates vary daily based on supply and demand for shares. Hard-to-borrow stocks can cost 50%+ annually. Shares can become unavailable, forcing a buyback at the worst time. Regulatory restrictions kick in during crashes. Wu captures the concept but not the full reality.
 
 **No Slippage During Volatility**: Wu's 0.05% slippage is constant. Real slippage explodes during market stress—precisely when you most need to exit positions. That March 2020 crash? Good luck executing at any reasonable price.
 
@@ -978,7 +904,7 @@ If you wanted to trade this strategy with real money, you'd need to address:
 
 - **Position Limits**: Can you actually deploy $45,000 per asset without moving the market?
 - **Margin Requirements**: Your broker won't give you unlimited margin for the short leg
-- **Borrow Costs**: Shorting QQQ costs money daily (borrow fees)
+- **Borrow Costs**: Shorting costs vary daily; hard-to-borrow stocks can be expensive or unavailable
 - **Regulatory Constraints**: Pattern day trader rules, margin maintenance requirements
 - **Execution Latency**: By the time your order reaches the exchange, prices have moved
 - **Overnight Risk**: Markets gap. You can't stop-loss your way out of a gap down

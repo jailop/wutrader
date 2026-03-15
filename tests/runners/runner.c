@@ -16,8 +16,8 @@ void test_runner_single_input_creation(void) {
             .size_value = 1.0
         }
     };
-    WU_AssetSymbol symbols[] = {"BTC"};
-    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const WU_AssetSymbol*)symbols, 1);
+    const char* symbols[] = {"BTC", NULL};
+    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const char**)symbols);
     
     // Create a crossover strategy
     WU_Strategy strategy = (WU_Strategy)wu_crossover_strat_new(5, 10, 0.01);
@@ -25,7 +25,7 @@ void test_runner_single_input_creation(void) {
     // Create a reader (using test data)
     FILE* file = fopen("tests/data/btcusd_price.csv", "r");
     CU_ASSERT_PTR_NOT_NULL(file);
-    WU_Reader reader = (WU_Reader)wu_csv_reader_new(file, WU_DATA_TYPE_SINGLE_VALUE, false);
+    WU_Reader reader = (WU_Reader)wu_csv_reader_new(file, WU_DATA_TYPE_SINGLE_VALUE, WU_TIME_UNIT_SECONDS, false);
     
     // Create runner with single reader
     WU_Reader readers[] = {reader};
@@ -60,13 +60,8 @@ void test_runner_multi_input_creation(void) {
         }
     };
     
-    WU_AssetSymbol symbols[2];
-    strncpy(symbols[0], "SPY", WU_SYMBOL_MAX_LEN);
-    strncpy(symbols[1], "QQQ", WU_SYMBOL_MAX_LEN);
-    
-    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(
-        params, (const WU_AssetSymbol*)symbols, 2
-    );
+    const char* symbols[] = {"SPY", "QQQ", NULL};    
+    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const char**)symbols);
     
     // Create pairs trading strategy
     WU_Strategy strategy = (WU_Strategy)wu_pairs_trading_strat_new(20, 2.0, 1.0);
@@ -77,8 +72,8 @@ void test_runner_multi_input_creation(void) {
     CU_ASSERT_PTR_NOT_NULL(file1);
     CU_ASSERT_PTR_NOT_NULL(file2);
     
-    WU_Reader reader1 = (WU_Reader)wu_csv_reader_new(file1, WU_DATA_TYPE_CANDLE, true);
-    WU_Reader reader2 = (WU_Reader)wu_csv_reader_new(file2, WU_DATA_TYPE_CANDLE, true);
+    WU_Reader reader1 = (WU_Reader)wu_csv_reader_new(file1, WU_DATA_TYPE_CANDLE, WU_TIME_UNIT_SECONDS, true);
+    WU_Reader reader2 = (WU_Reader)wu_csv_reader_new(file2, WU_DATA_TYPE_CANDLE, WU_TIME_UNIT_SECONDS, true);
     
     // Create runner with two readers
     WU_Reader readers[] = {reader1, reader2};
@@ -110,13 +105,8 @@ void test_runner_rejects_mismatched_reader_count(void) {
         }
     };
     
-    WU_AssetSymbol symbols[2];
-    strncpy(symbols[0], "SPY", WU_SYMBOL_MAX_LEN);
-    strncpy(symbols[1], "QQQ", WU_SYMBOL_MAX_LEN);
-    
-    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(
-        params, (const WU_AssetSymbol*)symbols, 2
-    );
+    const char* symbols[] = {"SPY", "QQQ", NULL};    
+    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const char**)symbols);
     
     // Strategy expects 2 inputs
     WU_Strategy strategy = (WU_Strategy)wu_pairs_trading_strat_new(20, 2.0, 1.0);
@@ -125,7 +115,7 @@ void test_runner_rejects_mismatched_reader_count(void) {
     // Provide 2 readers but one is NULL - should fail validation
     FILE* file = fopen("tests/data/spy.csv", "r");
     CU_ASSERT_PTR_NOT_NULL(file);
-    WU_Reader reader = (WU_Reader)wu_csv_reader_new(file, WU_DATA_TYPE_CANDLE, true);
+    WU_Reader reader = (WU_Reader)wu_csv_reader_new(file, WU_DATA_TYPE_CANDLE, WU_TIME_UNIT_SECONDS, true);
     
     WU_Reader readers[] = {reader, NULL};  // Second reader is NULL
     WU_Runner runner = wu_runner_new(
@@ -156,12 +146,12 @@ void test_runner_rejects_null_arguments(void) {
             .size_value = 1.0
         }
     };
-    WU_AssetSymbol symbols[] = {"BTC"};
-    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const WU_AssetSymbol*)symbols, 1);
+    const char* symbols[] = {"BTC", NULL};
+    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const char**)symbols);
     WU_Strategy strategy = (WU_Strategy)wu_crossover_strat_new(5, 10, 0.01);
     
     FILE* file = fopen("tests/data/btcusd_price.csv", "r");
-    WU_Reader reader = (WU_Reader)wu_csv_reader_new(file, WU_DATA_TYPE_SINGLE_VALUE, false);
+    WU_Reader reader = (WU_Reader)wu_csv_reader_new(file, WU_DATA_TYPE_SINGLE_VALUE, WU_TIME_UNIT_SECONDS, false);
     WU_Reader readers[] = {reader};
     
     // Test NULL portfolio
@@ -196,12 +186,12 @@ void test_runner_rejects_invalid_reader_count(void) {
             .size_value = 1.0
         }
     };
-    WU_AssetSymbol symbols[] = {"BTC"};
-    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const WU_AssetSymbol*)symbols, 1);
+    const char* symbols[] = {"BTC", NULL};
+    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const char**)symbols);
     WU_Strategy strategy = (WU_Strategy)wu_crossover_strat_new(5, 10, 0.01);
     
     FILE* file = fopen("tests/data/btcusd_price.csv", "r");
-    WU_Reader reader = (WU_Reader)wu_csv_reader_new(file, WU_DATA_TYPE_SINGLE_VALUE, false);
+    WU_Reader reader = (WU_Reader)wu_csv_reader_new(file, WU_DATA_TYPE_SINGLE_VALUE, WU_TIME_UNIT_SECONDS, false);
     
     // Test with NULL reader in array
     WU_Reader readers[] = {NULL};
@@ -227,12 +217,12 @@ void test_runner_convenience_function(void) {
             .size_value = 1.0
         }
     };
-    WU_AssetSymbol symbols[] = {"BTC"};
-    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const WU_AssetSymbol*)symbols, 1);
+    const char* symbols[] = {"BTC", NULL};
+    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const char**)symbols);
     WU_Strategy strategy = (WU_Strategy)wu_crossover_strat_new(5, 10, 0.01);
     
     FILE* file = fopen("tests/data/btcusd_price.csv", "r");
-    WU_Reader reader = (WU_Reader)wu_csv_reader_new(file, WU_DATA_TYPE_SINGLE_VALUE, false);
+    WU_Reader reader = (WU_Reader)wu_csv_reader_new(file, WU_DATA_TYPE_SINGLE_VALUE, WU_TIME_UNIT_SECONDS, false);
     
     // Test convenience function for single reader
     WU_Runner runner = wu_runner_new_single(

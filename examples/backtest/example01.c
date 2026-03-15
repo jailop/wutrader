@@ -46,10 +46,13 @@ int main(int argc, char** argv) {
         .stop_loss_pct = 0.10,
         .take_profit_pct = 0.20,
         .slippage_pct = 0.0005,
+        .borrow_rate = 0.0,
+        .borrow_limit = 0.0,
         .position_sizing = {
             .size_type = WU_POSITION_SIZE_PCT,
             .size_value = 1.0
-        }
+        },
+        .direction = WU_DIRECTION_LONG
     };
     WU_BasicPortfolio portfolio = wu_basic_portfolio_new(
             params,
@@ -76,7 +79,8 @@ int main(int argc, char** argv) {
      */
     WU_CsvReader reader = wu_csv_reader_new(
             file,                   // file pointer
-            WU_DATA_TYPE_CANDLE,    // data type
+            WU_DATA_TYPE_CANDLE,
+            WU_TIME_UNIT_SECONDS,
             true                    // has header
         );
     
@@ -113,33 +117,18 @@ int main(int argc, char** argv) {
     
     wu_runner_exec(runner, argc > 2 && strcmp(argv[2], "-v") == 0);
     
+    // Print stats in key-value and JSON formats
     WU_PortfolioStats stats = portfolio->stats;
-    printf("Initial Cash:      %.2f\n", params.initial_cash);
-    printf("Final Value:       %.2f\n", wu_portfolio_value(portfolio));
-    printf("P&L:               %.2f (%.2f%%)\n", 
-           wu_portfolio_pnl(portfolio),
-           (wu_portfolio_pnl(portfolio) / params.initial_cash) * 100.0);
-    printf("Total Fees:        %.2f\n", portfolio->accum_expenses);
-    printf("Total WU_Trades:      %ld\n", stats->total_trades);
-    printf("Winning WU_Trades:    %ld\n", stats->winning_trades);
-    printf("Losing WU_Trades:     %ld\n", stats->losing_trades);
-    if (stats->total_trades > 0) {
-        printf("Win Rate:          %.2f%%\n", 
-               (stats->winning_trades * 100.0) / stats->total_trades);
+    char* kv = wu_portfolio_stats_to_keyvalue(stats);
+    if (kv) {
+        printf("\n%s\n", kv);
+        free(kv);
     }
-    printf("Stop Loss Exits:   %ld\n", stats->stop_loss_exits);
-    printf("Take Profit Exits: %ld\n", stats->take_profit_exits);
-    printf("Total Profit:      %.2f\n", stats->total_profit);
-    printf("Total Loss:        %.2f\n", stats->total_loss);
-    printf("Max Win:           %.2f\n", stats->max_win);
-    printf("Max Loss:          %.2f\n", stats->max_loss);
-    if (stats->winning_trades > 0) {
-        printf("Avg Win:           $%.2f\n", 
-               stats->total_profit / stats->winning_trades);
-    }
-    if (stats->losing_trades > 0) {
-        printf("Avg Loss:          $%.2f\n", 
-               stats->total_loss / stats->losing_trades);
+    
+    char* json = wu_portfolio_stats_to_json(stats, true);
+    if (json) {
+        printf("\n%s\n", json);
+        free(json);
     }
     
 cleanup:

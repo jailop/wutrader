@@ -11,7 +11,7 @@
  * WU_Position represents an open position in the portfolio.
  */
 typedef struct WU_Position_ {
-    int64_t timestamp;
+    WU_TimeStamp timestamp;
     double quantity;
     double price;
     bool active;
