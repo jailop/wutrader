@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>WU Trading Library: WU_Position Struct Reference</title>
+<title>WU Trading Library: WU_TimeStamp Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,7 +63,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('structWU__Position__.html','',''); });
+$(function(){initNavTree('structWU__TimeStamp.html','',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -89,93 +89,55 @@ $(function(){initNavTree('structWU__Position__.html','',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">WU_Position Struct Reference</div></div>
+  <div class="headertitle"><div class="title">WU_TimeStamp Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>WU_Position represents an open position in the portfolio.  
- <a href="#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="positions_8h_source.html">positions.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="types_8h_source.html">types.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a6ddcaac568ca8c49e3faf831b222f0ba" id="r_a6ddcaac568ca8c49e3faf831b222f0ba"><td class="memItemLeft"><a class="el" href="structWU__TimeStamp.html">WU_TimeStamp</a>&#160;</td><td class="memItemRight"><a class="el" href="#a6ddcaac568ca8c49e3faf831b222f0ba">timestamp</a></td></tr>
-<tr class="memitem:a3f3af8695853a6503640c1979617f1ec" id="r_a3f3af8695853a6503640c1979617f1ec"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a3f3af8695853a6503640c1979617f1ec">quantity</a></td></tr>
-<tr class="memitem:a9e6c1185f40030ed9f7d52c0518f62cc" id="r_a9e6c1185f40030ed9f7d52c0518f62cc"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a9e6c1185f40030ed9f7d52c0518f62cc">price</a></td></tr>
-<tr class="memitem:aff6efe7fa5a39b8a4411633032dbd952" id="r_aff6efe7fa5a39b8a4411633032dbd952"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aff6efe7fa5a39b8a4411633032dbd952">active</a></td></tr>
+<tr class="memitem:a3e0713a9b31cefa42bc0682144ab08f4" id="r_a3e0713a9b31cefa42bc0682144ab08f4"><td class="memItemLeft">int64_t&#160;</td><td class="memItemRight"><a class="el" href="#a3e0713a9b31cefa42bc0682144ab08f4">mark</a></td></tr>
+<tr class="memitem:ae34acfbfbb2c99f7b10eaec558859982" id="r_ae34acfbfbb2c99f7b10eaec558859982"><td class="memItemLeft"><a class="el" href="types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3">WU_TimeUnit</a>&#160;</td><td class="memItemRight"><a class="el" href="#ae34acfbfbb2c99f7b10eaec558859982">units</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>WU_Position represents an open position in the portfolio. </p>
-
-<p class="definition">Definition at line <a class="el" href="positions_8h_source.html#l00013">13</a> of file <a class="el" href="positions_8h_source.html">positions.h</a>.</p>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00040">40</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Field Documentation</h2>
-<a id="aff6efe7fa5a39b8a4411633032dbd952" name="aff6efe7fa5a39b8a4411633032dbd952"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff6efe7fa5a39b8a4411633032dbd952">&#9670;&#160;</a></span>active</h2>
+<a id="a3e0713a9b31cefa42bc0682144ab08f4" name="a3e0713a9b31cefa42bc0682144ab08f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e0713a9b31cefa42bc0682144ab08f4">&#9670;&#160;</a></span>mark</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool WU_Position::active</td>
+          <td class="memname">int64_t WU_TimeStamp::mark</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="positions_8h_source.html#l00017">17</a> of file <a class="el" href="positions_8h_source.html">positions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00041">41</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
-<a id="a9e6c1185f40030ed9f7d52c0518f62cc" name="a9e6c1185f40030ed9f7d52c0518f62cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e6c1185f40030ed9f7d52c0518f62cc">&#9670;&#160;</a></span>price</h2>
+<a id="ae34acfbfbb2c99f7b10eaec558859982" name="ae34acfbfbb2c99f7b10eaec558859982"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae34acfbfbb2c99f7b10eaec558859982">&#9670;&#160;</a></span>units</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double WU_Position::price</td>
+          <td class="memname"><a class="el" href="types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3">WU_TimeUnit</a> WU_TimeStamp::units</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="positions_8h_source.html#l00016">16</a> of file <a class="el" href="positions_8h_source.html">positions.h</a>.</p>
-
-</div>
-</div>
-<a id="a3f3af8695853a6503640c1979617f1ec" name="a3f3af8695853a6503640c1979617f1ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f3af8695853a6503640c1979617f1ec">&#9670;&#160;</a></span>quantity</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double WU_Position::quantity</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="positions_8h_source.html#l00015">15</a> of file <a class="el" href="positions_8h_source.html">positions.h</a>.</p>
-
-</div>
-</div>
-<a id="a6ddcaac568ca8c49e3faf831b222f0ba" name="a6ddcaac568ca8c49e3faf831b222f0ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ddcaac568ca8c49e3faf831b222f0ba">&#9670;&#160;</a></span>timestamp</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structWU__TimeStamp.html">WU_TimeStamp</a> WU_Position::timestamp</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="positions_8h_source.html#l00014">14</a> of file <a class="el" href="positions_8h_source.html">positions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00042">42</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>include/wu/<a class="el" href="positions_8h_source.html">positions.h</a></li>
+<li>include/wu/<a class="el" href="types_8h_source.html">types.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -190,7 +152,7 @@ Data Fields</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="structWU__Position__.html">WU_Position</a></li>
+    <li class="navelem"><a href="structWU__TimeStamp.html">WU_TimeStamp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

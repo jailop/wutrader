@@ -13,5 +13,5 @@ var readers_8h =
       [ "WU_CSV_ERROR_EOF", "readers_8h.html#a67302bd1ff8bc35bf4369194e3d0fcb1a7c57aef28706b94f175e7169a489e37e", null ],
       [ "WU_CSV_ERROR_PARSE", "readers_8h.html#a67302bd1ff8bc35bf4369194e3d0fcb1a95d125284e1bf0e8647fc2ba09679c7e", null ]
     ] ],
-    [ "wu_csv_reader_new", "readers_8h.html#a4c0844cb6bf9ddc22e5c2b76a3a374cb", null ]
+    [ "wu_csv_reader_new", "readers_8h.html#a0184af8e19fc5db05a414c3b251e7b33", null ]
 ];

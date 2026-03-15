@@ -23,5 +23,6 @@ var searchData=
   ['wu_5fsma_5f_20',['WU_SMA_',['../structWU__SMA__.html',1,'']]],
   ['wu_5fstdev_5f_21',['WU_StDev_',['../structWU__StDev__.html',1,'']]],
   ['wu_5fstrategy_5f_22',['WU_Strategy_',['../structWU__Strategy__.html',1,'']]],
-  ['wu_5ftrade_23',['WU_Trade',['../structWU__Trade.html',1,'']]]
+  ['wu_5ftimestamp_23',['WU_TimeStamp',['../structWU__TimeStamp.html',1,'']]],
+  ['wu_5ftrade_24',['WU_Trade',['../structWU__Trade.html',1,'']]]
 ];

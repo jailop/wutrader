@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">WU Trading Library<span id="projectnumber">&#160;0.1.0</span>
+   <div id="projectname">WU Trading Library<span id="projectnumber">&#160;0.2.0</span>
    </div>
    <div id="projectbrief">A backtesting and trading strategy library</div>
   </td>
@@ -100,7 +100,7 @@ $(function(){initNavTree('structWU__Signal.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a428ea37a30533d50d15ac4209bf37b43" id="r_a428ea37a30533d50d15ac4209bf37b43"><td class="memItemLeft">int64_t&#160;</td><td class="memItemRight"><a class="el" href="#a428ea37a30533d50d15ac4209bf37b43">timestamp</a></td></tr>
+<tr class="memitem:a80883a45adb8de1402daa29499422b80" id="r_a80883a45adb8de1402daa29499422b80"><td class="memItemLeft"><a class="el" href="structWU__TimeStamp.html">WU_TimeStamp</a>&#160;</td><td class="memItemRight"><a class="el" href="#a80883a45adb8de1402daa29499422b80">timestamp</a></td></tr>
 <tr class="memitem:a934393e54393bb89a2a7bd2d3ac57c4b" id="r_a934393e54393bb89a2a7bd2d3ac57c4b"><td class="memItemLeft"><a class="el" href="types_8h.html#a2f2e3c024ac1b136533c4d84c12a3956">WU_Side</a>&#160;</td><td class="memItemRight"><a class="el" href="#a934393e54393bb89a2a7bd2d3ac57c4b">side</a></td></tr>
 <tr class="memitem:a53b528e5bab8c927c2648a94efba6187" id="r_a53b528e5bab8c927c2648a94efba6187"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a53b528e5bab8c927c2648a94efba6187">price</a></td></tr>
 <tr class="memitem:a6c0d09bfb2638720155b8e14df238137" id="r_a6c0d09bfb2638720155b8e14df238137"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a6c0d09bfb2638720155b8e14df238137">quantity</a></td></tr>
@@ -110,7 +110,7 @@ Data Fields</h2></td></tr>
 <p>It includes a timestamp, a side (buy, sell, or hold), a price at which to execute the trade, and a quantity to trade.</p>
 <p>For multi-asset strategies, the position of the signal in the returned array indicates which asset it applies to (0-based index). </p>
 
-<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00037">37</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00053">53</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Field Documentation</h2>
 <a id="a53b528e5bab8c927c2648a94efba6187" name="a53b528e5bab8c927c2648a94efba6187"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a53b528e5bab8c927c2648a94efba6187">&#9670;&#160;</a></span>price</h2>
@@ -124,7 +124,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00040">40</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00057">57</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -140,7 +140,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00041">41</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00058">58</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -156,23 +156,23 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00039">39</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00056">56</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
-<a id="a428ea37a30533d50d15ac4209bf37b43" name="a428ea37a30533d50d15ac4209bf37b43"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a428ea37a30533d50d15ac4209bf37b43">&#9670;&#160;</a></span>timestamp</h2>
+<a id="a80883a45adb8de1402daa29499422b80" name="a80883a45adb8de1402daa29499422b80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80883a45adb8de1402daa29499422b80">&#9670;&#160;</a></span>timestamp</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int64_t WU_Signal::timestamp</td>
+          <td class="memname"><a class="el" href="structWU__TimeStamp.html">WU_TimeStamp</a> WU_Signal::timestamp</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00038">38</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00055">55</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>

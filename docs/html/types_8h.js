@@ -1,5 +1,6 @@
 var types_8h =
 [
+    [ "WU_TimeStamp", "structWU__TimeStamp.html", "structWU__TimeStamp" ],
     [ "WU_Signal", "structWU__Signal.html", "structWU__Signal" ],
     [ "wu_symbol_list", "types_8h.html#a56a7fea04d066595b4d84874a65d146b", null ],
     [ "WU_CloseReason", "types_8h.html#a6600a0737149ca543a2ac589b5453490", [
@@ -18,12 +19,9 @@ var types_8h =
       [ "WU_SIDE_SELL", "types_8h.html#a2f2e3c024ac1b136533c4d84c12a3956a2324b36323cea91fe827a41b4760bb34", null ]
     ] ],
     [ "WU_TimeUnit", "types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3", [
-      [ "WU_SECOND", "types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3a1f1dc9f3a8c0554adb222dc8109ca5cd", null ],
-      [ "WU_MINUTE", "types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3a7393f0929b4987c632860b65e92a80ae", null ],
-      [ "WU_HOUR", "types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3a59f4aa2843a307effc72351b37632ce8", null ],
-      [ "WU_DAY", "types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3a671cfe9db204305dfe0f9652ca7eb631", null ],
-      [ "WU_WEEK", "types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3a664687c4349007a365968afc26d12b5c", null ],
-      [ "WU_MONTH", "types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3aa3132a409956b245a423d62618ce9e2e", null ],
-      [ "WU_YEAR", "types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3ac571314b5406bf6b179b814e4a60ee0e", null ]
+      [ "WU_TIME_UNIT_SECONDS", "types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3a4bd26f3bae3cc160316aa4d36298a6bd", null ],
+      [ "WU_TIME_UNIT_MILLIS", "types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3ad32c001f7520749ff2cc61c9ae3ebc51", null ],
+      [ "WU_TIME_UNIT_MICROS", "types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3ae239349a5af13e2fbcbf6f0f102f75ed", null ],
+      [ "WU_TIME_UNIT_NANOS", "types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3a59773a5904063aae7e3bae7565d01bf0", null ]
     ] ]
 ];

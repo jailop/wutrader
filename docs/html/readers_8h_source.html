@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">WU Trading Library<span id="projectnumber">&#160;0.1.0</span>
+   <div id="projectname">WU Trading Library<span id="projectnumber">&#160;0.2.0</span>
    </div>
    <div id="projectbrief">A backtesting and trading strategy library</div>
   </td>
@@ -125,7 +125,7 @@ $(function(){initNavTree('readers_8h_source.html','',''); });
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">} while(0)</span></div>
 </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="readers_8h.html#aff537edf8da83646d070c5eef57c1f79">   30</a></span><span class="preprocessor">#define WU_CSV_MAX_LINE_SIZE 1024</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="readers_8h.html#aff537edf8da83646d070c5eef57c1f79">   30</a></span><span class="preprocessor">#define WU_CSV_MAX_LINE_SIZE 2048</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
 <div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="readers_8h.html#a67302bd1ff8bc35bf4369194e3d0fcb1">   32</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
@@ -155,14 +155,15 @@ $(function(){initNavTree('readers_8h_source.html','',''); });
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>}* WU_CsvReader;</div>
 </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>WU_CsvReader <a class="code hl_function" href="readers_8h.html#a4c0844cb6bf9ddc22e5c2b76a3a374cb">wu_csv_reader_new</a>(FILE *file, <a class="code hl_enumeration" href="types_8h.html#aa61141c2305acd8346c0f0390aad8efa">WU_DataType</a> data_type, <span class="keywordtype">bool</span> has_headers);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="readers_8h.html#af5558487bfd7d76764546476798baad2">   58</a></span><span class="preprocessor">#define WU_READER(r) ((WU_Reader)(r))</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="readers_8h.html#a69363107952a6ccaa34a7b1762802f46">   59</a></span><span class="preprocessor">#define wu_reader_list(...) ((WU_Reader[]){__VA_ARGS__, NULL})</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#endif </span><span class="comment">// WU_READER_H</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>WU_CsvReader <a class="code hl_function" href="readers_8h.html#a0184af8e19fc5db05a414c3b251e7b33">wu_csv_reader_new</a>(FILE *file, <a class="code hl_enumeration" href="types_8h.html#aa61141c2305acd8346c0f0390aad8efa">WU_DataType</a> data_type,</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <a class="code hl_enumeration" href="types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3">WU_TimeUnit</a> time_units, <span class="keywordtype">bool</span> has_headers);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="readers_8h.html#af5558487bfd7d76764546476798baad2">   59</a></span><span class="preprocessor">#define WU_READER(r) ((WU_Reader)(r))</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="readers_8h.html#a69363107952a6ccaa34a7b1762802f46">   60</a></span><span class="preprocessor">#define wu_reader_list(...) ((WU_Reader[]){__VA_ARGS__, NULL})</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#endif </span><span class="comment">// WU_READER_H</span></div>
 <div class="ttc" id="adata_8h_html"><div class="ttname"><a href="data_8h.html">data.h</a></div></div>
-<div class="ttc" id="areaders_8h_html_a4c0844cb6bf9ddc22e5c2b76a3a374cb"><div class="ttname"><a href="readers_8h.html#a4c0844cb6bf9ddc22e5c2b76a3a374cb">wu_csv_reader_new</a></div><div class="ttdeci">WU_CsvReader wu_csv_reader_new(FILE *file, WU_DataType data_type, bool has_headers)</div><div class="ttdef"><b>Definition</b> <a href="csv_8c_source.html#l00092">csv.c:92</a></div></div>
+<div class="ttc" id="areaders_8h_html_a0184af8e19fc5db05a414c3b251e7b33"><div class="ttname"><a href="readers_8h.html#a0184af8e19fc5db05a414c3b251e7b33">wu_csv_reader_new</a></div><div class="ttdeci">WU_CsvReader wu_csv_reader_new(FILE *file, WU_DataType data_type, WU_TimeUnit time_units, bool has_headers)</div><div class="ttdef"><b>Definition</b> <a href="csv_8c_source.html#l00092">csv.c:92</a></div></div>
 <div class="ttc" id="areaders_8h_html_a67302bd1ff8bc35bf4369194e3d0fcb1"><div class="ttname"><a href="readers_8h.html#a67302bd1ff8bc35bf4369194e3d0fcb1">WU_CsvError</a></div><div class="ttdeci">WU_CsvError</div><div class="ttdef"><b>Definition</b> <a href="#l00032">readers.h:32</a></div></div>
 <div class="ttc" id="areaders_8h_html_a67302bd1ff8bc35bf4369194e3d0fcb1a469441889f1d34c0ba5f0d245b6f71c4"><div class="ttname"><a href="readers_8h.html#a67302bd1ff8bc35bf4369194e3d0fcb1a469441889f1d34c0ba5f0d245b6f71c4">WU_CSV_OK</a></div><div class="ttdeci">@ WU_CSV_OK</div><div class="ttdef"><b>Definition</b> <a href="#l00033">readers.h:33</a></div></div>
 <div class="ttc" id="areaders_8h_html_a67302bd1ff8bc35bf4369194e3d0fcb1a7c57aef28706b94f175e7169a489e37e"><div class="ttname"><a href="readers_8h.html#a67302bd1ff8bc35bf4369194e3d0fcb1a7c57aef28706b94f175e7169a489e37e">WU_CSV_ERROR_EOF</a></div><div class="ttdeci">@ WU_CSV_ERROR_EOF</div><div class="ttdef"><b>Definition</b> <a href="#l00034">readers.h:34</a></div></div>
@@ -184,6 +185,7 @@ $(function(){initNavTree('readers_8h_source.html','',''); });
 <div class="ttc" id="astructWU__Single_html"><div class="ttname"><a href="structWU__Single.html">WU_Single</a></div><div class="ttdoc">WU_Single represents a single value with a timestamp, which can be a price, an indicator value,...</div><div class="ttdef"><b>Definition</b> <a href="data_8h_source.html#l00047">data.h:47</a></div></div>
 <div class="ttc" id="astructWU__Trade_html"><div class="ttname"><a href="structWU__Trade.html">WU_Trade</a></div><div class="ttdoc">WU_Trade represents a single trade in the market, including the timestamp, price, volume,...</div><div class="ttdef"><b>Definition</b> <a href="data_8h_source.html#l00032">data.h:32</a></div></div>
 <div class="ttc" id="atypes_8h_html"><div class="ttname"><a href="types_8h.html">types.h</a></div></div>
+<div class="ttc" id="atypes_8h_html_a32fd359d0dbf4831d7790f38dea45ab3"><div class="ttname"><a href="types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3">WU_TimeUnit</a></div><div class="ttdeci">WU_TimeUnit</div><div class="ttdoc">WU_TimeUnit represents a unit of time used for time-based calculations such as time-weighted returns ...</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00033">types.h:33</a></div></div>
 <div class="ttc" id="atypes_8h_html_aa61141c2305acd8346c0f0390aad8efa"><div class="ttname"><a href="types_8h.html#aa61141c2305acd8346c0f0390aad8efa">WU_DataType</a></div><div class="ttdeci">WU_DataType</div><div class="ttdoc">WU_DataType represents the type of input data, which can be a candle, a trade, or a single value.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00023">types.h:23</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">WU Trading Library<span id="projectnumber">&#160;0.1.0</span>
+   <div id="projectname">WU Trading Library<span id="projectnumber">&#160;0.2.0</span>
    </div>
    <div id="projectbrief">A backtesting and trading strategy library</div>
   </td>
@@ -130,7 +130,7 @@ $(function(){initNavTree('csv_8c_source.html','',''); });
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    }</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordflow">if</span> (sscanf(reader-&gt;line_buffer, <span class="stringliteral">&quot;%ld,%lf,%lf,%lf,%lf,%lf&quot;</span>,</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>               &amp;(reader-&gt;data.candle.timestamp),</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>               &amp;(reader-&gt;data.candle.timestamp.mark),</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>               &amp;(reader-&gt;data.candle.open),</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>               &amp;(reader-&gt;data.candle.high),</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>               &amp;(reader-&gt;data.candle.low),</div>
@@ -154,7 +154,7 @@ $(function(){initNavTree('csv_8c_source.html','',''); });
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">int</span> side_value;</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordflow">if</span> (sscanf(reader-&gt;line_buffer, <span class="stringliteral">&quot;%ld,%lf,%lf,%d&quot;</span>,</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>               &amp;(reader-&gt;data.trade.timestamp),</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>               &amp;(reader-&gt;data.trade.timestamp.mark),</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>               &amp;(reader-&gt;data.trade.price),</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>               &amp;(reader-&gt;data.trade.volume),</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>               &amp;side_value) != 4) {</div>
@@ -176,7 +176,7 @@ $(function(){initNavTree('csv_8c_source.html','',''); });
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    }</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordflow">if</span> (sscanf(reader-&gt;line_buffer, <span class="stringliteral">&quot;%ld,%lf&quot;</span>,</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                &amp;(reader-&gt;data.single_value.timestamp),</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                &amp;(reader-&gt;data.single_value.timestamp.mark),</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                &amp;(reader-&gt;data.single_value.value)) != 2) {</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        reader-&gt;last_error = <a class="code hl_enumvalue" href="readers_8h.html#a67302bd1ff8bc35bf4369194e3d0fcb1a95d125284e1bf0e8647fc2ba09679c7e">WU_CSV_ERROR_PARSE</a>;</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">return</span> NULL;</div>
@@ -196,47 +196,49 @@ $(function(){initNavTree('csv_8c_source.html','',''); });
 </div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
 <div class="foldopen" id="foldopen00092" data-start="{" data-end="}">
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="readers_8h.html#a4c0844cb6bf9ddc22e5c2b76a3a374cb">   92</a></span>WU_CsvReader <a class="code hl_function" href="csv_8c.html#a4c0844cb6bf9ddc22e5c2b76a3a374cb">wu_csv_reader_new</a>(FILE* file, <a class="code hl_enumeration" href="types_8h.html#aa61141c2305acd8346c0f0390aad8efa">WU_DataType</a> data_type, <span class="keywordtype">bool</span> has_headers) {</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordflow">if</span> (!file) <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="readers_8h.html#a0184af8e19fc5db05a414c3b251e7b33">   92</a></span>WU_CsvReader <a class="code hl_function" href="csv_8c.html#a0184af8e19fc5db05a414c3b251e7b33">wu_csv_reader_new</a>(FILE* file, <a class="code hl_enumeration" href="types_8h.html#aa61141c2305acd8346c0f0390aad8efa">WU_DataType</a> data_type,</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <a class="code hl_enumeration" href="types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3">WU_TimeUnit</a> time_units, <span class="keywordtype">bool</span> has_headers) {</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordflow">if</span> (!file) <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    WU_CsvReader reader = (WU_CsvReader)malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code hl_struct" href="structWU__CsvReader__.html">WU_CsvReader_</a>));</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordflow">if</span> (!reader) <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    reader-&gt;file = file;</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    reader-&gt;has_headers = has_headers;</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    reader-&gt;data_type = data_type;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    reader-&gt;last_error = <a class="code hl_enumvalue" href="readers_8h.html#a67302bd1ff8bc35bf4369194e3d0fcb1a469441889f1d34c0ba5f0d245b6f71c4">WU_CSV_OK</a>;</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordflow">switch</span> (data_type) {</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="types_8h.html#aa61141c2305acd8346c0f0390aad8efaaf025a7e3dc4927539131c1d6c499b084">WU_DATA_TYPE_CANDLE</a>:</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    reader-&gt;file = file;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    reader-&gt;has_headers = has_headers;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    reader-&gt;data_type = data_type;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    reader-&gt;last_error = <a class="code hl_enumvalue" href="readers_8h.html#a67302bd1ff8bc35bf4369194e3d0fcb1a469441889f1d34c0ba5f0d245b6f71c4">WU_CSV_OK</a>;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordflow">switch</span> (data_type) {</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="types_8h.html#aa61141c2305acd8346c0f0390aad8efaaf025a7e3dc4927539131c1d6c499b084">WU_DATA_TYPE_CANDLE</a>:</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            reader-&gt;data.candle.timestamp.units = time_units;</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            reader-&gt;base.next = (<span class="keywordtype">void</span>* (*)(<span class="keyword">struct</span> <a class="code hl_struct" href="structWU__Reader__.html">WU_Reader_</a>*))<a class="code hl_function" href="csv_8c.html#a3e4d89f6fa74ebba0c764d04cc275bb4">read_candle</a>;</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="types_8h.html#aa61141c2305acd8346c0f0390aad8efaac2bc40b8f93af0a9df11baf910c488d2">WU_DATA_TYPE_TRADE</a>:</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            reader-&gt;base.next = (<span class="keywordtype">void</span>* (*)(<span class="keyword">struct</span> <a class="code hl_struct" href="structWU__Reader__.html">WU_Reader_</a>*))<a class="code hl_function" href="csv_8c.html#a8e58b7c6801055ad6a54088c1e5684d5">read_trade</a>;</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="types_8h.html#aa61141c2305acd8346c0f0390aad8efaae4ca65c64d9d1db313003c18c17593a6">WU_DATA_TYPE_SINGLE_VALUE</a>:</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            reader-&gt;base.next = (<span class="keywordtype">void</span>* (*)(<span class="keyword">struct</span> <a class="code hl_struct" href="structWU__Reader__.html">WU_Reader_</a>*))<a class="code hl_function" href="csv_8c.html#a3f0073299e5ce0f79861844483e2d2f0">read_single_value</a>;</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordflow">default</span>:</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            free(reader);</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    }</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    reader-&gt;base.delete = (void (*)(<span class="keyword">struct </span><a class="code hl_struct" href="structWU__Reader__.html">WU_Reader_</a>*))<a class="code hl_function" href="csv_8c.html#afa3de80c7c165a1f2cec31ea53187bdd">wu_csv_reader_free</a>;    </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordflow">if</span> (has_headers) {</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="keywordflow">if</span> (!fgets(reader-&gt;line_buffer, <a class="code hl_define" href="readers_8h.html#aff537edf8da83646d070c5eef57c1f79">WU_CSV_MAX_LINE_SIZE</a>, reader-&gt;file)) {</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            free(reader);</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        }</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    }</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keywordflow">return</span> reader;</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>}</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            reader-&gt;data.trade.timestamp.units = time_units;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            reader-&gt;base.next = (<span class="keywordtype">void</span>* (*)(<span class="keyword">struct</span> <a class="code hl_struct" href="structWU__Reader__.html">WU_Reader_</a>*))<a class="code hl_function" href="csv_8c.html#a8e58b7c6801055ad6a54088c1e5684d5">read_trade</a>;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="types_8h.html#aa61141c2305acd8346c0f0390aad8efaae4ca65c64d9d1db313003c18c17593a6">WU_DATA_TYPE_SINGLE_VALUE</a>:</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            reader-&gt;data.single_value.timestamp.units = time_units;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            reader-&gt;base.next = (<span class="keywordtype">void</span>* (*)(<span class="keyword">struct</span> <a class="code hl_struct" href="structWU__Reader__.html">WU_Reader_</a>*))<a class="code hl_function" href="csv_8c.html#a3f0073299e5ce0f79861844483e2d2f0">read_single_value</a>;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            free(reader);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    }</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    reader-&gt;base.delete = (void (*)(<span class="keyword">struct </span><a class="code hl_struct" href="structWU__Reader__.html">WU_Reader_</a>*))<a class="code hl_function" href="csv_8c.html#afa3de80c7c165a1f2cec31ea53187bdd">wu_csv_reader_free</a>;    </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordflow">if</span> (has_headers) {</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keywordflow">if</span> (!fgets(reader-&gt;line_buffer, <a class="code hl_define" href="readers_8h.html#aff537edf8da83646d070c5eef57c1f79">WU_CSV_MAX_LINE_SIZE</a>, reader-&gt;file)) {</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            free(reader);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        }</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    }</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keywordflow">return</span> reader;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>}</div>
 </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="ttc" id="acsv_8c_html_a0184af8e19fc5db05a414c3b251e7b33"><div class="ttname"><a href="csv_8c.html#a0184af8e19fc5db05a414c3b251e7b33">wu_csv_reader_new</a></div><div class="ttdeci">WU_CsvReader wu_csv_reader_new(FILE *file, WU_DataType data_type, WU_TimeUnit time_units, bool has_headers)</div><div class="ttdef"><b>Definition</b> <a href="#l00092">csv.c:92</a></div></div>
 <div class="ttc" id="acsv_8c_html_a3e4d89f6fa74ebba0c764d04cc275bb4"><div class="ttname"><a href="csv_8c.html#a3e4d89f6fa74ebba0c764d04cc275bb4">read_candle</a></div><div class="ttdeci">static void * read_candle(WU_CsvReader reader)</div><div class="ttdef"><b>Definition</b> <a href="#l00028">csv.c:28</a></div></div>
 <div class="ttc" id="acsv_8c_html_a3f0073299e5ce0f79861844483e2d2f0"><div class="ttname"><a href="csv_8c.html#a3f0073299e5ce0f79861844483e2d2f0">read_single_value</a></div><div class="ttdeci">static void * read_single_value(WU_CsvReader reader)</div><div class="ttdef"><b>Definition</b> <a href="#l00070">csv.c:70</a></div></div>
-<div class="ttc" id="acsv_8c_html_a4c0844cb6bf9ddc22e5c2b76a3a374cb"><div class="ttname"><a href="csv_8c.html#a4c0844cb6bf9ddc22e5c2b76a3a374cb">wu_csv_reader_new</a></div><div class="ttdeci">WU_CsvReader wu_csv_reader_new(FILE *file, WU_DataType data_type, bool has_headers)</div><div class="ttdef"><b>Definition</b> <a href="#l00092">csv.c:92</a></div></div>
 <div class="ttc" id="acsv_8c_html_a6bf5976797be20d5a3567bd18f48e5d9"><div class="ttname"><a href="csv_8c.html#a6bf5976797be20d5a3567bd18f48e5d9">read_line</a></div><div class="ttdeci">static bool read_line(WU_CsvReader reader)</div><div class="ttdef"><b>Definition</b> <a href="#l00013">csv.c:13</a></div></div>
 <div class="ttc" id="acsv_8c_html_a703ac3072ad030139bea283a94c8e9ad"><div class="ttname"><a href="csv_8c.html#a703ac3072ad030139bea283a94c8e9ad">trim_line</a></div><div class="ttdeci">static void trim_line(char *line)</div><div class="ttdef"><b>Definition</b> <a href="#l00006">csv.c:6</a></div></div>
 <div class="ttc" id="acsv_8c_html_a8e58b7c6801055ad6a54088c1e5684d5"><div class="ttname"><a href="csv_8c.html#a8e58b7c6801055ad6a54088c1e5684d5">read_trade</a></div><div class="ttdeci">static void * read_trade(WU_CsvReader reader)</div><div class="ttdef"><b>Definition</b> <a href="#l00049">csv.c:49</a></div></div>
@@ -248,6 +250,7 @@ $(function(){initNavTree('csv_8c_source.html','',''); });
 <div class="ttc" id="astructWU__CsvReader___html"><div class="ttname"><a href="structWU__CsvReader__.html">WU_CsvReader_</a></div><div class="ttdoc">WU_CsvReader is a concrete implementation of the WU_Reader interface that reads data from a CSV file.</div><div class="ttdef"><b>Definition</b> <a href="readers_8h_source.html#l00042">readers.h:42</a></div></div>
 <div class="ttc" id="astructWU__Reader___html"><div class="ttname"><a href="structWU__Reader__.html">WU_Reader_</a></div><div class="ttdoc">Base for a reader, which defines the minimal interface for reading the next data point from a data so...</div><div class="ttdef"><b>Definition</b> <a href="readers_8h_source.html#l00016">readers.h:16</a></div></div>
 <div class="ttc" id="atypes_8h_html_a2f2e3c024ac1b136533c4d84c12a3956"><div class="ttname"><a href="types_8h.html#a2f2e3c024ac1b136533c4d84c12a3956">WU_Side</a></div><div class="ttdeci">WU_Side</div><div class="ttdoc">WU_Side represents the direction of a signal or a trade.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00010">types.h:10</a></div></div>
+<div class="ttc" id="atypes_8h_html_a32fd359d0dbf4831d7790f38dea45ab3"><div class="ttname"><a href="types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3">WU_TimeUnit</a></div><div class="ttdeci">WU_TimeUnit</div><div class="ttdoc">WU_TimeUnit represents a unit of time used for time-based calculations such as time-weighted returns ...</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00033">types.h:33</a></div></div>
 <div class="ttc" id="atypes_8h_html_aa61141c2305acd8346c0f0390aad8efa"><div class="ttname"><a href="types_8h.html#aa61141c2305acd8346c0f0390aad8efa">WU_DataType</a></div><div class="ttdeci">WU_DataType</div><div class="ttdoc">WU_DataType represents the type of input data, which can be a candle, a trade, or a single value.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00023">types.h:23</a></div></div>
 <div class="ttc" id="atypes_8h_html_aa61141c2305acd8346c0f0390aad8efaac2bc40b8f93af0a9df11baf910c488d2"><div class="ttname"><a href="types_8h.html#aa61141c2305acd8346c0f0390aad8efaac2bc40b8f93af0a9df11baf910c488d2">WU_DATA_TYPE_TRADE</a></div><div class="ttdeci">@ WU_DATA_TYPE_TRADE</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00025">types.h:25</a></div></div>
 <div class="ttc" id="atypes_8h_html_aa61141c2305acd8346c0f0390aad8efaae4ca65c64d9d1db313003c18c17593a6"><div class="ttname"><a href="types_8h.html#aa61141c2305acd8346c0f0390aad8efaae4ca65c64d9d1db313003c18c17593a6">WU_DATA_TYPE_SINGLE_VALUE</a></div><div class="ttdeci">@ WU_DATA_TYPE_SINGLE_VALUE</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00026">types.h:26</a></div></div>

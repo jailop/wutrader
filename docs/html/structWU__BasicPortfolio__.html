@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">WU Trading Library<span id="projectnumber">&#160;0.1.0</span>
+   <div id="projectname">WU Trading Library<span id="projectnumber">&#160;0.2.0</span>
    </div>
    <div id="projectbrief">A backtesting and trading strategy library</div>
   </td>
@@ -101,35 +101,19 @@ $(function(){initNavTree('structWU__BasicPortfolio__.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:ae8e45f926062cc113ea8a134189aa0ff" id="r_ae8e45f926062cc113ea8a134189aa0ff"><td class="memItemLeft">struct <a class="el" href="structWU__Portfolio__.html">WU_Portfolio_</a>&#160;</td><td class="memItemRight"><a class="el" href="#ae8e45f926062cc113ea8a134189aa0ff">base</a></td></tr>
-<tr class="memitem:a5a8dfb58917829fc70486046555e17f8" id="r_a5a8dfb58917829fc70486046555e17f8"><td class="memItemLeft"><a class="el" href="structWU__PortfolioParams.html">WU_PortfolioParams</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5a8dfb58917829fc70486046555e17f8">params</a></td></tr>
 <tr class="memitem:ad8407b71537575c0bf2338d2fcbc56cb" id="r_ad8407b71537575c0bf2338d2fcbc56cb"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#ad8407b71537575c0bf2338d2fcbc56cb">cash</a></td></tr>
-<tr class="memitem:a3293c97d15c20c8d735244f86131d79d" id="r_a3293c97d15c20c8d735244f86131d79d"><td class="memItemLeft"><a class="el" href="structWU__PositionVector.html">WU_PositionVector</a> **&#160;</td><td class="memItemRight"><a class="el" href="#a3293c97d15c20c8d735244f86131d79d">positions</a></td></tr>
 <tr class="memitem:a159855f8515d5653126b46ebe245099e" id="r_a159855f8515d5653126b46ebe245099e"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a159855f8515d5653126b46ebe245099e">num_assets</a></td></tr>
-<tr class="memitem:a734524cfa2fbb8f6cdc22e4cc4658c8b" id="r_a734524cfa2fbb8f6cdc22e4cc4658c8b"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a734524cfa2fbb8f6cdc22e4cc4658c8b">accum_expenses</a></td></tr>
+<tr class="memitem:a3a759e6ecfb7827d43a602c3de17c202" id="r_a3a759e6ecfb7827d43a602c3de17c202"><td class="memItemLeft"><a class="el" href="structWU__TimeStamp.html">WU_TimeStamp</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3a759e6ecfb7827d43a602c3de17c202">last_update_time</a></td></tr>
+<tr class="memitem:a5a8dfb58917829fc70486046555e17f8" id="r_a5a8dfb58917829fc70486046555e17f8"><td class="memItemLeft"><a class="el" href="structWU__PortfolioParams.html">WU_PortfolioParams</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5a8dfb58917829fc70486046555e17f8">params</a></td></tr>
+<tr class="memitem:a3293c97d15c20c8d735244f86131d79d" id="r_a3293c97d15c20c8d735244f86131d79d"><td class="memItemLeft"><a class="el" href="structWU__PositionVector.html">WU_PositionVector</a> **&#160;</td><td class="memItemRight"><a class="el" href="#a3293c97d15c20c8d735244f86131d79d">positions</a></td></tr>
 <tr class="memitem:a6373eb8f5bce8353fb58a7324433cf76" id="r_a6373eb8f5bce8353fb58a7324433cf76"><td class="memItemLeft">WU_PortfolioStats&#160;</td><td class="memItemRight"><a class="el" href="#a6373eb8f5bce8353fb58a7324433cf76">stats</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A basic portfolio implementation that supports multiple assets. </p>
 <p>It tracks cash, positions for each asset, and calculates portfolio value and PnL based on the current market prices and the positions held. It also keeps track of accumulated transaction costs and trading statistics. The portfolio is initialized with a set of parameters and an array of asset symbols, and it dynamically manages the positions for each asset. </p>
 
-<p class="definition">Definition at line <a class="el" href="portfolios_8h_source.html#l00079">79</a> of file <a class="el" href="portfolios_8h_source.html">portfolios.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="portfolios_8h_source.html#l00088">88</a> of file <a class="el" href="portfolios_8h_source.html">portfolios.h</a>.</p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Field Documentation</h2>
-<a id="a734524cfa2fbb8f6cdc22e4cc4658c8b" name="a734524cfa2fbb8f6cdc22e4cc4658c8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a734524cfa2fbb8f6cdc22e4cc4658c8b">&#9670;&#160;</a></span>accum_expenses</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double WU_BasicPortfolio::accum_expenses</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="portfolios_8h_source.html#l00085">85</a> of file <a class="el" href="portfolios_8h_source.html">portfolios.h</a>.</p>
-
-</div>
-</div>
 <a id="ae8e45f926062cc113ea8a134189aa0ff" name="ae8e45f926062cc113ea8a134189aa0ff"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae8e45f926062cc113ea8a134189aa0ff">&#9670;&#160;</a></span>base</h2>
 
@@ -142,7 +126,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="portfolios_8h_source.html#l00080">80</a> of file <a class="el" href="portfolios_8h_source.html">portfolios.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="portfolios_8h_source.html#l00089">89</a> of file <a class="el" href="portfolios_8h_source.html">portfolios.h</a>.</p>
 
 </div>
 </div>
@@ -158,7 +142,23 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="portfolios_8h_source.html#l00082">82</a> of file <a class="el" href="portfolios_8h_source.html">portfolios.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="portfolios_8h_source.html#l00090">90</a> of file <a class="el" href="portfolios_8h_source.html">portfolios.h</a>.</p>
+
+</div>
+</div>
+<a id="a3a759e6ecfb7827d43a602c3de17c202" name="a3a759e6ecfb7827d43a602c3de17c202"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a759e6ecfb7827d43a602c3de17c202">&#9670;&#160;</a></span>last_update_time</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structWU__TimeStamp.html">WU_TimeStamp</a> WU_BasicPortfolio::last_update_time</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="portfolios_8h_source.html#l00092">92</a> of file <a class="el" href="portfolios_8h_source.html">portfolios.h</a>.</p>
 
 </div>
 </div>
@@ -174,7 +174,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="portfolios_8h_source.html#l00084">84</a> of file <a class="el" href="portfolios_8h_source.html">portfolios.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="portfolios_8h_source.html#l00091">91</a> of file <a class="el" href="portfolios_8h_source.html">portfolios.h</a>.</p>
 
 </div>
 </div>
@@ -190,7 +190,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="portfolios_8h_source.html#l00081">81</a> of file <a class="el" href="portfolios_8h_source.html">portfolios.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="portfolios_8h_source.html#l00093">93</a> of file <a class="el" href="portfolios_8h_source.html">portfolios.h</a>.</p>
 
 </div>
 </div>
@@ -206,7 +206,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="portfolios_8h_source.html#l00083">83</a> of file <a class="el" href="portfolios_8h_source.html">portfolios.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="portfolios_8h_source.html#l00094">94</a> of file <a class="el" href="portfolios_8h_source.html">portfolios.h</a>.</p>
 
 </div>
 </div>
@@ -222,7 +222,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="portfolios_8h_source.html#l00086">86</a> of file <a class="el" href="portfolios_8h_source.html">portfolios.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="portfolios_8h_source.html#l00095">95</a> of file <a class="el" href="portfolios_8h_source.html">portfolios.h</a>.</p>
 
 </div>
 </div>

@@ -6,6 +6,8 @@ var basic_8c =
     [ "calculate_position_size", "basic_8c.html#a0ef8a4166f170c4f9d1650bbc1543e6b", null ],
     [ "calculate_positions_value", "basic_8c.html#afdc70fc18d096957c96e3f135c54892a", null ],
     [ "calculate_total_cost_basis", "basic_8c.html#abcb35d1b59f4007b2c9623c7fe1d650f", null ],
+    [ "calculate_total_short_value", "basic_8c.html#a47f1180fc988ff2d639327e8cb5a1668", null ],
+    [ "calculate_years_held", "basic_8c.html#a431e7e565cb20d4dc3b5a4cbc441a7b5", null ],
     [ "check_and_close_positions", "basic_8c.html#a4f701adb921eb62de8d503d412d98153", null ],
     [ "close_and_update_portfolio", "basic_8c.html#a6b9749658a2926f2d5688addb77cbd72", null ],
     [ "close_position", "basic_8c.html#a72da7e1c8192d2074b0940439ed50c77", null ],
@@ -20,8 +22,10 @@ var basic_8c =
     [ "slippage_price", "basic_8c.html#a63a7a8fb74c5479524aabac9f18c8dd2", null ],
     [ "update_portfolio", "basic_8c.html#ae46e89faa71bdeb25544471d70739d38", null ],
     [ "update_prices_and_check_exits", "basic_8c.html#aefc40797050e08d0e6695c4f2a1455aa", null ],
+    [ "uses_strategy_guided_allocation", "basic_8c.html#aa9342d86f140c018590d5fd068d79c81", null ],
     [ "wu_basic_portfolio_asset_quantity", "basic_8c.html#a3301ffdac9f94a7ee56295a5d2b78331", null ],
     [ "wu_basic_portfolio_asset_value", "basic_8c.html#aa1bdb9216a82a4f058a6d0e4da12e8e6", null ],
     [ "wu_basic_portfolio_free", "basic_8c.html#acff28664e0f0d59857a4b5f6dd160383", null ],
-    [ "wu_basic_portfolio_new", "basic_8c.html#a0d0341adb332ca990d1076ba417d39cd", null ]
+    [ "wu_basic_portfolio_new", "basic_8c.html#a0d0341adb332ca990d1076ba417d39cd", null ],
+    [ "wu_portfolio_params_default", "basic_8c.html#a47e5c4b4e5eb6b2358060c7bdfe884cb", null ]
 ];

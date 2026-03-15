@@ -24,5 +24,6 @@ var annotated_dup =
     [ "WU_SMA", "structWU__SMA__.html", "structWU__SMA__" ],
     [ "WU_StDev", "structWU__StDev__.html", "structWU__StDev__" ],
     [ "WU_Strategy", "structWU__Strategy__.html", "structWU__Strategy__" ],
+    [ "WU_TimeStamp", "structWU__TimeStamp.html", "structWU__TimeStamp" ],
     [ "WU_Trade", "structWU__Trade.html", "structWU__Trade" ]
 ];

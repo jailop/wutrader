@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">WU Trading Library<span id="projectnumber">&#160;0.1.0</span>
+   <div id="projectname">WU Trading Library<span id="projectnumber">&#160;0.2.0</span>
    </div>
    <div id="projectbrief">A backtesting and trading strategy library</div>
   </td>
@@ -93,16 +93,26 @@ $(function(){initNavTree('structWU__PortfolioStats__.html','',''); });
 </div><!--header-->
 <div class="contents">
 
-<p>WU_PortfolioStats tracks trading statistics.  
+<p>WU_PortfolioStats tracks portfolio state, positions, and trading statistics.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="stats_8h_source.html">stats.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
+<tr class="memitem:a9e4e0be08d98b1a005916440000d6c73" id="r_a9e4e0be08d98b1a005916440000d6c73"><td class="memItemLeft">void(*&#160;</td><td class="memItemRight"><a class="el" href="#a9e4e0be08d98b1a005916440000d6c73">update</a> )(struct <a class="el" href="structWU__PortfolioStats__.html">WU_PortfolioStats_</a> *stats, double cash, double <a class="el" href="#a6e146f6ddc30aef72b1ffaf2ba8b0630">portfolio_value</a>, <a class="el" href="structWU__TimeStamp.html">WU_TimeStamp</a> timestamp)</td></tr>
 <tr class="memitem:ae9275933b81abf4096b8ce8d8173ec6f" id="r_ae9275933b81abf4096b8ce8d8173ec6f"><td class="memItemLeft">void(*&#160;</td><td class="memItemRight"><a class="el" href="#ae9275933b81abf4096b8ce8d8173ec6f">record_trade</a> )(struct <a class="el" href="structWU__PortfolioStats__.html">WU_PortfolioStats_</a> *stats, double pnl, <a class="el" href="types_8h.html#a6600a0737149ca543a2ac589b5453490">WU_CloseReason</a> reason)</td></tr>
+<tr class="memitem:a5e3413bc2c97d4a48102fa759791de38" id="r_a5e3413bc2c97d4a48102fa759791de38"><td class="memItemLeft">void(*&#160;</td><td class="memItemRight"><a class="el" href="#a5e3413bc2c97d4a48102fa759791de38">update_position</a> )(struct <a class="el" href="structWU__PortfolioStats__.html">WU_PortfolioStats_</a> *stats, int asset_index, const char *symbol, double quantity, double value, double last_price)</td></tr>
+<tr class="memitem:a3945e9a45ea5feb03bbd845c99ac8c18" id="r_a3945e9a45ea5feb03bbd845c99ac8c18"><td class="memItemLeft">char *(*&#160;</td><td class="memItemRight"><a class="el" href="#a3945e9a45ea5feb03bbd845c99ac8c18">to_keyvalue</a> )(struct <a class="el" href="structWU__PortfolioStats__.html">WU_PortfolioStats_</a> *stats)</td></tr>
+<tr class="memitem:a741d0ba35de96139abfef72b966ce810" id="r_a741d0ba35de96139abfef72b966ce810"><td class="memItemLeft">char *(*&#160;</td><td class="memItemRight"><a class="el" href="#a741d0ba35de96139abfef72b966ce810">to_json</a> )(struct <a class="el" href="structWU__PortfolioStats__.html">WU_PortfolioStats_</a> *stats, bool pretty)</td></tr>
 <tr class="memitem:a78262332353a1f986365f381d5025d91" id="r_a78262332353a1f986365f381d5025d91"><td class="memItemLeft">void(*&#160;</td><td class="memItemRight"><a class="el" href="#a78262332353a1f986365f381d5025d91">reset</a> )(struct <a class="el" href="structWU__PortfolioStats__.html">WU_PortfolioStats_</a> *stats)</td></tr>
 <tr class="memitem:a0bf8b5ee945d3f34fd2098ce737eb2cb" id="r_a0bf8b5ee945d3f34fd2098ce737eb2cb"><td class="memItemLeft">void(*&#160;</td><td class="memItemRight"><a class="el" href="#a0bf8b5ee945d3f34fd2098ce737eb2cb">delete</a> )(struct <a class="el" href="structWU__PortfolioStats__.html">WU_PortfolioStats_</a> *stats)</td></tr>
+<tr class="memitem:a1f22866bd85a231ea44212f8dc316739" id="r_a1f22866bd85a231ea44212f8dc316739"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a1f22866bd85a231ea44212f8dc316739">initial_cash</a></td></tr>
+<tr class="memitem:a7e4e61c50f00bbf58c669a6a3e22ae08" id="r_a7e4e61c50f00bbf58c669a6a3e22ae08"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a7e4e61c50f00bbf58c669a6a3e22ae08">current_cash</a></td></tr>
+<tr class="memitem:a6e146f6ddc30aef72b1ffaf2ba8b0630" id="r_a6e146f6ddc30aef72b1ffaf2ba8b0630"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a6e146f6ddc30aef72b1ffaf2ba8b0630">portfolio_value</a></td></tr>
+<tr class="memitem:a698153176decfb627420b1154b5d1ace" id="r_a698153176decfb627420b1154b5d1ace"><td class="memItemLeft"><a class="el" href="structWU__TimeStamp.html">WU_TimeStamp</a>&#160;</td><td class="memItemRight"><a class="el" href="#a698153176decfb627420b1154b5d1ace">last_update</a></td></tr>
+<tr class="memitem:aec90d9d1b188e811a33cebc41a4b1324" id="r_aec90d9d1b188e811a33cebc41a4b1324"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#aec90d9d1b188e811a33cebc41a4b1324">accum_tx_fees</a></td></tr>
+<tr class="memitem:ae588ac84c1b460858599ce2bc680fa6f" id="r_ae588ac84c1b460858599ce2bc680fa6f"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#ae588ac84c1b460858599ce2bc680fa6f">accum_borrow_interest</a></td></tr>
 <tr class="memitem:add77282d3388baee160f24d6db81ddf2" id="r_add77282d3388baee160f24d6db81ddf2"><td class="memItemLeft">int64_t&#160;</td><td class="memItemRight"><a class="el" href="#add77282d3388baee160f24d6db81ddf2">total_trades</a></td></tr>
 <tr class="memitem:a67fd65d6ab2ad0db3199c1f9f1ef97c1" id="r_a67fd65d6ab2ad0db3199c1f9f1ef97c1"><td class="memItemLeft">int64_t&#160;</td><td class="memItemRight"><a class="el" href="#a67fd65d6ab2ad0db3199c1f9f1ef97c1">winning_trades</a></td></tr>
 <tr class="memitem:a12a511811ae93565ec164d3fd4aefb4b" id="r_a12a511811ae93565ec164d3fd4aefb4b"><td class="memItemLeft">int64_t&#160;</td><td class="memItemRight"><a class="el" href="#a12a511811ae93565ec164d3fd4aefb4b">losing_trades</a></td></tr>
@@ -112,12 +122,83 @@ Data Fields</h2></td></tr>
 <tr class="memitem:a133fde13f7fa8e529316b028c9dc8792" id="r_a133fde13f7fa8e529316b028c9dc8792"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a133fde13f7fa8e529316b028c9dc8792">total_loss</a></td></tr>
 <tr class="memitem:af751421d0c1d511e2ef3b1df6fabc160" id="r_af751421d0c1d511e2ef3b1df6fabc160"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#af751421d0c1d511e2ef3b1df6fabc160">max_win</a></td></tr>
 <tr class="memitem:ae4b20813de51e7c5c1014a7e8e15d92b" id="r_ae4b20813de51e7c5c1014a7e8e15d92b"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#ae4b20813de51e7c5c1014a7e8e15d92b">max_loss</a></td></tr>
+<tr class="memitem:aa9d7ed448bfef314ad3eb09e2dcc163c" id="r_aa9d7ed448bfef314ad3eb09e2dcc163c"><td class="memItemLeft">char **&#160;</td><td class="memItemRight"><a class="el" href="#aa9d7ed448bfef314ad3eb09e2dcc163c">symbols</a></td></tr>
+<tr class="memitem:a13e6cb532dcbdf5b150d1d6dcda1debe" id="r_a13e6cb532dcbdf5b150d1d6dcda1debe"><td class="memItemLeft">double *&#160;</td><td class="memItemRight"><a class="el" href="#a13e6cb532dcbdf5b150d1d6dcda1debe">quantities</a></td></tr>
+<tr class="memitem:a14b751343243a9549e0653eb88bfa73b" id="r_a14b751343243a9549e0653eb88bfa73b"><td class="memItemLeft">double *&#160;</td><td class="memItemRight"><a class="el" href="#a14b751343243a9549e0653eb88bfa73b">values</a></td></tr>
+<tr class="memitem:adc8c35fdb22432c7e3a24804bd804cd6" id="r_adc8c35fdb22432c7e3a24804bd804cd6"><td class="memItemLeft">double *&#160;</td><td class="memItemRight"><a class="el" href="#adc8c35fdb22432c7e3a24804bd804cd6">last_prices</a></td></tr>
+<tr class="memitem:aa98382de11bbd5a091759e9d830316b0" id="r_aa98382de11bbd5a091759e9d830316b0"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#aa98382de11bbd5a091759e9d830316b0">num_assets</a></td></tr>
+<tr class="memitem:aea42ca102cba5586fb788b1494da24bf" id="r_aea42ca102cba5586fb788b1494da24bf"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#aea42ca102cba5586fb788b1494da24bf">capacity</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>WU_PortfolioStats tracks trading statistics. </p>
+<div class="textblock"><p>WU_PortfolioStats tracks portfolio state, positions, and trading statistics. </p>
+<p>This is the central source of knowledge about portfolio performance and holdings. </p>
 
-<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00007">7</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00010">10</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Field Documentation</h2>
+<a id="ae588ac84c1b460858599ce2bc680fa6f" name="ae588ac84c1b460858599ce2bc680fa6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae588ac84c1b460858599ce2bc680fa6f">&#9670;&#160;</a></span>accum_borrow_interest</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double WU_PortfolioStats::accum_borrow_interest</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00030">30</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+
+</div>
+</div>
+<a id="aec90d9d1b188e811a33cebc41a4b1324" name="aec90d9d1b188e811a33cebc41a4b1324"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec90d9d1b188e811a33cebc41a4b1324">&#9670;&#160;</a></span>accum_tx_fees</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double WU_PortfolioStats::accum_tx_fees</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00029">29</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+
+</div>
+</div>
+<a id="aea42ca102cba5586fb788b1494da24bf" name="aea42ca102cba5586fb788b1494da24bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea42ca102cba5586fb788b1494da24bf">&#9670;&#160;</a></span>capacity</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int WU_PortfolioStats::capacity</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00049">49</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+
+</div>
+</div>
+<a id="a7e4e61c50f00bbf58c669a6a3e22ae08" name="a7e4e61c50f00bbf58c669a6a3e22ae08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e4e61c50f00bbf58c669a6a3e22ae08">&#9670;&#160;</a></span>current_cash</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double WU_PortfolioStats::current_cash</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00024">24</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+
+</div>
+</div>
 <a id="a0bf8b5ee945d3f34fd2098ce737eb2cb" name="a0bf8b5ee945d3f34fd2098ce737eb2cb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0bf8b5ee945d3f34fd2098ce737eb2cb">&#9670;&#160;</a></span>delete</h2>
 
@@ -130,7 +211,55 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00011">11</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00020">20</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+
+</div>
+</div>
+<a id="a1f22866bd85a231ea44212f8dc316739" name="a1f22866bd85a231ea44212f8dc316739"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f22866bd85a231ea44212f8dc316739">&#9670;&#160;</a></span>initial_cash</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double WU_PortfolioStats::initial_cash</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00023">23</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+
+</div>
+</div>
+<a id="adc8c35fdb22432c7e3a24804bd804cd6" name="adc8c35fdb22432c7e3a24804bd804cd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc8c35fdb22432c7e3a24804bd804cd6">&#9670;&#160;</a></span>last_prices</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double* WU_PortfolioStats::last_prices</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00047">47</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+
+</div>
+</div>
+<a id="a698153176decfb627420b1154b5d1ace" name="a698153176decfb627420b1154b5d1ace"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a698153176decfb627420b1154b5d1ace">&#9670;&#160;</a></span>last_update</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structWU__TimeStamp.html">WU_TimeStamp</a> WU_PortfolioStats::last_update</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00026">26</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
 
 </div>
 </div>
@@ -146,7 +275,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00014">14</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00035">35</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
 
 </div>
 </div>
@@ -162,7 +291,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00020">20</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00041">41</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
 
 </div>
 </div>
@@ -178,7 +307,55 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00019">19</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00040">40</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+
+</div>
+</div>
+<a id="aa98382de11bbd5a091759e9d830316b0" name="aa98382de11bbd5a091759e9d830316b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa98382de11bbd5a091759e9d830316b0">&#9670;&#160;</a></span>num_assets</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int WU_PortfolioStats::num_assets</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00048">48</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+
+</div>
+</div>
+<a id="a6e146f6ddc30aef72b1ffaf2ba8b0630" name="a6e146f6ddc30aef72b1ffaf2ba8b0630"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e146f6ddc30aef72b1ffaf2ba8b0630">&#9670;&#160;</a></span>portfolio_value</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double WU_PortfolioStats::portfolio_value</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00025">25</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+
+</div>
+</div>
+<a id="a13e6cb532dcbdf5b150d1d6dcda1debe" name="a13e6cb532dcbdf5b150d1d6dcda1debe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13e6cb532dcbdf5b150d1d6dcda1debe">&#9670;&#160;</a></span>quantities</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double* WU_PortfolioStats::quantities</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00045">45</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
 
 </div>
 </div>
@@ -194,7 +371,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00008">8</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00013">13</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
 
 </div>
 </div>
@@ -210,7 +387,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00010">10</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00019">19</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
 
 </div>
 </div>
@@ -226,7 +403,23 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00015">15</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00036">36</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+
+</div>
+</div>
+<a id="aa9d7ed448bfef314ad3eb09e2dcc163c" name="aa9d7ed448bfef314ad3eb09e2dcc163c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9d7ed448bfef314ad3eb09e2dcc163c">&#9670;&#160;</a></span>symbols</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char** WU_PortfolioStats::symbols</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00044">44</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
 
 </div>
 </div>
@@ -242,7 +435,39 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00016">16</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00037">37</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+
+</div>
+</div>
+<a id="a741d0ba35de96139abfef72b966ce810" name="a741d0ba35de96139abfef72b966ce810"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a741d0ba35de96139abfef72b966ce810">&#9670;&#160;</a></span>to_json</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char *(* WU_PortfolioStats::to_json) (struct <a class="el" href="structWU__PortfolioStats__.html">WU_PortfolioStats_</a> *stats, bool pretty)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00018">18</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+
+</div>
+</div>
+<a id="a3945e9a45ea5feb03bbd845c99ac8c18" name="a3945e9a45ea5feb03bbd845c99ac8c18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3945e9a45ea5feb03bbd845c99ac8c18">&#9670;&#160;</a></span>to_keyvalue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char *(* WU_PortfolioStats::to_keyvalue) (struct <a class="el" href="structWU__PortfolioStats__.html">WU_PortfolioStats_</a> *stats)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00017">17</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
 
 </div>
 </div>
@@ -258,7 +483,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00018">18</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00039">39</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
 
 </div>
 </div>
@@ -274,7 +499,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00017">17</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00038">38</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
 
 </div>
 </div>
@@ -290,7 +515,55 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00012">12</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00033">33</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+
+</div>
+</div>
+<a id="a9e4e0be08d98b1a005916440000d6c73" name="a9e4e0be08d98b1a005916440000d6c73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e4e0be08d98b1a005916440000d6c73">&#9670;&#160;</a></span>update</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* WU_PortfolioStats::update) (struct <a class="el" href="structWU__PortfolioStats__.html">WU_PortfolioStats_</a> *stats, double cash, double <a class="el" href="#a6e146f6ddc30aef72b1ffaf2ba8b0630">portfolio_value</a>, <a class="el" href="structWU__TimeStamp.html">WU_TimeStamp</a> timestamp)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00011">11</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+
+</div>
+</div>
+<a id="a5e3413bc2c97d4a48102fa759791de38" name="a5e3413bc2c97d4a48102fa759791de38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e3413bc2c97d4a48102fa759791de38">&#9670;&#160;</a></span>update_position</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* WU_PortfolioStats::update_position) (struct <a class="el" href="structWU__PortfolioStats__.html">WU_PortfolioStats_</a> *stats, int asset_index, const char *symbol, double quantity, double value, double last_price)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00015">15</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+
+</div>
+</div>
+<a id="a14b751343243a9549e0653eb88bfa73b" name="a14b751343243a9549e0653eb88bfa73b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14b751343243a9549e0653eb88bfa73b">&#9670;&#160;</a></span>values</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double* WU_PortfolioStats::values</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00046">46</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
 
 </div>
 </div>
@@ -306,7 +579,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00013">13</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stats_8h_source.html#l00034">34</a> of file <a class="el" href="stats_8h_source.html">stats.h</a>.</p>
 
 </div>
 </div>

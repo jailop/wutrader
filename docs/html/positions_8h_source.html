@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">WU Trading Library<span id="projectnumber">&#160;0.1.0</span>
+   <div id="projectname">WU Trading Library<span id="projectnumber">&#160;0.2.0</span>
    </div>
    <div id="projectbrief">A backtesting and trading strategy library</div>
   </td>
@@ -106,7 +106,7 @@ $(function(){initNavTree('positions_8h_source.html','',''); });
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> */</span></div>
 <div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="structWU__Position__.html">   13</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structWU__Position__.html">WU_Position_</a> {</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="structWU__Position__.html#aa024422481a332124024a953147ffccb">   14</a></span>    int64_t <a class="code hl_variable" href="structWU__Position__.html#aa024422481a332124024a953147ffccb">timestamp</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="structWU__Position__.html#a6ddcaac568ca8c49e3faf831b222f0ba">   14</a></span>    <a class="code hl_struct" href="structWU__TimeStamp.html">WU_TimeStamp</a> <a class="code hl_variable" href="structWU__Position__.html#a6ddcaac568ca8c49e3faf831b222f0ba">timestamp</a>;</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="structWU__Position__.html#a3f3af8695853a6503640c1979617f1ec">   15</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="structWU__Position__.html#a3f3af8695853a6503640c1979617f1ec">quantity</a>;</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="structWU__Position__.html#a9e6c1185f40030ed9f7d52c0518f62cc">   16</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="structWU__Position__.html#a9e6c1185f40030ed9f7d52c0518f62cc">price</a>;</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="structWU__Position__.html#aff6efe7fa5a39b8a4411633032dbd952">   17</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structWU__Position__.html#aff6efe7fa5a39b8a4411633032dbd952">active</a>;</div>
@@ -200,9 +200,10 @@ $(function(){initNavTree('positions_8h_source.html','',''); });
 <div class="ttc" id="astructWU__PositionVector_html_ae6edaae18b738aabca4c12ca39baf6e3"><div class="ttname"><a href="structWU__PositionVector.html#ae6edaae18b738aabca4c12ca39baf6e3">WU_PositionVector::capacity</a></div><div class="ttdeci">int capacity</div><div class="ttdef"><b>Definition</b> <a href="#l00037">positions.h:37</a></div></div>
 <div class="ttc" id="astructWU__Position___html"><div class="ttname"><a href="structWU__Position__.html">WU_Position_</a></div><div class="ttdoc">WU_Position represents an open position in the portfolio.</div><div class="ttdef"><b>Definition</b> <a href="#l00013">positions.h:13</a></div></div>
 <div class="ttc" id="astructWU__Position___html_a3f3af8695853a6503640c1979617f1ec"><div class="ttname"><a href="structWU__Position__.html#a3f3af8695853a6503640c1979617f1ec">WU_Position_::quantity</a></div><div class="ttdeci">double quantity</div><div class="ttdef"><b>Definition</b> <a href="#l00015">positions.h:15</a></div></div>
+<div class="ttc" id="astructWU__Position___html_a6ddcaac568ca8c49e3faf831b222f0ba"><div class="ttname"><a href="structWU__Position__.html#a6ddcaac568ca8c49e3faf831b222f0ba">WU_Position_::timestamp</a></div><div class="ttdeci">WU_TimeStamp timestamp</div><div class="ttdef"><b>Definition</b> <a href="#l00014">positions.h:14</a></div></div>
 <div class="ttc" id="astructWU__Position___html_a9e6c1185f40030ed9f7d52c0518f62cc"><div class="ttname"><a href="structWU__Position__.html#a9e6c1185f40030ed9f7d52c0518f62cc">WU_Position_::price</a></div><div class="ttdeci">double price</div><div class="ttdef"><b>Definition</b> <a href="#l00016">positions.h:16</a></div></div>
-<div class="ttc" id="astructWU__Position___html_aa024422481a332124024a953147ffccb"><div class="ttname"><a href="structWU__Position__.html#aa024422481a332124024a953147ffccb">WU_Position_::timestamp</a></div><div class="ttdeci">int64_t timestamp</div><div class="ttdef"><b>Definition</b> <a href="#l00014">positions.h:14</a></div></div>
 <div class="ttc" id="astructWU__Position___html_aff6efe7fa5a39b8a4411633032dbd952"><div class="ttname"><a href="structWU__Position__.html#aff6efe7fa5a39b8a4411633032dbd952">WU_Position_::active</a></div><div class="ttdeci">bool active</div><div class="ttdef"><b>Definition</b> <a href="#l00017">positions.h:17</a></div></div>
+<div class="ttc" id="astructWU__TimeStamp_html"><div class="ttname"><a href="structWU__TimeStamp.html">WU_TimeStamp</a></div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00040">types.h:40</a></div></div>
 <div class="ttc" id="atypes_8h_html"><div class="ttname"><a href="types_8h.html">types.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

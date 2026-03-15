@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">WU Trading Library<span id="projectnumber">&#160;0.1.0</span>
+   <div id="projectname">WU Trading Library<span id="projectnumber">&#160;0.2.0</span>
    </div>
    <div id="projectbrief">A backtesting and trading strategy library</div>
   </td>
@@ -93,17 +93,25 @@ $(function(){initNavTree('stats_8c.html','',''); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="wu_8h_source.html">wu.h</a>&quot;</code><br />
 </div>
 <p><a href="stats_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ad06e31fb009cca95756d15ded02f9f62" id="r_ad06e31fb009cca95756d15ded02f9f62"><td class="memItemLeft">static char *&#160;</td><td class="memItemRight"><a class="el" href="#ad06e31fb009cca95756d15ded02f9f62">wu_strdup</a> (const char *s)</td></tr>
+<tr class="memitem:ab5783d26f28b7d38e959ad33132e5864" id="r_ab5783d26f28b7d38e959ad33132e5864"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#ab5783d26f28b7d38e959ad33132e5864">stats_update</a> (struct <a class="el" href="structWU__PortfolioStats__.html">WU_PortfolioStats_</a> *stats, double cash, double portfolio_value, <a class="el" href="structWU__TimeStamp.html">WU_TimeStamp</a> timestamp)</td></tr>
 <tr class="memitem:af52bf57efd7dcefb1c6d53c1dceb2a55" id="r_af52bf57efd7dcefb1c6d53c1dceb2a55"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#af52bf57efd7dcefb1c6d53c1dceb2a55">stats_record_trade</a> (struct <a class="el" href="structWU__PortfolioStats__.html">WU_PortfolioStats_</a> *stats, double pnl, <a class="el" href="types_8h.html#a6600a0737149ca543a2ac589b5453490">WU_CloseReason</a> reason)</td></tr>
+<tr class="memitem:a74882bdbc1301b92825047fbc25a0e13" id="r_a74882bdbc1301b92825047fbc25a0e13"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a74882bdbc1301b92825047fbc25a0e13">stats_update_position</a> (struct <a class="el" href="structWU__PortfolioStats__.html">WU_PortfolioStats_</a> *stats, int asset_index, const char *symbol, double quantity, double value, double last_price)</td></tr>
+<tr class="memitem:a11c19d019200f75353f63be5d4c21e1d" id="r_a11c19d019200f75353f63be5d4c21e1d"><td class="memItemLeft">static char *&#160;</td><td class="memItemRight"><a class="el" href="#a11c19d019200f75353f63be5d4c21e1d">stats_to_keyvalue</a> (struct <a class="el" href="structWU__PortfolioStats__.html">WU_PortfolioStats_</a> *stats)</td></tr>
+<tr class="memitem:a0e43b71b13cec96a7bb827bf93a7dc4b" id="r_a0e43b71b13cec96a7bb827bf93a7dc4b"><td class="memItemLeft">static char *&#160;</td><td class="memItemRight"><a class="el" href="#a0e43b71b13cec96a7bb827bf93a7dc4b">stats_to_json</a> (struct <a class="el" href="structWU__PortfolioStats__.html">WU_PortfolioStats_</a> *stats, bool pretty)</td></tr>
 <tr class="memitem:aac512b44c11d63df5341c171d71af7de" id="r_aac512b44c11d63df5341c171d71af7de"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#aac512b44c11d63df5341c171d71af7de">stats_reset</a> (struct <a class="el" href="structWU__PortfolioStats__.html">WU_PortfolioStats_</a> *stats)</td></tr>
 <tr class="memitem:a16802252a2da3922282f6576364b7b75" id="r_a16802252a2da3922282f6576364b7b75"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a16802252a2da3922282f6576364b7b75">stats_free</a> (struct <a class="el" href="structWU__PortfolioStats__.html">WU_PortfolioStats_</a> *stats)</td></tr>
-<tr class="memitem:a5a3eb0b4ed33ad3c2ef1d03725fe421f" id="r_a5a3eb0b4ed33ad3c2ef1d03725fe421f"><td class="memItemLeft">WU_PortfolioStats&#160;</td><td class="memItemRight"><a class="el" href="#a5a3eb0b4ed33ad3c2ef1d03725fe421f">wu_portfolio_stats_new</a> (void)</td></tr>
-<tr class="memdesc:a5a3eb0b4ed33ad3c2ef1d03725fe421f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new WU_PortfolioStats instance.  <br /></td></tr>
+<tr class="memitem:ace0f87e032ac9bab31eda6bfe83f5266" id="r_ace0f87e032ac9bab31eda6bfe83f5266"><td class="memItemLeft">WU_PortfolioStats&#160;</td><td class="memItemRight"><a class="el" href="#ace0f87e032ac9bab31eda6bfe83f5266">wu_portfolio_stats_new</a> (double initial_cash)</td></tr>
+<tr class="memdesc:ace0f87e032ac9bab31eda6bfe83f5266"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new WU_PortfolioStats instance.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a16802252a2da3922282f6576364b7b75" name="a16802252a2da3922282f6576364b7b75"></a>
@@ -129,7 +137,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stats_8c_source.html#l00040">40</a> of file <a class="el" href="stats_8c_source.html">stats.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stats_8c_source.html#l00230">230</a> of file <a class="el" href="stats_8c_source.html">stats.c</a>.</p>
 
 </div>
 </div>
@@ -165,7 +173,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stats_8c_source.html#l00004">4</a> of file <a class="el" href="stats_8c_source.html">stats.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stats_8c_source.html#l00023">23</a> of file <a class="el" href="stats_8c_source.html">stats.c</a>.</p>
 
 </div>
 </div>
@@ -192,12 +200,162 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stats_8c_source.html#l00027">27</a> of file <a class="el" href="stats_8c_source.html">stats.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stats_8c_source.html#l00206">206</a> of file <a class="el" href="stats_8c_source.html">stats.c</a>.</p>
 
 </div>
 </div>
-<a id="a5a3eb0b4ed33ad3c2ef1d03725fe421f" name="a5a3eb0b4ed33ad3c2ef1d03725fe421f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a3eb0b4ed33ad3c2ef1d03725fe421f">&#9670;&#160;</a></span>wu_portfolio_stats_new()</h2>
+<a id="a0e43b71b13cec96a7bb827bf93a7dc4b" name="a0e43b71b13cec96a7bb827bf93a7dc4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e43b71b13cec96a7bb827bf93a7dc4b">&#9670;&#160;</a></span>stats_to_json()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * stats_to_json </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structWU__PortfolioStats__.html">WU_PortfolioStats_</a> *</td>          <td class="paramname"><span class="paramname"><em>stats</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>pretty</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stats_8c_source.html#l00121">121</a> of file <a class="el" href="stats_8c_source.html">stats.c</a>.</p>
+
+</div>
+</div>
+<a id="a11c19d019200f75353f63be5d4c21e1d" name="a11c19d019200f75353f63be5d4c21e1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11c19d019200f75353f63be5d4c21e1d">&#9670;&#160;</a></span>stats_to_keyvalue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * stats_to_keyvalue </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structWU__PortfolioStats__.html">WU_PortfolioStats_</a> *</td>          <td class="paramname"><span class="paramname"><em>stats</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stats_8c_source.html#l00084">84</a> of file <a class="el" href="stats_8c_source.html">stats.c</a>.</p>
+
+</div>
+</div>
+<a id="ab5783d26f28b7d38e959ad33132e5864" name="ab5783d26f28b7d38e959ad33132e5864"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5783d26f28b7d38e959ad33132e5864">&#9670;&#160;</a></span>stats_update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stats_update </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structWU__PortfolioStats__.html">WU_PortfolioStats_</a> *</td>          <td class="paramname"><span class="paramname"><em>stats</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>cash</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>portfolio_value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structWU__TimeStamp.html">WU_TimeStamp</a></td>          <td class="paramname"><span class="paramname"><em>timestamp</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stats_8c_source.html#l00015">15</a> of file <a class="el" href="stats_8c_source.html">stats.c</a>.</p>
+
+</div>
+</div>
+<a id="a74882bdbc1301b92825047fbc25a0e13" name="a74882bdbc1301b92825047fbc25a0e13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74882bdbc1301b92825047fbc25a0e13">&#9670;&#160;</a></span>stats_update_position()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stats_update_position </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structWU__PortfolioStats__.html">WU_PortfolioStats_</a> *</td>          <td class="paramname"><span class="paramname"><em>stats</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>asset_index</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>symbol</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>quantity</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>last_price</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stats_8c_source.html#l00047">47</a> of file <a class="el" href="stats_8c_source.html">stats.c</a>.</p>
+
+</div>
+</div>
+<a id="ace0f87e032ac9bab31eda6bfe83f5266" name="ace0f87e032ac9bab31eda6bfe83f5266"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace0f87e032ac9bab31eda6bfe83f5266">&#9670;&#160;</a></span>wu_portfolio_stats_new()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -205,7 +363,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">WU_PortfolioStats wu_portfolio_stats_new </td>
           <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>initial_cash</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -213,7 +371,34 @@ Functions</h2></td></tr>
 
 <p>Creates a new WU_PortfolioStats instance. </p>
 
-<p class="definition">Definition at line <a class="el" href="stats_8c_source.html#l00044">44</a> of file <a class="el" href="stats_8c_source.html">stats.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stats_8c_source.html#l00242">242</a> of file <a class="el" href="stats_8c_source.html">stats.c</a>.</p>
+
+</div>
+</div>
+<a id="ad06e31fb009cca95756d15ded02f9f62" name="ad06e31fb009cca95756d15ded02f9f62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad06e31fb009cca95756d15ded02f9f62">&#9670;&#160;</a></span>wu_strdup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * wu_strdup </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>s</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stats_8c_source.html#l00007">7</a> of file <a class="el" href="stats_8c_source.html">stats.c</a>.</p>
 
 </div>
 </div>

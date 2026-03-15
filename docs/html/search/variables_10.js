@@ -18,5 +18,6 @@ var searchData=
   ['stop_5floss_5fpct_15',['stop_loss_pct',['../structWU__PortfolioParams.html#aeb5ad5a08e7bbbcbf810207ebcfbf78c',1,'WU_PortfolioParams']]],
   ['strategy_16',['strategy',['../structWU__Runner__.html#abac03bc669ac22e0eebf8aed45e95927',1,'WU_Runner_']]],
   ['sum_17',['sum',['../structWU__SMA__.html#ab7aa1026d09258232669afc881034d3e',1,'WU_SMA_']]],
-  ['symbol_18',['symbol',['../structWU__PositionVector.html#a1ed01d0e90592953705269f65b01c378',1,'WU_PositionVector']]]
+  ['symbol_18',['symbol',['../structWU__PositionVector.html#a1ed01d0e90592953705269f65b01c378',1,'WU_PositionVector']]],
+  ['symbols_19',['symbols',['../structWU__PortfolioStats__.html#aa9d7ed448bfef314ad3eb09e2dcc163c',1,'WU_PortfolioStats_']]]
 ];

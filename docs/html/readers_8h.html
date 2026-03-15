@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">WU Trading Library<span id="projectnumber">&#160;0.1.0</span>
+   <div id="projectname">WU Trading Library<span id="projectnumber">&#160;0.2.0</span>
    </div>
    <div id="projectbrief">A backtesting and trading strategy library</div>
   </td>
@@ -110,7 +110,7 @@ Macros</h2></td></tr>
 <tr class="memitem:ae47ba622b695c34ef9a1996944ce10dd" id="r_ae47ba622b695c34ef9a1996944ce10dd"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ae47ba622b695c34ef9a1996944ce10dd">wu_reader_next</a>(reader)</td></tr>
 <tr class="memitem:ae7333c2f77f1e9615ddb869c560045c5" id="r_ae7333c2f77f1e9615ddb869c560045c5"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ae7333c2f77f1e9615ddb869c560045c5">wu_reader_last_error</a>(reader)</td></tr>
 <tr class="memitem:a788745b0fa7a42c2c810991f9af7db32" id="r_a788745b0fa7a42c2c810991f9af7db32"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a788745b0fa7a42c2c810991f9af7db32">wu_reader_delete</a>(reader)</td></tr>
-<tr class="memitem:aff537edf8da83646d070c5eef57c1f79" id="r_aff537edf8da83646d070c5eef57c1f79"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aff537edf8da83646d070c5eef57c1f79">WU_CSV_MAX_LINE_SIZE</a>&#160;&#160;&#160;1024</td></tr>
+<tr class="memitem:aff537edf8da83646d070c5eef57c1f79" id="r_aff537edf8da83646d070c5eef57c1f79"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aff537edf8da83646d070c5eef57c1f79">WU_CSV_MAX_LINE_SIZE</a>&#160;&#160;&#160;2048</td></tr>
 <tr class="memitem:af5558487bfd7d76764546476798baad2" id="r_af5558487bfd7d76764546476798baad2"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#af5558487bfd7d76764546476798baad2">WU_READER</a>(r)</td></tr>
 <tr class="memitem:a69363107952a6ccaa34a7b1762802f46" id="r_a69363107952a6ccaa34a7b1762802f46"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a69363107952a6ccaa34a7b1762802f46">wu_reader_list</a>(...)</td></tr>
 </table><table class="memberdecls">
@@ -123,7 +123,7 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a4c0844cb6bf9ddc22e5c2b76a3a374cb" id="r_a4c0844cb6bf9ddc22e5c2b76a3a374cb"><td class="memItemLeft">WU_CsvReader&#160;</td><td class="memItemRight"><a class="el" href="#a4c0844cb6bf9ddc22e5c2b76a3a374cb">wu_csv_reader_new</a> (FILE *file, <a class="el" href="types_8h.html#aa61141c2305acd8346c0f0390aad8efa">WU_DataType</a> data_type, bool has_headers)</td></tr>
+<tr class="memitem:a0184af8e19fc5db05a414c3b251e7b33" id="r_a0184af8e19fc5db05a414c3b251e7b33"><td class="memItemLeft">WU_CsvReader&#160;</td><td class="memItemRight"><a class="el" href="#a0184af8e19fc5db05a414c3b251e7b33">wu_csv_reader_new</a> (FILE *file, <a class="el" href="types_8h.html#aa61141c2305acd8346c0f0390aad8efa">WU_DataType</a> data_type, <a class="el" href="types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3">WU_TimeUnit</a> time_units, bool has_headers)</td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="aff537edf8da83646d070c5eef57c1f79" name="aff537edf8da83646d070c5eef57c1f79"></a>
@@ -133,7 +133,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define WU_CSV_MAX_LINE_SIZE&#160;&#160;&#160;1024</td>
+          <td class="memname">#define WU_CSV_MAX_LINE_SIZE&#160;&#160;&#160;2048</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -158,7 +158,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">((WU_Reader)(r))</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="readers_8h_source.html#l00058">58</a> of file <a class="el" href="readers_8h_source.html">readers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="readers_8h_source.html#l00059">59</a> of file <a class="el" href="readers_8h_source.html">readers.h</a>.</p>
 
 </div>
 </div>
@@ -221,7 +221,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">((WU_Reader[]){__VA_ARGS__, NULL})</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="readers_8h_source.html#l00059">59</a> of file <a class="el" href="readers_8h_source.html">readers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="readers_8h_source.html#l00060">60</a> of file <a class="el" href="readers_8h_source.html">readers.h</a>.</p>
 
 </div>
 </div>
@@ -268,8 +268,8 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a4c0844cb6bf9ddc22e5c2b76a3a374cb" name="a4c0844cb6bf9ddc22e5c2b76a3a374cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c0844cb6bf9ddc22e5c2b76a3a374cb">&#9670;&#160;</a></span>wu_csv_reader_new()</h2>
+<a id="a0184af8e19fc5db05a414c3b251e7b33" name="a0184af8e19fc5db05a414c3b251e7b33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0184af8e19fc5db05a414c3b251e7b33">&#9670;&#160;</a></span>wu_csv_reader_new()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -283,6 +283,11 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="types_8h.html#aa61141c2305acd8346c0f0390aad8efa">WU_DataType</a></td>          <td class="paramname"><span class="paramname"><em>data_type</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3">WU_TimeUnit</a></td>          <td class="paramname"><span class="paramname"><em>time_units</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

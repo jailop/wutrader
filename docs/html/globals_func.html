@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">WU Trading Library<span id="projectnumber">&#160;0.1.0</span>
+   <div id="projectname">WU Trading Library<span id="projectnumber">&#160;0.2.0</span>
    </div>
    <div id="projectbrief">A backtesting and trading strategy library</div>
   </td>
@@ -102,6 +102,8 @@ $(function(){initNavTree('globals_func.html','',''); });
 <li>calculate_position_size()&#160;:&#160;<a class="el" href="basic_8c.html#a0ef8a4166f170c4f9d1650bbc1543e6b">basic.c</a></li>
 <li>calculate_positions_value()&#160;:&#160;<a class="el" href="basic_8c.html#afdc70fc18d096957c96e3f135c54892a">basic.c</a></li>
 <li>calculate_total_cost_basis()&#160;:&#160;<a class="el" href="basic_8c.html#abcb35d1b59f4007b2c9623c7fe1d650f">basic.c</a></li>
+<li>calculate_total_short_value()&#160;:&#160;<a class="el" href="basic_8c.html#a47f1180fc988ff2d639327e8cb5a1668">basic.c</a></li>
+<li>calculate_years_held()&#160;:&#160;<a class="el" href="basic_8c.html#a431e7e565cb20d4dc3b5a4cbc441a7b5">basic.c</a></li>
 <li>check_and_close_positions()&#160;:&#160;<a class="el" href="basic_8c.html#a4f701adb921eb62de8d503d412d98153">basic.c</a></li>
 <li>clear_positions()&#160;:&#160;<a class="el" href="positionvector_8c.html#abd42adbc4c866aab4c1d05a2b5afece4">positionvector.c</a></li>
 <li>close_and_update_portfolio()&#160;:&#160;<a class="el" href="basic_8c.html#a6b9749658a2926f2d5688addb77cbd72">basic.c</a></li>
@@ -172,6 +174,10 @@ $(function(){initNavTree('globals_func.html','',''); });
 <li>stats_free()&#160;:&#160;<a class="el" href="stats_8c.html#a16802252a2da3922282f6576364b7b75">stats.c</a></li>
 <li>stats_record_trade()&#160;:&#160;<a class="el" href="stats_8c.html#af52bf57efd7dcefb1c6d53c1dceb2a55">stats.c</a></li>
 <li>stats_reset()&#160;:&#160;<a class="el" href="stats_8c.html#aac512b44c11d63df5341c171d71af7de">stats.c</a></li>
+<li>stats_to_json()&#160;:&#160;<a class="el" href="stats_8c.html#a0e43b71b13cec96a7bb827bf93a7dc4b">stats.c</a></li>
+<li>stats_to_keyvalue()&#160;:&#160;<a class="el" href="stats_8c.html#a11c19d019200f75353f63be5d4c21e1d">stats.c</a></li>
+<li>stats_update()&#160;:&#160;<a class="el" href="stats_8c.html#ab5783d26f28b7d38e959ad33132e5864">stats.c</a></li>
+<li>stats_update_position()&#160;:&#160;<a class="el" href="stats_8c.html#a74882bdbc1301b92825047fbc25a0e13">stats.c</a></li>
 </ul>
 
 
@@ -184,6 +190,7 @@ $(function(){initNavTree('globals_func.html','',''); });
 <li>update()&#160;:&#160;<a class="el" href="mvar_8c.html#af00d8bc523a38ab1b1f67017ae76cdb0">mvar.c</a>, <a class="el" href="stdev_8c.html#a8b0364b3b7e3ec6482462ac622bc6ea7">stdev.c</a>, <a class="el" href="crossover_8c.html#a126e2944297e0ba4fcb1410239abe12c">crossover.c</a></li>
 <li>update_portfolio()&#160;:&#160;<a class="el" href="basic_8c.html#ae46e89faa71bdeb25544471d70739d38">basic.c</a></li>
 <li>update_prices_and_check_exits()&#160;:&#160;<a class="el" href="basic_8c.html#aefc40797050e08d0e6695c4f2a1455aa">basic.c</a></li>
+<li>uses_strategy_guided_allocation()&#160;:&#160;<a class="el" href="basic_8c.html#aa9342d86f140c018590d5fd068d79c81">basic.c</a></li>
 </ul>
 
 
@@ -197,30 +204,32 @@ $(function(){initNavTree('globals_func.html','',''); });
 <li>wu_basic_portfolio_asset_value()&#160;:&#160;<a class="el" href="portfolios_8h.html#aa1bdb9216a82a4f058a6d0e4da12e8e6">portfolios.h</a>, <a class="el" href="basic_8c.html#aa1bdb9216a82a4f058a6d0e4da12e8e6">basic.c</a></li>
 <li>wu_basic_portfolio_free()&#160;:&#160;<a class="el" href="basic_8c.html#acff28664e0f0d59857a4b5f6dd160383">basic.c</a></li>
 <li>wu_basic_portfolio_new()&#160;:&#160;<a class="el" href="portfolios_8h.html#a0d0341adb332ca990d1076ba417d39cd">portfolios.h</a>, <a class="el" href="basic_8c.html#a0d0341adb332ca990d1076ba417d39cd">basic.c</a></li>
-<li>wu_candle_init()&#160;:&#160;<a class="el" href="data_8h.html#a750c4b3c87b815ca67ea6f79001b05a0">data.h</a>, <a class="el" href="init_8c.html#a750c4b3c87b815ca67ea6f79001b05a0">init.c</a></li>
+<li>wu_candle_init()&#160;:&#160;<a class="el" href="data_8h.html#ad03da309d6574f200e0da224750ab64a">data.h</a>, <a class="el" href="init_8c.html#ad03da309d6574f200e0da224750ab64a">init.c</a></li>
 <li>wu_crossover_strat_new()&#160;:&#160;<a class="el" href="strategies_8h.html#ae905281b8f8d6fe5dad3b8114e176ccb">strategies.h</a>, <a class="el" href="crossover_8c.html#ae905281b8f8d6fe5dad3b8114e176ccb">crossover.c</a></li>
 <li>wu_csv_reader_free()&#160;:&#160;<a class="el" href="csv_8c.html#afa3de80c7c165a1f2cec31ea53187bdd">csv.c</a></li>
-<li>wu_csv_reader_new()&#160;:&#160;<a class="el" href="readers_8h.html#a4c0844cb6bf9ddc22e5c2b76a3a374cb">readers.h</a>, <a class="el" href="csv_8c.html#a4c0844cb6bf9ddc22e5c2b76a3a374cb">csv.c</a></li>
+<li>wu_csv_reader_new()&#160;:&#160;<a class="el" href="readers_8h.html#a0184af8e19fc5db05a414c3b251e7b33">readers.h</a>, <a class="el" href="csv_8c.html#a0184af8e19fc5db05a414c3b251e7b33">csv.c</a></li>
 <li>wu_ema_new()&#160;:&#160;<a class="el" href="indicators_8h.html#a2f55994ecb8acec432998a6bdbd8f47b">indicators.h</a>, <a class="el" href="ema_8c.html#a897e5b3565cc8ae3b6359fa27f15ed5c">ema.c</a></li>
 <li>wu_macd_new()&#160;:&#160;<a class="el" href="indicators_8h.html#aea42a45e049dfc06879ab184306b6a64">indicators.h</a>, <a class="el" href="macd_8c.html#aea42a45e049dfc06879ab184306b6a64">macd.c</a></li>
 <li>wu_mvar_new()&#160;:&#160;<a class="el" href="indicators_8h.html#aff9da9e70b409d278ee0354bea09164d">indicators.h</a>, <a class="el" href="mvar_8c.html#aff9da9e70b409d278ee0354bea09164d">mvar.c</a></li>
 <li>wu_pairs_trading_strat_new()&#160;:&#160;<a class="el" href="strategies_8h.html#a011a5752eb162245b3ca6c7187b3a504">strategies.h</a>, <a class="el" href="pairs__trading_8c.html#a011a5752eb162245b3ca6c7187b3a504">pairs_trading.c</a></li>
-<li>wu_portfolio_stats_new()&#160;:&#160;<a class="el" href="stats_8h.html#a5a3eb0b4ed33ad3c2ef1d03725fe421f">stats.h</a>, <a class="el" href="stats_8c.html#a5a3eb0b4ed33ad3c2ef1d03725fe421f">stats.c</a></li>
+<li>wu_portfolio_params_default()&#160;:&#160;<a class="el" href="portfolios_8h.html#a47e5c4b4e5eb6b2358060c7bdfe884cb">portfolios.h</a>, <a class="el" href="basic_8c.html#a47e5c4b4e5eb6b2358060c7bdfe884cb">basic.c</a></li>
+<li>wu_portfolio_stats_new()&#160;:&#160;<a class="el" href="stats_8h.html#ace0f87e032ac9bab31eda6bfe83f5266">stats.h</a>, <a class="el" href="stats_8c.html#ace0f87e032ac9bab31eda6bfe83f5266">stats.c</a></li>
 <li>wu_position_vector_free()&#160;:&#160;<a class="el" href="positionvector_8c.html#af9dff3d49a3651cf8e2a7701d0ace340">positionvector.c</a></li>
 <li>wu_position_vector_new()&#160;:&#160;<a class="el" href="positions_8h.html#a7dc270a9448ada5e486890994e9afd91">positions.h</a>, <a class="el" href="positionvector_8c.html#a7dc270a9448ada5e486890994e9afd91">positionvector.c</a></li>
 <li>wu_rsi_new()&#160;:&#160;<a class="el" href="indicators_8h.html#aa8df21b9a63a2518370f61080f9bc86a">indicators.h</a>, <a class="el" href="rsi_8c.html#aa8df21b9a63a2518370f61080f9bc86a">rsi.c</a></li>
 <li>wu_runner_free()&#160;:&#160;<a class="el" href="runners_8h.html#a132789d4f75eac45da5694fca878b338">runners.h</a>, <a class="el" href="runner_8c.html#a132789d4f75eac45da5694fca878b338">runner.c</a></li>
 <li>wu_runner_new()&#160;:&#160;<a class="el" href="runners_8h.html#aef675fb6b27cc1427e0a9a2e16f61f2e">runners.h</a>, <a class="el" href="runner_8c.html#aef675fb6b27cc1427e0a9a2e16f61f2e">runner.c</a></li>
 <li>wu_runner_new_single()&#160;:&#160;<a class="el" href="runners_8h.html#a1ce67911685e70173fbc22f5d1e67c6e">runners.h</a></li>
-<li>wu_signal_init()&#160;:&#160;<a class="el" href="data_8h.html#ab6ab574e8de7086169d1beed749a138e">data.h</a>, <a class="el" href="init_8c.html#ab6ab574e8de7086169d1beed749a138e">init.c</a></li>
+<li>wu_signal_init()&#160;:&#160;<a class="el" href="data_8h.html#a71fec03bc83e27df0b58a6e910340c98">data.h</a>, <a class="el" href="init_8c.html#a71fec03bc83e27df0b58a6e910340c98">init.c</a></li>
 <li>wu_signal_validate()&#160;:&#160;<a class="el" href="data_8h.html#a3e1f89f00b424c008fa6112ef634fd1f">data.h</a>, <a class="el" href="init_8c.html#a3e1f89f00b424c008fa6112ef634fd1f">init.c</a></li>
-<li>wu_single_init()&#160;:&#160;<a class="el" href="data_8h.html#a638b88a1fb283cb6a01bcaa3009f5b08">data.h</a>, <a class="el" href="init_8c.html#a638b88a1fb283cb6a01bcaa3009f5b08">init.c</a></li>
+<li>wu_single_init()&#160;:&#160;<a class="el" href="data_8h.html#a503e9e091a0c12c6cd29ae375797838e">data.h</a>, <a class="el" href="init_8c.html#a503e9e091a0c12c6cd29ae375797838e">init.c</a></li>
 <li>wu_sma_free()&#160;:&#160;<a class="el" href="sma_8c.html#a9aa2595396de5e5ddfbddd10b9158591">sma.c</a></li>
 <li>wu_sma_new()&#160;:&#160;<a class="el" href="indicators_8h.html#ac5fd01b66a2790cc9867ee4187aba244">indicators.h</a>, <a class="el" href="sma_8c.html#ac5fd01b66a2790cc9867ee4187aba244">sma.c</a></li>
 <li>wu_sma_update()&#160;:&#160;<a class="el" href="sma_8c.html#a3c4df5f82872521a0f03e6ae2dee7524">sma.c</a></li>
 <li>wu_sma_value()&#160;:&#160;<a class="el" href="sma_8c.html#a4bc2f3e0f3eb0951d34d61875f59fe5f">sma.c</a></li>
 <li>wu_stdev_new()&#160;:&#160;<a class="el" href="indicators_8h.html#a753f4fac3c380cd2e49d888cb9500860">indicators.h</a>, <a class="el" href="stdev_8c.html#a753f4fac3c380cd2e49d888cb9500860">stdev.c</a></li>
-<li>wu_trade_init()&#160;:&#160;<a class="el" href="data_8h.html#a06b819b141919f610deb87167a9dcccc">data.h</a>, <a class="el" href="init_8c.html#a06b819b141919f610deb87167a9dcccc">init.c</a></li>
+<li>wu_strdup()&#160;:&#160;<a class="el" href="stats_8c.html#ad06e31fb009cca95756d15ded02f9f62">stats.c</a></li>
+<li>wu_trade_init()&#160;:&#160;<a class="el" href="data_8h.html#afb39b19e8be12dccf00e6319bd6bc880">data.h</a>, <a class="el" href="init_8c.html#afb39b19e8be12dccf00e6319bd6bc880">init.c</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

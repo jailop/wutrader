@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">WU Trading Library<span id="projectnumber">&#160;0.1.0</span>
+   <div id="projectname">WU Trading Library<span id="projectnumber">&#160;0.2.0</span>
    </div>
    <div id="projectbrief">A backtesting and trading strategy library</div>
   </td>
@@ -106,8 +106,12 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a47e5c4b4e5eb6b2358060c7bdfe884cb" id="r_a47e5c4b4e5eb6b2358060c7bdfe884cb"><td class="memItemLeft"><a class="el" href="structWU__PortfolioParams.html">WU_PortfolioParams</a>&#160;</td><td class="memItemRight"><a class="el" href="#a47e5c4b4e5eb6b2358060c7bdfe884cb">wu_portfolio_params_default</a> (void)</td></tr>
+<tr class="memdesc:a47e5c4b4e5eb6b2358060c7bdfe884cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This file implements a basic portfolio management system that supports multiple assets with a shared cash pool.  <br /></td></tr>
+<tr class="memitem:a431e7e565cb20d4dc3b5a4cbc441a7b5" id="r_a431e7e565cb20d4dc3b5a4cbc441a7b5"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#a431e7e565cb20d4dc3b5a4cbc441a7b5">calculate_years_held</a> (<a class="el" href="structWU__TimeStamp.html">WU_TimeStamp</a> open_time, <a class="el" href="structWU__TimeStamp.html">WU_TimeStamp</a> close_time)</td></tr>
+<tr class="memdesc:a431e7e565cb20d4dc3b5a4cbc441a7b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to calculate the time difference in years between two timestamps, accounting for different time units.  <br /></td></tr>
 <tr class="memitem:a63a7a8fb74c5479524aabac9f18c8dd2" id="r_a63a7a8fb74c5479524aabac9f18c8dd2"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#a63a7a8fb74c5479524aabac9f18c8dd2">slippage_price</a> (double price, double slippage_pct, bool is_buy)</td></tr>
-<tr class="memdesc:a63a7a8fb74c5479524aabac9f18c8dd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This file implements a basic portfolio management system that supports multiple assets with a shared cash pool.  <br /></td></tr>
+<tr class="memdesc:a63a7a8fb74c5479524aabac9f18c8dd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">At this moment, the slippage is calculated in a deterministic way based on a fixed percentage defined in the portfolio parameters.  <br /></td></tr>
 <tr class="memitem:afdc70fc18d096957c96e3f135c54892a" id="r_afdc70fc18d096957c96e3f135c54892a"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#afdc70fc18d096957c96e3f135c54892a">calculate_positions_value</a> (<a class="el" href="structWU__PositionVector.html">WU_PositionVector</a> *vec, double price)</td></tr>
 <tr class="memdesc:afdc70fc18d096957c96e3f135c54892a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to calculate the total value of all positions in a position vector at a given price.  <br /></td></tr>
 <tr class="memitem:ae81d98f2108c69977133a5beee20007d" id="r_ae81d98f2108c69977133a5beee20007d"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#ae81d98f2108c69977133a5beee20007d">calculate_portfolio_value</a> (const struct <a class="el" href="structWU__Portfolio__.html">WU_Portfolio_</a> *portfolio)</td></tr>
@@ -118,26 +122,30 @@ Functions</h2></td></tr>
 <tr class="memdesc:a6b8a762bf085dde08bbb5811422edaa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function computes the total cost of a trade by calculating the cost of the quantity at the given price and then applying the transaction cost percentage to determine the additional cost incurred from the trade.  <br /></td></tr>
 <tr class="memitem:a9aab070bcf80f1819cc5dfdb424fc52d" id="r_a9aab070bcf80f1819cc5dfdb424fc52d"><td class="memItemLeft">static struct <a class="el" href="structBuyPositionResult.html">BuyPositionResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#a9aab070bcf80f1819cc5dfdb424fc52d">set_buy_position</a> (WU_BasicPortfolio portfolio, <a class="el" href="structWU__Signal.html">WU_Signal</a> signal)</td></tr>
 <tr class="memdesc:a9aab070bcf80f1819cc5dfdb424fc52d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function calculates the position size for a buy signal, applies slippage to determine the effective price, and computes the total cost of the purchase including transaction costs.  <br /></td></tr>
-<tr class="memitem:a60919b9209b770e4ddf77e582f626c8a" id="r_a60919b9209b770e4ddf77e582f626c8a"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a60919b9209b770e4ddf77e582f626c8a">execute_buy</a> (WU_BasicPortfolio portfolio, <a class="el" href="structWU__Signal.html">WU_Signal</a> signal, int asset_index)</td></tr>
-<tr class="memdesc:a60919b9209b770e4ddf77e582f626c8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function executes a buy signal by creating a new position based on the calculated position size and the signal's price.  <br /></td></tr>
 <tr class="memitem:abcb35d1b59f4007b2c9623c7fe1d650f" id="r_abcb35d1b59f4007b2c9623c7fe1d650f"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#abcb35d1b59f4007b2c9623c7fe1d650f">calculate_total_cost_basis</a> (<a class="el" href="structWU__PositionVector.html">WU_PositionVector</a> *vec)</td></tr>
 <tr class="memdesc:abcb35d1b59f4007b2c9623c7fe1d650f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function calculates the total cost basis for all active positions in a given position vector.  <br /></td></tr>
+<tr class="memitem:a60919b9209b770e4ddf77e582f626c8a" id="r_a60919b9209b770e4ddf77e582f626c8a"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a60919b9209b770e4ddf77e582f626c8a">execute_buy</a> (WU_BasicPortfolio portfolio, <a class="el" href="structWU__Signal.html">WU_Signal</a> signal, int asset_index)</td></tr>
+<tr class="memdesc:a60919b9209b770e4ddf77e582f626c8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function executes a buy signal.  <br /></td></tr>
 <tr class="memitem:a6b9749658a2926f2d5688addb77cbd72" id="r_a6b9749658a2926f2d5688addb77cbd72"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a6b9749658a2926f2d5688addb77cbd72">close_and_update_portfolio</a> (WU_BasicPortfolio portfolio, double quantity, double cost_basis, double sell_price, <a class="el" href="types_8h.html#a6600a0737149ca543a2ac589b5453490">WU_CloseReason</a> reason)</td></tr>
 <tr class="memdesc:a6b9749658a2926f2d5688addb77cbd72"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function handles the logic for closing a position and updating the portfolio's cash balance and trading statistics.  <br /></td></tr>
 <tr class="memitem:afc56373ddcc0ade5733d4b04f4792c6a" id="r_afc56373ddcc0ade5733d4b04f4792c6a"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#afc56373ddcc0ade5733d4b04f4792c6a">execute_sell</a> (WU_BasicPortfolio portfolio, <a class="el" href="structWU__Signal.html">WU_Signal</a> signal, int asset_index)</td></tr>
-<tr class="memdesc:afc56373ddcc0ade5733d4b04f4792c6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function executes a sell signal by closing all active positions for the specified asset.  <br /></td></tr>
+<tr class="memdesc:afc56373ddcc0ade5733d4b04f4792c6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function executes a sell signal.  <br /></td></tr>
 <tr class="memitem:a72da7e1c8192d2074b0940439ed50c77" id="r_a72da7e1c8192d2074b0940439ed50c77"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a72da7e1c8192d2074b0940439ed50c77">close_position</a> (WU_BasicPortfolio portfolio, struct <a class="el" href="structWU__Position__.html">WU_Position_</a> pos, double current_price)</td></tr>
 <tr class="memdesc:a72da7e1c8192d2074b0940439ed50c77"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function checks if a position should be closed based on the current price and the portfolio's stop-loss and take-profit thresholds.  <br /></td></tr>
 <tr class="memitem:a4f701adb921eb62de8d503d412d98153" id="r_a4f701adb921eb62de8d503d412d98153"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a4f701adb921eb62de8d503d412d98153">check_and_close_positions</a> (WU_BasicPortfolio portfolio, int asset_index, double current_price)</td></tr>
 <tr class="memdesc:a4f701adb921eb62de8d503d412d98153"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function iterates through all active positions for a given asset and checks if any of them can be closed based on the current price and the portfolio's stop-loss and take-profit thresholds.  <br /></td></tr>
 <tr class="memitem:ab6d63bb9f55557859c1a49f7555257ad" id="r_ab6d63bb9f55557859c1a49f7555257ad"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#ab6d63bb9f55557859c1a49f7555257ad">calculate_portfolio_pnl</a> (const struct <a class="el" href="structWU__Portfolio__.html">WU_Portfolio_</a> *portfolio)</td></tr>
 <tr class="memdesc:ab6d63bb9f55557859c1a49f7555257ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">The profit and loss (PnL) of the portfolio is calculated by taking the current total value of the portfolio (cash + value of all positions) and subtracting the initial cash invested.  <br /></td></tr>
+<tr class="memitem:a47f1180fc988ff2d639327e8cb5a1668" id="r_a47f1180fc988ff2d639327e8cb5a1668"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#a47f1180fc988ff2d639327e8cb5a1668">calculate_total_short_value</a> (WU_BasicPortfolio p)</td></tr>
+<tr class="memdesc:a47f1180fc988ff2d639327e8cb5a1668"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to calculate total value of all short positions across all assets in the portfolio.  <br /></td></tr>
 <tr class="memitem:aefc40797050e08d0e6695c4f2a1455aa" id="r_aefc40797050e08d0e6695c4f2a1455aa"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#aefc40797050e08d0e6695c4f2a1455aa">update_prices_and_check_exits</a> (WU_BasicPortfolio p, const <a class="el" href="structWU__Signal.html">WU_Signal</a> *signals, int count)</td></tr>
-<tr class="memdesc:aefc40797050e08d0e6695c4f2a1455aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to update last prices and check for stop-loss/take-profit exits.  <br /></td></tr>
+<tr class="memdesc:aefc40797050e08d0e6695c4f2a1455aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to update last prices, apply borrow interest on short positions, check exits, and update stats with current portfolio state.  <br /></td></tr>
 <tr class="memitem:a66ec39d89e48a004713dc4e2aabe55c9" id="r_a66ec39d89e48a004713dc4e2aabe55c9"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a66ec39d89e48a004713dc4e2aabe55c9">process_sell_signals</a> (WU_BasicPortfolio p, const <a class="el" href="structWU__Signal.html">WU_Signal</a> *signals, int count)</td></tr>
 <tr class="memdesc:a66ec39d89e48a004713dc4e2aabe55c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to process all sell signals.  <br /></td></tr>
 <tr class="memitem:a32ac0dd485ad5deb74e2cc64a93ff45a" id="r_a32ac0dd485ad5deb74e2cc64a93ff45a"><td class="memItemLeft">static int&#160;</td><td class="memItemRight"><a class="el" href="#a32ac0dd485ad5deb74e2cc64a93ff45a">count_buy_signals</a> (const <a class="el" href="structWU__Signal.html">WU_Signal</a> *signals, int count)</td></tr>
 <tr class="memdesc:a32ac0dd485ad5deb74e2cc64a93ff45a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to count valid buy signals.  <br /></td></tr>
+<tr class="memitem:aa9342d86f140c018590d5fd068d79c81" id="r_aa9342d86f140c018590d5fd068d79c81"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#aa9342d86f140c018590d5fd068d79c81">uses_strategy_guided_allocation</a> (WU_BasicPortfolio p, const <a class="el" href="structWU__Signal.html">WU_Signal</a> *signals, int count)</td></tr>
+<tr class="memdesc:aa9342d86f140c018590d5fd068d79c81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to check if signals use strategy-guided allocation.  <br /></td></tr>
 <tr class="memitem:a200e79412bb662f6684f7604c2d9147b" id="r_a200e79412bb662f6684f7604c2d9147b"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a200e79412bb662f6684f7604c2d9147b">process_buy_signals</a> (WU_BasicPortfolio p, const <a class="el" href="structWU__Signal.html">WU_Signal</a> *signals, int count, int buy_count)</td></tr>
 <tr class="memdesc:a200e79412bb662f6684f7604c2d9147b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to process all buy signals.  <br /></td></tr>
 <tr class="memitem:ae46e89faa71bdeb25544471d70739d38" id="r_ae46e89faa71bdeb25544471d70739d38"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#ae46e89faa71bdeb25544471d70739d38">update_portfolio</a> (WU_Portfolio portfolio, const <a class="el" href="structWU__Signal.html">WU_Signal</a> *signals)</td></tr>
@@ -180,7 +188,7 @@ Functions</h2></td></tr>
 <p>The profit and loss (PnL) of the portfolio is calculated by taking the current total value of the portfolio (cash + value of all positions) and subtracting the initial cash invested. </p>
 <p>This provides a measure of the overall performance of the portfolio since inception. </p>
 
-<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00305">305</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00437">437</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
 
 </div>
 </div>
@@ -210,7 +218,7 @@ Functions</h2></td></tr>
 <p>To calculate the total value of the portfolio, an iterative process is used to sum the value of each position across all assets, based on the last known price for each asset. </p>
 <p>The cash balance is then added to this total to get the overall portfolio value. This function has a complexity of O(N*M) where N is the number of assets and M is the average number of positions per asset. Although the performance can be an issue, it provides an accurate valuation of the portfolio at a given point in time. In the future, it can consider caching the total value and only recalculating when there are changes to positions or prices, to improve performance. Additionally, it can be optimized by maintaining a running total of the portfolio value that gets updated when positions modified. </p>
 
-<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00057">57</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00105">105</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
 
 </div>
 </div>
@@ -244,7 +252,7 @@ Functions</h2></td></tr>
 <p>This function calculates the position size for a given signal based on the portfolio's position sizing parameters. </p>
 <p>It supports multiple sizing strategies, including absolute size, percentage of cash, equal percentage of portfolio, and strategy-guided sizing. The function takes into account the current price of the asset and the available cash in the portfolio to determine the appropriate quantity to buy or sell. It ensures that the calculated position size does not exceed the available cash for buy signals and can be adjusted based on the signal's quantity for strategy-guided sizing. </p>
 
-<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00079">79</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00127">127</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
 
 </div>
 </div>
@@ -277,7 +285,7 @@ Functions</h2></td></tr>
 
 <p>Helper function to calculate the total value of all positions in a position vector at a given price. </p>
 
-<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00031">31</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00079">79</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
 
 </div>
 </div>
@@ -307,7 +315,69 @@ Functions</h2></td></tr>
 <p>This function calculates the total cost basis for all active positions in a given position vector. </p>
 <p>It iterates through each position, checks if it is active, and if so, it multiplies the quantity by the price to get the cost for that position, and sums it up to get the total cost basis. This total cost basis is used when closing positions to determine the profit and loss (PnL) from the trade, as it represents the total amount invested in those positions. </p>
 
-<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00190">190</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00233">233</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+
+</div>
+</div>
+<a id="a47f1180fc988ff2d639327e8cb5a1668" name="a47f1180fc988ff2d639327e8cb5a1668"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47f1180fc988ff2d639327e8cb5a1668">&#9670;&#160;</a></span>calculate_total_short_value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double calculate_total_short_value </td>
+          <td>(</td>
+          <td class="paramtype">WU_BasicPortfolio</td>          <td class="paramname"><span class="paramname"><em>p</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper function to calculate total value of all short positions across all assets in the portfolio. </p>
+
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00447">447</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+
+</div>
+</div>
+<a id="a431e7e565cb20d4dc3b5a4cbc441a7b5" name="a431e7e565cb20d4dc3b5a4cbc441a7b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a431e7e565cb20d4dc3b5a4cbc441a7b5">&#9670;&#160;</a></span>calculate_years_held()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double calculate_years_held </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structWU__TimeStamp.html">WU_TimeStamp</a></td>          <td class="paramname"><span class="paramname"><em>open_time</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structWU__TimeStamp.html">WU_TimeStamp</a></td>          <td class="paramname"><span class="paramname"><em>close_time</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper function to calculate the time difference in years between two timestamps, accounting for different time units. </p>
+
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00039">39</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
 
 </div>
 </div>
@@ -346,7 +416,7 @@ Functions</h2></td></tr>
 <p>This function iterates through all active positions for a given asset and checks if any of them can be closed based on the current price and the portfolio's stop-loss and take-profit thresholds. </p>
 <p>If a position is closed, then it is removed from the position vector. </p>
 
-<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00285">285</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00417">417</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
 
 </div>
 </div>
@@ -393,9 +463,9 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This function handles the logic for closing a position and updating the portfolio's cash balance and trading statistics. </p>
-<p>It calculates the proceeds from the sale, the transaction cost based on the defined transaction cost percentage, and the profit and loss (PnL) from the trade. The portfolio's cash balance is updated by adding the proceeds and subtracting the transaction cost, and the accumulated expenses are updated with the transaction cost. Finally, the trade is recorded in the portfolio statistics with the calculated PnL and the reason for closing the position. </p>
+<p>It calculates the proceeds from the sale, the transaction cost based on the defined transaction cost percentage, and the profit and loss (PnL) from the trade. The portfolio's cash balance is updated by adding the proceeds and subtracting the transaction cost, and fees are tracked in stats. </p>
 
-<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00213">213</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00293">293</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
 
 </div>
 </div>
@@ -432,9 +502,9 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This function checks if a position should be closed based on the current price and the portfolio's stop-loss and take-profit thresholds. </p>
-<p>It calculates the profit and loss percentage for the position and compares it against the defined thresholds. If the position meets the criteria for closing, it calculates the sell price with slippage, updates the portfolio's cash balance and trading statistics, and returns true to indicate that the position was closed. </p>
+<p>For short positions (negative quantity), the PnL logic is inverted. </p>
 
-<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00255">255</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00381">381</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
 
 </div>
 </div>
@@ -472,7 +542,7 @@ Functions</h2></td></tr>
 
 <p>This function computes the total cost of a trade by calculating the cost of the quantity at the given price and then applying the transaction cost percentage to determine the additional cost incurred from the trade. </p>
 
-<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00123">123</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00183">183</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
 
 </div>
 </div>
@@ -505,7 +575,7 @@ Functions</h2></td></tr>
 
 <p>Helper function to count valid buy signals. </p>
 
-<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00351">351</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00530">530</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
 
 </div>
 </div>
@@ -541,10 +611,10 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>This function executes a buy signal by creating a new position based on the calculated position size and the signal's price. </p>
-<p>It also updates the portfolio's cash balance and the accumulated expenses. </p>
+<p>This function executes a buy signal. </p>
+<p>For portfolios without positions or with long positions, it creates new long positions. When there are short positions (negative quantity), it closes them (buy to cover). It updates the portfolio's cash balance and tracks transaction fees in stats. </p>
 
-<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00170">170</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00251">251</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
 
 </div>
 </div>
@@ -580,10 +650,10 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>This function executes a sell signal by closing all active positions for the specified asset. </p>
-<p>It calculates the total quantity held and the total cost basis for those positions, applies slippage to determine the effective sell price, and then updates the portfolio's cash balance. </p>
+<p>This function executes a sell signal. </p>
+<p>For long positions, it closes existing positions. For short and both-direction portfolios, it can initiate a short sale even without existing positions (borrowing assets). </p>
 
-<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00231">231</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00309">309</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
 
 </div>
 </div>
@@ -617,7 +687,7 @@ Functions</h2></td></tr>
 <p>Helper function to initialize position vectors for all assets. </p>
 <p>Allocates memory and creates position vectors. Returns NULL on failure. </p>
 
-<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00444">444</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00637">637</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
 
 </div>
 </div>
@@ -661,7 +731,7 @@ Functions</h2></td></tr>
 <p>Helper function to process all buy signals. </p>
 <p>If cash splitting is enabled, it divides the available cash equally among the buy signals to ensure that the total allocated cash does not exceed the portfolio's cash balance. Each buy signal is processed sequentially, and the cash balance is updated after each purchase to reflect the remaining cash for subsequent buys. If cash splitting is not enabled, each buy signal is processed with the full available cash, which may lead to some buy signals being ignored if the cash runs out. This function ensures that the portfolio's cash management is consistent with the defined position sizing strategy and prevents over-allocation of funds when multiple buy signals are present. </p>
 
-<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00375">375</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00572">572</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
 
 </div>
 </div>
@@ -700,7 +770,7 @@ Functions</h2></td></tr>
 <p>Helper function to process all sell signals. </p>
 <p>It iterates through the signals, validates them, and if a signal is a sell signal, it calls the execute_sell function to close the corresponding positions. This function should be called first to ensure that all sell signals are handled before processing buy signals, which is important for proper cash management and to avoid situations where buy signals are ignored due to insufficient cash after processing sell signals. </p>
 
-<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00339">339</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00518">518</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
 
 </div>
 </div>
@@ -734,7 +804,7 @@ Functions</h2></td></tr>
 <p>This function calculates the position size for a buy signal, applies slippage to determine the effective price, and computes the total cost of the purchase including transaction costs. </p>
 <p>It also checks if the total cost exceeds the available cash in the portfolio, and if so, it adjusts the quantity to fit within the cash constraints. The result includes the position details (timestamp, quantity, price) and the total cost and transaction cost for the trade. </p>
 
-<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00139">139</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00199">199</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
 
 </div>
 </div>
@@ -770,10 +840,10 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>This file implements a basic portfolio management system that supports multiple assets with a shared cash pool. </p>
-<p>The portfolio can process buy and sell signals, manage positions for each asset, and calculate the total value and profit/loss (PnL) of the portfolio. It also includes features such as transaction costs, slippage, stop-loss, and take-profit mechanisms. At this moment, the slippage is calculated in a deterministic way based on a fixed percentage defined in the portfolio parameters. If the signal is a buy, the slippage increases the price, and if it's a sell, the slippage decreases the price. In the future, this can be enhanced to support more realistic slippage models. </p>
+<p>At this moment, the slippage is calculated in a deterministic way based on a fixed percentage defined in the portfolio parameters. </p>
+<p>If the signal is a buy, the slippage increases the price, and if it's a sell, the slippage decreases the price. In the future, this can be enhanced to support more realistic slippage models. </p>
 
-<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00023">23</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00071">71</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
 
 </div>
 </div>
@@ -807,7 +877,7 @@ Functions</h2></td></tr>
 <p>The update_portfolio function is the core of the portfolio management logic. </p>
 <p>It processes incoming signals to update the portfolio's state. The function first updates the last known prices for each asset and checks for any positions that need to be closed due to stop-loss or take-profit conditions. It then processes all sell signals to close positions as needed, and finally processes buy signals to open new positions. </p>
 
-<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00409">409</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00602">602</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
 
 </div>
 </div>
@@ -843,10 +913,47 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Helper function to update last prices and check for stop-loss/take-profit exits. </p>
-<p>It iterates through the signals, validates them, and updates the last price for each asset in the portfolio. After updating the price, it checks all active positions for that asset to see if any of them meet the stop-loss or take-profit conditions, and if so, it closes those positions and updates the portfolio state accordingly. </p>
+<p>Helper function to update last prices, apply borrow interest on short positions, check exits, and update stats with current portfolio state. </p>
 
-<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00320">320</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00462">462</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+
+</div>
+</div>
+<a id="aa9342d86f140c018590d5fd068d79c81" name="aa9342d86f140c018590d5fd068d79c81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9342d86f140c018590d5fd068d79c81">&#9670;&#160;</a></span>uses_strategy_guided_allocation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool uses_strategy_guided_allocation </td>
+          <td>(</td>
+          <td class="paramtype">WU_BasicPortfolio</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structWU__Signal.html">WU_Signal</a> *</td>          <td class="paramname"><span class="paramname"><em>signals</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>count</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper function to check if signals use strategy-guided allocation. </p>
+
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00544">544</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
 
 </div>
 </div>
@@ -873,7 +980,7 @@ Functions</h2></td></tr>
 <p>Get total quantity held for a specific asset.</p>
 <p>It does bound checking. </p>
 
-<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00517">517</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00717">717</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
 
 </div>
 </div>
@@ -900,7 +1007,7 @@ Functions</h2></td></tr>
 <p>Get current value of a specific asset's positions.</p>
 <p>This function does bound checking. </p>
 
-<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00502">502</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00702">702</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
 
 </div>
 </div>
@@ -930,7 +1037,7 @@ Functions</h2></td></tr>
 <p>This function is responsible for freeing all memory associated with the portfolio. </p>
 <p>It iterates through each asset's position vector and deletes it, then frees the array of position vectors, deletes the portfolio statistics, and finally frees the portfolio structure itself. This ensures that all resources are properly released when the portfolio is no longer needed, preventing memory leaks. </p>
 
-<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00429">429</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00622">622</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
 
 </div>
 </div>
@@ -957,7 +1064,30 @@ Functions</h2></td></tr>
 <p>Creates a new basic portfolio instance with the specified parameters and asset symbols.</p>
 <p>It takes in the portfolio parameters and an array of asset symbols, and initializes the portfolio's internal state accordingly. Memory is dynamically allocated for the portfolio structure and the position vectors for each asset. The function also sets up the function pointers for the portfolio operations (update, value, pnl, delete) and initializes the cash balance and trading statistics. If any memory allocation fails, it ensures that all previously allocated resources are freed to prevent memory leaks. </p>
 
-<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00473">473</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00666">666</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
+
+</div>
+</div>
+<a id="a47e5c4b4e5eb6b2358060c7bdfe884cb" name="a47e5c4b4e5eb6b2358060c7bdfe884cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47e5c4b4e5eb6b2358060c7bdfe884cb">&#9670;&#160;</a></span>wu_portfolio_params_default()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structWU__PortfolioParams.html">WU_PortfolioParams</a> wu_portfolio_params_default </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This file implements a basic portfolio management system that supports multiple assets with a shared cash pool. </p>
+<p>Returns default portfolio parameters with reasonable values.</p>
+<p>The portfolio can process buy and sell signals, manage positions for each asset, and calculate the total value and profit/loss (PnL) of the portfolio. It also includes features such as transaction costs, slippage, stop-loss, and take-profit mechanisms. Returns default portfolio parameters with reasonable values. </p>
+
+<p class="definition">Definition at line <a class="el" href="basic_8c_source.html#l00018">18</a> of file <a class="el" href="basic_8c_source.html">basic.c</a>.</p>
 
 </div>
 </div>

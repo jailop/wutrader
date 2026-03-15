@@ -22,11 +22,16 @@ var searchData=
   ['stats_5ffree_19',['stats_free',['../stats_8c.html#a16802252a2da3922282f6576364b7b75',1,'stats.c']]],
   ['stats_5frecord_5ftrade_20',['stats_record_trade',['../stats_8c.html#af52bf57efd7dcefb1c6d53c1dceb2a55',1,'stats.c']]],
   ['stats_5freset_21',['stats_reset',['../stats_8c.html#aac512b44c11d63df5341c171d71af7de',1,'stats.c']]],
-  ['stdev_2ec_22',['stdev.c',['../stdev_8c.html',1,'']]],
-  ['stop_5floss_5fexits_23',['stop_loss_exits',['../structWU__PortfolioStats__.html#a56e0bf321f1a4ad9c72f2a9ff06b8160',1,'WU_PortfolioStats_']]],
-  ['stop_5floss_5fpct_24',['stop_loss_pct',['../structWU__PortfolioParams.html#aeb5ad5a08e7bbbcbf810207ebcfbf78c',1,'WU_PortfolioParams']]],
-  ['strategies_2eh_25',['strategies.h',['../strategies_8h.html',1,'']]],
-  ['strategy_26',['strategy',['../structWU__Runner__.html#abac03bc669ac22e0eebf8aed45e95927',1,'WU_Runner_']]],
-  ['sum_27',['sum',['../structWU__SMA__.html#ab7aa1026d09258232669afc881034d3e',1,'WU_SMA_']]],
-  ['symbol_28',['symbol',['../structWU__PositionVector.html#a1ed01d0e90592953705269f65b01c378',1,'WU_PositionVector']]]
+  ['stats_5fto_5fjson_22',['stats_to_json',['../stats_8c.html#a0e43b71b13cec96a7bb827bf93a7dc4b',1,'stats.c']]],
+  ['stats_5fto_5fkeyvalue_23',['stats_to_keyvalue',['../stats_8c.html#a11c19d019200f75353f63be5d4c21e1d',1,'stats.c']]],
+  ['stats_5fupdate_24',['stats_update',['../stats_8c.html#ab5783d26f28b7d38e959ad33132e5864',1,'stats.c']]],
+  ['stats_5fupdate_5fposition_25',['stats_update_position',['../stats_8c.html#a74882bdbc1301b92825047fbc25a0e13',1,'stats.c']]],
+  ['stdev_2ec_26',['stdev.c',['../stdev_8c.html',1,'']]],
+  ['stop_5floss_5fexits_27',['stop_loss_exits',['../structWU__PortfolioStats__.html#a56e0bf321f1a4ad9c72f2a9ff06b8160',1,'WU_PortfolioStats_']]],
+  ['stop_5floss_5fpct_28',['stop_loss_pct',['../structWU__PortfolioParams.html#aeb5ad5a08e7bbbcbf810207ebcfbf78c',1,'WU_PortfolioParams']]],
+  ['strategies_2eh_29',['strategies.h',['../strategies_8h.html',1,'']]],
+  ['strategy_30',['strategy',['../structWU__Runner__.html#abac03bc669ac22e0eebf8aed45e95927',1,'WU_Runner_']]],
+  ['sum_31',['sum',['../structWU__SMA__.html#ab7aa1026d09258232669afc881034d3e',1,'WU_SMA_']]],
+  ['symbol_32',['symbol',['../structWU__PositionVector.html#a1ed01d0e90592953705269f65b01c378',1,'WU_PositionVector']]],
+  ['symbols_33',['symbols',['../structWU__PortfolioStats__.html#aa9d7ed448bfef314ad3eb09e2dcc163c',1,'WU_PortfolioStats_']]]
 ];
