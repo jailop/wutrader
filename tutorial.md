@@ -3,6 +3,15 @@
 Jaime Lopez  
 Mar. 13, 2026 (updated Mar. 15, 2026)
 
+**Who Is This Tutorial For?**: For developers and quantitative
+enthusiasts who want to understand how to build backtesting systems from
+scratch. You should be comfortable with C programming and have a basic
+understanding of financial markets concepts like trading strategies and
+technical indicators. No advanced financial background is required—we'll
+explain the trading concepts as we go.
+
+---
+
 Let's build something interesting together: a pairs trading backtester.
 We'll start from scratch and work our way through the complete
 `examples/backtest/pairs_trading.c` example. Along the journey, you'll
