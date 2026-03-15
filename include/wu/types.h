@@ -68,24 +68,6 @@ typedef enum {
     WU_CLOSE_REASON_TAKE_PROFIT = 2
 } WU_CloseReason;
 
-/**
- * WU_PositionSizeType represents the type of position sizing used in the
- * portfolio.
- * 
- * - WU_POSITION_SIZE_ABS: Absolute quantity (e.g., buy 100 shares)
- * - WU_POSITION_SIZE_PCT: Percentage of available cash (e.g., use 50% of cash)
- * - WU_POSITION_SIZE_PCT_EQUAL: Equal distribution among all assets in portfolio
- *   (e.g., in a 3-asset portfolio, each asset gets 33.3% of total cash)
- * - WU_POSITION_SIZE_STRATEGY_GUIDED: Strategy specifies target proportion via signal.quantity
- *   (e.g., signal.quantity = 0.4 means this asset should be 40% of portfolio value)
- */
-typedef enum WU_PositionSizeType {
-    WU_POSITION_SIZE_ABS = 0,
-    WU_POSITION_SIZE_PCT = 1,
-    WU_POSITION_SIZE_PCT_EQUAL = 2,
-    WU_POSITION_SIZE_STRATEGY_GUIDED = 3
-} WU_PositionSizeType;
-
 #define wu_symbol_list(...) ((const char*[]){__VA_ARGS__, NULL})
 
 #endif // WU_TYPES_H
