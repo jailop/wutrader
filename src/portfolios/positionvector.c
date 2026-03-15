@@ -1,3 +1,4 @@
+#define _POSIX_C_SOURCE 200809L
 #include <stdlib.h>
 #include <string.h>
 #include "wu.h"
@@ -69,35 +70,24 @@ static double get_total_quantity(WU_PositionVector* vec) {
 WU_PositionVector* wu_position_vector_new(const char* symbol) {
     WU_PositionVector* vec = malloc(sizeof(WU_PositionVector));
     if (!vec) return NULL;
-    
-    // Initialize symbol and last_price
-    if (symbol) {
-        strncpy(vec->symbol, symbol, WU_SYMBOL_MAX_LEN - 1);
-        vec->symbol[WU_SYMBOL_MAX_LEN - 1] = '\0';
-    } else {
-        vec->symbol[0] = '\0';
-    }
+    vec->symbol = strndup(symbol ? symbol : "", WU_SYMBOL_MAX_LEN); 
     vec->last_price = 0.0;
-    
-    // Initialize position storage
     vec->positions = NULL;
     vec->active = NULL;
     vec->count = 0;
     vec->capacity = 0;
-    
-    // Set function pointers
     vec->add = add_position;
     vec->remove = remove_position;
     vec->clear = clear_positions;
     vec->get = get_position;
     vec->total_quantity = get_total_quantity;
     vec->delete = wu_position_vector_free;
-    
     return vec;
 }
 
 static void wu_position_vector_free(WU_PositionVector* vec) {
     if (!vec) return;
+    free(vec->symbol);
     free(vec->positions);
     free(vec->active);
     free(vec);

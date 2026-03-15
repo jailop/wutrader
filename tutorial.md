@@ -3,11 +3,22 @@
 Jaime Lopez  
 Mar. 13, 2026
 
-Let's build something interesting together: a pairs trading backtester. We'll start from scratch and work our way through the complete `examples/backtest/pairs_trading.c` example. Along the journey, you'll discover how the Wu library is architected and how its pieces fit together like building blocks.
+Let's build something interesting together: a pairs trading backtester.
+We'll start from scratch and work our way through the complete
+`examples/backtest/pairs_trading.c` example. Along the journey, you'll
+discover how the Wu library is being architected and how its pieces fit
+together like building blocks.
 
-Think of this as a guided tour through both the code and the design philosophy behind it. By the end, you'll understand not just how to use Wu, but why it's structured the way it is.
+Think of this as a guided tour through both the code and the design
+philosophy behind it. By the end, you'll understand not just how to use
+the library, but why it's structured the way it is.
 
-**Important Note**: Wu is an experimental library designed for learning and exploring algorithmic trading concepts. It's a tool for understanding design patterns and architecture in backtesting systems, not a production-ready trading platform. The examples demonstrate functionality but come with significant limitations that we'll discuss throughout this tutorial.
+**Important Note**: Wu is an experimental library designed for learning
+and exploring algorithmic trading concepts. It's a tool for
+understanding design patterns and architecture in backtesting systems,
+not a production-ready trading platform. The examples demonstrate
+functionality but come with significant limitations that we'll discuss
+throughout this tutorial.
 
 ## Table of Contents
 
@@ -31,11 +42,17 @@ Think of this as a guided tour through both the code and the design philosophy b
 
 ## Library Architecture Overview
 
-Wu is a low-level backtesting library written in C. It embraces a modular, composable design philosophy, using C's struct-and-function-pointer pattern to achieve polymorphism without the baggage of inheritance. If you've ever felt constrained by heavyweight frameworks that dictate how you must structure your code, Wu takes a different approach: it gives you tools, not a framework.
+Wu is a low-level backtesting library written in C. It embraces a
+modular, composable design philosophy, using C's
+struct-and-function-pointer pattern to achieve polymorphism without the
+baggage of inheritance. If you've ever felt constrained by heavyweight
+frameworks that dictate how you must structure your code, Wu takes a
+different approach: it gives you tools, not a framework.
 
 ### Core Components
 
-The library revolves around five main abstractions that work together like an assembly line:
+The library revolves around five main abstractions that work together
+like an assembly line:
 
 ```
 ┌─────────────┐
@@ -55,25 +72,61 @@ The library revolves around five main abstractions that work together like an as
                      └──────────┘
 ```
 
-**Data Types** live in `wu/types.h` and `wu/data.h`. They're the raw material flowing through the system. A **Candle** carries OHLCV bar data with its timestamp. A **Trade** represents tick-level activity with price, volume, and direction. A **Single** is just a timestamped value, useful for generic time series. And a **Signal** is what strategies generate: a trading instruction with a side (buy/sell/hold), price, and quantity.
+**Data Types** live in `wu/types.h` and `wu/data.h`. They're the raw
+material flowing through the system. A **Candle** carries OHLCV bar data
+with its timestamp. A **Trade** represents tick-level activity with
+price, volume, and direction. A **Single** is just a timestamped value,
+useful for generic time series. And a **Signal** is what strategies
+generate: a trading instruction with a side (buy/sell/hold), price, and
+quantity.
 
-**Readers** (`wu/readers.h`) abstract away data sources. They have one job: fetch the next data point. The `WU_CsvReader` handles CSV files, but you could implement a database reader, an API client, or even a synthetic data generator. They all share the same interface, so the rest of the system doesn't care where the data comes from.
+**Readers** (`wu/readers.h`) abstract away data sources. They have one
+job: fetch the next data point. The `WU_CsvReader` handles CSV files,
+but you could implement a database reader, an API client, or even a
+synthetic data generator. They all share the same interface, so the rest
+of the system doesn't care where the data comes from.
 
-**Indicators** (`wu/indicators.h`) are the mathematical building blocks. Simple Moving Averages, Exponential Moving Averages, Standard Deviations—these are the tools strategies use to make sense of price movements. They maintain their own internal state and update incrementally as new data arrives.
+**Indicators** (`wu/indicators.h`) are the mathematical building blocks.
+Simple Moving Averages, Exponential Moving Averages, Standard
+Deviations—these are the tools strategies use to make sense of price
+movements. They maintain their own internal state and update
+incrementally as new data arrives.
 
-**Strategies** (`wu/strategies.h`) consume market data and spit out signals. They can work with one asset or many. The crossover strategy watches two moving averages, while the pairs trading strategy monitors the spread between two correlated assets. Each strategy declares what types of inputs it expects and how many outputs it produces.
+**Strategies** (`wu/strategies.h`) consume market data and spit out
+signals. They can work with one asset or many. The crossover strategy
+watches two moving averages, while the pairs trading strategy monitors
+the spread between two correlated assets. Each strategy declares what
+types of inputs it expects and how many outputs it produces.
 
-**Portfolios** (`wu/portfolios.h`) execute the trades and track the money. They receive signals from strategies, calculate position sizes, deduct transaction costs and slippage, and maintain positions across one or more assets. The `WU_BasicPortfolio` is the workhorse implementation that handles both single and multi-asset scenarios with a shared cash pool.
+**Portfolios** (`wu/portfolios.h`) execute the trades and track the
+money. They receive signals from strategies, calculate position sizes,
+deduct transaction costs and slippage, and maintain positions across one
+or more assets. The `WU_BasicPortfolio` is the workhorse implementation
+that handles both single and multi-asset scenarios with a shared cash
+pool.
 
-**The Runner** (`wu/runners.h`) is the conductor. It wires everything together, validates that data types match up, synchronizes reads from multiple sources, and drives the backtest loop forward until the data runs out.
+**The Runner** (`wu/runners.h`) is the conductor. It wires everything
+together, validates that data types match up, synchronizes reads from
+multiple sources, and drives the backtest loop forward until the data
+runs out.
 
 ### Design Philosophy
 
-Every component carries its state explicitly in a struct. No hidden globals, no magic. When something breaks, you can inspect exactly what's in memory. When you want to understand how a strategy behaves, you can see all its parameters and internal indicators laid out in the struct definition.
+Every component carries its state explicitly in a struct. No hidden
+globals, no magic. When something breaks, you can inspect exactly what's
+in memory. When you want to understand how a strategy behaves, you can
+see all its parameters and internal indicators laid out in the struct
+definition.
 
-The components compose freely. Swap out a CSV reader for a database reader. Replace the crossover strategy with your own custom logic. Use the portfolio standalone without the runner if you want to drive the backtest loop yourself. Nothing forces you into a particular pattern.
+The components compose freely. Swap out a CSV reader for a database
+reader. Replace the crossover strategy with your own custom logic. Use
+the portfolio standalone without the runner if you want to drive the
+backtest loop yourself. Nothing forces you into a particular pattern.
 
-And there's no framework lock-in. Wu gives you building blocks, not a rigid structure. You're free to use as much or as little as you need. Want to use just the indicators? Go ahead. Want to implement your own portfolio logic? The door's wide open.
+And there's no framework lock-in. Wu aims to give you building blocks,
+not a rigid structure. You're free to use as much or as little as you
+need.  Want to use just the indicators? Go ahead. Want to implement your
+own portfolio logic? The door's wide open.
 
 ---
 
@@ -81,7 +134,8 @@ And there's no framework lock-in. Wu gives you building blocks, not a rigid stru
 
 ### What You'll Need
 
-You need a C11-compatible compiler like gcc or clang, the Make build tool, and some historical price data in CSV format. That's it.
+You need a C11-compatible compiler like gcc or clang, the Make build
+tool, and some historical price data in CSV format. That's it.
 
 ### Building the Library
 
@@ -102,7 +156,9 @@ sudo make install
 sudo ldconfig
 ```
 
-The build process is straightforward. Wu compiles into a shared library that you can link against. The tests give you confidence that the fundamentals are solid before you start writing your own code.
+The build process is straightforward. Wu compiles into a shared library
+that you can link against. The tests give you confidence that the
+fundamentals are solid before you start writing your own code.
 
 ### Understanding the CSV Format
 
@@ -115,11 +171,26 @@ Date,Open,High,Low,Close,Volume
 ...
 ```
 
-The timestamp in the `Date` column is a Unix epoch value (seconds since January 1, 1970). This keeps things simple and avoids the complexity of parsing date strings. You can convert dates to Unix timestamps using tools like `date -d "2024-01-15" +%s` on Unix systems or Python's `datetime` module.
+The timestamp in the `Date` column is a Unix epoch value (seconds since
+January 1, 1970). This keeps things simple and avoids the complexity of
+parsing date strings. You can convert dates to Unix timestamps using
+tools like `date -d "2024-01-15" +%s` on Unix systems or Python's
+`datetime` module.
 
 ### Getting Historical Data with yfnim
 
-Need historical price data for your backtests? The [yfnim](https://jailop.codeberg.page/yfnim/docs/) tool makes it trivial to pull data from Yahoo Finance in exactly the format Wu expects. It's a command-line utility that outputs clean CSV with Unix timestamps—no parsing gymnastics required.
+Need historical price data for your backtests? The
+[yfnim](https://jailop.codeberg.page/yfnim/docs/) tool makes it trivial
+to pull data from Yahoo Finance in exactly the format Wu expects. It's a
+command-line utility that outputs clean CSV with Unix timestamps—no
+parsing gymnastics required.
+
+`yfnim` is written in Nim. To install it, you can use Nim's package
+manager, Nimble:
+
+```bash
+nimble install yfnim
+```
 
 Here's how to fetch 20 years of SPY data:
 
@@ -140,7 +211,10 @@ yf history -s:qqq --lookback:20y --format:csv --date_format:unix > qqq.csv
 ./pairs_trading spy.csv qqq.csv -v
 ```
 
-The `--date_format:unix` flag is key—it outputs timestamps as Unix epoch values, which Wu expects. Without it, you'd get human-readable dates that would require parsing. The `--format:csv` flag ensures the output is CSV with proper headers.
+The `--date_format:unix` flag is key—it outputs timestamps as Unix epoch
+values, which Wu expects. Without it, you'd get human-readable dates
+that would require parsing. The `--format:csv` flag ensures the output
+is CSV with proper headers.
 
 Want to test different time periods? Adjust the lookback:
 
@@ -155,33 +229,49 @@ yf history -s:spy --lookback:1y --format:csv --date_format:unix > spy_1y.csv
 yf history -s:spy --start:2020-01-01 --end:2023-12-31 --format:csv --date_format:unix > spy_2020_2023.csv
 ```
 
-This makes it easy to test how your strategy performs across different market regimes—bull markets, bear markets, high volatility periods, or calm sideways action.
+This makes it easy to test how your strategy performs across different
+market regimes—bull markets, bear markets, high volatility periods, or
+calm sideways action.
 
 ---
 
 ## Understanding the Data Flow
 
-Before we write any code, let's trace how data flows through a Wu backtest. Understanding this flow makes everything else click into place.
+Before we write any code, let's trace how data flows through a Wu
+backtest. Understanding this flow makes everything else click into
+place.
 
-Imagine water flowing through pipes: CSV files are the reservoir, readers are the pumps, the strategy is the filter that decides what to do, and the portfolio is where the work actually happens.
-
-```
-1. CSV File(s) → 2. Reader(s) → 3. Strategy → 4. Portfolio
-```
-
-The CSV files sit on disk, holding historical price data. The readers parse those files line by line, converting text into C structs. The strategy consumes those structs, runs calculations, updates indicators, and decides whether to buy, sell, or hold. Finally, the portfolio receives those decisions as signals and executes trades, tracking cash and positions.
-
-The runner orchestrates this entire dance, making sure everyone stays synchronized.
-
-For pairs trading, the flow gets more interesting because we're dealing with two assets simultaneously:
+Imagine water flowing through pipes: CSV files are the reservoir,
+readers are the pumps, the strategy is the filter that decides what to
+do, and the portfolio is where the work actually happens.
 
 ```
-SPY CSV → SPY Reader ──┐
-                       ├─→ Pairs Strategy → [Signal 0, Signal 1] → Multi-Asset Portfolio
-QQQ CSV → QQQ Reader ──┘
+CSV File(s) -> Reader(s) -> Strategy -> Portfolio
 ```
 
-The strategy receives data from both SPY and QQQ at the same time, calculates the spread between them, and generates two signals—one for each asset. The portfolio manages both positions with a shared cash pool, allowing you to go long one asset while shorting the other.
+The CSV files sit on disk, holding historical price data. The readers
+parse those files line by line, converting text into C structs. The
+strategy consumes those structs, runs calculations, updates indicators,
+and decides whether to buy, sell, or hold. Finally, the portfolio
+receives those decisions as signals and executes trades, tracking cash
+and positions.
+
+The runner orchestrates this entire dance, making sure everyone stays
+synchronized.
+
+For pairs trading, the flow gets more interesting because we're dealing
+with two assets simultaneously:
+
+```
+SPY CSV -> SPY Reader ──┐
+                        ├─ Pairs Strategy -> [Signal 0, Signal 1] -> Multi-Asset Portfolio
+QQQ CSV -> QQQ Reader ──┘
+```
+
+The strategy receives data from both SPY and QQQ at the same time,
+calculates the spread between them, and generates two signals—one for
+each asset. The portfolio manages both positions with a shared cash
+pool, allowing you to go long one asset while shorting the other.
 
 ---
 
@@ -200,7 +290,7 @@ int main(int argc, char* argv[]) {
     // Parse command-line arguments
     if (argc < 3) {
         fprintf(stderr, "Usage: %s <spy.csv> <qqq.csv> [-v]\n", argv[0]);
-        fprintf(stderr, "  -v: verbose output (shows trading activity)\n");
+        fprintf(stderr, "  -v: verbose output\n");
         return 1;
     }
     
@@ -212,15 +302,22 @@ int main(int argc, char* argv[]) {
 }
 ```
 
-The `wu.h` header is your entry point to the entire library. It pulls in all the sub-headers you need, so you don't have to hunt for the right includes. We're accepting two CSV file paths on the command line—one for SPY and one for QQQ—along with an optional `-v` flag that will show us what's happening during the backtest. When you're debugging a strategy, that verbose output is invaluable.
+The `wu.h` header is your entry point to the entire library. It pulls in
+all the sub-headers you need, so you don't have to hunt for the right
+includes. We're accepting two CSV file paths on the command line—one for
+SPY and one for QQQ—along with an optional `-v` flag that will show us
+what's happening during the backtest. When you're debugging a strategy,
+that verbose output is invaluable.
 
 ---
 
 ## Step 2: Understanding Data Types
 
-Wu speaks in three different data dialects, each represented by its own struct. Let's meet them.
+Wu speaks in three different data dialects, each represented by its own
+struct. Let's meet them.
 
-First, there's the **Candle**, which represents OHLCV bar data—the bread and butter of most trading strategies:
+First, there's the **Candle**, which represents OHLCV bar data—the bread
+and butter of most trading strategies:
 
 ```c
 typedef struct WU_Candle_ {
@@ -234,19 +331,21 @@ typedef struct WU_Candle_ {
 } WU_Candle;
 ```
 
-Then there's the **Trade**, which captures individual transactions at the tick level:
+Then there's the **Trade**, which captures individual transactions at
+the tick level:
 
 ```c
 typedef struct {
     int64_t timestamp;
     double price;
     double volume;
-    WU_Side side;  // WU_SIDE_BUY or WU_SIDE_SELL
+    WU_Side side;           // WU_SIDE_BUY or WU_SIDE_SELL
     WU_DataType data_type;  // Always WU_DATA_TYPE_TRADE
 } WU_Trade;
 ```
 
-And finally, the **Single**, which is just a timestamped value—perfect for indicators, prices, or any other scalar time series:
+And finally, the **Single**, which is just a timestamped value—perfect
+for indicators, prices, or any other scalar time series:
 
 ```c
 typedef struct {
@@ -256,9 +355,12 @@ typedef struct {
 } WU_Single;
 ```
 
-For our pairs trading example, we'll work with Candles. We want the full OHLCV picture, though the strategy will focus on closing prices to calculate the spread between SPY and QQQ.
+For our pairs trading example, we'll work with Candles. We want the full
+OHLCV picture, though the strategy will focus on closing prices to
+calculate the spread between SPY and QQQ.
 
-Now, strategies don't just consume data—they produce **Signals**. A signal is an instruction to the portfolio, telling it what to do:
+Now, strategies don't just consume data—they produce **Signals**. A
+signal is an instruction to the portfolio, telling it what to do:
 
 ```c
 typedef enum {
@@ -281,7 +383,8 @@ Think of signals as the language strategies use to communicate with portfolios. 
 
 ## Step 3: Creating CSV Readers
 
-Now we'll open our data sources and create readers to parse them. Here's where the data starts flowing:
+Now we'll open our data sources and create readers to parse them. Here's
+where the data starts flowing:
 
 ```c
 // Open CSV files
@@ -307,55 +410,103 @@ if (!spy_csv || !qqq_csv) {
 }
 ```
 
-The `WU_CsvReader` is a concrete implementation of the abstract `WU_Reader` interface. Every reader in Wu shares the same contract: it has a `next()` function that returns the next data point, and a `delete()` function for cleanup. The CSV reader happens to read from files, but you could implement readers that pull from databases, REST APIs, or even generate synthetic data on the fly.
+The `WU_CsvReader` is a concrete implementation of the abstract
+`WU_Reader` interface. Every reader in Wu shares the same contract: it
+has a `next()` function that returns the next data point, and a
+`delete()` function for cleanup. The CSV reader happens to read from
+files, but you could implement readers that pull from databases, REST
+APIs, or even generate synthetic data on the fly.
 
-When we call `wu_csv_reader_new()`, we pass three arguments: an open file handle, the type of data we expect to find in that file, and whether the file has headers. The reader will parse each line, converting strings to numbers, and package them into `WU_Candle` structs. The `true` for headers tells it to skip the first line.
+```c
+typedef struct WU_Reader_ {
+    void* (*next)(struct WU_Reader_* reader);
+    void (*delete)(struct WU_Reader_* reader);
+}* WU_Reader;
+```
 
-Why does the reader return `void*` instead of a specific type? Because different readers might produce different types of data. The runner will handle type checking and conversion when it wires everything together. This abstraction keeps the reader simple while maintaining flexibility. When we pass these to the runner later, we'll use the `WU_READER()` macro to cast them to the base interface type.
+When we call `wu_csv_reader_new()`, we pass three arguments: an open
+file handle, the type of data we expect to find in that file, and
+whether the file has headers. The reader will parse each line,
+converting strings to numbers, and package them into `WU_Candle`
+structs. The `true` for headers tells it to skip the first line.
+
+Why does the reader return `void*` instead of a specific type? Because
+different readers might produce different types of data. The runner will
+handle type checking and conversion when it wires everything together.
+This abstraction keeps the reader simple while maintaining flexibility.
+When we pass these to the runner later, we'll use the `WU_READER()`
+macro to cast them to the base interface type.
 
 ---
 
 ## Step 4: Creating the Strategy
 
-Pairs trading is a classic mean-reversion strategy. The idea is simple but elegant: when two historically correlated assets drift apart, bet on them coming back together. Let's create our strategy:
+Pairs trading is a classic mean-reversion strategy. The idea is simple
+but elegant: when two historically correlated assets drift apart, bet on
+them coming back together. Let's create our strategy:
 
 ```c
 // Create pairs trading strategy
 WU_PairsTradingStrat pairs_strat = wu_pairs_trading_strat_new(20, 2.0, 1.0);
 ```
 
-Here's how it works. The strategy calculates the spread between two assets—in our case, `spread = SPY_close - QQQ_close`. Over a rolling window (20 periods in our example), it tracks the mean and standard deviation of this spread. When the spread deviates significantly from its mean, that's our signal.
+Here's how it works. The strategy calculates the spread between two
+assets—in our case, `spread = SPY_close - QQQ_close`. Over a rolling
+window (20 periods in our example), it tracks the mean and standard
+deviation of this spread. When the spread deviates significantly from
+its mean, that's our signal.
 
-If the spread drops below `mean - (2.0 × stdev)`, we interpret that as SPY being undervalued relative to QQQ. The strategy generates a buy signal for SPY and a sell signal for QQQ. We're betting the spread will widen back to normal.
+If the spread drops below `mean - (2.0 × stdev)`, we interpret that as
+SPY being undervalued relative to QQQ. The strategy generates a buy
+signal for SPY and a sell signal for QQQ. We're betting the spread will
+widen back to normal.
 
-Conversely, if the spread rises above `mean + (2.0 × stdev)`, SPY looks overvalued relative to QQQ. We sell SPY and buy QQQ, betting the spread will narrow.
+Conversely, if the spread rises above `mean + (2.0 × stdev)`, SPY looks
+overvalued relative to QQQ. We sell SPY and buy QQQ, betting the spread
+will narrow.
 
-When the spread returns to its mean, we close both positions and take our profit (or loss).
+When the spread returns to its mean, we close both positions and take
+our profit (or loss).
 
-The three parameters give you control over the strategy's behavior. The **window** determines how much history we consider when calculating statistics. A shorter window (10 periods) makes the strategy more responsive to recent changes but also noisier. A longer window (30 periods) smooths things out but may lag when conditions shift.
+The three parameters give you control over the strategy's behavior. The
+**window** determines how much history we consider when calculating
+statistics. A shorter window (10 periods) makes the strategy more
+responsive to recent changes but also noisier. A longer window (30
+periods) smooths things out but may lag when conditions shift.
 
-The **threshold** controls how extreme a deviation needs to be before we act. Setting it to 1.5 standard deviations means more trading opportunities but weaker signals. Bumping it up to 2.5 means fewer trades, only on very strong deviations.
+The **threshold** controls how extreme a deviation needs to be before we
+act. Setting it to 1.5 standard deviations means more trading
+opportunities but weaker signals. Bumping it up to 2.5 means fewer
+trades, only on very strong deviations.
 
-The **ratio** is the hedge ratio—how much of asset B we trade relative to asset A. We're using 1.0 for simplicity, meaning equal dollar amounts in each position. In practice, you might calculate an optimal ratio using linear regression to minimize the variance of the spread, but that's an advanced topic for another day.
+The **ratio** is the hedge ratio—how much of asset B we trade relative
+to asset A. We're using 1.0 for simplicity, meaning equal dollar amounts
+in each position. In practice, you might calculate an optimal ratio
+using linear regression to minimize the variance of the spread, but
+that's an advanced topic for another day.
 
-Under the hood, the strategy maintains its own indicators—a simple moving average for the spread's mean and a standard deviation calculator. Every time new data arrives, it updates these indicators, compares the current spread to the thresholds, and decides what signals to generate.
+Under the hood, the strategy maintains its own indicators—a simple
+moving average for the spread's mean and a standard deviation
+calculator. Every time new data arrives, it updates these indicators,
+compares the current spread to the thresholds, and decides what signals
+to generate.
 
-The strategy interface itself is straightforward. It declares how many inputs it expects (2 for pairs trading), what data types those inputs should be (Candles for both), and how many outputs it produces (2 signals, one per asset). The runner will use this metadata to validate that everything's wired up correctly before the backtest starts.
+The strategy interface itself is straightforward. It declares how many
+inputs it expects (2 for pairs trading), what data types those inputs
+should be (Candles for both), and how many outputs it produces (2
+signals, one per asset). The runner will use this metadata to validate
+that everything's wired up correctly before the backtest starts.
 
 ---
 
 ## Step 5: Configuring the Portfolio
 
-The portfolio is where trading theory meets reality. It's responsible for managing cash, executing trades, tracking positions, and accounting for all those pesky real-world costs that eat into profits. Let's set one up:
+Through the portfolio is where trading theory meets reality. It's
+responsible for managing cash, executing trades, tracking positions, and
+accounting for all those pesky real-world costs that eat into profits.
+Let's set one up:
 
 ```c
-// Define asset symbols
-WU_AssetSymbol symbols[2];
-strncpy(symbols[0], "SPY", WU_SYMBOL_MAX_LEN - 1);
-strncpy(symbols[1], "QQQ", WU_SYMBOL_MAX_LEN - 1);
-symbols[0][WU_SYMBOL_MAX_LEN - 1] = '\0';
-symbols[1][WU_SYMBOL_MAX_LEN - 1] = '\0';
-
 // Configure multi-asset portfolio parameters
 WU_PortfolioParams params = {
     .initial_cash = 100000.0,
@@ -372,9 +523,7 @@ WU_PortfolioParams params = {
 // Create multi-asset portfolio
 WU_BasicPortfolio portfolio = wu_basic_portfolio_new(
     params, 
-    (const WU_AssetSymbol*)symbols, 
-    2  // Number of assets
-);
+    wu_symbol_list("SPY", "QQQ"));
 
 if (!portfolio) {
     fprintf(stderr, "Error: Could not create multi-asset portfolio\n");
@@ -396,7 +545,7 @@ The third option is **equal allocation** (`WU_POSITION_SIZE_PCT_EQUAL`), perfect
 
 Finally, there's **strategy-guided sizing** (`WU_POSITION_SIZE_STRATEGY_GUIDED`), which lets the strategy dynamically control allocations. The strategy sets each signal's quantity to the desired portfolio percentage, enabling sophisticated approaches like risk parity or momentum-weighted allocations.
 
-The symbols array maps integer indices to human-readable names. Index 0 is "SPY", index 1 is "QQQ". During the backtest, all operations use these integer indices for speed, but when we print results, the symbols make it clear what we're looking at. This design keeps the fast path fast while maintaining readability where it matters.
+The symbols list maps integer indices to human-readable names. Index 0 is "SPY", index 1 is "QQQ". During the backtest, all operations use these integer indices for speed, but when we print results, the symbols make it clear what we're looking at. This design keeps the fast path fast while maintaining readability where it matters.
 
 ---
 
@@ -649,13 +798,6 @@ int main(int argc, char* argv[]) {
     //   ratio = 1.0 (1:1 hedge ratio for simplicity)
     WU_PairsTradingStrat pairs_strat = wu_pairs_trading_strat_new(20, 2.0, 1.0);
     
-    // Define asset symbols
-    WU_AssetSymbol symbols[2];
-    strncpy(symbols[0], "SPY", WU_SYMBOL_MAX_LEN - 1);
-    strncpy(symbols[1], "QQQ", WU_SYMBOL_MAX_LEN - 1);
-    symbols[0][WU_SYMBOL_MAX_LEN - 1] = '\0';
-    symbols[1][WU_SYMBOL_MAX_LEN - 1] = '\0';
-    
     // Configure multi-asset portfolio
     WU_PortfolioParams params = {
         .initial_cash = 100000.0,
@@ -672,9 +814,7 @@ int main(int argc, char* argv[]) {
     // Create multi-asset portfolio
     WU_BasicPortfolio portfolio = wu_basic_portfolio_new(
         params, 
-        (const WU_AssetSymbol*)symbols, 
-        2
-    );
+        wu_symbol_list("SPY", "QQQ"));
     
     if (!portfolio) {
         fprintf(stderr, "Error: Could not create multi-asset portfolio\n");

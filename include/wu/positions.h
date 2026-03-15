@@ -5,6 +5,8 @@
 #include <stdbool.h>
 #include "types.h"
 
+#define WU_SYMBOL_MAX_LEN 32
+
 /**
  * WU_Position represents an open position in the portfolio.
  */
@@ -20,7 +22,7 @@ typedef struct WU_Position_ {
  * for a single asset. It includes the asset symbol and last price.
  */
 typedef struct WU_PositionVector {
-    WU_AssetSymbol symbol;              // Asset symbol (e.g., "SPY", "BTC")
+    char* symbol;
     double last_price;                  // Last known price for this asset
     struct WU_Position_* positions;
     bool* active;

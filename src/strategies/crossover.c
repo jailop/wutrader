@@ -47,7 +47,7 @@ WU_CrossOverStrat wu_crossover_strat_new(int short_window, int long_window,
     strat->base.delete = delete;
     strat->base.input_types = input_types;
     strat->base.num_inputs = NUM_INPUTS;
-    strat->base.output_symbols = NULL;
+    // strat->base.output_symbols = NULL;
     strat->base.num_outputs = NUM_OUTPUTS;
     strat->base.signal_buffer = signal_buffer;
     strat->short_ma = wu_sma_new(short_window);

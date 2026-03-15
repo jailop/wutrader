@@ -115,7 +115,7 @@ WU_PairsTradingStrat wu_pairs_trading_strat_new(int window, double threshold, do
     strat->base.num_inputs = NUM_INPUTS;
     
     // Declare output count (symbols set by backtest runner)
-    strat->base.output_symbols = NULL;  // Will be set by runner
+    // strat->base.output_symbols = NULL;  // Will be set by runner
     strat->base.num_outputs = NUM_OUTPUTS;
     strat->base.signal_buffer = signal_buffer;
     

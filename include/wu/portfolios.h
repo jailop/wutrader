@@ -189,8 +189,7 @@ typedef struct WU_BasicPortfolio_ {
  */
 WU_BasicPortfolio wu_basic_portfolio_new(
     WU_PortfolioParams params,
-    const WU_AssetSymbol* symbols,
-    int num_assets
+    const char* symbols[]
 );
 
 /**

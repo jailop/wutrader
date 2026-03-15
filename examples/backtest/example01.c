@@ -51,8 +51,9 @@ int main(int argc, char** argv) {
             .size_value = 1.0
         }
     };
-    WU_AssetSymbol symbols[] = {"ASSET"};
-    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const WU_AssetSymbol*)symbols, 1);
+    WU_BasicPortfolio portfolio = wu_basic_portfolio_new(
+            params,
+            wu_symbol_list("ASSET"));
 
     /*
      * This strategy uses a simple moving average crossover. When the 

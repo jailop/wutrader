@@ -87,14 +87,6 @@ int main(int argc, char* argv[]) {
     //   ratio = 1.0 (1:1 hedge ratio for simplicity)
     WU_Strategy strategy = (WU_Strategy)wu_pairs_trading_strat_new(20, 2.0, 1.0);
     
-    // Define asset symbols (cast to const pointer to avoid pedantic warning)
-    WU_AssetSymbol symbols[2];
-    strncpy(symbols[0], "SPY", WU_SYMBOL_MAX_LEN - 1);
-    strncpy(symbols[1], "QQQ", WU_SYMBOL_MAX_LEN - 1);
-    symbols[0][WU_SYMBOL_MAX_LEN - 1] = '\0';
-    symbols[1][WU_SYMBOL_MAX_LEN - 1] = '\0';
-    
-    // Configure multi-asset portfolio
     WU_PortfolioParams params = {
         .initial_cash = 100000.0,
         .tx_cost_pct = 0.001,        // 0.1% transaction cost
@@ -107,12 +99,9 @@ int main(int argc, char* argv[]) {
         }
     };
     
-    // Create multi-asset portfolio
     WU_BasicPortfolio portfolio = wu_basic_portfolio_new(
         params, 
-        (const WU_AssetSymbol*)symbols, 
-        2
-    );
+        wu_symbol_list("SPY", "QQQ"));
     
     if (!portfolio) {
         fprintf(stderr, "Error: Could not create multi-asset portfolio\n");

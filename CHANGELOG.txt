@@ -5,3 +5,7 @@
 2026-03-13:
 
 - Multi-asset support
+
+2026-03-14:
+
+- basic portfolio implementation refactored

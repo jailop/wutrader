@@ -86,12 +86,6 @@ typedef enum WU_PositionSizeType {
     WU_POSITION_SIZE_STRATEGY_GUIDED = 3
 } WU_PositionSizeType;
 
-/**
- * WU_AssetSymbol is a fixed-size symbol identifier for assets.
- * Maximum 15 characters + null terminator (16 bytes total).
- * Examples: "SPY", "AAPL", "BTC-USD"
- */
-#define WU_SYMBOL_MAX_LEN 32
-typedef char WU_AssetSymbol[WU_SYMBOL_MAX_LEN];
+#define wu_symbol_list(...) ((const char*[]){__VA_ARGS__, NULL})
 
 #endif // WU_TYPES_H

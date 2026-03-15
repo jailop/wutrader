@@ -10,7 +10,7 @@ typedef struct WU_Strategy_ {
             const void* inputs[]);
     void (*delete)(struct WU_Strategy_* strategy);
     const WU_DataType* input_types;
-    const WU_AssetSymbol* output_symbols;
+    // const WU_AssetSymbol* output_symbols;
     WU_Signal* signal_buffer;
     int num_inputs;
     int num_outputs;
