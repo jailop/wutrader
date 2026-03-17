@@ -61,6 +61,54 @@ Every component interface uses function pointers for polymorphism. The
 runner works with `WU_Portfolio`, not `WU_BasicPortfolio`. This lets you
 implement custom portfolios with different execution logic or risk models.
 
+## Feature Inventory
+
+**Portfolio Management**
+- Long and short positions
+- Multiple assets
+- Transaction costs (fixed and percentage-based)
+- Borrowing costs and limits
+- Market order execution
+- Position sizing strategies (fixed dollar, percentage allocation)
+- Risk controls (stop-loss, take-profit)
+
+**Execution Policies**
+- Immediate execution
+- Next bar close execution
+- Market and limit order frameworks
+
+**Technical Indicators**
+- Moving averages (SMA, EMA)
+- Standard deviation
+- RSI (Relative Strength Index)
+- MACD (Moving Average Convergence Divergence)
+- Maximum Drawdown
+- Sharpe Ratio
+- Sortino Ratio
+- Cumulative returns tracking
+
+**Strategies**
+- Moving average crossover
+- Pairs trading
+- Custom strategy interface for user implementations
+
+**Data Input**
+- CSV file reader
+- JSONL (JSON Lines) reader
+- Generic data reader interface for custom sources
+
+**Performance Analysis**
+- Trade statistics (count, win rate, max win/loss)
+- Portfolio value tracking
+- PnL calculation and distribution (mean, standard deviation)
+- Performance metrics computation
+
+**Execution Features**
+- Stop-loss and take-profit exits
+- Leverage through borrowing
+- Multiple timeframe support
+- Configurable transaction costs
+
 ## Status and Direction
 
 This project is under active development. I'm currently exploring:
@@ -96,6 +144,8 @@ Read the [tutorial](tutorial.md) for a step-by-step introduction.
 For detailed API documentation, see the [Doxygen API Reference](https://jailop.codeberg.page/wutrader/docs/html/).
 
 See the [Guides](portfolio-configuration.md) for detailed explanations of portfolio configuration and timestamp handling.
+
+Check the [FAQ](faq.md) for answers to common questions about data, strategies, metrics, and design choices.
 
 Repository: [https://codeberg.org/jailop/wu](https://codeberg.org/jailop/wu)
 

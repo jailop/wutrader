@@ -25,6 +25,7 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Installation: installation.md
+  - Features: features.md
   - Tutorial: tutorial.md
   - Guides:
     - Portfolio Configuration: portfolio-configuration.md
@@ -37,6 +38,7 @@ nav:
   - Examples:
     - Crossover Strategy: examples/crossover.md
     - Pairs Trading: examples/pairs_trading.md
+  - FAQ: faq.md
   - API Reference: https://jailop.codeberg.page/wutrader/docs/html/
   - Repository: https://codeberg.org/jailop/wu
 
