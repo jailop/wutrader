@@ -2,6 +2,7 @@
 #include "wu/indicators.h"
 
 static double update(WU_MVar mvar, double value) {
+    if (isnan(value)) return NAN;
     if (mvar->len < mvar->window_size)
         mvar->len++;
     mvar->prev_values[mvar->pos] = value;

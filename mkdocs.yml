@@ -1,0 +1,47 @@
+site_name: Wu Trading Library
+site_description: A low-level backtesting library for algorithmic trading
+site_author: Jaime Lopez
+site_url: https://jailop.codeberg.page/wutrader/
+
+repo_url: https://codeberg.org/jailop/wu
+repo_name: codeberg/wu
+
+theme:
+  name: readthedocs
+  highlightjs: true
+  hljs_languages:
+    - c
+    - python
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - def_list
+  - footnotes
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Tutorial: tutorial.md
+  - Guides:
+    - Portfolio Configuration: portfolio-configuration.md
+    - Timestamps and Data: timestamps.md
+  - Design Notes:
+    - Architecture: design/architecture.md
+    - Execution Models: design/execution.md
+    - Position Sizing: design/position_sizing.md
+  - Examples:
+    - Crossover Strategy: examples/crossover.md
+    - Pairs Trading: examples/pairs_trading.md
+  - API Reference: https://jailop.codeberg.page/wutrader/docs/html/
+  - Repository: https://codeberg.org/jailop/wu
+
+docs_dir: docs_src
+site_dir: docs
+
+extra:
+  version: 0.1.0
+

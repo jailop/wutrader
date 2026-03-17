@@ -2,10 +2,14 @@
 #define _STATS_H_
 
 #include <time.h>
+#include "indicators.h"
 
 /**
  * WU_PortfolioStats tracks portfolio state, positions, and trading statistics.
  * This is the central source of knowledge about portfolio performance and holdings.
+ * 
+ * Performance metrics (MaxDrawdown, Sharpe, Sortino, Calmar) are maintained as
+ * indicators that update sequentially with each portfolio value change.
  */
 typedef struct WU_PortfolioStats_ {
     void (*update)(struct WU_PortfolioStats_* stats, double cash,
@@ -39,6 +43,7 @@ typedef struct WU_PortfolioStats_ {
     double total_loss;
     double max_win;
     double max_loss;
+    double accum_pnl;       // Accumulated PnL from all trades
     
     // Position tracking (dynamic arrays)
     char** symbols;
@@ -47,12 +52,22 @@ typedef struct WU_PortfolioStats_ {
     double* last_prices;
     int num_assets;
     int capacity;
+    
+    // Performance indicators (updated sequentially)
+    WU_MaxDrawdown max_drawdown;
+    WU_SharpeRatio sharpe_ratio;
+    WU_SortinoRatio sortino_ratio;
+    WU_CalmarRatio calmar_ratio;
+    WU_PnLStats pnl_stats;
 }* WU_PortfolioStats;
 
 /**
  * Creates a new WU_PortfolioStats instance.
+ * 
+ * @param initial_cash Initial cash amount
+ * @param risk_free_rate Annual risk-free rate for Sharpe/Sortino calculations (e.g., 0.03 for 3%)
  */
-WU_PortfolioStats wu_portfolio_stats_new(double initial_cash);
+WU_PortfolioStats wu_portfolio_stats_new(double initial_cash, double risk_free_rate);
 
 /**
  * Updates portfolio state in stats.
