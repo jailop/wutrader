@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['sharpe_5fratio_0',['sharpe_ratio',['../structWU__PortfolioStats__.html#a987dd1afb56143f7a075c1435180135c',1,'WU_PortfolioStats_']]],
+  ['short_5fma_1',['short_ma',['../structWU__CrossOverStrat__.html#af401c9115fa9e3d4d40ad882ca1dcf70',1,'WU_CrossOverStrat_']]],
+  ['side_2',['side',['../structWU__Trade.html#a49f6e0137a69343691c1fb689a2ebb27',1,'WU_Trade::side'],['../structWU__Signal.html#a934393e54393bb89a2a7bd2d3ac57c4b',1,'WU_Signal::side']]],
+  ['signal_3',['signal',['../structWU__MACDResult.html#a175d96e42a8a621d140978dc2fd542cd',1,'WU_MACDResult']]],
+  ['signal_5fbuffer_4',['signal_buffer',['../structWU__Strategy__.html#a35ee07c35d6200cdb08faf59d7d57ab0',1,'WU_Strategy_::signal_buffer'],['../crossover_8c.html#a477b1908002b141f558b8e2fd8b43d65',1,'signal_buffer:&#160;crossover.c'],['../pairs__trading_8c.html#a477b1908002b141f558b8e2fd8b43d65',1,'signal_buffer:&#160;pairs_trading.c']]],
+  ['signal_5fline_5',['signal_line',['../structWU__MACD__.html#a567946e6f1831028c0e35738d9b68b6f',1,'WU_MACD_']]],
+  ['single_5fvalue_6',['single_value',['../structWU__CsvReader__.html#a48dce3f95aa6f97d0e107c9f1b7150d7',1,'WU_CsvReader_::single_value'],['../structWU__JsonReader__.html#a981c3f9a8a734e0f3c143b4cade539b7',1,'WU_JsonReader_::single_value']]],
+  ['size_5ftype_7',['size_type',['../structWU__PositionSizingParams.html#a814f23bed44e093484a998c84b5467f0',1,'WU_PositionSizingParams']]],
+  ['size_5fvalue_8',['size_value',['../structWU__PositionSizingParams.html#a5adc310ccfbffb09763c4bd71d7ad110',1,'WU_PositionSizingParams']]],
+  ['sma_9',['sma',['../structWU__MVar__.html#a06f1f8a97a3b5df9f5e3353ca2442c7c',1,'WU_MVar_']]],
+  ['sortino_5fratio_10',['sortino_ratio',['../structWU__PortfolioStats__.html#a62efe3c7cfc4c98f7912487fd3fd006b',1,'WU_PortfolioStats_']]],
+  ['spread_5fma_11',['spread_ma',['../structWU__PairsTradingStrat__.html#a81f9e91600573f96e386d9bd3bc82e62',1,'WU_PairsTradingStrat_']]],
+  ['spread_5fstd_12',['spread_std',['../structWU__PairsTradingStrat__.html#ae9c821927ae569e3149c2ea86a48ad15',1,'WU_PairsTradingStrat_']]],
+  ['start_13',['start',['../structWU__MACD__.html#a4b71a224788304115a276e4dfb9495d6',1,'WU_MACD_']]],
+  ['start_5ftime_14',['start_time',['../structWU__ReturnStats__.html#a6cd7531ec84ea46315bbc051b8f5e6ee',1,'WU_ReturnStats_']]],
+  ['stats_15',['stats',['../structWU__BasicPortfolio__.html#a6373eb8f5bce8353fb58a7324433cf76',1,'WU_BasicPortfolio_']]],
+  ['stddev_16',['stddev',['../structWU__ReturnStatsResult.html#a29609e58acf6a5fcc30ab3bc723f85d1',1,'WU_ReturnStatsResult::stddev'],['../structWU__PnLStatsResult.html#a2e06f22804bdae9aa366a95af211d443',1,'WU_PnLStatsResult::stddev']]],
+  ['stop_5floss_5fexits_17',['stop_loss_exits',['../structWU__PortfolioStats__.html#a56e0bf321f1a4ad9c72f2a9ff06b8160',1,'WU_PortfolioStats_']]],
+  ['stop_5floss_5fpct_18',['stop_loss_pct',['../structWU__ExecutionPolicy.html#ac2a168e33b2a9ba26f3356b99ce2efad',1,'WU_ExecutionPolicy']]],
+  ['strategy_19',['strategy',['../structWU__Runner__.html#abac03bc669ac22e0eebf8aed45e95927',1,'WU_Runner_']]],
+  ['sum_20',['sum',['../structWU__SMA__.html#ab7aa1026d09258232669afc881034d3e',1,'WU_SMA_']]],
+  ['symbol_21',['symbol',['../structWU__PositionVector.html#a1ed01d0e90592953705269f65b01c378',1,'WU_PositionVector']]],
+  ['symbols_22',['symbols',['../structWU__PortfolioStats__.html#aa9d7ed448bfef314ad3eb09e2dcc163c',1,'WU_PortfolioStats_']]]
+];

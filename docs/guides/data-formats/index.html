@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Jaime Lopez" /><link rel="canonical" href="https://jailop.codeberg.page/wutrader/guides/data-formats/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Data Formats - Wu Trading Library</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Data Formats";
+        var mkdocs_page_input_path = "guides/data-formats.md";
+        var mkdocs_page_url = "/wutrader/guides/data-formats/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/c.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Wu Trading Library
+        </a>
+        <div class="version">
+          0.2.0
+        </div><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../installation/">Installation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../features/">Features</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../tutorial/">Tutorial</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Guides</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../portfolio-configuration/">Portfolio Configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../timestamps/">Timestamps and Data</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Data Formats</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#csv-format">CSV Format</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#candle-data">Candle Data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#trade-data">Trade Data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#single-values">Single Values</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#json-lines-format">JSON Lines Format</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#candle-data_1">Candle Data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#trade-data_1">Trade Data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#single-values_1">Single Values</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#using-different-readers">Using Different Readers</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#csv-reader">CSV Reader</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#json-reader">JSON Reader</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#field-requirements">Field Requirements</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#handling-timestamps">Handling Timestamps</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#error-handling">Error Handling</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#json-reader-implementation-details">JSON Reader Implementation Details</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Design Notes</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/architecture/">Architecture</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/execution/">Execution Models</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/position_sizing/">Position Sizing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/timestamps/">Timestamps</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../examples/crossover/">Crossover Strategy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../examples/pairs_trading/">Pairs Trading</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../faq/">FAQ</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://jailop.codeberg.page/wutrader/docs/html/">API Reference</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://codeberg.org/jailop/wu">Repository</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Wu Trading Library</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Guides</li>
+      <li class="breadcrumb-item active">Data Formats</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="data-formats">Data Formats<a class="headerlink" href="#data-formats" title="Permanent link">&para;</a></h1>
+<p>Wu supports multiple data formats for reading market and trading data. The library currently implements CSV and JSON Lines readers.</p>
+<h2 id="csv-format">CSV Format<a class="headerlink" href="#csv-format" title="Permanent link">&para;</a></h2>
+<p>CSV files are the most straightforward format. Each line represents a single data point with comma-separated values.</p>
+<h3 id="candle-data">Candle Data<a class="headerlink" href="#candle-data" title="Permanent link">&para;</a></h3>
+<p>CSV format for OHLCV candles:</p>
+<pre class="codehilite"><code class="language-csv">timestamp,open,high,low,close,volume
+1609459200,150.5,151.2,150.1,151.0,1000000
+1609462800,151.0,151.8,150.8,151.5,900000
+1609466400,151.5,152.1,151.2,151.9,950000
+</code></pre>
+
+<h3 id="trade-data">Trade Data<a class="headerlink" href="#trade-data" title="Permanent link">&para;</a></h3>
+<p>CSV format for individual trades:</p>
+<pre class="codehilite"><code class="language-csv">timestamp,price,volume,side
+1609459200,150.5,10000,1
+1609459201,150.51,5000,0
+1609459202,150.49,15000,1
+</code></pre>
+
+<p>Where <code>side</code> is 0 for sell, 1 for buy.</p>
+<h3 id="single-values">Single Values<a class="headerlink" href="#single-values" title="Permanent link">&para;</a></h3>
+<p>CSV format for single-value series (like price or technical indicators):</p>
+<pre class="codehilite"><code class="language-csv">timestamp,value
+1609459200,150.5
+1609462800,151.0
+1609466400,151.5
+</code></pre>
+
+<h2 id="json-lines-format">JSON Lines Format<a class="headerlink" href="#json-lines-format" title="Permanent link">&para;</a></h2>
+<p>JSON Lines (newline-delimited JSON) provides a flexible, self-documenting format where each line is a valid JSON object. This format is particularly useful when dealing with variable-length data or nested structures.</p>
+<h3 id="candle-data_1">Candle Data<a class="headerlink" href="#candle-data_1" title="Permanent link">&para;</a></h3>
+<p>JSON Lines format for OHLCV candles:</p>
+<pre class="codehilite"><code class="language-json">{&quot;timestamp&quot;: 1609459200, &quot;open&quot;: 150.5, &quot;high&quot;: 151.2, &quot;low&quot;: 150.1, &quot;close&quot;: 151.0, &quot;volume&quot;: 1000000}
+{&quot;timestamp&quot;: 1609462800, &quot;open&quot;: 151.0, &quot;high&quot;: 151.8, &quot;low&quot;: 150.8, &quot;close&quot;: 151.5, &quot;volume&quot;: 900000}
+{&quot;timestamp&quot;: 1609466400, &quot;open&quot;: 151.5, &quot;high&quot;: 152.1, &quot;low&quot;: 151.2, &quot;close&quot;: 151.9, &quot;volume&quot;: 950000}
+</code></pre>
+
+<h3 id="trade-data_1">Trade Data<a class="headerlink" href="#trade-data_1" title="Permanent link">&para;</a></h3>
+<p>JSON Lines format for individual trades:</p>
+<pre class="codehilite"><code class="language-json">{&quot;timestamp&quot;: 1609459200, &quot;price&quot;: 150.5, &quot;volume&quot;: 10000, &quot;side&quot;: 1}
+{&quot;timestamp&quot;: 1609459201, &quot;price&quot;: 150.51, &quot;volume&quot;: 5000, &quot;side&quot;: 0}
+{&quot;timestamp&quot;: 1609459202, &quot;price&quot;: 150.49, &quot;volume&quot;: 15000, &quot;side&quot;: 1}
+</code></pre>
+
+<h3 id="single-values_1">Single Values<a class="headerlink" href="#single-values_1" title="Permanent link">&para;</a></h3>
+<p>JSON Lines format for single-value series:</p>
+<pre class="codehilite"><code class="language-json">{&quot;timestamp&quot;: 1609459200, &quot;value&quot;: 150.5}
+{&quot;timestamp&quot;: 1609462800, &quot;value&quot;: 151.0}
+{&quot;timestamp&quot;: 1609466400, &quot;value&quot;: 151.5}
+</code></pre>
+
+<h2 id="using-different-readers">Using Different Readers<a class="headerlink" href="#using-different-readers" title="Permanent link">&para;</a></h2>
+<p>The reader interface abstracts data format handling. You can switch between CSV and JSON Lines without changing your strategy code.</p>
+<h3 id="csv-reader">CSV Reader<a class="headerlink" href="#csv-reader" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-c">FILE* file = fopen(&quot;data.csv&quot;, &quot;r&quot;);
+WU_CsvReader reader = wu_csv_reader_new(
+    file,
+    WU_DATA_TYPE_CANDLE,
+    WU_TIME_UNIT_SECONDS,
+    true  // has_headers
+);
+</code></pre>
+
+<h3 id="json-reader">JSON Reader<a class="headerlink" href="#json-reader" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-c">FILE* file = fopen(&quot;data.jsonl&quot;, &quot;r&quot;);
+WU_JsonReader reader = wu_json_reader_new(
+    file,
+    WU_DATA_TYPE_CANDLE,
+    WU_TIME_UNIT_SECONDS
+);
+</code></pre>
+
+<p>The JSON reader expects one valid JSON object per line. Field order doesn't matter, and the format is more tolerant of additional fields in the data.</p>
+<h2 id="field-requirements">Field Requirements<a class="headerlink" href="#field-requirements" title="Permanent link">&para;</a></h2>
+<p>All readers expect the following fields:</p>
+<ul>
+<li><strong>timestamp</strong>: Unix timestamp (required)</li>
+<li><strong>open</strong>, <strong>high</strong>, <strong>low</strong>, <strong>close</strong>, <strong>volume</strong>: For candles</li>
+<li><strong>price</strong>, <strong>volume</strong>, <strong>side</strong>: For trades</li>
+<li><strong>value</strong>: For single values</li>
+</ul>
+<h2 id="handling-timestamps">Handling Timestamps<a class="headerlink" href="#handling-timestamps" title="Permanent link">&para;</a></h2>
+<p>Timestamps are expected to be Unix epoch values (seconds since 1970-01-01 00:00:00 UTC). When reading data, you specify the time unit to help the library correctly interpret the timestamps:</p>
+<ul>
+<li><code>WU_TIME_UNIT_SECONDS</code>: Data is in seconds (default)</li>
+<li><code>WU_TIME_UNIT_MINUTES</code>: Data is in minutes</li>
+<li><code>WU_TIME_UNIT_HOURS</code>: Data is in hours</li>
+<li><code>WU_TIME_UNIT_DAYS</code>: Data is in days</li>
+</ul>
+<p>For example, if your CSV contains timestamps in milliseconds, divide them by 1000 before storage, or specify the appropriate time unit when creating the reader.</p>
+<h2 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h2>
+<p>Both readers track parsing errors via the <code>last_error</code> member:</p>
+<ul>
+<li><code>WU_CSV_OK</code> / <code>WU_JSON_OK</code>: Successful read</li>
+<li><code>WU_CSV_ERROR_EOF</code> / <code>WU_JSON_ERROR_EOF</code>: End of file reached</li>
+<li><code>WU_CSV_ERROR_PARSE</code> / <code>WU_JSON_ERROR_PARSE</code>: Parse error (invalid format or missing required fields)</li>
+<li><code>WU_JSON_ERROR_MISSING_FIELD</code>: Required field not found in JSON object</li>
+</ul>
+<p>Check <code>wu_reader_last_error(reader)</code> after calling <code>wu_reader_next()</code> to detect errors.</p>
+<h2 id="json-reader-implementation-details">JSON Reader Implementation Details<a class="headerlink" href="#json-reader-implementation-details" title="Permanent link">&para;</a></h2>
+<p>The JSON reader parses newline-delimited JSON objects. It expects one valid JSON object per line, with field order being irrelevant. The reader is flexible with additional fields—only required fields for the data type must be present. This makes it suitable for data sources that may include extra metadata or fields you don't need.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../timestamps/" class="btn btn-neutral float-left" title="Timestamps and Data"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../design/architecture/" class="btn btn-neutral float-right" title="Architecture">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://codeberg.org/jailop/wu" class="fa fa-code-fork" style="color: #fcfcfc"> codeberg/wu</a>
+        </span>
+    
+    
+      <span><a href="../timestamps/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../design/architecture/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

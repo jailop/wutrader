@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="A low-level backtesting library for algorithmic trading" /><meta name="author" content="Jaime Lopez" /><link rel="canonical" href="https://jailop.codeberg.page/wutrader/" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Wu Trading Library</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Home";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = "/wutrader/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/c.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> Wu Trading Library
+        </a>
+        <div class="version">
+          0.2.0
+        </div><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#what-this-is">What This Is</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-this-is-not">What This Is Not</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#core-components">Core Components</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#design-principles">Design Principles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#feature-inventory">Feature Inventory</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#status-and-direction">Status and Direction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#contributing">Contributing</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#license">License</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="installation/">Installation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="features/">Features</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="tutorial/">Tutorial</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Guides</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="portfolio-configuration/">Portfolio Configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="guides/timestamps/">Timestamps and Data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="guides/data-formats/">Data Formats</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Design Notes</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="design/architecture/">Architecture</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="design/execution/">Execution Models</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="design/position_sizing/">Position Sizing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="design/timestamps/">Timestamps</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="examples/crossover/">Crossover Strategy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="examples/pairs_trading/">Pairs Trading</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="faq/">FAQ</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://jailop.codeberg.page/wutrader/docs/html/">API Reference</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://codeberg.org/jailop/wu">Repository</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">Wu Trading Library</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Home</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="wu-low-level-backtesting-library">Wu - Low Level Backtesting Library<a class="headerlink" href="#wu-low-level-backtesting-library" title="Permanent link">&para;</a></h1>
+<p>This is a personal project—a backtesting library for trading strategies
+written in C. I use it for learning, experimenting with different
+designs, and exploring ideas in algorithmic trading.</p>
+<h2 id="what-this-is">What This Is<a class="headerlink" href="#what-this-is" title="Permanent link">&para;</a></h2>
+<p>Wu is a toolkit for building backtesting systems. It provides core
+abstractions—portfolios, strategies, indicators, data readers, and a
+runner—that compose together. The implementation uses C's
+struct-and-function-pointer pattern for polymorphism without the
+overhead of inheritance.</p>
+<p>This is an ongoing experiment. The design evolves as I explore different
+approaches to modeling trading systems. Code may change significantly as
+I refine ideas or discover better patterns.</p>
+<h2 id="what-this-is-not">What This Is Not<a class="headerlink" href="#what-this-is-not" title="Permanent link">&para;</a></h2>
+<p>Wu is not production-ready trading infrastructure. It lacks many features
+professional systems require: sophisticated risk metrics, realistic
+execution modeling, market microstructure simulation, and proper
+out-of-sample validation frameworks. Use it for learning and
+experimentation, not live trading.</p>
+<h2 id="core-components">Core Components<a class="headerlink" href="#core-components" title="Permanent link">&para;</a></h2>
+<p><strong>Portfolios</strong> manage cash, execute trades, and track positions across
+multiple assets. The <code>WU_BasicPortfolio</code> implementation supports long and
+short positions, transaction costs, borrowing costs, and basic risk
+management.</p>
+<p><strong>Strategies</strong> generate trading signals. They consume market data, update
+internal indicators, and produce buy/sell/hold decisions. The library
+includes moving average crossover and pairs trading implementations.</p>
+<p><strong>Indicators</strong> provide technical analysis building blocks: moving
+averages, standard deviation, RSI, MACD. They maintain state internally
+and update incrementally as new data arrives.</p>
+<p><strong>Data Readers</strong> abstract data sources. The CSV reader handles file
+input, but the interface supports any source—databases, APIs, or
+synthetic generators.</p>
+<p><strong>Runner</strong> orchestrates the backtest loop, coordinating readers,
+strategies, and portfolios. It handles data synchronization and component
+lifecycle.</p>
+<h2 id="design-principles">Design Principles<a class="headerlink" href="#design-principles" title="Permanent link">&para;</a></h2>
+<p>Components carry state explicitly in structs. No hidden globals. When
+debugging, you can inspect memory directly. Struct definitions show all
+parameters and internal state.</p>
+<p>The components compose freely. Swap a CSV reader for a database reader.
+Replace a strategy implementation. Use portfolio code without the runner.
+Nothing enforces rigid patterns.</p>
+<p>Every component interface uses function pointers for polymorphism. The
+runner works with <code>WU_Portfolio</code>, not <code>WU_BasicPortfolio</code>. This lets you
+implement custom portfolios with different execution logic or risk models.</p>
+<h2 id="feature-inventory">Feature Inventory<a class="headerlink" href="#feature-inventory" title="Permanent link">&para;</a></h2>
+<p><strong>Portfolio Management</strong>
+- Long and short positions
+- Multiple assets
+- Transaction costs (fixed and percentage-based)
+- Borrowing costs and limits
+- Market order execution
+- Position sizing strategies (fixed dollar, percentage allocation)
+- Risk controls (stop-loss, take-profit)</p>
+<p><strong>Execution Policies</strong>
+- Immediate execution
+- Next bar close execution
+- Market and limit order frameworks</p>
+<p><strong>Technical Indicators</strong>
+- Moving averages (SMA, EMA)
+- Standard deviation
+- RSI (Relative Strength Index)
+- MACD (Moving Average Convergence Divergence)
+- Maximum Drawdown
+- Sharpe Ratio
+- Sortino Ratio
+- Cumulative returns tracking</p>
+<p><strong>Strategies</strong>
+- Moving average crossover
+- Pairs trading
+- Custom strategy interface for user implementations</p>
+<p><strong>Data Input</strong>
+- CSV file reader
+- JSONL (JSON Lines) reader
+- Generic data reader interface for custom sources</p>
+<p><strong>Performance Analysis</strong>
+- Trade statistics (count, win rate, max win/loss)
+- Portfolio value tracking
+- PnL calculation and distribution (mean, standard deviation)
+- Performance metrics computation</p>
+<p><strong>Execution Features</strong>
+- Stop-loss and take-profit exits
+- Leverage through borrowing
+- Multiple timeframe support
+- Configurable transaction costs</p>
+<h2 id="status-and-direction">Status and Direction<a class="headerlink" href="#status-and-direction" title="Permanent link">&para;</a></h2>
+<p>This project is under active development. I'm currently exploring:</p>
+<ul>
+<li>More realistic execution modeling</li>
+<li>Position-level risk tracking</li>
+<li>Event-driven architecture patterns</li>
+<li>Better separation between backtesting and live trading concerns</li>
+</ul>
+<p>Expect breaking changes as the design evolves. This is a learning
+project, not stable infrastructure.</p>
+<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
+<p>Build the library:</p>
+<pre class="codehilite"><code class="language-bash">make
+</code></pre>
+
+<p>Run the examples:</p>
+<pre class="codehilite"><code class="language-bash"># Single asset crossover strategy
+./examples/backtest/example01 ./tests/data/spy.csv
+
+# Pairs trading strategy
+./examples/backtest/pairs_trading ./tests/data/spy.csv ./tests/data/qqq.csv
+</code></pre>
+
+<p>Read the <a href="tutorial/">tutorial</a> for a step-by-step introduction.</p>
+<p>For detailed API documentation, see the <a href="https://jailop.codeberg.page/wutrader/docs/html/">Doxygen API Reference</a>.</p>
+<p>See the <a href="portfolio-configuration/">Guides</a> for detailed explanations of portfolio configuration and timestamp handling.</p>
+<p>Check the <a href="faq/">FAQ</a> for answers to common questions about data, strategies, metrics, and design choices.</p>
+<p>Repository: <a href="https://codeberg.org/jailop/wu">https://codeberg.org/jailop/wu</a></p>
+<h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
+<p>This is a personal project. I'm not actively seeking contributions, but
+questions and suggestions are welcome. If you find the project
+interesting and want to discuss design ideas or explore concepts
+together, reach out.</p>
+<p>Email: jailop AT protonmail DOT com</p>
+<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
+<p>This project is open source. Check the repository for license details.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="installation/" class="btn btn-neutral float-right" title="Installation">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://codeberg.org/jailop/wu" class="fa fa-code-fork" style="color: #fcfcfc"> codeberg/wu</a>
+        </span>
+    
+    
+    
+      <span><a href="installation/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2026-03-17 03:05:08.301813+00:00
+-->
