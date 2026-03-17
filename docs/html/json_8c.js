@@ -2,6 +2,7 @@ var json_8c =
 [
     [ "json_get_long_value", "json_8c.html#a50dce247f3f9da9bf0613ae5ac3b7fc7", null ],
     [ "json_get_number_value", "json_8c.html#a5051833eb069df1c99b9cf2f64563273", null ],
+    [ "json_has_field", "json_8c.html#ae4b13bdaade07b3889a7198d600a9998", null ],
     [ "read_candle_json", "json_8c.html#a396e6e9d969ac7fd0972f1702f48f55e", null ],
     [ "read_line", "json_8c.html#a84db2c85c77c1ebdf8527be12e48068e", null ],
     [ "read_single_value_json", "json_8c.html#abe8fee498694a5a80157dfcc41d4e66d", null ],

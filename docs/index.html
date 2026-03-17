@@ -55,6 +55,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#design-principles">Design Principles</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#feature-inventory">Feature Inventory</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#status-and-direction">Status and Direction</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a>
@@ -68,6 +70,10 @@
               </ul>
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="installation/">Installation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="features/">Features</a>
                 </li>
               </ul>
               <ul>
@@ -98,6 +104,10 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="examples/pairs_trading/">Pairs Trading</a>
                   </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="faq/">FAQ</a>
+                </li>
               </ul>
               <ul>
                 <li class="toctree-l1"><a class="" href="https://jailop.codeberg.page/wutrader/docs/html/">API Reference</a>
@@ -176,6 +186,46 @@ Nothing enforces rigid patterns.</p>
 <p>Every component interface uses function pointers for polymorphism. The
 runner works with <code>WU_Portfolio</code>, not <code>WU_BasicPortfolio</code>. This lets you
 implement custom portfolios with different execution logic or risk models.</p>
+<h2 id="feature-inventory">Feature Inventory<a class="headerlink" href="#feature-inventory" title="Permanent link">&para;</a></h2>
+<p><strong>Portfolio Management</strong>
+- Long and short positions
+- Multiple assets
+- Transaction costs (fixed and percentage-based)
+- Borrowing costs and limits
+- Market order execution
+- Position sizing strategies (fixed dollar, percentage allocation)
+- Risk controls (stop-loss, take-profit)</p>
+<p><strong>Execution Policies</strong>
+- Immediate execution
+- Next bar close execution
+- Market and limit order frameworks</p>
+<p><strong>Technical Indicators</strong>
+- Moving averages (SMA, EMA)
+- Standard deviation
+- RSI (Relative Strength Index)
+- MACD (Moving Average Convergence Divergence)
+- Maximum Drawdown
+- Sharpe Ratio
+- Sortino Ratio
+- Cumulative returns tracking</p>
+<p><strong>Strategies</strong>
+- Moving average crossover
+- Pairs trading
+- Custom strategy interface for user implementations</p>
+<p><strong>Data Input</strong>
+- CSV file reader
+- JSONL (JSON Lines) reader
+- Generic data reader interface for custom sources</p>
+<p><strong>Performance Analysis</strong>
+- Trade statistics (count, win rate, max win/loss)
+- Portfolio value tracking
+- PnL calculation and distribution (mean, standard deviation)
+- Performance metrics computation</p>
+<p><strong>Execution Features</strong>
+- Stop-loss and take-profit exits
+- Leverage through borrowing
+- Multiple timeframe support
+- Configurable transaction costs</p>
 <h2 id="status-and-direction">Status and Direction<a class="headerlink" href="#status-and-direction" title="Permanent link">&para;</a></h2>
 <p>This project is under active development. I'm currently exploring:</p>
 <ul>
@@ -202,6 +252,7 @@ project, not stable infrastructure.</p>
 <p>Read the <a href="tutorial/">tutorial</a> for a step-by-step introduction.</p>
 <p>For detailed API documentation, see the <a href="https://jailop.codeberg.page/wutrader/docs/html/">Doxygen API Reference</a>.</p>
 <p>See the <a href="portfolio-configuration/">Guides</a> for detailed explanations of portfolio configuration and timestamp handling.</p>
+<p>Check the <a href="faq/">FAQ</a> for answers to common questions about data, strategies, metrics, and design choices.</p>
 <p>Repository: <a href="https://codeberg.org/jailop/wu">https://codeberg.org/jailop/wu</a></p>
 <h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
 <p>This is a personal project. I'm not actively seeking contributions, but
@@ -263,5 +314,5 @@ together, reach out.</p>
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2026-03-17 02:51:24.091474+00:00
+Build Date UTC : 2026-03-17 02:58:50.989899+00:00
 -->

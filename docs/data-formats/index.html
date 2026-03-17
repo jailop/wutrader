@@ -53,6 +53,10 @@
                 </li>
               </ul>
               <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../features/">Features</a>
+                </li>
+              </ul>
+              <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../tutorial/">Tutorial</a>
                 </li>
               </ul>
@@ -98,6 +102,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#error-handling">Error Handling</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#json-reader-implementation-details">JSON Reader Implementation Details</a>
+    </li>
     </ul>
                   </li>
               </ul>
@@ -116,6 +122,10 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../examples/pairs_trading/">Pairs Trading</a>
                   </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
+                </li>
               </ul>
               <ul>
                 <li class="toctree-l1"><a class="" href="https://jailop.codeberg.page/wutrader/docs/html/">API Reference</a>
@@ -246,8 +256,11 @@ WU_JsonReader reader = wu_json_reader_new(
 <li><code>WU_CSV_OK</code> / <code>WU_JSON_OK</code>: Successful read</li>
 <li><code>WU_CSV_ERROR_EOF</code> / <code>WU_JSON_ERROR_EOF</code>: End of file reached</li>
 <li><code>WU_CSV_ERROR_PARSE</code> / <code>WU_JSON_ERROR_PARSE</code>: Parse error (invalid format or missing required fields)</li>
+<li><code>WU_JSON_ERROR_MISSING_FIELD</code>: Required field not found in JSON object</li>
 </ul>
 <p>Check <code>wu_reader_last_error(reader)</code> after calling <code>wu_reader_next()</code> to detect errors.</p>
+<h2 id="json-reader-implementation-details">JSON Reader Implementation Details<a class="headerlink" href="#json-reader-implementation-details" title="Permanent link">&para;</a></h2>
+<p>The JSON reader parses newline-delimited JSON objects. It expects one valid JSON object per line, with field order being irrelevant. The reader is flexible with additional fields—only required fields for the data type must be present. This makes it suitable for data sources that may include extra metadata or fields you don't need.</p>
               
             </div>
           </div><footer>

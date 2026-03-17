@@ -96,6 +96,7 @@ $(function(){initNavTree('json_8c.html','',''); });
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;ctype.h&gt;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="wu_8h_source.html">wu.h</a>&quot;</code><br />
 </div>
 <p><a href="json_8c_source.html">Go to the source code of this file.</a></p>
@@ -104,6 +105,7 @@ $(function(){initNavTree('json_8c.html','',''); });
 Functions</h2></td></tr>
 <tr class="memitem:a703ac3072ad030139bea283a94c8e9ad" id="r_a703ac3072ad030139bea283a94c8e9ad"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a703ac3072ad030139bea283a94c8e9ad">trim_line</a> (char *line)</td></tr>
 <tr class="memitem:a84db2c85c77c1ebdf8527be12e48068e" id="r_a84db2c85c77c1ebdf8527be12e48068e"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a84db2c85c77c1ebdf8527be12e48068e">read_line</a> (WU_JsonReader reader)</td></tr>
+<tr class="memitem:ae4b13bdaade07b3889a7198d600a9998" id="r_ae4b13bdaade07b3889a7198d600a9998"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#ae4b13bdaade07b3889a7198d600a9998">json_has_field</a> (const char *json, const char *key)</td></tr>
 <tr class="memitem:a5051833eb069df1c99b9cf2f64563273" id="r_a5051833eb069df1c99b9cf2f64563273"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#a5051833eb069df1c99b9cf2f64563273">json_get_number_value</a> (const char *json, const char *key)</td></tr>
 <tr class="memitem:a50dce247f3f9da9bf0613ae5ac3b7fc7" id="r_a50dce247f3f9da9bf0613ae5ac3b7fc7"><td class="memItemLeft">static long&#160;</td><td class="memItemRight"><a class="el" href="#a50dce247f3f9da9bf0613ae5ac3b7fc7">json_get_long_value</a> (const char *json, const char *key)</td></tr>
 <tr class="memitem:a396e6e9d969ac7fd0972f1702f48f55e" id="r_a396e6e9d969ac7fd0972f1702f48f55e"><td class="memItemLeft">static void *&#160;</td><td class="memItemRight"><a class="el" href="#a396e6e9d969ac7fd0972f1702f48f55e">read_candle_json</a> (WU_JsonReader reader)</td></tr>
@@ -140,7 +142,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="json_8c_source.html#l00044">44</a> of file <a class="el" href="json_8c_source.html">json.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="json_8c_source.html#l00054">54</a> of file <a class="el" href="json_8c_source.html">json.c</a>.</p>
 
 </div>
 </div>
@@ -171,7 +173,38 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="json_8c_source.html#l00029">29</a> of file <a class="el" href="json_8c_source.html">json.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="json_8c_source.html#l00036">36</a> of file <a class="el" href="json_8c_source.html">json.c</a>.</p>
+
+</div>
+</div>
+<a id="ae4b13bdaade07b3889a7198d600a9998" name="ae4b13bdaade07b3889a7198d600a9998"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4b13bdaade07b3889a7198d600a9998">&#9670;&#160;</a></span>json_has_field()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool json_has_field </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>json</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>key</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="json_8c_source.html#l00030">30</a> of file <a class="el" href="json_8c_source.html">json.c</a>.</p>
 
 </div>
 </div>
@@ -198,7 +231,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="json_8c_source.html#l00059">59</a> of file <a class="el" href="json_8c_source.html">json.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="json_8c_source.html#l00069">69</a> of file <a class="el" href="json_8c_source.html">json.c</a>.</p>
 
 </div>
 </div>
@@ -225,7 +258,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="json_8c_source.html#l00014">14</a> of file <a class="el" href="json_8c_source.html">json.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="json_8c_source.html#l00015">15</a> of file <a class="el" href="json_8c_source.html">json.c</a>.</p>
 
 </div>
 </div>
@@ -252,7 +285,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="json_8c_source.html#l00103">103</a> of file <a class="el" href="json_8c_source.html">json.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="json_8c_source.html#l00151">151</a> of file <a class="el" href="json_8c_source.html">json.c</a>.</p>
 
 </div>
 </div>
@@ -279,7 +312,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="json_8c_source.html#l00081">81</a> of file <a class="el" href="json_8c_source.html">json.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="json_8c_source.html#l00112">112</a> of file <a class="el" href="json_8c_source.html">json.c</a>.</p>
 
 </div>
 </div>
@@ -306,7 +339,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="json_8c_source.html#l00007">7</a> of file <a class="el" href="json_8c_source.html">json.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="json_8c_source.html#l00008">8</a> of file <a class="el" href="json_8c_source.html">json.c</a>.</p>
 
 </div>
 </div>
@@ -333,7 +366,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="json_8c_source.html#l00121">121</a> of file <a class="el" href="json_8c_source.html">json.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="json_8c_source.html#l00184">184</a> of file <a class="el" href="json_8c_source.html">json.c</a>.</p>
 
 </div>
 </div>
@@ -361,7 +394,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="json_8c_source.html#l00126">126</a> of file <a class="el" href="json_8c_source.html">json.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="json_8c_source.html#l00189">189</a> of file <a class="el" href="json_8c_source.html">json.c</a>.</p>
 
 </div>
 </div>

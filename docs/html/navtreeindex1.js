@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"positions_8h.html#aa60a6afb2af7e73f2d3848b68db0e930a2b97651e120a38638b0f119bdc8e155b":[1,0,0,0,3,10,3],
 "positions_8h.html#aa60a6afb2af7e73f2d3848b68db0e930a95433b079a46c5b62f83716b0d22af18":[1,0,0,0,3,10,0],
 "positions_8h.html#aa60a6afb2af7e73f2d3848b68db0e930adea60b04e557074cfef8a600ace85161":[1,0,0,0,3,10,1],
 "positions_8h.html#aaaf1d09fd692754818c00e3a09088f1c":[1,0,0,0,3,6],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "structWU__PnLStats__.html#ae8984acfc37292038ef983c6c76e7194":[0,0,16,3],
 "structWU__PortfolioParams.html":[0,0,19],
 "structWU__PortfolioParams.html#a34bd73870032179ce81e562f5d550404":[0,0,19,0],
-"structWU__PortfolioParams.html#a401d1a52a094e06dbdd8c8de1d680355":[0,0,19,2],
-"structWU__PortfolioParams.html#a5a9767b92bf9812992b63b1aa6b4dba9":[0,0,19,4]
+"structWU__PortfolioParams.html#a401d1a52a094e06dbdd8c8de1d680355":[0,0,19,2]
 };
