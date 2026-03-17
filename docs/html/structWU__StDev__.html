@@ -100,16 +100,16 @@ $(function(){initNavTree('structWU__StDev__.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:af0306a7cac35c87cd6e4ebd0695d2b21" id="r_af0306a7cac35c87cd6e4ebd0695d2b21"><td class="memItemLeft">double(*&#160;</td><td class="memItemRight"><a class="el" href="#af0306a7cac35c87cd6e4ebd0695d2b21">update</a> )(struct <a class="el" href="structWU__StDev__.html">WU_StDev_</a> *self, double value)</td></tr>
-<tr class="memitem:aa0d65d4024265253b22c9c027b98deda" id="r_aa0d65d4024265253b22c9c027b98deda"><td class="memItemLeft">double(*&#160;</td><td class="memItemRight"><a class="el" href="#aa0d65d4024265253b22c9c027b98deda">get</a> )(const struct <a class="el" href="structWU__StDev__.html">WU_StDev_</a> *self)</td></tr>
+<tr class="memitem:af0306a7cac35c87cd6e4ebd0695d2b21" id="r_af0306a7cac35c87cd6e4ebd0695d2b21"><td class="memItemLeft">double(*&#160;</td><td class="memItemRight"><a class="el" href="#af0306a7cac35c87cd6e4ebd0695d2b21">update</a> )(struct <a class="el" href="structWU__StDev__.html">WU_StDev_</a> *self, double <a class="el" href="#a4d0c4d69f24d2273e04b0ade09f297bd">value</a>)</td></tr>
 <tr class="memitem:ab77a43e7dfde4b5d726196e532d94133" id="r_ab77a43e7dfde4b5d726196e532d94133"><td class="memItemLeft">void(*&#160;</td><td class="memItemRight"><a class="el" href="#ab77a43e7dfde4b5d726196e532d94133">delete</a> )(struct <a class="el" href="structWU__StDev__.html">WU_StDev_</a> *self)</td></tr>
+<tr class="memitem:a4d0c4d69f24d2273e04b0ade09f297bd" id="r_a4d0c4d69f24d2273e04b0ade09f297bd"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a4d0c4d69f24d2273e04b0ade09f297bd">value</a></td></tr>
 <tr class="memitem:a585387de3fa23e0263803f0c56bc11e8" id="r_a585387de3fa23e0263803f0c56bc11e8"><td class="memItemLeft">WU_MVar&#160;</td><td class="memItemRight"><a class="el" href="#a585387de3fa23e0263803f0c56bc11e8">mvar</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The WU_StDev (Moving Standard Deviation) is an indicator that calculates the standard deviation of the last N values, where N is the window size. </p>
 <p>It is used to measure the volatility of a time series. <span class="tt">dof</span> stands for "degree of freedom" and is used to adjust the standard deviation calculation. If <span class="tt">dof</span> is 0, the standard deviation is calculated using the population standard deviation formula. If <span class="tt">dof</span> is 1, the standard deviation is calculated using the sample standard deviation formula. </p>
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00100">100</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00123">123</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Field Documentation</h2>
 <a id="ab77a43e7dfde4b5d726196e532d94133" name="ab77a43e7dfde4b5d726196e532d94133"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab77a43e7dfde4b5d726196e532d94133">&#9670;&#160;</a></span>delete</h2>
@@ -123,23 +123,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00103">103</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
-
-</div>
-</div>
-<a id="aa0d65d4024265253b22c9c027b98deda" name="aa0d65d4024265253b22c9c027b98deda"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0d65d4024265253b22c9c027b98deda">&#9670;&#160;</a></span>get</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double(* WU_StDev::get) (const struct <a class="el" href="structWU__StDev__.html">WU_StDev_</a> *self)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00102">102</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00125">125</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -155,7 +139,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00104">104</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00127">127</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -166,12 +150,28 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double(* WU_StDev::update) (struct <a class="el" href="structWU__StDev__.html">WU_StDev_</a> *self, double value)</td>
+          <td class="memname">double(* WU_StDev::update) (struct <a class="el" href="structWU__StDev__.html">WU_StDev_</a> *self, double <a class="el" href="#a4d0c4d69f24d2273e04b0ade09f297bd">value</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00101">101</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00124">124</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+
+</div>
+</div>
+<a id="a4d0c4d69f24d2273e04b0ade09f297bd" name="a4d0c4d69f24d2273e04b0ade09f297bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d0c4d69f24d2273e04b0ade09f297bd">&#9670;&#160;</a></span>value</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double WU_StDev::value</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00126">126</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>

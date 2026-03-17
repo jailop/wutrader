@@ -101,19 +101,18 @@ $(function(){initNavTree('structWU__CalmarRatio__.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:a397971a629d90483ec3b412ff8404287" id="r_a397971a629d90483ec3b412ff8404287"><td class="memItemLeft">double(*&#160;</td><td class="memItemRight"><a class="el" href="#a397971a629d90483ec3b412ff8404287">update</a> )(struct <a class="el" href="structWU__CalmarRatio__.html">WU_CalmarRatio_</a> *self, <a class="el" href="structWU__PerformanceUpdate.html">WU_PerformanceUpdate</a> perf)</td></tr>
-<tr class="memitem:a1b3be0513a861c057e4a1dd8aedc919c" id="r_a1b3be0513a861c057e4a1dd8aedc919c"><td class="memItemLeft">double(*&#160;</td><td class="memItemRight"><a class="el" href="#a1b3be0513a861c057e4a1dd8aedc919c">get</a> )(const struct <a class="el" href="structWU__CalmarRatio__.html">WU_CalmarRatio_</a> *self)</td></tr>
 <tr class="memitem:af5976623a938161bf38440579dde2da6" id="r_af5976623a938161bf38440579dde2da6"><td class="memItemLeft">void(*&#160;</td><td class="memItemRight"><a class="el" href="#af5976623a938161bf38440579dde2da6">delete</a> )(struct <a class="el" href="structWU__CalmarRatio__.html">WU_CalmarRatio_</a> *self)</td></tr>
+<tr class="memitem:a3ce0d7159ed245f386065d37e408d4b1" id="r_a3ce0d7159ed245f386065d37e408d4b1"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a3ce0d7159ed245f386065d37e408d4b1">value</a></td></tr>
 <tr class="memitem:ae53bef86a100533636098157ac5f5e37" id="r_ae53bef86a100533636098157ac5f5e37"><td class="memItemLeft">WU_ReturnStats&#160;</td><td class="memItemRight"><a class="el" href="#ae53bef86a100533636098157ac5f5e37">return_stats</a></td></tr>
 <tr class="memitem:a29ad645debf8094e9e9bf594f7380d33" id="r_a29ad645debf8094e9e9bf594f7380d33"><td class="memItemLeft">WU_MaxDrawdown&#160;</td><td class="memItemRight"><a class="el" href="#a29ad645debf8094e9e9bf594f7380d33">max_drawdown</a></td></tr>
 <tr class="memitem:a1ea0ef3f2017105beb6806654c42c539" id="r_a1ea0ef3f2017105beb6806654c42c539"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a1ea0ef3f2017105beb6806654c42c539">initial_value</a></td></tr>
-<tr class="memitem:a3ce0d7159ed245f386065d37e408d4b1" id="r_a3ce0d7159ed245f386065d37e408d4b1"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a3ce0d7159ed245f386065d37e408d4b1">value</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Calmar Ratio - return to maximum drawdown ratio. </p>
 <p>Computes annualized_return / abs(max_drawdown) incrementally. Returns a single double value representing the ratio.</p>
 <p>Requires time tracking to properly annualize the return based on data frequency. </p>
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00287">287</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00305">305</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Field Documentation</h2>
 <a id="af5976623a938161bf38440579dde2da6" name="af5976623a938161bf38440579dde2da6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af5976623a938161bf38440579dde2da6">&#9670;&#160;</a></span>delete</h2>
@@ -127,23 +126,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00290">290</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
-
-</div>
-</div>
-<a id="a1b3be0513a861c057e4a1dd8aedc919c" name="a1b3be0513a861c057e4a1dd8aedc919c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b3be0513a861c057e4a1dd8aedc919c">&#9670;&#160;</a></span>get</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double(* WU_CalmarRatio::get) (const struct <a class="el" href="structWU__CalmarRatio__.html">WU_CalmarRatio_</a> *self)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00289">289</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00307">307</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -159,7 +142,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00293">293</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00311">311</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -175,7 +158,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00292">292</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00310">310</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -191,7 +174,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00291">291</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00309">309</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -207,7 +190,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00288">288</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00306">306</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -223,7 +206,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00294">294</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00308">308</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>

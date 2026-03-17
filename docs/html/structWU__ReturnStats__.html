@@ -101,8 +101,8 @@ $(function(){initNavTree('structWU__ReturnStats__.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:a659a53dc350798d584dc3255bc6771e2" id="r_a659a53dc350798d584dc3255bc6771e2"><td class="memItemLeft"><a class="el" href="structWU__ReturnStatsResult.html">WU_ReturnStatsResult</a>(*&#160;</td><td class="memItemRight"><a class="el" href="#a659a53dc350798d584dc3255bc6771e2">update</a> )(struct <a class="el" href="structWU__ReturnStats__.html">WU_ReturnStats_</a> *self, <a class="el" href="structWU__PerformanceUpdate.html">WU_PerformanceUpdate</a> perf)</td></tr>
-<tr class="memitem:a2fa0f0487568aaab2b1085459ab0ffb9" id="r_a2fa0f0487568aaab2b1085459ab0ffb9"><td class="memItemLeft"><a class="el" href="structWU__ReturnStatsResult.html">WU_ReturnStatsResult</a>(*&#160;</td><td class="memItemRight"><a class="el" href="#a2fa0f0487568aaab2b1085459ab0ffb9">get</a> )(const struct <a class="el" href="structWU__ReturnStats__.html">WU_ReturnStats_</a> *self)</td></tr>
 <tr class="memitem:a0c8e81795461bfdcf895fe02e71f6505" id="r_a0c8e81795461bfdcf895fe02e71f6505"><td class="memItemLeft">void(*&#160;</td><td class="memItemRight"><a class="el" href="#a0c8e81795461bfdcf895fe02e71f6505">delete</a> )(struct <a class="el" href="structWU__ReturnStats__.html">WU_ReturnStats_</a> *self)</td></tr>
+<tr class="memitem:a63438f6f59ce0b84b67ad4500b49d648" id="r_a63438f6f59ce0b84b67ad4500b49d648"><td class="memItemLeft"><a class="el" href="structWU__ReturnStatsResult.html">WU_ReturnStatsResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#a63438f6f59ce0b84b67ad4500b49d648">value</a></td></tr>
 <tr class="memitem:a6e0f91697d1fded46bd44f0ce76d5da1" id="r_a6e0f91697d1fded46bd44f0ce76d5da1"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a6e0f91697d1fded46bd44f0ce76d5da1">prev_value</a></td></tr>
 <tr class="memitem:ae032675a9e02378c63933d9e0d159b61" id="r_ae032675a9e02378c63933d9e0d159b61"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#ae032675a9e02378c63933d9e0d159b61">return_mean</a></td></tr>
 <tr class="memitem:a6d11e6934b74e5e0fdcd381f37302741" id="r_a6d11e6934b74e5e0fdcd381f37302741"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a6d11e6934b74e5e0fdcd381f37302741">return_m2</a></td></tr>
@@ -117,7 +117,7 @@ Data Fields</h2></td></tr>
 <p>Computes mean and variance of returns using Welford's online algorithm. Also tracks downside deviation (only negative returns) for Sortino ratio.</p>
 <p>Tracks time periods to enable proper annualization of metrics. </p>
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00205">205</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00225">225</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Field Documentation</h2>
 <a id="ae67ffde0dd47cd5e3fd93306b07170ee" name="ae67ffde0dd47cd5e3fd93306b07170ee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae67ffde0dd47cd5e3fd93306b07170ee">&#9670;&#160;</a></span>count</h2>
@@ -131,7 +131,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00213">213</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00233">233</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -147,7 +147,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00208">208</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00227">227</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -163,7 +163,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00212">212</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00232">232</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -179,23 +179,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00215">215</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
-
-</div>
-</div>
-<a id="a2fa0f0487568aaab2b1085459ab0ffb9" name="a2fa0f0487568aaab2b1085459ab0ffb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2fa0f0487568aaab2b1085459ab0ffb9">&#9670;&#160;</a></span>get</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structWU__ReturnStatsResult.html">WU_ReturnStatsResult</a>(* WU_ReturnStats::get) (const struct <a class="el" href="structWU__ReturnStats__.html">WU_ReturnStats_</a> *self)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00207">207</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00235">235</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -211,7 +195,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00209">209</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00229">229</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -227,7 +211,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00211">211</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00231">231</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -243,7 +227,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00210">210</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00230">230</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -259,7 +243,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00214">214</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00234">234</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -275,7 +259,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00216">216</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00236">236</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -291,7 +275,23 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00206">206</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00226">226</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+
+</div>
+</div>
+<a id="a63438f6f59ce0b84b67ad4500b49d648" name="a63438f6f59ce0b84b67ad4500b49d648"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63438f6f59ce0b84b67ad4500b49d648">&#9670;&#160;</a></span>value</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structWU__ReturnStatsResult.html">WU_ReturnStatsResult</a> WU_ReturnStats::value</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00228">228</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>

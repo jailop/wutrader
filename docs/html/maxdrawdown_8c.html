@@ -100,12 +100,42 @@ $(function(){initNavTree('maxdrawdown_8c.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a3292a1cc2bf51bf779be6643e4469dbc" id="r_a3292a1cc2bf51bf779be6643e4469dbc"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#a3292a1cc2bf51bf779be6643e4469dbc">wu_max_drawdown_update</a> (WU_MaxDrawdown self, double portfolio_value)</td></tr>
-<tr class="memitem:a913b6542f58a38fe4618b5b69104694a" id="r_a913b6542f58a38fe4618b5b69104694a"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#a913b6542f58a38fe4618b5b69104694a">wu_max_drawdown_get</a> (const struct <a class="el" href="structWU__MaxDrawdown__.html">WU_MaxDrawdown_</a> *self)</td></tr>
+<tr class="memitem:a159c378f46f969d73b21756ba43edd0c" id="r_a159c378f46f969d73b21756ba43edd0c"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#a159c378f46f969d73b21756ba43edd0c">update</a> (WU_MaxDrawdown self, double portfolio_value)</td></tr>
 <tr class="memitem:a66da7247e2f4b659b3fb815306749a5c" id="r_a66da7247e2f4b659b3fb815306749a5c"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a66da7247e2f4b659b3fb815306749a5c">wu_max_drawdown_free</a> (WU_MaxDrawdown self)</td></tr>
 <tr class="memitem:a878080b0b8a0899415cc6344a41e3bf7" id="r_a878080b0b8a0899415cc6344a41e3bf7"><td class="memItemLeft">WU_MaxDrawdown&#160;</td><td class="memItemRight"><a class="el" href="#a878080b0b8a0899415cc6344a41e3bf7">wu_max_drawdown_new</a> (void)</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a159c378f46f969d73b21756ba43edd0c" name="a159c378f46f969d73b21756ba43edd0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a159c378f46f969d73b21756ba43edd0c">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double update </td>
+          <td>(</td>
+          <td class="paramtype">WU_MaxDrawdown</td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>portfolio_value</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="maxdrawdown_8c_source.html#l00005">5</a> of file <a class="el" href="maxdrawdown_8c_source.html">maxdrawdown.c</a>.</p>
+
+</div>
+</div>
 <a id="a66da7247e2f4b659b3fb815306749a5c" name="a66da7247e2f4b659b3fb815306749a5c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a66da7247e2f4b659b3fb815306749a5c">&#9670;&#160;</a></span>wu_max_drawdown_free()</h2>
 
@@ -119,33 +149,6 @@ Functions</h2></td></tr>
           <td class="memname">void wu_max_drawdown_free </td>
           <td>(</td>
           <td class="paramtype">WU_MaxDrawdown</td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="maxdrawdown_8c_source.html#l00020">20</a> of file <a class="el" href="maxdrawdown_8c_source.html">maxdrawdown.c</a>.</p>
-
-</div>
-</div>
-<a id="a913b6542f58a38fe4618b5b69104694a" name="a913b6542f58a38fe4618b5b69104694a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a913b6542f58a38fe4618b5b69104694a">&#9670;&#160;</a></span>wu_max_drawdown_get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double wu_max_drawdown_get </td>
-          <td>(</td>
-          <td class="paramtype">const struct <a class="el" href="structWU__MaxDrawdown__.html">WU_MaxDrawdown_</a> *</td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -175,38 +178,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="maxdrawdown_8c_source.html#l00024">24</a> of file <a class="el" href="maxdrawdown_8c_source.html">maxdrawdown.c</a>.</p>
-
-</div>
-</div>
-<a id="a3292a1cc2bf51bf779be6643e4469dbc" name="a3292a1cc2bf51bf779be6643e4469dbc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3292a1cc2bf51bf779be6643e4469dbc">&#9670;&#160;</a></span>wu_max_drawdown_update()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double wu_max_drawdown_update </td>
-          <td>(</td>
-          <td class="paramtype">WU_MaxDrawdown</td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>portfolio_value</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="maxdrawdown_8c_source.html#l00005">5</a> of file <a class="el" href="maxdrawdown_8c_source.html">maxdrawdown.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="maxdrawdown_8c_source.html#l00020">20</a> of file <a class="el" href="maxdrawdown_8c_source.html">maxdrawdown.c</a>.</p>
 
 </div>
 </div>

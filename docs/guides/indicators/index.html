@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Jaime Lopez" /><link rel="canonical" href="https://jailop.codeberg.page/wutrader/guides/indicators/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Indicators - Wu Trading Library</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Indicators";
+        var mkdocs_page_input_path = "guides/indicators.md";
+        var mkdocs_page_url = "/wutrader/guides/indicators/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/c.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Wu Trading Library
+        </a>
+        <div class="version">
+          0.2.0
+        </div><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../installation/">Installation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../features/">Features</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../tutorial/">Tutorial</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Guides</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../portfolio-configuration/">Portfolio Configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../timestamps/">Timestamps and Data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data-formats/">Data Formats</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Indicators</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#rolling-approach">Rolling approach</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#interface-overview">Interface overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#minimal-sma-example">Minimal SMA example</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Design Notes</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/architecture/">Architecture</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/execution/">Execution Models</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/position_sizing/">Position Sizing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/timestamps/">Timestamps</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../examples/crossover/">Crossover Strategy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../examples/pairs_trading/">Pairs Trading</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../faq/">FAQ</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://jailop.codeberg.page/wutrader/docs/html/">API Reference</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://codeberg.org/jailop/wu">Repository</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Wu Trading Library</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Guides</li>
+      <li class="breadcrumb-item active">Indicators</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="indicators-interface">Indicators interface<a class="headerlink" href="#indicators-interface" title="Permanent link">&para;</a></h1>
+<p>This document explains the common interface used by indicators in the library and provides a brief example implementing the Simple Moving Average (SMA) indicator.</p>
+<h2 id="rolling-approach">Rolling approach<a class="headerlink" href="#rolling-approach" title="Permanent link">&para;</a></h2>
+<p>Indicators are designed to work with streaming data, meaning they update one data point at a time. When new data is pushed, the indicator is updated and older values are forgotten.</p>
+<p>For example, computing a moving average at each update, it doesn't
+include all values involved. Instead, it just takes the previous average
+to update it with the proportion of the arriving value, performing a
+minimal number of operations. </p>
+<p>$$\text{MA}<em>{t,p} = \text{MA}</em>{t-1,p} + \frac{x_t - x_{t-p}}{p}$$</p>
+<p>Where:</p>
+<ul>
+<li>$p$: Number of time points over the moving average is computed</li>
+<li>$\text{MA}_{t,p}$: Moving average for time $t$</li>
+<li>$\text{MA}_{t-1,p}$: Previous computed moving average</li>
+<li>$x_t$: New arriving value</li>
+<li>$x_{t - p}$: Value of $p$-points before, to be forgotten</li>
+</ul>
+<h2 id="interface-overview">Interface overview<a class="headerlink" href="#interface-overview" title="Permanent link">&para;</a></h2>
+<p>All indicators should adhere to the same structure defined in the header <code>include/wu/indicators.h</code>:</p>
+<ul>
+<li>An <code>update</code> function pointer that accepts a pointer to the indicator (<code>self</code>) and a value (type varies by indicator) and returns the updated indicator value (type also varies by indicator).</li>
+<li>A <code>delete</code> function pointer that frees any allocated resources associated with the indicator.</li>
+<li>A <code>value</code> field that stores the current value of the indicator. Its type is specific to the indicator (typically <code>double</code>).</li>
+</ul>
+<p>When composing an indicator value, a structure should be used. For example, the <code>WU_MACD</code> indicator employs a structure <code>WU_MACDResult</code> with the following fields: <code>macd</code>, <code>signal</code>, and <code>histogram</code>.</p>
+<p>Convenience macros are provided for uniform usage:</p>
+<ul>
+<li><code>wu_indicator_update(indicator, value)</code> — calls the indicator's <code>update</code> function and returns the result.</li>
+<li><code>wu_indicator_get(indicator)</code> — returns the <code>value</code> field of the indicator.</li>
+<li><code>wu_indicator_delete(indicator)</code> — calls the indicator's <code>delete</code> function to free resources.</li>
+</ul>
+<h2 id="minimal-sma-example">Minimal SMA example<a class="headerlink" href="#minimal-sma-example" title="Permanent link">&para;</a></h2>
+<p>The following shows the typical pieces required to implement an indicator.</p>
+<p>First, define the structure to represent the indicator. This should include fields for the <code>update</code> and <code>delete</code> functions, as well as a <code>value</code> field to represent the current state of the indicator.</p>
+<pre class="codehilite"><code class="language-c">typedef struct WU_SMA_ {
+     double (*update)(struct WU_SMA_ *self, double value);
+     void (*delete)(struct WU_SMA_ *self);
+     double value;
+     double* prev_values;
+     int window_size;
+     int pos;
+     int len;
+     double sum;
+}* WU_SMA;
+</code></pre>
+
+<p>Here is the implementation of the <code>update</code> function below:</p>
+<pre class="codehilite"><code class="language-c">static double wu_sma_update(struct WU_SMA_ *self, double value) {
+    if (self-&gt;len &lt; self-&gt;window_size) {
+        self-&gt;len++;
+    } else {
+        // subtract overwritten value from sum
+        self-&gt;sum -= self-&gt;prev_values[self-&gt;pos];
+    }
+
+    self-&gt;prev_values[self-&gt;pos] = value;
+    self-&gt;sum += value;
+    self-&gt;pos = (self-&gt;pos + 1) % self-&gt;window_size;
+
+    self-&gt;value = self-&gt;sum / (double)self-&gt;len;
+    return self-&gt;value;
+}
+</code></pre>
+
+<p>Now, let's move on to implementing the <code>delete</code> function:</p>
+<pre class="codehilite"><code class="language-c">static void wu_sma_delete(struct WU_SMA_ *self) {
+    if (!self) return;
+    free(self-&gt;prev_values);
+    free(self);
+}
+</code></pre>
+
+<p>Finally, here's the implementation of the <code>_new</code> function:</p>
+<pre class="codehilite"><code class="language-c">WU_SMA wu_sma_new(int window_size) {
+    WU_SMA s = malloc(sizeof(struct WU_SMA_));
+    s-&gt;update = (double (*)(struct WU_SMA_*, double))wu_sma_update;
+    s-&gt;delete = (void (*)(struct WU_SMA_ *))wu_sma_delete;
+    s-&gt;value = 0.0;
+    s-&gt;prev_values = calloc(window_size, sizeof(double));
+    s-&gt;window_size = window_size;
+    s-&gt;pos = 0;
+    s-&gt;len = 0;
+    s-&gt;sum = 0.0;
+    return s;
+}
+</code></pre>
+
+<p>Once the indicator has been implemented, here’s an example of how it can be used:</p>
+<pre class="codehilite"><code class="language-c">WU_SMA sma = wu_sma_new(5);
+double new_val = wu_indicator_update(sma, price);
+double cur = wu_indicator_get(sma);
+wu_indicator_delete(sma);
+</code></pre>
+
+<p>If more examples are desired, consider copying one of the concrete implementations from the library and adapting it for a new indicator: replicate the struct layout, implement <code>update</code> and <code>delete</code>, provide a <code>_new</code> constructor, and expose it via the existing macros for consistent usage.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../data-formats/" class="btn btn-neutral float-left" title="Data Formats"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../design/architecture/" class="btn btn-neutral float-right" title="Architecture">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://codeberg.org/jailop/wu" class="fa fa-code-fork" style="color: #fcfcfc"> codeberg/wu</a>
+        </span>
+    
+    
+      <span><a href="../data-formats/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../design/architecture/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

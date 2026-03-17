@@ -101,18 +101,17 @@ $(function(){initNavTree('structWU__SortinoRatio__.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:a67bb05960f0f9aa4381b4a5c23afa3d4" id="r_a67bb05960f0f9aa4381b4a5c23afa3d4"><td class="memItemLeft">double(*&#160;</td><td class="memItemRight"><a class="el" href="#a67bb05960f0f9aa4381b4a5c23afa3d4">update</a> )(struct <a class="el" href="structWU__SortinoRatio__.html">WU_SortinoRatio_</a> *self, <a class="el" href="structWU__PerformanceUpdate.html">WU_PerformanceUpdate</a> perf)</td></tr>
-<tr class="memitem:aa8b80e1d221980c84f4f44dd1c30e49f" id="r_aa8b80e1d221980c84f4f44dd1c30e49f"><td class="memItemLeft">double(*&#160;</td><td class="memItemRight"><a class="el" href="#aa8b80e1d221980c84f4f44dd1c30e49f">get</a> )(const struct <a class="el" href="structWU__SortinoRatio__.html">WU_SortinoRatio_</a> *self)</td></tr>
 <tr class="memitem:a97281c9eab5a0b2e370255df78c5798d" id="r_a97281c9eab5a0b2e370255df78c5798d"><td class="memItemLeft">void(*&#160;</td><td class="memItemRight"><a class="el" href="#a97281c9eab5a0b2e370255df78c5798d">delete</a> )(struct <a class="el" href="structWU__SortinoRatio__.html">WU_SortinoRatio_</a> *self)</td></tr>
+<tr class="memitem:ad6f9be976c17de9481e6ce7b4d3df5b9" id="r_ad6f9be976c17de9481e6ce7b4d3df5b9"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#ad6f9be976c17de9481e6ce7b4d3df5b9">value</a></td></tr>
 <tr class="memitem:a25d89319d6f33a3822545b9b88943742" id="r_a25d89319d6f33a3822545b9b88943742"><td class="memItemLeft">WU_ReturnStats&#160;</td><td class="memItemRight"><a class="el" href="#a25d89319d6f33a3822545b9b88943742">return_stats</a></td></tr>
 <tr class="memitem:abaee59dceb32e68063281d3a30a901fd" id="r_abaee59dceb32e68063281d3a30a901fd"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#abaee59dceb32e68063281d3a30a901fd">risk_free_rate</a></td></tr>
-<tr class="memitem:ad6f9be976c17de9481e6ce7b4d3df5b9" id="r_ad6f9be976c17de9481e6ce7b4d3df5b9"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#ad6f9be976c17de9481e6ce7b4d3df5b9">value</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Sortino Ratio - risk-adjusted return using downside deviation. </p>
 <p>Computes (mean_return - risk_free_rate) / downside_deviation incrementally. Returns a single double value representing the annualized ratio.</p>
 <p>Requires time tracking to properly annualize the ratio based on data frequency. </p>
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00269">269</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00288">288</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Field Documentation</h2>
 <a id="a97281c9eab5a0b2e370255df78c5798d" name="a97281c9eab5a0b2e370255df78c5798d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a97281c9eab5a0b2e370255df78c5798d">&#9670;&#160;</a></span>delete</h2>
@@ -126,23 +125,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00272">272</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
-
-</div>
-</div>
-<a id="aa8b80e1d221980c84f4f44dd1c30e49f" name="aa8b80e1d221980c84f4f44dd1c30e49f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8b80e1d221980c84f4f44dd1c30e49f">&#9670;&#160;</a></span>get</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double(* WU_SortinoRatio::get) (const struct <a class="el" href="structWU__SortinoRatio__.html">WU_SortinoRatio_</a> *self)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00271">271</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00290">290</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -158,7 +141,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00273">273</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00292">292</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -174,7 +157,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00274">274</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00293">293</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -190,7 +173,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00270">270</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00289">289</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -206,7 +189,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00275">275</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00291">291</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>

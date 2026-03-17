@@ -21,11 +21,8 @@ var searchData=
   ['return_5fstats_2ec_18',['return_stats.c',['../return__stats_8c.html',1,'']]],
   ['risk_5ffree_5frate_19',['risk_free_rate',['../structWU__SharpeRatio__.html#af5fa17cc93f74cf62f9f3cb1a0fdce6a',1,'WU_SharpeRatio_::risk_free_rate'],['../structWU__SortinoRatio__.html#abaee59dceb32e68063281d3a30a901fd',1,'WU_SortinoRatio_::risk_free_rate'],['../structWU__PortfolioParams.html#a91fe2c540c1181066f24825807491ff5',1,'WU_PortfolioParams::risk_free_rate']]],
   ['rsi_2ec_20',['rsi.c',['../rsi_8c.html',1,'']]],
-  ['rsi_5ffree_21',['rsi_free',['../rsi_8c.html#aff4c49245c70ce9950355b252ec38fcd',1,'rsi.c']]],
-  ['rsi_5fget_22',['rsi_get',['../rsi_8c.html#af36788d128c80c8e6d8c1ebce2b8d158',1,'rsi.c']]],
-  ['rsi_5fupdate_23',['rsi_update',['../rsi_8c.html#a85028280f0983de397bc58f9b73f87c9',1,'rsi.c']]],
-  ['run_24',['run',['../structWU__Runner__.html#a92cf49b0d4013e7552f5b34902511538',1,'WU_Runner_']]],
-  ['run_5fbacktest_25',['run_backtest',['../runner_8c.html#aa9466946e098efc72bbde88a5699792a',1,'runner.c']]],
-  ['runner_2ec_26',['runner.c',['../runner_8c.html',1,'']]],
-  ['runners_2eh_27',['runners.h',['../runners_8h.html',1,'']]]
+  ['run_21',['run',['../structWU__Runner__.html#a92cf49b0d4013e7552f5b34902511538',1,'WU_Runner_']]],
+  ['run_5fbacktest_22',['run_backtest',['../runner_8c.html#aa9466946e098efc72bbde88a5699792a',1,'runner.c']]],
+  ['runner_2ec_23',['runner.c',['../runner_8c.html',1,'']]],
+  ['runners_2eh_24',['runners.h',['../runners_8h.html',1,'']]]
 ];

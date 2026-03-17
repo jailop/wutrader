@@ -96,7 +96,7 @@ $(function(){initNavTree('ema_8c_source.html','',''); });
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="wu_8h.html">wu.h</a>&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="foldopen" id="foldopen00004" data-start="{" data-end="}">
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="ema_8c.html#a78bf1bfc33185b54b95393d45bcb4c0d">    4</a></span><span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code hl_function" href="ema_8c.html#a78bf1bfc33185b54b95393d45bcb4c0d">exponential_moving_average_update</a>(WU_EMA ema, <span class="keywordtype">double</span> value) {</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="ema_8c.html#aa9700ed8c92d843f5416ecafabec3c28">    4</a></span><span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code hl_function" href="ema_8c.html#aa9700ed8c92d843f5416ecafabec3c28">update</a>(WU_EMA ema, <span class="keywordtype">double</span> value) {</div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    <span class="keywordflow">if</span> (isnan(value)) {</div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>        <span class="keywordflow">return</span> ema-&gt;value;</div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    }</div>
@@ -117,39 +117,29 @@ $(function(){initNavTree('ema_8c_source.html','',''); });
 </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="foldopen" id="foldopen00023" data-start="{" data-end="}">
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="ema_8c.html#a5d37973d7d6a1780eceecd9e5620c0ef">   23</a></span><span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code hl_function" href="ema_8c.html#a5d37973d7d6a1780eceecd9e5620c0ef">exponential_moving_average_value</a>(<span class="keyword">const</span> <span class="keyword">struct</span> <a class="code hl_struct" href="structWU__EMA__.html">WU_EMA_</a> *ema) {</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordflow">return</span> ema-&gt;<a class="code hl_variable" href="structWU__EMA__.html#a69085f869d657646f15058ea5002ffc6">value</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="ema_8c.html#a0b861aeebf6b8d44a775de8b1ece9aa2">   23</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <span class="keyword">delete</span>(WU_EMA ema) {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    free(ema);</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>}</div>
 </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="foldopen" id="foldopen00027" data-start="{" data-end="}">
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="ema_8c.html#aa98ede8156da030dde90feb6c9446041">   27</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="ema_8c.html#aa98ede8156da030dde90feb6c9446041">exponential_moving_average_free</a>(WU_EMA ema) {</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    free(ema);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>}</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="indicators_8h.html#a2f55994ecb8acec432998a6bdbd8f47b">   27</a></span>WU_EMA <a class="code hl_function" href="ema_8c.html#a897e5b3565cc8ae3b6359fa27f15ed5c">wu_ema_new</a>(<span class="keywordtype">int</span> period, <span class="keywordtype">double</span> smoothing) {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    WU_EMA ema = malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code hl_struct" href="structWU__EMA__.html">WU_EMA_</a>));</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    ema-&gt;value = NAN;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    ema-&gt;period = period;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    ema-&gt;alpha = smoothing / (period + 1);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    ema-&gt;prev_value = 0.0;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    ema-&gt;len = 0;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    ema-&gt;update = <a class="code hl_function" href="ema_8c.html#aa9700ed8c92d843f5416ecafabec3c28">update</a>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    ema-&gt;delete = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordflow">return</span> ema;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}</div>
 </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="indicators_8h.html#a2f55994ecb8acec432998a6bdbd8f47b">   31</a></span>WU_EMA <a class="code hl_function" href="ema_8c.html#a897e5b3565cc8ae3b6359fa27f15ed5c">wu_ema_new</a>(<span class="keywordtype">int</span> period, <span class="keywordtype">double</span> smoothing) {</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    WU_EMA ema = malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code hl_struct" href="structWU__EMA__.html">WU_EMA_</a>));</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    ema-&gt;value = NAN;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    ema-&gt;period = period;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    ema-&gt;alpha = smoothing / (period + 1);</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    ema-&gt;prev_value = 0.0;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    ema-&gt;len = 0;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    ema-&gt;update = <a class="code hl_function" href="ema_8c.html#a78bf1bfc33185b54b95393d45bcb4c0d">exponential_moving_average_update</a>;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    ema-&gt;get = <a class="code hl_function" href="ema_8c.html#a5d37973d7d6a1780eceecd9e5620c0ef">exponential_moving_average_value</a>;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    ema-&gt;delete = <a class="code hl_function" href="ema_8c.html#aa98ede8156da030dde90feb6c9446041">exponential_moving_average_free</a>;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">return</span> ema;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
-</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="ttc" id="aema_8c_html_a5d37973d7d6a1780eceecd9e5620c0ef"><div class="ttname"><a href="ema_8c.html#a5d37973d7d6a1780eceecd9e5620c0ef">exponential_moving_average_value</a></div><div class="ttdeci">static double exponential_moving_average_value(const struct WU_EMA_ *ema)</div><div class="ttdef"><b>Definition</b> <a href="#l00023">ema.c:23</a></div></div>
-<div class="ttc" id="aema_8c_html_a78bf1bfc33185b54b95393d45bcb4c0d"><div class="ttname"><a href="ema_8c.html#a78bf1bfc33185b54b95393d45bcb4c0d">exponential_moving_average_update</a></div><div class="ttdeci">static double exponential_moving_average_update(WU_EMA ema, double value)</div><div class="ttdef"><b>Definition</b> <a href="#l00004">ema.c:4</a></div></div>
-<div class="ttc" id="aema_8c_html_a897e5b3565cc8ae3b6359fa27f15ed5c"><div class="ttname"><a href="ema_8c.html#a897e5b3565cc8ae3b6359fa27f15ed5c">wu_ema_new</a></div><div class="ttdeci">WU_EMA wu_ema_new(int period, double smoothing)</div><div class="ttdoc">Creates a new WU_EMA (Exponential Moving Average) indicator with the specified period and smoothing f...</div><div class="ttdef"><b>Definition</b> <a href="#l00031">ema.c:31</a></div></div>
-<div class="ttc" id="aema_8c_html_aa98ede8156da030dde90feb6c9446041"><div class="ttname"><a href="ema_8c.html#aa98ede8156da030dde90feb6c9446041">exponential_moving_average_free</a></div><div class="ttdeci">static void exponential_moving_average_free(WU_EMA ema)</div><div class="ttdef"><b>Definition</b> <a href="#l00027">ema.c:27</a></div></div>
-<div class="ttc" id="astructWU__EMA___html"><div class="ttname"><a href="structWU__EMA__.html">WU_EMA_</a></div><div class="ttdoc">The exponential moving average (WU_EMA) is a type of moving average that gives more weight to recent ...</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00042">indicators.h:42</a></div></div>
-<div class="ttc" id="astructWU__EMA___html_a69085f869d657646f15058ea5002ffc6"><div class="ttname"><a href="structWU__EMA__.html#a69085f869d657646f15058ea5002ffc6">WU_EMA_::value</a></div><div class="ttdeci">double value</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00046">indicators.h:46</a></div></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="ttc" id="aema_8c_html_a897e5b3565cc8ae3b6359fa27f15ed5c"><div class="ttname"><a href="ema_8c.html#a897e5b3565cc8ae3b6359fa27f15ed5c">wu_ema_new</a></div><div class="ttdeci">WU_EMA wu_ema_new(int period, double smoothing)</div><div class="ttdoc">Creates a new WU_EMA (Exponential Moving Average) indicator with the specified period and smoothing f...</div><div class="ttdef"><b>Definition</b> <a href="#l00027">ema.c:27</a></div></div>
+<div class="ttc" id="aema_8c_html_aa9700ed8c92d843f5416ecafabec3c28"><div class="ttname"><a href="ema_8c.html#aa9700ed8c92d843f5416ecafabec3c28">update</a></div><div class="ttdeci">static double update(WU_EMA ema, double value)</div><div class="ttdef"><b>Definition</b> <a href="#l00004">ema.c:4</a></div></div>
+<div class="ttc" id="astructWU__EMA___html"><div class="ttname"><a href="structWU__EMA__.html">WU_EMA_</a></div><div class="ttdoc">The exponential moving average (WU_EMA) is a type of moving average that gives more weight to recent ...</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00067">indicators.h:67</a></div></div>
 <div class="ttc" id="awu_8h_html"><div class="ttname"><a href="wu_8h.html">wu.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

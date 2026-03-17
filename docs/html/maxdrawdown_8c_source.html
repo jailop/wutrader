@@ -97,7 +97,7 @@ $(function(){initNavTree('maxdrawdown_8c_source.html','',''); });
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="wu_8h.html">wu.h</a>&quot;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="foldopen" id="foldopen00005" data-start="{" data-end="}">
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="maxdrawdown_8c.html#a3292a1cc2bf51bf779be6643e4469dbc">    5</a></span><span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code hl_function" href="maxdrawdown_8c.html#a3292a1cc2bf51bf779be6643e4469dbc">wu_max_drawdown_update</a>(WU_MaxDrawdown self, <span class="keywordtype">double</span> portfolio_value) {</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="maxdrawdown_8c.html#a159c378f46f969d73b21756ba43edd0c">    5</a></span><span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code hl_function" href="maxdrawdown_8c.html#a159c378f46f969d73b21756ba43edd0c">update</a>(WU_MaxDrawdown self, <span class="keywordtype">double</span> portfolio_value) {</div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    <span class="keywordflow">if</span> (portfolio_value &gt; self-&gt;peak)</div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>        self-&gt;peak = portfolio_value;</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="keywordflow">if</span> (self-&gt;peak &gt; 0.0) {</div>
@@ -110,37 +110,27 @@ $(function(){initNavTree('maxdrawdown_8c_source.html','',''); });
 </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="maxdrawdown_8c.html#a913b6542f58a38fe4618b5b69104694a">   16</a></span><span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code hl_function" href="maxdrawdown_8c.html#a913b6542f58a38fe4618b5b69104694a">wu_max_drawdown_get</a>(<span class="keyword">const</span> <span class="keyword">struct</span> <a class="code hl_struct" href="structWU__MaxDrawdown__.html">WU_MaxDrawdown_</a>* self) {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordflow">return</span> self-&gt;<a class="code hl_variable" href="structWU__MaxDrawdown__.html#ae7d7b26751c2cbae80d034ecc3282276">value</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="maxdrawdown_8c.html#a66da7247e2f4b659b3fb815306749a5c">   16</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="maxdrawdown_8c.html#a66da7247e2f4b659b3fb815306749a5c">wu_max_drawdown_free</a>(WU_MaxDrawdown self) {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    free(self);</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>}</div>
 </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="foldopen" id="foldopen00020" data-start="{" data-end="}">
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="maxdrawdown_8c.html#a66da7247e2f4b659b3fb815306749a5c">   20</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="maxdrawdown_8c.html#a66da7247e2f4b659b3fb815306749a5c">wu_max_drawdown_free</a>(WU_MaxDrawdown self) {</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    free(self);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>}</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="indicators_8h.html#a878080b0b8a0899415cc6344a41e3bf7">   20</a></span>WU_MaxDrawdown <a class="code hl_function" href="maxdrawdown_8c.html#a878080b0b8a0899415cc6344a41e3bf7">wu_max_drawdown_new</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    WU_MaxDrawdown md = malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code hl_struct" href="structWU__MaxDrawdown__.html">WU_MaxDrawdown_</a>));</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordflow">if</span> (!md) <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    md-&gt;value = 0.0;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    md-&gt;peak = 0.0;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    md-&gt;update = <a class="code hl_function" href="ema_8c.html#aa9700ed8c92d843f5416ecafabec3c28">update</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    md-&gt;delete = <a class="code hl_function" href="maxdrawdown_8c.html#a66da7247e2f4b659b3fb815306749a5c">wu_max_drawdown_free</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordflow">return</span> md;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>}</div>
 </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="indicators_8h.html#a878080b0b8a0899415cc6344a41e3bf7">   24</a></span>WU_MaxDrawdown <a class="code hl_function" href="maxdrawdown_8c.html#a878080b0b8a0899415cc6344a41e3bf7">wu_max_drawdown_new</a>(<span class="keywordtype">void</span>) {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    WU_MaxDrawdown md = malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code hl_struct" href="structWU__MaxDrawdown__.html">WU_MaxDrawdown_</a>));</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordflow">if</span> (!md) <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    md-&gt;value = 0.0;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    md-&gt;peak = 0.0;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    md-&gt;update = <a class="code hl_function" href="maxdrawdown_8c.html#a3292a1cc2bf51bf779be6643e4469dbc">wu_max_drawdown_update</a>;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    md-&gt;get = <a class="code hl_function" href="maxdrawdown_8c.html#a913b6542f58a38fe4618b5b69104694a">wu_max_drawdown_get</a>;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    md-&gt;delete = <a class="code hl_function" href="maxdrawdown_8c.html#a66da7247e2f4b659b3fb815306749a5c">wu_max_drawdown_free</a>;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordflow">return</span> md;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>}</div>
-</div>
-<div class="ttc" id="amaxdrawdown_8c_html_a3292a1cc2bf51bf779be6643e4469dbc"><div class="ttname"><a href="maxdrawdown_8c.html#a3292a1cc2bf51bf779be6643e4469dbc">wu_max_drawdown_update</a></div><div class="ttdeci">static double wu_max_drawdown_update(WU_MaxDrawdown self, double portfolio_value)</div><div class="ttdef"><b>Definition</b> <a href="#l00005">maxdrawdown.c:5</a></div></div>
-<div class="ttc" id="amaxdrawdown_8c_html_a66da7247e2f4b659b3fb815306749a5c"><div class="ttname"><a href="maxdrawdown_8c.html#a66da7247e2f4b659b3fb815306749a5c">wu_max_drawdown_free</a></div><div class="ttdeci">static void wu_max_drawdown_free(WU_MaxDrawdown self)</div><div class="ttdef"><b>Definition</b> <a href="#l00020">maxdrawdown.c:20</a></div></div>
-<div class="ttc" id="amaxdrawdown_8c_html_a878080b0b8a0899415cc6344a41e3bf7"><div class="ttname"><a href="maxdrawdown_8c.html#a878080b0b8a0899415cc6344a41e3bf7">wu_max_drawdown_new</a></div><div class="ttdeci">WU_MaxDrawdown wu_max_drawdown_new(void)</div><div class="ttdef"><b>Definition</b> <a href="#l00024">maxdrawdown.c:24</a></div></div>
-<div class="ttc" id="amaxdrawdown_8c_html_a913b6542f58a38fe4618b5b69104694a"><div class="ttname"><a href="maxdrawdown_8c.html#a913b6542f58a38fe4618b5b69104694a">wu_max_drawdown_get</a></div><div class="ttdeci">static double wu_max_drawdown_get(const struct WU_MaxDrawdown_ *self)</div><div class="ttdef"><b>Definition</b> <a href="#l00016">maxdrawdown.c:16</a></div></div>
-<div class="ttc" id="astructWU__MaxDrawdown___html"><div class="ttname"><a href="structWU__MaxDrawdown__.html">WU_MaxDrawdown_</a></div><div class="ttdoc">Maximum Drawdown - tracks the largest peak-to-trough decline.</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00176">indicators.h:176</a></div></div>
-<div class="ttc" id="astructWU__MaxDrawdown___html_ae7d7b26751c2cbae80d034ecc3282276"><div class="ttname"><a href="structWU__MaxDrawdown__.html#ae7d7b26751c2cbae80d034ecc3282276">WU_MaxDrawdown_::value</a></div><div class="ttdeci">double value</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00180">indicators.h:180</a></div></div>
+<div class="ttc" id="aema_8c_html_aa9700ed8c92d843f5416ecafabec3c28"><div class="ttname"><a href="ema_8c.html#aa9700ed8c92d843f5416ecafabec3c28">update</a></div><div class="ttdeci">static double update(WU_EMA ema, double value)</div><div class="ttdef"><b>Definition</b> <a href="ema_8c_source.html#l00004">ema.c:4</a></div></div>
+<div class="ttc" id="amaxdrawdown_8c_html_a159c378f46f969d73b21756ba43edd0c"><div class="ttname"><a href="maxdrawdown_8c.html#a159c378f46f969d73b21756ba43edd0c">update</a></div><div class="ttdeci">static double update(WU_MaxDrawdown self, double portfolio_value)</div><div class="ttdef"><b>Definition</b> <a href="#l00005">maxdrawdown.c:5</a></div></div>
+<div class="ttc" id="amaxdrawdown_8c_html_a66da7247e2f4b659b3fb815306749a5c"><div class="ttname"><a href="maxdrawdown_8c.html#a66da7247e2f4b659b3fb815306749a5c">wu_max_drawdown_free</a></div><div class="ttdeci">static void wu_max_drawdown_free(WU_MaxDrawdown self)</div><div class="ttdef"><b>Definition</b> <a href="#l00016">maxdrawdown.c:16</a></div></div>
+<div class="ttc" id="amaxdrawdown_8c_html_a878080b0b8a0899415cc6344a41e3bf7"><div class="ttname"><a href="maxdrawdown_8c.html#a878080b0b8a0899415cc6344a41e3bf7">wu_max_drawdown_new</a></div><div class="ttdeci">WU_MaxDrawdown wu_max_drawdown_new(void)</div><div class="ttdef"><b>Definition</b> <a href="#l00020">maxdrawdown.c:20</a></div></div>
+<div class="ttc" id="astructWU__MaxDrawdown___html"><div class="ttname"><a href="structWU__MaxDrawdown__.html">WU_MaxDrawdown_</a></div><div class="ttdoc">Maximum Drawdown - tracks the largest peak-to-trough decline.</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00197">indicators.h:197</a></div></div>
 <div class="ttc" id="awu_8h_html"><div class="ttname"><a href="wu_8h.html">wu.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

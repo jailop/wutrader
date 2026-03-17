@@ -1,7 +1,6 @@
 var structWU__SMA__ =
 [
     [ "delete", "structWU__SMA__.html#a3e1f964a8cd10ad7bd6ef228acf9e6e5", null ],
-    [ "get", "structWU__SMA__.html#a6b6f97a19ab6aa2fd2b63417eef32654", null ],
     [ "len", "structWU__SMA__.html#abfa29973f6ff8dee1fa2c54033e51c07", null ],
     [ "pos", "structWU__SMA__.html#a9e930697b7b442f8bc08708d65839706", null ],
     [ "prev_values", "structWU__SMA__.html#a4e39e40c0448934df07468b6c94bd8d8", null ],

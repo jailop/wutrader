@@ -130,71 +130,55 @@ $(function(){initNavTree('return__stats_8c_source.html','',''); });
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">double</span> var = (self-&gt;count &lt; 2) ? NAN : self-&gt;return_m2 / (self-&gt;count - 1);</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">double</span> stddev = isnan(var) ? NAN : sqrt(var);</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">double</span> downside_dev = (self-&gt;count &lt; 1) ? NAN : sqrt(self-&gt;downside_m2 / self-&gt;count);</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordflow">return</span> (<a class="code hl_struct" href="structWU__ReturnStatsResult.html">WU_ReturnStatsResult</a>){</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        .mean = self-&gt;return_mean,</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        .variance = var,</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        .stddev = stddev,</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        .downside_deviation = downside_dev</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    };</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    self-&gt;value = (<a class="code hl_struct" href="structWU__ReturnStatsResult.html">WU_ReturnStatsResult</a>){</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        .mean = self-&gt;return_mean,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        .variance = var,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        .stddev = stddev,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        .downside_deviation = downside_dev</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    };</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">return</span> self-&gt;value;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>}</div>
 </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
 <div class="foldopen" id="foldopen00047" data-start="{" data-end="}">
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="return__stats_8c.html#a222dd4ff65027704bef254166972c55d">   47</a></span><span class="keyword">static</span> <a class="code hl_struct" href="structWU__ReturnStatsResult.html">WU_ReturnStatsResult</a> <a class="code hl_function" href="return__stats_8c.html#a222dd4ff65027704bef254166972c55d">wu_return_stats_get_impl</a>(<span class="keyword">const</span> <span class="keyword">struct</span> <a class="code hl_struct" href="structWU__ReturnStats__.html">WU_ReturnStats_</a>* self) {</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">double</span> var = (self-&gt;<a class="code hl_variable" href="structWU__ReturnStats__.html#ae67ffde0dd47cd5e3fd93306b07170ee">count</a> &lt; 2) ? NAN : self-&gt;<a class="code hl_variable" href="structWU__ReturnStats__.html#a6d11e6934b74e5e0fdcd381f37302741">return_m2</a> / (self-&gt;<a class="code hl_variable" href="structWU__ReturnStats__.html#ae67ffde0dd47cd5e3fd93306b07170ee">count</a> - 1);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">double</span> stddev = isnan(var) ? NAN : sqrt(var);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">double</span> downside_dev = (self-&gt;<a class="code hl_variable" href="structWU__ReturnStats__.html#ae67ffde0dd47cd5e3fd93306b07170ee">count</a> &lt; 1) ? NAN : sqrt(self-&gt;<a class="code hl_variable" href="structWU__ReturnStats__.html#a1c5797edfca92b194048d34f9ce2d8bb">downside_m2</a> / self-&gt;<a class="code hl_variable" href="structWU__ReturnStats__.html#ae67ffde0dd47cd5e3fd93306b07170ee">count</a>);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">return</span> (<a class="code hl_struct" href="structWU__ReturnStatsResult.html">WU_ReturnStatsResult</a>){</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        .mean = self-&gt;<a class="code hl_variable" href="structWU__ReturnStats__.html#ae032675a9e02378c63933d9e0d159b61">return_mean</a>,</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        .variance = var,</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        .stddev = stddev,</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        .downside_deviation = downside_dev</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    };</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>}</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="return__stats_8c.html#a7dde6ff733c476d32f208a916ae44df8">   47</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="return__stats_8c.html#a7dde6ff733c476d32f208a916ae44df8">wu_return_stats_free</a>(WU_ReturnStats self) {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    free(self);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>}</div>
 </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="foldopen" id="foldopen00060" data-start="{" data-end="}">
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="return__stats_8c.html#a7dde6ff733c476d32f208a916ae44df8">   60</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="return__stats_8c.html#a7dde6ff733c476d32f208a916ae44df8">wu_return_stats_free</a>(WU_ReturnStats self) {</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    free(self);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>}</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="foldopen" id="foldopen00051" data-start="{" data-end="}">
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="indicators_8h.html#af0a8ec5d6ee7465b13d359b90d6f063c">   51</a></span>WU_ReturnStats <a class="code hl_function" href="return__stats_8c.html#af0a8ec5d6ee7465b13d359b90d6f063c">wu_return_stats_new</a>(<span class="keywordtype">double</span> initial_value) {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    WU_ReturnStats rs = malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code hl_struct" href="structWU__ReturnStats__.html">WU_ReturnStats_</a>));</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordflow">if</span> (!rs) <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    rs-&gt;prev_value = initial_value;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    rs-&gt;return_mean = 0.0;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    rs-&gt;return_m2 = 0.0;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    rs-&gt;downside_m2 = 0.0;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    rs-&gt;count = 0;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    rs-&gt;start_time = 0;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    rs-&gt;end_time = 0;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    rs-&gt;time_unit = <a class="code hl_enumvalue" href="types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3a4bd26f3bae3cc160316aa4d36298a6bd">WU_TIME_UNIT_SECONDS</a>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    rs-&gt;update = <a class="code hl_function" href="return__stats_8c.html#a7b54e366351af6fa21cf411d09272766">wu_return_stats_update_impl</a>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    rs-&gt;delete = <a class="code hl_function" href="return__stats_8c.html#a7dde6ff733c476d32f208a916ae44df8">wu_return_stats_free</a>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    rs-&gt;value = (<a class="code hl_struct" href="structWU__ReturnStatsResult.html">WU_ReturnStatsResult</a>){</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        .mean = NAN,</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        .variance = NAN,</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        .stddev = NAN,</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        .downside_deviation = NAN</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    };</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordflow">return</span> rs;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>}</div>
 </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="foldopen" id="foldopen00064" data-start="{" data-end="}">
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="indicators_8h.html#af0a8ec5d6ee7465b13d359b90d6f063c">   64</a></span>WU_ReturnStats <a class="code hl_function" href="return__stats_8c.html#af0a8ec5d6ee7465b13d359b90d6f063c">wu_return_stats_new</a>(<span class="keywordtype">double</span> initial_value) {</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    WU_ReturnStats rs = malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code hl_struct" href="structWU__ReturnStats__.html">WU_ReturnStats_</a>));</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordflow">if</span> (!rs) <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    rs-&gt;prev_value = initial_value;</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    rs-&gt;return_mean = 0.0;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    rs-&gt;return_m2 = 0.0;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    rs-&gt;downside_m2 = 0.0;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    rs-&gt;count = 0;</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    rs-&gt;start_time = 0;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    rs-&gt;end_time = 0;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    rs-&gt;time_unit = <a class="code hl_enumvalue" href="types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3a4bd26f3bae3cc160316aa4d36298a6bd">WU_TIME_UNIT_SECONDS</a>;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    rs-&gt;update = <a class="code hl_function" href="return__stats_8c.html#a7b54e366351af6fa21cf411d09272766">wu_return_stats_update_impl</a>;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    rs-&gt;get = <a class="code hl_function" href="return__stats_8c.html#a222dd4ff65027704bef254166972c55d">wu_return_stats_get_impl</a>;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    rs-&gt;delete = <a class="code hl_function" href="return__stats_8c.html#a7dde6ff733c476d32f208a916ae44df8">wu_return_stats_free</a>;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordflow">return</span> rs;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>}</div>
-</div>
-<div class="ttc" id="areturn__stats_8c_html_a222dd4ff65027704bef254166972c55d"><div class="ttname"><a href="return__stats_8c.html#a222dd4ff65027704bef254166972c55d">wu_return_stats_get_impl</a></div><div class="ttdeci">static WU_ReturnStatsResult wu_return_stats_get_impl(const struct WU_ReturnStats_ *self)</div><div class="ttdef"><b>Definition</b> <a href="#l00047">return_stats.c:47</a></div></div>
 <div class="ttc" id="areturn__stats_8c_html_a7b54e366351af6fa21cf411d09272766"><div class="ttname"><a href="return__stats_8c.html#a7b54e366351af6fa21cf411d09272766">wu_return_stats_update_impl</a></div><div class="ttdeci">static WU_ReturnStatsResult wu_return_stats_update_impl(WU_ReturnStats self, WU_PerformanceUpdate perf)</div><div class="ttdef"><b>Definition</b> <a href="#l00006">return_stats.c:6</a></div></div>
-<div class="ttc" id="areturn__stats_8c_html_a7dde6ff733c476d32f208a916ae44df8"><div class="ttname"><a href="return__stats_8c.html#a7dde6ff733c476d32f208a916ae44df8">wu_return_stats_free</a></div><div class="ttdeci">static void wu_return_stats_free(WU_ReturnStats self)</div><div class="ttdef"><b>Definition</b> <a href="#l00060">return_stats.c:60</a></div></div>
-<div class="ttc" id="areturn__stats_8c_html_af0a8ec5d6ee7465b13d359b90d6f063c"><div class="ttname"><a href="return__stats_8c.html#af0a8ec5d6ee7465b13d359b90d6f063c">wu_return_stats_new</a></div><div class="ttdeci">WU_ReturnStats wu_return_stats_new(double initial_value)</div><div class="ttdef"><b>Definition</b> <a href="#l00064">return_stats.c:64</a></div></div>
-<div class="ttc" id="astructWU__PerformanceUpdate_html"><div class="ttname"><a href="structWU__PerformanceUpdate.html">WU_PerformanceUpdate</a></div><div class="ttdoc">Performance Update - value and timestamp for performance metric calculations.</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00164">indicators.h:164</a></div></div>
-<div class="ttc" id="astructWU__PerformanceUpdate_html_a73c49c47048e9b2dc06d78079017f6c5"><div class="ttname"><a href="structWU__PerformanceUpdate.html#a73c49c47048e9b2dc06d78079017f6c5">WU_PerformanceUpdate::portfolio_value</a></div><div class="ttdeci">double portfolio_value</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00165">indicators.h:165</a></div></div>
-<div class="ttc" id="astructWU__PerformanceUpdate_html_a8ab7a47c1f8b46cfe3f65808d64dadf9"><div class="ttname"><a href="structWU__PerformanceUpdate.html#a8ab7a47c1f8b46cfe3f65808d64dadf9">WU_PerformanceUpdate::timestamp</a></div><div class="ttdeci">WU_TimeStamp timestamp</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00166">indicators.h:166</a></div></div>
-<div class="ttc" id="astructWU__ReturnStatsResult_html"><div class="ttname"><a href="structWU__ReturnStatsResult.html">WU_ReturnStatsResult</a></div><div class="ttdoc">Return Statistics Result - contains mean, variance, and downside deviation.</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00191">indicators.h:191</a></div></div>
-<div class="ttc" id="astructWU__ReturnStats___html"><div class="ttname"><a href="structWU__ReturnStats__.html">WU_ReturnStats_</a></div><div class="ttdoc">Return Statistics - tracks sequential returns for risk metrics.</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00205">indicators.h:205</a></div></div>
-<div class="ttc" id="astructWU__ReturnStats___html_a1c5797edfca92b194048d34f9ce2d8bb"><div class="ttname"><a href="structWU__ReturnStats__.html#a1c5797edfca92b194048d34f9ce2d8bb">WU_ReturnStats_::downside_m2</a></div><div class="ttdeci">double downside_m2</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00212">indicators.h:212</a></div></div>
-<div class="ttc" id="astructWU__ReturnStats___html_a6d11e6934b74e5e0fdcd381f37302741"><div class="ttname"><a href="structWU__ReturnStats__.html#a6d11e6934b74e5e0fdcd381f37302741">WU_ReturnStats_::return_m2</a></div><div class="ttdeci">double return_m2</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00211">indicators.h:211</a></div></div>
-<div class="ttc" id="astructWU__ReturnStats___html_ae032675a9e02378c63933d9e0d159b61"><div class="ttname"><a href="structWU__ReturnStats__.html#ae032675a9e02378c63933d9e0d159b61">WU_ReturnStats_::return_mean</a></div><div class="ttdeci">double return_mean</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00210">indicators.h:210</a></div></div>
-<div class="ttc" id="astructWU__ReturnStats___html_ae67ffde0dd47cd5e3fd93306b07170ee"><div class="ttname"><a href="structWU__ReturnStats__.html#ae67ffde0dd47cd5e3fd93306b07170ee">WU_ReturnStats_::count</a></div><div class="ttdeci">int64_t count</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00213">indicators.h:213</a></div></div>
+<div class="ttc" id="areturn__stats_8c_html_a7dde6ff733c476d32f208a916ae44df8"><div class="ttname"><a href="return__stats_8c.html#a7dde6ff733c476d32f208a916ae44df8">wu_return_stats_free</a></div><div class="ttdeci">static void wu_return_stats_free(WU_ReturnStats self)</div><div class="ttdef"><b>Definition</b> <a href="#l00047">return_stats.c:47</a></div></div>
+<div class="ttc" id="areturn__stats_8c_html_af0a8ec5d6ee7465b13d359b90d6f063c"><div class="ttname"><a href="return__stats_8c.html#af0a8ec5d6ee7465b13d359b90d6f063c">wu_return_stats_new</a></div><div class="ttdeci">WU_ReturnStats wu_return_stats_new(double initial_value)</div><div class="ttdef"><b>Definition</b> <a href="#l00051">return_stats.c:51</a></div></div>
+<div class="ttc" id="astructWU__PerformanceUpdate_html"><div class="ttname"><a href="structWU__PerformanceUpdate.html">WU_PerformanceUpdate</a></div><div class="ttdoc">Performance Update - value and timestamp for performance metric calculations.</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00185">indicators.h:185</a></div></div>
+<div class="ttc" id="astructWU__PerformanceUpdate_html_a73c49c47048e9b2dc06d78079017f6c5"><div class="ttname"><a href="structWU__PerformanceUpdate.html#a73c49c47048e9b2dc06d78079017f6c5">WU_PerformanceUpdate::portfolio_value</a></div><div class="ttdeci">double portfolio_value</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00186">indicators.h:186</a></div></div>
+<div class="ttc" id="astructWU__PerformanceUpdate_html_a8ab7a47c1f8b46cfe3f65808d64dadf9"><div class="ttname"><a href="structWU__PerformanceUpdate.html#a8ab7a47c1f8b46cfe3f65808d64dadf9">WU_PerformanceUpdate::timestamp</a></div><div class="ttdeci">WU_TimeStamp timestamp</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00187">indicators.h:187</a></div></div>
+<div class="ttc" id="astructWU__ReturnStatsResult_html"><div class="ttname"><a href="structWU__ReturnStatsResult.html">WU_ReturnStatsResult</a></div><div class="ttdoc">Return Statistics Result - contains mean, variance, and downside deviation.</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00211">indicators.h:211</a></div></div>
+<div class="ttc" id="astructWU__ReturnStats___html"><div class="ttname"><a href="structWU__ReturnStats__.html">WU_ReturnStats_</a></div><div class="ttdoc">Return Statistics - tracks sequential returns for risk metrics.</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00225">indicators.h:225</a></div></div>
 <div class="ttc" id="astructWU__TimeStamp_html_a3e0713a9b31cefa42bc0682144ab08f4"><div class="ttname"><a href="structWU__TimeStamp.html#a3e0713a9b31cefa42bc0682144ab08f4">WU_TimeStamp::mark</a></div><div class="ttdeci">int64_t mark</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00041">types.h:41</a></div></div>
 <div class="ttc" id="astructWU__TimeStamp_html_ae34acfbfbb2c99f7b10eaec558859982"><div class="ttname"><a href="structWU__TimeStamp.html#ae34acfbfbb2c99f7b10eaec558859982">WU_TimeStamp::units</a></div><div class="ttdeci">WU_TimeUnit units</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00042">types.h:42</a></div></div>
 <div class="ttc" id="atypes_8h_html_a32fd359d0dbf4831d7790f38dea45ab3a4bd26f3bae3cc160316aa4d36298a6bd"><div class="ttname"><a href="types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3a4bd26f3bae3cc160316aa4d36298a6bd">WU_TIME_UNIT_SECONDS</a></div><div class="ttdeci">@ WU_TIME_UNIT_SECONDS</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00034">types.h:34</a></div></div>

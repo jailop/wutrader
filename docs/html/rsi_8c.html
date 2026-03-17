@@ -99,15 +99,14 @@ $(function(){initNavTree('rsi_8c.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a85028280f0983de397bc58f9b73f87c9" id="r_a85028280f0983de397bc58f9b73f87c9"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#a85028280f0983de397bc58f9b73f87c9">rsi_update</a> (WU_RSI rsi, const <a class="el" href="structWU__Candle.html">WU_Candle</a> *candle)</td></tr>
-<tr class="memitem:af36788d128c80c8e6d8c1ebce2b8d158" id="r_af36788d128c80c8e6d8c1ebce2b8d158"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#af36788d128c80c8e6d8c1ebce2b8d158">rsi_get</a> (const struct <a class="el" href="structWU__RSI__.html">WU_RSI_</a> *rsi)</td></tr>
-<tr class="memitem:aff4c49245c70ce9950355b252ec38fcd" id="r_aff4c49245c70ce9950355b252ec38fcd"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#aff4c49245c70ce9950355b252ec38fcd">rsi_free</a> (WU_RSI rsi)</td></tr>
+<tr class="memitem:a818e67e3307e555d83b9bdc43927ade0" id="r_a818e67e3307e555d83b9bdc43927ade0"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#a818e67e3307e555d83b9bdc43927ade0">update</a> (WU_RSI rsi, const <a class="el" href="structWU__Candle.html">WU_Candle</a> *candle)</td></tr>
+<tr class="memitem:a996d3dfb3394da269652607dbe9f92ff" id="r_a996d3dfb3394da269652607dbe9f92ff"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a996d3dfb3394da269652607dbe9f92ff">delete</a> (WU_RSI rsi)</td></tr>
 <tr class="memitem:aa8df21b9a63a2518370f61080f9bc86a" id="r_aa8df21b9a63a2518370f61080f9bc86a"><td class="memItemLeft">WU_RSI&#160;</td><td class="memItemRight"><a class="el" href="#aa8df21b9a63a2518370f61080f9bc86a">wu_rsi_new</a> (int window_size)</td></tr>
 <tr class="memdesc:aa8df21b9a63a2518370f61080f9bc86a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new WU_RSI (Relative Strength Index) indicator with the specified window size.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="aff4c49245c70ce9950355b252ec38fcd" name="aff4c49245c70ce9950355b252ec38fcd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff4c49245c70ce9950355b252ec38fcd">&#9670;&#160;</a></span>rsi_free()</h2>
+<a id="a996d3dfb3394da269652607dbe9f92ff" name="a996d3dfb3394da269652607dbe9f92ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a996d3dfb3394da269652607dbe9f92ff">&#9670;&#160;</a></span>delete()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -116,7 +115,7 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void rsi_free </td>
+          <td class="memname">void delete </td>
           <td>(</td>
           <td class="paramtype">WU_RSI</td>          <td class="paramname"><span class="paramname"><em>rsi</em></span></td><td>)</td>
           <td></td>
@@ -129,12 +128,12 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="rsi_8c_source.html#l00023">23</a> of file <a class="el" href="rsi_8c_source.html">rsi.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="rsi_8c_source.html#l00018">18</a> of file <a class="el" href="rsi_8c_source.html">rsi.c</a>.</p>
 
 </div>
 </div>
-<a id="af36788d128c80c8e6d8c1ebce2b8d158" name="af36788d128c80c8e6d8c1ebce2b8d158"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af36788d128c80c8e6d8c1ebce2b8d158">&#9670;&#160;</a></span>rsi_get()</h2>
+<a id="a818e67e3307e555d83b9bdc43927ade0" name="a818e67e3307e555d83b9bdc43927ade0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a818e67e3307e555d83b9bdc43927ade0">&#9670;&#160;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -143,34 +142,7 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double rsi_get </td>
-          <td>(</td>
-          <td class="paramtype">const struct <a class="el" href="structWU__RSI__.html">WU_RSI_</a> *</td>          <td class="paramname"><span class="paramname"><em>rsi</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="rsi_8c_source.html#l00019">19</a> of file <a class="el" href="rsi_8c_source.html">rsi.c</a>.</p>
-
-</div>
-</div>
-<a id="a85028280f0983de397bc58f9b73f87c9" name="a85028280f0983de397bc58f9b73f87c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85028280f0983de397bc58f9b73f87c9">&#9670;&#160;</a></span>rsi_update()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double rsi_update </td>
+          <td class="memname">double update </td>
           <td>(</td>
           <td class="paramtype">WU_RSI</td>          <td class="paramname"><span class="paramname"><em>rsi</em></span>, </td>
         </tr>
@@ -187,7 +159,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="rsi_8c_source.html#l00005">5</a> of file <a class="el" href="rsi_8c_source.html">rsi.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="rsi_8c_source.html#l00004">4</a> of file <a class="el" href="rsi_8c_source.html">rsi.c</a>.</p>
 
 </div>
 </div>
@@ -208,7 +180,7 @@ Functions</h2></td></tr>
 
 <p>Creates a new WU_RSI (Relative Strength Index) indicator with the specified window size. </p>
 
-<p class="definition">Definition at line <a class="el" href="rsi_8c_source.html#l00029">29</a> of file <a class="el" href="rsi_8c_source.html">rsi.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="rsi_8c_source.html#l00024">24</a> of file <a class="el" href="rsi_8c_source.html">rsi.c</a>.</p>
 
 </div>
 </div>

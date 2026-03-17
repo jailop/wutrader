@@ -68,6 +68,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../guides/data-formats/">Data Formats</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../guides/indicators/">Indicators</a>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Design Notes</span></p>
               <ul>
@@ -159,7 +161,7 @@
 <p><strong>Can I short stocks?</strong></p>
 <p>Yes. Short positions are represented as negative quantities. Borrowing costs are tracked separately through the borrow interest mechanism.</p>
 <p><strong>What order types are supported?</strong></p>
-<p>Currently only market orders are supported. The library does not implement an order book, which would be required for limit orders, stop orders, or other conditional order types. All orders execute immediately at the current price.</p>
+<p>Currently only market orders are supported. The library does not implement an order book, which would be required for limit orders, stop orders, or other conditional order types. Market orders execute at the bar's close price (or at a specified execution policy price if configured).</p>
 <p><strong>How is slippage handled?</strong></p>
 <p>Slippage is modeled through the execution policy. You can specify the execution price as a fixed amount away from the signal price, or as a random offset based on volatility (using standard deviations). This allows you to approximate realistic trading costs beyond just transaction fees. See <a href="../portfolio-configuration/">Portfolio Configuration</a> for execution policy details.</p>
 <h2 id="performance-analysis">Performance Analysis<a class="headerlink" href="#performance-analysis" title="Permanent link">&para;</a></h2>

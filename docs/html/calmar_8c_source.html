@@ -118,8 +118,8 @@ $(function(){initNavTree('calmar_8c_source.html','',''); });
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        self-&gt;value = NAN;</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keywordflow">return</span> self-&gt;value;</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    }</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">double</span> mdd = self-&gt;max_drawdown-&gt;get(self-&gt;max_drawdown);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>   </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">double</span> mdd = <a class="code hl_define" href="indicators_8h.html#a2641c30e3e1d852d7f578fd45bf6413e">wu_indicator_get</a>(self-&gt;max_drawdown);</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="comment">// MDD is zero or positive means no drawdown occurred</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordflow">if</span> (mdd &gt;= 0.0) {</div>
@@ -148,58 +148,50 @@ $(function(){initNavTree('calmar_8c_source.html','',''); });
 </div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
 <div class="foldopen" id="foldopen00052" data-start="{" data-end="}">
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="calmar_8c.html#aa06d7d21441f1f9cb3518870219c1e9c">   52</a></span><span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code hl_function" href="calmar_8c.html#aa06d7d21441f1f9cb3518870219c1e9c">wu_calmar_ratio_get</a>(<span class="keyword">const</span> <span class="keyword">struct</span> <a class="code hl_struct" href="structWU__CalmarRatio__.html">WU_CalmarRatio_</a>* self) {</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordflow">return</span> self-&gt;<a class="code hl_variable" href="structWU__CalmarRatio__.html#a3ce0d7159ed245f386065d37e408d4b1">value</a>;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>}</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="calmar_8c.html#a4928ba0a20ba41609ce48d232fb10d90">   52</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="calmar_8c.html#a4928ba0a20ba41609ce48d232fb10d90">wu_calmar_ratio_free</a>(WU_CalmarRatio self) {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordflow">if</span> (self-&gt;return_stats)</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        self-&gt;return_stats-&gt;delete(self-&gt;return_stats);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordflow">if</span> (self-&gt;max_drawdown)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        self-&gt;max_drawdown-&gt;delete(self-&gt;max_drawdown);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    free(self);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>}</div>
 </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="foldopen" id="foldopen00056" data-start="{" data-end="}">
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="calmar_8c.html#a4928ba0a20ba41609ce48d232fb10d90">   56</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="calmar_8c.html#a4928ba0a20ba41609ce48d232fb10d90">wu_calmar_ratio_free</a>(WU_CalmarRatio self) {</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordflow">if</span> (self-&gt;return_stats)</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        self-&gt;return_stats-&gt;delete(self-&gt;return_stats);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordflow">if</span> (self-&gt;max_drawdown)</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        self-&gt;max_drawdown-&gt;delete(self-&gt;max_drawdown);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    free(self);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>}</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="foldopen" id="foldopen00060" data-start="{" data-end="}">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="indicators_8h.html#a426c72be9ae083e0b05308fe52bd67ed">   60</a></span>WU_CalmarRatio <a class="code hl_function" href="calmar_8c.html#a426c72be9ae083e0b05308fe52bd67ed">wu_calmar_ratio_new</a>(<span class="keywordtype">double</span> initial_value) {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    WU_CalmarRatio cr = malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code hl_struct" href="structWU__CalmarRatio__.html">WU_CalmarRatio_</a>));</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordflow">if</span> (!cr) <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    cr-&gt;return_stats = <a class="code hl_function" href="indicators_8h.html#af0a8ec5d6ee7465b13d359b90d6f063c">wu_return_stats_new</a>(initial_value);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    cr-&gt;max_drawdown = <a class="code hl_function" href="indicators_8h.html#a878080b0b8a0899415cc6344a41e3bf7">wu_max_drawdown_new</a>();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordflow">if</span> (!cr-&gt;return_stats || !cr-&gt;max_drawdown) {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="keywordflow">if</span> (cr-&gt;return_stats) cr-&gt;return_stats-&gt;delete(cr-&gt;return_stats);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordflow">if</span> (cr-&gt;max_drawdown) cr-&gt;max_drawdown-&gt;delete(cr-&gt;max_drawdown);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        free(cr);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    }</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    cr-&gt;initial_value = initial_value;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    cr-&gt;value = NAN;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    cr-&gt;update = <a class="code hl_function" href="calmar_8c.html#a6c6fbae8408c3da640fdd73db5b07a32">wu_calmar_ratio_update</a>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    cr-&gt;delete = <a class="code hl_function" href="calmar_8c.html#a4928ba0a20ba41609ce48d232fb10d90">wu_calmar_ratio_free</a>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordflow">return</span> cr;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>}</div>
 </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="foldopen" id="foldopen00064" data-start="{" data-end="}">
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="indicators_8h.html#a426c72be9ae083e0b05308fe52bd67ed">   64</a></span>WU_CalmarRatio <a class="code hl_function" href="calmar_8c.html#a426c72be9ae083e0b05308fe52bd67ed">wu_calmar_ratio_new</a>(<span class="keywordtype">double</span> initial_value) {</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    WU_CalmarRatio cr = malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code hl_struct" href="structWU__CalmarRatio__.html">WU_CalmarRatio_</a>));</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordflow">if</span> (!cr) <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    cr-&gt;return_stats = <a class="code hl_function" href="indicators_8h.html#af0a8ec5d6ee7465b13d359b90d6f063c">wu_return_stats_new</a>(initial_value);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    cr-&gt;max_drawdown = <a class="code hl_function" href="indicators_8h.html#a878080b0b8a0899415cc6344a41e3bf7">wu_max_drawdown_new</a>();</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordflow">if</span> (!cr-&gt;return_stats || !cr-&gt;max_drawdown) {</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordflow">if</span> (cr-&gt;return_stats) cr-&gt;return_stats-&gt;delete(cr-&gt;return_stats);</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keywordflow">if</span> (cr-&gt;max_drawdown) cr-&gt;max_drawdown-&gt;delete(cr-&gt;max_drawdown);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        free(cr);</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    }</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    cr-&gt;initial_value = initial_value;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    cr-&gt;value = NAN;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    cr-&gt;update = <a class="code hl_function" href="calmar_8c.html#a6c6fbae8408c3da640fdd73db5b07a32">wu_calmar_ratio_update</a>;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    cr-&gt;get = <a class="code hl_function" href="calmar_8c.html#aa06d7d21441f1f9cb3518870219c1e9c">wu_calmar_ratio_get</a>;</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    cr-&gt;delete = <a class="code hl_function" href="calmar_8c.html#a4928ba0a20ba41609ce48d232fb10d90">wu_calmar_ratio_free</a>;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordflow">return</span> cr;</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}</div>
-</div>
-<div class="ttc" id="acalmar_8c_html_a426c72be9ae083e0b05308fe52bd67ed"><div class="ttname"><a href="calmar_8c.html#a426c72be9ae083e0b05308fe52bd67ed">wu_calmar_ratio_new</a></div><div class="ttdeci">WU_CalmarRatio wu_calmar_ratio_new(double initial_value)</div><div class="ttdef"><b>Definition</b> <a href="#l00064">calmar.c:64</a></div></div>
-<div class="ttc" id="acalmar_8c_html_a4928ba0a20ba41609ce48d232fb10d90"><div class="ttname"><a href="calmar_8c.html#a4928ba0a20ba41609ce48d232fb10d90">wu_calmar_ratio_free</a></div><div class="ttdeci">static void wu_calmar_ratio_free(WU_CalmarRatio self)</div><div class="ttdef"><b>Definition</b> <a href="#l00056">calmar.c:56</a></div></div>
+<div class="ttc" id="acalmar_8c_html_a426c72be9ae083e0b05308fe52bd67ed"><div class="ttname"><a href="calmar_8c.html#a426c72be9ae083e0b05308fe52bd67ed">wu_calmar_ratio_new</a></div><div class="ttdeci">WU_CalmarRatio wu_calmar_ratio_new(double initial_value)</div><div class="ttdef"><b>Definition</b> <a href="#l00060">calmar.c:60</a></div></div>
+<div class="ttc" id="acalmar_8c_html_a4928ba0a20ba41609ce48d232fb10d90"><div class="ttname"><a href="calmar_8c.html#a4928ba0a20ba41609ce48d232fb10d90">wu_calmar_ratio_free</a></div><div class="ttdeci">static void wu_calmar_ratio_free(WU_CalmarRatio self)</div><div class="ttdef"><b>Definition</b> <a href="#l00052">calmar.c:52</a></div></div>
 <div class="ttc" id="acalmar_8c_html_a6c6fbae8408c3da640fdd73db5b07a32"><div class="ttname"><a href="calmar_8c.html#a6c6fbae8408c3da640fdd73db5b07a32">wu_calmar_ratio_update</a></div><div class="ttdeci">static double wu_calmar_ratio_update(WU_CalmarRatio self, WU_PerformanceUpdate perf)</div><div class="ttdef"><b>Definition</b> <a href="#l00016">calmar.c:16</a></div></div>
 <div class="ttc" id="acalmar_8c_html_a975cf558f365845cff54f4e0a4ff8702"><div class="ttname"><a href="calmar_8c.html#a975cf558f365845cff54f4e0a4ff8702">wu_annualization_factor</a></div><div class="ttdeci">static double wu_annualization_factor(WU_TimeUnit unit)</div><div class="ttdef"><b>Definition</b> <a href="#l00006">calmar.c:6</a></div></div>
-<div class="ttc" id="acalmar_8c_html_aa06d7d21441f1f9cb3518870219c1e9c"><div class="ttname"><a href="calmar_8c.html#aa06d7d21441f1f9cb3518870219c1e9c">wu_calmar_ratio_get</a></div><div class="ttdeci">static double wu_calmar_ratio_get(const struct WU_CalmarRatio_ *self)</div><div class="ttdef"><b>Definition</b> <a href="#l00052">calmar.c:52</a></div></div>
-<div class="ttc" id="aindicators_8h_html_a878080b0b8a0899415cc6344a41e3bf7"><div class="ttname"><a href="indicators_8h.html#a878080b0b8a0899415cc6344a41e3bf7">wu_max_drawdown_new</a></div><div class="ttdeci">WU_MaxDrawdown wu_max_drawdown_new(void)</div><div class="ttdef"><b>Definition</b> <a href="maxdrawdown_8c_source.html#l00024">maxdrawdown.c:24</a></div></div>
-<div class="ttc" id="aindicators_8h_html_af0a8ec5d6ee7465b13d359b90d6f063c"><div class="ttname"><a href="indicators_8h.html#af0a8ec5d6ee7465b13d359b90d6f063c">wu_return_stats_new</a></div><div class="ttdeci">WU_ReturnStats wu_return_stats_new(double initial_value)</div><div class="ttdef"><b>Definition</b> <a href="return__stats_8c_source.html#l00064">return_stats.c:64</a></div></div>
-<div class="ttc" id="astructWU__CalmarRatio___html"><div class="ttname"><a href="structWU__CalmarRatio__.html">WU_CalmarRatio_</a></div><div class="ttdoc">Calmar Ratio - return to maximum drawdown ratio.</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00287">indicators.h:287</a></div></div>
-<div class="ttc" id="astructWU__CalmarRatio___html_a3ce0d7159ed245f386065d37e408d4b1"><div class="ttname"><a href="structWU__CalmarRatio__.html#a3ce0d7159ed245f386065d37e408d4b1">WU_CalmarRatio_::value</a></div><div class="ttdeci">double value</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00294">indicators.h:294</a></div></div>
-<div class="ttc" id="astructWU__PerformanceUpdate_html"><div class="ttname"><a href="structWU__PerformanceUpdate.html">WU_PerformanceUpdate</a></div><div class="ttdoc">Performance Update - value and timestamp for performance metric calculations.</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00164">indicators.h:164</a></div></div>
-<div class="ttc" id="astructWU__PerformanceUpdate_html_a73c49c47048e9b2dc06d78079017f6c5"><div class="ttname"><a href="structWU__PerformanceUpdate.html#a73c49c47048e9b2dc06d78079017f6c5">WU_PerformanceUpdate::portfolio_value</a></div><div class="ttdeci">double portfolio_value</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00165">indicators.h:165</a></div></div>
-<div class="ttc" id="astructWU__PerformanceUpdate_html_a8ab7a47c1f8b46cfe3f65808d64dadf9"><div class="ttname"><a href="structWU__PerformanceUpdate.html#a8ab7a47c1f8b46cfe3f65808d64dadf9">WU_PerformanceUpdate::timestamp</a></div><div class="ttdeci">WU_TimeStamp timestamp</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00166">indicators.h:166</a></div></div>
+<div class="ttc" id="aindicators_8h_html_a2641c30e3e1d852d7f578fd45bf6413e"><div class="ttname"><a href="indicators_8h.html#a2641c30e3e1d852d7f578fd45bf6413e">wu_indicator_get</a></div><div class="ttdeci">#define wu_indicator_get(indicator)</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00037">indicators.h:37</a></div></div>
+<div class="ttc" id="aindicators_8h_html_a878080b0b8a0899415cc6344a41e3bf7"><div class="ttname"><a href="indicators_8h.html#a878080b0b8a0899415cc6344a41e3bf7">wu_max_drawdown_new</a></div><div class="ttdeci">WU_MaxDrawdown wu_max_drawdown_new(void)</div><div class="ttdef"><b>Definition</b> <a href="maxdrawdown_8c_source.html#l00020">maxdrawdown.c:20</a></div></div>
+<div class="ttc" id="aindicators_8h_html_af0a8ec5d6ee7465b13d359b90d6f063c"><div class="ttname"><a href="indicators_8h.html#af0a8ec5d6ee7465b13d359b90d6f063c">wu_return_stats_new</a></div><div class="ttdeci">WU_ReturnStats wu_return_stats_new(double initial_value)</div><div class="ttdef"><b>Definition</b> <a href="return__stats_8c_source.html#l00051">return_stats.c:51</a></div></div>
+<div class="ttc" id="astructWU__CalmarRatio___html"><div class="ttname"><a href="structWU__CalmarRatio__.html">WU_CalmarRatio_</a></div><div class="ttdoc">Calmar Ratio - return to maximum drawdown ratio.</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00305">indicators.h:305</a></div></div>
+<div class="ttc" id="astructWU__PerformanceUpdate_html"><div class="ttname"><a href="structWU__PerformanceUpdate.html">WU_PerformanceUpdate</a></div><div class="ttdoc">Performance Update - value and timestamp for performance metric calculations.</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00185">indicators.h:185</a></div></div>
+<div class="ttc" id="astructWU__PerformanceUpdate_html_a73c49c47048e9b2dc06d78079017f6c5"><div class="ttname"><a href="structWU__PerformanceUpdate.html#a73c49c47048e9b2dc06d78079017f6c5">WU_PerformanceUpdate::portfolio_value</a></div><div class="ttdeci">double portfolio_value</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00186">indicators.h:186</a></div></div>
+<div class="ttc" id="astructWU__PerformanceUpdate_html_a8ab7a47c1f8b46cfe3f65808d64dadf9"><div class="ttname"><a href="structWU__PerformanceUpdate.html#a8ab7a47c1f8b46cfe3f65808d64dadf9">WU_PerformanceUpdate::timestamp</a></div><div class="ttdeci">WU_TimeStamp timestamp</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00187">indicators.h:187</a></div></div>
 <div class="ttc" id="astructWU__TimeStamp_html_ae34acfbfbb2c99f7b10eaec558859982"><div class="ttname"><a href="structWU__TimeStamp.html#ae34acfbfbb2c99f7b10eaec558859982">WU_TimeStamp::units</a></div><div class="ttdeci">WU_TimeUnit units</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00042">types.h:42</a></div></div>
 <div class="ttc" id="atypes_8h_html_a32fd359d0dbf4831d7790f38dea45ab3"><div class="ttname"><a href="types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3">WU_TimeUnit</a></div><div class="ttdeci">WU_TimeUnit</div><div class="ttdoc">WU_TimeUnit represents a unit of time used for time-based calculations such as time-weighted returns ...</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00033">types.h:33</a></div></div>
 <div class="ttc" id="atypes_8h_html_a32fd359d0dbf4831d7790f38dea45ab3a4bd26f3bae3cc160316aa4d36298a6bd"><div class="ttname"><a href="types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3a4bd26f3bae3cc160316aa4d36298a6bd">WU_TIME_UNIT_SECONDS</a></div><div class="ttdeci">@ WU_TIME_UNIT_SECONDS</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00034">types.h:34</a></div></div>

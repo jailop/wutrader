@@ -103,60 +103,70 @@ $(function(){initNavTree('mvar_8c_source.html','',''); });
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    mvar-&gt;prev_values[mvar-&gt;pos] = value;</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    mvar-&gt;pos = (mvar-&gt;pos + 1) % mvar-&gt;window_size;</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_define" href="indicators_8h.html#a65d962a3ce5a54ed9f103584e3afe40d">wu_indicator_update</a>(mvar-&gt;sma, value);</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordflow">if</span> (mvar-&gt;len &lt; mvar-&gt;window_size)</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordflow">if</span> (mvar-&gt;len &lt; mvar-&gt;window_size) {</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        mvar-&gt;value = NAN;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">double</span> accum = 0.0;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; mvar-&gt;len; i++) {</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <span class="keywordflow">if</span> (isnan(mvar-&gt;prev_values[i]))</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>            <span class="keywordflow">return</span> NAN;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keywordtype">double</span> diff = mvar-&gt;prev_values[i] - <a class="code hl_define" href="indicators_8h.html#a2641c30e3e1d852d7f578fd45bf6413e">wu_indicator_get</a>(mvar-&gt;sma);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        accum += diff * diff;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    }</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    mvar-&gt;value = accum / (mvar-&gt;window_size - mvar-&gt;dof);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordflow">return</span> mvar-&gt;value;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>}</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        <span class="keywordflow">return</span> NAN;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    }</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">double</span> accum = 0.0;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; mvar-&gt;window_size; i++) {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keywordflow">if</span> (isnan(mvar-&gt;prev_values[i]))</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            <span class="keywordflow">return</span> NAN;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keywordtype">double</span> diff = mvar-&gt;prev_values[i] - <a class="code hl_define" href="indicators_8h.html#a2641c30e3e1d852d7f578fd45bf6413e">wu_indicator_get</a>(mvar-&gt;sma);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        accum += diff * diff;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    }</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    mvar-&gt;value = accum / (mvar-&gt;window_size - mvar-&gt;dof);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordflow">return</span> mvar-&gt;value;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>}</div>
 </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="mvar_8c.html#a5988fbf076711a800850d7deeb923e91">   24</a></span><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code hl_function" href="mvar_8c.html#a5988fbf076711a800850d7deeb923e91">get</a>(<span class="keyword">const</span> <span class="keyword">struct</span> <a class="code hl_struct" href="structWU__MVar__.html">WU_MVar_</a> *mvar) {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordflow">return</span> mvar-&gt;<a class="code hl_variable" href="structWU__MVar__.html#a3fa3c1c419e348e982ef00bf08a1ecd9">value</a>;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>}</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="}">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="mvar_8c.html#a5e5d071444dcaf6814480c5ff91e58b9">   26</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <span class="keyword">delete</span>(WU_MVar mvar) {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_define" href="indicators_8h.html#a2e1b143a2f5743687db3d928e42d093a">wu_indicator_delete</a>(mvar-&gt;sma);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    free(mvar-&gt;prev_values);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    free(mvar);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>}</div>
 </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="foldopen" id="foldopen00028" data-start="{" data-end="}">
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="mvar_8c.html#a5e5d071444dcaf6814480c5ff91e58b9">   28</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <span class="keyword">delete</span>(WU_MVar mvar) {</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_define" href="indicators_8h.html#a2e1b143a2f5743687db3d928e42d093a">wu_indicator_delete</a>(mvar-&gt;sma);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    free(mvar-&gt;prev_values);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    free(mvar);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>}</div>
-</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="foldopen" id="foldopen00034" data-start="{" data-end="}">
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="indicators_8h.html#aff9da9e70b409d278ee0354bea09164d">   34</a></span>WU_MVar <a class="code hl_function" href="mvar_8c.html#aff9da9e70b409d278ee0354bea09164d">wu_mvar_new</a>(<span class="keywordtype">int</span> window_size, <span class="keywordtype">int</span> dof) {</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    WU_MVar mvar = malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code hl_struct" href="structWU__MVar__.html">WU_MVar_</a>));</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    mvar-&gt;value = NAN;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    mvar-&gt;window_size = window_size;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    mvar-&gt;dof = dof;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    mvar-&gt;prev_values = malloc(window_size * <span class="keyword">sizeof</span>(<span class="keywordtype">double</span>));</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    mvar-&gt;pos = 0;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    mvar-&gt;len = 0;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="}">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="indicators_8h.html#aff9da9e70b409d278ee0354bea09164d">   32</a></span>WU_MVar <a class="code hl_function" href="mvar_8c.html#aff9da9e70b409d278ee0354bea09164d">wu_mvar_new</a>(<span class="keywordtype">int</span> window_size, <span class="keywordtype">int</span> dof) {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    WU_MVar mvar = malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code hl_struct" href="structWU__MVar__.html">WU_MVar_</a>));</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordflow">if</span> (!mvar) <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    mvar-&gt;prev_values = malloc(window_size * <span class="keyword">sizeof</span>(<span class="keywordtype">double</span>));</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordflow">if</span> (!mvar-&gt;prev_values) {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        free(mvar);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    }</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    mvar-&gt;sma = <a class="code hl_function" href="indicators_8h.html#ac5fd01b66a2790cc9867ee4187aba244">wu_sma_new</a>(window_size);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    mvar-&gt;update = <a class="code hl_function" href="mvar_8c.html#af00d8bc523a38ab1b1f67017ae76cdb0">update</a>;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    mvar-&gt;get = <a class="code hl_function" href="mvar_8c.html#a5988fbf076711a800850d7deeb923e91">get</a>;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    mvar-&gt;delete = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordflow">return</span> mvar;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordflow">if</span> (!mvar-&gt;sma) {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        free(mvar-&gt;prev_values);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        free(mvar);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    }</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    mvar-&gt;value = NAN;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    mvar-&gt;window_size = window_size;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    mvar-&gt;dof = dof;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; window_size; i++) {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        mvar-&gt;prev_values[i] = NAN;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    mvar-&gt;pos = 0;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    mvar-&gt;len = 0;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    mvar-&gt;update = <a class="code hl_function" href="ema_8c.html#aa9700ed8c92d843f5416ecafabec3c28">update</a>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    mvar-&gt;delete = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordflow">return</span> mvar;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>}</div>
 </div>
+<div class="ttc" id="aema_8c_html_aa9700ed8c92d843f5416ecafabec3c28"><div class="ttname"><a href="ema_8c.html#aa9700ed8c92d843f5416ecafabec3c28">update</a></div><div class="ttdeci">static double update(WU_EMA ema, double value)</div><div class="ttdef"><b>Definition</b> <a href="ema_8c_source.html#l00004">ema.c:4</a></div></div>
 <div class="ttc" id="aindicators_8h_html"><div class="ttname"><a href="indicators_8h.html">indicators.h</a></div></div>
-<div class="ttc" id="aindicators_8h_html_a2641c30e3e1d852d7f578fd45bf6413e"><div class="ttname"><a href="indicators_8h.html#a2641c30e3e1d852d7f578fd45bf6413e">wu_indicator_get</a></div><div class="ttdeci">#define wu_indicator_get(indicator)</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00011">indicators.h:11</a></div></div>
-<div class="ttc" id="aindicators_8h_html_a2e1b143a2f5743687db3d928e42d093a"><div class="ttname"><a href="indicators_8h.html#a2e1b143a2f5743687db3d928e42d093a">wu_indicator_delete</a></div><div class="ttdeci">#define wu_indicator_delete(indicator)</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00012">indicators.h:12</a></div></div>
-<div class="ttc" id="aindicators_8h_html_a65d962a3ce5a54ed9f103584e3afe40d"><div class="ttname"><a href="indicators_8h.html#a65d962a3ce5a54ed9f103584e3afe40d">wu_indicator_update</a></div><div class="ttdeci">#define wu_indicator_update(indicator, value)</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00009">indicators.h:9</a></div></div>
-<div class="ttc" id="aindicators_8h_html_ac5fd01b66a2790cc9867ee4187aba244"><div class="ttname"><a href="indicators_8h.html#ac5fd01b66a2790cc9867ee4187aba244">wu_sma_new</a></div><div class="ttdeci">WU_SMA wu_sma_new(int window_size)</div><div class="ttdoc">Creates a new WU_SMA (Simple Moving Average) indicator with the specified window size.</div><div class="ttdef"><b>Definition</b> <a href="sma_8c_source.html#l00026">sma.c:26</a></div></div>
-<div class="ttc" id="amvar_8c_html_a5988fbf076711a800850d7deeb923e91"><div class="ttname"><a href="mvar_8c.html#a5988fbf076711a800850d7deeb923e91">get</a></div><div class="ttdeci">static double get(const struct WU_MVar_ *mvar)</div><div class="ttdef"><b>Definition</b> <a href="#l00024">mvar.c:24</a></div></div>
+<div class="ttc" id="aindicators_8h_html_a2641c30e3e1d852d7f578fd45bf6413e"><div class="ttname"><a href="indicators_8h.html#a2641c30e3e1d852d7f578fd45bf6413e">wu_indicator_get</a></div><div class="ttdeci">#define wu_indicator_get(indicator)</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00037">indicators.h:37</a></div></div>
+<div class="ttc" id="aindicators_8h_html_a2e1b143a2f5743687db3d928e42d093a"><div class="ttname"><a href="indicators_8h.html#a2e1b143a2f5743687db3d928e42d093a">wu_indicator_delete</a></div><div class="ttdeci">#define wu_indicator_delete(indicator)</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00038">indicators.h:38</a></div></div>
+<div class="ttc" id="aindicators_8h_html_a65d962a3ce5a54ed9f103584e3afe40d"><div class="ttname"><a href="indicators_8h.html#a65d962a3ce5a54ed9f103584e3afe40d">wu_indicator_update</a></div><div class="ttdeci">#define wu_indicator_update(indicator, value)</div><div class="ttdoc">Header file for technical indicators.</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00035">indicators.h:35</a></div></div>
+<div class="ttc" id="aindicators_8h_html_ac5fd01b66a2790cc9867ee4187aba244"><div class="ttname"><a href="indicators_8h.html#ac5fd01b66a2790cc9867ee4187aba244">wu_sma_new</a></div><div class="ttdeci">WU_SMA wu_sma_new(int window_size)</div><div class="ttdoc">Creates a new WU_SMA (Simple Moving Average) indicator with the specified window size.</div><div class="ttdef"><b>Definition</b> <a href="sma_8c_source.html#l00022">sma.c:22</a></div></div>
 <div class="ttc" id="amvar_8c_html_af00d8bc523a38ab1b1f67017ae76cdb0"><div class="ttname"><a href="mvar_8c.html#af00d8bc523a38ab1b1f67017ae76cdb0">update</a></div><div class="ttdeci">static double update(WU_MVar mvar, double value)</div><div class="ttdef"><b>Definition</b> <a href="#l00004">mvar.c:4</a></div></div>
-<div class="ttc" id="amvar_8c_html_aff9da9e70b409d278ee0354bea09164d"><div class="ttname"><a href="mvar_8c.html#aff9da9e70b409d278ee0354bea09164d">wu_mvar_new</a></div><div class="ttdeci">WU_MVar wu_mvar_new(int window_size, int dof)</div><div class="ttdoc">Creates a new WU_MVar (Moving Variance) indicator with the specified window size and degree of freedo...</div><div class="ttdef"><b>Definition</b> <a href="#l00034">mvar.c:34</a></div></div>
-<div class="ttc" id="astructWU__MVar___html"><div class="ttname"><a href="structWU__MVar__.html">WU_MVar_</a></div><div class="ttdoc">The WU_MVar (Moving Variance) is an indicator that calculates the variance of the last N values,...</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00072">indicators.h:72</a></div></div>
-<div class="ttc" id="astructWU__MVar___html_a3fa3c1c419e348e982ef00bf08a1ecd9"><div class="ttname"><a href="structWU__MVar__.html#a3fa3c1c419e348e982ef00bf08a1ecd9">WU_MVar_::value</a></div><div class="ttdeci">double value</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00076">indicators.h:76</a></div></div>
+<div class="ttc" id="amvar_8c_html_aff9da9e70b409d278ee0354bea09164d"><div class="ttname"><a href="mvar_8c.html#aff9da9e70b409d278ee0354bea09164d">wu_mvar_new</a></div><div class="ttdeci">WU_MVar wu_mvar_new(int window_size, int dof)</div><div class="ttdoc">Creates a new WU_MVar (Moving Variance) indicator with the specified window size and degree of freedo...</div><div class="ttdef"><b>Definition</b> <a href="#l00032">mvar.c:32</a></div></div>
+<div class="ttc" id="astructWU__MVar___html"><div class="ttname"><a href="structWU__MVar__.html">WU_MVar_</a></div><div class="ttdoc">The WU_MVar (Moving Variance) is an indicator that calculates the variance of the last N values,...</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00096">indicators.h:96</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

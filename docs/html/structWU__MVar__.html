@@ -101,7 +101,6 @@ $(function(){initNavTree('structWU__MVar__.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:aaa3d4ea9a0db470296fd75deea0158db" id="r_aaa3d4ea9a0db470296fd75deea0158db"><td class="memItemLeft">double(*&#160;</td><td class="memItemRight"><a class="el" href="#aaa3d4ea9a0db470296fd75deea0158db">update</a> )(struct <a class="el" href="structWU__MVar__.html">WU_MVar_</a> *self, double <a class="el" href="#a3fa3c1c419e348e982ef00bf08a1ecd9">value</a>)</td></tr>
-<tr class="memitem:a7ef655c5f90d2230d2ab7d1dc4cee376" id="r_a7ef655c5f90d2230d2ab7d1dc4cee376"><td class="memItemLeft">double(*&#160;</td><td class="memItemRight"><a class="el" href="#a7ef655c5f90d2230d2ab7d1dc4cee376">get</a> )(const struct <a class="el" href="structWU__MVar__.html">WU_MVar_</a> *self)</td></tr>
 <tr class="memitem:a7d7d0e3c5c6d5e4d635d62adb3730957" id="r_a7d7d0e3c5c6d5e4d635d62adb3730957"><td class="memItemLeft">void(*&#160;</td><td class="memItemRight"><a class="el" href="#a7d7d0e3c5c6d5e4d635d62adb3730957">delete</a> )(struct <a class="el" href="structWU__MVar__.html">WU_MVar_</a> *self)</td></tr>
 <tr class="memitem:a3fa3c1c419e348e982ef00bf08a1ecd9" id="r_a3fa3c1c419e348e982ef00bf08a1ecd9"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a3fa3c1c419e348e982ef00bf08a1ecd9">value</a></td></tr>
 <tr class="memitem:a06f1f8a97a3b5df9f5e3353ca2442c7c" id="r_a06f1f8a97a3b5df9f5e3353ca2442c7c"><td class="memItemLeft">WU_SMA&#160;</td><td class="memItemRight"><a class="el" href="#a06f1f8a97a3b5df9f5e3353ca2442c7c">sma</a></td></tr>
@@ -115,7 +114,7 @@ Data Fields</h2></td></tr>
 <div class="textblock"><p>The WU_MVar (Moving Variance) is an indicator that calculates the variance of the last N values, where N is the window size. </p>
 <p>It is used to measure the volatility of a time series. <span class="tt"><a class="el" href="#a4fc762bda1f3bad3d08eb06bc2e8a651">dof</a></span> stands for "degree of freedom" and is used to adjust the variance calculation. If <span class="tt"><a class="el" href="#a4fc762bda1f3bad3d08eb06bc2e8a651">dof</a></span> is 0, the variance is calculated using the population variance formula. If <span class="tt"><a class="el" href="#a4fc762bda1f3bad3d08eb06bc2e8a651">dof</a></span> is 1, the variance is calculated using the sample variance formula. </p>
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00072">72</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00096">96</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Field Documentation</h2>
 <a id="a7d7d0e3c5c6d5e4d635d62adb3730957" name="a7d7d0e3c5c6d5e4d635d62adb3730957"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7d7d0e3c5c6d5e4d635d62adb3730957">&#9670;&#160;</a></span>delete</h2>
@@ -129,7 +128,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00075">75</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00098">98</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -145,23 +144,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00082">82</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
-
-</div>
-</div>
-<a id="a7ef655c5f90d2230d2ab7d1dc4cee376" name="a7ef655c5f90d2230d2ab7d1dc4cee376"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ef655c5f90d2230d2ab7d1dc4cee376">&#9670;&#160;</a></span>get</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double(* WU_MVar::get) (const struct <a class="el" href="structWU__MVar__.html">WU_MVar_</a> *self)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00074">74</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00105">105</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -177,7 +160,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00081">81</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00104">104</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -193,7 +176,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00080">80</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00103">103</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -209,7 +192,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00078">78</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00101">101</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -225,7 +208,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00077">77</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00100">100</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -241,7 +224,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00073">73</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00097">97</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -257,7 +240,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00076">76</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00099">99</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -273,7 +256,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00079">79</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00102">102</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>

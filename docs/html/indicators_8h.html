@@ -135,6 +135,7 @@ Data Structures</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a65d962a3ce5a54ed9f103584e3afe40d" id="r_a65d962a3ce5a54ed9f103584e3afe40d"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a65d962a3ce5a54ed9f103584e3afe40d">wu_indicator_update</a>(indicator,  value)</td></tr>
+<tr class="memdesc:a65d962a3ce5a54ed9f103584e3afe40d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header file for technical indicators.  <br /></td></tr>
 <tr class="memitem:a2641c30e3e1d852d7f578fd45bf6413e" id="r_a2641c30e3e1d852d7f578fd45bf6413e"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a2641c30e3e1d852d7f578fd45bf6413e">wu_indicator_get</a>(indicator)</td></tr>
 <tr class="memitem:a2e1b143a2f5743687db3d928e42d093a" id="r_a2e1b143a2f5743687db3d928e42d093a"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a2e1b143a2f5743687db3d928e42d093a">wu_indicator_delete</a>(indicator)</td></tr>
 </table><table class="memberdecls">
@@ -176,7 +177,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">(indicator)-&gt;<span class="keyword">delete</span>((indicator))</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00012">12</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00038">38</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -194,10 +195,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">(indicator)-&gt;<a class="code hl_function" href="mvar_8c.html#a5988fbf076711a800850d7deeb923e91">get</a>((indicator))</div>
-<div class="ttc" id="amvar_8c_html_a5988fbf076711a800850d7deeb923e91"><div class="ttname"><a href="mvar_8c.html#a5988fbf076711a800850d7deeb923e91">get</a></div><div class="ttdeci">static double get(const struct WU_MVar_ *mvar)</div><div class="ttdef"><b>Definition</b> <a href="mvar_8c_source.html#l00024">mvar.c:24</a></div></div>
+<b>Value:</b><div class="fragment"><div class="line">((indicator)-&gt;value)</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00011">11</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00037">37</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -219,10 +219,25 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">(indicator)-&gt;<a class="code hl_function" href="mvar_8c.html#af00d8bc523a38ab1b1f67017ae76cdb0">update</a>((indicator), (value))</div>
-<div class="ttc" id="amvar_8c_html_af00d8bc523a38ab1b1f67017ae76cdb0"><div class="ttname"><a href="mvar_8c.html#af00d8bc523a38ab1b1f67017ae76cdb0">update</a></div><div class="ttdeci">static double update(WU_MVar mvar, double value)</div><div class="ttdef"><b>Definition</b> <a href="mvar_8c_source.html#l00004">mvar.c:4</a></div></div>
+<b>Value:</b><div class="fragment"><div class="line">(indicator)-&gt;<a class="code hl_function" href="ema_8c.html#aa9700ed8c92d843f5416ecafabec3c28">update</a>((indicator), (value))</div>
+<div class="ttc" id="aema_8c_html_aa9700ed8c92d843f5416ecafabec3c28"><div class="ttname"><a href="ema_8c.html#aa9700ed8c92d843f5416ecafabec3c28">update</a></div><div class="ttdeci">static double update(WU_EMA ema, double value)</div><div class="ttdef"><b>Definition</b> <a href="ema_8c_source.html#l00004">ema.c:4</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00009">9</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p>Header file for technical indicators. </p>
+<p>Defines the structures and function prototypes for various indicators. All the indicator should follow the same interface:</p>
+<ul>
+<li><span class="tt"><a class="el" href="ema_8c.html#aa9700ed8c92d843f5416ecafabec3c28">update</a></span>: A function that takes a new value (or candle) and updates the indicator's state, returning the new indicator value.</li>
+<li><span class="tt"><a class="el" href="ema_8c.html#a0b861aeebf6b8d44a775de8b1ece9aa2">delete</a></span>: A function that frees any resources allocated by the indicator.</li>
+<li><span class="tt">value</span>: A field that holds the current value of the indicator.</li>
+</ul>
+<p>Once the indicator has been created, it should only be accessed using the provided macros:</p>
+<ul>
+<li><span class="tt"><a class="el" href="#a65d962a3ce5a54ed9f103584e3afe40d" title="Header file for technical indicators.">wu_indicator_update(indicator, value)</a></span>: Updates the indicator with a new value and returns the updated indicator value.</li>
+<li><span class="tt"><a class="el" href="#a2641c30e3e1d852d7f578fd45bf6413e">wu_indicator_get(indicator)</a></span>: Retrieves the current value of the indicator.</li>
+<li><span class="tt"><a class="el" href="#a2e1b143a2f5743687db3d928e42d093a">wu_indicator_delete(indicator)</a></span>: Frees any resources allocated by the indicator.</li>
+</ul>
+<p>This design allows for a consistent interface across different types of indicators, making it easier to use them interchangeably in trading strategies. </p>
+
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00035">35</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -242,7 +257,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="calmar_8c_source.html#l00064">64</a> of file <a class="el" href="calmar_8c_source.html">calmar.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="calmar_8c_source.html#l00060">60</a> of file <a class="el" href="calmar_8c_source.html">calmar.c</a>.</p>
 
 </div>
 </div>
@@ -268,7 +283,7 @@ Functions</h2></td></tr>
 <p>Creates a new WU_EMA (Exponential Moving Average) indicator with the specified period and smoothing factor. </p>
 <p>Usually, 2.0 is used as the smoothing factor. </p>
 
-<p class="definition">Definition at line <a class="el" href="ema_8c_source.html#l00031">31</a> of file <a class="el" href="ema_8c_source.html">ema.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ema_8c_source.html#l00027">27</a> of file <a class="el" href="ema_8c_source.html">ema.c</a>.</p>
 
 </div>
 </div>
@@ -303,7 +318,7 @@ Functions</h2></td></tr>
 
 <p>Creates a new WU_MACD (Moving Average Convergence Divergence) indicator with the specified short and long window sizes, and signal line window size. </p>
 
-<p class="definition">Definition at line <a class="el" href="macd_8c_source.html#l00031">31</a> of file <a class="el" href="macd_8c_source.html">macd.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="macd_8c_source.html#l00027">27</a> of file <a class="el" href="macd_8c_source.html">macd.c</a>.</p>
 
 </div>
 </div>
@@ -322,7 +337,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="maxdrawdown_8c_source.html#l00024">24</a> of file <a class="el" href="maxdrawdown_8c_source.html">maxdrawdown.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="maxdrawdown_8c_source.html#l00020">20</a> of file <a class="el" href="maxdrawdown_8c_source.html">maxdrawdown.c</a>.</p>
 
 </div>
 </div>
@@ -347,7 +362,7 @@ Functions</h2></td></tr>
 
 <p>Creates a new WU_MVar (Moving Variance) indicator with the specified window size and degree of freedom. </p>
 
-<p class="definition">Definition at line <a class="el" href="mvar_8c_source.html#l00034">34</a> of file <a class="el" href="mvar_8c_source.html">mvar.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mvar_8c_source.html#l00032">32</a> of file <a class="el" href="mvar_8c_source.html">mvar.c</a>.</p>
 
 </div>
 </div>
@@ -366,7 +381,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pnl__stats_8c_source.html#l00039">39</a> of file <a class="el" href="pnl__stats_8c_source.html">pnl_stats.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pnl__stats_8c_source.html#l00029">29</a> of file <a class="el" href="pnl__stats_8c_source.html">pnl_stats.c</a>.</p>
 
 </div>
 </div>
@@ -385,7 +400,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="return__stats_8c_source.html#l00064">64</a> of file <a class="el" href="return__stats_8c_source.html">return_stats.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="return__stats_8c_source.html#l00051">51</a> of file <a class="el" href="return__stats_8c_source.html">return_stats.c</a>.</p>
 
 </div>
 </div>
@@ -406,7 +421,7 @@ Functions</h2></td></tr>
 
 <p>Creates a new WU_RSI (Relative Strength Index) indicator with the specified window size. </p>
 
-<p class="definition">Definition at line <a class="el" href="rsi_8c_source.html#l00029">29</a> of file <a class="el" href="rsi_8c_source.html">rsi.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="rsi_8c_source.html#l00024">24</a> of file <a class="el" href="rsi_8c_source.html">rsi.c</a>.</p>
 
 </div>
 </div>
@@ -429,7 +444,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sharpe_8c_source.html#l00053">53</a> of file <a class="el" href="sharpe_8c_source.html">sharpe.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sharpe_8c_source.html#l00049">49</a> of file <a class="el" href="sharpe_8c_source.html">sharpe.c</a>.</p>
 
 </div>
 </div>
@@ -450,7 +465,7 @@ Functions</h2></td></tr>
 
 <p>Creates a new WU_SMA (Simple Moving Average) indicator with the specified window size. </p>
 
-<p class="definition">Definition at line <a class="el" href="sma_8c_source.html#l00026">26</a> of file <a class="el" href="sma_8c_source.html">sma.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sma_8c_source.html#l00022">22</a> of file <a class="el" href="sma_8c_source.html">sma.c</a>.</p>
 
 </div>
 </div>
@@ -473,7 +488,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sortino_8c_source.html#l00051">51</a> of file <a class="el" href="sortino_8c_source.html">sortino.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sortino_8c_source.html#l00047">47</a> of file <a class="el" href="sortino_8c_source.html">sortino.c</a>.</p>
 
 </div>
 </div>
@@ -498,7 +513,7 @@ Functions</h2></td></tr>
 
 <p>Creates a new WU_StDev (Moving Standard Deviation) indicator with the specified window size and degree of freedom. </p>
 
-<p class="definition">Definition at line <a class="el" href="stdev_8c_source.html#l00020">20</a> of file <a class="el" href="stdev_8c_source.html">stdev.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="stdev_8c_source.html#l00017">17</a> of file <a class="el" href="stdev_8c_source.html">stdev.c</a>.</p>
 
 </div>
 </div>

@@ -99,15 +99,14 @@ $(function(){initNavTree('sma_8c.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a3c4df5f82872521a0f03e6ae2dee7524" id="r_a3c4df5f82872521a0f03e6ae2dee7524"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#a3c4df5f82872521a0f03e6ae2dee7524">wu_sma_update</a> (WU_SMA ma, double value)</td></tr>
-<tr class="memitem:a4bc2f3e0f3eb0951d34d61875f59fe5f" id="r_a4bc2f3e0f3eb0951d34d61875f59fe5f"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#a4bc2f3e0f3eb0951d34d61875f59fe5f">wu_sma_value</a> (const struct <a class="el" href="structWU__SMA__.html">WU_SMA_</a> *ma)</td></tr>
-<tr class="memitem:a9aa2595396de5e5ddfbddd10b9158591" id="r_a9aa2595396de5e5ddfbddd10b9158591"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a9aa2595396de5e5ddfbddd10b9158591">wu_sma_free</a> (WU_SMA ma)</td></tr>
+<tr class="memitem:aeb598e0f2832c9ba456d9a910b6bc494" id="r_aeb598e0f2832c9ba456d9a910b6bc494"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#aeb598e0f2832c9ba456d9a910b6bc494">update</a> (WU_SMA ma, double value)</td></tr>
+<tr class="memitem:a90c0334e9213e954833d2276a928e6ff" id="r_a90c0334e9213e954833d2276a928e6ff"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a90c0334e9213e954833d2276a928e6ff">delete</a> (WU_SMA ma)</td></tr>
 <tr class="memitem:ac5fd01b66a2790cc9867ee4187aba244" id="r_ac5fd01b66a2790cc9867ee4187aba244"><td class="memItemLeft">WU_SMA&#160;</td><td class="memItemRight"><a class="el" href="#ac5fd01b66a2790cc9867ee4187aba244">wu_sma_new</a> (int window_size)</td></tr>
 <tr class="memdesc:ac5fd01b66a2790cc9867ee4187aba244"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new WU_SMA (Simple Moving Average) indicator with the specified window size.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a9aa2595396de5e5ddfbddd10b9158591" name="a9aa2595396de5e5ddfbddd10b9158591"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9aa2595396de5e5ddfbddd10b9158591">&#9670;&#160;</a></span>wu_sma_free()</h2>
+<a id="a90c0334e9213e954833d2276a928e6ff" name="a90c0334e9213e954833d2276a928e6ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90c0334e9213e954833d2276a928e6ff">&#9670;&#160;</a></span>delete()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -116,7 +115,7 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void wu_sma_free </td>
+          <td class="memname">void delete </td>
           <td>(</td>
           <td class="paramtype">WU_SMA</td>          <td class="paramname"><span class="paramname"><em>ma</em></span></td><td>)</td>
           <td></td>
@@ -129,33 +128,12 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sma_8c_source.html#l00021">21</a> of file <a class="el" href="sma_8c_source.html">sma.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sma_8c_source.html#l00017">17</a> of file <a class="el" href="sma_8c_source.html">sma.c</a>.</p>
 
 </div>
 </div>
-<a id="ac5fd01b66a2790cc9867ee4187aba244" name="ac5fd01b66a2790cc9867ee4187aba244"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5fd01b66a2790cc9867ee4187aba244">&#9670;&#160;</a></span>wu_sma_new()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">WU_SMA wu_sma_new </td>
-          <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>window_size</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Creates a new WU_SMA (Simple Moving Average) indicator with the specified window size. </p>
-
-<p class="definition">Definition at line <a class="el" href="sma_8c_source.html#l00026">26</a> of file <a class="el" href="sma_8c_source.html">sma.c</a>.</p>
-
-</div>
-</div>
-<a id="a3c4df5f82872521a0f03e6ae2dee7524" name="a3c4df5f82872521a0f03e6ae2dee7524"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c4df5f82872521a0f03e6ae2dee7524">&#9670;&#160;</a></span>wu_sma_update()</h2>
+<a id="aeb598e0f2832c9ba456d9a910b6bc494" name="aeb598e0f2832c9ba456d9a910b6bc494"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb598e0f2832c9ba456d9a910b6bc494">&#9670;&#160;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -164,7 +142,7 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double wu_sma_update </td>
+          <td class="memname">double update </td>
           <td>(</td>
           <td class="paramtype">WU_SMA</td>          <td class="paramname"><span class="paramname"><em>ma</em></span>, </td>
         </tr>
@@ -185,30 +163,24 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a4bc2f3e0f3eb0951d34d61875f59fe5f" name="a4bc2f3e0f3eb0951d34d61875f59fe5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4bc2f3e0f3eb0951d34d61875f59fe5f">&#9670;&#160;</a></span>wu_sma_value()</h2>
+<a id="ac5fd01b66a2790cc9867ee4187aba244" name="ac5fd01b66a2790cc9867ee4187aba244"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5fd01b66a2790cc9867ee4187aba244">&#9670;&#160;</a></span>wu_sma_new()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double wu_sma_value </td>
+          <td class="memname">WU_SMA wu_sma_new </td>
           <td>(</td>
-          <td class="paramtype">const struct <a class="el" href="structWU__SMA__.html">WU_SMA_</a> *</td>          <td class="paramname"><span class="paramname"><em>ma</em></span></td><td>)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>window_size</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sma_8c_source.html#l00017">17</a> of file <a class="el" href="sma_8c_source.html">sma.c</a>.</p>
+<p>Creates a new WU_SMA (Simple Moving Average) indicator with the specified window size. </p>
+
+<p class="definition">Definition at line <a class="el" href="sma_8c_source.html#l00022">22</a> of file <a class="el" href="sma_8c_source.html">sma.c</a>.</p>
 
 </div>
 </div>

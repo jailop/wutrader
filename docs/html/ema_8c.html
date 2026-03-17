@@ -99,15 +99,14 @@ $(function(){initNavTree('ema_8c.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a78bf1bfc33185b54b95393d45bcb4c0d" id="r_a78bf1bfc33185b54b95393d45bcb4c0d"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#a78bf1bfc33185b54b95393d45bcb4c0d">exponential_moving_average_update</a> (WU_EMA ema, double value)</td></tr>
-<tr class="memitem:a5d37973d7d6a1780eceecd9e5620c0ef" id="r_a5d37973d7d6a1780eceecd9e5620c0ef"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#a5d37973d7d6a1780eceecd9e5620c0ef">exponential_moving_average_value</a> (const struct <a class="el" href="structWU__EMA__.html">WU_EMA_</a> *ema)</td></tr>
-<tr class="memitem:aa98ede8156da030dde90feb6c9446041" id="r_aa98ede8156da030dde90feb6c9446041"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#aa98ede8156da030dde90feb6c9446041">exponential_moving_average_free</a> (WU_EMA ema)</td></tr>
+<tr class="memitem:aa9700ed8c92d843f5416ecafabec3c28" id="r_aa9700ed8c92d843f5416ecafabec3c28"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#aa9700ed8c92d843f5416ecafabec3c28">update</a> (WU_EMA ema, double value)</td></tr>
+<tr class="memitem:a0b861aeebf6b8d44a775de8b1ece9aa2" id="r_a0b861aeebf6b8d44a775de8b1ece9aa2"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a0b861aeebf6b8d44a775de8b1ece9aa2">delete</a> (WU_EMA ema)</td></tr>
 <tr class="memitem:a897e5b3565cc8ae3b6359fa27f15ed5c" id="r_a897e5b3565cc8ae3b6359fa27f15ed5c"><td class="memItemLeft">WU_EMA&#160;</td><td class="memItemRight"><a class="el" href="#a897e5b3565cc8ae3b6359fa27f15ed5c">wu_ema_new</a> (int period, double smoothing)</td></tr>
 <tr class="memdesc:a897e5b3565cc8ae3b6359fa27f15ed5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new WU_EMA (Exponential Moving Average) indicator with the specified period and smoothing factor.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="aa98ede8156da030dde90feb6c9446041" name="aa98ede8156da030dde90feb6c9446041"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa98ede8156da030dde90feb6c9446041">&#9670;&#160;</a></span>exponential_moving_average_free()</h2>
+<a id="a0b861aeebf6b8d44a775de8b1ece9aa2" name="a0b861aeebf6b8d44a775de8b1ece9aa2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b861aeebf6b8d44a775de8b1ece9aa2">&#9670;&#160;</a></span>delete()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -116,7 +115,7 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void exponential_moving_average_free </td>
+          <td class="memname">void delete </td>
           <td>(</td>
           <td class="paramtype">WU_EMA</td>          <td class="paramname"><span class="paramname"><em>ema</em></span></td><td>)</td>
           <td></td>
@@ -129,12 +128,12 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ema_8c_source.html#l00027">27</a> of file <a class="el" href="ema_8c_source.html">ema.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ema_8c_source.html#l00023">23</a> of file <a class="el" href="ema_8c_source.html">ema.c</a>.</p>
 
 </div>
 </div>
-<a id="a78bf1bfc33185b54b95393d45bcb4c0d" name="a78bf1bfc33185b54b95393d45bcb4c0d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78bf1bfc33185b54b95393d45bcb4c0d">&#9670;&#160;</a></span>exponential_moving_average_update()</h2>
+<a id="aa9700ed8c92d843f5416ecafabec3c28" name="aa9700ed8c92d843f5416ecafabec3c28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9700ed8c92d843f5416ecafabec3c28">&#9670;&#160;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -143,7 +142,7 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double exponential_moving_average_update </td>
+          <td class="memname">double update </td>
           <td>(</td>
           <td class="paramtype">WU_EMA</td>          <td class="paramname"><span class="paramname"><em>ema</em></span>, </td>
         </tr>
@@ -161,33 +160,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="ema_8c_source.html#l00004">4</a> of file <a class="el" href="ema_8c_source.html">ema.c</a>.</p>
-
-</div>
-</div>
-<a id="a5d37973d7d6a1780eceecd9e5620c0ef" name="a5d37973d7d6a1780eceecd9e5620c0ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d37973d7d6a1780eceecd9e5620c0ef">&#9670;&#160;</a></span>exponential_moving_average_value()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double exponential_moving_average_value </td>
-          <td>(</td>
-          <td class="paramtype">const struct <a class="el" href="structWU__EMA__.html">WU_EMA_</a> *</td>          <td class="paramname"><span class="paramname"><em>ema</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ema_8c_source.html#l00023">23</a> of file <a class="el" href="ema_8c_source.html">ema.c</a>.</p>
 
 </div>
 </div>
@@ -213,7 +185,7 @@ Functions</h2></td></tr>
 <p>Creates a new WU_EMA (Exponential Moving Average) indicator with the specified period and smoothing factor. </p>
 <p>Usually, 2.0 is used as the smoothing factor. </p>
 
-<p class="definition">Definition at line <a class="el" href="ema_8c_source.html#l00031">31</a> of file <a class="el" href="ema_8c_source.html">ema.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ema_8c_source.html#l00027">27</a> of file <a class="el" href="ema_8c_source.html">ema.c</a>.</p>
 
 </div>
 </div>
