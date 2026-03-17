@@ -2,7 +2,10 @@
 #include "wu/indicators.h"
 
 static inline double update(WU_StDev stdev, double value) {
-    return sqrt(stdev->mvar->update(stdev->mvar, value));
+    if (isnan(value)) {
+        return NAN;
+    }
+    return sqrt(wu_indicator_update(stdev->mvar, value));
 }
 
 static inline double get(const struct WU_StDev_ *stdev) {

@@ -16,3 +16,4 @@
 - New type: WU_TimeStamp. It includes a mark and the time units
 - Short direction implemented (includes borrowing interest rate and
   limit)
+- Current indicators updated to validate input data

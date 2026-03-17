@@ -2,6 +2,7 @@
 #include "wu.h"
 
 static double wu_sma_update(WU_SMA ma, double value) {
+    if (isnan(value)) return ma->value;
     if (ma->len < ma->window_size)
         ma->len++;
     else

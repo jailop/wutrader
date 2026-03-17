@@ -1,6 +1,8 @@
 # Wu - Low Level Backtesting Library for Trading
 
-This is a personal project – a backtesting library for trading strategies written in C. I use it for learning, experimenting with different designs, and exploring ideas in algorithmic trading.
+This is a personal project – a backtesting library for trading
+strategies written in C. I use it for learning, experimenting with
+different designs, and exploring ideas in algorithmic trading.
 
 - [Read the docs](https://jailop.codeberg.page/wutrader/docs/) for
   detailed API reference and design rationale.
@@ -22,6 +24,7 @@ using the library.
 - Doxygen (optional, for API documentation)
 
 For Python bindings:
+
 - Python 3.7+
 - SWIG (only for development, not for pip install)
 

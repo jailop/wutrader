@@ -2,11 +2,13 @@
 #include "wu.h"
 
 static WU_MACDResult macd_update(WU_MACD macd, double value) {
+    if (isnan(value)) {
+        return macd->data;
+    }
     macd->len++;
     double ema_short = wu_indicator_update(macd->ema_short, value);
     double ema_long = wu_indicator_update(macd->ema_long, value);
     if (macd->len <= macd->start) {
-        macd->data = (WU_MACDResult){.macd = NAN, .signal = NAN, .histogram = NAN};
         return macd->data;
     }
     double diff = ema_short - ema_long;
@@ -35,6 +37,7 @@ WU_MACD wu_macd_new(int short_window, int long_window, int signal_window,
     macd->update = macd_update;
     macd->get = macd_get;
     macd->delete = macd_free;
+    macd->data = (WU_MACDResult){.macd = NAN, .signal = NAN, .histogram = NAN};
     macd->len = 0;
     macd->start = long_window > short_window ? long_window : short_window;
     return macd;

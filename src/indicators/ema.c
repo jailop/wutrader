@@ -2,10 +2,12 @@
 #include "wu.h"
 
 static double exponential_moving_average_update(WU_EMA ema, double value) {
+    if (isnan(value)) {
+        return ema->value;
+    }
     ema->len++;
     if (ema->len < ema->period) {
         ema->prev_value += value;
-        ema->value = NAN;
     } else if (ema->len == ema->period) {
         ema->prev_value += value;
         ema->prev_value /= ema->period;
@@ -28,6 +30,7 @@ static void exponential_moving_average_free(WU_EMA ema) {
 
 WU_EMA wu_ema_new(int period, double smoothing) {
     WU_EMA ema = malloc(sizeof(struct WU_EMA_));
+    ema->value = NAN;
     ema->period = period;
     ema->alpha = smoothing / (period + 1);
     ema->prev_value = 0.0;

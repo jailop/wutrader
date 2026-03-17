@@ -3,6 +3,9 @@
 
 
 static double rsi_update(WU_RSI rsi, const WU_Candle* candle) {
+    if (!candle) {
+        return rsi->data;
+    }
     double diff = candle->close - candle->open;
     wu_indicator_update(rsi->gain, diff > 0 ? diff : 0.0);
     wu_indicator_update(rsi->loss, diff < 0 ? -diff : 0.0);
