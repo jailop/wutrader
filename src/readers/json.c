@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <math.h>
 #include "wu.h"
 
 static void trim_line(char* line) {
@@ -26,18 +27,27 @@ static bool read_line(WU_JsonReader reader) {
     return true;
 }
 
+static bool json_has_field(const char* json, const char* key) {
+    char search[256];
+    snprintf(search, sizeof(search), "\"%s\":", key);
+    return strstr(json, search) != NULL;
+}
+
 static double json_get_number_value(const char* json, const char* key) {
     char search[256];
     snprintf(search, sizeof(search), "\"%s\":", key);
     
     const char* pos = strstr(json, search);
-    if (!pos) return 0.0;
+    if (!pos) return NAN;
     
     pos += strlen(search);
     while (*pos && isspace(*pos)) pos++;
     
     char* endptr;
     double value = strtod(pos, &endptr);
+    
+    if (pos == endptr) return NAN;
+    
     return value;
 }
 
@@ -61,6 +71,25 @@ static void* read_candle_json(WU_JsonReader reader) {
         return NULL;
     }
     
+    bool has_timestamp = json_has_field(reader->line_buffer, "timestamp");
+    bool has_open = json_has_field(reader->line_buffer, "open");
+    bool has_high = json_has_field(reader->line_buffer, "high");
+    bool has_low = json_has_field(reader->line_buffer, "low");
+    bool has_close = json_has_field(reader->line_buffer, "close");
+    bool has_volume = json_has_field(reader->line_buffer, "volume");
+    
+    int field_count = has_timestamp + has_open + has_high + has_low + has_close + has_volume;
+    
+    if (field_count == 0) {
+        reader->last_error = WU_JSON_ERROR_PARSE;
+        return NULL;
+    }
+    
+    if (!has_timestamp || !has_open || !has_high || !has_low || !has_close || !has_volume) {
+        reader->last_error = WU_JSON_ERROR_MISSING_FIELD;
+        return NULL;
+    }
+    
     reader->data.candle.timestamp.mark = json_get_long_value(reader->line_buffer, "timestamp");
     reader->data.candle.open = json_get_number_value(reader->line_buffer, "open");
     reader->data.candle.high = json_get_number_value(reader->line_buffer, "high");
@@ -68,8 +97,10 @@ static void* read_candle_json(WU_JsonReader reader) {
     reader->data.candle.close = json_get_number_value(reader->line_buffer, "close");
     reader->data.candle.volume = json_get_number_value(reader->line_buffer, "volume");
     
-    if (reader->data.candle.timestamp.mark == 0 && !strstr(reader->line_buffer, "\"timestamp\":0")) {
-        reader->last_error = WU_JSON_ERROR_PARSE;
+    if (isnan(reader->data.candle.open) || isnan(reader->data.candle.high) || 
+        isnan(reader->data.candle.low) || isnan(reader->data.candle.close) || 
+        isnan(reader->data.candle.volume)) {
+        reader->last_error = WU_JSON_ERROR_MISSING_FIELD;
         return NULL;
     }
     
@@ -83,6 +114,23 @@ static void* read_trade_json(WU_JsonReader reader) {
         return NULL;
     }
     
+    bool has_timestamp = json_has_field(reader->line_buffer, "timestamp");
+    bool has_price = json_has_field(reader->line_buffer, "price");
+    bool has_volume = json_has_field(reader->line_buffer, "volume");
+    bool has_side = json_has_field(reader->line_buffer, "side");
+    
+    int field_count = has_timestamp + has_price + has_volume + has_side;
+    
+    if (field_count == 0) {
+        reader->last_error = WU_JSON_ERROR_PARSE;
+        return NULL;
+    }
+    
+    if (!has_timestamp || !has_price || !has_volume || !has_side) {
+        reader->last_error = WU_JSON_ERROR_MISSING_FIELD;
+        return NULL;
+    }
+    
     reader->data.trade.timestamp.mark = json_get_long_value(reader->line_buffer, "timestamp");
     reader->data.trade.price = json_get_number_value(reader->line_buffer, "price");
     reader->data.trade.volume = json_get_number_value(reader->line_buffer, "volume");
@@ -90,8 +138,8 @@ static void* read_trade_json(WU_JsonReader reader) {
     long side_value = json_get_long_value(reader->line_buffer, "side");
     reader->data.trade.side = (WU_Side)side_value;
     
-    if (reader->data.trade.timestamp.mark == 0 && !strstr(reader->line_buffer, "\"timestamp\":0")) {
-        reader->last_error = WU_JSON_ERROR_PARSE;
+    if (isnan(reader->data.trade.price) || isnan(reader->data.trade.volume)) {
+        reader->last_error = WU_JSON_ERROR_MISSING_FIELD;
         return NULL;
     }
     
@@ -105,11 +153,26 @@ static void* read_single_value_json(WU_JsonReader reader) {
         return NULL;
     }
     
+    bool has_timestamp = json_has_field(reader->line_buffer, "timestamp");
+    bool has_value = json_has_field(reader->line_buffer, "value");
+    
+    int field_count = has_timestamp + has_value;
+    
+    if (field_count == 0) {
+        reader->last_error = WU_JSON_ERROR_PARSE;
+        return NULL;
+    }
+    
+    if (!has_timestamp || !has_value) {
+        reader->last_error = WU_JSON_ERROR_MISSING_FIELD;
+        return NULL;
+    }
+    
     reader->data.single_value.timestamp.mark = json_get_long_value(reader->line_buffer, "timestamp");
     reader->data.single_value.value = json_get_number_value(reader->line_buffer, "value");
     
-    if (reader->data.single_value.timestamp.mark == 0 && !strstr(reader->line_buffer, "\"timestamp\":0")) {
-        reader->last_error = WU_JSON_ERROR_PARSE;
+    if (isnan(reader->data.single_value.value)) {
+        reader->last_error = WU_JSON_ERROR_MISSING_FIELD;
         return NULL;
     }
     

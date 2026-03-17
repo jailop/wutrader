@@ -23,3 +23,4 @@
 - Portfolio params improved
 - new: User guide: mkdocs
 - new: Portfolio perfomance indicators
+- new: json reader
