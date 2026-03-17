@@ -31,6 +31,7 @@ nav:
     - Portfolio Configuration: portfolio-configuration.md
     - Timestamps and Data: guides/timestamps.md
     - Data Formats: guides/data-formats.md
+    - Indicators: guides/indicators.md
   - Design Notes:
     - Architecture: design/architecture.md
     - Execution Models: design/execution.md

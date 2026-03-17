@@ -1,4 +1,4 @@
-VERSION = 0.1.0
+VERSION = 0.2.0
 VERSION_MAJOR = 0
 VERSION_MINOR = 1
 
@@ -24,25 +24,22 @@ examples: $(TARGET)
 	$(MAKE) -C examples
 
 run_examples: examples
-	LD_LIBRARY_PATH=./lib ./examples/backtest/example01 ./tests/data/btcusd.csv -v
-	LD_LIBRARY_PATH=./lib ./examples/backtest/pairs_trading ./tests/data/spy.csv ./tests/data/qqq.csv  -v
+	LD_LIBRARY_PATH=./lib ./examples/backtest/example01 ./tests/data/btcusd.csv
+	LD_LIBRARY_PATH=./lib ./examples/backtest/pairs_trading ./tests/data/spy.csv ./tests/data/qqq.csv
 
 $(TARGET): $(OBJECTS)
-	@mkdir -p lib
+	mkdir -p lib
 	$(CC) -shared -Wl,-soname,$(SONAME) -o $@ $^ -lm
-	@ln -sf libwu.so.$(VERSION) $(LINK)
-	@ln -sf libwu.so.$(VERSION) lib/$(SONAME)
+	ln -sf libwu.so.$(VERSION) $(LINK)
+	ln -sf libwu.so.$(VERSION) lib/$(SONAME)
 
 docs:
-	@echo "Generating Doxygen documentation..."
-	@doxygen Doxyfile
-	@echo "Documentation generated in docs/html/index.html"
+	doxygen Doxyfile
 
 version:
-	@echo "WU Trading Library version $(VERSION)"
+	echo "WU Trading Library version $(VERSION)"
 
 install: $(TARGET)
-	@echo "Installing WU library $(VERSION)..."
 	install -d $(DESTDIR)$(LIBDIR)
 	install -d $(DESTDIR)$(INCLUDEDIR)/wu
 	install -m 755 $(TARGET) $(DESTDIR)$(LIBDIR)
@@ -50,17 +47,13 @@ install: $(TARGET)
 	ln -sf libwu.so.$(VERSION) $(DESTDIR)$(LIBDIR)/libwu.so
 	install -m 644 include/wu.h $(DESTDIR)$(INCLUDEDIR)
 	install -m 644 include/wu/*.h $(DESTDIR)$(INCLUDEDIR)/wu/
-	@echo "Running ldconfig..."
-	@ldconfig || echo "Note: Run 'sudo ldconfig' to update library cache"
-	@echo "Installation complete!"
+	ldconfig || echo "Note: Run 'sudo ldconfig' to update library cache"
 
 uninstall:
-	@echo "Uninstalling WU library..."
 	rm -f $(DESTDIR)$(LIBDIR)/libwu.so*
 	rm -f $(DESTDIR)$(INCLUDEDIR)/wu.h
 	rm -rf $(DESTDIR)$(INCLUDEDIR)/wu
-	@ldconfig || echo "Note: Run 'sudo ldconfig' to update library cache"
-	@echo "Uninstall complete!"
+	ldconfig || echo "Note: Run 'sudo ldconfig' to update library cache"
 
 clean:
 	rm -f $(OBJECTS) lib/libwu.so* lib/libwu.a

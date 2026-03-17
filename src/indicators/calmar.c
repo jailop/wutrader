@@ -21,8 +21,8 @@ static double wu_calmar_ratio_update(WU_CalmarRatio self, WU_PerformanceUpdate p
         self->value = NAN;
         return self->value;
     }
-    
-    double mdd = self->max_drawdown->get(self->max_drawdown);
+   
+    double mdd = wu_indicator_get(self->max_drawdown);
     
     // MDD is zero or positive means no drawdown occurred
     if (mdd >= 0.0) {
@@ -46,10 +46,6 @@ static double wu_calmar_ratio_update(WU_CalmarRatio self, WU_PerformanceUpdate p
     
     // Calmar = annualized_return / abs(max_drawdown)
     self->value = annualized_return / fabs(mdd);
-    return self->value;
-}
-
-static double wu_calmar_ratio_get(const struct WU_CalmarRatio_* self) {
     return self->value;
 }
 
@@ -79,7 +75,6 @@ WU_CalmarRatio wu_calmar_ratio_new(double initial_value) {
     cr->value = NAN;
     
     cr->update = wu_calmar_ratio_update;
-    cr->get = wu_calmar_ratio_get;
     cr->delete = wu_calmar_ratio_free;
     
     return cr;

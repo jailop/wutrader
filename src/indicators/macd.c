@@ -3,22 +3,18 @@
 
 static WU_MACDResult macd_update(WU_MACD macd, double value) {
     if (isnan(value)) {
-        return macd->data;
+        return macd->value;
     }
     macd->len++;
     double ema_short = wu_indicator_update(macd->ema_short, value);
     double ema_long = wu_indicator_update(macd->ema_long, value);
     if (macd->len <= macd->start) {
-        return macd->data;
+        return macd->value;
     }
     double diff = ema_short - ema_long;
     double signal = wu_indicator_update(macd->signal_line, diff);
-    macd->data = (WU_MACDResult){.macd = diff, .signal = signal, .histogram = diff - signal};
-    return macd->data;
-}
-
-static WU_MACDResult macd_get(const struct WU_MACD_ *macd) {
-    return macd->data;
+    macd->value = (WU_MACDResult){.macd = diff, .signal = signal, .histogram = diff - signal};
+    return macd->value;
 }
 
 static void macd_free(WU_MACD macd) {
@@ -35,9 +31,8 @@ WU_MACD wu_macd_new(int short_window, int long_window, int signal_window,
     macd->ema_long = wu_ema_new(long_window, smoothing);
     macd->signal_line = wu_ema_new(signal_window, smoothing);
     macd->update = macd_update;
-    macd->get = macd_get;
     macd->delete = macd_free;
-    macd->data = (WU_MACDResult){.macd = NAN, .signal = NAN, .histogram = NAN};
+    macd->value = (WU_MACDResult){.macd = NAN, .signal = NAN, .histogram = NAN};
     macd->len = 0;
     macd->start = long_window > short_window ? long_window : short_window;
     return macd;

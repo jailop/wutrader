@@ -38,10 +38,6 @@ static double wu_sortino_ratio_update(WU_SortinoRatio self, WU_PerformanceUpdate
     return self->value;
 }
 
-static double wu_sortino_ratio_get(const struct WU_SortinoRatio_* self) {
-    return self->value;
-}
-
 static void wu_sortino_ratio_free(WU_SortinoRatio self) {
     if (self->return_stats)
         self->return_stats->delete(self->return_stats);
@@ -62,7 +58,6 @@ WU_SortinoRatio wu_sortino_ratio_new(double initial_value, double risk_free_rate
     sr->value = NAN;
     
     sr->update = wu_sortino_ratio_update;
-    sr->get = wu_sortino_ratio_get;
     sr->delete = wu_sortino_ratio_free;
     
     return sr;

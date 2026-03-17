@@ -40,10 +40,6 @@ static double wu_sharpe_ratio_update(WU_SharpeRatio self, WU_PerformanceUpdate p
     return self->value;
 }
 
-static double wu_sharpe_ratio_get(const struct WU_SharpeRatio_* self) {
-    return self->value;
-}
-
 static void wu_sharpe_ratio_free(WU_SharpeRatio self) {
     if (self->return_stats)
         self->return_stats->delete(self->return_stats);
@@ -64,7 +60,6 @@ WU_SharpeRatio wu_sharpe_ratio_new(double initial_value, double risk_free_rate) 
     sr->value = NAN;
     
     sr->update = wu_sharpe_ratio_update;
-    sr->get = wu_sharpe_ratio_get;
     sr->delete = wu_sharpe_ratio_free;
     
     return sr;
