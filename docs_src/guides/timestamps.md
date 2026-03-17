@@ -4,31 +4,33 @@ Timestamps are fundamental to backtesting. They determine when data occurred, en
 
 ## Time Units
 
-Wu represents time using a flexible unit system. The same numeric value can represent seconds, minutes, days, or years depending on the context.
+Wu always manages Unix timestamps (time since January 1, 1970 UTC), but you specify the unit in which these timestamps are expressed. The same timestamp value can represent different moments in time depending on its unit.
 
 ```c
 typedef enum {
-    WU_TIME_UNIT_SECONDS,
-    WU_TIME_UNIT_MINUTES,
-    WU_TIME_UNIT_HOURS,
-    WU_TIME_UNIT_DAYS,
-    WU_TIME_UNIT_WEEKS,
-    WU_TIME_UNIT_MONTHS,
-    WU_TIME_UNIT_YEARS
+    WU_TIME_UNIT_SECONDS = 0,
+    WU_TIME_UNIT_MILLIS = 1,
+    WU_TIME_UNIT_MICROS = 2,
+    WU_TIME_UNIT_NANOS = 3
 } WU_TimeUnit;
 ```
 
-When you create a data reader, you specify the time unit:
+For example, the same timestamp value `1704067200` means:
+- 1704067200 seconds = January 1, 2024 00:00:00 UTC
+- 1704067200 milliseconds = January 20, 1970 18:01:07 UTC (almost immediately after epoch)
+- 1704067200 microseconds = January 1, 1970 00:28:24 UTC
+
+When you create a data reader, you specify the time unit so Wu can properly interpret your timestamps:
 
 ```c
 WU_Reader reader = (WU_Reader)wu_csv_reader_new(file,
     WU_DATA_TYPE_CANDLE,
-    WU_TIME_UNIT_SECONDS,    // Timestamps are in Unix seconds
+    WU_TIME_UNIT_SECONDS,    // Your timestamps are in Unix seconds
     true                      // Skip header row
 );
 ```
 
-This tells Wu how to interpret the numeric timestamps in your data.
+This tells Wu how to interpret the numeric timestamps in your data and allows it to properly scale time-based metrics like Sharpe ratio and volatility calculations.
 
 ## Unix Timestamps
 
@@ -50,76 +52,86 @@ Timestamp,Open,High,Low,Close,Volume
 
 The timestamps should be in the first column. Wu's CSV reader parses them as numeric values and combines them with the time unit you specified.
 
-## Bar Frequencies and Data Types
+## Data Frequencies
 
-Different data frequencies require different interpretations:
+Your timestamps are always Unix values, but the frequency at which you receive data differs:
 
-**Daily Bars**: One data point per calendar day (or trading day).
-
-```c
-// Data file with daily bars
-WU_TimeUnit time_unit = WU_TIME_UNIT_DAYS;
-```
-
-Your timestamps might be daily Unix values (at market close or market open). The delta between consecutive timestamps is roughly 86400 seconds (one day).
-
-**Hourly Bars**: One data point per hour.
+**Daily Bars**: One candle per trading day. Timestamps typically represent market close time (4 PM ET for US equities).
 
 ```c
-WU_TimeUnit time_unit = WU_TIME_UNIT_HOURS;
-```
-
-Timestamps progress hourly. More granular than daily data, useful for intraday strategies.
-
-**Tick Data**: Individual transactions.
-
-```c
+// 1704067200 = Jan 1, 2024 00:00:00 UTC
+// 1704153600 = Jan 2, 2024 00:00:00 UTC  (1 day = 86400 seconds later)
 WU_TimeUnit time_unit = WU_TIME_UNIT_SECONDS;
 ```
 
-Highest granularity. Every price change has its own timestamp. Tick data is much larger and computationally expensive to process.
+The delta between consecutive timestamps is approximately 86400 seconds (one trading day).
+
+**Hourly Bars**: One candle per hour. Useful for intraday strategies.
+
+```c
+// 1704067200 = Jan 1, 2024 00:00:00 UTC
+// 1704070800 = Jan 1, 2024 01:00:00 UTC  (1 hour = 3600 seconds later)
+WU_TimeUnit time_unit = WU_TIME_UNIT_SECONDS;
+```
+
+**Minute Data**: One candle per minute.
+
+```c
+// 1704067200 = Jan 1, 2024 00:00:00 UTC
+// 1704067260 = Jan 1, 2024 00:01:00 UTC  (1 minute = 60 seconds later)
+WU_TimeUnit time_unit = WU_TIME_UNIT_SECONDS;
+```
+
+**Tick Data**: Individual transactions at millisecond or microsecond precision.
+
+```c
+// Use milliseconds if your data comes at that granularity
+WU_TimeUnit time_unit = WU_TIME_UNIT_MILLIS;
+
+// Or microseconds for very high-frequency data
+WU_TimeUnit time_unit = WU_TIME_UNIT_MICROS;
+```
+
+Always use the same time unit across your entire backtest and dataset. Wu will properly scale time-dependent metrics based on the unit you specify.
 
 ## Performance Metrics and Annualization
 
-Risk metrics like Sharpe ratio and Sortino ratio are meaningless without proper time scaling. A Sharpe ratio of 1.0 on daily data isn't the same as a Sharpe ratio of 1.0 on hourly data.
+Risk metrics like Sharpe ratio and Sortino ratio depend on proper time scaling. A Sharpe ratio of 1.0 on daily data means something different from one on hourly data.
 
-Wu automatically annualizes these metrics based on the time unit you specify:
+Wu automatically scales these metrics based on the time unit of your data. The library tracks the time span of your backtest and annualizes metrics to a standard year:
 
 ```c
-WU_SharpeRatio sharpe = wu_sharpe_ratio_new(initial_value, risk_free_rate);
+WU_SharpeRatio sharpe = wu_sharpe_ratio_new();
+// Wu annualizes based on WU_TIME_UNIT_SECONDS (252 trading days/year × 86400 seconds/day)
 ```
 
-Internally, Wu tracks how many periods occurred during the backtest and scales the metrics accordingly. The calculation uses:
+The annualization factors are:
 
-```
-periods_per_year = 252 for daily data
-                 = 252 * 6.5 = 1638 for hourly data
-                 = 252 * 6.5 * 60 = 98280 for minute data
-```
+- **Daily data** (WU_TIME_UNIT_SECONDS, ~86400 sec intervals): 252 trading days per year
+- **Hourly data** (WU_TIME_UNIT_SECONDS, ~3600 sec intervals): 252 × 6.5 = 1,638 trading hours per year
+- **Minute data** (WU_TIME_UNIT_SECONDS, ~60 sec intervals): 252 × 6.5 × 60 = 98,280 trading minutes per year
 
 These conventions (252 trading days/year, 6.5 trading hours/day) are standard in finance.
 
 **Why This Matters**:
 
-Consider two strategies:
+Consider two strategies with identical 10% returns:
 
-1. Daily strategy over 252 trading days (1 year)
-2. Hourly strategy over 252 days × 6.5 hours/day = 1,638 hourly bars
+1. Daily strategy over 252 trading days (1 year of daily bars)
+2. Minute-level strategy over the same calendar period (98,280 minute bars)
 
-Both might show 10% returns. But the hourly strategy has 6.5× more opportunities to generate returns, so the daily volatility is higher. Without proper annualization, you'd compare returns at different scales.
+Both show 10% returns, but the minute strategy has many more opportunities to generate returns. Without proper time scaling, you'd compare them incorrectly. Wu handles this automatically once you specify the time unit correctly.
 
-Wu handles this automatically once you specify the time unit correctly.
+## Example: Converting Data Granularity
 
-## Time Unit Example: Converting Data
-
-Suppose you have minute-level data but want to test on daily bars. You'd aggregate:
+Suppose you have minute-level data and want to aggregate it to daily bars:
 
 ```bash
 # Raw minute data (raw_data.csv)
 1577836800,100.5,101.2,100.0,100.8,1000
 1577836860,100.8,101.5,100.5,101.2,1100
 1577836920,101.2,102.0,100.8,101.8,950
-... (390 more minutes) ...
+... (390 more minutes in this day) ...
 1577923200,100.9,101.3,100.1,101.0,1050
 
 # After aggregation into daily bars (daily_data.csv)
@@ -127,51 +139,51 @@ Suppose you have minute-level data but want to test on daily bars. You'd aggrega
 1577923200,101.0,102.5,100.5,101.8,480000
 ```
 
-The aggregation process:
-- Groups minutes into days
-- Uses the first minute's open as the day's open
-- Tracks the highest high and lowest low across all minutes
-- Uses the last minute's close as the day's close
-- Sums volumes
+The aggregation process groups minute bars and computes:
+- Open: first minute's open
+- High: maximum high across all minutes
+- Low: minimum low across all minutes
+- Close: last minute's close
+- Volume: sum of volumes
 
-Then when you use this daily file:
+Then use the aggregated file with the correct time unit:
 
 ```c
 WU_Reader reader = wu_csv_reader_new(file,
     WU_DATA_TYPE_CANDLE,
-    WU_TIME_UNIT_DAYS,    // Time unit matches the data
+    WU_TIME_UNIT_SECONDS,    // Time unit matches your data (daily bars)
     true
 );
 ```
+
+Wu will properly annualize metrics based on daily bar frequency (252 trading days per year).
 
 ## Practical Considerations
 
 ### Data Alignment
 
-Ensure timestamps align with your data frequency:
+Ensure your timestamps are in the time unit you specify:
 
 ```c
-// If your CSV has daily bars, timestamps should be:
-// - Daily Unix values (e.g., 1577836800, 1577923200, ...)
-// - Time unit: WU_TIME_UNIT_DAYS
+// If your CSV has daily bars with Unix timestamps in seconds:
+WU_TimeUnit time_unit = WU_TIME_UNIT_SECONDS;
 
-// If your CSV has hourly bars, timestamps should be:
-// - Hourly Unix values (incremented by 3600 seconds)
-// - Time unit: WU_TIME_UNIT_HOURS
+// If your CSV has tick data with timestamps in milliseconds:
+WU_TimeUnit time_unit = WU_TIME_UNIT_MILLIS;
 ```
 
-Mismatch causes incorrect metric calculations.
+Mismatch between your data and specified unit causes incorrect metric calculations.
 
 ### Market Hours
 
-Daily data typically timestamps bars at market close (4 PM ET for US equities). Some tools timestamp at market open. Either way, ensure consistency across all your data sources.
+Daily data typically timestamps bars at market close (4 PM ET for US equities). Some tools use market open. Ensure consistency across all data sources.
 
 ```bash
-# Market close convention (4 PM ET)
+# Using yf to download data with Unix timestamps
 yf history -s:spy --lookback:1y --format:csv --date_format:unix
 
-# Produces timestamps at market close time
-# 1704067200 = Jan 1, 2024 00:00 UTC (coincidentally Jan 1 at noon ET)
+# Produces timestamps at market close time (4 PM ET)
+# 1704067200 = Jan 1, 2024 00:00 UTC
 ```
 
 ### UTC vs Local Time
@@ -186,20 +198,20 @@ Wu uses UTC internally. If your data is in local time, convert it first:
 # 1:00 PM EDT = 17:00 UTC
 ```
 
-Financial tools like `yf` output UTC by default, so usually this isn't an issue.
+Financial tools like `yf` output UTC by default, so this is usually not an issue.
 
 ### Gaps in Data
 
-Markets are closed on weekends and holidays. Your daily data will have gaps:
+Markets are closed on weekends and holidays. Daily data has gaps:
 
 ```
-1704067200  (Friday)
-1704240000  (Monday, 2 days later)
+1704067200  (Friday close)
+1704240000  (Monday close, 2 calendar days later)
 ```
 
-This is fine. Wu handles gaps correctly. Gaps don't affect statistics calculations—they just mean fewer periods elapsed.
+This is normal. Wu handles gaps correctly. Gaps don't affect statistics—they just mean fewer periods elapsed.
 
-However, if you're working with intraday data (hourly or minute), gaps are more noticeable. You shouldn't have timestamps spanning non-trading hours unless you're trading 24/7 futures.
+Intraday data (hourly or minute) shouldn't have gaps during trading hours unless trading 24/7 futures.
 
 ## Tips for Setting Up Data
 
