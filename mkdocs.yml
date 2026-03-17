@@ -26,14 +26,18 @@ nav:
   - Home: index.md
   - Installation: installation.md
   - Tutorial: tutorial.md
+  - Guides:
+    - Portfolio Configuration: portfolio-configuration.md
+    - Timestamps and Data: timestamps.md
   - Design Notes:
     - Architecture: design/architecture.md
     - Execution Models: design/execution.md
     - Position Sizing: design/position_sizing.md
-    - Timestamps: design/timestamps.md
   - Examples:
     - Crossover Strategy: examples/crossover.md
     - Pairs Trading: examples/pairs_trading.md
+  - API Reference: https://jailop.codeberg.page/wutrader/docs/html/
+  - Repository: https://codeberg.org/jailop/wu
 
 docs_dir: docs_src
 site_dir: docs

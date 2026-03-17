@@ -21,4 +21,5 @@
 
 - Current indicators updated to validate input data
 - Portfolio params improved
-- User guide: mkdocs
+- new: User guide: mkdocs
+- new: Portfolio perfomance indicators

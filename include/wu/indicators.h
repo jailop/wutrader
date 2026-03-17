@@ -158,4 +158,142 @@ typedef struct WU_MACD_ {
 WU_MACD wu_macd_new(int short_window, int long_window, int signal_window,
         double smoothing);
 
+/**
+ * Performance Update - value and timestamp for performance metric calculations.
+ */
+typedef struct {
+    double portfolio_value;  // Current portfolio value
+    WU_TimeStamp timestamp;  // Timestamp of this value
+} WU_PerformanceUpdate;
+
+/**
+ * Maximum Drawdown - tracks the largest peak-to-trough decline.
+ * Updates with portfolio values and returns the drawdown as a negative percentage.
+ * Calculated as (current_value - peak) / peak when current is below peak.
+ * 
+ * Does not require time information - purely based on value changes.
+ */
+typedef struct WU_MaxDrawdown_ {
+    double (*update)(struct WU_MaxDrawdown_* self, double portfolio_value);
+    double (*get)(const struct WU_MaxDrawdown_* self);
+    void (*delete)(struct WU_MaxDrawdown_* self);
+    double value;         // Current maximum drawdown (as negative percentage, e.g., -0.25 for 25% drawdown)
+    double peak;          // Highest portfolio value seen so far
+}* WU_MaxDrawdown;
+
+WU_MaxDrawdown wu_max_drawdown_new(void);
+
+/**
+ * Return Statistics Result - contains mean, variance, and downside deviation.
+ * Calculated incrementally using Welford's online algorithm.
+ * All values are per-period (daily, hourly, etc. depending on data frequency).
+ */
+typedef struct {
+    double mean;                    // Mean of returns per period
+    double variance;                // Variance of returns per period
+    double stddev;                  // Standard deviation of returns per period
+    double downside_deviation;      // Standard deviation of negative returns only
+} WU_ReturnStatsResult;
+
+/**
+ * Return Statistics - tracks sequential returns for risk metrics.
+ * Computes mean and variance of returns using Welford's online algorithm.
+ * Also tracks downside deviation (only negative returns) for Sortino ratio.
+ * 
+ * Tracks time periods to enable proper annualization of metrics.
+ */
+typedef struct WU_ReturnStats_ {
+    WU_ReturnStatsResult (*update)(struct WU_ReturnStats_* self, WU_PerformanceUpdate perf);
+    WU_ReturnStatsResult (*get)(const struct WU_ReturnStats_* self);
+    void (*delete)(struct WU_ReturnStats_* self);
+    double prev_value;    // Previous portfolio value
+    double return_mean;   // Mean of returns
+    double return_m2;     // Sum of squared deviations (for variance)
+    double downside_m2;   // Sum of squared negative deviations
+    int64_t count;        // Number of returns observed
+    int64_t start_time;   // First timestamp (in units)
+    int64_t end_time;     // Last timestamp (in units)
+    WU_TimeUnit time_unit; // Time unit for period calculations
+}* WU_ReturnStats;
+
+WU_ReturnStats wu_return_stats_new(double initial_value);
+
+/**
+ * PnL Statistics Result - contains mean and standard deviation of PnL values.
+ */
+typedef struct {
+    double mean;           // Mean PnL per trade
+    double stddev;         // Standard deviation of PnL
+} WU_PnLStatsResult;
+
+/**
+ * PnL Statistics - tracks PnL values from trades using Welford's algorithm.
+ * Computes mean and standard deviation incrementally as trades are recorded.
+ */
+typedef struct WU_PnLStats_ {
+    WU_PnLStatsResult (*update)(struct WU_PnLStats_* self, double pnl);
+    WU_PnLStatsResult (*get)(const struct WU_PnLStats_* self);
+    void (*delete)(struct WU_PnLStats_* self);
+    double pnl_mean;       // Mean of PnL
+    double pnl_m2;         // Sum of squared deviations
+    int64_t count;         // Number of trades
+}* WU_PnLStats;
+
+WU_PnLStats wu_pnl_stats_new(void);
+
+/**
+ * Sharpe Ratio - risk-adjusted return metric.
+ * Computes (mean_return - risk_free_rate) / return_stddev incrementally.
+ * Returns a single double value representing the annualized ratio.
+ * 
+ * Requires time tracking to properly annualize the ratio based on data frequency.
+ */
+typedef struct WU_SharpeRatio_ {
+    double (*update)(struct WU_SharpeRatio_* self, WU_PerformanceUpdate perf);
+    double (*get)(const struct WU_SharpeRatio_* self);
+    void (*delete)(struct WU_SharpeRatio_* self);
+    WU_ReturnStats return_stats;
+    double risk_free_rate;  // Annual risk-free rate
+    double value;           // Current Sharpe ratio
+}* WU_SharpeRatio;
+
+WU_SharpeRatio wu_sharpe_ratio_new(double initial_value, double risk_free_rate);
+
+/**
+ * Sortino Ratio - risk-adjusted return using downside deviation.
+ * Computes (mean_return - risk_free_rate) / downside_deviation incrementally.
+ * Returns a single double value representing the annualized ratio.
+ * 
+ * Requires time tracking to properly annualize the ratio based on data frequency.
+ */
+typedef struct WU_SortinoRatio_ {
+    double (*update)(struct WU_SortinoRatio_* self, WU_PerformanceUpdate perf);
+    double (*get)(const struct WU_SortinoRatio_* self);
+    void (*delete)(struct WU_SortinoRatio_* self);
+    WU_ReturnStats return_stats;
+    double risk_free_rate;  // Annual risk-free rate
+    double value;           // Current Sortino ratio
+}* WU_SortinoRatio;
+
+WU_SortinoRatio wu_sortino_ratio_new(double initial_value, double risk_free_rate);
+
+/**
+ * Calmar Ratio - return to maximum drawdown ratio.
+ * Computes annualized_return / abs(max_drawdown) incrementally.
+ * Returns a single double value representing the ratio.
+ * 
+ * Requires time tracking to properly annualize the return based on data frequency.
+ */
+typedef struct WU_CalmarRatio_ {
+    double (*update)(struct WU_CalmarRatio_* self, WU_PerformanceUpdate perf);
+    double (*get)(const struct WU_CalmarRatio_* self);
+    void (*delete)(struct WU_CalmarRatio_* self);
+    WU_ReturnStats return_stats;
+    WU_MaxDrawdown max_drawdown;
+    double initial_value;   // Initial portfolio value
+    double value;           // Current Calmar ratio
+}* WU_CalmarRatio;
+
+WU_CalmarRatio wu_calmar_ratio_new(double initial_value);
+
 #endif // WU_INDICATOR_H

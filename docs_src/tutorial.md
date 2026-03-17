@@ -889,19 +889,25 @@ The 163% return is **in-sample testing**—running the strategy on historical da
 
 Strategies with high backtest returns may underperform in live trading due to the gap between historical simulation and real market conditions.
 
-### Missing Risk Metrics
+### Understanding Performance Metrics
 
-Profit and loss shows returns but not risk. Wu currently lacks risk metrics commonly used in professional trading:
+Wu now calculates key risk and performance metrics automatically, included in backtest output:
 
-**Sharpe Ratio**: Risk-adjusted returns, calculated as `(average_return - risk_free_rate) / standard_deviation_of_returns`. A 163% return with 200% volatility differs significantly from 20% with 5% volatility.
+**Trade Metrics**:
 
-**Maximum Drawdown**: The worst peak-to-trough decline. A 50% drawdown requires 100% gains to recover. This metric affects psychological tolerance and position sizing decisions.
+- `avg_pnl`: Average profit/loss per trade. Shows the expected return from a typical trade.
+- `pnl_stddev`: Standard deviation of PnL across all trades. Measures consistency—low values mean stable trades, high values mean erratic results prone to outliers.
 
-**Volatility**: How much the equity curve fluctuates. Higher volatility requires smaller positions to manage risk.
+**Risk-Adjusted Returns**:
 
-**Calmar Ratio**: Annual return divided by maximum drawdown. Shows return per unit of worst-case risk.
+These metrics combine returns with risk to give a fuller picture. A 100% return with massive drawdowns differs fundamentally from steady 10% returns with minimal volatility.
 
-Without these metrics, you lack full visibility into strategy risk characteristics.
+- `max_drawdown`: The worst peak-to-trough decline in portfolio value. Expressed as a negative percentage (e.g., -0.29 means 29%). A 50% drawdown requires 100% gains to recover. This metric affects position sizing and psychological tolerance.
+- `sharpe_ratio`: Return per unit of total volatility. Calculated as `(average_return - risk_free_rate) / volatility`, annualized. Higher is better. Near-zero values suggest returns barely exceed the risk-free rate after accounting for volatility.
+- `sortino_ratio`: Like Sharpe, but only penalizes downside volatility. Better for strategies with asymmetric return distributions (more frequent small gains, fewer large losses).
+- `calmar_ratio`: Annual return divided by maximum drawdown. Shows how much annual return you're earning per unit of worst-case risk.
+
+Example interpretation: If `max_drawdown=-0.29`, `sharpe_ratio=0.0027`, and `calmar_ratio=0.0635`, the strategy experienced a 29% worst-case drawdown, had minimal risk-adjusted returns relative to risk-free rate, but earned 6.35% annually per unit of drawdown risk. These all point to the strategy barely outperforming passive investing after accounting for risk.
 
 ### Unrealistic Execution Model
 

@@ -93,6 +93,7 @@ typedef struct {
 typedef struct WU_PortfolioParams {
     WU_Direction direction;
     double initial_cash;
+    double risk_free_rate;  // Annual risk-free rate for Sharpe/Sortino (e.g., 0.03 for 3%)
     WU_ExecutionPolicy execution_policy;
     WU_BorrowParams borrow_params;
     WU_PositionSizingParams position_sizing;

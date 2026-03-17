@@ -95,6 +95,8 @@ Read the [tutorial](tutorial.md) for a step-by-step introduction.
 
 For detailed API documentation, see the [Doxygen API Reference](https://jailop.codeberg.page/wutrader/docs/html/).
 
+See the [Guides](portfolio-configuration.md) for detailed explanations of portfolio configuration and timestamp handling.
+
 Repository: [https://codeberg.org/jailop/wu](https://codeberg.org/jailop/wu)
 
 ## Contributing

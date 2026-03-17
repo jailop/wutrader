@@ -20,6 +20,7 @@ WU_PortfolioParams wu_portfolio_params_default(void) {
     return (WU_PortfolioParams) {
         .direction = WU_DIRECTION_LONG,
         .initial_cash = 100000.0,
+        .risk_free_rate = 0.03,  // 3% annual risk-free rate
         .execution_policy = {
             .policy = WU_EXECUTION_POLICY_IMMEDIATE,
             .execution_mean = 0.0,
@@ -793,7 +794,7 @@ WU_BasicPortfolio wu_basic_portfolio_new(WU_PortfolioParams params,
     portfolio->cash = params.initial_cash;
     portfolio->num_assets = num_assets;
     portfolio->last_update_time = (WU_TimeStamp){.mark = 0, .units = WU_TIME_UNIT_SECONDS};
-    portfolio->stats = wu_portfolio_stats_new(params.initial_cash);
+    portfolio->stats = wu_portfolio_stats_new(params.initial_cash, params.risk_free_rate);
     
     // Initialize stats with asset symbols
     for (int i = 0; i < num_assets; i++) {
