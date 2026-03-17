@@ -243,4 +243,4 @@ WU_Reader reader = wu_csv_reader_new(file,
 
 For API details, see the [Doxygen API Reference](https://jailop.codeberg.page/wutrader/docs/html/).
 
-For a complete working example with real data, see the [Tutorial](tutorial.md).
+For a complete working example with real data, see the [Tutorial](../tutorial.md).

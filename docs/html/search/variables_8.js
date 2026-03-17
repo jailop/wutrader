@@ -1,6 +1,0 @@
-var searchData=
-[
-  ['initial_5fcash_0',['initial_cash',['../structWU__PortfolioParams.html#a62ea823455d640d3c44a33ea3ab169ef',1,'WU_PortfolioParams::initial_cash'],['../structWU__PortfolioStats__.html#a1f22866bd85a231ea44212f8dc316739',1,'WU_PortfolioStats_::initial_cash']]],
-  ['initial_5fvalue_1',['initial_value',['../structWU__CalmarRatio__.html#a1ea0ef3f2017105beb6806654c42c539',1,'WU_CalmarRatio_']]],
-  ['input_5ftypes_2',['input_types',['../structWU__Strategy__.html#a7e9049adbbb667f333554bd1a23c7a99',1,'WU_Strategy_::input_types'],['../crossover_8c.html#a88dd001f737d3b93c2e0bbcb687958c3',1,'input_types:&#160;crossover.c'],['../pairs__trading_8c.html#a88dd001f737d3b93c2e0bbcb687958c3',1,'input_types:&#160;pairs_trading.c']]]
-];

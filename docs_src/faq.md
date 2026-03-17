@@ -22,7 +22,7 @@ WU supports CSV files and JSON Lines format (one valid JSON object per line). Th
 
 **How should timestamps be formatted?**
 
-Timestamps are stored as numeric values in specified units (seconds, milliseconds, minutes, hours, days). The library handles different time units consistently across all calculations. See the [Timestamps](timestamps.md) guide for details.
+Timestamps are stored as numeric values in specified units (seconds, milliseconds, minutes, hours, days). The library handles different time units consistently across all calculations. See the [Timestamps and Data](guides/timestamps.md) guide for details.
 
 **Can I use minute-level data? Daily data? Tick data?**
 
@@ -44,7 +44,7 @@ Currently only market orders are supported. The library does not implement an or
 
 **How is slippage handled?**
 
-Slippage is modeled through the execution policy. You can specify the execution price as a fixed amount away from the signal price, or as a random offset based on volatility (using standard deviations). This allows you to approximate realistic trading costs beyond just transaction fees.
+Slippage is modeled through the execution policy. You can specify the execution price as a fixed amount away from the signal price, or as a random offset based on volatility (using standard deviations). This allows you to approximate realistic trading costs beyond just transaction fees. See [Portfolio Configuration](portfolio-configuration.md) for execution policy details.
 
 ## Performance Analysis
 
@@ -58,7 +58,7 @@ WU calculates several key metrics:
 - **Trade statistics**: Win rate, maximum win/loss, number of winning/losing trades
 - **Cost tracking**: Transaction fees and borrowing interest
 
-See the [Performance Metrics](portfolio-configuration.md#performance-metrics) section for details on each metric.
+See the [Portfolio Configuration](portfolio-configuration.md) guide for details on how to configure metrics tracking.
 
 **How is Sharpe ratio calculated?**
 
@@ -70,7 +70,7 @@ Both measure risk-adjusted returns. Sharpe uses total return volatility, while S
 
 **Can I track custom metrics?**
 
-The indicator interface lets you implement custom calculations that update sequentially as data arrives. See the [Design](design) section for examples of implementing custom indicators.
+The indicator interface lets you implement custom calculations that update sequentially as data arrives. See the [Design Notes](design/architecture.md) section for examples of implementing custom indicators.
 
 ## Strategy Development
 

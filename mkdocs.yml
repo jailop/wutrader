@@ -29,12 +29,13 @@ nav:
   - Tutorial: tutorial.md
   - Guides:
     - Portfolio Configuration: portfolio-configuration.md
-    - Timestamps and Data: timestamps.md
-    - Data Formats: data-formats.md
+    - Timestamps and Data: guides/timestamps.md
+    - Data Formats: guides/data-formats.md
   - Design Notes:
     - Architecture: design/architecture.md
     - Execution Models: design/execution.md
     - Position Sizing: design/position_sizing.md
+    - Timestamps: design/timestamps.md
   - Examples:
     - Crossover Strategy: examples/crossover.md
     - Pairs Trading: examples/pairs_trading.md
