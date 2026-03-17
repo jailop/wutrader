@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Jaime Lopez" /><link rel="canonical" href="https://jailop.codeberg.page/wutrader/design/architecture/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Architecture - Wu Trading Library</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Architecture";
+        var mkdocs_page_input_path = "design/architecture.md";
+        var mkdocs_page_url = "/wutrader/design/architecture/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/c.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Wu Trading Library
+        </a>
+        <div class="version">
+          0.1.0
+        </div><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../installation/">Installation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../tutorial/">Tutorial</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Guides</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../portfolio-configuration/">Portfolio Configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../timestamps/">Timestamps and Data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../data-formats/">Data Formats</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Design Notes</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Architecture</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#component-model">Component Model</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#interface-contracts">Interface Contracts</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#composition-over-configuration">Composition Over Configuration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#type-system">Type System</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#extension-points">Extension Points</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#limitations-by-design">Limitations by Design</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#why-c">Why C?</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../execution/">Execution Models</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../position_sizing/">Position Sizing</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../examples/crossover/">Crossover Strategy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../examples/pairs_trading/">Pairs Trading</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://jailop.codeberg.page/wutrader/docs/html/">API Reference</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://codeberg.org/jailop/wu">Repository</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Wu Trading Library</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Design Notes</li>
+      <li class="breadcrumb-item active">Architecture</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="architecture-overview">Architecture Overview<a class="headerlink" href="#architecture-overview" title="Permanent link">&para;</a></h1>
+<p>Wu uses a modular design where components communicate through defined
+interfaces. This document explains the structural decisions and their
+rationale.</p>
+<h2 id="component-model">Component Model<a class="headerlink" href="#component-model" title="Permanent link">&para;</a></h2>
+<p>The library organizes around five core abstractions:</p>
+<pre class="codehilite"><code>┌─────────────┐
+│   Runner    │  ← Orchestrates execution
+└──────┬──────┘
+       │
+   ┌───┴───────────────────┐
+   ▼                       ▼
+┌─────────┐          ┌──────────┐
+│ Reader  │──────────│ Strategy │  ← Generates signals
+└─────────┘          └────┬─────┘
+   │                      │
+   │                      ▼
+   │                 ┌──────────┐
+   │                 │Portfolio │  ← Executes trades
+   └─────────────────┤          │
+                     └──────────┘
+</code></pre>
+
+<p><strong>Data flow</strong> moves in one direction. Readers fetch data from sources
+(CSV files, databases, APIs). Strategies consume that data, update
+indicators, and produce signals. Portfolios execute signals as trades,
+managing cash and positions. The runner coordinates these operations in
+sequence.</p>
+<p><strong>Polymorphism</strong> uses C's struct-and-function-pointer pattern. A base
+struct defines the interface (function pointers). Concrete
+implementations embed the base struct as their first member, then add
+specific state. This gives inheritance-like behavior without vtables or
+dynamic dispatch overhead.</p>
+<p><strong>State management</strong> is explicit. Every component carries its state in
+its struct. No hidden globals, no singletons. You can serialize a
+portfolio's state by copying its struct. You can inspect indicator
+internal buffers directly in a debugger.</p>
+<h2 id="interface-contracts">Interface Contracts<a class="headerlink" href="#interface-contracts" title="Permanent link">&para;</a></h2>
+<p>Each abstraction defines a minimal contract:</p>
+<p><strong>WU_Reader</strong> provides one method: <code>next()</code>. Call it repeatedly to fetch
+data points. It returns NULL when exhausted. The reader owns the returned
+data and may reuse buffers between calls.</p>
+<p><strong>WU_Strategy</strong> has one method: <code>update()</code>. Pass it an array of data
+points (one per asset). It returns an array of signals (also one per
+asset). The strategy owns the signal buffer.</p>
+<p><strong>WU_Portfolio</strong> has three methods: <code>update()</code> to process signals,
+<code>value()</code> to get current portfolio value, and <code>pnl()</code> to calculate
+profit/loss. The portfolio maintains positions and cash internally.</p>
+<p><strong>WU_Indicator</strong> provides an <code>update()</code> method that accepts a value and
+returns the computed indicator value. Indicators maintain their own
+internal buffers and state.</p>
+<p>These minimal contracts keep implementations simple. A CSV reader doesn't
+need to know about strategies. A strategy doesn't care where data comes
+from. A portfolio doesn't care how signals were generated.</p>
+<h2 id="composition-over-configuration">Composition Over Configuration<a class="headerlink" href="#composition-over-configuration" title="Permanent link">&para;</a></h2>
+<p>The library provides building blocks rather than a framework. You wire
+components together explicitly:</p>
+<pre class="codehilite"><code class="language-c">WU_Runner runner = wu_runner_new(
+    portfolio,
+    strategy,
+    wu_reader_list(reader1, reader2)
+);
+</code></pre>
+
+<p>This explicit wiring makes data flow visible. You can see what connects
+to what. No dependency injection, no service locators, no magic
+auto-wiring.</p>
+<p>If the runner's behavior doesn't fit your needs, write your own loop.
+The components work independently. The runner is convenience, not
+requirement.</p>
+<h2 id="type-system">Type System<a class="headerlink" href="#type-system" title="Permanent link">&para;</a></h2>
+<p>Wu defines three data types: Candles (OHLCV bars), Trades (tick data),
+and Singles (scalar values with timestamps). Strategies declare what
+types they accept. Readers declare what types they produce. The runner
+validates compatibility at construction.</p>
+<p>This type system is intentionally minimal. It covers common use cases
+without trying to model every possible market data structure. If you need
+something different, wrap it in one of these three types or extend the
+type enum.</p>
+<h2 id="extension-points">Extension Points<a class="headerlink" href="#extension-points" title="Permanent link">&para;</a></h2>
+<p><strong>Custom Portfolios</strong>: Implement the <code>WU_Portfolio</code> interface to create
+portfolios with different execution logic, risk models, or position
+management approaches.</p>
+<p><strong>Custom Strategies</strong>: Implement the <code>WU_Strategy</code> interface. Your
+strategy can use any indicator, maintain any state, and generate signals
+based on any logic.</p>
+<p><strong>Custom Readers</strong>: Implement the <code>WU_Reader</code> interface to pull data from
+any source. PostgreSQL, REST APIs, ZeroMQ feeds, synthetic generators—if
+you can read it, you can backtest against it.</p>
+<p><strong>Custom Indicators</strong>: Indicators are just structs with an update
+function. Implement new indicators following the existing patterns.</p>
+<h2 id="limitations-by-design">Limitations by Design<a class="headerlink" href="#limitations-by-design" title="Permanent link">&para;</a></h2>
+<p><strong>No order book</strong>: Wu executes trades immediately at given prices. There's
+no order matching, no queue, no price-time priority. This simplification
+works for backtesting but doesn't model market microstructure.</p>
+<p><strong>No event system</strong>: Components communicate through synchronous function
+calls. No event bus, no message queue, no async callbacks. This keeps
+reasoning about execution order straightforward.</p>
+<p><strong>No persistence layer</strong>: Wu doesn't save or load state. Backtests run
+in memory from start to finish. If you need persistence, implement it
+around the library.</p>
+<h2 id="why-c">Why C?<a class="headerlink" href="#why-c" title="Permanent link">&para;</a></h2>
+<p>C provides control over memory layout and allocation patterns. When
+performance matters, you can see exactly what the processor executes. No
+garbage collection pauses. No hidden allocations.</p>
+<p>C also forces explicit design decisions. Without automatic memory
+management or inheritance hierarchies, you think carefully about
+ownership, lifetimes, and interfaces.</p>
+<p>The downside is verbosity and manual memory management. The Python
+bindings provide a higher-level interface when C's explicitness isn't
+needed.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../data-formats/" class="btn btn-neutral float-left" title="Data Formats"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../execution/" class="btn btn-neutral float-right" title="Execution Models">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://codeberg.org/jailop/wu" class="fa fa-code-fork" style="color: #fcfcfc"> codeberg/wu</a>
+        </span>
+    
+    
+      <span><a href="../../data-formats/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../execution/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

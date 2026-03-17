@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Jaime Lopez" /><link rel="canonical" href="https://jailop.codeberg.page/wutrader/timestamps/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Timestamps and Data - Wu Trading Library</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Timestamps and Data";
+        var mkdocs_page_input_path = "timestamps.md";
+        var mkdocs_page_url = "/wutrader/timestamps/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/c.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Wu Trading Library
+        </a>
+        <div class="version">
+          0.1.0
+        </div><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../tutorial/">Tutorial</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Guides</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../portfolio-configuration/">Portfolio Configuration</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Timestamps and Data</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#time-units">Time Units</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#unix-timestamps">Unix Timestamps</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#bar-frequencies-and-data-types">Bar Frequencies and Data Types</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#performance-metrics-and-annualization">Performance Metrics and Annualization</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#time-unit-example-converting-data">Time Unit Example: Converting Data</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#practical-considerations">Practical Considerations</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#data-alignment">Data Alignment</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#market-hours">Market Hours</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#utc-vs-local-time">UTC vs Local Time</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#gaps-in-data">Gaps in Data</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tips-for-setting-up-data">Tips for Setting Up Data</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#example-workflow">Example Workflow</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#see-also">See Also</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data-formats/">Data Formats</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Design Notes</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../design/architecture/">Architecture</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../design/execution/">Execution Models</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../design/position_sizing/">Position Sizing</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../examples/crossover/">Crossover Strategy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../examples/pairs_trading/">Pairs Trading</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://jailop.codeberg.page/wutrader/docs/html/">API Reference</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://codeberg.org/jailop/wu">Repository</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Wu Trading Library</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Guides</li>
+      <li class="breadcrumb-item active">Timestamps and Data</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="understanding-timestamps-and-data-frequencies">Understanding Timestamps and Data Frequencies<a class="headerlink" href="#understanding-timestamps-and-data-frequencies" title="Permanent link">&para;</a></h1>
+<p>Timestamps are fundamental to backtesting. They determine when data occurred, enable proper historical ordering, and affect how metrics like Sharpe ratio get annualized. This guide explains Wu's timestamp model.</p>
+<h2 id="time-units">Time Units<a class="headerlink" href="#time-units" title="Permanent link">&para;</a></h2>
+<p>Wu represents time using a flexible unit system. The same numeric value can represent seconds, minutes, days, or years depending on the context.</p>
+<pre class="codehilite"><code class="language-c">typedef enum {
+    WU_TIME_UNIT_SECONDS,
+    WU_TIME_UNIT_MINUTES,
+    WU_TIME_UNIT_HOURS,
+    WU_TIME_UNIT_DAYS,
+    WU_TIME_UNIT_WEEKS,
+    WU_TIME_UNIT_MONTHS,
+    WU_TIME_UNIT_YEARS
+} WU_TimeUnit;
+</code></pre>
+
+<p>When you create a data reader, you specify the time unit:</p>
+<pre class="codehilite"><code class="language-c">WU_Reader reader = (WU_Reader)wu_csv_reader_new(file,
+    WU_DATA_TYPE_CANDLE,
+    WU_TIME_UNIT_SECONDS,    // Timestamps are in Unix seconds
+    true                      // Skip header row
+);
+</code></pre>
+
+<p>This tells Wu how to interpret the numeric timestamps in your data.</p>
+<h2 id="unix-timestamps">Unix Timestamps<a class="headerlink" href="#unix-timestamps" title="Permanent link">&para;</a></h2>
+<p>Most commonly, timestamps are Unix epoch values—seconds since January 1, 1970 UTC. This is what financial data tools like <code>yf</code> produce with <code>--date_format:unix</code>.</p>
+<p>For example:
+- January 1, 2024 00:00:00 UTC = 1704067200
+- January 1, 2020 00:00:00 UTC = 1577836800
+- December 31, 2010 00:00:00 UTC = 1293840000</p>
+<p><strong>CSV Format</strong>:</p>
+<pre class="codehilite"><code>Timestamp,Open,High,Low,Close,Volume
+1577836800,100.5,101.2,100.0,100.8,1000000
+1577923200,100.8,101.5,100.5,101.2,1100000
+1578009600,101.2,102.0,100.8,101.8,950000
+</code></pre>
+
+<p>The timestamps should be in the first column. Wu's CSV reader parses them as numeric values and combines them with the time unit you specified.</p>
+<h2 id="bar-frequencies-and-data-types">Bar Frequencies and Data Types<a class="headerlink" href="#bar-frequencies-and-data-types" title="Permanent link">&para;</a></h2>
+<p>Different data frequencies require different interpretations:</p>
+<p><strong>Daily Bars</strong>: One data point per calendar day (or trading day).</p>
+<pre class="codehilite"><code class="language-c">// Data file with daily bars
+WU_TimeUnit time_unit = WU_TIME_UNIT_DAYS;
+</code></pre>
+
+<p>Your timestamps might be daily Unix values (at market close or market open). The delta between consecutive timestamps is roughly 86400 seconds (one day).</p>
+<p><strong>Hourly Bars</strong>: One data point per hour.</p>
+<pre class="codehilite"><code class="language-c">WU_TimeUnit time_unit = WU_TIME_UNIT_HOURS;
+</code></pre>
+
+<p>Timestamps progress hourly. More granular than daily data, useful for intraday strategies.</p>
+<p><strong>Tick Data</strong>: Individual transactions.</p>
+<pre class="codehilite"><code class="language-c">WU_TimeUnit time_unit = WU_TIME_UNIT_SECONDS;
+</code></pre>
+
+<p>Highest granularity. Every price change has its own timestamp. Tick data is much larger and computationally expensive to process.</p>
+<h2 id="performance-metrics-and-annualization">Performance Metrics and Annualization<a class="headerlink" href="#performance-metrics-and-annualization" title="Permanent link">&para;</a></h2>
+<p>Risk metrics like Sharpe ratio and Sortino ratio are meaningless without proper time scaling. A Sharpe ratio of 1.0 on daily data isn't the same as a Sharpe ratio of 1.0 on hourly data.</p>
+<p>Wu automatically annualizes these metrics based on the time unit you specify:</p>
+<pre class="codehilite"><code class="language-c">WU_SharpeRatio sharpe = wu_sharpe_ratio_new(initial_value, risk_free_rate);
+</code></pre>
+
+<p>Internally, Wu tracks how many periods occurred during the backtest and scales the metrics accordingly. The calculation uses:</p>
+<pre class="codehilite"><code>periods_per_year = 252 for daily data
+                 = 252 * 6.5 = 1638 for hourly data
+                 = 252 * 6.5 * 60 = 98280 for minute data
+</code></pre>
+
+<p>These conventions (252 trading days/year, 6.5 trading hours/day) are standard in finance.</p>
+<p><strong>Why This Matters</strong>:</p>
+<p>Consider two strategies:</p>
+<ol>
+<li>Daily strategy over 252 trading days (1 year)</li>
+<li>Hourly strategy over 252 days × 6.5 hours/day = 1,638 hourly bars</li>
+</ol>
+<p>Both might show 10% returns. But the hourly strategy has 6.5× more opportunities to generate returns, so the daily volatility is higher. Without proper annualization, you'd compare returns at different scales.</p>
+<p>Wu handles this automatically once you specify the time unit correctly.</p>
+<h2 id="time-unit-example-converting-data">Time Unit Example: Converting Data<a class="headerlink" href="#time-unit-example-converting-data" title="Permanent link">&para;</a></h2>
+<p>Suppose you have minute-level data but want to test on daily bars. You'd aggregate:</p>
+<pre class="codehilite"><code class="language-bash"># Raw minute data (raw_data.csv)
+1577836800,100.5,101.2,100.0,100.8,1000
+1577836860,100.8,101.5,100.5,101.2,1100
+1577836920,101.2,102.0,100.8,101.8,950
+... (390 more minutes) ...
+1577923200,100.9,101.3,100.1,101.0,1050
+
+# After aggregation into daily bars (daily_data.csv)
+1577836800,100.5,102.1,100.0,101.0,500000
+1577923200,101.0,102.5,100.5,101.8,480000
+</code></pre>
+
+<p>The aggregation process:
+- Groups minutes into days
+- Uses the first minute's open as the day's open
+- Tracks the highest high and lowest low across all minutes
+- Uses the last minute's close as the day's close
+- Sums volumes</p>
+<p>Then when you use this daily file:</p>
+<pre class="codehilite"><code class="language-c">WU_Reader reader = wu_csv_reader_new(file,
+    WU_DATA_TYPE_CANDLE,
+    WU_TIME_UNIT_DAYS,    // Time unit matches the data
+    true
+);
+</code></pre>
+
+<h2 id="practical-considerations">Practical Considerations<a class="headerlink" href="#practical-considerations" title="Permanent link">&para;</a></h2>
+<h3 id="data-alignment">Data Alignment<a class="headerlink" href="#data-alignment" title="Permanent link">&para;</a></h3>
+<p>Ensure timestamps align with your data frequency:</p>
+<pre class="codehilite"><code class="language-c">// If your CSV has daily bars, timestamps should be:
+// - Daily Unix values (e.g., 1577836800, 1577923200, ...)
+// - Time unit: WU_TIME_UNIT_DAYS
+
+// If your CSV has hourly bars, timestamps should be:
+// - Hourly Unix values (incremented by 3600 seconds)
+// - Time unit: WU_TIME_UNIT_HOURS
+</code></pre>
+
+<p>Mismatch causes incorrect metric calculations.</p>
+<h3 id="market-hours">Market Hours<a class="headerlink" href="#market-hours" title="Permanent link">&para;</a></h3>
+<p>Daily data typically timestamps bars at market close (4 PM ET for US equities). Some tools timestamp at market open. Either way, ensure consistency across all your data sources.</p>
+<pre class="codehilite"><code class="language-bash"># Market close convention (4 PM ET)
+yf history -s:spy --lookback:1y --format:csv --date_format:unix
+
+# Produces timestamps at market close time
+# 1704067200 = Jan 1, 2024 00:00 UTC (coincidentally Jan 1 at noon ET)
+</code></pre>
+
+<h3 id="utc-vs-local-time">UTC vs Local Time<a class="headerlink" href="#utc-vs-local-time" title="Permanent link">&para;</a></h3>
+<p>Wu uses UTC internally. If your data is in local time, convert it first:</p>
+<pre class="codehilite"><code class="language-bash"># EST/EDT local time to UTC
+# EST is UTC-5, EDT is UTC-4
+
+# 1:00 PM EST = 18:00 UTC
+# 1:00 PM EDT = 17:00 UTC
+</code></pre>
+
+<p>Financial tools like <code>yf</code> output UTC by default, so usually this isn't an issue.</p>
+<h3 id="gaps-in-data">Gaps in Data<a class="headerlink" href="#gaps-in-data" title="Permanent link">&para;</a></h3>
+<p>Markets are closed on weekends and holidays. Your daily data will have gaps:</p>
+<pre class="codehilite"><code>1704067200  (Friday)
+1704240000  (Monday, 2 days later)
+</code></pre>
+
+<p>This is fine. Wu handles gaps correctly. Gaps don't affect statistics calculations—they just mean fewer periods elapsed.</p>
+<p>However, if you're working with intraday data (hourly or minute), gaps are more noticeable. You shouldn't have timestamps spanning non-trading hours unless you're trading 24/7 futures.</p>
+<h2 id="tips-for-setting-up-data">Tips for Setting Up Data<a class="headerlink" href="#tips-for-setting-up-data" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Verify Your Timestamps</strong>: Print the first few and last few rows to confirm they're in the right order and frequency.</p>
+</li>
+<li>
+<p><strong>Match Time Units</strong>: The time unit you pass to <code>wu_csv_reader_new</code> must match your data's granularity.</p>
+</li>
+<li>
+<p><strong>Use Unix Epoch</strong>: It's the standard. Tools like <code>yf</code> produce it directly.</p>
+</li>
+<li>
+<p><strong>Handle Timezone</strong>: Ensure all your data is in the same timezone (preferably UTC).</p>
+</li>
+<li>
+<p><strong>Document Your Data</strong>: Note the frequency, timezone, and whether bars close at market close or open.</p>
+</li>
+</ol>
+<h2 id="example-workflow">Example Workflow<a class="headerlink" href="#example-workflow" title="Permanent link">&para;</a></h2>
+<pre class="codehilite"><code class="language-bash"># 1. Pull data in the right format
+yf history -s:spy --lookback:5y \
+    --format:csv \
+    --date_format:unix &gt; spy.csv
+
+# 2. Verify the format
+head -5 spy.csv
+# Output:
+# Timestamp,Open,High,Low,Close,Volume
+# 1577836800,100.5,101.2,100.0,100.8,1000000
+# ...
+
+# 3. Use in Wu with correct time unit
+// In your C code:
+WU_Reader reader = wu_csv_reader_new(file,
+    WU_DATA_TYPE_CANDLE,
+    WU_TIME_UNIT_DAYS,    // Daily bars
+    true                  // Skip header
+);
+
+// Performance metrics are now properly annualized
+</code></pre>
+
+<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<p>For API details, see the <a href="https://jailop.codeberg.page/wutrader/docs/html/">Doxygen API Reference</a>.</p>
+<p>For a complete working example with real data, see the <a href="../tutorial/">Tutorial</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../portfolio-configuration/" class="btn btn-neutral float-left" title="Portfolio Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../data-formats/" class="btn btn-neutral float-right" title="Data Formats">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://codeberg.org/jailop/wu" class="fa fa-code-fork" style="color: #fcfcfc"> codeberg/wu</a>
+        </span>
+    
+    
+      <span><a href="../portfolio-configuration/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../data-formats/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Jaime Lopez" /><link rel="canonical" href="https://jailop.codeberg.page/wutrader/portfolio-configuration/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Portfolio Configuration - Wu Trading Library</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Portfolio Configuration";
+        var mkdocs_page_input_path = "portfolio-configuration.md";
+        var mkdocs_page_url = "/wutrader/portfolio-configuration/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/c.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Wu Trading Library
+        </a>
+        <div class="version">
+          0.1.0
+        </div><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../tutorial/">Tutorial</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Guides</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Portfolio Configuration</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#direction-what-can-you-trade">Direction: What Can You Trade?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#execution-policy-how-orders-execute">Execution Policy: How Orders Execute</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#execution-methods">Execution Methods</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#transaction-costs">Transaction Costs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#risk-management-rules">Risk Management Rules</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#borrow-parameters-cost-of-short-selling">Borrow Parameters: Cost of Short Selling</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#position-sizing-how-much-to-trade">Position Sizing: How Much to Trade</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#practical-example">Practical Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tips-for-configuration">Tips for Configuration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#see-also">See Also</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../timestamps/">Timestamps and Data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data-formats/">Data Formats</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Design Notes</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../design/architecture/">Architecture</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../design/execution/">Execution Models</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../design/position_sizing/">Position Sizing</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../examples/crossover/">Crossover Strategy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../examples/pairs_trading/">Pairs Trading</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://jailop.codeberg.page/wutrader/docs/html/">API Reference</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://codeberg.org/jailop/wu">Repository</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Wu Trading Library</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Guides</li>
+      <li class="breadcrumb-item active">Portfolio Configuration</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="portfolio-configuration-guide">Portfolio Configuration Guide<a class="headerlink" href="#portfolio-configuration-guide" title="Permanent link">&para;</a></h1>
+<p>Understanding how to configure a Wu portfolio is central to building meaningful backtests. This guide explains the <code>WU_PortfolioParams</code> structure and the concepts behind each setting.</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Portfolio configuration controls how your strategy executes trades—execution methods, transaction costs, borrowing costs, position sizing, and risk management rules. These decisions fundamentally affect backtest results.</p>
+<p>The <code>WU_PortfolioParams</code> structure groups related settings into logical sections:</p>
+<pre class="codehilite"><code class="language-c">typedef struct {
+    WU_Direction direction;                      // Long only, short only, or both
+    double initial_cash;                         // Starting capital
+    WU_ExecutionPolicy execution_policy;         // How orders execute
+    WU_BorrowParams borrow_params;               // Shorting costs
+    WU_PositionSizing position_sizing;           // How much to trade
+} WU_PortfolioParams;
+</code></pre>
+
+<p>Each section is covered below.</p>
+<h2 id="direction-what-can-you-trade">Direction: What Can You Trade?<a class="headerlink" href="#direction-what-can-you-trade" title="Permanent link">&para;</a></h2>
+<p>The <code>direction</code> field determines whether positions can be long, short, or both:</p>
+<pre class="codehilite"><code class="language-c">typedef enum {
+    WU_DIRECTION_LONG_ONLY,    // Buy only, never short
+    WU_DIRECTION_SHORT_ONLY,   // Sell short only, never buy
+    WU_DIRECTION_BOTH          // Long and short positions allowed
+} WU_Direction;
+</code></pre>
+
+<p><strong>Long Only</strong> is the simplest. You buy and hold. No borrowing costs. Maximum loss is your initial investment. Suits conservative strategies or when short selling is restricted.</p>
+<p><strong>Short Only</strong> inverts the logic. You borrow and sell, banking on price declines. Less common and requires careful risk management.</p>
+<p><strong>Both</strong> allows the strategy to alternate between long and short. Our pairs trading example uses this—going long the spread when it's cheap and short when it's expensive. This requires margin and incurs borrowing costs for short legs.</p>
+<h2 id="execution-policy-how-orders-execute">Execution Policy: How Orders Execute<a class="headerlink" href="#execution-policy-how-orders-execute" title="Permanent link">&para;</a></h2>
+<p>This section defines the mechanics of order execution:</p>
+<pre class="codehilite"><code class="language-c">typedef struct {
+    WU_ExecutionPolicy policy;           // Execution method
+    double execution_mean;               // Expected slippage or limit price
+    double execution_stddev;             // Variability in execution
+    WU_TransactionCostType tx_cost_type; // Fixed, proportional, or both
+    double tx_cost_value;                // Cost amount or percentage
+    double stop_loss_pct;                // Risk management: exit if down X%
+    double take_profit_pct;              // Risk management: exit if up X%
+} WU_ExecutionPolicy;
+</code></pre>
+
+<h3 id="execution-methods">Execution Methods<a class="headerlink" href="#execution-methods" title="Permanent link">&para;</a></h3>
+<p><strong>Fixed Slippage</strong> (<code>WU_EXECUTION_POLICY_FIXED_SLIPPAGE</code>):</p>
+<p>Orders execute at the current price plus a fixed slippage amount:</p>
+<pre class="codehilite"><code class="language-c">.policy = WU_EXECUTION_POLICY_FIXED_SLIPPAGE,
+.execution_mean = 0.0005,    // 0.05% slippage
+.execution_stddev = 0.0      // Deterministic
+</code></pre>
+
+<p>For a $100 stock with 0.05% slippage, you'd execute at $100.05 when buying (worst case). This is simple and predictable but unrealistic—real slippage varies with market conditions and order size.</p>
+<p><strong>Market Conditions</strong> (<code>WU_EXECUTION_POLICY_MARKET_CONDITIONS</code>):</p>
+<p>Execution price depends on volatility:</p>
+<pre class="codehilite"><code class="language-c">.policy = WU_EXECUTION_POLICY_MARKET_CONDITIONS,
+.execution_mean = 0.0005,    // Base slippage
+.execution_stddev = 0.001    // Variable component
+</code></pre>
+
+<p>Slippage increases during volatile periods. Wu models this by adding random noise to the base slippage, making it semi-realistic but still simplified.</p>
+<p><strong>Next Close</strong> (<code>WU_EXECUTION_POLICY_NEXT_CLOSE</code>):</p>
+<p>Orders don't execute immediately. Instead, they execute at the next bar's close price. This is common in backtests that use daily data—a signal generated during the day executes at the day's close or the next day's open.</p>
+<pre class="codehilite"><code class="language-c">.policy = WU_EXECUTION_POLICY_NEXT_CLOSE
+</code></pre>
+
+<p>This avoids look-ahead bias but introduces execution delay. The strategy might signal entry at day's close, but the actual position opens the next bar.</p>
+<h3 id="transaction-costs">Transaction Costs<a class="headerlink" href="#transaction-costs" title="Permanent link">&para;</a></h3>
+<p>Costs matter. They accumulate quickly and erode returns.</p>
+<p><strong>Proportional costs</strong> scale with trade size:</p>
+<pre class="codehilite"><code class="language-c">.tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
+.tx_cost_value = 0.001    // 0.1% per trade
+</code></pre>
+
+<p>Buy $10,000 of stock? Pay $10 in costs. Typical for modern retail brokers. On 100 trades, 0.1% costs eat ~10% of capital (if trades were at neutral P&amp;L).</p>
+<p><strong>Fixed costs</strong> charge per trade:</p>
+<pre class="codehilite"><code class="language-c">.tx_cost_type = WU_TRANSACTION_COST_FIXED,
+.tx_cost_value = 5.0      // $5 per trade
+</code></pre>
+
+<p>More typical for traditional brokers. High-frequency trading often uses this model.</p>
+<p><strong>Both</strong> combines them:</p>
+<pre class="codehilite"><code class="language-c">.tx_cost_type = WU_TRANSACTION_COST_BOTH,
+.tx_cost_value = 5.0       // Fixed component
+.execution_mean = 0.001    // Proportional component
+</code></pre>
+
+<h3 id="risk-management-rules">Risk Management Rules<a class="headerlink" href="#risk-management-rules" title="Permanent link">&para;</a></h3>
+<p><strong>Stop Loss</strong> (<code>stop_loss_pct</code>):</p>
+<p>Exit a losing position if it's down X% from entry:</p>
+<pre class="codehilite"><code class="language-c">.stop_loss_pct = 0.05      // Exit if down 5%
+</code></pre>
+
+<p>If you enter a position at $100 and it falls to $95, the position closes automatically. Set to <code>NAN</code> to disable.</p>
+<p><strong>Take Profit</strong> (<code>take_profit_pct</code>):</p>
+<p>Exit a winning position if it's up X% from entry:</p>
+<pre class="codehilite"><code class="language-c">.take_profit_pct = 0.10    // Exit if up 10%
+</code></pre>
+
+<p>Close winners early to lock in gains. Set to <code>NAN</code> to disable.</p>
+<p>These are portfolio-level rules, not strategy logic. They act as safety nets. Most modern strategies don't use them—instead they rely on signals to manage positions.</p>
+<h2 id="borrow-parameters-cost-of-short-selling">Borrow Parameters: Cost of Short Selling<a class="headerlink" href="#borrow-parameters-cost-of-short-selling" title="Permanent link">&para;</a></h2>
+<p>Shorting requires borrowing stock. Real borrowing costs vary daily, but Wu uses a simplified model:</p>
+<pre class="codehilite"><code class="language-c">typedef struct {
+    double rate;     // Annual interest rate
+    double limit;    // Maximum amount you can borrow
+} WU_BorrowParams;
+</code></pre>
+
+<p><strong>Rate</strong>: The annual interest charged for borrows:</p>
+<pre class="codehilite"><code class="language-c">.borrow_params = {
+    .rate = 0.05,    // 5% annual
+    .limit = 100000.0
+}
+</code></pre>
+
+<p>If you borrow $10,000 for a year at 5%, you pay $500 in interest. Wu prorates this daily based on how long you hold the position. Shorter positions accrue less cost.</p>
+<p><strong>Limit</strong>: Realistically, brokers won't lend unlimited capital. Set a ceiling:</p>
+<pre class="codehilite"><code class="language-c">.limit = 100000.0  // Can't borrow more than $100k
+</code></pre>
+
+<p>Try to short $150,000? Request gets rejected or scaled down. This prevents unrealistic leverage in backtests.</p>
+<h2 id="position-sizing-how-much-to-trade">Position Sizing: How Much to Trade<a class="headerlink" href="#position-sizing-how-much-to-trade" title="Permanent link">&para;</a></h2>
+<p>This controls the quantity of each trade:</p>
+<pre class="codehilite"><code class="language-c">typedef struct {
+    WU_PositionSizeType size_type;    // Sizing method
+    double size_value;                 // Parameter for the method
+} WU_PositionSizing;
+</code></pre>
+
+<p><strong>Percentage of Cash</strong> (<code>WU_POSITION_SIZE_PCT</code>):</p>
+<p>Invest a fixed percentage of current cash:</p>
+<pre class="codehilite"><code class="language-c">.position_sizing = {
+    .size_type = WU_POSITION_SIZE_PCT,
+    .size_value = 0.5   // 50% of cash per position
+}
+</code></pre>
+
+<p>With $100,000 and 50% sizing, each trade uses $50,000. As cash fluctuates, position sizes adapt. This is the most common approach.</p>
+<p><strong>Fixed Dollar Amount</strong> (<code>WU_POSITION_SIZE_FIXED_AMOUNT</code>):</p>
+<p>Always trade the same dollar value:</p>
+<pre class="codehilite"><code class="language-c">.size_type = WU_POSITION_SIZE_FIXED_AMOUNT,
+.size_value = 10000.0   // Always $10k per trade
+</code></pre>
+
+<p>Simple but rigid. If your account grows to $500,000, you're still trading $10k per position. Doesn't scale.</p>
+<p><strong>Percentage of Equity</strong> (<code>WU_POSITION_SIZE_PCT_EQUITY</code>):</p>
+<p>Invest a percentage of total portfolio value:</p>
+<pre class="codehilite"><code class="language-c">.size_type = WU_POSITION_SIZE_PCT_EQUITY,
+.size_value = 0.3   // 30% of total portfolio
+</code></pre>
+
+<p>Similar to percentage of cash but includes position values. Grows as your portfolio grows, making it adaptive.</p>
+<p><strong>Fixed Share Quantity</strong> (<code>WU_POSITION_SIZE_FIXED_SHARES</code>):</p>
+<p>Trade a fixed number of shares:</p>
+<pre class="codehilite"><code class="language-c">.size_type = WU_POSITION_SIZE_FIXED_SHARES,
+.size_value = 100.0   // Always 100 shares
+</code></pre>
+
+<p>Suitable for backtests where share count is more natural than dollar amounts. Less common.</p>
+<h2 id="practical-example">Practical Example<a class="headerlink" href="#practical-example" title="Permanent link">&para;</a></h2>
+<p>Here's a complete configuration for conservative pairs trading:</p>
+<pre class="codehilite"><code class="language-c">WU_PortfolioParams params = {
+    .direction = WU_DIRECTION_BOTH,  // Allow longs and shorts
+    .initial_cash = 100000.0,        // Start with $100k
+    .execution_policy = {
+        .policy = WU_EXECUTION_POLICY_FIXED_SLIPPAGE,
+        .execution_mean = 0.0005,    // 0.05% slippage
+        .execution_stddev = 0.0,
+        .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
+        .tx_cost_value = 0.001,      // 0.1% transaction cost
+        .stop_loss_pct = NAN,        // No automatic stop loss
+        .take_profit_pct = NAN       // No automatic take profit
+    },
+    .borrow_params = {
+        .rate = 0.05,                // 5% annual borrow rate
+        .limit = 100000.0            // Max $100k short
+    },
+    .position_sizing = {
+        .size_type = WU_POSITION_SIZE_PCT,
+        .size_value = 0.45           // 45% of cash per position
+    }
+};
+</code></pre>
+
+<p>This setup:
+- Trades both long and short with modest position sizes (45% per leg)
+- Accepts 0.05% slippage on execution
+- Pays 0.1% in transaction fees per trade
+- Borrows at 5% annually for shorts
+- No automated risk stops (strategy manages exits)</p>
+<h2 id="tips-for-configuration">Tips for Configuration<a class="headerlink" href="#tips-for-configuration" title="Permanent link">&para;</a></h2>
+<p><strong>Conservative Approach</strong>: Lower position sizing (20-30%), higher transaction costs, smaller borrow limits. Good for learning.</p>
+<p><strong>Realistic Costs</strong>: Use 0.05-0.1% for proportional transaction costs if you have modern retail broker pricing. Add $5-10 fixed costs if applicable.</p>
+<p><strong>Slippage</strong>: 0.05-0.2% is reasonable for liquid equities. Less liquid assets need higher values.</p>
+<p><strong>Borrow Rate</strong>: 5% is typical for major US stocks. Hard-to-borrow stocks cost more, sometimes 20%+ annually.</p>
+<p><strong>Position Sizing</strong>: 25-50% of cash is common for mean-reversion strategies. Trend-following might use lower sizing due to higher volatility.</p>
+<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<p>For API details, see the <a href="https://jailop.codeberg.page/wutrader/docs/html/">Doxygen API Reference</a>.</p>
+<p>For a complete working example, see the <a href="../tutorial/">Tutorial</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../tutorial/" class="btn btn-neutral float-left" title="Tutorial"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../timestamps/" class="btn btn-neutral float-right" title="Timestamps and Data">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://codeberg.org/jailop/wu" class="fa fa-code-fork" style="color: #fcfcfc"> codeberg/wu</a>
+        </span>
+    
+    
+      <span><a href="../tutorial/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../timestamps/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

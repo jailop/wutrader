@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['calculate_5fportfolio_5fpnl_0',['calculate_portfolio_pnl',['../basic_8c.html#ab6d63bb9f55557859c1a49f7555257ad',1,'basic.c']]],
+  ['calculate_5fportfolio_5fvalue_1',['calculate_portfolio_value',['../basic_8c.html#ae81d98f2108c69977133a5beee20007d',1,'basic.c']]],
+  ['calculate_5fposition_5fsize_2',['calculate_position_size',['../basic_8c.html#a0ef8a4166f170c4f9d1650bbc1543e6b',1,'basic.c']]],
+  ['calculate_5fpositions_5fvalue_3',['calculate_positions_value',['../basic_8c.html#afdc70fc18d096957c96e3f135c54892a',1,'basic.c']]],
+  ['calculate_5ftotal_5fcost_5fbasis_4',['calculate_total_cost_basis',['../basic_8c.html#abcb35d1b59f4007b2c9623c7fe1d650f',1,'basic.c']]],
+  ['calculate_5ftotal_5fshort_5fvalue_5',['calculate_total_short_value',['../basic_8c.html#a47f1180fc988ff2d639327e8cb5a1668',1,'basic.c']]],
+  ['calculate_5fyears_5fheld_6',['calculate_years_held',['../basic_8c.html#a431e7e565cb20d4dc3b5a4cbc441a7b5',1,'basic.c']]],
+  ['calmar_2ec_7',['calmar.c',['../calmar_8c.html',1,'']]],
+  ['calmar_5fratio_8',['calmar_ratio',['../structWU__PortfolioStats__.html#ae007c0a355c20d79bca9c0e23c9d898f',1,'WU_PortfolioStats_']]],
+  ['candle_9',['candle',['../structWU__CsvReader__.html#a6c565444677c491623cf52d48db8342e',1,'WU_CsvReader_::candle'],['../structWU__JsonReader__.html#a85de9fa3629872bc4cde9665061e8efd',1,'WU_JsonReader_::candle']]],
+  ['capacity_10',['capacity',['../structWU__PositionVector.html#ae6edaae18b738aabca4c12ca39baf6e3',1,'WU_PositionVector::capacity'],['../structWU__PortfolioStats__.html#aea42ca102cba5586fb788b1494da24bf',1,'WU_PortfolioStats_::capacity']]],
+  ['cash_11',['cash',['../structWU__BasicPortfolio__.html#ad8407b71537575c0bf2338d2fcbc56cb',1,'WU_BasicPortfolio_']]],
+  ['check_5fand_5fclose_5fpositions_12',['check_and_close_positions',['../basic_8c.html#a4f701adb921eb62de8d503d412d98153',1,'basic.c']]],
+  ['clear_13',['clear',['../structWU__PositionVector.html#a6bbb73dd1211075d7c5ccbc647913152',1,'WU_PositionVector']]],
+  ['clear_5fpositions_14',['clear_positions',['../positionvector_8c.html#abd42adbc4c866aab4c1d05a2b5afece4',1,'positionvector.c']]],
+  ['close_15',['close',['../structWU__Candle.html#a2438c2a2d14ccdaba89cf074434d0de0',1,'WU_Candle']]],
+  ['close_5fand_5fupdate_5fportfolio_16',['close_and_update_portfolio',['../basic_8c.html#a6b9749658a2926f2d5688addb77cbd72',1,'basic.c']]],
+  ['close_5fposition_17',['close_position',['../basic_8c.html#a72da7e1c8192d2074b0940439ed50c77',1,'basic.c']]],
+  ['compute_5ftotal_5fcost_18',['compute_total_cost',['../basic_8c.html#a100c4f36a0144d0a24d229447f21d35b',1,'basic.c']]],
+  ['count_19',['count',['../structWU__ReturnStats__.html#ae67ffde0dd47cd5e3fd93306b07170ee',1,'WU_ReturnStats_::count'],['../structWU__PnLStats__.html#a4f18d785441e88c40b86f9d23459c85c',1,'WU_PnLStats_::count'],['../structWU__PositionVector.html#ac42c7535bb1945c6a083121427b2e8a2',1,'WU_PositionVector::count']]],
+  ['count_5fbuy_5fsignals_20',['count_buy_signals',['../basic_8c.html#a32ac0dd485ad5deb74e2cc64a93ff45a',1,'basic.c']]],
+  ['crossover_2ec_21',['crossover.c',['../crossover_8c.html',1,'']]],
+  ['csv_2ec_22',['csv.c',['../csv_8c.html',1,'']]],
+  ['current_5fcash_23',['current_cash',['../structWU__PortfolioStats__.html#a7e4e61c50f00bbf58c669a6a3e22ae08',1,'WU_PortfolioStats_']]]
+];

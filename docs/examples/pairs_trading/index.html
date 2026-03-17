@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Jaime Lopez" /><link rel="canonical" href="https://jailop.codeberg.page/wutrader/examples/pairs_trading/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Pairs Trading - Wu Trading Library</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Pairs Trading";
+        var mkdocs_page_input_path = "examples/pairs_trading.md";
+        var mkdocs_page_url = "/wutrader/examples/pairs_trading/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/c.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Wu Trading Library
+        </a>
+        <div class="version">
+          0.1.0
+        </div><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../installation/">Installation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../tutorial/">Tutorial</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Guides</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../portfolio-configuration/">Portfolio Configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../timestamps/">Timestamps and Data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../data-formats/">Data Formats</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Design Notes</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/architecture/">Architecture</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/execution/">Execution Models</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/position_sizing/">Position Sizing</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../crossover/">Crossover Strategy</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Pairs Trading</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#the-strategy">The Strategy</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#code-structure">Code Structure</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuration-details">Configuration Details</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#multi-asset-portfolio-behavior">Multi-Asset Portfolio Behavior</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#running-the-example">Running the Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#interpreting-results">Interpreting Results</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#known-issues">Known Issues</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#variations-to-explore">Variations to Explore</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#limitations">Limitations</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#code-location">Code Location</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://jailop.codeberg.page/wutrader/docs/html/">API Reference</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://codeberg.org/jailop/wu">Repository</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Wu Trading Library</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Examples</li>
+      <li class="breadcrumb-item active">Pairs Trading</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="pairs-trading-example">Pairs Trading Example<a class="headerlink" href="#pairs-trading-example" title="Permanent link">&para;</a></h1>
+<p>This example demonstrates a pairs trading strategy on two correlated
+assets (SPY and QQQ). The strategy bets on mean reversion when the spread
+between the two assets deviates from its historical average.</p>
+<h2 id="the-strategy">The Strategy<a class="headerlink" href="#the-strategy" title="Permanent link">&para;</a></h2>
+<p>Pairs trading exploits temporary divergences between correlated assets.
+When two stocks historically move together but temporarily drift apart,
+the strategy bets they'll converge back. Go long the underperformer,
+short the outperformer, and profit when they revert to typical
+relationship.</p>
+<p>The implementation calculates the spread as <code>spread = asset1 - asset2</code>.
+Over a rolling window, it tracks the spread's mean and standard
+deviation. When the spread exceeds <code>mean + threshold × stdev</code>, go short
+asset 1 and long asset 2. When it drops below <code>mean - threshold × stdev</code>,
+reverse positions. When the spread returns to its mean, close both
+positions.</p>
+<h2 id="code-structure">Code Structure<a class="headerlink" href="#code-structure" title="Permanent link">&para;</a></h2>
+<p>The example in <code>examples/backtest/pairs_trading.c</code>:</p>
+<pre class="codehilite"><code class="language-c">// Open CSV files for both assets
+FILE* spy_file = fopen(argv[1], &quot;r&quot;);
+FILE* qqq_file = fopen(argv[2], &quot;r&quot;);
+
+WU_Reader spy_reader = wu_csv_reader_new(
+    spy_file,
+    WU_DATA_TYPE_CANDLE,
+    WU_TIME_UNIT_SECONDS,
+    true
+);
+WU_Reader qqq_reader = wu_csv_reader_new(
+    qqq_file,
+    WU_DATA_TYPE_CANDLE,
+    WU_TIME_UNIT_SECONDS,
+    true
+);
+
+// Create pairs trading strategy
+// window=20, threshold=2.0, hedge_ratio=1.0
+WU_Strategy strategy = wu_pairs_trading_strat_new(20, 2.0, 1.0);
+
+// Configure multi-asset portfolio
+WU_PortfolioParams params = {
+    .direction = WU_DIRECTION_BOTH,
+    .initial_cash = 100000.0,
+    .execution_policy = {
+        .policy = WU_EXECUTION_POLICY_FIXED_SLIPPAGE,
+        .execution_mean = 0.0005,
+        .execution_stddev = 0.0,
+        .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
+        .tx_cost_value = 0.001,
+        .stop_loss_pct = NAN,
+        .take_profit_pct = NAN
+    },
+    .borrow_params = {
+        .rate = 0.05,
+        .limit = 100000.0
+    },
+    .position_sizing = {
+        .size_type = WU_POSITION_SIZE_PCT,
+        .size_value = 0.45
+    }
+};
+
+WU_BasicPortfolio portfolio = wu_basic_portfolio_new(
+    params,
+    wu_symbol_list(&quot;SPY&quot;, &quot;QQQ&quot;)
+);
+
+// Run backtest
+WU_Runner runner = wu_runner_new(
+    WU_PORTFOLIO(portfolio),
+    WU_STRATEGY(strategy),
+    wu_reader_list(WU_READER(spy_reader), WU_READER(qqq_reader))
+);
+
+wu_runner_exec(runner, false);
+</code></pre>
+
+<h2 id="configuration-details">Configuration Details<a class="headerlink" href="#configuration-details" title="Permanent link">&para;</a></h2>
+<p><strong>Strategy parameters</strong>: The 20-period window determines how much history
+to use for spread statistics. Shorter windows react faster to changes but
+are noisier. The 2.0 threshold means we enter when the spread is 2
+standard deviations from its mean—approximately the 95th percentile for
+normally distributed spreads. The 1.0 hedge ratio means we trade equal
+dollar amounts of both assets.</p>
+<p><strong>Direction</strong>: Must be <code>WU_DIRECTION_BOTH</code> since pairs trading requires
+both long and short positions simultaneously. We're long one asset while
+shorting the other.</p>
+<p><strong>Position sizing</strong>: At 45% per asset, we can allocate up to 90% of cash
+across both positions. The 10% buffer handles small cash fluctuations
+from price movements and costs.</p>
+<p><strong>Borrowing</strong>: The 5% annual rate models the cost of borrowing shares to
+short. The $100k limit caps our short exposure—we can't short more than
+$100k worth of stock. This prevents excessive leverage.</p>
+<p><strong>Risk management</strong>: Stop loss and take profit are disabled (NAN). Pairs
+trading is a mean-reversion strategy that expects temporary drawdowns
+before convergence. Automatic exits would interfere with the strategy
+logic.</p>
+<h2 id="multi-asset-portfolio-behavior">Multi-Asset Portfolio Behavior<a class="headerlink" href="#multi-asset-portfolio-behavior" title="Permanent link">&para;</a></h2>
+<p>The portfolio manages both assets with a shared cash pool. When the
+strategy says "buy SPY, sell QQQ", the portfolio:</p>
+<ol>
+<li>Executes the SPY buy, deducting cash</li>
+<li>Executes the QQQ short, adding cash from the sale</li>
+<li>Tracks both positions independently</li>
+<li>Pays borrowing interest on the QQQ short over time</li>
+</ol>
+<p>Position quantities are tracked separately but cash is fungible. Closing
+the SPY position returns cash that could be used for either asset.</p>
+<h2 id="running-the-example">Running the Example<a class="headerlink" href="#running-the-example" title="Permanent link">&para;</a></h2>
+<pre class="codehilite"><code class="language-bash"># Build
+make
+
+# Run on test data
+./examples/backtest/pairs_trading ./tests/data/spy.csv ./tests/data/qqq.csv
+
+# Verbose mode shows each trade
+./examples/backtest/pairs_trading ./tests/data/spy.csv ./tests/data/qqq.csv -v
+</code></pre>
+
+<p>Verbose output shows:</p>
+<pre class="codehilite"><code>[BUY SPY] HOLD QQQ | T: 1234567890 | Cash: 95000.00
+[SELL SPY] [BUY QQQ] | T: 1234567900 | Cash: 98500.00
+</code></pre>
+
+<h2 id="interpreting-results">Interpreting Results<a class="headerlink" href="#interpreting-results" title="Permanent link">&para;</a></h2>
+<p>The output includes:</p>
+<ul>
+<li>Portfolio value and PnL (total and percentage)</li>
+<li>Transaction fees and borrowing interest (usually significant for pairs trading)</li>
+<li>Trade statistics (total, wins, losses, win rate)</li>
+<li>Current positions (quantity, value, price for each asset)</li>
+</ul>
+<p>Pairs trading typically generates many trades since positions open and
+close as the spread oscillates. Transaction costs accumulate
+significantly. In the test data, costs often exceed $40k on $100k initial
+capital.</p>
+<h2 id="known-issues">Known Issues<a class="headerlink" href="#known-issues" title="Permanent link">&para;</a></h2>
+<p><strong>Correlation assumption</strong>: The strategy assumes SPY and QQQ remain
+correlated. During market stress, correlations break down. The strategy
+continues trading as if they'll revert, potentially accumulating losses.</p>
+<p><strong>No cointegration check</strong>: The strategy doesn't test whether the assets
+are cointegrated (mean-reverting spread). It assumes they are and trades
+accordingly. Real pairs trading would test cointegration first.</p>
+<p><strong>Fixed hedge ratio</strong>: The 1.0 hedge ratio means we trade equal dollar
+amounts. The optimal ratio depends on the assets' price relationship and
+volatilities. A more sophisticated approach would estimate the hedge
+ratio dynamically.</p>
+<p><strong>Capital tie-up</strong>: Pairs positions often last many bars, tying up
+capital while waiting for convergence. During this time, opportunity cost
+accumulates. The strategy doesn't account for alternative uses of
+capital.</p>
+<h2 id="variations-to-explore">Variations to Explore<a class="headerlink" href="#variations-to-explore" title="Permanent link">&para;</a></h2>
+<p><strong>Adjust threshold</strong>: Lower thresholds (1.5) generate more trades but
+enter on smaller divergences. Higher thresholds (2.5) generate fewer but
+potentially more reliable trades.</p>
+<p><strong>Change window length</strong>: Shorter windows (10) adapt faster to changing
+spread dynamics. Longer windows (30) are more stable but slower to react.</p>
+<p><strong>Modify position sizing</strong>: Try 30% per asset instead of 45% to reduce
+exposure and see how risk/return changes.</p>
+<p><strong>Different asset pairs</strong>: Try other correlated pairs (XLE/XLF,
+GLD/SLV). Not all pairs exhibit stable mean reversion.</p>
+<p><strong>Add NEXT_CLOSE</strong>: Change execution policy to NEXT_CLOSE to add a
+one-bar delay between signal and execution. This models real-world latency
+more realistically.</p>
+<h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h2>
+<p>This is an educational example, not a trading system. Real pairs trading
+requires:</p>
+<ul>
+<li>Statistical testing for cointegration</li>
+<li>Dynamic hedge ratio estimation  </li>
+<li>Regime detection (don't trade when correlations are breaking)</li>
+<li>Position sizing based on spread volatility</li>
+<li>Explicit entry and exit rules beyond simple threshold crossing</li>
+</ul>
+<p>Use this example to understand the mechanics of multi-asset strategies
+and portfolio management. Don't use it for actual trading without
+substantial enhancements.</p>
+<h2 id="code-location">Code Location<a class="headerlink" href="#code-location" title="Permanent link">&para;</a></h2>
+<p>Example: <code>examples/backtest/pairs_trading.c</code></p>
+<p>Strategy implementation: <code>src/strategies/pairs_trading.c</code></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../crossover/" class="btn btn-neutral float-left" title="Crossover Strategy"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://codeberg.org/jailop/wu" class="fa fa-code-fork" style="color: #fcfcfc"> codeberg/wu</a>
+        </span>
+    
+    
+      <span><a href="../crossover/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

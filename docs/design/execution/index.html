@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Jaime Lopez" /><link rel="canonical" href="https://jailop.codeberg.page/wutrader/design/execution/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Execution Models - Wu Trading Library</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Execution Models";
+        var mkdocs_page_input_path = "design/execution.md";
+        var mkdocs_page_url = "/wutrader/design/execution/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/c.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Wu Trading Library
+        </a>
+        <div class="version">
+          0.1.0
+        </div><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../installation/">Installation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../tutorial/">Tutorial</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Guides</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../portfolio-configuration/">Portfolio Configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../timestamps/">Timestamps and Data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../data-formats/">Data Formats</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Design Notes</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../architecture/">Architecture</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Execution Models</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#market-orders-only">Market Orders Only</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#execution-policies">Execution Policies</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#immediate">IMMEDIATE</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next_close">NEXT_CLOSE</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fixed_slippage">FIXED_SLIPPAGE</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#random_slippage">RANDOM_SLIPPAGE</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#transaction-costs">Transaction Costs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#whats-missing">What's Missing</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#design-rationale">Design Rationale</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../position_sizing/">Position Sizing</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../examples/crossover/">Crossover Strategy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../examples/pairs_trading/">Pairs Trading</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://jailop.codeberg.page/wutrader/docs/html/">API Reference</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://codeberg.org/jailop/wu">Repository</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Wu Trading Library</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Design Notes</li>
+      <li class="breadcrumb-item active">Execution Models</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="execution-models">Execution Models<a class="headerlink" href="#execution-models" title="Permanent link">&para;</a></h1>
+<p>Wu's portfolio implementation models how trades get executed. The current
+implementation makes several simplifying assumptions that affect backtest
+realism.</p>
+<h2 id="market-orders-only">Market Orders Only<a class="headerlink" href="#market-orders-only" title="Permanent link">&para;</a></h2>
+<p>At this moment, Wu supports only market orders—orders that execute
+immediately at the current market price. The library does not implement
+an order book, so other order types like limit orders, stop orders, or
+conditional orders are not supported.</p>
+<p><strong>Why market orders only?</strong> Implementing an order book requires modeling
+order matching, price-time priority, queue dynamics, and partial fills.
+This adds significant complexity for uncertain benefit in backtesting
+context. Most historical data doesn't include order book depth anyway.</p>
+<p><strong>What this means</strong>: When your strategy generates a signal, the portfolio
+executes it immediately (or on next bar for NEXT_CLOSE policy). You can't
+say "buy if price drops to $100" or "sell if price rises to $105". The
+strategy must check conditions and generate signals explicitly.</p>
+<h2 id="execution-policies">Execution Policies<a class="headerlink" href="#execution-policies" title="Permanent link">&para;</a></h2>
+<p>The <code>WU_ExecutionPolicy</code> enum controls when and how orders execute:</p>
+<h3 id="immediate">IMMEDIATE<a class="headerlink" href="#immediate" title="Permanent link">&para;</a></h3>
+<p>Orders execute instantly at the signal price. When the strategy says
+"buy", the portfolio buys immediately at the price provided in the
+signal.</p>
+<p>This is the simplest model but somewhat unrealistic. In practice, you see
+a signal at the close of a bar and execute on the next bar's open or
+close. IMMEDIATE assumes zero latency between signal and execution.</p>
+<h3 id="next_close">NEXT_CLOSE<a class="headerlink" href="#next_close" title="Permanent link">&para;</a></h3>
+<p>Orders execute at the next bar's close price. When a signal arrives, the
+portfolio stores it as pending. On the next update, the portfolio
+executes pending orders at the current prices.</p>
+<p>This is more realistic for daily or slower timeframe strategies. You
+calculate indicators at bar close, generate signals, and execute at the
+next bar's close. There's a one-bar delay between signal and execution.</p>
+<p>The implementation uses a <code>pending_orders</code> array in the portfolio struct.
+Each asset can have at most one pending order. If a new signal arrives
+before the pending order executes, it overwrites the pending order.</p>
+<h3 id="fixed_slippage">FIXED_SLIPPAGE<a class="headerlink" href="#fixed_slippage" title="Permanent link">&para;</a></h3>
+<p>Orders execute immediately with fixed percentage slippage applied. If
+<code>execution_mean = 0.0005</code> (0.05%), a buy order for $100 executes at
+$100.05 and a sell order executes at $99.95.</p>
+<p>This models the cost of immediacy—you pay a premium to get filled right
+away. The fixed percentage is a simplification. Real slippage depends on
+order size, volatility, liquidity, and market conditions.</p>
+<h3 id="random_slippage">RANDOM_SLIPPAGE<a class="headerlink" href="#random_slippage" title="Permanent link">&para;</a></h3>
+<p>Orders execute immediately with random slippage drawn from a
+distribution. The <code>execution_mean</code> and <code>execution_stddev</code> parameters
+define the distribution. Slippage is sampled as <code>mean ± stddev × random</code>.</p>
+<p>This adds variability to model how market impact varies. Sometimes you
+get lucky and slip less than average. Sometimes you slip more. Over many
+trades, it averages out to the mean, but individual trades vary.</p>
+<p>The randomness uses <code>rand()</code> from the C standard library. For
+reproducible results, seed it with <code>srand()</code> before running backtests.</p>
+<h2 id="transaction-costs">Transaction Costs<a class="headerlink" href="#transaction-costs" title="Permanent link">&para;</a></h2>
+<p>Transaction costs are separate from execution price. They represent
+commissions, exchange fees, and other fixed or proportional costs.</p>
+<p><strong>FIXED costs</strong> charge a flat dollar amount per trade. Setting
+<code>tx_cost_type = WU_TRANSACTION_COST_FIXED</code> with <code>tx_cost_value = 5.0</code>
+charges $5 per trade regardless of trade size. Useful for modeling
+per-trade broker commissions.</p>
+<p><strong>PROPORTIONAL costs</strong> charge a percentage of trade value. Setting
+<code>tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL</code> with
+<code>tx_cost_value = 0.001</code> charges 0.1% of the trade amount. A $10,000 trade
+costs $10. Useful for percentage-based fee structures.</p>
+<p>Transaction costs are deducted from portfolio cash separately from the
+trade amount. A $10,000 buy order with $10 transaction cost reduces cash
+by $10,010.</p>
+<h2 id="whats-missing">What's Missing<a class="headerlink" href="#whats-missing" title="Permanent link">&para;</a></h2>
+<p><strong>No limit orders</strong>: You can't place an order that waits for a price
+level. The strategy must poll and generate signals when conditions are
+met.</p>
+<p><strong>No order book</strong>: There's no simulation of order matching, queue
+position, or price improvement. Orders execute atomically at a single
+price.</p>
+<p><strong>No partial fills</strong>: Your entire order fills or none of it fills (if you
+lack cash). In reality, large orders might fill partially at multiple
+price levels.</p>
+<p><strong>No order cancellation</strong>: Once a signal generates, it either executes
+immediately (IMMEDIATE, FIXED/RANDOM_SLIPPAGE) or executes next bar
+(NEXT_CLOSE). You can't cancel pending orders explicitly.</p>
+<p><strong>No market impact modeling</strong>: Slippage is proportional to trade value,
+not order size in shares. Real market impact is nonlinear—doubling order
+size more than doubles price impact.</p>
+<h2 id="design-rationale">Design Rationale<a class="headerlink" href="#design-rationale" title="Permanent link">&para;</a></h2>
+<p>The execution model balances simplicity with usefulness. Market orders
+with slippage capture the essential cost of trading without requiring
+complex order book simulation. Most backtesting scenarios don't need more
+detail than this.</p>
+<p>If you need sophisticated execution modeling, implement a custom portfolio
+that tracks order books, simulates market making, or models limit order
+dynamics. The portfolio interface is generic enough to support this.</p>
+<p>The current implementation serves as a reasonable starting point for
+exploring strategy behavior. More complex execution can be layered on top
+without changing the core abstractions.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../architecture/" class="btn btn-neutral float-left" title="Architecture"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../position_sizing/" class="btn btn-neutral float-right" title="Position Sizing">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://codeberg.org/jailop/wu" class="fa fa-code-fork" style="color: #fcfcfc"> codeberg/wu</a>
+        </span>
+    
+    
+      <span><a href="../architecture/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../position_sizing/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
