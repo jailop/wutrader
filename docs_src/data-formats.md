@@ -131,5 +131,10 @@ Both readers track parsing errors via the `last_error` member:
 - `WU_CSV_OK` / `WU_JSON_OK`: Successful read
 - `WU_CSV_ERROR_EOF` / `WU_JSON_ERROR_EOF`: End of file reached
 - `WU_CSV_ERROR_PARSE` / `WU_JSON_ERROR_PARSE`: Parse error (invalid format or missing required fields)
+- `WU_JSON_ERROR_MISSING_FIELD`: Required field not found in JSON object
 
 Check `wu_reader_last_error(reader)` after calling `wu_reader_next()` to detect errors.
+
+## JSON Reader Implementation Details
+
+The JSON reader parses newline-delimited JSON objects. It expects one valid JSON object per line, with field order being irrelevant. The reader is flexible with additional fields—only required fields for the data type must be present. This makes it suitable for data sources that may include extra metadata or fields you don't need.
