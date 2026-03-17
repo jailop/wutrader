@@ -250,13 +250,13 @@ static char* stats_to_json(struct WU_PortfolioStats_* stats, bool pretty) {
             if (stats->symbols[i]) {
                 if (i > 0) offset += snprintf(result + offset, 16384 - offset, ",");
                 offset += snprintf(result + offset, 16384 - offset,
-                    "%s%s{%s\"symbol\":%s\"%s\",%s\"quantity\":%s%.4f,%s\"value\":%s%.2f,%s\"last_price\":%s%.2f%s}",
+                    "%s%s{%s\"symbol\": \"%s\",%s\"quantity\": %.4f,%s\"value\": %.2f,%s\"last_price\": %.2f%s}",
                     nl, indent2,
-                    space, space, stats->symbols[i],
-                    space, space, stats->quantities[i],
-                    space, space, stats->values[i],
-                    space, space, stats->last_prices[i],
-                    nl, indent2);
+                    space, stats->symbols[i],
+                    space, stats->quantities[i],
+                    space, stats->values[i],
+                    space, stats->last_prices[i],
+                    nl);
             }
         }
         offset += snprintf(result + offset, 16384 - offset,

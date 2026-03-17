@@ -8,7 +8,7 @@ void test_basic_portfolio_initialization(void) {
         .initial_cash = 100000.0,
         .execution_policy = {
             .policy = WU_EXECUTION_POLICY_FIXED_SLIPPAGE,
-            .execution_value = 0.0005,
+            .execution_mean = 0.0005,
             .execution_stddev = 0.0,
             .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
             .tx_cost_value = 0.001,
@@ -48,7 +48,7 @@ void test_basic_portfolio_single_buy_signal(void) {
         .initial_cash = 100000.0,
         .execution_policy = {
             .policy = WU_EXECUTION_POLICY_IMMEDIATE,
-            .execution_value = 0.0,
+            .execution_mean = 0.0,
             .execution_stddev = 0.0,
             .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
             .tx_cost_value = 0.001,
@@ -101,7 +101,7 @@ void test_basic_portfolio_multiple_buy_signals(void) {
         .initial_cash = 100000.0,
         .execution_policy = {
             .policy = WU_EXECUTION_POLICY_IMMEDIATE,
-            .execution_value = 0.0,
+            .execution_mean = 0.0,
             .execution_stddev = 0.0,
             .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
             .tx_cost_value = 0.0,
@@ -160,7 +160,7 @@ void test_basic_portfolio_sell_before_buy(void) {
         .initial_cash = 50000.0,
         .execution_policy = {
             .policy = WU_EXECUTION_POLICY_IMMEDIATE,
-            .execution_value = 0.0,
+            .execution_mean = 0.0,
             .execution_stddev = 0.0,
             .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
             .tx_cost_value = 0.0,
@@ -228,7 +228,7 @@ void test_basic_portfolio_asset_value(void) {
         .initial_cash = 100000.0,
         .execution_policy = {
             .policy = WU_EXECUTION_POLICY_IMMEDIATE,
-            .execution_value = 0.0,
+            .execution_mean = 0.0,
             .execution_stddev = 0.0,
             .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
             .tx_cost_value = 0.0,
@@ -282,7 +282,7 @@ void test_basic_portfolio_total_value(void) {
         .initial_cash = 100000.0,
         .execution_policy = {
             .policy = WU_EXECUTION_POLICY_IMMEDIATE,
-            .execution_value = 0.0,
+            .execution_mean = 0.0,
             .execution_stddev = 0.0,
             .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
             .tx_cost_value = 0.0,
@@ -332,7 +332,7 @@ void test_basic_portfolio_equal_distribution_sizing(void) {
         .initial_cash = 90000.0,
         .execution_policy = {
             .policy = WU_EXECUTION_POLICY_IMMEDIATE,
-            .execution_value = 0.0,
+            .execution_mean = 0.0,
             .execution_stddev = 0.0,
             .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
             .tx_cost_value = 0.0,
@@ -459,7 +459,7 @@ void test_basic_portfolio_strategy_guided_sizing(void) {
         .initial_cash = 100000.0,
         .execution_policy = {
             .policy = WU_EXECUTION_POLICY_IMMEDIATE,
-            .execution_value = 0.0,
+            .execution_mean = 0.0,
             .execution_stddev = 0.0,
             .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
             .tx_cost_value = 0.0,
@@ -629,7 +629,7 @@ void test_basic_portfolio_invalid_asset_index(void) {
         .initial_cash = 100000.0,
         .execution_policy = {
             .policy = WU_EXECUTION_POLICY_IMMEDIATE,
-            .execution_value = 0.0,
+            .execution_mean = 0.0,
             .execution_stddev = 0.0,
             .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
             .tx_cost_value = 0.0,

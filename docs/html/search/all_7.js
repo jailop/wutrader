@@ -1,8 +1,0 @@
-var searchData=
-[
-  ['gain_0',['gain',['../structWU__RSI__.html#a77aae01d7e2790722896762cbc9d4dfa',1,'WU_RSI_']]],
-  ['get_1',['get',['../structWU__SMA__.html#a6b6f97a19ab6aa2fd2b63417eef32654',1,'WU_SMA_::get'],['../structWU__EMA__.html#a6c6d075ede849ada82f5871797c90a95',1,'WU_EMA_::get'],['../structWU__MVar__.html#a7ef655c5f90d2230d2ab7d1dc4cee376',1,'WU_MVar_::get'],['../structWU__StDev__.html#aa0d65d4024265253b22c9c027b98deda',1,'WU_StDev_::get'],['../structWU__RSI__.html#a0c4e20fc68c29c4a2b3fc83359c8bfea',1,'WU_RSI_::get'],['../structWU__MACD__.html#a92387aa9ad590992f2673cab3ddbee29',1,'WU_MACD_::get'],['../structWU__PositionVector.html#a242b3757ee7e8cf96c441b38f86dce32',1,'WU_PositionVector::get'],['../mvar_8c.html#a5988fbf076711a800850d7deeb923e91',1,'get(const struct WU_MVar_ *mvar):&#160;mvar.c'],['../stdev_8c.html#a3f95abdaf342b6a123124d4143af4326',1,'get(const struct WU_StDev_ *stdev):&#160;stdev.c']]],
-  ['get_5fposition_2',['get_position',['../positionvector_8c.html#ac17f15aeab0f4420cb8df9bfae1e29cf',1,'positionvector.c']]],
-  ['get_5freader_5fdata_5ftype_3',['get_reader_data_type',['../runner_8c.html#a953c7dfbb9b90293d1a9f31c2aaaf548',1,'runner.c']]],
-  ['get_5ftotal_5fquantity_4',['get_total_quantity',['../positionvector_8c.html#ac22a9a013f1876318ef1549963e2e998',1,'positionvector.c']]]
-];

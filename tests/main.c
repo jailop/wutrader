@@ -12,6 +12,12 @@ extern void test_csv_reader_reads_trades(void);
 extern void test_csv_reader_reads_single_values(void);
 extern void test_csv_reader_returns_null_at_eof(void);
 extern void test_csv_reader_handles_headers(void);
+extern void test_json_reader_reads_candles(void);
+extern void test_json_reader_reads_trades(void);
+extern void test_json_reader_reads_single_values(void);
+extern void test_json_reader_returns_null_at_eof(void);
+extern void test_json_reader_handles_invalid_json(void);
+extern void test_json_reader_handles_missing_fields(void);
 extern void test_crossover_initialization(void);
 extern void test_crossover_holds_during_warmup(void);
 extern void test_crossover_generates_buy_signal(void);
@@ -65,6 +71,7 @@ int main(void) {
     CU_pSuite sma_suite = NULL;
     CU_pSuite ema_suite = NULL;
     CU_pSuite csv_suite = NULL;
+    CU_pSuite json_suite = NULL;
     CU_pSuite crossover_suite = NULL;
     CU_pSuite mvar_suite = NULL;
     CU_pSuite stdev_suite = NULL;
@@ -127,6 +134,29 @@ int main(void) {
                     test_csv_reader_returns_null_at_eof) == NULL ||
         CU_add_test(csv_suite, "test_handles_headers",
                     test_csv_reader_handles_headers) == NULL) {
+        CU_cleanup_registry();
+        return CU_get_error();
+    }
+
+
+    json_suite = CU_add_suite("JSON_Suite", NULL, NULL);
+    if (json_suite == NULL) {
+        CU_cleanup_registry();
+        return CU_get_error();
+    }
+
+    if (CU_add_test(json_suite, "test_reads_candles",
+                    test_json_reader_reads_candles) == NULL ||
+        CU_add_test(json_suite, "test_reads_trades",
+                    test_json_reader_reads_trades) == NULL ||
+        CU_add_test(json_suite, "test_reads_single_values",
+                    test_json_reader_reads_single_values) == NULL ||
+        CU_add_test(json_suite, "test_returns_null_at_eof",
+                    test_json_reader_returns_null_at_eof) == NULL ||
+        CU_add_test(json_suite, "test_handles_invalid_json",
+                    test_json_reader_handles_invalid_json) == NULL ||
+        CU_add_test(json_suite, "test_handles_missing_fields",
+                    test_json_reader_handles_missing_fields) == NULL) {
         CU_cleanup_registry();
         return CU_get_error();
     }
