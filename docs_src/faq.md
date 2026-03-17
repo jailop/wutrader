@@ -40,7 +40,7 @@ Yes. Short positions are represented as negative quantities. Borrowing costs are
 
 **What order types are supported?**
 
-Currently only market orders are supported. The library does not implement an order book, which would be required for limit orders, stop orders, or other conditional order types. All orders execute immediately at the current price.
+Currently only market orders are supported. The library does not implement an order book, which would be required for limit orders, stop orders, or other conditional order types. Market orders execute at the bar's close price (or at a specified execution policy price if configured).
 
 **How is slippage handled?**
 

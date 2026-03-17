@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "wu.h"
 
-static double wu_sma_update(WU_SMA ma, double value) {
+static double update(WU_SMA ma, double value) {
     if (isnan(value)) return ma->value;
     if (ma->len < ma->window_size)
         ma->len++;
@@ -14,25 +14,30 @@ static double wu_sma_update(WU_SMA ma, double value) {
     return ma->value;
 }
 
-static inline double wu_sma_value(const struct WU_SMA_ *ma) {
-    return ma->value;
-}
-
-static void wu_sma_free(WU_SMA ma) {
+static void delete(WU_SMA ma) {
     free(ma->prev_values);
     free(ma);
 }
 
 WU_SMA wu_sma_new(int window_size) {
     WU_SMA ma = malloc(sizeof(struct WU_SMA_));
+    if (!ma) return NULL;
+    
+    ma->prev_values = malloc(window_size * sizeof(double));
+    if (!ma->prev_values) {
+        free(ma);
+        return NULL;
+    }
+    
     ma->value = NAN;
     ma->window_size = window_size;
-    ma->prev_values = malloc(window_size * sizeof(double));
+    for (int i = 0; i < window_size; i++) {
+        ma->prev_values[i] = NAN;
+    }
     ma->pos = 0;
     ma->len = 0;
     ma->sum = 0.0;
-    ma->update = wu_sma_update;
-    ma->get = wu_sma_value;
-    ma->delete = wu_sma_free;
+    ma->update = update;
+    ma->delete = delete;
     return ma;
 }

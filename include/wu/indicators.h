@@ -1,6 +1,32 @@
 #ifndef WU_INDICATOR_H
 #define WU_INDICATOR_H
 
+/**
+ * Header file for technical indicators. Defines the structures and
+ * function prototypes for various indicators. All the indicator should
+ * follow the same interface:
+ *
+ * - `update`: A function that takes a new value (or candle) and updates
+ *   the indicator's state, returning the new indicator value.
+ * - `delete`: A function that frees any resources allocated by the
+ *   indicator.
+ * - `value`: A field that holds the current value of the indicator.
+ *
+ * Once the indicator has been created, it should only be accessed using
+ * the provided macros:
+ *
+ * - `wu_indicator_update(indicator, value)`: Updates the indicator with
+ *   a new value and returns the updated indicator value.
+ * - `wu_indicator_get(indicator)`: Retrieves the current value of the
+ *   indicator.
+ * - `wu_indicator_delete(indicator)`: Frees any resources allocated by
+ *   the indicator.
+ *
+ * This design allows for a consistent interface across different types
+ * of indicators, making it easier to use them interchangeably in
+ * trading strategies.
+ */
+
 #include "types.h"
 #include "data.h"
 #include <stdlib.h>
@@ -8,7 +34,7 @@
 
 #define wu_indicator_update(indicator, value) \
     (indicator)->update((indicator), (value))
-#define wu_indicator_get(indicator) (indicator)->get((indicator))
+#define wu_indicator_get(indicator) ((indicator)->value)
 #define wu_indicator_delete(indicator) (indicator)->delete((indicator))
 
 /**
@@ -17,7 +43,6 @@
  */
 typedef struct WU_SMA_ {
     double (*update)(struct WU_SMA_ *self, double value);
-    double (*get)(const struct WU_SMA_ *self);
     void (*delete)(struct WU_SMA_ *self);
     double value;
     double* prev_values;
@@ -41,7 +66,6 @@ WU_SMA wu_sma_new(int window_size);
  */
 typedef struct WU_EMA_ {
     double (*update)(struct WU_EMA_ *self, double value);
-    double (*get)(const struct WU_EMA_ *self);
     void (*delete)(struct WU_EMA_ *self);
     double value;
     double prev_value;
@@ -71,7 +95,6 @@ typedef struct WU_MVar_ *WU_MVar;
 
 struct WU_MVar_ {
     double (*update)(struct WU_MVar_ *self, double value);
-    double (*get)(const struct WU_MVar_ *self);
     void (*delete)(struct WU_MVar_ *self);
     double value;
     WU_SMA sma;
@@ -99,8 +122,8 @@ WU_MVar wu_mvar_new(int window_size, int dof);
  */
 typedef struct WU_StDev_ {
     double (*update)(struct WU_StDev_ *self, double value);
-    double (*get)(const struct WU_StDev_ *self);
     void (*delete)(struct WU_StDev_ *self);
+    double value;
     WU_MVar mvar;
 }* WU_StDev;
 
@@ -119,11 +142,10 @@ WU_StDev wu_stdev_new(int window_size, int dof);
  */
 typedef struct WU_RSI_ {
     double (*update)(struct WU_RSI_ *self, const WU_Candle* candle);
-    double (*get)(const struct WU_RSI_ *self);
     void (*delete)(struct WU_RSI_ *self);
+    double value;
     WU_EMA gain;
     WU_EMA loss;
-    double data;
 }* WU_RSI;
 
 /**
@@ -140,12 +162,11 @@ typedef struct MACDResult_ {
 
 typedef struct WU_MACD_ {
     WU_MACDResult (*update)(struct WU_MACD_ *self, double value);
-    WU_MACDResult (*get)(const struct WU_MACD_ *self);
     void (*delete)(struct WU_MACD_ *self);
+    WU_MACDResult value;
     WU_EMA ema_short;
     WU_EMA ema_long;
     WU_EMA signal_line;
-    WU_MACDResult data;
     int len;
     int start;
 }* WU_MACD;
@@ -175,7 +196,6 @@ typedef struct {
  */
 typedef struct WU_MaxDrawdown_ {
     double (*update)(struct WU_MaxDrawdown_* self, double portfolio_value);
-    double (*get)(const struct WU_MaxDrawdown_* self);
     void (*delete)(struct WU_MaxDrawdown_* self);
     double value;         // Current maximum drawdown (as negative percentage, e.g., -0.25 for 25% drawdown)
     double peak;          // Highest portfolio value seen so far
@@ -204,8 +224,8 @@ typedef struct {
  */
 typedef struct WU_ReturnStats_ {
     WU_ReturnStatsResult (*update)(struct WU_ReturnStats_* self, WU_PerformanceUpdate perf);
-    WU_ReturnStatsResult (*get)(const struct WU_ReturnStats_* self);
     void (*delete)(struct WU_ReturnStats_* self);
+    WU_ReturnStatsResult value;
     double prev_value;    // Previous portfolio value
     double return_mean;   // Mean of returns
     double return_m2;     // Sum of squared deviations (for variance)
@@ -232,8 +252,8 @@ typedef struct {
  */
 typedef struct WU_PnLStats_ {
     WU_PnLStatsResult (*update)(struct WU_PnLStats_* self, double pnl);
-    WU_PnLStatsResult (*get)(const struct WU_PnLStats_* self);
     void (*delete)(struct WU_PnLStats_* self);
+    WU_PnLStatsResult value;
     double pnl_mean;       // Mean of PnL
     double pnl_m2;         // Sum of squared deviations
     int64_t count;         // Number of trades
@@ -250,11 +270,10 @@ WU_PnLStats wu_pnl_stats_new(void);
  */
 typedef struct WU_SharpeRatio_ {
     double (*update)(struct WU_SharpeRatio_* self, WU_PerformanceUpdate perf);
-    double (*get)(const struct WU_SharpeRatio_* self);
     void (*delete)(struct WU_SharpeRatio_* self);
+    double value;           // Current Sharpe ratio
     WU_ReturnStats return_stats;
     double risk_free_rate;  // Annual risk-free rate
-    double value;           // Current Sharpe ratio
 }* WU_SharpeRatio;
 
 WU_SharpeRatio wu_sharpe_ratio_new(double initial_value, double risk_free_rate);
@@ -268,11 +287,10 @@ WU_SharpeRatio wu_sharpe_ratio_new(double initial_value, double risk_free_rate);
  */
 typedef struct WU_SortinoRatio_ {
     double (*update)(struct WU_SortinoRatio_* self, WU_PerformanceUpdate perf);
-    double (*get)(const struct WU_SortinoRatio_* self);
     void (*delete)(struct WU_SortinoRatio_* self);
+    double value;           // Current Sortino ratio
     WU_ReturnStats return_stats;
     double risk_free_rate;  // Annual risk-free rate
-    double value;           // Current Sortino ratio
 }* WU_SortinoRatio;
 
 WU_SortinoRatio wu_sortino_ratio_new(double initial_value, double risk_free_rate);
@@ -286,12 +304,11 @@ WU_SortinoRatio wu_sortino_ratio_new(double initial_value, double risk_free_rate
  */
 typedef struct WU_CalmarRatio_ {
     double (*update)(struct WU_CalmarRatio_* self, WU_PerformanceUpdate perf);
-    double (*get)(const struct WU_CalmarRatio_* self);
     void (*delete)(struct WU_CalmarRatio_* self);
+    double value;           // Current Calmar ratio
     WU_ReturnStats return_stats;
     WU_MaxDrawdown max_drawdown;
     double initial_value;   // Initial portfolio value
-    double value;           // Current Calmar ratio
 }* WU_CalmarRatio;
 
 WU_CalmarRatio wu_calmar_ratio_new(double initial_value);

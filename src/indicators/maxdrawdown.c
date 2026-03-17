@@ -2,7 +2,7 @@
 #include <math.h>
 #include "wu.h"
 
-static double wu_max_drawdown_update(WU_MaxDrawdown self, double portfolio_value) {
+static double update(WU_MaxDrawdown self, double portfolio_value) {
     if (portfolio_value > self->peak)
         self->peak = portfolio_value;
     if (self->peak > 0.0) {
@@ -13,10 +13,6 @@ static double wu_max_drawdown_update(WU_MaxDrawdown self, double portfolio_value
     return self->value;
 }
 
-static double wu_max_drawdown_get(const struct WU_MaxDrawdown_* self) {
-    return self->value;
-}
-
 static void wu_max_drawdown_free(WU_MaxDrawdown self) {
     free(self);
 }
@@ -24,12 +20,9 @@ static void wu_max_drawdown_free(WU_MaxDrawdown self) {
 WU_MaxDrawdown wu_max_drawdown_new(void) {
     WU_MaxDrawdown md = malloc(sizeof(struct WU_MaxDrawdown_));
     if (!md) return NULL;
-    
     md->value = 0.0;
     md->peak = 0.0;
-    md->update = wu_max_drawdown_update;
-    md->get = wu_max_drawdown_get;
+    md->update = update;
     md->delete = wu_max_drawdown_free;
-    
     return md;
 }

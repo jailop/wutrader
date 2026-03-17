@@ -35,26 +35,13 @@ static WU_ReturnStatsResult wu_return_stats_update_impl(WU_ReturnStats self, WU_
     double var = (self->count < 2) ? NAN : self->return_m2 / (self->count - 1);
     double stddev = isnan(var) ? NAN : sqrt(var);
     double downside_dev = (self->count < 1) ? NAN : sqrt(self->downside_m2 / self->count);
-    
-    return (WU_ReturnStatsResult){
+    self->value = (WU_ReturnStatsResult){
         .mean = self->return_mean,
         .variance = var,
         .stddev = stddev,
         .downside_deviation = downside_dev
     };
-}
-
-static WU_ReturnStatsResult wu_return_stats_get_impl(const struct WU_ReturnStats_* self) {
-    double var = (self->count < 2) ? NAN : self->return_m2 / (self->count - 1);
-    double stddev = isnan(var) ? NAN : sqrt(var);
-    double downside_dev = (self->count < 1) ? NAN : sqrt(self->downside_m2 / self->count);
-    
-    return (WU_ReturnStatsResult){
-        .mean = self->return_mean,
-        .variance = var,
-        .stddev = stddev,
-        .downside_deviation = downside_dev
-    };
+    return self->value;
 }
 
 static void wu_return_stats_free(WU_ReturnStats self) {
@@ -75,8 +62,12 @@ WU_ReturnStats wu_return_stats_new(double initial_value) {
     rs->time_unit = WU_TIME_UNIT_SECONDS;
     
     rs->update = wu_return_stats_update_impl;
-    rs->get = wu_return_stats_get_impl;
     rs->delete = wu_return_stats_free;
-    
+    rs->value = (WU_ReturnStatsResult){
+        .mean = NAN,
+        .variance = NAN,
+        .stddev = NAN,
+        .downside_deviation = NAN
+    };
     return rs;
 }

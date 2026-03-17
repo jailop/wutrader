@@ -110,7 +110,9 @@ static char* stats_to_keyvalue(struct WU_PortfolioStats_* stats) {
     double win_rate = stats->total_trades > 0 ? 
         (stats->winning_trades * 100.0) / stats->total_trades : 0.0;
     double avg_pnl = stats->total_trades > 0 ? stats->accum_pnl / stats->total_trades : 0.0;
-    WU_PnLStatsResult pnl_stats_result = stats->pnl_stats ? stats->pnl_stats->get(stats->pnl_stats) : (WU_PnLStatsResult){NAN, NAN};
+    WU_PnLStatsResult pnl_stats_result = stats->pnl_stats 
+        ? wu_indicator_get(stats->pnl_stats)
+        : (WU_PnLStatsResult){NAN, NAN};
     
     char* result = malloc(8192);
     if (!result) return NULL;
@@ -130,22 +132,22 @@ static char* stats_to_keyvalue(struct WU_PortfolioStats_* stats) {
     
     // Add performance metrics
     if (stats->max_drawdown) {
-        double mdd = stats->max_drawdown->get(stats->max_drawdown);
+        double mdd = wu_indicator_get(stats->max_drawdown);
         offset += snprintf(result + offset, 8192 - offset,
             " max_drawdown=%.4f", mdd);
     }
     if (stats->sharpe_ratio) {
-        double sharpe = stats->sharpe_ratio->get(stats->sharpe_ratio);
+        double sharpe = wu_indicator_get(stats->sharpe_ratio);
         offset += snprintf(result + offset, 8192 - offset,
             " sharpe_ratio=%.4f", isnan(sharpe) ? 0.0 : sharpe);
     }
     if (stats->sortino_ratio) {
-        double sortino = stats->sortino_ratio->get(stats->sortino_ratio);
+        double sortino = wu_indicator_get(stats->sortino_ratio);
         offset += snprintf(result + offset, 8192 - offset,
             " sortino_ratio=%.4f", isnan(sortino) ? 0.0 : sortino);
     }
     if (stats->calmar_ratio) {
-        double calmar = stats->calmar_ratio->get(stats->calmar_ratio);
+        double calmar = wu_indicator_get(stats->calmar_ratio);
         offset += snprintf(result + offset, 8192 - offset,
             " calmar_ratio=%.4f", isnan(calmar) ? 0.0 : calmar);
     }
@@ -177,7 +179,9 @@ static char* stats_to_json(struct WU_PortfolioStats_* stats, bool pretty) {
     double win_rate = stats->total_trades > 0 ? 
         (stats->winning_trades * 100.0) / stats->total_trades : 0.0;
     double avg_pnl = stats->total_trades > 0 ? stats->accum_pnl / stats->total_trades : 0.0;
-    WU_PnLStatsResult pnl_stats_result = stats->pnl_stats ? stats->pnl_stats->get(stats->pnl_stats) : (WU_PnLStatsResult){NAN, NAN};
+    WU_PnLStatsResult pnl_stats_result = stats->pnl_stats 
+        ? wu_indicator_get(stats->pnl_stats)
+        : (WU_PnLStatsResult){NAN, NAN};
     double pnl_stddev = isnan(pnl_stats_result.stddev) ? 0.0 : pnl_stats_result.stddev;
     
     char* result = malloc(16384);
@@ -235,10 +239,17 @@ static char* stats_to_json(struct WU_PortfolioStats_* stats, bool pretty) {
         indent2, space, stats->take_profit_exits, nl,
         indent1, nl,
         indent1, space, nl,
-        indent2, space, (stats->max_drawdown ? stats->max_drawdown->get(stats->max_drawdown) : 0.0), nl,
-        indent2, space, (stats->sharpe_ratio ? (isnan(stats->sharpe_ratio->get(stats->sharpe_ratio)) ? 0.0 : stats->sharpe_ratio->get(stats->sharpe_ratio)) : 0.0), nl,
-        indent2, space, (stats->sortino_ratio ? (isnan(stats->sortino_ratio->get(stats->sortino_ratio)) ? 0.0 : stats->sortino_ratio->get(stats->sortino_ratio)) : 0.0), nl,
-        indent2, space, (stats->calmar_ratio ? (isnan(stats->calmar_ratio->get(stats->calmar_ratio)) ? 0.0 : stats->calmar_ratio->get(stats->calmar_ratio)) : 0.0), nl,
+        indent2, space, (stats->max_drawdown 
+                ? wu_indicator_get(stats->max_drawdown) : 0.0), nl,
+        indent2, space, (stats->sharpe_ratio 
+                ? (isnan(wu_indicator_get(stats->sharpe_ratio)) ? 0.0 
+                    : wu_indicator_get(stats->sharpe_ratio)) : 0.0), nl,
+        indent2, space, (stats->sortino_ratio ? (isnan(
+                        wu_indicator_get(stats->sortino_ratio)) ? 0.0 
+                    : wu_indicator_get(stats->sortino_ratio)) : 0.0), nl,
+        indent2, space, (stats->calmar_ratio 
+                ? (isnan(wu_indicator_get(stats->calmar_ratio)) ? 0.0 
+                    : wu_indicator_get(stats->calmar_ratio)) : 0.0), nl,
         indent1);
     
     // Add positions array

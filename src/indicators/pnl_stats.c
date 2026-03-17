@@ -15,21 +15,11 @@ static WU_PnLStatsResult wu_pnl_stats_update_impl(WU_PnLStats self, double pnl) 
     // Compute and return result
     double var = (self->count < 2) ? NAN : self->pnl_m2 / (self->count - 1);
     double stddev = isnan(var) ? NAN : sqrt(var);
-    
-    return (WU_PnLStatsResult){
+    self->value = (WU_PnLStatsResult){
         .mean = self->pnl_mean,
         .stddev = stddev
     };
-}
-
-static WU_PnLStatsResult wu_pnl_stats_get_impl(const struct WU_PnLStats_* self) {
-    double var = (self->count < 2) ? NAN : self->pnl_m2 / (self->count - 1);
-    double stddev = isnan(var) ? NAN : sqrt(var);
-    
-    return (WU_PnLStatsResult){
-        .mean = self->pnl_mean,
-        .stddev = stddev
-    };
+    return self->value;
 }
 
 static void wu_pnl_stats_free(WU_PnLStats self) {
@@ -45,8 +35,8 @@ WU_PnLStats wu_pnl_stats_new(void) {
     ps->count = 0;
     
     ps->update = wu_pnl_stats_update_impl;
-    ps->get = wu_pnl_stats_get_impl;
     ps->delete = wu_pnl_stats_free;
+    ps->value = (WU_PnLStatsResult){.mean = NAN, .stddev = NAN};
     
     return ps;
 }

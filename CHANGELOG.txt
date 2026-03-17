@@ -24,3 +24,8 @@
 - new: User guide: mkdocs
 - new: Portfolio perfomance indicators
 - new: json reader
+
+2026-03-17:
+
+- Makefile updated
+- Indicators interface updated. Check the documentation

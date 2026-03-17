@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "wu.h"
 
-static double exponential_moving_average_update(WU_EMA ema, double value) {
+static double update(WU_EMA ema, double value) {
     if (isnan(value)) {
         return ema->value;
     }
@@ -20,11 +20,7 @@ static double exponential_moving_average_update(WU_EMA ema, double value) {
     return ema->value;
 }
 
-static double exponential_moving_average_value(const struct WU_EMA_ *ema) {
-    return ema->value;
-}
-
-static void exponential_moving_average_free(WU_EMA ema) {
+static void delete(WU_EMA ema) {
     free(ema);
 }
 
@@ -35,9 +31,8 @@ WU_EMA wu_ema_new(int period, double smoothing) {
     ema->alpha = smoothing / (period + 1);
     ema->prev_value = 0.0;
     ema->len = 0;
-    ema->update = exponential_moving_average_update;
-    ema->get = exponential_moving_average_value;
-    ema->delete = exponential_moving_average_free;
+    ema->update = update;
+    ema->delete = delete;
     return ema;
 }
 
