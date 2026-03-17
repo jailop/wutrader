@@ -70,11 +70,11 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#unix-timestamps">Unix Timestamps</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#bar-frequencies-and-data-types">Bar Frequencies and Data Types</a>
+    <li class="toctree-l2"><a class="reference internal" href="#data-frequencies">Data Frequencies</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#performance-metrics-and-annualization">Performance Metrics and Annualization</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#time-unit-example-converting-data">Time Unit Example: Converting Data</a>
+    <li class="toctree-l2"><a class="reference internal" href="#example-converting-data-granularity">Example: Converting Data Granularity</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#practical-considerations">Practical Considerations</a>
         <ul>
@@ -156,27 +156,28 @@
                 <h1 id="understanding-timestamps-and-data-frequencies">Understanding Timestamps and Data Frequencies<a class="headerlink" href="#understanding-timestamps-and-data-frequencies" title="Permanent link">&para;</a></h1>
 <p>Timestamps are fundamental to backtesting. They determine when data occurred, enable proper historical ordering, and affect how metrics like Sharpe ratio get annualized. This guide explains Wu's timestamp model.</p>
 <h2 id="time-units">Time Units<a class="headerlink" href="#time-units" title="Permanent link">&para;</a></h2>
-<p>Wu represents time using a flexible unit system. The same numeric value can represent seconds, minutes, days, or years depending on the context.</p>
+<p>Wu always manages Unix timestamps (time since January 1, 1970 UTC), but you specify the unit in which these timestamps are expressed. The same timestamp value can represent different moments in time depending on its unit.</p>
 <pre class="codehilite"><code class="language-c">typedef enum {
-    WU_TIME_UNIT_SECONDS,
-    WU_TIME_UNIT_MINUTES,
-    WU_TIME_UNIT_HOURS,
-    WU_TIME_UNIT_DAYS,
-    WU_TIME_UNIT_WEEKS,
-    WU_TIME_UNIT_MONTHS,
-    WU_TIME_UNIT_YEARS
+    WU_TIME_UNIT_SECONDS = 0,
+    WU_TIME_UNIT_MILLIS = 1,
+    WU_TIME_UNIT_MICROS = 2,
+    WU_TIME_UNIT_NANOS = 3
 } WU_TimeUnit;
 </code></pre>
 
-<p>When you create a data reader, you specify the time unit:</p>
+<p>For example, the same timestamp value <code>1704067200</code> means:
+- 1704067200 seconds = January 1, 2024 00:00:00 UTC
+- 1704067200 milliseconds = January 20, 1970 18:01:07 UTC (almost immediately after epoch)
+- 1704067200 microseconds = January 1, 1970 00:28:24 UTC</p>
+<p>When you create a data reader, you specify the time unit so Wu can properly interpret your timestamps:</p>
 <pre class="codehilite"><code class="language-c">WU_Reader reader = (WU_Reader)wu_csv_reader_new(file,
     WU_DATA_TYPE_CANDLE,
-    WU_TIME_UNIT_SECONDS,    // Timestamps are in Unix seconds
+    WU_TIME_UNIT_SECONDS,    // Your timestamps are in Unix seconds
     true                      // Skip header row
 );
 </code></pre>
 
-<p>This tells Wu how to interpret the numeric timestamps in your data.</p>
+<p>This tells Wu how to interpret the numeric timestamps in your data and allows it to properly scale time-based metrics like Sharpe ratio and volatility calculations.</p>
 <h2 id="unix-timestamps">Unix Timestamps<a class="headerlink" href="#unix-timestamps" title="Permanent link">&para;</a></h2>
 <p>Most commonly, timestamps are Unix epoch values—seconds since January 1, 1970 UTC. This is what financial data tools like <code>yf</code> produce with <code>--date_format:unix</code>.</p>
 <p>For example:
@@ -191,52 +192,64 @@
 </code></pre>
 
 <p>The timestamps should be in the first column. Wu's CSV reader parses them as numeric values and combines them with the time unit you specified.</p>
-<h2 id="bar-frequencies-and-data-types">Bar Frequencies and Data Types<a class="headerlink" href="#bar-frequencies-and-data-types" title="Permanent link">&para;</a></h2>
-<p>Different data frequencies require different interpretations:</p>
-<p><strong>Daily Bars</strong>: One data point per calendar day (or trading day).</p>
-<pre class="codehilite"><code class="language-c">// Data file with daily bars
-WU_TimeUnit time_unit = WU_TIME_UNIT_DAYS;
+<h2 id="data-frequencies">Data Frequencies<a class="headerlink" href="#data-frequencies" title="Permanent link">&para;</a></h2>
+<p>Your timestamps are always Unix values, but the frequency at which you receive data differs:</p>
+<p><strong>Daily Bars</strong>: One candle per trading day. Timestamps typically represent market close time (4 PM ET for US equities).</p>
+<pre class="codehilite"><code class="language-c">// 1704067200 = Jan 1, 2024 00:00:00 UTC
+// 1704153600 = Jan 2, 2024 00:00:00 UTC  (1 day = 86400 seconds later)
+WU_TimeUnit time_unit = WU_TIME_UNIT_SECONDS;
 </code></pre>
 
-<p>Your timestamps might be daily Unix values (at market close or market open). The delta between consecutive timestamps is roughly 86400 seconds (one day).</p>
-<p><strong>Hourly Bars</strong>: One data point per hour.</p>
-<pre class="codehilite"><code class="language-c">WU_TimeUnit time_unit = WU_TIME_UNIT_HOURS;
+<p>The delta between consecutive timestamps is approximately 86400 seconds (one trading day).</p>
+<p><strong>Hourly Bars</strong>: One candle per hour. Useful for intraday strategies.</p>
+<pre class="codehilite"><code class="language-c">// 1704067200 = Jan 1, 2024 00:00:00 UTC
+// 1704070800 = Jan 1, 2024 01:00:00 UTC  (1 hour = 3600 seconds later)
+WU_TimeUnit time_unit = WU_TIME_UNIT_SECONDS;
 </code></pre>
 
-<p>Timestamps progress hourly. More granular than daily data, useful for intraday strategies.</p>
-<p><strong>Tick Data</strong>: Individual transactions.</p>
-<pre class="codehilite"><code class="language-c">WU_TimeUnit time_unit = WU_TIME_UNIT_SECONDS;
+<p><strong>Minute Data</strong>: One candle per minute.</p>
+<pre class="codehilite"><code class="language-c">// 1704067200 = Jan 1, 2024 00:00:00 UTC
+// 1704067260 = Jan 1, 2024 00:01:00 UTC  (1 minute = 60 seconds later)
+WU_TimeUnit time_unit = WU_TIME_UNIT_SECONDS;
 </code></pre>
 
-<p>Highest granularity. Every price change has its own timestamp. Tick data is much larger and computationally expensive to process.</p>
+<p><strong>Tick Data</strong>: Individual transactions at millisecond or microsecond precision.</p>
+<pre class="codehilite"><code class="language-c">// Use milliseconds if your data comes at that granularity
+WU_TimeUnit time_unit = WU_TIME_UNIT_MILLIS;
+
+// Or microseconds for very high-frequency data
+WU_TimeUnit time_unit = WU_TIME_UNIT_MICROS;
+</code></pre>
+
+<p>Always use the same time unit across your entire backtest and dataset. Wu will properly scale time-dependent metrics based on the unit you specify.</p>
 <h2 id="performance-metrics-and-annualization">Performance Metrics and Annualization<a class="headerlink" href="#performance-metrics-and-annualization" title="Permanent link">&para;</a></h2>
-<p>Risk metrics like Sharpe ratio and Sortino ratio are meaningless without proper time scaling. A Sharpe ratio of 1.0 on daily data isn't the same as a Sharpe ratio of 1.0 on hourly data.</p>
-<p>Wu automatically annualizes these metrics based on the time unit you specify:</p>
-<pre class="codehilite"><code class="language-c">WU_SharpeRatio sharpe = wu_sharpe_ratio_new(initial_value, risk_free_rate);
+<p>Risk metrics like Sharpe ratio and Sortino ratio depend on proper time scaling. A Sharpe ratio of 1.0 on daily data means something different from one on hourly data.</p>
+<p>Wu automatically scales these metrics based on the time unit of your data. The library tracks the time span of your backtest and annualizes metrics to a standard year:</p>
+<pre class="codehilite"><code class="language-c">WU_SharpeRatio sharpe = wu_sharpe_ratio_new();
+// Wu annualizes based on WU_TIME_UNIT_SECONDS (252 trading days/year × 86400 seconds/day)
 </code></pre>
 
-<p>Internally, Wu tracks how many periods occurred during the backtest and scales the metrics accordingly. The calculation uses:</p>
-<pre class="codehilite"><code>periods_per_year = 252 for daily data
-                 = 252 * 6.5 = 1638 for hourly data
-                 = 252 * 6.5 * 60 = 98280 for minute data
-</code></pre>
-
+<p>The annualization factors are:</p>
+<ul>
+<li><strong>Daily data</strong> (WU_TIME_UNIT_SECONDS, ~86400 sec intervals): 252 trading days per year</li>
+<li><strong>Hourly data</strong> (WU_TIME_UNIT_SECONDS, ~3600 sec intervals): 252 × 6.5 = 1,638 trading hours per year</li>
+<li><strong>Minute data</strong> (WU_TIME_UNIT_SECONDS, ~60 sec intervals): 252 × 6.5 × 60 = 98,280 trading minutes per year</li>
+</ul>
 <p>These conventions (252 trading days/year, 6.5 trading hours/day) are standard in finance.</p>
 <p><strong>Why This Matters</strong>:</p>
-<p>Consider two strategies:</p>
+<p>Consider two strategies with identical 10% returns:</p>
 <ol>
-<li>Daily strategy over 252 trading days (1 year)</li>
-<li>Hourly strategy over 252 days × 6.5 hours/day = 1,638 hourly bars</li>
+<li>Daily strategy over 252 trading days (1 year of daily bars)</li>
+<li>Minute-level strategy over the same calendar period (98,280 minute bars)</li>
 </ol>
-<p>Both might show 10% returns. But the hourly strategy has 6.5× more opportunities to generate returns, so the daily volatility is higher. Without proper annualization, you'd compare returns at different scales.</p>
-<p>Wu handles this automatically once you specify the time unit correctly.</p>
-<h2 id="time-unit-example-converting-data">Time Unit Example: Converting Data<a class="headerlink" href="#time-unit-example-converting-data" title="Permanent link">&para;</a></h2>
-<p>Suppose you have minute-level data but want to test on daily bars. You'd aggregate:</p>
+<p>Both show 10% returns, but the minute strategy has many more opportunities to generate returns. Without proper time scaling, you'd compare them incorrectly. Wu handles this automatically once you specify the time unit correctly.</p>
+<h2 id="example-converting-data-granularity">Example: Converting Data Granularity<a class="headerlink" href="#example-converting-data-granularity" title="Permanent link">&para;</a></h2>
+<p>Suppose you have minute-level data and want to aggregate it to daily bars:</p>
 <pre class="codehilite"><code class="language-bash"># Raw minute data (raw_data.csv)
 1577836800,100.5,101.2,100.0,100.8,1000
 1577836860,100.8,101.5,100.5,101.2,1100
 1577836920,101.2,102.0,100.8,101.8,950
-... (390 more minutes) ...
+... (390 more minutes in this day) ...
 1577923200,100.9,101.3,100.1,101.0,1050
 
 # After aggregation into daily bars (daily_data.csv)
@@ -244,40 +257,39 @@ WU_TimeUnit time_unit = WU_TIME_UNIT_DAYS;
 1577923200,101.0,102.5,100.5,101.8,480000
 </code></pre>
 
-<p>The aggregation process:
-- Groups minutes into days
-- Uses the first minute's open as the day's open
-- Tracks the highest high and lowest low across all minutes
-- Uses the last minute's close as the day's close
-- Sums volumes</p>
-<p>Then when you use this daily file:</p>
+<p>The aggregation process groups minute bars and computes:
+- Open: first minute's open
+- High: maximum high across all minutes
+- Low: minimum low across all minutes
+- Close: last minute's close
+- Volume: sum of volumes</p>
+<p>Then use the aggregated file with the correct time unit:</p>
 <pre class="codehilite"><code class="language-c">WU_Reader reader = wu_csv_reader_new(file,
     WU_DATA_TYPE_CANDLE,
-    WU_TIME_UNIT_DAYS,    // Time unit matches the data
+    WU_TIME_UNIT_SECONDS,    // Time unit matches your data (daily bars)
     true
 );
 </code></pre>
 
+<p>Wu will properly annualize metrics based on daily bar frequency (252 trading days per year).</p>
 <h2 id="practical-considerations">Practical Considerations<a class="headerlink" href="#practical-considerations" title="Permanent link">&para;</a></h2>
 <h3 id="data-alignment">Data Alignment<a class="headerlink" href="#data-alignment" title="Permanent link">&para;</a></h3>
-<p>Ensure timestamps align with your data frequency:</p>
-<pre class="codehilite"><code class="language-c">// If your CSV has daily bars, timestamps should be:
-// - Daily Unix values (e.g., 1577836800, 1577923200, ...)
-// - Time unit: WU_TIME_UNIT_DAYS
+<p>Ensure your timestamps are in the time unit you specify:</p>
+<pre class="codehilite"><code class="language-c">// If your CSV has daily bars with Unix timestamps in seconds:
+WU_TimeUnit time_unit = WU_TIME_UNIT_SECONDS;
 
-// If your CSV has hourly bars, timestamps should be:
-// - Hourly Unix values (incremented by 3600 seconds)
-// - Time unit: WU_TIME_UNIT_HOURS
+// If your CSV has tick data with timestamps in milliseconds:
+WU_TimeUnit time_unit = WU_TIME_UNIT_MILLIS;
 </code></pre>
 
-<p>Mismatch causes incorrect metric calculations.</p>
+<p>Mismatch between your data and specified unit causes incorrect metric calculations.</p>
 <h3 id="market-hours">Market Hours<a class="headerlink" href="#market-hours" title="Permanent link">&para;</a></h3>
-<p>Daily data typically timestamps bars at market close (4 PM ET for US equities). Some tools timestamp at market open. Either way, ensure consistency across all your data sources.</p>
-<pre class="codehilite"><code class="language-bash"># Market close convention (4 PM ET)
+<p>Daily data typically timestamps bars at market close (4 PM ET for US equities). Some tools use market open. Ensure consistency across all data sources.</p>
+<pre class="codehilite"><code class="language-bash"># Using yf to download data with Unix timestamps
 yf history -s:spy --lookback:1y --format:csv --date_format:unix
 
-# Produces timestamps at market close time
-# 1704067200 = Jan 1, 2024 00:00 UTC (coincidentally Jan 1 at noon ET)
+# Produces timestamps at market close time (4 PM ET)
+# 1704067200 = Jan 1, 2024 00:00 UTC
 </code></pre>
 
 <h3 id="utc-vs-local-time">UTC vs Local Time<a class="headerlink" href="#utc-vs-local-time" title="Permanent link">&para;</a></h3>
@@ -289,15 +301,15 @@ yf history -s:spy --lookback:1y --format:csv --date_format:unix
 # 1:00 PM EDT = 17:00 UTC
 </code></pre>
 
-<p>Financial tools like <code>yf</code> output UTC by default, so usually this isn't an issue.</p>
+<p>Financial tools like <code>yf</code> output UTC by default, so this is usually not an issue.</p>
 <h3 id="gaps-in-data">Gaps in Data<a class="headerlink" href="#gaps-in-data" title="Permanent link">&para;</a></h3>
-<p>Markets are closed on weekends and holidays. Your daily data will have gaps:</p>
-<pre class="codehilite"><code>1704067200  (Friday)
-1704240000  (Monday, 2 days later)
+<p>Markets are closed on weekends and holidays. Daily data has gaps:</p>
+<pre class="codehilite"><code>1704067200  (Friday close)
+1704240000  (Monday close, 2 calendar days later)
 </code></pre>
 
-<p>This is fine. Wu handles gaps correctly. Gaps don't affect statistics calculations—they just mean fewer periods elapsed.</p>
-<p>However, if you're working with intraday data (hourly or minute), gaps are more noticeable. You shouldn't have timestamps spanning non-trading hours unless you're trading 24/7 futures.</p>
+<p>This is normal. Wu handles gaps correctly. Gaps don't affect statistics—they just mean fewer periods elapsed.</p>
+<p>Intraday data (hourly or minute) shouldn't have gaps during trading hours unless trading 24/7 futures.</p>
 <h2 id="tips-for-setting-up-data">Tips for Setting Up Data<a class="headerlink" href="#tips-for-setting-up-data" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
