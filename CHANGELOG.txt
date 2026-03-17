@@ -17,3 +17,4 @@
 - Short direction implemented (includes borrowing interest rate and
   limit)
 - Current indicators updated to validate input data
+- Portfolio params improved

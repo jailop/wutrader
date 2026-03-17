@@ -12,15 +12,14 @@ explain the trading concepts as we go.
 
 ---
 
-Let's build something interesting together: a pairs trading backtester.
-We'll start from scratch and work our way through the complete
-`examples/backtest/pairs_trading.c` example. Along the journey, you'll
-discover how the Wu library is being architected and how its pieces fit
-together like building blocks.
+We'll build a pairs trading backtester from scratch, working through the
+complete `examples/backtest/pairs_trading.c` example. This tutorial
+explains how the Wu library is architected and how its pieces fit
+together.
 
-Think of this as a guided tour through both the code and the design
-philosophy behind it. By the end, you'll understand not just how to use
-the library, but why it's structured the way it is.
+Think of this as a guided tour through both the code and the design.
+By the end, you'll understand not just how to use the library, but its
+structure and rationale.
 
 **Important Note**: Wu is an experimental library designed for learning
 and exploring algorithmic trading concepts. It's a tool for
@@ -51,17 +50,13 @@ throughout this tutorial.
 
 ## Library Architecture Overview
 
-Wu is a low-level backtesting library written in C. It embraces a
-modular, composable design philosophy, using C's
-struct-and-function-pointer pattern to achieve polymorphism without the
-baggage of inheritance. If you've ever felt constrained by heavyweight
-frameworks that dictate how you must structure your code, Wu takes a
-different approach: it gives you tools, not a framework.
+Wu is a low-level backtesting library written in C. It uses a modular,
+composable design with C's struct-and-function-pointer pattern for
+polymorphism. The library provides tools rather than a rigid framework.
 
 ### Core Components
 
-The library revolves around five main abstractions that work together
-like an assembly line:
+The library has five main abstractions:
 
 ```
 ┌─────────────┐
@@ -122,20 +117,17 @@ runs out.
 ### Design Philosophy
 
 Every component carries its state explicitly in a struct. No hidden
-globals, no magic. When something breaks, you can inspect exactly what's
-in memory. When you want to understand how a strategy behaves, you can
-see all its parameters and internal indicators laid out in the struct
-definition.
+globals. When debugging, you can inspect memory directly. Struct
+definitions show all parameters and internal state.
 
 The components compose freely. Swap out a CSV reader for a database
 reader. Replace the crossover strategy with your own custom logic. Use
 the portfolio standalone without the runner if you want to drive the
 backtest loop yourself. Nothing forces you into a particular pattern.
 
-And there's no framework lock-in. Wu aims to give you building blocks,
-not a rigid structure. You're free to use as much or as little as you
-need.  Want to use just the indicators? Go ahead. Want to implement your
-own portfolio logic? The door's wide open.
+And there's no framework lock-in. Wu provides building blocks, not rigid
+structure. Use just the indicators if needed. Implement custom portfolio
+logic if desired. Mix and match components as required.
 
 ---
 
@@ -148,7 +140,7 @@ tool, and some historical price data in CSV format. That's it.
 
 ### Building the Library
 
-First, let's get Wu built and make sure everything's working:
+Build Wu and verify everything works:
 
 ```bash
 # Navigate to the wu directory
@@ -246,30 +238,20 @@ calm sideways action.
 
 ## Understanding the Data Flow
 
-Before we write any code, let's trace how data flows through a Wu
-backtest. Understanding this flow makes everything else click into
-place.
-
-Imagine water flowing through pipes: CSV files are the reservoir,
-readers are the pumps, the strategy is the filter that decides what to
-do, and the portfolio is where the work actually happens.
+Before writing code, understand how data flows through a Wu backtest:
 
 ```
 CSV File(s) -> Reader(s) -> Strategy -> Portfolio
 ```
 
-The CSV files sit on disk, holding historical price data. The readers
-parse those files line by line, converting text into C structs. The
-strategy consumes those structs, runs calculations, updates indicators,
-and decides whether to buy, sell, or hold. Finally, the portfolio
-receives those decisions as signals and executes trades, tracking cash
-and positions.
+CSV files hold historical price data. Readers parse files line by line,
+converting text into C structs. The strategy processes data, updates
+indicators, and decides whether to buy, sell, or hold. The portfolio
+receives decisions as signals and executes trades.
 
-The runner orchestrates this entire dance, making sure everyone stays
-synchronized.
+The runner synchronizes these components.
 
-For pairs trading, the flow gets more interesting because we're dealing
-with two assets simultaneously:
+For pairs trading with two assets:
 
 ```
 SPY CSV -> SPY Reader ──┐
@@ -277,16 +259,15 @@ SPY CSV -> SPY Reader ──┐
 QQQ CSV -> QQQ Reader ──┘
 ```
 
-The strategy receives data from both SPY and QQQ at the same time,
-calculates the spread between them, and generates two signals—one for
-each asset. The portfolio manages both positions with a shared cash
-pool, allowing you to go long one asset while shorting the other.
+The strategy receives data from both assets, calculates the spread, and
+generates two signals. The portfolio manages both positions with shared
+cash.
 
 ---
 
 ## Step 1: Setting Up Includes and Basic Structure
 
-Let's start writing code. Create a new file called `pairs_trading.c` and set up the skeleton:
+Start by creating `pairs_trading.c`:
 
 ```c
 #include <stdio.h>
@@ -311,22 +292,17 @@ int main(int argc, char* argv[]) {
 }
 ```
 
-The `wu.h` header is your entry point to the entire library. It pulls in
-all the sub-headers you need, so you don't have to hunt for the right
-includes. We're accepting two CSV file paths on the command line—one for
-SPY and one for QQQ—along with an optional `-v` flag that will show us
-what's happening during the backtest. When you're debugging a strategy,
-that verbose output is invaluable.
+The `wu.h` header includes all necessary sub-headers. We accept two CSV
+file paths on the command line—one for SPY and one for QQQ—with an
+optional `-v` flag for verbose output during the backtest.
 
 ---
 
 ## Step 2: Understanding Data Types
 
-Wu speaks in three different data dialects, each represented by its own
-struct. Let's meet them.
+Wu uses three data structures:
 
-First, there's the **Candle**, which represents OHLCV bar data—the bread
-and butter of most trading strategies:
+The **Candle** represents OHLCV bar data:
 
 ```c
 typedef struct WU_Candle_ {
@@ -379,7 +355,7 @@ typedef enum {
 } WU_Side;
 
 typedef struct {
-    int64_t timestamp;
+    WU_TimeStamp timestamp;
     WU_Side side;      // Buy, sell, or hold
     double price;      // Execution price
     double quantity;   // Amount to trade (interpretation depends on position sizing)
@@ -387,6 +363,30 @@ typedef struct {
 ```
 
 Think of signals as the language strategies use to communicate with portfolios. The strategy does the thinking, the portfolio does the executing.
+
+### Understanding Timestamps
+
+Every piece of data in Wu carries a timestamp that tracks when it occurred. The `WU_TimeStamp` struct provides flexibility in time representation:
+
+```c
+typedef enum {
+    WU_TIME_UNIT_SECONDS = 0,
+    WU_TIME_UNIT_MILLIS = 1,
+    WU_TIME_UNIT_MICROS = 2,
+    WU_TIME_UNIT_NANOS = 3
+} WU_TimeUnit;
+
+typedef struct WU_TimeStamp_ {
+    int64_t mark;
+    WU_TimeUnit units;
+} WU_TimeStamp;
+```
+
+The `mark` field holds the actual time value, while `units` specifies the scale. This design lets you work with different time granularities without conversion overhead. Daily bar data might use seconds (`mark = 1678896000` for Unix epoch time), while high-frequency data might use microseconds or nanoseconds.
+
+When calculating time-based metrics like annualized returns or borrowing costs, Wu converts between units internally. For example, calculating borrowing interest on short positions requires knowing how long the position was held. The library converts both timestamps to a common unit, computes the difference, and converts to years for the interest calculation.
+
+This approach keeps timestamps compact (just 16 bytes) while supporting everything from daily data to tick-level precision. You choose the appropriate unit when creating readers, and the library handles the rest.
 
 ---
 
@@ -452,9 +452,9 @@ macro to cast them to the base interface type.
 
 ## Step 4: Creating the Strategy
 
-Pairs trading is a classic mean-reversion strategy. The idea is simple
-but elegant: when two historically correlated assets drift apart, bet on
-them coming back together. Let's create our strategy:
+Pairs trading is a mean-reversion strategy. When two historically
+correlated assets drift apart, the strategy bets on them converging. Let's
+create our strategy:
 
 ```c
 // Create pairs trading strategy
@@ -512,26 +512,31 @@ that everything's wired up correctly before the backtest starts.
 
 ## Step 5: Configuring the Portfolio
 
-Through the portfolio is where trading theory meets reality. It's
-responsible for managing cash, executing trades, tracking positions, and
-accounting for all those pesky real-world costs that eat into profits.
-Let's set one up:
+The portfolio manages cash, executes trades, tracks positions, and
+accounts for transaction costs. Let's configure one:
 
 ```c
 // Configure multi-asset portfolio parameters
 WU_PortfolioParams params = {
+    .direction = WU_DIRECTION_BOTH,  // Allow both long and short positions
     .initial_cash = 100000.0,
-    .tx_cost_pct = 0.001,        // 0.1% transaction cost
-    .stop_loss_pct = 0.0,        // No stop loss (rely on mean reversion)
-    .take_profit_pct = 0.0,      // No take profit (rely on mean reversion)
-    .slippage_pct = 0.0005,      // 0.05% slippage
-    .borrow_rate = 0.05,         // 5% annual rate for borrowing assets
-    .borrow_limit = 100000.0,    // Can borrow up to $100k worth of assets
+    .execution_policy = {
+        .policy = WU_EXECUTION_POLICY_FIXED_SLIPPAGE,
+        .execution_mean = 0.0005,   // 0.05% slippage
+        .execution_stddev = 0.0,
+        .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
+        .tx_cost_value = 0.001,      // 0.1% transaction cost
+        .stop_loss_pct = NAN,        // No stop loss
+        .take_profit_pct = NAN       // No take profit
+    },
+    .borrow_params = {
+        .rate = 0.05,                // 5% annual rate for borrowing
+        .limit = 100000.0            // Can borrow up to $100k worth
+    },
     .position_sizing = {
         .size_type = WU_POSITION_SIZE_PCT,
-        .size_value = 0.45       // Use 45% of cash per asset (90% total exposure)
-    },
-    .direction = WU_DIRECTION_BOTH  // Allow both long and short positions
+        .size_value = 0.45           // Use 45% of cash per asset
+    }
 };
 
 // Create multi-asset portfolio
@@ -545,31 +550,45 @@ if (!portfolio) {
 }
 ```
 
-We start with $100,000 in virtual cash. The parameters capture the friction of real trading. Every trade costs us 0.1% in transaction fees—think broker commissions and exchange fees. Slippage adds another 0.05% to account for the price impact of our orders. On a $10,000 trade, that's $15 total cost. These numbers might seem small, but they add up over dozens or hundreds of trades, and ignoring them gives you unrealistic backtest results.
+We start with $100,000 in virtual cash. The portfolio parameters control all aspects of trading behavior.
 
-The `direction` parameter controls what trading directions are allowed: `WU_DIRECTION_LONG` for long-only, `WU_DIRECTION_SHORT` for short-only, or `WU_DIRECTION_BOTH` for bidirectional trading. Pairs trading requires `WU_DIRECTION_BOTH` since we go long one asset while shorting the other.
+### Execution Policy
 
-When shorting, you borrow assets to sell them, paying the owner interest via `borrow_rate` (5% annually in our example). The cost is prorated by time held—shorting $50,000 for one day costs about $6.85. The `borrow_limit` caps total short exposure at $100,000, preventing excessive leverage.
+The `execution_policy` groups all trade execution settings. The `policy` field determines when and how orders execute. IMMEDIATE execution happens instantly at the signal price. NEXT_CLOSE is more realistic—it stores orders as pending and executes them at the next bar's close price, since you typically can't act on a signal until after you see it. FIXED_SLIPPAGE executes immediately but applies a fixed percentage slippage to the price. RANDOM_SLIPPAGE introduces variability by drawing slippage from a distribution.
 
-We've disabled stop losses and take profit exits (`0.0` means off) because pairs trading is a mean-reversion strategy. We're explicitly betting on prices returning to normal, so we don't want automated exits cutting our positions short. If we were running a momentum strategy, we'd set these to protect against runaway losses or lock in gains.
+Slippage parameters control execution price adjustments. The `execution_mean` field sets the average slippage. For FIXED_SLIPPAGE with `execution_mean = 0.0005`, every trade gets exactly 0.05% slippage. For RANDOM_SLIPPAGE, the `execution_stddev` field adds variability—slippage is sampled as `mean ± stddev × random`, modeling how market impact varies with conditions.
 
-Position sizing is where things get interesting. Wu offers four different approaches to determine how much to trade:
+Transaction costs come in two flavors. FIXED costs charge a flat fee per trade regardless of size (useful for modeling per-trade commissions). PROPORTIONAL costs charge a percentage of the trade value (useful for percentage-based fees). The `tx_cost_value` field specifies either the dollar amount or percentage. On a $10,000 trade with 0.1% proportional costs and 0.05% slippage, total cost reaches $15.
 
-First, there's **absolute sizing** (`WU_POSITION_SIZE_ABS`), where you specify an exact quantity. If you set `size_value = 100.0`, the portfolio always tries to buy or sell 100 shares. Simple, but rigid—it doesn't adapt to your capital or price changes.
+Risk management controls automatic position exits. The `stop_loss_pct` closes positions that lose beyond a threshold, while `take_profit_pct` locks in gains above a threshold. Setting these to NAN disables automatic exits—the default behavior. For mean-reversion strategies like pairs trading, we use NAN because the strategy expects temporary losses to reverse. For momentum strategies, you might set `stop_loss_pct = 0.10` to limit losses to 10% and `take_profit_pct = 0.20` to capture 20% gains.
 
-Then there's **percentage sizing** (`WU_POSITION_SIZE_PCT`), which we're using here. With `size_value = 0.45`, each trade uses 45% of available cash. For SPY and QQQ, that means 90% total exposure, leaving 10% in cash as a buffer. This approach scales naturally with your capital.
+### Borrow Parameters
 
-The third option is **equal allocation** (`WU_POSITION_SIZE_PCT_EQUAL`), perfect for balanced portfolios. If you have three assets and set `size_value = 0.95`, each asset gets approximately 31.67% of total portfolio value (95% divided by 3). It automatically rebalances as positions move.
+Short selling requires borrowing assets. The `borrow_params.rate` sets the annual interest rate charged on borrowed assets. At 5% annually, shorting $50,000 worth of stock for one day costs about $6.85 (calculated as 50000 × 0.05 ÷ 365). Interest compounds continuously as positions are held. The `borrow_params.limit` caps the maximum dollar value of short positions, preventing excessive leverage. In our example, the $100,000 limit means we can't have more than $100,000 worth of short positions open simultaneously.
 
-Finally, there's **strategy-guided sizing** (`WU_POSITION_SIZE_STRATEGY_GUIDED`), which lets the strategy dynamically control allocations. The strategy sets each signal's quantity to the desired portfolio percentage, enabling sophisticated approaches like risk parity or momentum-weighted allocations.
+### Position Sizing
 
-The symbols list maps integer indices to human-readable names. Index 0 is "SPY", index 1 is "QQQ". During the backtest, all operations use these integer indices for speed, but when we print results, the symbols make it clear what we're looking at. This design keeps the fast path fast while maintaining readability where it matters.
+Position sizing determines how much to trade when signals arrive. WU_POSITION_SIZE_ABS uses absolute quantities—setting `size_value = 100.0` means always trading exactly 100 shares. Simple, but it doesn't scale with your capital or adapt to price changes.
+
+WU_POSITION_SIZE_PCT uses a percentage of available cash. Our configuration sets `size_value = 0.45`, meaning each trade consumes 45% of available cash. With two assets, that's 90% total exposure, leaving 10% as a buffer. As your capital grows or shrinks, position sizes scale proportionally.
+
+WU_POSITION_SIZE_PCT_EQUAL splits capital equally across all assets. If you have three assets and set `size_value = 0.95`, each asset gets approximately 31.67% of total portfolio value (95% divided by 3). This automatically maintains balanced exposure as positions move.
+
+WU_POSITION_SIZE_STRATEGY_GUIDED gives control to the strategy. Instead of fixed percentages, the strategy sets each `signal.quantity` to the desired portfolio allocation. This enables sophisticated approaches where allocation varies based on signal strength, volatility, or other factors.
+
+### Direction
+
+The `direction` parameter gates what trades the portfolio accepts. WU_DIRECTION_LONG restricts the portfolio to buying and holding long positions only. WU_DIRECTION_SHORT allows only short selling. WU_DIRECTION_BOTH permits bidirectional trading—going long one asset while shorting another. Pairs trading requires BOTH since the strategy alternates between long and short positions in each asset.
+
+### Symbol Mapping
+
+The `wu_symbol_list("SPY", "QQQ")` macro creates a null-terminated array mapping integer indices to symbol names. Index 0 corresponds to "SPY", index 1 to "QQQ". Internally, all operations use these integer indices for speed. The symbols only matter for display—when printing results, "SPY" is more meaningful than "asset 0". This keeps the fast path fast while maintaining readable output.
 
 ---
 
 ## Step 6: Creating the Runner
 
-Now we bring everything together. The runner is the conductor of our backtest orchestra, making sure all the instruments play in harmony:
+The runner coordinates the backtest components:
 
 ```c
 WU_Runner runner = wu_runner_new(
@@ -588,15 +607,13 @@ if (!runner) {
 }
 ```
 
-When you call `wu_runner_new()`, the runner does some important validation work before it gives you the green light. It checks that the number of readers matches what the strategy expects. Our pairs trading strategy needs two inputs, and we're giving it two readers—check. It verifies that each reader's data type is compatible with what the strategy wants. Both readers produce Candles, and the strategy expects Candles—check. If anything doesn't line up, the runner returns NULL and refuses to proceed. Better to fail fast at setup than crash mysteriously mid-backtest.
+When you call `wu_runner_new()`, the runner validates the setup. It checks that the number of readers matches what the strategy expects, and verifies data type compatibility. If anything doesn't align, it returns NULL.
 
-The macros `WU_PORTFOLIO()`, `WU_STRATEGY()`, and `WU_READER()` cast our concrete types (BasicPortfolio, PairsTradingStrat, CsvReader) to their base interface types (WU_Portfolio, WU_Strategy, WU_Reader). This is C's way of doing polymorphism—the runner works with interfaces, not concrete implementations, so it can handle any portfolio, strategy, or reader that implements the required interface.
+The macros `WU_PORTFOLIO()`, `WU_STRATEGY()`, and `WU_READER()` cast concrete types to their base interface types. This is C's approach to polymorphism—the runner works with interfaces, not implementations.
 
-The `wu_reader_list()` macro is a convenience that creates a NULL-terminated array. It's like saying "here are all my readers" without having to manually create and populate an array. Wu uses the NULL terminator to know when it's reached the end of the list.
+The `wu_reader_list()` macro creates a NULL-terminated array. The runner takes ownership of all components and manages their lifecycle through `wu_runner_free()`.
 
-Once validation passes, the runner takes ownership of all the components. You hand it the portfolio, strategy, and readers, and from that point on, the runner is responsible for their lifecycle. When you eventually call `wu_runner_free()`, it cleans up everything for you. This ownership model keeps memory management straightforward and prevents leaks.
-
-The runner's main job is orchestrating the backtest loop. Here's what happens under the hood, simplified for clarity:
+The runner's job is orchestrating the backtest loop:
 
 ```c
 while (true) {
@@ -760,18 +777,25 @@ int main(int argc, char* argv[]) {
     WU_Strategy strategy = (WU_Strategy)wu_pairs_trading_strat_new(20, 2.0, 1.0);
     
     WU_PortfolioParams params = {
+        .direction = WU_DIRECTION_BOTH,
         .initial_cash = 100000.0,
-        .tx_cost_pct = 0.001,
-        .stop_loss_pct = 0.0,
-        .take_profit_pct = 0.0,
-        .slippage_pct = 0.0005,
-        .borrow_rate = 0.05,
-        .borrow_limit = 100000.0,
+        .execution_policy = {
+            .policy = WU_EXECUTION_POLICY_FIXED_SLIPPAGE,
+            .execution_mean = 0.0005,
+            .execution_stddev = 0.0,
+            .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
+            .tx_cost_value = 0.001,
+            .stop_loss_pct = NAN,
+            .take_profit_pct = NAN
+        },
+        .borrow_params = {
+            .rate = 0.05,
+            .limit = 100000.0
+        },
         .position_sizing = {
             .size_type = WU_POSITION_SIZE_PCT,
             .size_value = 0.45
-        },
-        .direction = WU_DIRECTION_BOTH
+        }
     };
     
     WU_BasicPortfolio portfolio = wu_basic_portfolio_new(
@@ -845,9 +869,9 @@ gcc -I../../include \
 ./pairs_trading ../../tests/data/spy.csv ../../tests/data/qqq.csv -v
 ```
 
-The strategy more than doubled the initial capital over the test period, with a 61.6% win rate across 250 trades. The remaining SPY position shows we're still long at the end of the backtest, waiting for the next mean-reversion signal. Transaction costs ate up over $42,000—a significant drag that real-world backtests must account for.
+The strategy more than doubled the initial capital over the test period, with a 61.6% win rate across 250 trades. The remaining SPY position shows we're still long at the end of the backtest. Transaction costs totaled over $42,000—a significant factor that real-world backtests must account for.
 
-But before you get excited about these returns, we need a serious conversation about what these numbers actually mean—and what they absolutely do not mean.
+These results illustrate the library's capabilities, but require careful interpretation given the limitations discussed below.
 
 ---
 
@@ -855,41 +879,41 @@ But before you get excited about these returns, we need a serious conversation a
 
 ### This is not Evidence of Profitability
 
-Let's be brutally honest: that 163% return is **in-sample testing**. We're running the strategy on historical data, which means we're testing on the past—a past we already know. This is the most dangerous trap in algorithmic trading, and beginners fall into it constantly.
+The 163% return is **in-sample testing**—running the strategy on historical data. This presents several issues:
 
-**The Backtest Bias Problem**: Even though Wu processes data chronologically (no peeking into the future), the strategy parameters—20-period window, 2.0 standard deviation threshold, 1.0 hedge ratio—were chosen because they work on this specific dataset. That's information from the future contaminating the past. In real trading, you don't know what parameters will work ahead of time.
+**Parameter Selection**: The strategy parameters (20-period window, 2.0 standard deviation threshold, 1.0 hedge ratio) were chosen for this dataset. In real trading, optimal parameters aren't known in advance.
 
-**Overfitting Risk**: Try enough parameter combinations and you'll find something that looks profitable on historical data. That's not skill, that's data mining. The strategy might be perfectly tuned to noise in this particular sample, capturing patterns that will never repeat.
+**Overfitting Risk**: Testing many parameter combinations increases the chance of finding one that fits historical noise rather than genuine patterns.
 
-**Data Snooping**: Every time you test a variation, you're consuming degrees of freedom from your dataset. Test 100 different strategies and one will look great by pure chance. It won't work going forward, but the backtest won't tell you that.
+**Data Snooping**: Each strategy variation tested consumes information from the dataset. Multiple tests can produce seemingly profitable results by chance.
 
-Real trading is unforgiving. Strategies that return 163% in backtests often return -30% in live trading. The difference isn't a mystery—it's the gap between idealized historical simulation and messy reality.
+Strategies with high backtest returns may underperform in live trading due to the gap between historical simulation and real market conditions.
 
 ### Missing Risk Metrics
 
-Profit and loss tells you what happened, but not how painful the journey was. Wu currently lacks essential risk metrics that professional traders consider mandatory:
+Profit and loss shows returns but not risk. Wu currently lacks risk metrics commonly used in professional trading:
 
-**Sharpe Ratio**: Risk-adjusted returns, calculated as `(average_return - risk_free_rate) / standard_deviation_of_returns`. A 163% return with 200% volatility is far scarier than 20% with 5% volatility. The Sharpe ratio captures this trade-off. Anything below 1.0 is questionable, above 2.0 is excellent, above 3.0 is suspicious (probably overfit).
+**Sharpe Ratio**: Risk-adjusted returns, calculated as `(average_return - risk_free_rate) / standard_deviation_of_returns`. A 163% return with 200% volatility differs significantly from 20% with 5% volatility.
 
-**Maximum Drawdown**: The worst peak-to-trough decline your account experienced. Wu doesn't track this, but it's crucial. A 50% drawdown means you need 100% gains just to break even. Many traders would have abandoned the strategy in panic before it recovered. Can you really tolerate that psychologically?
+**Maximum Drawdown**: The worst peak-to-trough decline. A 50% drawdown requires 100% gains to recover. This metric affects psychological tolerance and position sizing decisions.
 
-**Volatility**: How much does your equity curve bounce around? High volatility means sleepless nights and higher risk of catastrophic losses. It also affects position sizing—volatile strategies need smaller positions to avoid blowing up.
+**Volatility**: How much the equity curve fluctuates. Higher volatility requires smaller positions to manage risk.
 
-**Calmar Ratio**: Annual return divided by maximum drawdown. It tells you how much you earn per unit of worst-case risk. Better than Sharpe for strategies with non-normal return distributions.
+**Calmar Ratio**: Annual return divided by maximum drawdown. Shows return per unit of worst-case risk.
 
-Without these metrics, you're driving blind. You see the destination but not the cliffs you almost drove off along the way.
+Without these metrics, you lack full visibility into strategy risk characteristics.
 
 ### Unrealistic Execution Model
 
-Wu's execution model is deliberately simplified to keep the code clean and the architecture clear. That simplicity comes at the cost of realism:
+Wu's execution model is simplified for clarity. This simplification has limitations:
 
-**Infinite Liquidity Assumption**: Wu assumes you can instantly trade any quantity at the current price. Real markets have limited liquidity. Try buying $100 million of a small-cap stock and watch your order move the market against you. Wu's fixed slippage percentage (0.05%) doesn't capture this nonlinear effect.
+**Infinite Liquidity Assumption**: Wu assumes you can instantly trade any quantity at the current price. Real markets have limited liquidity. Fixed slippage percentages don't capture nonlinear market impact.
 
-**Market Orders Only**: Wu executes trades immediately at the signal price. Reality offers a choice: market orders execute fast at uncertain prices, limit orders execute at your price but might not fill at all. Wu models neither correctly—it's a hybrid that gives you both instant execution and price certainty, which doesn't exist.
+**Market Orders Only**: Wu executes trades immediately at the signal price. Real trading involves trade-offs between execution speed and price certainty.
 
-**No Partial Fills**: Your order for 100 shares might only get 50 filled, leaving you under-allocated. Wu assumes all-or-nothing execution, which is optimistic.
+**No Partial Fills**: Orders might only partially fill in real markets. Wu assumes all-or-nothing execution.
 
-**Simplified Shorting Model**: Wu models basic borrowing costs via a fixed annual rate, but real shorting is more complex. Borrow rates vary daily based on supply and demand for shares. Hard-to-borrow stocks can cost 50%+ annually. Shares can become unavailable, forcing a buyback at the worst time. Regulatory restrictions kick in during crashes. Wu captures the concept but not the full reality.
+**Simplified Shorting Model**: Wu models borrowing costs via a fixed annual rate. Real shorting involves variable borrow rates, availability constraints, and regulatory restrictions.
 
 **No Slippage During Volatility**: Wu's 0.05% slippage is constant. Real slippage explodes during market stress—precisely when you most need to exit positions. That March 2020 crash? Good luck executing at any reasonable price.
 
@@ -909,15 +933,7 @@ Our implementation demonstrates the architecture, but it's not a serious pairs t
 
 ### What About Real Trading?
 
-If you wanted to trade this strategy with real money, you'd need to address:
-
-- **Position Limits**: Can you actually deploy $45,000 per asset without moving the market?
-- **Margin Requirements**: Your broker won't give you unlimited margin for the short leg
-- **Borrow Costs**: Shorting costs vary daily; hard-to-borrow stocks can be expensive or unavailable
-- **Regulatory Constraints**: Pattern day trader rules, margin maintenance requirements
-- **Execution Latency**: By the time your order reaches the exchange, prices have moved
-- **Overnight Risk**: Markets gap. You can't stop-loss your way out of a gap down
-- **Black Swans**: March 2020, September 2008—correlations break down exactly when you need them most
+Trading this strategy with real money requires addressing several practical challenges. Position limits matter—deploying $45,000 per asset might move the market against you. Your broker won't give unlimited margin for the short leg, and margin maintenance requirements fluctuate with volatility. Shorting costs vary daily; hard-to-borrow stocks become expensive or unavailable. Regulatory constraints like pattern day trader rules impose trading frequency limits. Execution latency means prices move between signal generation and order arrival. Markets gap overnight, bypassing stop losses. Black swan events like March 2020 or September 2008 break correlations exactly when you need them.
 
 ### Wu's Purpose and Your Responsibility
 
@@ -1020,9 +1036,11 @@ static const WU_DataType input_types[] = {
 static WU_Signal signal_buffer[NUM_OUTPUTS];
 ```
 
-The strategy declares its requirements upfront using static constants. It needs two inputs, both `WU_DATA_TYPE_SINGLE_VALUE` (just prices, not full candles). It produces two outputs—one signal per asset. The signal buffer is static because we only ever need one instance shared across all calls. This saves allocations and keeps things simple.
+The strategy declares its requirements using static constants. It needs
+two inputs of `WU_DATA_TYPE_SINGLE_VALUE` and produces two signals. The
+static signal buffer is shared across all calls.
 
-Now for the heart of the strategy—the update function that runs on every new data point:
+Now the update function that runs on each new data point:
 
 ```c
 static WU_Signal* pairs_trading_strat_update(struct WU_Strategy_* strat_,
@@ -1213,9 +1231,9 @@ WU_AssetSymbol symbols[] = {"SPY", "QQQ", "TLT", "GLD"};
 WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, symbols, 4);
 ```
 
-Your strategy needs to return four signals, one per asset. You could implement sector rotation, risk parity, or any multi-asset approach you can dream up.
+Your strategy needs to return four signals, one per asset. You could implement sector rotation, risk parity, or other multi-asset approaches.
 
-**Python Integration**: If you're more comfortable in Python, Wu includes SWIG-generated bindings that let you work at a higher level while still benefiting from C's performance where it matters:
+**Python Integration**: Wu includes SWIG-generated bindings for Python development:
 
 ```python
 import wu
@@ -1232,14 +1250,22 @@ You can prototype strategies in Python, then port performance-critical pieces to
 
 ## Summary
 
-You've journeyed from zero to a working pairs trading backtester. Along the way, you've learned Wu's architecture—how Readers supply data, Strategies generate signals, Portfolios execute trades, and Runners orchestrate everything. You've seen how the pieces compose freely, giving you flexibility without forcing you into rigid patterns.
+You've built a working pairs trading backtester. You've learned Wu's
+architecture—how Readers supply data, Strategies generate signals,
+Portfolios execute trades, and Runners orchestrate everything. The
+components compose with flexibility.
 
 Pairs trading itself is a beautiful strategy: when two correlated assets drift apart, bet on convergence. Calculate the spread, track its statistics, trade the extremes, exit at the mean. Simple in concept, nuanced in execution.
 
 Multi-asset portfolios add another dimension—shared cash pools, independent positions per asset, index-based tracking for performance. The position sizing system gives you four different ways to allocate capital, from simple absolute quantities to sophisticated strategy-guided allocations.
 
-The runner pattern handles the messy details—validation, synchronization, type conversion—so you can focus on strategy logic. And the metrics system tracks everything you need to evaluate performance: P&L, win rates, transaction costs, per-asset holdings.
+The runner pattern handles validation, synchronization, and type
+conversion. The metrics system tracks P&L, win rates, transaction costs,
+and per-asset holdings.
 
-Wu gives you low-level building blocks that compose into high-level systems. Swap strategies, customize portfolios, implement exotic data sources—the door's wide open. The explicit state management and strong typing keep things debuggable while maintaining flexibility. It's a toolkit, not a framework. Use what you need, ignore what you don't.
+Wu provides low-level building blocks that compose into complete systems.
+Swap strategies, customize portfolios, implement data sources as needed.
+Explicit state management and strong typing maintain debuggability and
+flexibility.
 
-Now go build something interesting. Happy backtesting! 🚀
+Happy backtesting!

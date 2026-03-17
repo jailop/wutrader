@@ -60,18 +60,41 @@ typedef enum {
     WU_DIRECTION_BOTH
 } WU_Direction;
 
+typedef enum {
+    WU_EXECUTION_POLICY_IMMEDIATE,
+    WU_EXECUTION_POLICY_NEXT_CLOSE,
+    WU_EXECUTION_POLICY_FIXED_SLIPPAGE,
+    WU_EXECUTION_POLICY_RANDOM_SLIPPAGE
+} WU_ExecutionPolicyValue;
+
+typedef enum {
+    WU_TRANSACTION_COST_FIXED,
+    WU_TRANSACTION_COST_PROPORTIONAL
+} WU_TransactionCostType;
+
+typedef struct {
+    WU_ExecutionPolicyValue policy;
+    double execution_mean;
+    double execution_stddev;
+    WU_TransactionCostType tx_cost_type;
+    double tx_cost_value;
+    double stop_loss_pct;
+    double take_profit_pct;
+} WU_ExecutionPolicy;
+
+typedef struct {
+    double rate;
+    double limit;
+} WU_BorrowParams;
+
 /**
  * The parameters to define a portfolio.
  */
 typedef struct WU_PortfolioParams {
     WU_Direction direction;
     double initial_cash;
-    double tx_cost_pct;
-    double stop_loss_pct;
-    double take_profit_pct;
-    double slippage_pct;
-    double borrow_rate;
-    double borrow_limit;
+    WU_ExecutionPolicy execution_policy;
+    WU_BorrowParams borrow_params;
     WU_PositionSizingParams position_sizing;
 } WU_PortfolioParams;
 
@@ -93,6 +116,7 @@ typedef struct WU_BasicPortfolio_ {
     WU_PortfolioParams params;
     WU_PositionVector** positions;
     WU_PortfolioStats stats;
+    WU_Signal* pending_orders;
 }* WU_BasicPortfolio;
 
 /**

@@ -72,18 +72,25 @@ int main(int argc, char* argv[]) {
         );
     
     WU_PortfolioParams params = {
+        .direction = WU_DIRECTION_BOTH,
         .initial_cash = 100000.0,
-        .tx_cost_pct = 0.001,
-        .stop_loss_pct = 0.0,
-        .take_profit_pct = 0.0,
-        .slippage_pct = 0.0005,
-        .borrow_rate = 0.05,
-        .borrow_limit = 100000.0,
+        .execution_policy = {
+            .policy = WU_EXECUTION_POLICY_FIXED_SLIPPAGE,
+            .execution_mean = 0.0005,
+            .execution_stddev = 0.0,
+            .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
+            .tx_cost_value = 0.001,
+            .stop_loss_pct = NAN,
+            .take_profit_pct = NAN
+        },
+        .borrow_params = {
+            .rate = 0.05,
+            .limit = 100000.0
+        },
         .position_sizing = {
             .size_type = WU_POSITION_SIZE_PCT,
             .size_value = 0.45
-        },
-        .direction = WU_DIRECTION_BOTH
+        }
     };
     
     WU_BasicPortfolio portfolio = wu_basic_portfolio_new(
