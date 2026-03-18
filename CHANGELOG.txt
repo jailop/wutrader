@@ -29,3 +29,4 @@
 
 - Makefile updated
 - Indicators interface updated. Check the documentation
+- timeutils functions: starting to group them

@@ -1,6 +1,8 @@
 #ifndef _TIMEUTILS_H
 #define _TIMEUTILS_H
 
+#include <stdint.h>
+
 /**
  * WU_TimeUnit represents a unit of time used for time-based calculations
  * such as time-weighted returns or time-based aggregations.
