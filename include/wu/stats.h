@@ -5,6 +5,80 @@
 #include "indicators.h"
 
 /**
+ * PnL Statistics Result - contains mean and standard deviation of PnL values.
+ */
+typedef struct {
+    double mean;           // Mean PnL per trade
+    double stddev;         // Standard deviation of PnL
+} WU_PnLStatsResult;
+
+/**
+ * PnL Statistics - combined wrapper using separated indicators. Exists in stats
+ * as a convenient composite that can be used by higher-level code (e.g. portfolios).
+ */
+typedef struct WU_PnLStats_ {
+    WU_PnLStatsResult (*update)(struct WU_PnLStats_* self, double pnl);
+    void (*delete)(struct WU_PnLStats_* self);
+    WU_PnLStatsResult value;
+    /* internal Welford state */
+    double pnl_mean;       // Mean of PnL
+    double pnl_m2;         // Sum of squared deviations
+    int64_t count;         // Number of trades
+}* WU_PnLStats;
+
+WU_PnLStats wu_pnl_stats_new(void);
+
+/* Composite ratio indicators (moved from indicators.h so combined types live in stats.h)
+ * These combine lower-level indicators and time tracking to compute annualized metrics.
+ */
+
+typedef struct WU_SharpeRatio_ {
+    double (*update)(struct WU_SharpeRatio_* self, WU_PerformanceUpdate perf);
+    void (*delete)(struct WU_SharpeRatio_* self);
+    double value;           // Current Sharpe ratio
+    WU_PnLStats return_stats; // Online mean/stddev of returns (Welford)
+    double risk_free_rate;  // Annual risk-free rate
+    double prev_value;      // Previous portfolio value for return calc
+    int64_t count;          // Number of returns observed
+    int64_t start_time;     // First timestamp observed
+    int64_t end_time;       // Last timestamp observed
+    WU_TimeUnit time_unit;  // Time unit for period calculations
+}* WU_SharpeRatio;
+
+WU_SharpeRatio wu_sharpe_ratio_new(double initial_value, double risk_free_rate);
+
+typedef struct WU_SortinoRatio_ {
+    double (*update)(struct WU_SortinoRatio_* self, WU_PerformanceUpdate perf);
+    void (*delete)(struct WU_SortinoRatio_* self);
+    double value;           // Current Sortino ratio
+    WU_PnLStats return_stats; // Online mean/stddev of returns (Welford)
+    WU_Downside downside;   // Downside deviation tracker (negative returns)
+    double risk_free_rate;  // Annual risk-free rate
+    double prev_value;      // Previous portfolio value for return calc
+    int64_t count;          // Number of returns observed
+    int64_t start_time;     // First timestamp observed
+    int64_t end_time;       // Last timestamp observed
+    WU_TimeUnit time_unit;  // Time unit for period calculations
+}* WU_SortinoRatio;
+
+WU_SortinoRatio wu_sortino_ratio_new(double initial_value, double risk_free_rate);
+
+typedef struct WU_CalmarRatio_ {
+    double (*update)(struct WU_CalmarRatio_* self, WU_PerformanceUpdate perf);
+    void (*delete)(struct WU_CalmarRatio_* self);
+    double value;           // Current Calmar ratio
+    WU_MaxDrawdown max_drawdown;
+    double initial_value;   // Initial portfolio value
+    double prev_value;      // Previous portfolio value for return calc
+    int64_t count;          // Number of returns observed
+    int64_t start_time;     // First timestamp observed
+    int64_t end_time;       // Last timestamp observed
+    WU_TimeUnit time_unit;  // Time unit for period calculations
+}* WU_CalmarRatio;
+
+WU_CalmarRatio wu_calmar_ratio_new(double initial_value);
+
+/**
  * WU_PortfolioStats tracks portfolio state, positions, and trading statistics.
  * This is the central source of knowledge about portfolio performance and holdings.
  * 
