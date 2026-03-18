@@ -1,6 +1,5 @@
 var types_8h =
 [
-    [ "WU_TimeStamp", "structWU__TimeStamp.html", "structWU__TimeStamp" ],
     [ "WU_Signal", "structWU__Signal.html", "structWU__Signal" ],
     [ "wu_symbol_list", "types_8h.html#a56a7fea04d066595b4d84874a65d146b", null ],
     [ "WU_CloseReason", "types_8h.html#a6600a0737149ca543a2ac589b5453490", [
@@ -17,11 +16,5 @@ var types_8h =
       [ "WU_SIDE_HOLD", "types_8h.html#a2f2e3c024ac1b136533c4d84c12a3956a09300e1f209d471230bcaef5648ada3f", null ],
       [ "WU_SIDE_BUY", "types_8h.html#a2f2e3c024ac1b136533c4d84c12a3956ab60ae8c62e61a4a3ba70c83b88ef5142", null ],
       [ "WU_SIDE_SELL", "types_8h.html#a2f2e3c024ac1b136533c4d84c12a3956a2324b36323cea91fe827a41b4760bb34", null ]
-    ] ],
-    [ "WU_TimeUnit", "types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3", [
-      [ "WU_TIME_UNIT_SECONDS", "types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3a4bd26f3bae3cc160316aa4d36298a6bd", null ],
-      [ "WU_TIME_UNIT_MILLIS", "types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3ad32c001f7520749ff2cc61c9ae3ebc51", null ],
-      [ "WU_TIME_UNIT_MICROS", "types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3ae239349a5af13e2fbcbf6f0f102f75ed", null ],
-      [ "WU_TIME_UNIT_NANOS", "types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3a59773a5904063aae7e3bae7565d01bf0", null ]
     ] ]
 ];

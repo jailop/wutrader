@@ -8,6 +8,6 @@ var searchData=
   ['wu_5fjsonerror_5',['WU_JsonError',['../readers_8h.html#abe0735457209aadad1ce68cbf954f917',1,'readers.h']]],
   ['wu_5fpositionsizetype_6',['WU_PositionSizeType',['../positions_8h.html#aa60a6afb2af7e73f2d3848b68db0e930',1,'positions.h']]],
   ['wu_5fside_7',['WU_Side',['../types_8h.html#a2f2e3c024ac1b136533c4d84c12a3956',1,'types.h']]],
-  ['wu_5ftimeunit_8',['WU_TimeUnit',['../types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3',1,'types.h']]],
+  ['wu_5ftimeunit_8',['WU_TimeUnit',['../timeutils_8h.html#a32fd359d0dbf4831d7790f38dea45ab3',1,'timeutils.h']]],
   ['wu_5ftransactioncosttype_9',['WU_TransactionCostType',['../portfolios_8h.html#a40abc7256b42d7a59b4a187c071d5eb9',1,'portfolios.h']]]
 ];

@@ -112,11 +112,13 @@ Data Structures</h2></td></tr>
 <tr class="memitem:WU_5FRSI" id="r_WU_5FRSI"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structWU__RSI__.html">WU_RSI</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The WU_RSI (Relative Strength Index) is a momentum oscillator that measures the speed and change of price movements.  <a href="structWU__RSI__.html#details">More...</a><br /></td></tr>
 <tr class="memitem:WU_5FMACDResult" id="r_WU_5FMACDResult"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structWU__MACDResult.html">WU_MACDResult</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="structWU__MACDResult.html" title="The WU_MACDResult structure holds the current values of the MACD line, signal line,...">WU_MACDResult</a> structure holds the current values of the MACD line, signal line, and histogram.  <a href="structWU__MACDResult.html#details">More...</a><br /></td></tr>
 <tr class="memitem:WU_5FMACD" id="r_WU_5FMACD"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structWU__MACD__.html">WU_MACD</a></td></tr>
-<tr class="memitem:WU_5FPerformanceUpdate" id="r_WU_5FPerformanceUpdate"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structWU__PerformanceUpdate.html">WU_PerformanceUpdate</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performance Update - value and timestamp for performance metric calculations.  <a href="structWU__PerformanceUpdate.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The WU_MACD (Moving Average Convergence Divergence) is a trend-following momentum indicator that shows the relationship between two moving averages of a security's price.  <a href="structWU__MACD__.html#details">More...</a><br /></td></tr>
 <tr class="memitem:WU_5FMaxDrawdown" id="r_WU_5FMaxDrawdown"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structWU__MaxDrawdown__.html">WU_MaxDrawdown</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum Drawdown - tracks the largest peak-to-trough decline.  <a href="structWU__MaxDrawdown__.html#details">More...</a><br /></td></tr>
+<tr class="memitem:WU_5FPerformanceUpdate" id="r_WU_5FPerformanceUpdate"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structWU__PerformanceUpdate.html">WU_PerformanceUpdate</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performance Update - value and timestamp for performance metric calculations.  <a href="structWU__PerformanceUpdate.html#details">More...</a><br /></td></tr>
 <tr class="memitem:WU_5FReturnStatsResult" id="r_WU_5FReturnStatsResult"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structWU__ReturnStatsResult.html">WU_ReturnStatsResult</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return Statistics Result - contains mean, variance, and downside deviation.  <a href="structWU__ReturnStatsResult.html#details">More...</a><br /></td></tr>
 <tr class="memitem:WU_5FReturnStats" id="r_WU_5FReturnStats"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structWU__ReturnStats__.html">WU_ReturnStats</a></td></tr>
@@ -137,7 +139,9 @@ Macros</h2></td></tr>
 <tr class="memitem:a65d962a3ce5a54ed9f103584e3afe40d" id="r_a65d962a3ce5a54ed9f103584e3afe40d"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a65d962a3ce5a54ed9f103584e3afe40d">wu_indicator_update</a>(indicator,  value)</td></tr>
 <tr class="memdesc:a65d962a3ce5a54ed9f103584e3afe40d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header file for technical indicators.  <br /></td></tr>
 <tr class="memitem:a2641c30e3e1d852d7f578fd45bf6413e" id="r_a2641c30e3e1d852d7f578fd45bf6413e"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a2641c30e3e1d852d7f578fd45bf6413e">wu_indicator_get</a>(indicator)</td></tr>
+<tr class="memdesc:a2641c30e3e1d852d7f578fd45bf6413e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current value of the indicator.  <br /></td></tr>
 <tr class="memitem:a2e1b143a2f5743687db3d928e42d093a" id="r_a2e1b143a2f5743687db3d928e42d093a"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a2e1b143a2f5743687db3d928e42d093a">wu_indicator_delete</a>(indicator)</td></tr>
+<tr class="memdesc:a2e1b143a2f5743687db3d928e42d093a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete the indicator and free any resources allocated by it.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -154,6 +158,7 @@ Functions</h2></td></tr>
 <tr class="memitem:aea42a45e049dfc06879ab184306b6a64" id="r_aea42a45e049dfc06879ab184306b6a64"><td class="memItemLeft">WU_MACD&#160;</td><td class="memItemRight"><a class="el" href="#aea42a45e049dfc06879ab184306b6a64">wu_macd_new</a> (int short_window, int long_window, int signal_window, double smoothing)</td></tr>
 <tr class="memdesc:aea42a45e049dfc06879ab184306b6a64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new WU_MACD (Moving Average Convergence Divergence) indicator with the specified short and long window sizes, and signal line window size.  <br /></td></tr>
 <tr class="memitem:a878080b0b8a0899415cc6344a41e3bf7" id="r_a878080b0b8a0899415cc6344a41e3bf7"><td class="memItemLeft">WU_MaxDrawdown&#160;</td><td class="memItemRight"><a class="el" href="#a878080b0b8a0899415cc6344a41e3bf7">wu_max_drawdown_new</a> (void)</td></tr>
+<tr class="memdesc:a878080b0b8a0899415cc6344a41e3bf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new WU_MaxDrawdown indicator.  <br /></td></tr>
 <tr class="memitem:af0a8ec5d6ee7465b13d359b90d6f063c" id="r_af0a8ec5d6ee7465b13d359b90d6f063c"><td class="memItemLeft">WU_ReturnStats&#160;</td><td class="memItemRight"><a class="el" href="#af0a8ec5d6ee7465b13d359b90d6f063c">wu_return_stats_new</a> (double initial_value)</td></tr>
 <tr class="memitem:ad85ab07021653e8855f69d3fa2059ee7" id="r_ad85ab07021653e8855f69d3fa2059ee7"><td class="memItemLeft">WU_PnLStats&#160;</td><td class="memItemRight"><a class="el" href="#ad85ab07021653e8855f69d3fa2059ee7">wu_pnl_stats_new</a> (void)</td></tr>
 <tr class="memitem:a56794f6853bba619166efb88e8285a81" id="r_a56794f6853bba619166efb88e8285a81"><td class="memItemLeft">WU_SharpeRatio&#160;</td><td class="memItemRight"><a class="el" href="#a56794f6853bba619166efb88e8285a81">wu_sharpe_ratio_new</a> (double initial_value, double risk_free_rate)</td></tr>
@@ -177,7 +182,10 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">(indicator)-&gt;<span class="keyword">delete</span>((indicator))</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00038">38</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p>Delete the indicator and free any resources allocated by it. </p>
+<p>This macro assumes that the indicator has a <span class="tt"><a class="el" href="ema_8c.html#a0b861aeebf6b8d44a775de8b1ece9aa2">delete</a></span> function that takes the indicator itself and frees any resources allocated by it. </p>
+
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00056">56</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -197,7 +205,10 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">((indicator)-&gt;value)</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00037">37</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p>Get the current value of the indicator. </p>
+<p>This macro assume that the indicator has a <span class="tt">value</span> field that holds the current state of the indicator. </p>
+
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00049">49</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -232,12 +243,12 @@ Functions</h2></td></tr>
 <p>Once the indicator has been created, it should only be accessed using the provided macros:</p>
 <ul>
 <li><span class="tt"><a class="el" href="#a65d962a3ce5a54ed9f103584e3afe40d" title="Header file for technical indicators.">wu_indicator_update(indicator, value)</a></span>: Updates the indicator with a new value and returns the updated indicator value.</li>
-<li><span class="tt"><a class="el" href="#a2641c30e3e1d852d7f578fd45bf6413e">wu_indicator_get(indicator)</a></span>: Retrieves the current value of the indicator.</li>
-<li><span class="tt"><a class="el" href="#a2e1b143a2f5743687db3d928e42d093a">wu_indicator_delete(indicator)</a></span>: Frees any resources allocated by the indicator.</li>
+<li><span class="tt"><a class="el" href="#a2641c30e3e1d852d7f578fd45bf6413e" title="Get the current value of the indicator.">wu_indicator_get(indicator)</a></span>: Retrieves the current value of the indicator.</li>
+<li><span class="tt"><a class="el" href="#a2e1b143a2f5743687db3d928e42d093a" title="Delete the indicator and free any resources allocated by it.">wu_indicator_delete(indicator)</a></span>: Frees any resources allocated by the indicator.</li>
 </ul>
-<p>This design allows for a consistent interface across different types of indicators, making it easier to use them interchangeably in trading strategies. </p>
+<p>This design allows for a consistent interface across different types of indicators, making it easier to use them interchangeably in trading strategies. Update the indicator state with a new value a return the updated indicator state. This macro assumes that the indicator has an <span class="tt"><a class="el" href="ema_8c.html#aa9700ed8c92d843f5416ecafabec3c28">update</a></span> function that takes the indicator itself and a new value, and returns the updated indicator value. </p>
 
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00035">35</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00041">41</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -257,7 +268,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="calmar_8c_source.html#l00060">60</a> of file <a class="el" href="calmar_8c_source.html">calmar.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="calmar_8c_source.html#l00049">49</a> of file <a class="el" href="calmar_8c_source.html">calmar.c</a>.</p>
 
 </div>
 </div>
@@ -336,6 +347,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a new WU_MaxDrawdown indicator. </p>
+<p>The initial value is set to 0 and the initial peak is set to the first portfolio value observed. </p>
 
 <p class="definition">Definition at line <a class="el" href="maxdrawdown_8c_source.html#l00020">20</a> of file <a class="el" href="maxdrawdown_8c_source.html">maxdrawdown.c</a>.</p>
 
@@ -444,7 +458,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sharpe_8c_source.html#l00049">49</a> of file <a class="el" href="sharpe_8c_source.html">sharpe.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sharpe_8c_source.html#l00038">38</a> of file <a class="el" href="sharpe_8c_source.html">sharpe.c</a>.</p>
 
 </div>
 </div>
@@ -488,7 +502,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sortino_8c_source.html#l00047">47</a> of file <a class="el" href="sortino_8c_source.html">sortino.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sortino_8c_source.html#l00036">36</a> of file <a class="el" href="sortino_8c_source.html">sortino.c</a>.</p>
 
 </div>
 </div>

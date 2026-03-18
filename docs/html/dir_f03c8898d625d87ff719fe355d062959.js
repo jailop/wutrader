@@ -8,5 +8,6 @@ var dir_f03c8898d625d87ff719fe355d062959 =
     [ "runners.h", "runners_8h.html", "runners_8h" ],
     [ "stats.h", "stats_8h.html", "stats_8h" ],
     [ "strategies.h", "strategies_8h.html", "strategies_8h" ],
+    [ "timeutils.h", "timeutils_8h.html", "timeutils_8h" ],
     [ "types.h", "types_8h.html", "types_8h" ]
 ];

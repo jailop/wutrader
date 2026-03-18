@@ -27,10 +27,10 @@ var searchData=
   ['wu_5fside_5fbuy_24',['WU_SIDE_BUY',['../types_8h.html#a2f2e3c024ac1b136533c4d84c12a3956ab60ae8c62e61a4a3ba70c83b88ef5142',1,'types.h']]],
   ['wu_5fside_5fhold_25',['WU_SIDE_HOLD',['../types_8h.html#a2f2e3c024ac1b136533c4d84c12a3956a09300e1f209d471230bcaef5648ada3f',1,'types.h']]],
   ['wu_5fside_5fsell_26',['WU_SIDE_SELL',['../types_8h.html#a2f2e3c024ac1b136533c4d84c12a3956a2324b36323cea91fe827a41b4760bb34',1,'types.h']]],
-  ['wu_5ftime_5funit_5fmicros_27',['WU_TIME_UNIT_MICROS',['../types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3ae239349a5af13e2fbcbf6f0f102f75ed',1,'types.h']]],
-  ['wu_5ftime_5funit_5fmillis_28',['WU_TIME_UNIT_MILLIS',['../types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3ad32c001f7520749ff2cc61c9ae3ebc51',1,'types.h']]],
-  ['wu_5ftime_5funit_5fnanos_29',['WU_TIME_UNIT_NANOS',['../types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3a59773a5904063aae7e3bae7565d01bf0',1,'types.h']]],
-  ['wu_5ftime_5funit_5fseconds_30',['WU_TIME_UNIT_SECONDS',['../types_8h.html#a32fd359d0dbf4831d7790f38dea45ab3a4bd26f3bae3cc160316aa4d36298a6bd',1,'types.h']]],
+  ['wu_5ftime_5funit_5fmicros_27',['WU_TIME_UNIT_MICROS',['../timeutils_8h.html#a32fd359d0dbf4831d7790f38dea45ab3ae239349a5af13e2fbcbf6f0f102f75ed',1,'timeutils.h']]],
+  ['wu_5ftime_5funit_5fmillis_28',['WU_TIME_UNIT_MILLIS',['../timeutils_8h.html#a32fd359d0dbf4831d7790f38dea45ab3ad32c001f7520749ff2cc61c9ae3ebc51',1,'timeutils.h']]],
+  ['wu_5ftime_5funit_5fnanos_29',['WU_TIME_UNIT_NANOS',['../timeutils_8h.html#a32fd359d0dbf4831d7790f38dea45ab3a59773a5904063aae7e3bae7565d01bf0',1,'timeutils.h']]],
+  ['wu_5ftime_5funit_5fseconds_30',['WU_TIME_UNIT_SECONDS',['../timeutils_8h.html#a32fd359d0dbf4831d7790f38dea45ab3a4bd26f3bae3cc160316aa4d36298a6bd',1,'timeutils.h']]],
   ['wu_5ftransaction_5fcost_5ffixed_31',['WU_TRANSACTION_COST_FIXED',['../portfolios_8h.html#a40abc7256b42d7a59b4a187c071d5eb9a1e31d6ca63bcd796f4b3dc6e50e1d702',1,'portfolios.h']]],
   ['wu_5ftransaction_5fcost_5fproportional_32',['WU_TRANSACTION_COST_PROPORTIONAL',['../portfolios_8h.html#a40abc7256b42d7a59b4a187c071d5eb9a1d22b3ed44c58d38d23734e72336eea6',1,'portfolios.h']]]
 ];

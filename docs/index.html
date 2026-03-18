@@ -47,23 +47,13 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#what-this-is">What This Is</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#what-this-is-not">What This Is Not</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#core-components">Core Components</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#design-principles">Design Principles</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#feature-inventory">Feature Inventory</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#status-and-direction">Status and Direction</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#contributing">Contributing</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#license">License</a>
     </li>
     </ul>
                 </li>
@@ -145,127 +135,67 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="wu-low-level-backtesting-library">Wu - Low Level Backtesting Library<a class="headerlink" href="#wu-low-level-backtesting-library" title="Permanent link">&para;</a></h1>
-<p>This is a personal project—a backtesting library for trading strategies
-written in C. I use it for learning, experimenting with different
-designs, and exploring ideas in algorithmic trading.</p>
-<h2 id="what-this-is">What This Is<a class="headerlink" href="#what-this-is" title="Permanent link">&para;</a></h2>
-<p>Wu is a toolkit for building backtesting systems. It provides core
-abstractions—portfolios, strategies, indicators, data readers, and a
-runner—that compose together. The implementation uses C's
-struct-and-function-pointer pattern for polymorphism without the
-overhead of inheritance.</p>
-<p>This is an ongoing experiment. The design evolves as I explore different
-approaches to modeling trading systems. Code may change significantly as
-I refine ideas or discover better patterns.</p>
-<h2 id="what-this-is-not">What This Is Not<a class="headerlink" href="#what-this-is-not" title="Permanent link">&para;</a></h2>
-<p>Wu is not production-ready trading infrastructure. It lacks many features
-professional systems require: sophisticated risk metrics, realistic
-execution modeling, market microstructure simulation, and proper
-out-of-sample validation frameworks. Use it for learning and
-experimentation, not live trading.</p>
+<p>This is a personal project—a backtesting library for trading strategies written in C. I use it for learning, experimenting with different designs, and exploring ideas in algorithmic trading. It provides core abstractions: indicators, strategies, data readers, a portfolio, and a runner, that compose together.</p>
+<p>It is not a production-ready product. It lacks sophisticated risk metrics, realistic execution modeling, market microstructure simulation, and a proper out-of-sample validation framework. Use it for learning and experimentation; do not use it for live trading.</p>
 <h2 id="core-components">Core Components<a class="headerlink" href="#core-components" title="Permanent link">&para;</a></h2>
-<p><strong>Portfolios</strong> manage cash, execute trades, and track positions across
-multiple assets. The <code>WU_BasicPortfolio</code> implementation supports long and
-short positions, transaction costs, borrowing costs, and basic risk
-management.</p>
-<p><strong>Strategies</strong> generate trading signals. They consume market data, update
-internal indicators, and produce buy/sell/hold decisions. The library
-includes moving average crossover and pairs trading implementations.</p>
-<p><strong>Indicators</strong> provide technical analysis building blocks: moving
-averages, standard deviation, RSI, MACD. They maintain state internally
-and update incrementally as new data arrives.</p>
-<p><strong>Data Readers</strong> abstract data sources. The CSV reader handles file
-input, but the interface supports any source—databases, APIs, or
-synthetic generators.</p>
-<p><strong>Runner</strong> orchestrates the backtest loop, coordinating readers,
-strategies, and portfolios. It handles data synchronization and component
-lifecycle.</p>
+<p>The library provides an architecture for implementing components that can be combined into a backtesting system:</p>
+<p><strong>Indicators:</strong> These serve as building blocks for technical analysis and performance metrics. They maintain internal state and update incrementally as new data arrives.</p>
+<p><strong>Strategies:</strong> These generate trading signals by consuming market data, updating internal indicators, and producing buy/sell/hold decisions.</p>
+<p><strong>Data Readers:</strong> Generic data feeders for CSV and JSON inputs that can be used to ingest data from files, databases, or network streams.</p>
+<p><strong>Portfolios:</strong> These enable simulation to manage cash, execute trades, and track positions across multiple assets. The basic portfolio implementation supports long and short positions, transaction costs, borrowing costs, and basic risk management and execution policies.</p>
+<p><strong>Runner:</strong> This orchestrates the backtest loop, coordinating readers, strategies, and portfolios. It handles data synchronization and component lifecycle.</p>
+<p>The implemented components serve as examples that can be extended or used as a reference for implementing custom modules.</p>
 <h2 id="design-principles">Design Principles<a class="headerlink" href="#design-principles" title="Permanent link">&para;</a></h2>
 <p>Components carry state explicitly in structs. No hidden globals. When
 debugging, you can inspect memory directly. Struct definitions show all
 parameters and internal state.</p>
-<p>The components compose freely. Swap a CSV reader for a database reader.
+<p>The components compose freely. Swap a CSV file reader for a database reader.
 Replace a strategy implementation. Use portfolio code without the runner.
 Nothing enforces rigid patterns.</p>
-<p>Every component interface uses function pointers for polymorphism. The
-runner works with <code>WU_Portfolio</code>, not <code>WU_BasicPortfolio</code>. This lets you
-implement custom portfolios with different execution logic or risk models.</p>
+<p>Every component uses function pointers for generic behavior and not polymorphism without overhead. This lets you implement custom components with different execution logic or risk models, and plug them into an automated runner.</p>
 <h2 id="feature-inventory">Feature Inventory<a class="headerlink" href="#feature-inventory" title="Permanent link">&para;</a></h2>
-<p><strong>Portfolio Management</strong>
-- Long and short positions
-- Multiple assets
-- Transaction costs (fixed and percentage-based)
-- Borrowing costs and limits
-- Market order execution
-- Position sizing strategies (fixed dollar, percentage allocation)
-- Risk controls (stop-loss, take-profit)</p>
-<p><strong>Execution Policies</strong>
-- Immediate execution
-- Next bar close execution
-- Market and limit order frameworks</p>
-<p><strong>Technical Indicators</strong>
-- Moving averages (SMA, EMA)
-- Standard deviation
-- RSI (Relative Strength Index)
-- MACD (Moving Average Convergence Divergence)
-- Maximum Drawdown
-- Sharpe Ratio
-- Sortino Ratio
-- Cumulative returns tracking</p>
-<p><strong>Strategies</strong>
-- Moving average crossover
-- Pairs trading
-- Custom strategy interface for user implementations</p>
-<p><strong>Data Input</strong>
-- CSV file reader
-- JSONL (JSON Lines) reader
-- Generic data reader interface for custom sources</p>
-<p><strong>Performance Analysis</strong>
-- Trade statistics (count, win rate, max win/loss)
-- Portfolio value tracking
-- PnL calculation and distribution (mean, standard deviation)
-- Performance metrics computation</p>
-<p><strong>Execution Features</strong>
-- Stop-loss and take-profit exits
-- Leverage through borrowing
-- Multiple timeframe support
-- Configurable transaction costs</p>
-<h2 id="status-and-direction">Status and Direction<a class="headerlink" href="#status-and-direction" title="Permanent link">&para;</a></h2>
-<p>This project is under active development. I'm currently exploring:</p>
+<p>For each category, the library provides interfaces that can be leveraged for custom implementations.</p>
+<p><strong>Portfolio Management</strong></p>
 <ul>
-<li>More realistic execution modeling</li>
-<li>Position-level risk tracking</li>
-<li>Event-driven architecture patterns</li>
-<li>Better separation between backtesting and live trading concerns</li>
+<li>Long and short positions</li>
+<li>Multiple assets</li>
+<li>Transaction costs (fixed and percentage-based)</li>
+<li>Borrowing costs and limits</li>
+<li>Position sizing strategies (fixed dollar, percentage allocation)</li>
+<li>Risk controls (stop-loss, take-profit)</li>
 </ul>
-<p>Expect breaking changes as the design evolves. This is a learning
-project, not stable infrastructure.</p>
-<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
-<p>Build the library:</p>
-<pre class="codehilite"><code class="language-bash">make
-</code></pre>
-
-<p>Run the examples:</p>
-<pre class="codehilite"><code class="language-bash"># Single asset crossover strategy
-./examples/backtest/example01 ./tests/data/spy.csv
-
-# Pairs trading strategy
-./examples/backtest/pairs_trading ./tests/data/spy.csv ./tests/data/qqq.csv
-</code></pre>
-
-<p>Read the <a href="tutorial/">tutorial</a> for a step-by-step introduction.</p>
-<p>For detailed API documentation, see the <a href="https://jailop.codeberg.page/wutrader/docs/html/">Doxygen API Reference</a>.</p>
-<p>See the <a href="portfolio-configuration/">Guides</a> for detailed explanations of portfolio configuration and timestamp handling.</p>
-<p>Check the <a href="faq/">FAQ</a> for answers to common questions about data, strategies, metrics, and design choices.</p>
-<p>Repository: <a href="https://codeberg.org/jailop/wu">https://codeberg.org/jailop/wu</a></p>
+<p><strong>Execution Policies</strong></p>
+<ul>
+<li>Immediate execution</li>
+<li>Next bar price execution</li>
+<li>Fixed or random slippage</li>
+</ul>
+<p><strong>Technical Indicators and Performance Metrics</strong></p>
+<ul>
+<li>Moving averages (SMA, EMA)</li>
+<li>Standard deviation</li>
+<li>RSI (Relative Strength Index)</li>
+<li>MACD (Moving Average Convergence Divergence)</li>
+<li>Maximum Drawdown</li>
+<li>Sharpe Ratio</li>
+<li>Sortino Ratio</li>
+<li>Cumulative returns tracking</li>
+</ul>
+<p><strong>Strategies</strong></p>
+<ul>
+<li>Moving average crossover</li>
+<li>Pairs trading</li>
+<li>Custom strategy interface for user implementations</li>
+</ul>
+<p><strong>Data Input</strong></p>
+<ul>
+<li>CSV file reader</li>
+<li>JSONL (JSON Lines) reader</li>
+<li>Multiple timeframe support</li>
+</ul>
 <h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
-<p>This is a personal project. I'm not actively seeking contributions, but
-questions and suggestions are welcome. If you find the project
-interesting and want to discuss design ideas or explore concepts
-together, reach out.</p>
+<p>If you have any questions or suggestions, I’m more than happy to hear them. If you’d like to review the code or propose changes, I’d really appreciate that. If you find the project interesting and want to brainstorm design ideas or explore concepts together, please don’t hesitate to reach out.</p>
 <p>Email: jailop AT protonmail DOT com</p>
-<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
-<p>This project is open source. Check the repository for license details.</p>
               
             </div>
           </div><footer>
@@ -318,5 +248,5 @@ together, reach out.</p>
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2026-03-17 16:03:17.967418+00:00
+Build Date UTC : 2026-03-18 03:30:14.327079+00:00
 -->
