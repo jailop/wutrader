@@ -67,6 +67,12 @@ extern void test_runner_rejects_null_arguments(void);
 extern void test_runner_rejects_invalid_reader_count(void);
 extern void test_runner_convenience_function(void);
 
+/* Stats tests */
+extern void test_mean_basic(void);
+extern void test_downside_basic(void);
+extern void test_pnlstats_basic(void);
+extern void test_sharpe_basic(void);
+
 int main(void) {
     CU_pSuite sma_suite = NULL;
     CU_pSuite ema_suite = NULL;
@@ -312,6 +318,21 @@ int main(void) {
                     test_basic_portfolio_strategy_guided_sizing) == NULL ||
         CU_add_test(basic_portfolio_suite, "test_invalid_asset_index",
                     test_basic_portfolio_invalid_asset_index) == NULL) {
+        CU_cleanup_registry();
+        return CU_get_error();
+    }
+
+    /* Stats suite (mean, downside, pnl, sharpe) */
+    CU_pSuite stats_suite = CU_add_suite("Stats_Suite", NULL, NULL);
+    if (stats_suite == NULL) {
+        CU_cleanup_registry();
+        return CU_get_error();
+    }
+
+    if (CU_add_test(stats_suite, "test_mean_basic", test_mean_basic) == NULL ||
+        CU_add_test(stats_suite, "test_downside_basic", test_downside_basic) == NULL ||
+        CU_add_test(stats_suite, "test_pnlstats_basic", test_pnlstats_basic) == NULL ||
+        CU_add_test(stats_suite, "test_sharpe_basic", test_sharpe_basic) == NULL) {
         CU_cleanup_registry();
         return CU_get_error();
     }
