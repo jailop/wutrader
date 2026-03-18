@@ -30,49 +30,7 @@ The components compose freely. Swap a CSV file reader for a database reader.
 Replace a strategy implementation. Use portfolio code without the runner.
 Nothing enforces rigid patterns.
 
-Every component uses function pointers for generic behavior and not polymorphism without overhead. This lets you implement custom components with different execution logic or risk models, and plug them into an automated runner.
-
-## Feature Inventory
-
-For each category, the library provides interfaces that can be leveraged for custom implementations.
-
-**Portfolio Management**
-
-- Long and short positions
-- Multiple assets
-- Transaction costs (fixed and percentage-based)
-- Borrowing costs and limits
-- Position sizing strategies (fixed dollar, percentage allocation)
-- Risk controls (stop-loss, take-profit)
-
-**Execution Policies**
-
-- Immediate execution
-- Next bar price execution
-- Fixed or random slippage
-
-**Technical Indicators and Performance Metrics**
-
-- Moving averages (SMA, EMA)
-- Standard deviation
-- RSI (Relative Strength Index)
-- MACD (Moving Average Convergence Divergence)
-- Maximum Drawdown
-- Sharpe Ratio
-- Sortino Ratio
-- Cumulative returns tracking
-
-**Strategies**
-
-- Moving average crossover
-- Pairs trading
-- Custom strategy interface for user implementations
-
-**Data Input**
-
-- CSV file reader
-- JSONL (JSON Lines) reader
-- Multiple timeframe support
+Every component uses function pointers for generic behavior and polymorphism without overhead. This lets you implement custom components with different execution logic or risk models, and plug them into an automated runner.
 
 ## Contributing
 

@@ -6,6 +6,7 @@
 
 - C11 compatible compiler (gcc or clang)
 - Make
+- CUnit (for running tests)
 - Doxygen (optional, for API documentation)
 
 ### Build Steps
@@ -13,8 +14,8 @@
 Clone the repository and build:
 
 ```bash
-git clone <repository-url>
-cd wu
+git clone https://codeberg.org/jailop/wutrader.git
+cd wutrader
 make
 ```
 
@@ -27,12 +28,8 @@ This builds:
 ### Running Tests
 
 ```bash
-cd tests
-./test_runner
+make run_tests
 ```
-
-The test suite uses CUnit. Some tests may have known issues—this is an
-experimental project under development.
 
 ### System Installation
 
@@ -79,76 +76,3 @@ mkdocs serve
 ```
 
 This creates `docs/` with tutorial, design notes, and examples.
-
-## Python Bindings
-
-### Using pip
-
-```bash
-pip install wu-trading
-```
-
-### Building from Source
-
-Requirements:
-- Python 3.7+
-- SWIG 4.0+ (for development only)
-
-Build and install:
-
-```bash
-cd python
-pip install -e .
-```
-
-## Usage in Your Project
-
-### C Projects
-
-After installation, link against Wu:
-
-```bash
-gcc -o myprogram myprogram.c -lwu
-```
-
-Or using the shared library from build directory:
-
-```bash
-gcc -I./include -o myprogram myprogram.c -L./lib -lwu -Wl,-rpath,./lib
-```
-
-### Python Projects
-
-```python
-import wu
-
-portfolio = wu.BasicPortfolio(...)
-strategy = wu.CrossOverStrat(10, 30, 0.0)
-runner = wu.Runner(portfolio, strategy, [reader])
-runner.exec()
-```
-
-## Development Setup
-
-For contributing or modifying the library:
-
-```bash
-# Clone repository
-git clone <repository-url>
-cd wu
-
-# Build in debug mode (default)
-make
-
-# Build with optimization
-make CFLAGS="-O3 -DNDEBUG"
-
-# Clean build artifacts
-make clean
-
-# Run tests
-cd tests && ./test_runner
-```
-
-The Makefile supports standard targets and respects common environment
-variables like `CC`, `CFLAGS`, and `PREFIX`.
