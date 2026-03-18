@@ -99,14 +99,14 @@ $(function(){initNavTree('stdev_8c.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8b0364b3b7e3ec6482462ac622bc6ea7" id="r_a8b0364b3b7e3ec6482462ac622bc6ea7"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#a8b0364b3b7e3ec6482462ac622bc6ea7">update</a> (WU_StDev stdev, double value)</td></tr>
-<tr class="memitem:a88955d192c262394d852be82024530f8" id="r_a88955d192c262394d852be82024530f8"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a88955d192c262394d852be82024530f8">delete</a> (struct <a class="el" href="structWU__StDev__.html">WU_StDev_</a> *stdev)</td></tr>
-<tr class="memitem:a753f4fac3c380cd2e49d888cb9500860" id="r_a753f4fac3c380cd2e49d888cb9500860"><td class="memItemLeft">WU_StDev&#160;</td><td class="memItemRight"><a class="el" href="#a753f4fac3c380cd2e49d888cb9500860">wu_stdev_new</a> (int window_size, int dof)</td></tr>
-<tr class="memdesc:a753f4fac3c380cd2e49d888cb9500860"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new WU_StDev (Moving Standard Deviation) indicator with the specified window size and degree of freedom.  <br /></td></tr>
+<tr class="memitem:a53cf09eced03cd9f5320b54c452624a2" id="r_a53cf09eced03cd9f5320b54c452624a2"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#a53cf09eced03cd9f5320b54c452624a2">update</a> (WU_MStDev stdev, double value)</td></tr>
+<tr class="memitem:ac3ce880a84ddb3c8729fe03235f45182" id="r_ac3ce880a84ddb3c8729fe03235f45182"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#ac3ce880a84ddb3c8729fe03235f45182">delete</a> (struct <a class="el" href="structWU__MStDev__.html">WU_MStDev_</a> *stdev)</td></tr>
+<tr class="memitem:a65acdf8df7ad4158b8f929c9c980b34f" id="r_a65acdf8df7ad4158b8f929c9c980b34f"><td class="memItemLeft">WU_MStDev&#160;</td><td class="memItemRight"><a class="el" href="#a65acdf8df7ad4158b8f929c9c980b34f">wu_stdev_new</a> (int window_size, int dof)</td></tr>
+<tr class="memdesc:a65acdf8df7ad4158b8f929c9c980b34f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new WU_MStDev (Moving Standard Deviation) indicator with the specified window size and degree of freedom.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a88955d192c262394d852be82024530f8" name="a88955d192c262394d852be82024530f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88955d192c262394d852be82024530f8">&#9670;&#160;</a></span>delete()</h2>
+<a id="ac3ce880a84ddb3c8729fe03235f45182" name="ac3ce880a84ddb3c8729fe03235f45182"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3ce880a84ddb3c8729fe03235f45182">&#9670;&#160;</a></span>delete()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -117,7 +117,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void delete </td>
           <td>(</td>
-          <td class="paramtype">struct <a class="el" href="structWU__StDev__.html">WU_StDev_</a> *</td>          <td class="paramname"><span class="paramname"><em>stdev</em></span></td><td>)</td>
+          <td class="paramtype">struct <a class="el" href="structWU__MStDev__.html">WU_MStDev_</a> *</td>          <td class="paramname"><span class="paramname"><em>stdev</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -132,8 +132,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a8b0364b3b7e3ec6482462ac622bc6ea7" name="a8b0364b3b7e3ec6482462ac622bc6ea7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b0364b3b7e3ec6482462ac622bc6ea7">&#9670;&#160;</a></span>update()</h2>
+<a id="a53cf09eced03cd9f5320b54c452624a2" name="a53cf09eced03cd9f5320b54c452624a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53cf09eced03cd9f5320b54c452624a2">&#9670;&#160;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -144,7 +144,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">double update </td>
           <td>(</td>
-          <td class="paramtype">WU_StDev</td>          <td class="paramname"><span class="paramname"><em>stdev</em></span>, </td>
+          <td class="paramtype">WU_MStDev</td>          <td class="paramname"><span class="paramname"><em>stdev</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -163,14 +163,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a753f4fac3c380cd2e49d888cb9500860" name="a753f4fac3c380cd2e49d888cb9500860"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a753f4fac3c380cd2e49d888cb9500860">&#9670;&#160;</a></span>wu_stdev_new()</h2>
+<a id="a65acdf8df7ad4158b8f929c9c980b34f" name="a65acdf8df7ad4158b8f929c9c980b34f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65acdf8df7ad4158b8f929c9c980b34f">&#9670;&#160;</a></span>wu_stdev_new()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">WU_StDev wu_stdev_new </td>
+          <td class="memname">WU_MStDev wu_stdev_new </td>
           <td>(</td>
           <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>window_size</em></span>, </td>
         </tr>
@@ -182,7 +182,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates a new WU_StDev (Moving Standard Deviation) indicator with the specified window size and degree of freedom. </p>
+<p>Creates a new WU_MStDev (Moving Standard Deviation) indicator with the specified window size and degree of freedom. </p>
 
 <p class="definition">Definition at line <a class="el" href="stdev_8c_source.html#l00017">17</a> of file <a class="el" href="stdev_8c_source.html">stdev.c</a>.</p>
 

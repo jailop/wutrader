@@ -9,7 +9,9 @@ var searchData=
   ['max_5floss_6',['max_loss',['../structWU__PortfolioStats__.html#ae4b20813de51e7c5c1014a7e8e15d92b',1,'WU_PortfolioStats_']]],
   ['max_5fwin_7',['max_win',['../structWU__PortfolioStats__.html#af751421d0c1d511e2ef3b1df6fabc160',1,'WU_PortfolioStats_']]],
   ['maxdrawdown_2ec_8',['maxdrawdown.c',['../maxdrawdown_8c.html',1,'']]],
-  ['mean_9',['mean',['../structWU__ReturnStatsResult.html#a8507895175c7f0dc3a01e41ca370103a',1,'WU_ReturnStatsResult::mean'],['../structWU__PnLStatsResult.html#a6fd50d4bb654bbfdb5d1264fefb7a2ce',1,'WU_PnLStatsResult::mean']]],
-  ['mvar_10',['mvar',['../structWU__StDev__.html#a585387de3fa23e0263803f0c56bc11e8',1,'WU_StDev_']]],
-  ['mvar_2ec_11',['mvar.c',['../mvar_8c.html',1,'']]]
+  ['mean_9',['mean',['../structWU__PnLStatsResult.html#a6fd50d4bb654bbfdb5d1264fefb7a2ce',1,'WU_PnLStatsResult']]],
+  ['mean_2ec_10',['mean.c',['../mean_8c.html',1,'']]],
+  ['mean_5fdownside_2ec_11',['mean_downside.c',['../mean__downside_8c.html',1,'']]],
+  ['mvar_12',['mvar',['../structWU__MStDev__.html#ac30143f5e8cb0ea79cad60b9ff2b4aec',1,'WU_MStDev_']]],
+  ['mvar_2ec_13',['mvar.c',['../mvar_8c.html',1,'']]]
 ];

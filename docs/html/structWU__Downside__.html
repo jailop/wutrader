@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>WU Trading Library: WU_ReturnStatsResult Struct Reference</title>
+<title>WU Trading Library: WU_Downside Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,7 +63,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('structWU__ReturnStatsResult.html','',''); });
+$(function(){initNavTree('structWU__Downside__.html','',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -89,68 +89,53 @@ $(function(){initNavTree('structWU__ReturnStatsResult.html','',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">WU_ReturnStatsResult Struct Reference</div></div>
+  <div class="headertitle"><div class="title">WU_Downside Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Return Statistics Result - contains mean, variance, and downside deviation.  
+<p>Tracks the average downside, calculate as the square root of the average of the squared negative values.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="indicators_8h_source.html">indicators.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a8507895175c7f0dc3a01e41ca370103a" id="r_a8507895175c7f0dc3a01e41ca370103a"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a8507895175c7f0dc3a01e41ca370103a">mean</a></td></tr>
-<tr class="memitem:ad790005da9205c5a4b599f613c90b0a3" id="r_ad790005da9205c5a4b599f613c90b0a3"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#ad790005da9205c5a4b599f613c90b0a3">variance</a></td></tr>
-<tr class="memitem:a29609e58acf6a5fcc30ab3bc723f85d1" id="r_a29609e58acf6a5fcc30ab3bc723f85d1"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a29609e58acf6a5fcc30ab3bc723f85d1">stddev</a></td></tr>
-<tr class="memitem:a47a86428a5ed2ae723f1cfe0cbe99411" id="r_a47a86428a5ed2ae723f1cfe0cbe99411"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a47a86428a5ed2ae723f1cfe0cbe99411">downside_deviation</a></td></tr>
+<tr class="memitem:a1fa04b83f3498303817a54c249b639ef" id="r_a1fa04b83f3498303817a54c249b639ef"><td class="memItemLeft">double(*&#160;</td><td class="memItemRight"><a class="el" href="#a1fa04b83f3498303817a54c249b639ef">update</a> )(struct <a class="el" href="structWU__Downside__.html">WU_Downside_</a> *self, double <a class="el" href="#ab68609d2631e0c60bf1d6bce9fdcc1bd">value</a>)</td></tr>
+<tr class="memitem:a70ae26cba72992d095678cf814ca09e2" id="r_a70ae26cba72992d095678cf814ca09e2"><td class="memItemLeft">void(*&#160;</td><td class="memItemRight"><a class="el" href="#a70ae26cba72992d095678cf814ca09e2">delete</a> )(struct <a class="el" href="structWU__Downside__.html">WU_Downside_</a> *self)</td></tr>
+<tr class="memitem:ab68609d2631e0c60bf1d6bce9fdcc1bd" id="r_ab68609d2631e0c60bf1d6bce9fdcc1bd"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#ab68609d2631e0c60bf1d6bce9fdcc1bd">value</a></td></tr>
+<tr class="memitem:a268624e02560aea9509bdc07fe700a04" id="r_a268624e02560aea9509bdc07fe700a04"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a268624e02560aea9509bdc07fe700a04">downside_m2</a></td></tr>
+<tr class="memitem:ab8d85dfd307cdfead9e4c0bc068885f7" id="r_ab8d85dfd307cdfead9e4c0bc068885f7"><td class="memItemLeft">int64_t&#160;</td><td class="memItemRight"><a class="el" href="#ab8d85dfd307cdfead9e4c0bc068885f7">count</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Return Statistics Result - contains mean, variance, and downside deviation. </p>
-<p>Calculated incrementally using Welford's online algorithm. All values are per-period (daily, hourly, etc. depending on data frequency). </p>
-
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00248">248</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
-</div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Field Documentation</h2>
-<a id="a47a86428a5ed2ae723f1cfe0cbe99411" name="a47a86428a5ed2ae723f1cfe0cbe99411"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47a86428a5ed2ae723f1cfe0cbe99411">&#9670;&#160;</a></span>downside_deviation</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double WU_ReturnStatsResult::downside_deviation</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00252">252</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
-
-</div>
-</div>
-<a id="a8507895175c7f0dc3a01e41ca370103a" name="a8507895175c7f0dc3a01e41ca370103a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8507895175c7f0dc3a01e41ca370103a">&#9670;&#160;</a></span>mean</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double WU_ReturnStatsResult::mean</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<div class="textblock"><p>Tracks the average downside, calculate as the square root of the average of the squared negative values. </p>
+<p>It is used with returns to measure the volatility of negative returns. </p>
 
 <p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00249">249</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
-
-</div>
-</div>
-<a id="a29609e58acf6a5fcc30ab3bc723f85d1" name="a29609e58acf6a5fcc30ab3bc723f85d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29609e58acf6a5fcc30ab3bc723f85d1">&#9670;&#160;</a></span>stddev</h2>
+</div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Field Documentation</h2>
+<a id="ab8d85dfd307cdfead9e4c0bc068885f7" name="ab8d85dfd307cdfead9e4c0bc068885f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8d85dfd307cdfead9e4c0bc068885f7">&#9670;&#160;</a></span>count</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double WU_ReturnStatsResult::stddev</td>
+          <td class="memname">int64_t WU_Downside::count</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00254">254</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+
+</div>
+</div>
+<a id="a70ae26cba72992d095678cf814ca09e2" name="a70ae26cba72992d095678cf814ca09e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70ae26cba72992d095678cf814ca09e2">&#9670;&#160;</a></span>delete</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* WU_Downside::delete) (struct <a class="el" href="structWU__Downside__.html">WU_Downside_</a> *self)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -159,19 +144,51 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="ad790005da9205c5a4b599f613c90b0a3" name="ad790005da9205c5a4b599f613c90b0a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad790005da9205c5a4b599f613c90b0a3">&#9670;&#160;</a></span>variance</h2>
+<a id="a268624e02560aea9509bdc07fe700a04" name="a268624e02560aea9509bdc07fe700a04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a268624e02560aea9509bdc07fe700a04">&#9670;&#160;</a></span>downside_m2</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double WU_ReturnStatsResult::variance</td>
+          <td class="memname">double WU_Downside::downside_m2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00253">253</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+
+</div>
+</div>
+<a id="a1fa04b83f3498303817a54c249b639ef" name="a1fa04b83f3498303817a54c249b639ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fa04b83f3498303817a54c249b639ef">&#9670;&#160;</a></span>update</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double(* WU_Downside::update) (struct <a class="el" href="structWU__Downside__.html">WU_Downside_</a> *self, double <a class="el" href="#ab68609d2631e0c60bf1d6bce9fdcc1bd">value</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00250">250</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
+
+</div>
+</div>
+<a id="ab68609d2631e0c60bf1d6bce9fdcc1bd" name="ab68609d2631e0c60bf1d6bce9fdcc1bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab68609d2631e0c60bf1d6bce9fdcc1bd">&#9670;&#160;</a></span>value</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double WU_Downside::value</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="indicators_8h_source.html#l00252">252</a> of file <a class="el" href="indicators_8h_source.html">indicators.h</a>.</p>
 
 </div>
 </div>
@@ -191,7 +208,7 @@ Data Fields</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="structWU__ReturnStatsResult.html">WU_ReturnStatsResult</a></li>
+    <li class="navelem"><a href="structWU__Downside__.html">WU_Downside</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

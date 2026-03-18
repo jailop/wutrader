@@ -22,7 +22,7 @@ var searchData=
   ['positions_19',['positions',['../structWU__BasicPortfolio__.html#a3293c97d15c20c8d735244f86131d79d',1,'WU_BasicPortfolio_::positions'],['../structWU__PositionVector.html#a54ab425282fa9acad7ed3427b062e3f1',1,'WU_PositionVector::positions']]],
   ['positions_2eh_20',['positions.h',['../positions_8h.html',1,'']]],
   ['positionvector_2ec_21',['positionvector.c',['../positionvector_8c.html',1,'']]],
-  ['prev_5fvalue_22',['prev_value',['../structWU__EMA__.html#aff199d1957f51c9707468ae008092f42',1,'WU_EMA_::prev_value'],['../structWU__ReturnStats__.html#a6e0f91697d1fded46bd44f0ce76d5da1',1,'WU_ReturnStats_::prev_value']]],
+  ['prev_5fvalue_22',['prev_value',['../structWU__EMA__.html#aff199d1957f51c9707468ae008092f42',1,'WU_EMA_::prev_value'],['../structWU__SharpeRatio__.html#a635cda77a4b13d197b20b25c95648fca',1,'WU_SharpeRatio_::prev_value'],['../structWU__SortinoRatio__.html#a73dc27ac15d775785ee6bf408024788e',1,'WU_SortinoRatio_::prev_value'],['../structWU__CalmarRatio__.html#a9ee4b0e8bd0c1a451d9250072ca4c74a',1,'WU_CalmarRatio_::prev_value']]],
   ['prev_5fvalues_23',['prev_values',['../structWU__SMA__.html#a4e39e40c0448934df07468b6c94bd8d8',1,'WU_SMA_::prev_values'],['../structWU__MVar__.html#ad29448d0973a6717bce9b2432cd98a78',1,'WU_MVar_::prev_values']]],
   ['price_24',['price',['../structWU__Trade.html#afbecf7d890f415a3c7969b97a0ed39af',1,'WU_Trade::price'],['../structWU__Position__.html#a9e6c1185f40030ed9f7d52c0518f62cc',1,'WU_Position_::price'],['../structWU__Signal.html#a53b528e5bab8c927c2648a94efba6187',1,'WU_Signal::price']]],
   ['process_5fbuy_5fsignals_25',['process_buy_signals',['../basic_8c.html#a200e79412bb662f6684f7604c2d9147b',1,'basic.c']]],

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>WU Trading Library: src/indicators/pnl_stats.c Source File</title>
+<title>WU Trading Library: src/stats/pnl_stats.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -125,7 +125,7 @@ $(function(){initNavTree('pnl__stats_8c_source.html','',''); });
 </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="foldopen" id="foldopen00029" data-start="{" data-end="}">
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="indicators_8h.html#ad85ab07021653e8855f69d3fa2059ee7">   29</a></span>WU_PnLStats <a class="code hl_function" href="pnl__stats_8c.html#ad85ab07021653e8855f69d3fa2059ee7">wu_pnl_stats_new</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="stats_8h.html#ad85ab07021653e8855f69d3fa2059ee7">   29</a></span>WU_PnLStats <a class="code hl_function" href="pnl__stats_8c.html#ad85ab07021653e8855f69d3fa2059ee7">wu_pnl_stats_new</a>(<span class="keywordtype">void</span>) {</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    WU_PnLStats ps = malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code hl_struct" href="structWU__PnLStats__.html">WU_PnLStats_</a>));</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordflow">if</span> (!ps) <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    </div>
@@ -143,8 +143,8 @@ $(function(){initNavTree('pnl__stats_8c_source.html','',''); });
 <div class="ttc" id="apnl__stats_8c_html_a642dd1257dd84256fefd0a1d7f4f19d4"><div class="ttname"><a href="pnl__stats_8c.html#a642dd1257dd84256fefd0a1d7f4f19d4">wu_pnl_stats_update_impl</a></div><div class="ttdeci">static WU_PnLStatsResult wu_pnl_stats_update_impl(WU_PnLStats self, double pnl)</div><div class="ttdef"><b>Definition</b> <a href="#l00006">pnl_stats.c:6</a></div></div>
 <div class="ttc" id="apnl__stats_8c_html_ad85ab07021653e8855f69d3fa2059ee7"><div class="ttname"><a href="pnl__stats_8c.html#ad85ab07021653e8855f69d3fa2059ee7">wu_pnl_stats_new</a></div><div class="ttdeci">WU_PnLStats wu_pnl_stats_new(void)</div><div class="ttdef"><b>Definition</b> <a href="#l00029">pnl_stats.c:29</a></div></div>
 <div class="ttc" id="apnl__stats_8c_html_af74572860c28b0c7b83a70c1d2e64ff9"><div class="ttname"><a href="pnl__stats_8c.html#af74572860c28b0c7b83a70c1d2e64ff9">wu_pnl_stats_free</a></div><div class="ttdeci">static void wu_pnl_stats_free(WU_PnLStats self)</div><div class="ttdef"><b>Definition</b> <a href="#l00025">pnl_stats.c:25</a></div></div>
-<div class="ttc" id="astructWU__PnLStatsResult_html"><div class="ttname"><a href="structWU__PnLStatsResult.html">WU_PnLStatsResult</a></div><div class="ttdoc">PnL Statistics Result - contains mean and standard deviation of PnL values.</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00281">indicators.h:281</a></div></div>
-<div class="ttc" id="astructWU__PnLStats___html"><div class="ttname"><a href="structWU__PnLStats__.html">WU_PnLStats_</a></div><div class="ttdoc">PnL Statistics - tracks PnL values from trades using Welford&#39;s algorithm.</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00290">indicators.h:290</a></div></div>
+<div class="ttc" id="astructWU__PnLStatsResult_html"><div class="ttname"><a href="structWU__PnLStatsResult.html">WU_PnLStatsResult</a></div><div class="ttdoc">PnL Statistics Result - contains mean and standard deviation of PnL values.</div><div class="ttdef"><b>Definition</b> <a href="stats_8h_source.html#l00010">stats.h:10</a></div></div>
+<div class="ttc" id="astructWU__PnLStats___html"><div class="ttname"><a href="structWU__PnLStats__.html">WU_PnLStats_</a></div><div class="ttdoc">PnL Statistics - combined wrapper using separated indicators.</div><div class="ttdef"><b>Definition</b> <a href="stats_8h_source.html#l00019">stats.h:19</a></div></div>
 <div class="ttc" id="awu_8h_html"><div class="ttname"><a href="wu_8h.html">wu.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -152,7 +152,7 @@ $(function(){initNavTree('pnl__stats_8c_source.html','',''); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="dir_8fd237e36e8f13dba1fb1a368769f4e8.html">indicators</a></li><li class="navelem"><a href="pnl__stats_8c.html">pnl_stats.c</a></li>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="dir_3de45fbf08d2e79aacff2f4de113ab26.html">stats</a></li><li class="navelem"><a href="pnl__stats_8c.html">pnl_stats.c</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>
