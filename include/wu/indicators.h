@@ -129,7 +129,7 @@ struct WU_MVar_ {
 WU_MVar wu_mvar_new(int window_size, int dof);
 
 /**
- * The WU_StDev (Moving Standard Deviation) is an indicator that calculates
+ * The WU_MStDev (Moving Standard Deviation) is an indicator that calculates
  * the standard deviation of the last N values, where N is the window size.
  * It is used to measure the volatility of a time series. `dof` stands for
  * "degree of freedom" and is used to adjust the standard deviation
@@ -137,18 +137,18 @@ WU_MVar wu_mvar_new(int window_size, int dof);
  * the population standard deviation formula. If `dof` is 1, the standard
  * deviation is calculated using the sample standard deviation formula.
  */
-typedef struct WU_StDev_ {
-    double (*update)(struct WU_StDev_ *self, double value);
-    void (*delete)(struct WU_StDev_ *self);
+typedef struct WU_MStDev_ {
+    double (*update)(struct WU_MStDev_ *self, double value);
+    void (*delete)(struct WU_MStDev_ *self);
     double value;
     WU_MVar mvar;
-}* WU_StDev;
+}* WU_MStDev;
 
 /**
- * Creates a new WU_StDev (Moving Standard Deviation) indicator with the
+ * Creates a new WU_MStDev (Moving Standard Deviation) indicator with the
  * specified window size and degree of freedom.
  */
-WU_StDev wu_stdev_new(int window_size, int dof);
+WU_MStDev wu_stdev_new(int window_size, int dof);
 
 /**
  * The WU_RSI (Relative Strength Index) is a momentum oscillator that measures

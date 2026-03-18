@@ -3,7 +3,7 @@
 #include "wu.h"
 
 void test_stdev_returns_nan_during_warmup(void) {
-    WU_StDev stdev = wu_stdev_new(3, 0);
+    WU_MStDev stdev = wu_stdev_new(3, 0);
     wu_indicator_update(stdev, 1.0);
     CU_ASSERT_TRUE(isnan(wu_indicator_get(stdev)));
     wu_indicator_update(stdev, 2.0);
@@ -14,7 +14,7 @@ void test_stdev_returns_nan_during_warmup(void) {
 }
 
 void test_stdev_calculates_population_stdev(void) {
-    WU_StDev stdev = wu_stdev_new(3, 0);
+    WU_MStDev stdev = wu_stdev_new(3, 0);
     wu_indicator_update(stdev, 2.0);
     wu_indicator_update(stdev, 4.0);
     wu_indicator_update(stdev, 6.0);
@@ -26,7 +26,7 @@ void test_stdev_calculates_population_stdev(void) {
 }
 
 void test_stdev_calculates_sample_stdev(void) {
-    WU_StDev stdev = wu_stdev_new(3, 1);
+    WU_MStDev stdev = wu_stdev_new(3, 1);
     wu_indicator_update(stdev, 2.0);
     wu_indicator_update(stdev, 4.0);
     wu_indicator_update(stdev, 6.0);
@@ -38,7 +38,7 @@ void test_stdev_calculates_sample_stdev(void) {
 }
 
 void test_stdev_sliding_window_updates_correctly(void) {
-    WU_StDev stdev = wu_stdev_new(3, 0);
+    WU_MStDev stdev = wu_stdev_new(3, 0);
     wu_indicator_update(stdev, 2.0);
     wu_indicator_update(stdev, 4.0);
     wu_indicator_update(stdev, 6.0);

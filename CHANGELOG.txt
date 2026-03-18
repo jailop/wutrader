@@ -31,3 +31,7 @@
 - Indicators interface updated. Check the documentation
 - timeutils functions: starting to group them
 - docs: index page updated
+
+2026-03-18:
+
+- Moving Standard Deviation renamed from WU_StDev to WU_MStDev
