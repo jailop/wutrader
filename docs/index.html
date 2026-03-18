@@ -51,8 +51,6 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#design-principles">Design Principles</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#feature-inventory">Feature Inventory</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#contributing">Contributing</a>
     </li>
     </ul>
@@ -152,47 +150,7 @@ parameters and internal state.</p>
 <p>The components compose freely. Swap a CSV file reader for a database reader.
 Replace a strategy implementation. Use portfolio code without the runner.
 Nothing enforces rigid patterns.</p>
-<p>Every component uses function pointers for generic behavior and not polymorphism without overhead. This lets you implement custom components with different execution logic or risk models, and plug them into an automated runner.</p>
-<h2 id="feature-inventory">Feature Inventory<a class="headerlink" href="#feature-inventory" title="Permanent link">&para;</a></h2>
-<p>For each category, the library provides interfaces that can be leveraged for custom implementations.</p>
-<p><strong>Portfolio Management</strong></p>
-<ul>
-<li>Long and short positions</li>
-<li>Multiple assets</li>
-<li>Transaction costs (fixed and percentage-based)</li>
-<li>Borrowing costs and limits</li>
-<li>Position sizing strategies (fixed dollar, percentage allocation)</li>
-<li>Risk controls (stop-loss, take-profit)</li>
-</ul>
-<p><strong>Execution Policies</strong></p>
-<ul>
-<li>Immediate execution</li>
-<li>Next bar price execution</li>
-<li>Fixed or random slippage</li>
-</ul>
-<p><strong>Technical Indicators and Performance Metrics</strong></p>
-<ul>
-<li>Moving averages (SMA, EMA)</li>
-<li>Standard deviation</li>
-<li>RSI (Relative Strength Index)</li>
-<li>MACD (Moving Average Convergence Divergence)</li>
-<li>Maximum Drawdown</li>
-<li>Sharpe Ratio</li>
-<li>Sortino Ratio</li>
-<li>Cumulative returns tracking</li>
-</ul>
-<p><strong>Strategies</strong></p>
-<ul>
-<li>Moving average crossover</li>
-<li>Pairs trading</li>
-<li>Custom strategy interface for user implementations</li>
-</ul>
-<p><strong>Data Input</strong></p>
-<ul>
-<li>CSV file reader</li>
-<li>JSONL (JSON Lines) reader</li>
-<li>Multiple timeframe support</li>
-</ul>
+<p>Every component uses function pointers for generic behavior and polymorphism without overhead. This lets you implement custom components with different execution logic or risk models, and plug them into an automated runner.</p>
 <h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
 <p>If you have any questions or suggestions, I’m more than happy to hear them. If you’d like to review the code or propose changes, I’d really appreciate that. If you find the project interesting and want to brainstorm design ideas or explore concepts together, please don’t hesitate to reach out.</p>
 <p>Email: jailop AT protonmail DOT com</p>
@@ -248,5 +206,5 @@ Nothing enforces rigid patterns.</p>
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2026-03-18 03:30:14.327079+00:00
+Build Date UTC : 2026-03-18 03:40:35.884241+00:00
 -->

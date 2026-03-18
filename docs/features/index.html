@@ -65,12 +65,6 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#data-input">Data Input</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#output-and-reporting">Output and Reporting</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#architecture">Architecture</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#experimental-status">Experimental Status</a>
-    </li>
     </ul>
                 </li>
               </ul>
@@ -143,11 +137,10 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h1>
-<p>Wu is a low-level backtesting library designed for quantitative research and algorithmic trading strategy development. Here's an inventory of its core capabilities.</p>
 <h2 id="core-backtesting">Core Backtesting<a class="headerlink" href="#core-backtesting" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Multi-asset portfolio simulation</strong> - Trade multiple assets simultaneously with coordinated position management</li>
-<li><strong>Realistic execution models</strong> - Market orders (immediate execution) and next-close orders (execution at the following bar's close)</li>
+<li><strong>Execution model</strong> - Market orders (immediate execution) and next-close orders (execution at the following bar's close)</li>
 <li><strong>Position sizing strategies</strong> - Notional and percentage-based position sizing with customizable scaling</li>
 <li><strong>Leverage and margin</strong> - Support for short positions and borrowing with configurable borrow rates and limits</li>
 <li><strong>Transaction costs</strong> - Model slippage and transaction fees with flexible cost structures (fixed, percentage, or value-based)</li>
@@ -178,21 +171,6 @@
 <li><strong>JSON Lines reader</strong> - Parse newline-delimited JSON data efficiently</li>
 <li><strong>Flexible data formats</strong> - Support for various timestamp units and data structures</li>
 </ul>
-<h2 id="output-and-reporting">Output and Reporting<a class="headerlink" href="#output-and-reporting" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Comprehensive backtest results</strong> - Summary statistics including positions, trades, and costs</li>
-<li><strong>JSON export</strong> - Structured output for integration with other tools</li>
-<li><strong>Trade-by-trade details</strong> - Access to individual trade history for analysis</li>
-</ul>
-<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Low-level C library</strong> - Performance-oriented implementation suitable for research and production</li>
-<li><strong>Python bindings</strong> - Pythonic interface for strategy development and experimentation</li>
-<li><strong>Indicator pattern</strong> - Consistent interface for all technical indicators and performance metrics</li>
-<li><strong>Sequential processing</strong> - Data processed one bar at a time for realistic simulation</li>
-</ul>
-<h2 id="experimental-status">Experimental Status<a class="headerlink" href="#experimental-status" title="Permanent link">&para;</a></h2>
-<p>Wu is an ongoing experimentation project. Features are continuously refined based on research requirements and practical use cases. The library prioritizes accuracy and flexibility over feature completeness, allowing researchers to build exactly what they need.</p>
               
             </div>
           </div><footer>

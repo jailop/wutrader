@@ -65,24 +65,6 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#python-bindings">Python Bindings</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#using-pip">Using pip</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#building-from-source_1">Building from Source</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#usage-in-your-project">Usage in Your Project</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#c-projects">C Projects</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#python-projects">Python Projects</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#development-setup">Development Setup</a>
-    </li>
     </ul>
                 </li>
               </ul>
@@ -164,12 +146,13 @@
 <ul>
 <li>C11 compatible compiler (gcc or clang)</li>
 <li>Make</li>
+<li>CUnit (for running tests)</li>
 <li>Doxygen (optional, for API documentation)</li>
 </ul>
 <h3 id="build-steps">Build Steps<a class="headerlink" href="#build-steps" title="Permanent link">&para;</a></h3>
 <p>Clone the repository and build:</p>
-<pre class="codehilite"><code class="language-bash">git clone &lt;repository-url&gt;
-cd wu
+<pre class="codehilite"><code class="language-bash">git clone https://codeberg.org/jailop/wutrader.git
+cd wutrader
 make
 </code></pre>
 
@@ -179,12 +162,9 @@ make
 - Example programs in <code>examples/</code>
 - Test runner in <code>tests/</code></p>
 <h3 id="running-tests">Running Tests<a class="headerlink" href="#running-tests" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-bash">cd tests
-./test_runner
+<pre class="codehilite"><code class="language-bash">make run_tests
 </code></pre>
 
-<p>The test suite uses CUnit. Some tests may have known issues—this is an
-experimental project under development.</p>
 <h3 id="system-installation">System Installation<a class="headerlink" href="#system-installation" title="Permanent link">&para;</a></h3>
 <p>Install to <code>/usr/local</code>:</p>
 <pre class="codehilite"><code class="language-bash">sudo make install
@@ -217,60 +197,6 @@ mkdocs serve
 </code></pre>
 
 <p>This creates <code>docs/</code> with tutorial, design notes, and examples.</p>
-<h2 id="python-bindings">Python Bindings<a class="headerlink" href="#python-bindings" title="Permanent link">&para;</a></h2>
-<h3 id="using-pip">Using pip<a class="headerlink" href="#using-pip" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-bash">pip install wu-trading
-</code></pre>
-
-<h3 id="building-from-source_1">Building from Source<a class="headerlink" href="#building-from-source_1" title="Permanent link">&para;</a></h3>
-<p>Requirements:
-- Python 3.7+
-- SWIG 4.0+ (for development only)</p>
-<p>Build and install:</p>
-<pre class="codehilite"><code class="language-bash">cd python
-pip install -e .
-</code></pre>
-
-<h2 id="usage-in-your-project">Usage in Your Project<a class="headerlink" href="#usage-in-your-project" title="Permanent link">&para;</a></h2>
-<h3 id="c-projects">C Projects<a class="headerlink" href="#c-projects" title="Permanent link">&para;</a></h3>
-<p>After installation, link against Wu:</p>
-<pre class="codehilite"><code class="language-bash">gcc -o myprogram myprogram.c -lwu
-</code></pre>
-
-<p>Or using the shared library from build directory:</p>
-<pre class="codehilite"><code class="language-bash">gcc -I./include -o myprogram myprogram.c -L./lib -lwu -Wl,-rpath,./lib
-</code></pre>
-
-<h3 id="python-projects">Python Projects<a class="headerlink" href="#python-projects" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-python">import wu
-
-portfolio = wu.BasicPortfolio(...)
-strategy = wu.CrossOverStrat(10, 30, 0.0)
-runner = wu.Runner(portfolio, strategy, [reader])
-runner.exec()
-</code></pre>
-
-<h2 id="development-setup">Development Setup<a class="headerlink" href="#development-setup" title="Permanent link">&para;</a></h2>
-<p>For contributing or modifying the library:</p>
-<pre class="codehilite"><code class="language-bash"># Clone repository
-git clone &lt;repository-url&gt;
-cd wu
-
-# Build in debug mode (default)
-make
-
-# Build with optimization
-make CFLAGS=&quot;-O3 -DNDEBUG&quot;
-
-# Clean build artifacts
-make clean
-
-# Run tests
-cd tests &amp;&amp; ./test_runner
-</code></pre>
-
-<p>The Makefile supports standard targets and respects common environment
-variables like <code>CC</code>, <code>CFLAGS</code>, and <code>PREFIX</code>.</p>
               
             </div>
           </div><footer>
