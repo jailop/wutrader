@@ -2,17 +2,6 @@
 #include <math.h>
 #include "wu.h"
 
-// Annualization factor based on time unit
-// Returns periods per year for the given time unit
-static double wu_annualization_factor(WU_TimeUnit unit) {
-    switch (unit) {
-        case WU_TIME_UNIT_SECONDS:    return 365.25 * 24 * 3600;      // seconds per year
-        case WU_TIME_UNIT_MILLIS:     return 365.25 * 24 * 3600 * 1000; // millis per year
-        case WU_TIME_UNIT_MICROS:     return 365.25 * 24 * 3600 * 1e6;  // micros per year
-        case WU_TIME_UNIT_NANOS:      return 365.25 * 24 * 3600 * 1e9;  // nanos per year
-        default:                      return 365.25;                   // daily default
-    }
-}
 
 static double wu_sharpe_ratio_update(WU_SharpeRatio self, WU_PerformanceUpdate perf) {
     WU_ReturnStatsResult result = self->return_stats->update(self->return_stats, perf);

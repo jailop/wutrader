@@ -32,9 +32,27 @@
 #include <stdlib.h>
 #include <math.h>
 
+/**
+ * Update the indicator state with a new value a return the updated
+ * indicator state. This macro assumes that the indicator has an
+ * `update` function that takes the indicator itself and a new value,
+ * and returns the updated indicator value.
+ */
 #define wu_indicator_update(indicator, value) \
     (indicator)->update((indicator), (value))
+
+/**
+ * Get the current value of the indicator. This macro assume that the
+ * indicator has a `value` field that holds the current state of the
+ * indicator.
+ */
 #define wu_indicator_get(indicator) ((indicator)->value)
+
+/**
+ * Delete the indicator and free any resources allocated by it. This
+ * macro assumes that the indicator has a `delete` function that takes
+ * the indicator itself and frees any resources allocated by it.
+ */
 #define wu_indicator_delete(indicator) (indicator)->delete((indicator))
 
 /**
@@ -73,7 +91,6 @@ typedef struct WU_EMA_ {
     int len;
     int period;
 }* WU_EMA;
-
 
 /**
  * Creates a new WU_EMA (Exponential Moving Average) indicator with the
@@ -154,12 +171,29 @@ typedef struct WU_RSI_ {
  */
 WU_RSI wu_rsi_new(int window_size);
 
+/**
+ * The WU_MACDResult structure holds the current values of the MACD line,
+ * signal line, and histogram. The MACD line is the difference between the
+ * short-term EMA and long-term EMA. The signal line is an EMA of the MACD
+ * line, and the histogram is the difference between the MACD line and the
+ * signal line.
+ */
 typedef struct MACDResult_ {
     double macd;
     double signal;
     double histogram;
 } WU_MACDResult;
 
+/**
+ * The WU_MACD (Moving Average Convergence Divergence) is a
+ * trend-following momentum indicator that shows the relationship
+ * between two moving averages of a security's price. The MACD is
+ * calculated by subtracting the long-term EMA from the short-term EMA.
+ * A signal line, which is an EMA of the MACD, is then plotted on top of
+ * the MACD to identify buy and sell signals. The histogram represents
+ * the difference between the MACD and the signal line, providing a
+ * visual representation of the momentum of the price movement.
+ */
 typedef struct WU_MACD_ {
     WU_MACDResult (*update)(struct WU_MACD_ *self, double value);
     void (*delete)(struct WU_MACD_ *self);
@@ -180,28 +214,31 @@ WU_MACD wu_macd_new(int short_window, int long_window, int signal_window,
         double smoothing);
 
 /**
+ * Maximum Drawdown - tracks the largest peak-to-trough decline.
+ * Updates with portfolio values and returns the drawdown as a negative
+ * percentage.  Calculated as (current_value - peak) / peak when current
+ * is below peak.
+ */
+typedef struct WU_MaxDrawdown_ {
+    double (*update)(struct WU_MaxDrawdown_* self, double portfolio_value);
+    void (*delete)(struct WU_MaxDrawdown_* self);
+    double value;
+    double peak;
+}* WU_MaxDrawdown;
+
+/**
+ * Creates a new WU_MaxDrawdown indicator. The initial value is set to 0
+ * and the initial peak is set to the first portfolio value observed.
+ */
+WU_MaxDrawdown wu_max_drawdown_new(void);
+
+/**
  * Performance Update - value and timestamp for performance metric calculations.
  */
 typedef struct {
     double portfolio_value;  // Current portfolio value
     WU_TimeStamp timestamp;  // Timestamp of this value
 } WU_PerformanceUpdate;
-
-/**
- * Maximum Drawdown - tracks the largest peak-to-trough decline.
- * Updates with portfolio values and returns the drawdown as a negative percentage.
- * Calculated as (current_value - peak) / peak when current is below peak.
- * 
- * Does not require time information - purely based on value changes.
- */
-typedef struct WU_MaxDrawdown_ {
-    double (*update)(struct WU_MaxDrawdown_* self, double portfolio_value);
-    void (*delete)(struct WU_MaxDrawdown_* self);
-    double value;         // Current maximum drawdown (as negative percentage, e.g., -0.25 for 25% drawdown)
-    double peak;          // Highest portfolio value seen so far
-}* WU_MaxDrawdown;
-
-WU_MaxDrawdown wu_max_drawdown_new(void);
 
 /**
  * Return Statistics Result - contains mean, variance, and downside deviation.

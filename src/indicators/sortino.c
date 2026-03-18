@@ -2,17 +2,6 @@
 #include <math.h>
 #include "wu.h"
 
-// Annualization factor based on time unit
-static double wu_annualization_factor(WU_TimeUnit unit) {
-    switch (unit) {
-        case WU_TIME_UNIT_SECONDS:    return 365.25 * 24 * 3600;
-        case WU_TIME_UNIT_MILLIS:     return 365.25 * 24 * 3600 * 1000;
-        case WU_TIME_UNIT_MICROS:     return 365.25 * 24 * 3600 * 1e6;
-        case WU_TIME_UNIT_NANOS:      return 365.25 * 24 * 3600 * 1e9;
-        default:                      return 365.25;
-    }
-}
-
 static double wu_sortino_ratio_update(WU_SortinoRatio self, WU_PerformanceUpdate perf) {
     WU_ReturnStatsResult result = self->return_stats->update(self->return_stats, perf);
     
