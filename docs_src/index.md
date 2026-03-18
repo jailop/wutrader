@@ -1,51 +1,24 @@
 # Wu - Low Level Backtesting Library
 
-This is a personal project—a backtesting library for trading strategies
-written in C. I use it for learning, experimenting with different
-designs, and exploring ideas in algorithmic trading.
+This is a personal project—a backtesting library for trading strategies written in C. I use it for learning, experimenting with different designs, and exploring ideas in algorithmic trading. It provides core abstractions: indicators, strategies, data readers, a portfolio, and a runner, that compose together.
 
-## What This Is
-
-Wu is a toolkit for building backtesting systems. It provides core
-abstractions—portfolios, strategies, indicators, data readers, and a
-runner—that compose together. The implementation uses C's
-struct-and-function-pointer pattern for polymorphism without the
-overhead of inheritance.
-
-This is an ongoing experiment. The design evolves as I explore different
-approaches to modeling trading systems. Code may change significantly as
-I refine ideas or discover better patterns.
-
-## What This Is Not
-
-Wu is not production-ready trading infrastructure. It lacks many features
-professional systems require: sophisticated risk metrics, realistic
-execution modeling, market microstructure simulation, and proper
-out-of-sample validation frameworks. Use it for learning and
-experimentation, not live trading.
+It is not a production-ready product. It lacks sophisticated risk metrics, realistic execution modeling, market microstructure simulation, and a proper out-of-sample validation framework. Use it for learning and experimentation; do not use it for live trading.
 
 ## Core Components
 
-**Portfolios** manage cash, execute trades, and track positions across
-multiple assets. The `WU_BasicPortfolio` implementation supports long and
-short positions, transaction costs, borrowing costs, and basic risk
-management.
+The library provides an architecture for implementing components that can be combined into a backtesting system:
 
-**Strategies** generate trading signals. They consume market data, update
-internal indicators, and produce buy/sell/hold decisions. The library
-includes moving average crossover and pairs trading implementations.
+**Indicators:** These serve as building blocks for technical analysis and performance metrics. They maintain internal state and update incrementally as new data arrives.
 
-**Indicators** provide technical analysis building blocks: moving
-averages, standard deviation, RSI, MACD. They maintain state internally
-and update incrementally as new data arrives.
+**Strategies:** These generate trading signals by consuming market data, updating internal indicators, and producing buy/sell/hold decisions.
 
-**Data Readers** abstract data sources. The CSV reader handles file
-input, but the interface supports any source—databases, APIs, or
-synthetic generators.
+**Data Readers:** Generic data feeders for CSV and JSON inputs that can be used to ingest data from files, databases, or network streams.
 
-**Runner** orchestrates the backtest loop, coordinating readers,
-strategies, and portfolios. It handles data synchronization and component
-lifecycle.
+**Portfolios:** These enable simulation to manage cash, execute trades, and track positions across multiple assets. The basic portfolio implementation supports long and short positions, transaction costs, borrowing costs, and basic risk management and execution policies.
+
+**Runner:** This orchestrates the backtest loop, coordinating readers, strategies, and portfolios. It handles data synchronization and component lifecycle.
+
+The implemented components serve as examples that can be extended or used as a reference for implementing custom modules.
 
 ## Design Principles
 
@@ -53,31 +26,33 @@ Components carry state explicitly in structs. No hidden globals. When
 debugging, you can inspect memory directly. Struct definitions show all
 parameters and internal state.
 
-The components compose freely. Swap a CSV reader for a database reader.
+The components compose freely. Swap a CSV file reader for a database reader.
 Replace a strategy implementation. Use portfolio code without the runner.
 Nothing enforces rigid patterns.
 
-Every component interface uses function pointers for polymorphism. The
-runner works with `WU_Portfolio`, not `WU_BasicPortfolio`. This lets you
-implement custom portfolios with different execution logic or risk models.
+Every component uses function pointers for generic behavior and not polymorphism without overhead. This lets you implement custom components with different execution logic or risk models, and plug them into an automated runner.
 
 ## Feature Inventory
 
+For each category, the library provides interfaces that can be leveraged for custom implementations.
+
 **Portfolio Management**
+
 - Long and short positions
 - Multiple assets
 - Transaction costs (fixed and percentage-based)
 - Borrowing costs and limits
-- Market order execution
 - Position sizing strategies (fixed dollar, percentage allocation)
 - Risk controls (stop-loss, take-profit)
 
 **Execution Policies**
-- Immediate execution
-- Next bar close execution
-- Market and limit order frameworks
 
-**Technical Indicators**
+- Immediate execution
+- Next bar price execution
+- Fixed or random slippage
+
+**Technical Indicators and Performance Metrics**
+
 - Moving averages (SMA, EMA)
 - Standard deviation
 - RSI (Relative Strength Index)
@@ -88,76 +63,19 @@ implement custom portfolios with different execution logic or risk models.
 - Cumulative returns tracking
 
 **Strategies**
+
 - Moving average crossover
 - Pairs trading
 - Custom strategy interface for user implementations
 
 **Data Input**
+
 - CSV file reader
 - JSONL (JSON Lines) reader
-- Generic data reader interface for custom sources
-
-**Performance Analysis**
-- Trade statistics (count, win rate, max win/loss)
-- Portfolio value tracking
-- PnL calculation and distribution (mean, standard deviation)
-- Performance metrics computation
-
-**Execution Features**
-- Stop-loss and take-profit exits
-- Leverage through borrowing
 - Multiple timeframe support
-- Configurable transaction costs
-
-## Status and Direction
-
-This project is under active development. I'm currently exploring:
-
-- More realistic execution modeling
-- Position-level risk tracking
-- Event-driven architecture patterns
-- Better separation between backtesting and live trading concerns
-
-Expect breaking changes as the design evolves. This is a learning
-project, not stable infrastructure.
-
-## Getting Started
-
-Build the library:
-
-```bash
-make
-```
-
-Run the examples:
-
-```bash
-# Single asset crossover strategy
-./examples/backtest/example01 ./tests/data/spy.csv
-
-# Pairs trading strategy
-./examples/backtest/pairs_trading ./tests/data/spy.csv ./tests/data/qqq.csv
-```
-
-Read the [tutorial](tutorial.md) for a step-by-step introduction.
-
-For detailed API documentation, see the [Doxygen API Reference](https://jailop.codeberg.page/wutrader/docs/html/).
-
-See the [Guides](portfolio-configuration.md) for detailed explanations of portfolio configuration and timestamp handling.
-
-Check the [FAQ](faq.md) for answers to common questions about data, strategies, metrics, and design choices.
-
-Repository: [https://codeberg.org/jailop/wu](https://codeberg.org/jailop/wu)
 
 ## Contributing
 
-This is a personal project. I'm not actively seeking contributions, but
-questions and suggestions are welcome. If you find the project
-interesting and want to discuss design ideas or explore concepts
-together, reach out.
+If you have any questions or suggestions, I’m more than happy to hear them. If you’d like to review the code or propose changes, I’d really appreciate that. If you find the project interesting and want to brainstorm design ideas or explore concepts together, please don’t hesitate to reach out.
 
 Email: jailop AT protonmail DOT com
-
-## License
-
-This project is open source. Check the repository for license details.
