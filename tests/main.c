@@ -29,10 +29,10 @@ extern void test_mvar_returns_nan_during_warmup(void);
 extern void test_mvar_calculates_population_variance(void);
 extern void test_mvar_calculates_sample_variance(void);
 extern void test_mvar_sliding_window_updates_correctly(void);
-extern void test_stdev_returns_nan_during_warmup(void);
-extern void test_stdev_calculates_population_stdev(void);
-extern void test_stdev_calculates_sample_stdev(void);
-extern void test_stdev_sliding_window_updates_correctly(void);
+extern void test_mstdev_returns_nan_during_warmup(void);
+extern void test_mstdev_calculates_population_mstdev(void);
+extern void test_mstdev_calculates_sample_mstdev(void);
+extern void test_mstdev_sliding_window_updates_correctly(void);
 extern void test_rsi_returns_nan_during_warmup(void);
 extern void test_rsi_calculates_correct_value(void);
 extern void test_rsi_handles_all_gains(void);
@@ -67,6 +67,12 @@ extern void test_runner_rejects_null_arguments(void);
 extern void test_runner_rejects_invalid_reader_count(void);
 extern void test_runner_convenience_function(void);
 
+/* Global statitcs */
+extern void test_mean(void);
+extern void test_var_dof1(void);
+extern void test_var_dof0(void);
+extern void test_stdev_dof1(void);
+
 /* Stats tests */
 extern void test_mean_basic(void);
 extern void test_downside_basic(void);
@@ -80,7 +86,7 @@ int main(void) {
     CU_pSuite json_suite = NULL;
     CU_pSuite crossover_suite = NULL;
     CU_pSuite mvar_suite = NULL;
-    CU_pSuite stdev_suite = NULL;
+    CU_pSuite mstdev_suite = NULL;
     CU_pSuite rsi_suite = NULL;
     CU_pSuite macd_suite = NULL;
     CU_pSuite pairs_trading_suite = NULL;
@@ -210,20 +216,20 @@ int main(void) {
         return CU_get_error();
     }
 
-    stdev_suite = CU_add_suite("Stdev_Suite", NULL, NULL);
-    if (stdev_suite == NULL) {
+    mstdev_suite = CU_add_suite("Stdev_Suite", NULL, NULL);
+    if (mstdev_suite == NULL) {
         CU_cleanup_registry();
         return CU_get_error();
     }
 
-    if (CU_add_test(stdev_suite, "test_returns_nan_during_warmup",
-                    test_stdev_returns_nan_during_warmup) == NULL ||
-        CU_add_test(stdev_suite, "test_calculates_population_stdev",
-                    test_stdev_calculates_population_stdev) == NULL ||
-        CU_add_test(stdev_suite, "test_calculates_sample_stdev",
-                    test_stdev_calculates_sample_stdev) == NULL ||
-        CU_add_test(stdev_suite, "test_sliding_window_updates_correctly",
-                    test_stdev_sliding_window_updates_correctly) == NULL) {
+    if (CU_add_test(mstdev_suite, "test_returns_nan_during_warmup",
+                    test_mstdev_returns_nan_during_warmup) == NULL ||
+        CU_add_test(mstdev_suite, "test_calculates_population_mstdev",
+                    test_mstdev_calculates_population_mstdev) == NULL ||
+        CU_add_test(mstdev_suite, "test_calculates_sample_mstdev",
+                    test_mstdev_calculates_sample_mstdev) == NULL ||
+        CU_add_test(mstdev_suite, "test_sliding_window_updates_correctly",
+                    test_mstdev_sliding_window_updates_correctly) == NULL) {
         CU_cleanup_registry();
         return CU_get_error();
     }
@@ -360,6 +366,18 @@ int main(void) {
         return CU_get_error();
     }
 
+    CU_pSuite global_stats_suite = CU_add_suite("Global statistics", NULL, NULL);
+    if (!global_stats_suite) {
+        CU_cleanup_registry();
+        return CU_get_error();
+    }
+    if (!CU_add_test(global_stats_suite, "mean", test_mean) ||
+            !CU_add_test(global_stats_suite, "var_dof1", test_var_dof1) ||
+            !CU_add_test(global_stats_suite, "var_dof0", test_var_dof0) ||
+            !CU_add_test(global_stats_suite, "stdev_dof1", test_stdev_dof1)) {
+        CU_cleanup_registry();
+        return CU_get_error();
+    }
 
     CU_basic_set_mode(CU_BRM_VERBOSE);
     CU_basic_run_tests();

@@ -148,7 +148,7 @@ typedef struct WU_MStDev_ {
  * Creates a new WU_MStDev (Moving Standard Deviation) indicator with the
  * specified window size and degree of freedom.
  */
-WU_MStDev wu_stdev_new(int window_size, int dof);
+WU_MStDev wu_mstdev_new(int window_size, int dof);
 
 /**
  * The WU_RSI (Relative Strength Index) is a momentum oscillator that measures
@@ -275,5 +275,39 @@ typedef struct WU_Mean_ {
  * Creates a new WU_Mean indicator.
  */
 WU_Mean wu_mean_new(void);
+
+/** 
+ * A glabal variance calculator. It reports the variance for all passed
+ * values
+ */
+typedef struct WU_Var_ {
+    double (*update)(struct WU_Var_ *self, double value);
+    void (*delete)(struct WU_Var_ *self);
+    double value;
+    WU_Mean mean;
+    double sum2;
+    int dof;
+    int count;
+}* WU_Var;
+
+/**
+ * Createas a new variance indicator
+ */
+WU_Var wu_var_new(int dof);
+
+/** A global standard deviation calcular. It reports the standard
+ * deviation for all passed values.
+ */
+typedef struct WU_StDev_ {
+    double (*update)(struct WU_StDev_ *self, double value);
+    void (*delete)(struct WU_StDev_ *self);
+    double value;
+    WU_Var var;
+}* WU_StDev;
+
+/**
+ * Creates a new standard deviation indicator
+ */
+WU_StDev wu_stdev_new(int dof);
 
 #endif // WU_INDICATOR_H
