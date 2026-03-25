@@ -38,6 +38,7 @@ typedef struct WU_SharpeRatio_ {
     double value;           // Current Sharpe ratio
     WU_PnLStats return_stats; // Online mean/stddev of returns (Welford)
     double risk_free_rate;  // Annual risk-free rate
+    double initial_value;   // Initial portfolio value used for return calc
     double prev_value;      // Previous portfolio value for return calc
     int64_t count;          // Number of returns observed
     int64_t start_time;     // First timestamp observed

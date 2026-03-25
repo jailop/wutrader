@@ -35,3 +35,11 @@
 2026-03-18:
 
 - Moving Standard Deviation renamed from WU_StDev to WU_MStDev
+
+2026-03-24:
+
+- Implemented global mean, variance and standard deviation, with unit
+  tests.
+- MVar implementation updated. Removed loop in `update` function and
+  fixed bug related to window size and degrees of freedom.
+- Fixed bug in sharpe ratio implementation

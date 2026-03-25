@@ -4,7 +4,7 @@ This is a personal project—a backtesting library for trading strategies
 written in C. I use it for learning, experimenting with different
 designs, and exploring ideas in algorithmic trading.
 
-Read the [online documentation](https://jailop.codeberg.page/wutrader/) 
+Read the [onlinen  documentation](https://jailop.codeberg.page/wutrader/docs) 
 for tutorials, design notes, and examples.
 
 ## Status

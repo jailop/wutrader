@@ -14,7 +14,7 @@ static void delete(struct WU_MStDev_ *stdev) {
     free(stdev);
 }
 
-WU_MStDev wu_stdev_new(int window_size, int dof) {
+WU_MStDev wu_mstdev_new(int window_size, int dof) {
     WU_MStDev stdev = malloc(sizeof(struct WU_MStDev_));
     stdev->mvar = wu_mvar_new(window_size, dof);
     stdev->update = update;
