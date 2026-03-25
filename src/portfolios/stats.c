@@ -18,6 +18,22 @@ static void stats_update(struct WU_PortfolioStats_* stats, double cash,
     stats->current_cash = cash;
     stats->portfolio_value = portfolio_value;
     stats->last_update = timestamp;
+    
+    // Create performance update struct for time-aware metrics
+    WU_PerformanceUpdate perf = {
+        .portfolio_value = portfolio_value,
+        .timestamp = timestamp
+    };
+    
+    // Update performance indicators
+    if (stats->max_drawdown)
+        stats->max_drawdown->update(stats->max_drawdown, portfolio_value);
+    if (stats->sharpe_ratio)
+        stats->sharpe_ratio->update(stats->sharpe_ratio, perf);
+    if (stats->sortino_ratio)
+        stats->sortino_ratio->update(stats->sortino_ratio, perf);
+    if (stats->calmar_ratio)
+        stats->calmar_ratio->update(stats->calmar_ratio, perf);
 }
 
 static void stats_record_trade(struct WU_PortfolioStats_* stats, double pnl, 
@@ -25,6 +41,11 @@ static void stats_record_trade(struct WU_PortfolioStats_* stats, double pnl,
     if (!stats) return;
     
     stats->total_trades++;
+    stats->accum_pnl += pnl;
+    
+    // Update PnL statistics
+    if (stats->pnl_stats)
+        stats->pnl_stats->update(stats->pnl_stats, pnl);
     
     if (pnl > 0) {
         stats->winning_trades++;
@@ -88,6 +109,10 @@ static char* stats_to_keyvalue(struct WU_PortfolioStats_* stats) {
     double pnl_pct = (pnl / stats->initial_cash) * 100.0;
     double win_rate = stats->total_trades > 0 ? 
         (stats->winning_trades * 100.0) / stats->total_trades : 0.0;
+    double avg_pnl = stats->total_trades > 0 ? stats->accum_pnl / stats->total_trades : 0.0;
+    WU_PnLStatsResult pnl_stats_result = stats->pnl_stats 
+        ? wu_indicator_get(stats->pnl_stats)
+        : (WU_PnLStatsResult){NAN, NAN};
     
     char* result = malloc(8192);
     if (!result) return NULL;
@@ -96,13 +121,36 @@ static char* stats_to_keyvalue(struct WU_PortfolioStats_* stats) {
         "initial_cash=%.2f current_cash=%.2f portfolio_value=%.2f "
         "pnl=%.2f pnl_pct=%.2f tx_fees=%.2f borrow_interest=%.2f "
         "total_trades=%ld winning_trades=%ld losing_trades=%ld "
-        "win_rate=%.2f max_win=%.2f max_loss=%.2f "
+        "win_rate=%.2f max_win=%.2f max_loss=%.2f avg_pnl=%.2f pnl_stddev=%.2f "
         "stop_loss_exits=%ld take_profit_exits=%ld",
         stats->initial_cash, stats->current_cash, stats->portfolio_value,
         pnl, pnl_pct, stats->accum_tx_fees, stats->accum_borrow_interest,
         stats->total_trades, stats->winning_trades, stats->losing_trades,
-        win_rate, stats->max_win, stats->max_loss,
+        win_rate, stats->max_win, stats->max_loss, avg_pnl,
+        isnan(pnl_stats_result.stddev) ? 0.0 : pnl_stats_result.stddev,
         stats->stop_loss_exits, stats->take_profit_exits);
+    
+    // Add performance metrics
+    if (stats->max_drawdown) {
+        double mdd = wu_indicator_get(stats->max_drawdown);
+        offset += snprintf(result + offset, 8192 - offset,
+            " max_drawdown=%.4f", mdd);
+    }
+    if (stats->sharpe_ratio) {
+        double sharpe = wu_indicator_get(stats->sharpe_ratio);
+        offset += snprintf(result + offset, 8192 - offset,
+            " sharpe_ratio=%.4f", isnan(sharpe) ? 0.0 : sharpe);
+    }
+    if (stats->sortino_ratio) {
+        double sortino = wu_indicator_get(stats->sortino_ratio);
+        offset += snprintf(result + offset, 8192 - offset,
+            " sortino_ratio=%.4f", isnan(sortino) ? 0.0 : sortino);
+    }
+    if (stats->calmar_ratio) {
+        double calmar = wu_indicator_get(stats->calmar_ratio);
+        offset += snprintf(result + offset, 8192 - offset,
+            " calmar_ratio=%.4f", isnan(calmar) ? 0.0 : calmar);
+    }
     
     // Add position data
     for (int i = 0; i < stats->num_assets; i++) {
@@ -130,6 +178,11 @@ static char* stats_to_json(struct WU_PortfolioStats_* stats, bool pretty) {
     double pnl_pct = (pnl / stats->initial_cash) * 100.0;
     double win_rate = stats->total_trades > 0 ? 
         (stats->winning_trades * 100.0) / stats->total_trades : 0.0;
+    double avg_pnl = stats->total_trades > 0 ? stats->accum_pnl / stats->total_trades : 0.0;
+    WU_PnLStatsResult pnl_stats_result = stats->pnl_stats 
+        ? wu_indicator_get(stats->pnl_stats)
+        : (WU_PnLStatsResult){NAN, NAN};
+    double pnl_stddev = isnan(pnl_stats_result.stddev) ? 0.0 : pnl_stats_result.stddev;
     
     char* result = malloc(16384);
     if (!result) return NULL;
@@ -152,8 +205,16 @@ static char* stats_to_json(struct WU_PortfolioStats_* stats, bool pretty) {
         "%s\"win_rate\":%s%.2f,%s"
         "%s\"max_win\":%s%.2f,%s"
         "%s\"max_loss\":%s%.2f,%s"
+        "%s\"avg_pnl\":%s%.2f,%s"
+        "%s\"pnl_stddev\":%s%.2f,%s"
         "%s\"stop_loss_exits\":%s%ld,%s"
         "%s\"take_profit_exits\":%s%ld%s"
+        "%s},%s"
+        "%s\"performance\":%s{%s"
+        "%s\"max_drawdown\":%s%.4f,%s"
+        "%s\"sharpe_ratio\":%s%.4f,%s"
+        "%s\"sortino_ratio\":%s%.4f,%s"
+        "%s\"calmar_ratio\":%s%.4f%s"
         "%s}",
         nl,
         indent1, space, nl,
@@ -172,8 +233,23 @@ static char* stats_to_json(struct WU_PortfolioStats_* stats, bool pretty) {
         indent2, space, win_rate, nl,
         indent2, space, stats->max_win, nl,
         indent2, space, stats->max_loss, nl,
+        indent2, space, avg_pnl, nl,
+        indent2, space, pnl_stddev, nl,
         indent2, space, stats->stop_loss_exits, nl,
         indent2, space, stats->take_profit_exits, nl,
+        indent1, nl,
+        indent1, space, nl,
+        indent2, space, (stats->max_drawdown 
+                ? wu_indicator_get(stats->max_drawdown) : 0.0), nl,
+        indent2, space, (stats->sharpe_ratio 
+                ? (isnan(wu_indicator_get(stats->sharpe_ratio)) ? 0.0 
+                    : wu_indicator_get(stats->sharpe_ratio)) : 0.0), nl,
+        indent2, space, (stats->sortino_ratio ? (isnan(
+                        wu_indicator_get(stats->sortino_ratio)) ? 0.0 
+                    : wu_indicator_get(stats->sortino_ratio)) : 0.0), nl,
+        indent2, space, (stats->calmar_ratio 
+                ? (isnan(wu_indicator_get(stats->calmar_ratio)) ? 0.0 
+                    : wu_indicator_get(stats->calmar_ratio)) : 0.0), nl,
         indent1);
     
     // Add positions array
@@ -185,13 +261,13 @@ static char* stats_to_json(struct WU_PortfolioStats_* stats, bool pretty) {
             if (stats->symbols[i]) {
                 if (i > 0) offset += snprintf(result + offset, 16384 - offset, ",");
                 offset += snprintf(result + offset, 16384 - offset,
-                    "%s%s{%s\"symbol\":%s\"%s\",%s\"quantity\":%s%.4f,%s\"value\":%s%.2f,%s\"last_price\":%s%.2f%s}",
+                    "%s%s{%s\"symbol\": \"%s\",%s\"quantity\": %.4f,%s\"value\": %.2f,%s\"last_price\": %.2f%s}",
                     nl, indent2,
-                    space, space, stats->symbols[i],
-                    space, space, stats->quantities[i],
-                    space, space, stats->values[i],
-                    space, space, stats->last_prices[i],
-                    nl, indent2);
+                    space, stats->symbols[i],
+                    space, stats->quantities[i],
+                    space, stats->values[i],
+                    space, stats->last_prices[i],
+                    nl);
             }
         }
         offset += snprintf(result + offset, 16384 - offset,
@@ -219,6 +295,7 @@ static void stats_reset(struct WU_PortfolioStats_* stats) {
     stats->total_loss = 0.0;
     stats->max_win = 0.0;
     stats->max_loss = 0.0;
+    stats->accum_pnl = 0.0;
     
     for (int i = 0; i < stats->num_assets; i++) {
         stats->quantities[i] = 0.0;
@@ -236,10 +313,23 @@ static void stats_free(struct WU_PortfolioStats_* stats) {
     free(stats->quantities);
     free(stats->values);
     free(stats->last_prices);
+    
+    // Free performance indicators
+    if (stats->max_drawdown)
+        stats->max_drawdown->delete(stats->max_drawdown);
+    if (stats->sharpe_ratio)
+        stats->sharpe_ratio->delete(stats->sharpe_ratio);
+    if (stats->sortino_ratio)
+        stats->sortino_ratio->delete(stats->sortino_ratio);
+    if (stats->calmar_ratio)
+        stats->calmar_ratio->delete(stats->calmar_ratio);
+    if (stats->pnl_stats)
+        stats->pnl_stats->delete(stats->pnl_stats);
+    
     free(stats);
 }
 
-WU_PortfolioStats wu_portfolio_stats_new(double initial_cash) {
+WU_PortfolioStats wu_portfolio_stats_new(double initial_cash, double risk_free_rate) {
     WU_PortfolioStats stats = malloc(sizeof(struct WU_PortfolioStats_));
     if (!stats) return NULL;
     
@@ -268,6 +358,7 @@ WU_PortfolioStats wu_portfolio_stats_new(double initial_cash) {
     stats->total_loss = 0.0;
     stats->max_win = 0.0;
     stats->max_loss = 0.0;
+    stats->accum_pnl = 0.0;
     
     stats->symbols = NULL;
     stats->quantities = NULL;
@@ -275,6 +366,19 @@ WU_PortfolioStats wu_portfolio_stats_new(double initial_cash) {
     stats->last_prices = NULL;
     stats->num_assets = 0;
     stats->capacity = 0;
+    
+    // Initialize performance indicators
+    stats->max_drawdown = wu_max_drawdown_new();
+    stats->sharpe_ratio = wu_sharpe_ratio_new(initial_cash, risk_free_rate);
+    stats->sortino_ratio = wu_sortino_ratio_new(initial_cash, risk_free_rate);
+    stats->calmar_ratio = wu_calmar_ratio_new(initial_cash);
+    stats->pnl_stats = wu_pnl_stats_new();
+    
+    if (!stats->max_drawdown || !stats->sharpe_ratio || 
+        !stats->sortino_ratio || !stats->calmar_ratio || !stats->pnl_stats) {
+        stats_free(stats);
+        return NULL;
+    }
     
     return stats;
 }

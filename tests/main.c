@@ -12,6 +12,12 @@ extern void test_csv_reader_reads_trades(void);
 extern void test_csv_reader_reads_single_values(void);
 extern void test_csv_reader_returns_null_at_eof(void);
 extern void test_csv_reader_handles_headers(void);
+extern void test_json_reader_reads_candles(void);
+extern void test_json_reader_reads_trades(void);
+extern void test_json_reader_reads_single_values(void);
+extern void test_json_reader_returns_null_at_eof(void);
+extern void test_json_reader_handles_invalid_json(void);
+extern void test_json_reader_handles_missing_fields(void);
 extern void test_crossover_initialization(void);
 extern void test_crossover_holds_during_warmup(void);
 extern void test_crossover_generates_buy_signal(void);
@@ -23,10 +29,10 @@ extern void test_mvar_returns_nan_during_warmup(void);
 extern void test_mvar_calculates_population_variance(void);
 extern void test_mvar_calculates_sample_variance(void);
 extern void test_mvar_sliding_window_updates_correctly(void);
-extern void test_stdev_returns_nan_during_warmup(void);
-extern void test_stdev_calculates_population_stdev(void);
-extern void test_stdev_calculates_sample_stdev(void);
-extern void test_stdev_sliding_window_updates_correctly(void);
+extern void test_mstdev_returns_nan_during_warmup(void);
+extern void test_mstdev_calculates_population_mstdev(void);
+extern void test_mstdev_calculates_sample_mstdev(void);
+extern void test_mstdev_sliding_window_updates_correctly(void);
 extern void test_rsi_returns_nan_during_warmup(void);
 extern void test_rsi_calculates_correct_value(void);
 extern void test_rsi_handles_all_gains(void);
@@ -61,13 +67,26 @@ extern void test_runner_rejects_null_arguments(void);
 extern void test_runner_rejects_invalid_reader_count(void);
 extern void test_runner_convenience_function(void);
 
+/* Global statitcs */
+extern void test_mean(void);
+extern void test_var_dof1(void);
+extern void test_var_dof0(void);
+extern void test_stdev_dof1(void);
+
+/* Stats tests */
+extern void test_mean_basic(void);
+extern void test_downside_basic(void);
+extern void test_pnlstats_basic(void);
+extern void test_sharpe_basic(void);
+
 int main(void) {
     CU_pSuite sma_suite = NULL;
     CU_pSuite ema_suite = NULL;
     CU_pSuite csv_suite = NULL;
+    CU_pSuite json_suite = NULL;
     CU_pSuite crossover_suite = NULL;
     CU_pSuite mvar_suite = NULL;
-    CU_pSuite stdev_suite = NULL;
+    CU_pSuite mstdev_suite = NULL;
     CU_pSuite rsi_suite = NULL;
     CU_pSuite macd_suite = NULL;
     CU_pSuite pairs_trading_suite = NULL;
@@ -132,6 +151,29 @@ int main(void) {
     }
 
 
+    json_suite = CU_add_suite("JSON_Suite", NULL, NULL);
+    if (json_suite == NULL) {
+        CU_cleanup_registry();
+        return CU_get_error();
+    }
+
+    if (CU_add_test(json_suite, "test_reads_candles",
+                    test_json_reader_reads_candles) == NULL ||
+        CU_add_test(json_suite, "test_reads_trades",
+                    test_json_reader_reads_trades) == NULL ||
+        CU_add_test(json_suite, "test_reads_single_values",
+                    test_json_reader_reads_single_values) == NULL ||
+        CU_add_test(json_suite, "test_returns_null_at_eof",
+                    test_json_reader_returns_null_at_eof) == NULL ||
+        CU_add_test(json_suite, "test_handles_invalid_json",
+                    test_json_reader_handles_invalid_json) == NULL ||
+        CU_add_test(json_suite, "test_handles_missing_fields",
+                    test_json_reader_handles_missing_fields) == NULL) {
+        CU_cleanup_registry();
+        return CU_get_error();
+    }
+
+
     crossover_suite = CU_add_suite("CrossOver_Suite", NULL, NULL);
     if (crossover_suite == NULL) {
         CU_cleanup_registry();
@@ -174,20 +216,20 @@ int main(void) {
         return CU_get_error();
     }
 
-    stdev_suite = CU_add_suite("Stdev_Suite", NULL, NULL);
-    if (stdev_suite == NULL) {
+    mstdev_suite = CU_add_suite("Stdev_Suite", NULL, NULL);
+    if (mstdev_suite == NULL) {
         CU_cleanup_registry();
         return CU_get_error();
     }
 
-    if (CU_add_test(stdev_suite, "test_returns_nan_during_warmup",
-                    test_stdev_returns_nan_during_warmup) == NULL ||
-        CU_add_test(stdev_suite, "test_calculates_population_stdev",
-                    test_stdev_calculates_population_stdev) == NULL ||
-        CU_add_test(stdev_suite, "test_calculates_sample_stdev",
-                    test_stdev_calculates_sample_stdev) == NULL ||
-        CU_add_test(stdev_suite, "test_sliding_window_updates_correctly",
-                    test_stdev_sliding_window_updates_correctly) == NULL) {
+    if (CU_add_test(mstdev_suite, "test_returns_nan_during_warmup",
+                    test_mstdev_returns_nan_during_warmup) == NULL ||
+        CU_add_test(mstdev_suite, "test_calculates_population_mstdev",
+                    test_mstdev_calculates_population_mstdev) == NULL ||
+        CU_add_test(mstdev_suite, "test_calculates_sample_mstdev",
+                    test_mstdev_calculates_sample_mstdev) == NULL ||
+        CU_add_test(mstdev_suite, "test_sliding_window_updates_correctly",
+                    test_mstdev_sliding_window_updates_correctly) == NULL) {
         CU_cleanup_registry();
         return CU_get_error();
     }
@@ -286,6 +328,21 @@ int main(void) {
         return CU_get_error();
     }
 
+    /* Stats suite (mean, downside, pnl, sharpe) */
+    CU_pSuite stats_suite = CU_add_suite("Stats_Suite", NULL, NULL);
+    if (stats_suite == NULL) {
+        CU_cleanup_registry();
+        return CU_get_error();
+    }
+
+    if (CU_add_test(stats_suite, "test_mean_basic", test_mean_basic) == NULL ||
+        CU_add_test(stats_suite, "test_downside_basic", test_downside_basic) == NULL ||
+        CU_add_test(stats_suite, "test_pnlstats_basic", test_pnlstats_basic) == NULL ||
+        CU_add_test(stats_suite, "test_sharpe_basic", test_sharpe_basic) == NULL) {
+        CU_cleanup_registry();
+        return CU_get_error();
+    }
+
 
     runner_suite = CU_add_suite("Runner_Suite", NULL, NULL);
     if (runner_suite == NULL) {
@@ -309,6 +366,18 @@ int main(void) {
         return CU_get_error();
     }
 
+    CU_pSuite global_stats_suite = CU_add_suite("Global statistics", NULL, NULL);
+    if (!global_stats_suite) {
+        CU_cleanup_registry();
+        return CU_get_error();
+    }
+    if (!CU_add_test(global_stats_suite, "mean", test_mean) ||
+            !CU_add_test(global_stats_suite, "var_dof1", test_var_dof1) ||
+            !CU_add_test(global_stats_suite, "var_dof0", test_var_dof0) ||
+            !CU_add_test(global_stats_suite, "stdev_dof1", test_stdev_dof1)) {
+        CU_cleanup_registry();
+        return CU_get_error();
+    }
 
     CU_basic_set_mode(CU_BRM_VERBOSE);
     CU_basic_run_tests();

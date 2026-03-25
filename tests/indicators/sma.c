@@ -33,5 +33,3 @@ void test_sma_sliding_window_updates_correctly(void) {
     CU_ASSERT_DOUBLE_EQUAL(result, 30.0, 0.0001);
     wu_indicator_delete(sma);
 }
-
-

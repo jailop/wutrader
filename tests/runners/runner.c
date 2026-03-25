@@ -5,17 +5,16 @@
 
 void test_runner_single_input_creation(void) {
     // Create a simple portfolio
-    WU_PortfolioParams params = {
-        .initial_cash = 100000.0,
-        .tx_cost_pct = 0.001,
-        .stop_loss_pct = 0.0,
-        .take_profit_pct = 0.0,
-        .slippage_pct = 0.0,
-        .position_sizing = {
-            .size_type = WU_POSITION_SIZE_PCT,
-            .size_value = 1.0
-        }
-    };
+    WU_PortfolioParams params = wu_portfolio_params_default();
+    params.initial_cash = 100000.0;
+    params.direction = WU_DIRECTION_LONG;
+    params.execution_policy.policy = WU_EXECUTION_POLICY_FIXED_SLIPPAGE;
+    params.execution_policy.execution_mean = 0.0005;
+    params.execution_policy.execution_stddev = 0.0;
+    params.execution_policy.tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL;
+    params.execution_policy.tx_cost_value = 0.001;
+    params.position_sizing.size_type = WU_POSITION_SIZE_PCT;
+    params.position_sizing.size_value = 1.0;
     const char* symbols[] = {"BTC", NULL};
     WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const char**)symbols);
     
@@ -48,17 +47,16 @@ void test_runner_single_input_creation(void) {
 
 void test_runner_multi_input_creation(void) {
     // Create multi-asset portfolio
-    WU_PortfolioParams params = {
-        .initial_cash = 100000.0,
-        .tx_cost_pct = 0.001,
-        .stop_loss_pct = 0.0,
-        .take_profit_pct = 0.0,
-        .slippage_pct = 0.0,
-        .position_sizing = {
-            .size_type = WU_POSITION_SIZE_PCT,
-            .size_value = 0.5
-        }
-    };
+    WU_PortfolioParams params = wu_portfolio_params_default();
+    params.initial_cash = 100000.0;
+    params.direction = WU_DIRECTION_LONG;
+    params.execution_policy.policy = WU_EXECUTION_POLICY_FIXED_SLIPPAGE;
+    params.execution_policy.execution_mean = 0.0005;
+    params.execution_policy.execution_stddev = 0.0;
+    params.execution_policy.tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL;
+    params.execution_policy.tx_cost_value = 0.001;
+    params.position_sizing.size_type = WU_POSITION_SIZE_PCT;
+    params.position_sizing.size_value = 0.5;
     
     const char* symbols[] = {"SPY", "QQQ", NULL};    
     WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const char**)symbols);
@@ -93,17 +91,16 @@ void test_runner_multi_input_creation(void) {
 }
 
 void test_runner_rejects_mismatched_reader_count(void) {
-    WU_PortfolioParams params = {
-        .initial_cash = 100000.0,
-        .tx_cost_pct = 0.001,
-        .stop_loss_pct = 0.0,
-        .take_profit_pct = 0.0,
-        .slippage_pct = 0.0,
-        .position_sizing = {
-            .size_type = WU_POSITION_SIZE_PCT,
-            .size_value = 0.5
-        }
-    };
+    WU_PortfolioParams params = wu_portfolio_params_default();
+    params.initial_cash = 100000.0;
+    params.direction = WU_DIRECTION_LONG;
+    params.execution_policy.policy = WU_EXECUTION_POLICY_FIXED_SLIPPAGE;
+    params.execution_policy.execution_mean = 0.0005;
+    params.execution_policy.execution_stddev = 0.0;
+    params.execution_policy.tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL;
+    params.execution_policy.tx_cost_value = 0.001;
+    params.position_sizing.size_type = WU_POSITION_SIZE_PCT;
+    params.position_sizing.size_value = 0.5;
     
     const char* symbols[] = {"SPY", "QQQ", NULL};    
     WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const char**)symbols);
@@ -135,17 +132,16 @@ void test_runner_rejects_mismatched_reader_count(void) {
 }
 
 void test_runner_rejects_null_arguments(void) {
-    WU_PortfolioParams params = {
-        .initial_cash = 100000.0,
-        .tx_cost_pct = 0.001,
-        .stop_loss_pct = 0.0,
-        .take_profit_pct = 0.0,
-        .slippage_pct = 0.0,
-        .position_sizing = {
-            .size_type = WU_POSITION_SIZE_PCT,
-            .size_value = 1.0
-        }
-    };
+    WU_PortfolioParams params = wu_portfolio_params_default();
+    params.initial_cash = 100000.0;
+    params.direction = WU_DIRECTION_LONG;
+    params.execution_policy.policy = WU_EXECUTION_POLICY_FIXED_SLIPPAGE;
+    params.execution_policy.execution_mean = 0.0005;
+    params.execution_policy.execution_stddev = 0.0;
+    params.execution_policy.tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL;
+    params.execution_policy.tx_cost_value = 0.001;
+    params.position_sizing.size_type = WU_POSITION_SIZE_PCT;
+    params.position_sizing.size_value = 1.0;
     const char* symbols[] = {"BTC", NULL};
     WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const char**)symbols);
     WU_Strategy strategy = (WU_Strategy)wu_crossover_strat_new(5, 10, 0.01);
@@ -175,17 +171,16 @@ void test_runner_rejects_null_arguments(void) {
 
 void test_runner_rejects_invalid_reader_count(void) {
     // This test validates that providing NULL readers within the array causes rejection
-    WU_PortfolioParams params = {
-        .initial_cash = 100000.0,
-        .tx_cost_pct = 0.001,
-        .stop_loss_pct = 0.0,
-        .take_profit_pct = 0.0,
-        .slippage_pct = 0.0,
-        .position_sizing = {
-            .size_type = WU_POSITION_SIZE_PCT,
-            .size_value = 1.0
-        }
-    };
+    WU_PortfolioParams params = wu_portfolio_params_default();
+    params.initial_cash = 100000.0;
+    params.direction = WU_DIRECTION_LONG;
+    params.execution_policy.policy = WU_EXECUTION_POLICY_FIXED_SLIPPAGE;
+    params.execution_policy.execution_mean = 0.0005;
+    params.execution_policy.execution_stddev = 0.0;
+    params.execution_policy.tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL;
+    params.execution_policy.tx_cost_value = 0.001;
+    params.position_sizing.size_type = WU_POSITION_SIZE_PCT;
+    params.position_sizing.size_value = 1.0;
     const char* symbols[] = {"BTC", NULL};
     WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const char**)symbols);
     WU_Strategy strategy = (WU_Strategy)wu_crossover_strat_new(5, 10, 0.01);
@@ -206,17 +201,18 @@ void test_runner_rejects_invalid_reader_count(void) {
 }
 
 void test_runner_convenience_function(void) {
-    WU_PortfolioParams params = {
-        .initial_cash = 100000.0,
-        .tx_cost_pct = 0.001,
-        .stop_loss_pct = 0.0,
-        .take_profit_pct = 0.0,
-        .slippage_pct = 0.0,
-        .position_sizing = {
-            .size_type = WU_POSITION_SIZE_PCT,
-            .size_value = 1.0
-        }
-    };
+    WU_PortfolioParams params = wu_portfolio_params_default();
+    params.initial_cash = 100000.0;
+    params.direction = WU_DIRECTION_LONG;
+    params.execution_policy.policy = WU_EXECUTION_POLICY_FIXED_SLIPPAGE;
+    params.execution_policy.execution_mean = 0.0005;
+    params.execution_policy.execution_stddev = 0.0;
+    params.execution_policy.tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL;
+    params.execution_policy.tx_cost_value = 0.001;
+    params.execution_policy.stop_loss_pct = 0.0;
+    params.execution_policy.take_profit_pct = 0.0;
+    params.position_sizing.size_type = WU_POSITION_SIZE_PCT;
+    params.position_sizing.size_value = 1.0;
     const char* symbols[] = {"BTC", NULL};
     WU_BasicPortfolio portfolio = wu_basic_portfolio_new(params, (const char**)symbols);
     WU_Strategy strategy = (WU_Strategy)wu_crossover_strat_new(5, 10, 0.01);

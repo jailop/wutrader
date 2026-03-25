@@ -4,14 +4,21 @@
 
 void test_basic_portfolio_initialization(void) {
     WU_PortfolioParams params = {
-        .initial_cash = 100000.0,
-        .tx_cost_pct = 0.001,
-        .stop_loss_pct = 0.05,
-        .take_profit_pct = 0.10,
-        .slippage_pct = 0.0005,
         .direction = WU_DIRECTION_LONG,
-        .borrow_rate = 0.0,
-        .borrow_limit = 0.0,
+        .initial_cash = 100000.0,
+        .execution_policy = {
+            .policy = WU_EXECUTION_POLICY_FIXED_SLIPPAGE,
+            .execution_mean = 0.0005,
+            .execution_stddev = 0.0,
+            .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
+            .tx_cost_value = 0.001,
+            .stop_loss_pct = 0.05,
+            .take_profit_pct = 0.10
+        },
+        .borrow_params = {
+            .rate = 0.0,
+            .limit = 0.0
+        },
         .position_sizing = {
             .size_type = WU_POSITION_SIZE_PCT,
             .size_value = 0.45
@@ -37,14 +44,21 @@ void test_basic_portfolio_initialization(void) {
 
 void test_basic_portfolio_single_buy_signal(void) {
     WU_PortfolioParams params = {
-        .initial_cash = 100000.0,
-        .tx_cost_pct = 0.001,
-        .stop_loss_pct = 0.0,
-        .take_profit_pct = 0.0,
-        .slippage_pct = 0.0,
         .direction = WU_DIRECTION_LONG,
-        .borrow_rate = 0.0,
-        .borrow_limit = 0.0,
+        .initial_cash = 100000.0,
+        .execution_policy = {
+            .policy = WU_EXECUTION_POLICY_IMMEDIATE,
+            .execution_mean = 0.0,
+            .execution_stddev = 0.0,
+            .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
+            .tx_cost_value = 0.001,
+            .stop_loss_pct = NAN,
+            .take_profit_pct = NAN
+        },
+        .borrow_params = {
+            .rate = 0.0,
+            .limit = 0.0
+        },
         .position_sizing = {
             .size_type = WU_POSITION_SIZE_PCT,
             .size_value = 0.50
@@ -83,17 +97,24 @@ void test_basic_portfolio_single_buy_signal(void) {
 
 void test_basic_portfolio_multiple_buy_signals(void) {
     WU_PortfolioParams params = {
-        .initial_cash = 100000.0,
-        .tx_cost_pct = 0.0,  // No fees for simpler math
-        .stop_loss_pct = 0.0,
-        .take_profit_pct = 0.0,
-        .slippage_pct = 0.0,
         .direction = WU_DIRECTION_LONG,
-        .borrow_rate = 0.0,
-        .borrow_limit = 0.0,
+        .initial_cash = 100000.0,
+        .execution_policy = {
+            .policy = WU_EXECUTION_POLICY_IMMEDIATE,
+            .execution_mean = 0.0,
+            .execution_stddev = 0.0,
+            .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
+            .tx_cost_value = 0.0,
+            .stop_loss_pct = NAN,
+            .take_profit_pct = NAN
+        },
+        .borrow_params = {
+            .rate = 0.0,
+            .limit = 0.0
+        },
         .position_sizing = {
             .size_type = WU_POSITION_SIZE_PCT,
-            .size_value = 0.50  // 50% per position
+            .size_value = 0.50
         }
     };
     
@@ -135,14 +156,21 @@ void test_basic_portfolio_multiple_buy_signals(void) {
 
 void test_basic_portfolio_sell_before_buy(void) {
     WU_PortfolioParams params = {
-        .initial_cash = 50000.0,
-        .tx_cost_pct = 0.0,
-        .stop_loss_pct = 0.0,
-        .take_profit_pct = 0.0,
-        .slippage_pct = 0.0,
         .direction = WU_DIRECTION_LONG,
-        .borrow_rate = 0.0,
-        .borrow_limit = 0.0,
+        .initial_cash = 50000.0,
+        .execution_policy = {
+            .policy = WU_EXECUTION_POLICY_IMMEDIATE,
+            .execution_mean = 0.0,
+            .execution_stddev = 0.0,
+            .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
+            .tx_cost_value = 0.0,
+            .stop_loss_pct = NAN,
+            .take_profit_pct = NAN
+        },
+        .borrow_params = {
+            .rate = 0.0,
+            .limit = 0.0
+        },
         .position_sizing = {
             .size_type = WU_POSITION_SIZE_PCT,
             .size_value = 1.0
@@ -196,14 +224,21 @@ void test_basic_portfolio_sell_before_buy(void) {
 
 void test_basic_portfolio_asset_value(void) {
     WU_PortfolioParams params = {
-        .initial_cash = 100000.0,
-        .tx_cost_pct = 0.0,
-        .stop_loss_pct = 0.0,
-        .take_profit_pct = 0.0,
-        .slippage_pct = 0.0,
         .direction = WU_DIRECTION_LONG,
-        .borrow_rate = 0.0,
-        .borrow_limit = 0.0,
+        .initial_cash = 100000.0,
+        .execution_policy = {
+            .policy = WU_EXECUTION_POLICY_IMMEDIATE,
+            .execution_mean = 0.0,
+            .execution_stddev = 0.0,
+            .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
+            .tx_cost_value = 0.0,
+            .stop_loss_pct = NAN,
+            .take_profit_pct = NAN
+        },
+        .borrow_params = {
+            .rate = 0.0,
+            .limit = 0.0
+        },
         .position_sizing = {
             .size_type = WU_POSITION_SIZE_PCT,
             .size_value = 1.0
@@ -243,14 +278,21 @@ void test_basic_portfolio_asset_value(void) {
 
 void test_basic_portfolio_total_value(void) {
     WU_PortfolioParams params = {
-        .initial_cash = 100000.0,
-        .tx_cost_pct = 0.0,
-        .stop_loss_pct = 0.0,
-        .take_profit_pct = 0.0,
-        .slippage_pct = 0.0,
         .direction = WU_DIRECTION_LONG,
-        .borrow_rate = 0.0,
-        .borrow_limit = 0.0,
+        .initial_cash = 100000.0,
+        .execution_policy = {
+            .policy = WU_EXECUTION_POLICY_IMMEDIATE,
+            .execution_mean = 0.0,
+            .execution_stddev = 0.0,
+            .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
+            .tx_cost_value = 0.0,
+            .stop_loss_pct = NAN,
+            .take_profit_pct = NAN
+        },
+        .borrow_params = {
+            .rate = 0.0,
+            .limit = 0.0
+        },
         .position_sizing = {
             .size_type = WU_POSITION_SIZE_PCT,
             .size_value = 0.50
@@ -286,17 +328,24 @@ void test_basic_portfolio_equal_distribution_sizing(void) {
     // Test WU_POSITION_SIZE_PCT_EQUAL position sizing policy
     // This policy divides total portfolio value equally among all assets
     WU_PortfolioParams params = {
-        .initial_cash = 90000.0,  // $90k initial cash
-        .tx_cost_pct = 0.0,       // No fees for simpler math
-        .stop_loss_pct = 0.0,
-        .take_profit_pct = 0.0,
-        .slippage_pct = 0.0,
         .direction = WU_DIRECTION_LONG,
-        .borrow_rate = 0.0,
-        .borrow_limit = 0.0,
+        .initial_cash = 90000.0,
+        .execution_policy = {
+            .policy = WU_EXECUTION_POLICY_IMMEDIATE,
+            .execution_mean = 0.0,
+            .execution_stddev = 0.0,
+            .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
+            .tx_cost_value = 0.0,
+            .stop_loss_pct = NAN,
+            .take_profit_pct = NAN
+        },
+        .borrow_params = {
+            .rate = 0.0,
+            .limit = 0.0
+        },
         .position_sizing = {
             .size_type = WU_POSITION_SIZE_PCT_EQUAL,
-            .size_value = 1.0     // Use 100% of target allocation
+            .size_value = 1.0
         }
     };
     
@@ -406,17 +455,24 @@ void test_basic_portfolio_strategy_guided_sizing(void) {
     // Test WU_POSITION_SIZE_PCT position sizing policy
     // Strategy specifies target proportion via signal.quantity
     WU_PortfolioParams params = {
-        .initial_cash = 100000.0,  // $100k initial cash
-        .tx_cost_pct = 0.0,        // No fees for simpler math
-        .stop_loss_pct = 0.0,
-        .take_profit_pct = 0.0,
-        .slippage_pct = 0.0,
         .direction = WU_DIRECTION_LONG,
-        .borrow_rate = 0.0,
-        .borrow_limit = 0.0,
+        .initial_cash = 100000.0,
+        .execution_policy = {
+            .policy = WU_EXECUTION_POLICY_IMMEDIATE,
+            .execution_mean = 0.0,
+            .execution_stddev = 0.0,
+            .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
+            .tx_cost_value = 0.0,
+            .stop_loss_pct = NAN,
+            .take_profit_pct = NAN
+        },
+        .borrow_params = {
+            .rate = 0.0,
+            .limit = 0.0
+        },
         .position_sizing = {
             .size_type = WU_POSITION_SIZE_PCT,
-            .size_value = 1.0      // Use 100% of strategy-specified allocation
+            .size_value = 1.0
         }
     };
     
@@ -569,14 +625,21 @@ void test_basic_portfolio_strategy_guided_sizing(void) {
 
 void test_basic_portfolio_invalid_asset_index(void) {
     WU_PortfolioParams params = {
-        .initial_cash = 100000.0,
-        .tx_cost_pct = 0.0,
-        .stop_loss_pct = 0.0,
-        .take_profit_pct = 0.0,
-        .slippage_pct = 0.0,
         .direction = WU_DIRECTION_BOTH,
-        .borrow_rate = 0.05,
-        .borrow_limit = 100000.0,
+        .initial_cash = 100000.0,
+        .execution_policy = {
+            .policy = WU_EXECUTION_POLICY_IMMEDIATE,
+            .execution_mean = 0.0,
+            .execution_stddev = 0.0,
+            .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
+            .tx_cost_value = 0.0,
+            .stop_loss_pct = NAN,
+            .take_profit_pct = NAN
+        },
+        .borrow_params = {
+            .rate = 0.05,
+            .limit = 100000.0
+        },
         .position_sizing = {
             .size_type = WU_POSITION_SIZE_PCT,
             .size_value = 1.0

@@ -23,17 +23,25 @@ typedef struct WU_Reader_ {
 #define wu_reader_last_error(reader) ((reader)->last_error)
 
 #define wu_reader_delete(reader) do { \
-    if ((reader)->delete) \
-        (reader)->delete((WU_Reader)(reader)); \
+    if ((reader) && ((WU_Reader)(reader))->delete) \
+        ((WU_Reader)(reader))->delete((WU_Reader)(reader)); \
 } while(0)
 
 #define WU_CSV_MAX_LINE_SIZE 2048
+#define WU_JSON_MAX_LINE_SIZE 4096
 
 typedef enum {
     WU_CSV_OK = 0,
     WU_CSV_ERROR_EOF = 1,
     WU_CSV_ERROR_PARSE = 2
 } WU_CsvError;
+
+typedef enum {
+    WU_JSON_OK = 0,
+    WU_JSON_ERROR_EOF = 1,
+    WU_JSON_ERROR_PARSE = 2,
+    WU_JSON_ERROR_MISSING_FIELD = 3
+} WU_JsonError;
 
 /**
  * WU_CsvReader is a concrete implementation of the WU_Reader interface that
@@ -53,8 +61,28 @@ typedef struct WU_CsvReader_ {
     } data;
 }* WU_CsvReader;
 
+/**
+ * WU_JsonReader is a concrete implementation of the WU_Reader interface that
+ * reads data from a JSON Lines file (one valid JSON object per line).
+ */
+typedef struct WU_JsonReader_ {
+    struct WU_Reader_ base;
+    FILE* file;
+    char line_buffer[WU_JSON_MAX_LINE_SIZE];
+    WU_DataType data_type;
+    WU_JsonError last_error;
+    union {
+        WU_Candle candle;
+        WU_Trade trade;
+        WU_Single single_value;
+    } data;
+}* WU_JsonReader;
+
 WU_CsvReader wu_csv_reader_new(FILE *file, WU_DataType data_type,
         WU_TimeUnit time_units, bool has_headers);
+
+WU_JsonReader wu_json_reader_new(FILE *file, WU_DataType data_type,
+        WU_TimeUnit time_units);
 
 #define WU_READER(r) ((WU_Reader)(r))
 #define wu_reader_list(...) ((WU_Reader[]){__VA_ARGS__, NULL})

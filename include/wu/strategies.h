@@ -79,7 +79,7 @@ WU_CrossOverStrat wu_crossover_strat_new(int short_window, int long_window,
 typedef struct WU_PairsTradingStrat_ {
     struct WU_Strategy_ base;
     WU_SMA spread_ma;
-    WU_StDev spread_std;
+    WU_MStDev spread_std;
     double threshold;
     double ratio;
     WU_Side last_signal;

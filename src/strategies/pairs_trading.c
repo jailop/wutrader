@@ -121,7 +121,7 @@ WU_PairsTradingStrat wu_pairs_trading_strat_new(int window, double threshold, do
     
     // Initialize spread statistics indicators
     strat->spread_ma = wu_sma_new(window);
-    strat->spread_std = wu_stdev_new(window, 1);  // dof=1 for sample std deviation
+    strat->spread_std = wu_mstdev_new(window, 1);  // dof=1 for sample std deviation
     
     // Initialize strategy parameters
     strat->threshold = threshold;

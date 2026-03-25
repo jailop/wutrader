@@ -16,3 +16,30 @@
 - New type: WU_TimeStamp. It includes a mark and the time units
 - Short direction implemented (includes borrowing interest rate and
   limit)
+
+2026-03-16:
+
+- Current indicators updated to validate input data
+- Portfolio params improved
+- new: User guide: mkdocs
+- new: Portfolio perfomance indicators
+- new: json reader
+
+2026-03-17:
+
+- Makefile updated
+- Indicators interface updated. Check the documentation
+- timeutils functions: starting to group them
+- docs: index page updated
+
+2026-03-18:
+
+- Moving Standard Deviation renamed from WU_StDev to WU_MStDev
+
+2026-03-24:
+
+- Implemented global mean, variance and standard deviation, with unit
+  tests.
+- MVar implementation updated. Removed loop in `update` function and
+  fixed bug related to window size and degrees of freedom.
+- Fixed bug in sharpe ratio implementation
