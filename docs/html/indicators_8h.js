@@ -11,6 +11,8 @@ var indicators_8h =
     [ "WU_PerformanceUpdate", "structWU__PerformanceUpdate.html", "structWU__PerformanceUpdate" ],
     [ "WU_Downside", "structWU__Downside__.html", "structWU__Downside__" ],
     [ "WU_Mean", "structWU__Mean__.html", "structWU__Mean__" ],
+    [ "WU_Var", "structWU__Var__.html", "structWU__Var__" ],
+    [ "WU_StDev", "structWU__StDev__.html", "structWU__StDev__" ],
     [ "wu_indicator_delete", "indicators_8h.html#a2e1b143a2f5743687db3d928e42d093a", null ],
     [ "wu_indicator_get", "indicators_8h.html#a2641c30e3e1d852d7f578fd45bf6413e", null ],
     [ "wu_indicator_update", "indicators_8h.html#a65d962a3ce5a54ed9f103584e3afe40d", null ],
@@ -19,8 +21,10 @@ var indicators_8h =
     [ "wu_macd_new", "indicators_8h.html#aea42a45e049dfc06879ab184306b6a64", null ],
     [ "wu_max_drawdown_new", "indicators_8h.html#a878080b0b8a0899415cc6344a41e3bf7", null ],
     [ "wu_mean_new", "indicators_8h.html#a838f54ce6dac48e4fae9c1c46d73aa73", null ],
+    [ "wu_mstdev_new", "indicators_8h.html#aaa635f5454c1901ce142ae545d94b90b", null ],
     [ "wu_mvar_new", "indicators_8h.html#aff9da9e70b409d278ee0354bea09164d", null ],
     [ "wu_rsi_new", "indicators_8h.html#aa8df21b9a63a2518370f61080f9bc86a", null ],
     [ "wu_sma_new", "indicators_8h.html#ac5fd01b66a2790cc9867ee4187aba244", null ],
-    [ "wu_stdev_new", "indicators_8h.html#a65acdf8df7ad4158b8f929c9c980b34f", null ]
+    [ "wu_stdev_new", "indicators_8h.html#a69a9a37b0f361ffaeed1792224985f87", null ],
+    [ "wu_var_new", "indicators_8h.html#a1336fab5ff00430a0bd6c152af45d30f", null ]
 ];

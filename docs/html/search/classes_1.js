@@ -34,7 +34,9 @@ var searchData=
   ['wu_5fsingle_31',['WU_Single',['../structWU__Single.html',1,'']]],
   ['wu_5fsma_5f_32',['WU_SMA_',['../structWU__SMA__.html',1,'']]],
   ['wu_5fsortinoratio_5f_33',['WU_SortinoRatio_',['../structWU__SortinoRatio__.html',1,'']]],
-  ['wu_5fstrategy_5f_34',['WU_Strategy_',['../structWU__Strategy__.html',1,'']]],
-  ['wu_5ftimestamp_35',['WU_TimeStamp',['../structWU__TimeStamp.html',1,'']]],
-  ['wu_5ftrade_36',['WU_Trade',['../structWU__Trade.html',1,'']]]
+  ['wu_5fstdev_5f_34',['WU_StDev_',['../structWU__StDev__.html',1,'']]],
+  ['wu_5fstrategy_5f_35',['WU_Strategy_',['../structWU__Strategy__.html',1,'']]],
+  ['wu_5ftimestamp_36',['WU_TimeStamp',['../structWU__TimeStamp.html',1,'']]],
+  ['wu_5ftrade_37',['WU_Trade',['../structWU__Trade.html',1,'']]],
+  ['wu_5fvar_5f_38',['WU_Var_',['../structWU__Var__.html',1,'']]]
 ];

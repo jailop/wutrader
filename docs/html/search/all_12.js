@@ -30,12 +30,14 @@ var searchData=
   ['stats_5fupdate_27',['stats_update',['../stats_8c.html#ab5783d26f28b7d38e959ad33132e5864',1,'stats.c']]],
   ['stats_5fupdate_5fposition_28',['stats_update_position',['../stats_8c.html#a74882bdbc1301b92825047fbc25a0e13',1,'stats.c']]],
   ['stddev_29',['stddev',['../structWU__PnLStatsResult.html#a2e06f22804bdae9aa366a95af211d443',1,'WU_PnLStatsResult']]],
-  ['stdev_2ec_30',['stdev.c',['../stdev_8c.html',1,'']]],
-  ['stop_5floss_5fexits_31',['stop_loss_exits',['../structWU__PortfolioStats__.html#a56e0bf321f1a4ad9c72f2a9ff06b8160',1,'WU_PortfolioStats_']]],
-  ['stop_5floss_5fpct_32',['stop_loss_pct',['../structWU__ExecutionPolicy.html#ac2a168e33b2a9ba26f3356b99ce2efad',1,'WU_ExecutionPolicy']]],
-  ['strategies_2eh_33',['strategies.h',['../strategies_8h.html',1,'']]],
-  ['strategy_34',['strategy',['../structWU__Runner__.html#abac03bc669ac22e0eebf8aed45e95927',1,'WU_Runner_']]],
-  ['sum_35',['sum',['../structWU__SMA__.html#ab7aa1026d09258232669afc881034d3e',1,'WU_SMA_']]],
-  ['symbol_36',['symbol',['../structWU__PositionVector.html#a1ed01d0e90592953705269f65b01c378',1,'WU_PositionVector']]],
-  ['symbols_37',['symbols',['../structWU__PortfolioStats__.html#aa9d7ed448bfef314ad3eb09e2dcc163c',1,'WU_PortfolioStats_']]]
+  ['stdev_5fdelete_30',['stdev_delete',['../var_8c.html#a50880bc326e6bda43b8e97cb2949bbae',1,'var.c']]],
+  ['stdev_5fupdate_31',['stdev_update',['../var_8c.html#a67e54894d3be80594a24c655bb1e29b8',1,'var.c']]],
+  ['stop_5floss_5fexits_32',['stop_loss_exits',['../structWU__PortfolioStats__.html#a56e0bf321f1a4ad9c72f2a9ff06b8160',1,'WU_PortfolioStats_']]],
+  ['stop_5floss_5fpct_33',['stop_loss_pct',['../structWU__ExecutionPolicy.html#ac2a168e33b2a9ba26f3356b99ce2efad',1,'WU_ExecutionPolicy']]],
+  ['strategies_2eh_34',['strategies.h',['../strategies_8h.html',1,'']]],
+  ['strategy_35',['strategy',['../structWU__Runner__.html#abac03bc669ac22e0eebf8aed45e95927',1,'WU_Runner_']]],
+  ['sum_36',['sum',['../structWU__SMA__.html#ab7aa1026d09258232669afc881034d3e',1,'WU_SMA_']]],
+  ['sum2_37',['sum2',['../structWU__MVar__.html#a44feaa96a3d28d5da70161674d81425d',1,'WU_MVar_::sum2'],['../structWU__Var__.html#a2728b50807bcda22a60d7d0b81c3dcd6',1,'WU_Var_::sum2']]],
+  ['symbol_38',['symbol',['../structWU__PositionVector.html#a1ed01d0e90592953705269f65b01c378',1,'WU_PositionVector']]],
+  ['symbols_39',['symbols',['../structWU__PortfolioStats__.html#aa9d7ed448bfef314ad3eb09e2dcc163c',1,'WU_PortfolioStats_']]]
 ];

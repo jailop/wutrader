@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>WU Trading Library: src/indicators/stdev.c File Reference</title>
+<title>WU Trading Library: src/indicators/mstdev.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,7 +63,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('stdev_8c.html','',''); });
+$(function(){initNavTree('mstdev_8c.html','',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -89,20 +89,20 @@ $(function(){initNavTree('stdev_8c.html','',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">stdev.c File Reference</div></div>
+  <div class="headertitle"><div class="title">mstdev.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;math.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="indicators_8h_source.html">wu/indicators.h</a>&quot;</code><br />
 </div>
-<p><a href="stdev_8c_source.html">Go to the source code of this file.</a></p>
+<p><a href="mstdev_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a53cf09eced03cd9f5320b54c452624a2" id="r_a53cf09eced03cd9f5320b54c452624a2"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#a53cf09eced03cd9f5320b54c452624a2">update</a> (WU_MStDev stdev, double value)</td></tr>
 <tr class="memitem:ac3ce880a84ddb3c8729fe03235f45182" id="r_ac3ce880a84ddb3c8729fe03235f45182"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#ac3ce880a84ddb3c8729fe03235f45182">delete</a> (struct <a class="el" href="structWU__MStDev__.html">WU_MStDev_</a> *stdev)</td></tr>
-<tr class="memitem:a65acdf8df7ad4158b8f929c9c980b34f" id="r_a65acdf8df7ad4158b8f929c9c980b34f"><td class="memItemLeft">WU_MStDev&#160;</td><td class="memItemRight"><a class="el" href="#a65acdf8df7ad4158b8f929c9c980b34f">wu_stdev_new</a> (int window_size, int dof)</td></tr>
-<tr class="memdesc:a65acdf8df7ad4158b8f929c9c980b34f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new WU_MStDev (Moving Standard Deviation) indicator with the specified window size and degree of freedom.  <br /></td></tr>
+<tr class="memitem:aaa635f5454c1901ce142ae545d94b90b" id="r_aaa635f5454c1901ce142ae545d94b90b"><td class="memItemLeft">WU_MStDev&#160;</td><td class="memItemRight"><a class="el" href="#aaa635f5454c1901ce142ae545d94b90b">wu_mstdev_new</a> (int window_size, int dof)</td></tr>
+<tr class="memdesc:aaa635f5454c1901ce142ae545d94b90b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new WU_MStDev (Moving Standard Deviation) indicator with the specified window size and degree of freedom.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="ac3ce880a84ddb3c8729fe03235f45182" name="ac3ce880a84ddb3c8729fe03235f45182"></a>
@@ -128,7 +128,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stdev_8c_source.html#l00012">12</a> of file <a class="el" href="stdev_8c_source.html">stdev.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mstdev_8c_source.html#l00012">12</a> of file <a class="el" href="mstdev_8c_source.html">mstdev.c</a>.</p>
 
 </div>
 </div>
@@ -159,18 +159,18 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="stdev_8c_source.html#l00004">4</a> of file <a class="el" href="stdev_8c_source.html">stdev.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mstdev_8c_source.html#l00004">4</a> of file <a class="el" href="mstdev_8c_source.html">mstdev.c</a>.</p>
 
 </div>
 </div>
-<a id="a65acdf8df7ad4158b8f929c9c980b34f" name="a65acdf8df7ad4158b8f929c9c980b34f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a65acdf8df7ad4158b8f929c9c980b34f">&#9670;&#160;</a></span>wu_stdev_new()</h2>
+<a id="aaa635f5454c1901ce142ae545d94b90b" name="aaa635f5454c1901ce142ae545d94b90b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa635f5454c1901ce142ae545d94b90b">&#9670;&#160;</a></span>wu_mstdev_new()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">WU_MStDev wu_stdev_new </td>
+          <td class="memname">WU_MStDev wu_mstdev_new </td>
           <td>(</td>
           <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>window_size</em></span>, </td>
         </tr>
@@ -184,7 +184,7 @@ Functions</h2></td></tr>
 
 <p>Creates a new WU_MStDev (Moving Standard Deviation) indicator with the specified window size and degree of freedom. </p>
 
-<p class="definition">Definition at line <a class="el" href="stdev_8c_source.html#l00017">17</a> of file <a class="el" href="stdev_8c_source.html">stdev.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mstdev_8c_source.html#l00017">17</a> of file <a class="el" href="mstdev_8c_source.html">mstdev.c</a>.</p>
 
 </div>
 </div>
@@ -201,7 +201,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="dir_8fd237e36e8f13dba1fb1a368769f4e8.html">indicators</a></li><li class="navelem"><a href="stdev_8c.html">stdev.c</a></li>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="dir_8fd237e36e8f13dba1fb1a368769f4e8.html">indicators</a></li><li class="navelem"><a href="mstdev_8c.html">mstdev.c</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

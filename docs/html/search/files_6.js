@@ -4,5 +4,6 @@ var searchData=
   ['maxdrawdown_2ec_1',['maxdrawdown.c',['../maxdrawdown_8c.html',1,'']]],
   ['mean_2ec_2',['mean.c',['../mean_8c.html',1,'']]],
   ['mean_5fdownside_2ec_3',['mean_downside.c',['../mean__downside_8c.html',1,'']]],
-  ['mvar_2ec_4',['mvar.c',['../mvar_8c.html',1,'']]]
+  ['mstdev_2ec_4',['mstdev.c',['../mstdev_8c.html',1,'']]],
+  ['mvar_2ec_5',['mvar.c',['../mvar_8c.html',1,'']]]
 ];

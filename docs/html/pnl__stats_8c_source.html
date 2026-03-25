@@ -100,49 +100,44 @@ $(function(){initNavTree('pnl__stats_8c_source.html','',''); });
 <div class="foldopen" id="foldopen00006" data-start="{" data-end="}">
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="pnl__stats_8c.html#a642dd1257dd84256fefd0a1d7f4f19d4">    6</a></span><span class="keyword">static</span> <a class="code hl_struct" href="structWU__PnLStatsResult.html">WU_PnLStatsResult</a> <a class="code hl_function" href="pnl__stats_8c.html#a642dd1257dd84256fefd0a1d7f4f19d4">wu_pnl_stats_update_impl</a>(WU_PnLStats self, <span class="keywordtype">double</span> pnl) {</div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    self-&gt;count++;</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="comment">// Update mean and variance using Welford&#39;s algorithm</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordtype">double</span> delta = pnl - self-&gt;pnl_mean;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    self-&gt;pnl_mean += delta / self-&gt;count;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">double</span> delta2 = pnl - self-&gt;pnl_mean;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    self-&gt;pnl_m2 += delta * delta2;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="comment">// Compute and return result</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">double</span> var = (self-&gt;count &lt; 2) ? NAN : self-&gt;pnl_m2 / (self-&gt;count - 1);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">double</span> stddev = isnan(var) ? NAN : sqrt(var);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    self-&gt;value = (<a class="code hl_struct" href="structWU__PnLStatsResult.html">WU_PnLStatsResult</a>){</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        .mean = self-&gt;pnl_mean,</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        .stddev = stddev</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    };</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordflow">return</span> self-&gt;value;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="comment">// update mean and variance using Welford&#39;s algorithm</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keywordtype">double</span> delta = pnl - self-&gt;pnl_mean;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    self-&gt;pnl_mean += delta / self-&gt;count;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordtype">double</span> delta2 = pnl - self-&gt;pnl_mean;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    self-&gt;pnl_m2 += delta * delta2;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="comment">// compute and return result</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">double</span> var = (self-&gt;count &lt; 2) ? NAN : self-&gt;pnl_m2 / (self-&gt;count - 1);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">double</span> stddev = isnan(var) ? NAN : sqrt(var);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    self-&gt;value = (<a class="code hl_struct" href="structWU__PnLStatsResult.html">WU_PnLStatsResult</a>){</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        .mean = self-&gt;pnl_mean,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        .stddev = stddev</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    };</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordflow">return</span> self-&gt;value;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>}</div>
 </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="foldopen" id="foldopen00025" data-start="{" data-end="}">
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="pnl__stats_8c.html#af74572860c28b0c7b83a70c1d2e64ff9">   25</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="pnl__stats_8c.html#af74572860c28b0c7b83a70c1d2e64ff9">wu_pnl_stats_free</a>(WU_PnLStats self) {</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    free(self);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>}</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="}">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="pnl__stats_8c.html#af74572860c28b0c7b83a70c1d2e64ff9">   23</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="pnl__stats_8c.html#af74572860c28b0c7b83a70c1d2e64ff9">wu_pnl_stats_free</a>(WU_PnLStats self) {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    free(self);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>}</div>
 </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="foldopen" id="foldopen00029" data-start="{" data-end="}">
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="stats_8h.html#ad85ab07021653e8855f69d3fa2059ee7">   29</a></span>WU_PnLStats <a class="code hl_function" href="pnl__stats_8c.html#ad85ab07021653e8855f69d3fa2059ee7">wu_pnl_stats_new</a>(<span class="keywordtype">void</span>) {</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    WU_PnLStats ps = malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code hl_struct" href="structWU__PnLStats__.html">WU_PnLStats_</a>));</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordflow">if</span> (!ps) <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    ps-&gt;pnl_mean = 0.0;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    ps-&gt;pnl_m2 = 0.0;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    ps-&gt;count = 0;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    ps-&gt;update = <a class="code hl_function" href="pnl__stats_8c.html#a642dd1257dd84256fefd0a1d7f4f19d4">wu_pnl_stats_update_impl</a>;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    ps-&gt;delete = <a class="code hl_function" href="pnl__stats_8c.html#af74572860c28b0c7b83a70c1d2e64ff9">wu_pnl_stats_free</a>;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    ps-&gt;value = (<a class="code hl_struct" href="structWU__PnLStatsResult.html">WU_PnLStatsResult</a>){.mean = NAN, .stddev = NAN};</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">return</span> ps;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="}">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="stats_8h.html#ad85ab07021653e8855f69d3fa2059ee7">   27</a></span>WU_PnLStats <a class="code hl_function" href="pnl__stats_8c.html#ad85ab07021653e8855f69d3fa2059ee7">wu_pnl_stats_new</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    WU_PnLStats ps = malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code hl_struct" href="structWU__PnLStats__.html">WU_PnLStats_</a>));</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordflow">if</span> (!ps) <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    ps-&gt;pnl_mean = 0.0;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    ps-&gt;pnl_m2 = 0.0;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    ps-&gt;count = 0;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    ps-&gt;update = <a class="code hl_function" href="pnl__stats_8c.html#a642dd1257dd84256fefd0a1d7f4f19d4">wu_pnl_stats_update_impl</a>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    ps-&gt;delete = <a class="code hl_function" href="pnl__stats_8c.html#af74572860c28b0c7b83a70c1d2e64ff9">wu_pnl_stats_free</a>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    ps-&gt;value = (<a class="code hl_struct" href="structWU__PnLStatsResult.html">WU_PnLStatsResult</a>){.mean = NAN, .stddev = NAN};</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordflow">return</span> ps;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}</div>
 </div>
 <div class="ttc" id="apnl__stats_8c_html_a642dd1257dd84256fefd0a1d7f4f19d4"><div class="ttname"><a href="pnl__stats_8c.html#a642dd1257dd84256fefd0a1d7f4f19d4">wu_pnl_stats_update_impl</a></div><div class="ttdeci">static WU_PnLStatsResult wu_pnl_stats_update_impl(WU_PnLStats self, double pnl)</div><div class="ttdef"><b>Definition</b> <a href="#l00006">pnl_stats.c:6</a></div></div>
-<div class="ttc" id="apnl__stats_8c_html_ad85ab07021653e8855f69d3fa2059ee7"><div class="ttname"><a href="pnl__stats_8c.html#ad85ab07021653e8855f69d3fa2059ee7">wu_pnl_stats_new</a></div><div class="ttdeci">WU_PnLStats wu_pnl_stats_new(void)</div><div class="ttdef"><b>Definition</b> <a href="#l00029">pnl_stats.c:29</a></div></div>
-<div class="ttc" id="apnl__stats_8c_html_af74572860c28b0c7b83a70c1d2e64ff9"><div class="ttname"><a href="pnl__stats_8c.html#af74572860c28b0c7b83a70c1d2e64ff9">wu_pnl_stats_free</a></div><div class="ttdeci">static void wu_pnl_stats_free(WU_PnLStats self)</div><div class="ttdef"><b>Definition</b> <a href="#l00025">pnl_stats.c:25</a></div></div>
+<div class="ttc" id="apnl__stats_8c_html_ad85ab07021653e8855f69d3fa2059ee7"><div class="ttname"><a href="pnl__stats_8c.html#ad85ab07021653e8855f69d3fa2059ee7">wu_pnl_stats_new</a></div><div class="ttdeci">WU_PnLStats wu_pnl_stats_new(void)</div><div class="ttdef"><b>Definition</b> <a href="#l00027">pnl_stats.c:27</a></div></div>
+<div class="ttc" id="apnl__stats_8c_html_af74572860c28b0c7b83a70c1d2e64ff9"><div class="ttname"><a href="pnl__stats_8c.html#af74572860c28b0c7b83a70c1d2e64ff9">wu_pnl_stats_free</a></div><div class="ttdeci">static void wu_pnl_stats_free(WU_PnLStats self)</div><div class="ttdef"><b>Definition</b> <a href="#l00023">pnl_stats.c:23</a></div></div>
 <div class="ttc" id="astructWU__PnLStatsResult_html"><div class="ttname"><a href="structWU__PnLStatsResult.html">WU_PnLStatsResult</a></div><div class="ttdoc">PnL Statistics Result - contains mean and standard deviation of PnL values.</div><div class="ttdef"><b>Definition</b> <a href="stats_8h_source.html#l00010">stats.h:10</a></div></div>
 <div class="ttc" id="astructWU__PnLStats___html"><div class="ttname"><a href="structWU__PnLStats__.html">WU_PnLStats_</a></div><div class="ttdoc">PnL Statistics - combined wrapper using separated indicators.</div><div class="ttdef"><b>Definition</b> <a href="stats_8h_source.html#l00019">stats.h:19</a></div></div>
 <div class="ttc" id="awu_8h_html"><div class="ttname"><a href="wu_8h.html">wu.h</a></div></div>

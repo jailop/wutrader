@@ -35,7 +35,9 @@ var annotated_dup =
     [ "WU_Single", "structWU__Single.html", "structWU__Single" ],
     [ "WU_SMA", "structWU__SMA__.html", "structWU__SMA__" ],
     [ "WU_SortinoRatio", "structWU__SortinoRatio__.html", "structWU__SortinoRatio__" ],
+    [ "WU_StDev", "structWU__StDev__.html", "structWU__StDev__" ],
     [ "WU_Strategy", "structWU__Strategy__.html", "structWU__Strategy__" ],
     [ "WU_TimeStamp", "structWU__TimeStamp.html", "structWU__TimeStamp" ],
-    [ "WU_Trade", "structWU__Trade.html", "structWU__Trade" ]
+    [ "WU_Trade", "structWU__Trade.html", "structWU__Trade" ],
+    [ "WU_Var", "structWU__Var__.html", "structWU__Var__" ]
 ];

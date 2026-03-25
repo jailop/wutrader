@@ -123,6 +123,10 @@ Data Structures</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tracks the average downside, calculate as the square root of the average of the squared negative values.  <a href="structWU__Downside__.html#details">More...</a><br /></td></tr>
 <tr class="memitem:WU_5FMean" id="r_WU_5FMean"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structWU__Mean__.html">WU_Mean</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A global mean calculator that updates with new values and maintains the current mean.  <a href="structWU__Mean__.html#details">More...</a><br /></td></tr>
+<tr class="memitem:WU_5FVar" id="r_WU_5FVar"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structWU__Var__.html">WU_Var</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A glabal variance calculator.  <a href="structWU__Var__.html#details">More...</a><br /></td></tr>
+<tr class="memitem:WU_5FStDev" id="r_WU_5FStDev"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structWU__StDev__.html">WU_StDev</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A global standard deviation calcular.  <a href="structWU__StDev__.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -141,8 +145,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:a2f55994ecb8acec432998a6bdbd8f47b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new WU_EMA (Exponential Moving Average) indicator with the specified period and smoothing factor.  <br /></td></tr>
 <tr class="memitem:aff9da9e70b409d278ee0354bea09164d" id="r_aff9da9e70b409d278ee0354bea09164d"><td class="memItemLeft">WU_MVar&#160;</td><td class="memItemRight"><a class="el" href="#aff9da9e70b409d278ee0354bea09164d">wu_mvar_new</a> (int window_size, int dof)</td></tr>
 <tr class="memdesc:aff9da9e70b409d278ee0354bea09164d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new WU_MVar (Moving Variance) indicator with the specified window size and degree of freedom.  <br /></td></tr>
-<tr class="memitem:a65acdf8df7ad4158b8f929c9c980b34f" id="r_a65acdf8df7ad4158b8f929c9c980b34f"><td class="memItemLeft">WU_MStDev&#160;</td><td class="memItemRight"><a class="el" href="#a65acdf8df7ad4158b8f929c9c980b34f">wu_stdev_new</a> (int window_size, int dof)</td></tr>
-<tr class="memdesc:a65acdf8df7ad4158b8f929c9c980b34f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new WU_MStDev (Moving Standard Deviation) indicator with the specified window size and degree of freedom.  <br /></td></tr>
+<tr class="memitem:aaa635f5454c1901ce142ae545d94b90b" id="r_aaa635f5454c1901ce142ae545d94b90b"><td class="memItemLeft">WU_MStDev&#160;</td><td class="memItemRight"><a class="el" href="#aaa635f5454c1901ce142ae545d94b90b">wu_mstdev_new</a> (int window_size, int dof)</td></tr>
+<tr class="memdesc:aaa635f5454c1901ce142ae545d94b90b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new WU_MStDev (Moving Standard Deviation) indicator with the specified window size and degree of freedom.  <br /></td></tr>
 <tr class="memitem:aa8df21b9a63a2518370f61080f9bc86a" id="r_aa8df21b9a63a2518370f61080f9bc86a"><td class="memItemLeft">WU_RSI&#160;</td><td class="memItemRight"><a class="el" href="#aa8df21b9a63a2518370f61080f9bc86a">wu_rsi_new</a> (int window_size)</td></tr>
 <tr class="memdesc:aa8df21b9a63a2518370f61080f9bc86a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new WU_RSI (Relative Strength Index) indicator with the specified window size.  <br /></td></tr>
 <tr class="memitem:aea42a45e049dfc06879ab184306b6a64" id="r_aea42a45e049dfc06879ab184306b6a64"><td class="memItemLeft">WU_MACD&#160;</td><td class="memItemRight"><a class="el" href="#aea42a45e049dfc06879ab184306b6a64">wu_macd_new</a> (int short_window, int long_window, int signal_window, double smoothing)</td></tr>
@@ -153,6 +157,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:a835c635a88a292c0a2fda24ad4ec02a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new WU_Downside indicator.  <br /></td></tr>
 <tr class="memitem:a838f54ce6dac48e4fae9c1c46d73aa73" id="r_a838f54ce6dac48e4fae9c1c46d73aa73"><td class="memItemLeft">WU_Mean&#160;</td><td class="memItemRight"><a class="el" href="#a838f54ce6dac48e4fae9c1c46d73aa73">wu_mean_new</a> (void)</td></tr>
 <tr class="memdesc:a838f54ce6dac48e4fae9c1c46d73aa73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new WU_Mean indicator.  <br /></td></tr>
+<tr class="memitem:a1336fab5ff00430a0bd6c152af45d30f" id="r_a1336fab5ff00430a0bd6c152af45d30f"><td class="memItemLeft">WU_Var&#160;</td><td class="memItemRight"><a class="el" href="#a1336fab5ff00430a0bd6c152af45d30f">wu_var_new</a> (int dof)</td></tr>
+<tr class="memdesc:a1336fab5ff00430a0bd6c152af45d30f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Createas a new variance indicator.  <br /></td></tr>
+<tr class="memitem:a69a9a37b0f361ffaeed1792224985f87" id="r_a69a9a37b0f361ffaeed1792224985f87"><td class="memItemLeft">WU_StDev&#160;</td><td class="memItemRight"><a class="el" href="#a69a9a37b0f361ffaeed1792224985f87">wu_stdev_new</a> (int dof)</td></tr>
+<tr class="memdesc:a69a9a37b0f361ffaeed1792224985f87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new standard deviation indicator.  <br /></td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="a2e1b143a2f5743687db3d928e42d093a" name="a2e1b143a2f5743687db3d928e42d093a"></a>
@@ -367,6 +375,31 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aaa635f5454c1901ce142ae545d94b90b" name="aaa635f5454c1901ce142ae545d94b90b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa635f5454c1901ce142ae545d94b90b">&#9670;&#160;</a></span>wu_mstdev_new()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">WU_MStDev wu_mstdev_new </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>window_size</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>dof</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a new WU_MStDev (Moving Standard Deviation) indicator with the specified window size and degree of freedom. </p>
+
+<p class="definition">Definition at line <a class="el" href="mstdev_8c_source.html#l00017">17</a> of file <a class="el" href="mstdev_8c_source.html">mstdev.c</a>.</p>
+
+</div>
+</div>
 <a id="aff9da9e70b409d278ee0354bea09164d" name="aff9da9e70b409d278ee0354bea09164d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aff9da9e70b409d278ee0354bea09164d">&#9670;&#160;</a></span>wu_mvar_new()</h2>
 
@@ -434,28 +467,45 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a65acdf8df7ad4158b8f929c9c980b34f" name="a65acdf8df7ad4158b8f929c9c980b34f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a65acdf8df7ad4158b8f929c9c980b34f">&#9670;&#160;</a></span>wu_stdev_new()</h2>
+<a id="a69a9a37b0f361ffaeed1792224985f87" name="a69a9a37b0f361ffaeed1792224985f87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69a9a37b0f361ffaeed1792224985f87">&#9670;&#160;</a></span>wu_stdev_new()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">WU_MStDev wu_stdev_new </td>
+          <td class="memname">WU_StDev wu_stdev_new </td>
           <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>window_size</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>dof</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>dof</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates a new WU_MStDev (Moving Standard Deviation) indicator with the specified window size and degree of freedom. </p>
+<p>Creates a new standard deviation indicator. </p>
 
-<p class="definition">Definition at line <a class="el" href="stdev_8c_source.html#l00017">17</a> of file <a class="el" href="stdev_8c_source.html">stdev.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="var_8c_source.html#l00049">49</a> of file <a class="el" href="var_8c_source.html">var.c</a>.</p>
+
+</div>
+</div>
+<a id="a1336fab5ff00430a0bd6c152af45d30f" name="a1336fab5ff00430a0bd6c152af45d30f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1336fab5ff00430a0bd6c152af45d30f">&#9670;&#160;</a></span>wu_var_new()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">WU_Var wu_var_new </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>dof</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Createas a new variance indicator. </p>
+
+<p class="definition">Definition at line <a class="el" href="var_8c_source.html#l00025">25</a> of file <a class="el" href="var_8c_source.html">var.c</a>.</p>
 
 </div>
 </div>

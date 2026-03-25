@@ -98,82 +98,73 @@ $(function(){initNavTree('sharpe_8c_source.html','',''); });
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="foldopen" id="foldopen00006" data-start="{" data-end="}">
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="sharpe_8c.html#a93f194b460efb7ae92cecaaa375fdc1d">    6</a></span><span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code hl_function" href="sharpe_8c.html#a93f194b460efb7ae92cecaaa375fdc1d">wu_sharpe_ratio_update</a>(WU_SharpeRatio self, <a class="code hl_struct" href="structWU__PerformanceUpdate.html">WU_PerformanceUpdate</a> perf) {</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <span class="keywordtype">double</span> portfolio_value = perf.<a class="code hl_variable" href="structWU__PerformanceUpdate.html#a73c49c47048e9b2dc06d78079017f6c5">portfolio_value</a>;</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="keywordflow">if</span> (self-&gt;prev_value == 0.0) {</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>        self-&gt;prev_value = portfolio_value;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        self-&gt;start_time = perf.<a class="code hl_variable" href="structWU__PerformanceUpdate.html#a8ab7a47c1f8b46cfe3f65808d64dadf9">timestamp</a>.<a class="code hl_variable" href="structWU__TimeStamp.html#a3e0713a9b31cefa42bc0682144ab08f4">mark</a>;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        self-&gt;time_unit = perf.<a class="code hl_variable" href="structWU__PerformanceUpdate.html#a8ab7a47c1f8b46cfe3f65808d64dadf9">timestamp</a>.<a class="code hl_variable" href="structWU__TimeStamp.html#ae34acfbfbb2c99f7b10eaec558859982">units</a>;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <span class="keywordflow">return</span> (self-&gt;value = NAN);</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="sharpe_8c.html#a93f194b460efb7ae92cecaaa375fdc1d">    6</a></span><span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code hl_function" href="sharpe_8c.html#a93f194b460efb7ae92cecaaa375fdc1d">wu_sharpe_ratio_update</a>(WU_SharpeRatio self,</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>        <a class="code hl_struct" href="structWU__PerformanceUpdate.html">WU_PerformanceUpdate</a> perf) {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="comment">/* On first observed perf, record start time but still record the return</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">       relative to the initial value so that returns are (value - initial)/initial */</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordflow">if</span> (self-&gt;count == 0) {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        self-&gt;start_time = perf.<a class="code hl_variable" href="structWU__PerformanceUpdate.html#a8ab7a47c1f8b46cfe3f65808d64dadf9">timestamp</a>.<a class="code hl_variable" href="structWU__TimeStamp.html#a3e0713a9b31cefa42bc0682144ab08f4">mark</a>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        self-&gt;time_unit = perf.<a class="code hl_variable" href="structWU__PerformanceUpdate.html#a8ab7a47c1f8b46cfe3f65808d64dadf9">timestamp</a>.<a class="code hl_variable" href="structWU__TimeStamp.html#ae34acfbfbb2c99f7b10eaec558859982">units</a>;</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    }</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">double</span> ret = (portfolio_value - self-&gt;prev_value) / self-&gt;prev_value;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    self-&gt;prev_value = portfolio_value;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    self-&gt;end_time = perf.<a class="code hl_variable" href="structWU__PerformanceUpdate.html#a8ab7a47c1f8b46cfe3f65808d64dadf9">timestamp</a>.<a class="code hl_variable" href="structWU__TimeStamp.html#a3e0713a9b31cefa42bc0682144ab08f4">mark</a>;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    self-&gt;count++;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_struct" href="structWU__PnLStatsResult.html">WU_PnLStatsResult</a> result = self-&gt;return_stats-&gt;update(self-&gt;return_stats, ret);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordflow">if</span> (isnan(result.<a class="code hl_variable" href="structWU__PnLStatsResult.html#a2e06f22804bdae9aa366a95af211d443">stddev</a>) || result.<a class="code hl_variable" href="structWU__PnLStatsResult.html#a2e06f22804bdae9aa366a95af211d443">stddev</a> &lt;= 0.0) {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        self-&gt;value = NAN;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keywordflow">return</span> self-&gt;value;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    }</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">double</span> annualization_factor = <a class="code hl_function" href="timeutils_8h.html#ae77888abbbeaa164194e0718c5400289">wu_annualization_factor</a>(perf.<a class="code hl_variable" href="structWU__PerformanceUpdate.html#a8ab7a47c1f8b46cfe3f65808d64dadf9">timestamp</a>.<a class="code hl_variable" href="structWU__TimeStamp.html#ae34acfbfbb2c99f7b10eaec558859982">units</a>);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">double</span> periods_elapsed = self-&gt;end_time - self-&gt;start_time;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordflow">if</span> (periods_elapsed &lt;= 0) periods_elapsed = 1;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">double</span> periods_per_year = annualization_factor / periods_elapsed * self-&gt;count;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">if</span> (periods_per_year &lt;= 0) periods_per_year = 1;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">double</span> annualized_stddev = result.<a class="code hl_variable" href="structWU__PnLStatsResult.html#a2e06f22804bdae9aa366a95af211d443">stddev</a> * sqrt(periods_per_year);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">double</span> per_period_rf = self-&gt;risk_free_rate / periods_per_year;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    self-&gt;value = (result.<a class="code hl_variable" href="structWU__PnLStatsResult.html#a6fd50d4bb654bbfdb5d1264fefb7a2ce">mean</a> - per_period_rf) / annualized_stddev;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">return</span> self-&gt;value;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">double</span> ret = (perf.<a class="code hl_variable" href="structWU__PerformanceUpdate.html#a73c49c47048e9b2dc06d78079017f6c5">portfolio_value</a> - self-&gt;initial_value) / self-&gt;initial_value;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    self-&gt;end_time = perf.<a class="code hl_variable" href="structWU__PerformanceUpdate.html#a8ab7a47c1f8b46cfe3f65808d64dadf9">timestamp</a>.<a class="code hl_variable" href="structWU__TimeStamp.html#a3e0713a9b31cefa42bc0682144ab08f4">mark</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    self-&gt;count++;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_struct" href="structWU__PnLStatsResult.html">WU_PnLStatsResult</a> result = self-&gt;return_stats-&gt;update(self-&gt;return_stats, ret);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordflow">if</span> (isnan(result.<a class="code hl_variable" href="structWU__PnLStatsResult.html#a2e06f22804bdae9aa366a95af211d443">stddev</a>) || result.<a class="code hl_variable" href="structWU__PnLStatsResult.html#a2e06f22804bdae9aa366a95af211d443">stddev</a> &lt;= 0.0) {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        self-&gt;value = NAN;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keywordflow">return</span> self-&gt;value;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    }</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">double</span> annualization_factor = <a class="code hl_function" href="timeutils_8h.html#ae77888abbbeaa164194e0718c5400289">wu_annualization_factor</a>(perf.<a class="code hl_variable" href="structWU__PerformanceUpdate.html#a8ab7a47c1f8b46cfe3f65808d64dadf9">timestamp</a>.<a class="code hl_variable" href="structWU__TimeStamp.html#ae34acfbfbb2c99f7b10eaec558859982">units</a>);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">double</span> periods_elapsed = self-&gt;end_time - self-&gt;start_time;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordflow">if</span> (periods_elapsed &lt;= 0) periods_elapsed = 1;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">double</span> periods_per_year = annualization_factor / periods_elapsed * self-&gt;count;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordflow">if</span> (periods_per_year &lt;= 0) periods_per_year = 1;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="comment">/* Annualize stddev and compute Sharpe: (mean_per_period - rf_per_period)/stddev_per_period * sqrt(periods_per_year)</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">       Note: return_stats stores per-update returns (relative to initial), so mean/stddev are per-update stats. */</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">double</span> annualized_stddev = result.<a class="code hl_variable" href="structWU__PnLStatsResult.html#a2e06f22804bdae9aa366a95af211d443">stddev</a> * sqrt(periods_per_year);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">double</span> per_period_rf = self-&gt;risk_free_rate / periods_per_year;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    self-&gt;value = (result.<a class="code hl_variable" href="structWU__PnLStatsResult.html#a6fd50d4bb654bbfdb5d1264fefb7a2ce">mean</a> - per_period_rf) / annualized_stddev;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">return</span> self-&gt;value;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
+</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="sharpe_8c.html#aae886663ca94d6bc2d0a97ac87fd2d12">   35</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="sharpe_8c.html#aae886663ca94d6bc2d0a97ac87fd2d12">wu_sharpe_ratio_free</a>(WU_SharpeRatio self) {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordflow">if</span> (self-&gt;return_stats)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        self-&gt;return_stats-&gt;delete(self-&gt;return_stats);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    free(self);</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>}</div>
 </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="foldopen" id="foldopen00041" data-start="{" data-end="}">
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="sharpe_8c.html#aae886663ca94d6bc2d0a97ac87fd2d12">   41</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="sharpe_8c.html#aae886663ca94d6bc2d0a97ac87fd2d12">wu_sharpe_ratio_free</a>(WU_SharpeRatio self) {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordflow">if</span> (self-&gt;return_stats)</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        self-&gt;return_stats-&gt;delete(self-&gt;return_stats);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    free(self);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>}</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="stats_8h.html#a56794f6853bba619166efb88e8285a81">   41</a></span>WU_SharpeRatio <a class="code hl_function" href="sharpe_8c.html#a56794f6853bba619166efb88e8285a81">wu_sharpe_ratio_new</a>(<span class="keywordtype">double</span> initial_value, <span class="keywordtype">double</span> risk_free_rate) {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    WU_SharpeRatio sr = malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code hl_struct" href="structWU__SharpeRatio__.html">WU_SharpeRatio_</a>));</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordflow">if</span> (!sr) <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    sr-&gt;return_stats = <a class="code hl_function" href="stats_8h.html#ad85ab07021653e8855f69d3fa2059ee7">wu_pnl_stats_new</a>();</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordflow">if</span> (!sr-&gt;return_stats) {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        free(sr);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    sr-&gt;risk_free_rate = risk_free_rate;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    sr-&gt;initial_value = initial_value;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    sr-&gt;value = NAN;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    sr-&gt;prev_value = initial_value;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    sr-&gt;count = 0;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    sr-&gt;start_time = 0;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    sr-&gt;end_time = 0;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    sr-&gt;time_unit = <a class="code hl_enumvalue" href="timeutils_8h.html#a32fd359d0dbf4831d7790f38dea45ab3a4bd26f3bae3cc160316aa4d36298a6bd">WU_TIME_UNIT_SECONDS</a>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    sr-&gt;update = <a class="code hl_function" href="sharpe_8c.html#a93f194b460efb7ae92cecaaa375fdc1d">wu_sharpe_ratio_update</a>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    sr-&gt;delete = <a class="code hl_function" href="sharpe_8c.html#aae886663ca94d6bc2d0a97ac87fd2d12">wu_sharpe_ratio_free</a>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordflow">return</span> sr;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>}</div>
 </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="foldopen" id="foldopen00047" data-start="{" data-end="}">
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="stats_8h.html#a56794f6853bba619166efb88e8285a81">   47</a></span>WU_SharpeRatio <a class="code hl_function" href="sharpe_8c.html#a56794f6853bba619166efb88e8285a81">wu_sharpe_ratio_new</a>(<span class="keywordtype">double</span> initial_value, <span class="keywordtype">double</span> risk_free_rate) {</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    WU_SharpeRatio sr = malloc(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code hl_struct" href="structWU__SharpeRatio__.html">WU_SharpeRatio_</a>));</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordflow">if</span> (!sr) <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    sr-&gt;return_stats = <a class="code hl_function" href="stats_8h.html#ad85ab07021653e8855f69d3fa2059ee7">wu_pnl_stats_new</a>();</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">if</span> (!sr-&gt;return_stats) {</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        free(sr);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    }</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    sr-&gt;risk_free_rate = risk_free_rate;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    sr-&gt;value = NAN;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    sr-&gt;prev_value = initial_value;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    sr-&gt;count = 0;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    sr-&gt;start_time = 0;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    sr-&gt;end_time = 0;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    sr-&gt;time_unit = <a class="code hl_enumvalue" href="timeutils_8h.html#a32fd359d0dbf4831d7790f38dea45ab3a4bd26f3bae3cc160316aa4d36298a6bd">WU_TIME_UNIT_SECONDS</a>;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    sr-&gt;update = <a class="code hl_function" href="sharpe_8c.html#a93f194b460efb7ae92cecaaa375fdc1d">wu_sharpe_ratio_update</a>;</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    sr-&gt;delete = <a class="code hl_function" href="sharpe_8c.html#aae886663ca94d6bc2d0a97ac87fd2d12">wu_sharpe_ratio_free</a>;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordflow">return</span> sr;</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>}</div>
-</div>
-<div class="ttc" id="asharpe_8c_html_a56794f6853bba619166efb88e8285a81"><div class="ttname"><a href="sharpe_8c.html#a56794f6853bba619166efb88e8285a81">wu_sharpe_ratio_new</a></div><div class="ttdeci">WU_SharpeRatio wu_sharpe_ratio_new(double initial_value, double risk_free_rate)</div><div class="ttdef"><b>Definition</b> <a href="#l00047">sharpe.c:47</a></div></div>
+<div class="ttc" id="asharpe_8c_html_a56794f6853bba619166efb88e8285a81"><div class="ttname"><a href="sharpe_8c.html#a56794f6853bba619166efb88e8285a81">wu_sharpe_ratio_new</a></div><div class="ttdeci">WU_SharpeRatio wu_sharpe_ratio_new(double initial_value, double risk_free_rate)</div><div class="ttdef"><b>Definition</b> <a href="#l00041">sharpe.c:41</a></div></div>
 <div class="ttc" id="asharpe_8c_html_a93f194b460efb7ae92cecaaa375fdc1d"><div class="ttname"><a href="sharpe_8c.html#a93f194b460efb7ae92cecaaa375fdc1d">wu_sharpe_ratio_update</a></div><div class="ttdeci">static double wu_sharpe_ratio_update(WU_SharpeRatio self, WU_PerformanceUpdate perf)</div><div class="ttdef"><b>Definition</b> <a href="#l00006">sharpe.c:6</a></div></div>
-<div class="ttc" id="asharpe_8c_html_aae886663ca94d6bc2d0a97ac87fd2d12"><div class="ttname"><a href="sharpe_8c.html#aae886663ca94d6bc2d0a97ac87fd2d12">wu_sharpe_ratio_free</a></div><div class="ttdeci">static void wu_sharpe_ratio_free(WU_SharpeRatio self)</div><div class="ttdef"><b>Definition</b> <a href="#l00041">sharpe.c:41</a></div></div>
-<div class="ttc" id="astats_8h_html_ad85ab07021653e8855f69d3fa2059ee7"><div class="ttname"><a href="stats_8h.html#ad85ab07021653e8855f69d3fa2059ee7">wu_pnl_stats_new</a></div><div class="ttdeci">WU_PnLStats wu_pnl_stats_new(void)</div><div class="ttdef"><b>Definition</b> <a href="pnl__stats_8c_source.html#l00029">pnl_stats.c:29</a></div></div>
-<div class="ttc" id="astructWU__PerformanceUpdate_html"><div class="ttname"><a href="structWU__PerformanceUpdate.html">WU_PerformanceUpdate</a></div><div class="ttdoc">Performance Update - value and timestamp for performance metric calculations.</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00238">indicators.h:238</a></div></div>
-<div class="ttc" id="astructWU__PerformanceUpdate_html_a73c49c47048e9b2dc06d78079017f6c5"><div class="ttname"><a href="structWU__PerformanceUpdate.html#a73c49c47048e9b2dc06d78079017f6c5">WU_PerformanceUpdate::portfolio_value</a></div><div class="ttdeci">double portfolio_value</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00239">indicators.h:239</a></div></div>
-<div class="ttc" id="astructWU__PerformanceUpdate_html_a8ab7a47c1f8b46cfe3f65808d64dadf9"><div class="ttname"><a href="structWU__PerformanceUpdate.html#a8ab7a47c1f8b46cfe3f65808d64dadf9">WU_PerformanceUpdate::timestamp</a></div><div class="ttdeci">WU_TimeStamp timestamp</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00240">indicators.h:240</a></div></div>
+<div class="ttc" id="asharpe_8c_html_aae886663ca94d6bc2d0a97ac87fd2d12"><div class="ttname"><a href="sharpe_8c.html#aae886663ca94d6bc2d0a97ac87fd2d12">wu_sharpe_ratio_free</a></div><div class="ttdeci">static void wu_sharpe_ratio_free(WU_SharpeRatio self)</div><div class="ttdef"><b>Definition</b> <a href="#l00035">sharpe.c:35</a></div></div>
+<div class="ttc" id="astats_8h_html_ad85ab07021653e8855f69d3fa2059ee7"><div class="ttname"><a href="stats_8h.html#ad85ab07021653e8855f69d3fa2059ee7">wu_pnl_stats_new</a></div><div class="ttdeci">WU_PnLStats wu_pnl_stats_new(void)</div><div class="ttdef"><b>Definition</b> <a href="pnl__stats_8c_source.html#l00027">pnl_stats.c:27</a></div></div>
+<div class="ttc" id="astructWU__PerformanceUpdate_html"><div class="ttname"><a href="structWU__PerformanceUpdate.html">WU_PerformanceUpdate</a></div><div class="ttdoc">Performance Update - value and timestamp for performance metric calculations.</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00239">indicators.h:239</a></div></div>
+<div class="ttc" id="astructWU__PerformanceUpdate_html_a73c49c47048e9b2dc06d78079017f6c5"><div class="ttname"><a href="structWU__PerformanceUpdate.html#a73c49c47048e9b2dc06d78079017f6c5">WU_PerformanceUpdate::portfolio_value</a></div><div class="ttdeci">double portfolio_value</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00240">indicators.h:240</a></div></div>
+<div class="ttc" id="astructWU__PerformanceUpdate_html_a8ab7a47c1f8b46cfe3f65808d64dadf9"><div class="ttname"><a href="structWU__PerformanceUpdate.html#a8ab7a47c1f8b46cfe3f65808d64dadf9">WU_PerformanceUpdate::timestamp</a></div><div class="ttdeci">WU_TimeStamp timestamp</div><div class="ttdef"><b>Definition</b> <a href="indicators_8h_source.html#l00241">indicators.h:241</a></div></div>
 <div class="ttc" id="astructWU__PnLStatsResult_html"><div class="ttname"><a href="structWU__PnLStatsResult.html">WU_PnLStatsResult</a></div><div class="ttdoc">PnL Statistics Result - contains mean and standard deviation of PnL values.</div><div class="ttdef"><b>Definition</b> <a href="stats_8h_source.html#l00010">stats.h:10</a></div></div>
 <div class="ttc" id="astructWU__PnLStatsResult_html_a2e06f22804bdae9aa366a95af211d443"><div class="ttname"><a href="structWU__PnLStatsResult.html#a2e06f22804bdae9aa366a95af211d443">WU_PnLStatsResult::stddev</a></div><div class="ttdeci">double stddev</div><div class="ttdef"><b>Definition</b> <a href="stats_8h_source.html#l00012">stats.h:12</a></div></div>
 <div class="ttc" id="astructWU__PnLStatsResult_html_a6fd50d4bb654bbfdb5d1264fefb7a2ce"><div class="ttname"><a href="structWU__PnLStatsResult.html#a6fd50d4bb654bbfdb5d1264fefb7a2ce">WU_PnLStatsResult::mean</a></div><div class="ttdeci">double mean</div><div class="ttdef"><b>Definition</b> <a href="stats_8h_source.html#l00011">stats.h:11</a></div></div>

@@ -9,9 +9,10 @@ var searchData=
   ['max_5floss_6',['max_loss',['../structWU__PortfolioStats__.html#ae4b20813de51e7c5c1014a7e8e15d92b',1,'WU_PortfolioStats_']]],
   ['max_5fwin_7',['max_win',['../structWU__PortfolioStats__.html#af751421d0c1d511e2ef3b1df6fabc160',1,'WU_PortfolioStats_']]],
   ['maxdrawdown_2ec_8',['maxdrawdown.c',['../maxdrawdown_8c.html',1,'']]],
-  ['mean_9',['mean',['../structWU__PnLStatsResult.html#a6fd50d4bb654bbfdb5d1264fefb7a2ce',1,'WU_PnLStatsResult']]],
+  ['mean_9',['mean',['../structWU__Var__.html#a8f10fbb5ebaabf6588c99bbcc1abc604',1,'WU_Var_::mean'],['../structWU__PnLStatsResult.html#a6fd50d4bb654bbfdb5d1264fefb7a2ce',1,'WU_PnLStatsResult::mean']]],
   ['mean_2ec_10',['mean.c',['../mean_8c.html',1,'']]],
   ['mean_5fdownside_2ec_11',['mean_downside.c',['../mean__downside_8c.html',1,'']]],
-  ['mvar_12',['mvar',['../structWU__MStDev__.html#ac30143f5e8cb0ea79cad60b9ff2b4aec',1,'WU_MStDev_']]],
-  ['mvar_2ec_13',['mvar.c',['../mvar_8c.html',1,'']]]
+  ['mstdev_2ec_12',['mstdev.c',['../mstdev_8c.html',1,'']]],
+  ['mvar_13',['mvar',['../structWU__MStDev__.html#ac30143f5e8cb0ea79cad60b9ff2b4aec',1,'WU_MStDev_']]],
+  ['mvar_2ec_14',['mvar.c',['../mvar_8c.html',1,'']]]
 ];

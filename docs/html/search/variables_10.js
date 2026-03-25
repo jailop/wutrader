@@ -21,6 +21,7 @@ var searchData=
   ['stop_5floss_5fpct_18',['stop_loss_pct',['../structWU__ExecutionPolicy.html#ac2a168e33b2a9ba26f3356b99ce2efad',1,'WU_ExecutionPolicy']]],
   ['strategy_19',['strategy',['../structWU__Runner__.html#abac03bc669ac22e0eebf8aed45e95927',1,'WU_Runner_']]],
   ['sum_20',['sum',['../structWU__SMA__.html#ab7aa1026d09258232669afc881034d3e',1,'WU_SMA_']]],
-  ['symbol_21',['symbol',['../structWU__PositionVector.html#a1ed01d0e90592953705269f65b01c378',1,'WU_PositionVector']]],
-  ['symbols_22',['symbols',['../structWU__PortfolioStats__.html#aa9d7ed448bfef314ad3eb09e2dcc163c',1,'WU_PortfolioStats_']]]
+  ['sum2_21',['sum2',['../structWU__MVar__.html#a44feaa96a3d28d5da70161674d81425d',1,'WU_MVar_::sum2'],['../structWU__Var__.html#a2728b50807bcda22a60d7d0b81c3dcd6',1,'WU_Var_::sum2']]],
+  ['symbol_22',['symbol',['../structWU__PositionVector.html#a1ed01d0e90592953705269f65b01c378',1,'WU_PositionVector']]],
+  ['symbols_23',['symbols',['../structWU__PortfolioStats__.html#aa9d7ed448bfef314ad3eb09e2dcc163c',1,'WU_PortfolioStats_']]]
 ];

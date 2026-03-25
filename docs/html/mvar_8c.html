@@ -93,13 +93,14 @@ $(function(){initNavTree('mvar_8c.html','',''); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="indicators_8h_source.html">wu/indicators.h</a>&quot;</code><br />
 </div>
 <p><a href="mvar_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af00d8bc523a38ab1b1f67017ae76cdb0" id="r_af00d8bc523a38ab1b1f67017ae76cdb0"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#af00d8bc523a38ab1b1f67017ae76cdb0">update</a> (WU_MVar mvar, double value)</td></tr>
+<tr class="memitem:ad5cdfe863459df17b455fabc34d11376" id="r_ad5cdfe863459df17b455fabc34d11376"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#ad5cdfe863459df17b455fabc34d11376">update</a> (WU_MVar self, double value)</td></tr>
 <tr class="memitem:a5e5d071444dcaf6814480c5ff91e58b9" id="r_a5e5d071444dcaf6814480c5ff91e58b9"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a5e5d071444dcaf6814480c5ff91e58b9">delete</a> (WU_MVar mvar)</td></tr>
 <tr class="memitem:aff9da9e70b409d278ee0354bea09164d" id="r_aff9da9e70b409d278ee0354bea09164d"><td class="memItemLeft">WU_MVar&#160;</td><td class="memItemRight"><a class="el" href="#aff9da9e70b409d278ee0354bea09164d">wu_mvar_new</a> (int window_size, int dof)</td></tr>
 <tr class="memdesc:aff9da9e70b409d278ee0354bea09164d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new WU_MVar (Moving Variance) indicator with the specified window size and degree of freedom.  <br /></td></tr>
@@ -132,8 +133,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af00d8bc523a38ab1b1f67017ae76cdb0" name="af00d8bc523a38ab1b1f67017ae76cdb0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af00d8bc523a38ab1b1f67017ae76cdb0">&#9670;&#160;</a></span>update()</h2>
+<a id="ad5cdfe863459df17b455fabc34d11376" name="ad5cdfe863459df17b455fabc34d11376"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5cdfe863459df17b455fabc34d11376">&#9670;&#160;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -144,7 +145,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">double update </td>
           <td>(</td>
-          <td class="paramtype">WU_MVar</td>          <td class="paramname"><span class="paramname"><em>mvar</em></span>, </td>
+          <td class="paramtype">WU_MVar</td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -159,7 +160,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mvar_8c_source.html#l00004">4</a> of file <a class="el" href="mvar_8c_source.html">mvar.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mvar_8c_source.html#l00005">5</a> of file <a class="el" href="mvar_8c_source.html">mvar.c</a>.</p>
 
 </div>
 </div>

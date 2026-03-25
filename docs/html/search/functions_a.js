@@ -7,5 +7,7 @@ var searchData=
   ['stats_5fto_5fjson_4',['stats_to_json',['../stats_8c.html#a0e43b71b13cec96a7bb827bf93a7dc4b',1,'stats.c']]],
   ['stats_5fto_5fkeyvalue_5',['stats_to_keyvalue',['../stats_8c.html#a11c19d019200f75353f63be5d4c21e1d',1,'stats.c']]],
   ['stats_5fupdate_6',['stats_update',['../stats_8c.html#ab5783d26f28b7d38e959ad33132e5864',1,'stats.c']]],
-  ['stats_5fupdate_5fposition_7',['stats_update_position',['../stats_8c.html#a74882bdbc1301b92825047fbc25a0e13',1,'stats.c']]]
+  ['stats_5fupdate_5fposition_7',['stats_update_position',['../stats_8c.html#a74882bdbc1301b92825047fbc25a0e13',1,'stats.c']]],
+  ['stdev_5fdelete_8',['stdev_delete',['../var_8c.html#a50880bc326e6bda43b8e97cb2949bbae',1,'var.c']]],
+  ['stdev_5fupdate_9',['stdev_update',['../var_8c.html#a67e54894d3be80594a24c655bb1e29b8',1,'var.c']]]
 ];
