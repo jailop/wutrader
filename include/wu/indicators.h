@@ -116,6 +116,7 @@ struct WU_MVar_ {
     double value;
     WU_SMA sma;
     double* prev_values;
+    double sum2;
     int window_size;
     int pos;
     int len;
