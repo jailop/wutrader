@@ -40,6 +40,8 @@ nav:
   - Examples:
     - Crossover Strategy: examples/crossover.md
     - Pairs Trading: examples/pairs_trading.md
+  - Cheatsheets:
+    - Indicators: cheatsheets.md
   - FAQ: faq.md
   - API Reference: https://jailop.codeberg.page/wutrader/docs/html/
   - Repository: https://codeberg.org/jailop/wu
