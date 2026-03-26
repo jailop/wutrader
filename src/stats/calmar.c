@@ -11,7 +11,7 @@ static double wu_calmar_ratio_update(WU_CalmarRatio self, WU_PerformanceUpdate p
         return (self->value = NAN);
     }
 
-    double ret = (portfolio_value - self->prev_value) / self->prev_value;
+    // double ret = (portfolio_value - self->prev_value) / self->prev_value;
     self->prev_value = portfolio_value;
     self->end_time = perf.timestamp.mark;
     self->count++;

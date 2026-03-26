@@ -24,7 +24,7 @@ WU_PortfolioParams wu_portfolio_params_default(void) {
         .execution_policy = {
             .policy = WU_EXECUTION_POLICY_IMMEDIATE,
             .execution_mean = 0.0,
-            .execution_stddev = 0.0,
+            .execution_stdev = 0.0,
             .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
             .tx_cost_value = 0.001,
             .stop_loss_pct = NAN,
@@ -73,7 +73,7 @@ static double calculate_years_held(WU_TimeStamp open_time,
  * Calculates the execution price based on the execution policy.
  * For IMMEDIATE and NEXT_CLOSE, returns the base price.
  * For FIXED_SLIPPAGE, applies a fixed slippage percentage.
- * For RANDOM_SLIPPAGE, applies random slippage based on mean and stddev.
+ * For RANDOM_SLIPPAGE, applies random slippage based on mean and stdev.
  */
 static inline
 double execution_price(double price, WU_ExecutionPolicy policy, bool is_buy) {
@@ -87,9 +87,9 @@ double execution_price(double price, WU_ExecutionPolicy policy, bool is_buy) {
         }
         case WU_EXECUTION_POLICY_RANDOM_SLIPPAGE: {
             double mean = policy.execution_mean;
-            double stddev = policy.execution_stddev;
+            double stdev = policy.execution_stdev;
             double random_factor = ((double)rand() / RAND_MAX - 0.5) * 2.0;
-            double random_slippage = mean + stddev * random_factor;
+            double random_slippage = mean + stdev * random_factor;
             return price * (1.0 + (is_buy ? random_slippage : -random_slippage));
         }
         default:

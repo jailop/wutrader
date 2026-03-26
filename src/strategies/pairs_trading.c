@@ -39,15 +39,15 @@ static WU_Signal* pairs_trading_strat_update(struct WU_Strategy_* strat_,
     
     // Update spread statistics
     double spread_mean = wu_indicator_update(strat->spread_ma, spread);
-    double spread_stddev = wu_indicator_update(strat->spread_std, spread);
+    double spread_stdev = wu_indicator_update(strat->spread_std, spread);
     
     // Wait for indicators to warm up
-    if (isnan(spread_mean) || isnan(spread_stddev))
+    if (isnan(spread_mean) || isnan(spread_stdev))
         return strat->base.signal_buffer;
     
     // Calculate entry/exit thresholds
-    double upper_band = spread_mean + strat->threshold * spread_stddev;
-    double lower_band = spread_mean - strat->threshold * spread_stddev;
+    double upper_band = spread_mean + strat->threshold * spread_stdev;
+    double lower_band = spread_mean - strat->threshold * spread_stdev;
     
     // Pairs trading logic:
     // When spread is below lower band: Asset A is cheap relative to B
