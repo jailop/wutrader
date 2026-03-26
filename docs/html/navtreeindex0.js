@@ -223,11 +223,6 @@ var NAVTREEINDEX0 =
 "pairs__trading_8c.html#a88dd001f737d3b93c2e0bbcb687958c3":[1,0,1,5,1,5],
 "pairs__trading_8c.html#ad706a4e66dccbe66985b4c8785f28f3c":[1,0,1,5,1,0],
 "pairs__trading_8c_source.html":[1,0,1,5,1],
-"pnl__stats_8c.html":[1,0,1,4,1],
-"pnl__stats_8c.html#a642dd1257dd84256fefd0a1d7f4f19d4":[1,0,1,4,1,2],
-"pnl__stats_8c.html#ad85ab07021653e8855f69d3fa2059ee7":[1,0,1,4,1,1],
-"pnl__stats_8c.html#af74572860c28b0c7b83a70c1d2e64ff9":[1,0,1,4,1,0],
-"pnl__stats_8c_source.html":[1,0,1,4,1],
 "portfolios_8h.html":[1,0,0,0,2],
 "portfolios_8h.html#a0d0341adb332ca990d1076ba417d39cd":[1,0,0,0,2,15],
 "portfolios_8h.html#a25f6189eea4d040ee4dd18774952b922":[1,0,0,0,2,5],
@@ -249,5 +244,10 @@ var NAVTREEINDEX0 =
 "portfolios_8h.html#ac188aac2e27bd252d3b13b06ebaa1631":[1,0,0,0,2,10],
 "portfolios_8h.html#ac188aac2e27bd252d3b13b06ebaa1631a100d540a970fc6361be59de5d80e6b46":[1,0,0,0,2,10,2],
 "portfolios_8h.html#ac188aac2e27bd252d3b13b06ebaa1631a4aa9afc26ce34877ebe8305f75831592":[1,0,0,0,2,10,1],
-"portfolios_8h.html#ac188aac2e27bd252d3b13b06ebaa1631a5f0dd216d20db461f21115a2ca7a3f97":[1,0,0,0,2,10,0]
+"portfolios_8h.html#ac188aac2e27bd252d3b13b06ebaa1631a5f0dd216d20db461f21115a2ca7a3f97":[1,0,0,0,2,10,0],
+"portfolios_8h_source.html":[1,0,0,0,2],
+"positions_8h.html":[1,0,0,0,3],
+"positions_8h.html#a03624d91b8c78e5c9bb9633bbd41c2ce":[1,0,0,0,3,4],
+"positions_8h.html#a1dbedbc3d130b8378ece87fc6dcf6060":[1,0,0,0,3,9],
+"positions_8h.html#a5b390c420a649a4d4f8fff1afdedbde4":[1,0,0,0,3,5]
 };

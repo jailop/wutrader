@@ -182,7 +182,7 @@ WU_PortfolioParams params = {
     .execution_policy = {
         .policy = WU_EXECUTION_POLICY_FIXED_SLIPPAGE,
         .execution_mean = 0.0005,
-        .execution_stddev = 0.0,
+        .execution_stdev = 0.0,
         .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
         .tx_cost_value = 0.001,
         .stop_loss_pct = 0.10,
@@ -276,7 +276,7 @@ more. Longer windows (20/50) are smoother but lag more.</p>
 Compare returns and drawdowns.</p>
 <p><strong>Remove risk management</strong>: Set stop loss and take profit to NAN to rely
 purely on strategy signals. Observe how this changes trade characteristics.</p>
-<p><strong>Add slippage variability</strong>: Switch to RANDOM_SLIPPAGE with stddev to
+<p><strong>Add slippage variability</strong>: Switch to RANDOM_SLIPPAGE with stdev to
 model execution uncertainty.</p>
 <p><strong>Try different assets</strong>: Run on different stocks, ETFs, or
 cryptocurrencies. Crossover strategies behave differently depending on

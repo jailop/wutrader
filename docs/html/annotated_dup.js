@@ -19,8 +19,6 @@ var annotated_dup =
     [ "WU_MVar", "structWU__MVar__.html", "structWU__MVar__" ],
     [ "WU_PairsTradingStrat", "structWU__PairsTradingStrat__.html", "structWU__PairsTradingStrat__" ],
     [ "WU_PerformanceUpdate", "structWU__PerformanceUpdate.html", "structWU__PerformanceUpdate" ],
-    [ "WU_PnLStats", "structWU__PnLStats__.html", "structWU__PnLStats__" ],
-    [ "WU_PnLStatsResult", "structWU__PnLStatsResult.html", "structWU__PnLStatsResult" ],
     [ "WU_Portfolio", "structWU__Portfolio__.html", "structWU__Portfolio__" ],
     [ "WU_PortfolioParams", "structWU__PortfolioParams.html", "structWU__PortfolioParams" ],
     [ "WU_PortfolioStats", "structWU__PortfolioStats__.html", "structWU__PortfolioStats__" ],

@@ -29,7 +29,7 @@ var searchData=
   ['stats_5fto_5fkeyvalue_26',['stats_to_keyvalue',['../stats_8c.html#a11c19d019200f75353f63be5d4c21e1d',1,'stats.c']]],
   ['stats_5fupdate_27',['stats_update',['../stats_8c.html#ab5783d26f28b7d38e959ad33132e5864',1,'stats.c']]],
   ['stats_5fupdate_5fposition_28',['stats_update_position',['../stats_8c.html#a74882bdbc1301b92825047fbc25a0e13',1,'stats.c']]],
-  ['stddev_29',['stddev',['../structWU__PnLStatsResult.html#a2e06f22804bdae9aa366a95af211d443',1,'WU_PnLStatsResult']]],
+  ['stdev_29',['stdev',['../structWU__SharpeRatio__.html#aca4b31613b6cb232bc428e5635b75bb2',1,'WU_SharpeRatio_::stdev'],['../structWU__PortfolioStats__.html#a20b67e1dace4b0003a633c3596ef5910',1,'WU_PortfolioStats_::stdev']]],
   ['stdev_5fdelete_30',['stdev_delete',['../var_8c.html#a50880bc326e6bda43b8e97cb2949bbae',1,'var.c']]],
   ['stdev_5fupdate_31',['stdev_update',['../var_8c.html#a67e54894d3be80594a24c655bb1e29b8',1,'var.c']]],
   ['stop_5floss_5fexits_32',['stop_loss_exits',['../structWU__PortfolioStats__.html#a56e0bf321f1a4ad9c72f2a9ff06b8160',1,'WU_PortfolioStats_']]],

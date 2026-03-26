@@ -16,7 +16,7 @@ var searchData=
   ['start_13',['start',['../structWU__MACD__.html#a4b71a224788304115a276e4dfb9495d6',1,'WU_MACD_']]],
   ['start_5ftime_14',['start_time',['../structWU__SharpeRatio__.html#a706147c3e379df750027e768f4af7415',1,'WU_SharpeRatio_::start_time'],['../structWU__SortinoRatio__.html#a3774f8c7d5ffab6da776874e261274a2',1,'WU_SortinoRatio_::start_time'],['../structWU__CalmarRatio__.html#a8cc32911b13b89ec732bb4a62ad77a90',1,'WU_CalmarRatio_::start_time']]],
   ['stats_15',['stats',['../structWU__BasicPortfolio__.html#a6373eb8f5bce8353fb58a7324433cf76',1,'WU_BasicPortfolio_']]],
-  ['stddev_16',['stddev',['../structWU__PnLStatsResult.html#a2e06f22804bdae9aa366a95af211d443',1,'WU_PnLStatsResult']]],
+  ['stdev_16',['stdev',['../structWU__SharpeRatio__.html#aca4b31613b6cb232bc428e5635b75bb2',1,'WU_SharpeRatio_::stdev'],['../structWU__PortfolioStats__.html#a20b67e1dace4b0003a633c3596ef5910',1,'WU_PortfolioStats_::stdev']]],
   ['stop_5floss_5fexits_17',['stop_loss_exits',['../structWU__PortfolioStats__.html#a56e0bf321f1a4ad9c72f2a9ff06b8160',1,'WU_PortfolioStats_']]],
   ['stop_5floss_5fpct_18',['stop_loss_pct',['../structWU__ExecutionPolicy.html#ac2a168e33b2a9ba26f3356b99ce2efad',1,'WU_ExecutionPolicy']]],
   ['strategy_19',['strategy',['../structWU__Runner__.html#abac03bc669ac22e0eebf8aed45e95927',1,'WU_Runner_']]],

@@ -1,7 +1,7 @@
 var structWU__ExecutionPolicy =
 [
     [ "execution_mean", "structWU__ExecutionPolicy.html#ad9294872eafcac264c12323aa93a2d74", null ],
-    [ "execution_stddev", "structWU__ExecutionPolicy.html#a088a9ad1c121c47a11892d0437a4b01e", null ],
+    [ "execution_stdev", "structWU__ExecutionPolicy.html#ae6e1526399a4545ba2e1434863d1efb0", null ],
     [ "policy", "structWU__ExecutionPolicy.html#ac38b70dc4bf2eced0ce7a8adba3efa90", null ],
     [ "stop_loss_pct", "structWU__ExecutionPolicy.html#ac2a168e33b2a9ba26f3356b99ce2efad", null ],
     [ "take_profit_pct", "structWU__ExecutionPolicy.html#a5c938567ddab4286289ccc4fa760f782", null ],

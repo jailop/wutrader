@@ -197,8 +197,8 @@ away. The fixed percentage is a simplification. Real slippage depends on
 order size, volatility, liquidity, and market conditions.</p>
 <h3 id="random_slippage">RANDOM_SLIPPAGE<a class="headerlink" href="#random_slippage" title="Permanent link">&para;</a></h3>
 <p>Orders execute immediately with random slippage drawn from a
-distribution. The <code>execution_mean</code> and <code>execution_stddev</code> parameters
-define the distribution. Slippage is sampled as <code>mean ± stddev × random</code>.</p>
+distribution. The <code>execution_mean</code> and <code>execution_stdev</code> parameters
+define the distribution. Slippage is sampled as <code>mean ± stdev × random</code>.</p>
 <p>This adds variability to model how market impact varies. Sometimes you
 get lucky and slip less than average. Sometimes you slip more. Over many
 trades, it averages out to the mean, but individual trades vary.</p>

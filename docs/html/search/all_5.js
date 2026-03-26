@@ -10,5 +10,5 @@ var searchData=
   ['execution_5fmean_7',['execution_mean',['../structWU__ExecutionPolicy.html#ad9294872eafcac264c12323aa93a2d74',1,'WU_ExecutionPolicy']]],
   ['execution_5fpolicy_8',['execution_policy',['../structWU__PortfolioParams.html#a401d1a52a094e06dbdd8c8de1d680355',1,'WU_PortfolioParams']]],
   ['execution_5fprice_9',['execution_price',['../basic_8c.html#a0bb60c9c214633ab95fa5f3a8ed79659',1,'basic.c']]],
-  ['execution_5fstddev_10',['execution_stddev',['../structWU__ExecutionPolicy.html#a088a9ad1c121c47a11892d0437a4b01e',1,'WU_ExecutionPolicy']]]
+  ['execution_5fstdev_10',['execution_stdev',['../structWU__ExecutionPolicy.html#ae6e1526399a4545ba2e1434863d1efb0',1,'WU_ExecutionPolicy']]]
 ];
