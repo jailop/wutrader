@@ -46,7 +46,7 @@ int main(int argc, char** argv) {
         .execution_policy = {
             .policy = WU_EXECUTION_POLICY_FIXED_SLIPPAGE,
             .execution_mean = 0.0005,
-            .execution_stddev = 0.0,
+            .execution_stdev = 0.0,
             .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
             .tx_cost_value = 0.001,
             .stop_loss_pct = 0.10,

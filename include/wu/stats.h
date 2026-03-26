@@ -4,30 +4,6 @@
 #include <time.h>
 #include "indicators.h"
 
-/**
- * PnL Statistics Result - contains mean and standard deviation of PnL values.
- */
-typedef struct {
-    double mean;           // Mean PnL per trade
-    double stddev;         // Standard deviation of PnL
-} WU_PnLStatsResult;
-
-/**
- * PnL Statistics - combined wrapper using separated indicators. Exists in stats
- * as a convenient composite that can be used by higher-level code (e.g. portfolios).
- */
-typedef struct WU_PnLStats_ {
-    WU_PnLStatsResult (*update)(struct WU_PnLStats_* self, double pnl);
-    void (*delete)(struct WU_PnLStats_* self);
-    WU_PnLStatsResult value;
-    /* internal Welford state */
-    double pnl_mean;       // Mean of PnL
-    double pnl_m2;         // Sum of squared deviations
-    int64_t count;         // Number of trades
-}* WU_PnLStats;
-
-WU_PnLStats wu_pnl_stats_new(void);
-
 /* Composite ratio indicators (moved from indicators.h so combined types live in stats.h)
  * These combine lower-level indicators and time tracking to compute annualized metrics.
  */
@@ -36,7 +12,8 @@ typedef struct WU_SharpeRatio_ {
     double (*update)(struct WU_SharpeRatio_* self, WU_PerformanceUpdate perf);
     void (*delete)(struct WU_SharpeRatio_* self);
     double value;           // Current Sharpe ratio
-    WU_PnLStats return_stats; // Online mean/stddev of returns (Welford)
+    WU_Mean mean;
+    WU_StDev stdev;
     double risk_free_rate;  // Annual risk-free rate
     double initial_value;   // Initial portfolio value used for return calc
     double prev_value;      // Previous portfolio value for return calc
@@ -52,7 +29,8 @@ typedef struct WU_SortinoRatio_ {
     double (*update)(struct WU_SortinoRatio_* self, WU_PerformanceUpdate perf);
     void (*delete)(struct WU_SortinoRatio_* self);
     double value;           // Current Sortino ratio
-    WU_PnLStats return_stats; // Online mean/stddev of returns (Welford)
+    WU_Mean mean;
+    // WU_StDev stdev;
     WU_Downside downside;   // Downside deviation tracker (negative returns)
     double risk_free_rate;  // Annual risk-free rate
     double prev_value;      // Previous portfolio value for return calc
@@ -133,7 +111,8 @@ typedef struct WU_PortfolioStats_ {
     WU_SharpeRatio sharpe_ratio;
     WU_SortinoRatio sortino_ratio;
     WU_CalmarRatio calmar_ratio;
-    WU_PnLStats pnl_stats;
+    WU_Mean mean;
+    WU_StDev stdev;
 }* WU_PortfolioStats;
 
 /**

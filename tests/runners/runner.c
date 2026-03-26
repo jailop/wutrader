@@ -10,7 +10,7 @@ void test_runner_single_input_creation(void) {
     params.direction = WU_DIRECTION_LONG;
     params.execution_policy.policy = WU_EXECUTION_POLICY_FIXED_SLIPPAGE;
     params.execution_policy.execution_mean = 0.0005;
-    params.execution_policy.execution_stddev = 0.0;
+    params.execution_policy.execution_stdev = 0.0;
     params.execution_policy.tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL;
     params.execution_policy.tx_cost_value = 0.001;
     params.position_sizing.size_type = WU_POSITION_SIZE_PCT;
@@ -52,7 +52,7 @@ void test_runner_multi_input_creation(void) {
     params.direction = WU_DIRECTION_LONG;
     params.execution_policy.policy = WU_EXECUTION_POLICY_FIXED_SLIPPAGE;
     params.execution_policy.execution_mean = 0.0005;
-    params.execution_policy.execution_stddev = 0.0;
+    params.execution_policy.execution_stdev = 0.0;
     params.execution_policy.tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL;
     params.execution_policy.tx_cost_value = 0.001;
     params.position_sizing.size_type = WU_POSITION_SIZE_PCT;
@@ -96,7 +96,7 @@ void test_runner_rejects_mismatched_reader_count(void) {
     params.direction = WU_DIRECTION_LONG;
     params.execution_policy.policy = WU_EXECUTION_POLICY_FIXED_SLIPPAGE;
     params.execution_policy.execution_mean = 0.0005;
-    params.execution_policy.execution_stddev = 0.0;
+    params.execution_policy.execution_stdev = 0.0;
     params.execution_policy.tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL;
     params.execution_policy.tx_cost_value = 0.001;
     params.position_sizing.size_type = WU_POSITION_SIZE_PCT;
@@ -137,7 +137,7 @@ void test_runner_rejects_null_arguments(void) {
     params.direction = WU_DIRECTION_LONG;
     params.execution_policy.policy = WU_EXECUTION_POLICY_FIXED_SLIPPAGE;
     params.execution_policy.execution_mean = 0.0005;
-    params.execution_policy.execution_stddev = 0.0;
+    params.execution_policy.execution_stdev = 0.0;
     params.execution_policy.tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL;
     params.execution_policy.tx_cost_value = 0.001;
     params.position_sizing.size_type = WU_POSITION_SIZE_PCT;
@@ -176,7 +176,7 @@ void test_runner_rejects_invalid_reader_count(void) {
     params.direction = WU_DIRECTION_LONG;
     params.execution_policy.policy = WU_EXECUTION_POLICY_FIXED_SLIPPAGE;
     params.execution_policy.execution_mean = 0.0005;
-    params.execution_policy.execution_stddev = 0.0;
+    params.execution_policy.execution_stdev = 0.0;
     params.execution_policy.tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL;
     params.execution_policy.tx_cost_value = 0.001;
     params.position_sizing.size_type = WU_POSITION_SIZE_PCT;
@@ -206,7 +206,7 @@ void test_runner_convenience_function(void) {
     params.direction = WU_DIRECTION_LONG;
     params.execution_policy.policy = WU_EXECUTION_POLICY_FIXED_SLIPPAGE;
     params.execution_policy.execution_mean = 0.0005;
-    params.execution_policy.execution_stddev = 0.0;
+    params.execution_policy.execution_stdev = 0.0;
     params.execution_policy.tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL;
     params.execution_policy.tx_cost_value = 0.001;
     params.execution_policy.stop_loss_pct = 0.0;

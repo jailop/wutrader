@@ -128,9 +128,9 @@ int main(int argc, char* argv[]) {
     printf("\n=== Strategy Logic Explanation ===\n");
     printf("The pairs trading strategy monitors the spread (SPY - QQQ) and:\n\n");
     printf("1. ENTRY SIGNALS:\n");
-    printf("   - When spread < mean - 2*stddev (SPY undervalued relative to QQQ)\n");
+    printf("   - When spread < mean - 2*stdev (SPY undervalued relative to QQQ)\n");
     printf("     → BUY SPY + SELL QQQ (bet on mean reversion)\n");
-    printf("   - When spread > mean + 2*stddev (SPY overvalued relative to QQQ)\n");
+    printf("   - When spread > mean + 2*stdev (SPY overvalued relative to QQQ)\n");
     printf("     → SELL SPY + BUY QQQ (bet on mean reversion)\n\n");
     printf("2. EXIT SIGNALS:\n");
     printf("   - When spread crosses back through the mean\n");
