@@ -62,8 +62,8 @@ order size, volatility, liquidity, and market conditions.
 ### RANDOM_SLIPPAGE
 
 Orders execute immediately with random slippage drawn from a
-distribution. The `execution_mean` and `execution_stddev` parameters
-define the distribution. Slippage is sampled as `mean ± stddev × random`.
+distribution. The `execution_mean` and `execution_stdev` parameters
+define the distribution. Slippage is sampled as `mean ± stdev × random`.
 
 This adds variability to model how market impact varies. Sometimes you
 get lucky and slip less than average. Sometimes you slip more. Over many

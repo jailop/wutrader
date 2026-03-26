@@ -896,7 +896,7 @@ Wu now calculates key risk and performance metrics automatically, included in ba
 **Trade Metrics**:
 
 - `avg_pnl`: Average profit/loss per trade. Shows the expected return from a typical trade.
-- `pnl_stddev`: Standard deviation of PnL across all trades. Measures consistency—low values mean stable trades, high values mean erratic results prone to outliers.
+- `pnl_stdev`: Standard deviation of PnL across all trades. Measures consistency—low values mean stable trades, high values mean erratic results prone to outliers.
 
 **Risk-Adjusted Returns**:
 

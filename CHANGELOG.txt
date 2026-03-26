@@ -43,3 +43,7 @@
 - MVar implementation updated. Removed loop in `update` function and
   fixed bug related to window size and degrees of freedom.
 - Fixed bug in sharpe ratio implementation
+
+2026-03-26:
+
+- Removed WU_PnLStats. Replaced by WU_Mean and WU_StDev

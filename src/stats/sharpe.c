@@ -14,8 +14,9 @@ static double wu_sharpe_ratio_update(WU_SharpeRatio self,
     double ret = (perf.portfolio_value - self->initial_value) / self->initial_value;
     self->end_time = perf.timestamp.mark;
     self->count++;
-    WU_PnLStatsResult result = self->return_stats->update(self->return_stats, ret);
-    if (isnan(result.stddev) || result.stddev <= 0.0) {
+    double mean = wu_indicator_update(self->mean, ret);
+    double stdev = wu_indicator_update(self->stdev, ret);
+    if (isnan(stdev) || stdev <= 0.0) {
         self->value = NAN;
         return self->value;
     }
@@ -24,25 +25,31 @@ static double wu_sharpe_ratio_update(WU_SharpeRatio self,
     if (periods_elapsed <= 0) periods_elapsed = 1;
     double periods_per_year = annualization_factor / periods_elapsed * self->count;
     if (periods_per_year <= 0) periods_per_year = 1;
-    /* Annualize stddev and compute Sharpe: (mean_per_period - rf_per_period)/stddev_per_period * sqrt(periods_per_year)
-       Note: return_stats stores per-update returns (relative to initial), so mean/stddev are per-update stats. */
-    double annualized_stddev = result.stddev * sqrt(periods_per_year);
+    /* Annualize stdev and compute Sharpe: (mean_per_period - rf_per_period)/stdev_per_period * sqrt(periods_per_year)
+       Note: return_stats stores per-update returns (relative to initial), so mean/stdev are per-update stats. */
+    double annualized_stdev = stdev * sqrt(periods_per_year);
     double per_period_rf = self->risk_free_rate / periods_per_year;
-    self->value = (result.mean - per_period_rf) / annualized_stddev;
+    self->value = (mean - per_period_rf) / annualized_stdev;
     return self->value;
 }
 
 static void wu_sharpe_ratio_free(WU_SharpeRatio self) {
-    if (self->return_stats)
-        self->return_stats->delete(self->return_stats);
-    free(self);
+    wu_indicator_delete(self->mean);
+    wu_indicator_delete(self->stdev);
+    if (self) free(self);
 }
 
 WU_SharpeRatio wu_sharpe_ratio_new(double initial_value, double risk_free_rate) {
     WU_SharpeRatio sr = malloc(sizeof(struct WU_SharpeRatio_));
     if (!sr) return NULL;
-    sr->return_stats = wu_pnl_stats_new();
-    if (!sr->return_stats) {
+    if (!(sr->mean = wu_mean_new())) {
+        fprintf(stderr, "Sharpe Ratio Error: mean object creation failed\n");
+        free(sr);
+        return NULL;
+    }
+    if (!(sr->stdev = wu_stdev_new(1))) {
+        fprintf(stderr, "Sharpe Ratio Error: stdev object creation failed\n");
+        wu_indicator_delete(sr->mean);
         free(sr);
         return NULL;
     }
@@ -53,7 +60,7 @@ WU_SharpeRatio wu_sharpe_ratio_new(double initial_value, double risk_free_rate) 
     sr->count = 0;
     sr->start_time = 0;
     sr->end_time = 0;
-    sr->time_unit = WU_TIME_UNIT_SECONDS;
+    sr->time_unit = WU_TIME_UNIT_SECONDS; // todo: it seems it shouldn't be here
     sr->update = wu_sharpe_ratio_update;
     sr->delete = wu_sharpe_ratio_free;
     return sr;

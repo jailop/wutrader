@@ -75,7 +75,7 @@ typedef enum {
 typedef struct {
     WU_ExecutionPolicyValue policy;
     double execution_mean;
-    double execution_stddev;
+    double execution_stdev;
     WU_TransactionCostType tx_cost_type;
     double tx_cost_value;
     double stop_loss_pct;

@@ -40,7 +40,7 @@ WU_PortfolioParams params = {
     .execution_policy = {
         .policy = WU_EXECUTION_POLICY_FIXED_SLIPPAGE,
         .execution_mean = 0.0005,
-        .execution_stddev = 0.0,
+        .execution_stdev = 0.0,
         .tx_cost_type = WU_TRANSACTION_COST_PROPORTIONAL,
         .tx_cost_value = 0.001,
         .stop_loss_pct = 0.10,
@@ -155,7 +155,7 @@ Compare returns and drawdowns.
 **Remove risk management**: Set stop loss and take profit to NAN to rely
 purely on strategy signals. Observe how this changes trade characteristics.
 
-**Add slippage variability**: Switch to RANDOM_SLIPPAGE with stddev to
+**Add slippage variability**: Switch to RANDOM_SLIPPAGE with stdev to
 model execution uncertainty.
 
 **Try different assets**: Run on different stocks, ETFs, or

@@ -76,7 +76,7 @@ extern void test_stdev_dof1(void);
 /* Stats tests */
 extern void test_mean_basic(void);
 extern void test_downside_basic(void);
-extern void test_pnlstats_basic(void);
+// extern void test_pnlstats_basic(void);
 extern void test_sharpe_basic(void);
 
 int main(void) {
@@ -337,7 +337,7 @@ int main(void) {
 
     if (CU_add_test(stats_suite, "test_mean_basic", test_mean_basic) == NULL ||
         CU_add_test(stats_suite, "test_downside_basic", test_downside_basic) == NULL ||
-        CU_add_test(stats_suite, "test_pnlstats_basic", test_pnlstats_basic) == NULL ||
+        // CU_add_test(stats_suite, "test_pnlstats_basic", test_pnlstats_basic) == NULL ||
         CU_add_test(stats_suite, "test_sharpe_basic", test_sharpe_basic) == NULL) {
         CU_cleanup_registry();
         return CU_get_error();
