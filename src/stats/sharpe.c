@@ -2,16 +2,14 @@
 #include <math.h>
 #include "wu.h"
 
-
 static double wu_sharpe_ratio_update(WU_SharpeRatio self,
         WU_PerformanceUpdate perf) {
-    /* On first observed perf, record start time but still record the return
-       relative to the initial value so that returns are (value - initial)/initial */
     if (self->count == 0) {
         self->start_time = perf.timestamp.mark;
         self->time_unit = perf.timestamp.units;
     }
-    double ret = (perf.portfolio_value - self->initial_value) / self->initial_value;
+    double ret = (perf.portfolio_value - self->initial_value)
+            / self->initial_value;
     self->end_time = perf.timestamp.mark;
     self->count++;
     double mean = wu_indicator_update(self->mean, ret);
@@ -23,10 +21,9 @@ static double wu_sharpe_ratio_update(WU_SharpeRatio self,
     double annualization_factor = wu_annualization_factor(perf.timestamp.units);
     double periods_elapsed = self->end_time - self->start_time;
     if (periods_elapsed <= 0) periods_elapsed = 1;
-    double periods_per_year = annualization_factor / periods_elapsed * self->count;
+    double periods_per_year = annualization_factor / periods_elapsed 
+            * self->count;
     if (periods_per_year <= 0) periods_per_year = 1;
-    /* Annualize stdev and compute Sharpe: (mean_per_period - rf_per_period)/stdev_per_period * sqrt(periods_per_year)
-       Note: return_stats stores per-update returns (relative to initial), so mean/stdev are per-update stats. */
     double annualized_stdev = stdev * sqrt(periods_per_year);
     double per_period_rf = self->risk_free_rate / periods_per_year;
     self->value = (mean - per_period_rf) / annualized_stdev;
