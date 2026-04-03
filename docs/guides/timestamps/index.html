@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Jaime Lopez" /><link rel="canonical" href="https://jailop.codeberg.page/wutrader/guides/timestamps/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Timestamps and Data - Wu Trading Library</title>
+    <title>Timestamps - Wu Trading Library</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Timestamps and Data";
+        var mkdocs_page_name = "Timestamps";
         var mkdocs_page_input_path = "guides/timestamps.md";
         var mkdocs_page_url = "/wutrader/guides/timestamps/";
       </script>
@@ -62,37 +62,47 @@
               </ul>
               <p class="caption"><span class="caption-text">Guides</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../../portfolio-configuration/">Portfolio Configuration</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/architecture/">Architecture</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Timestamps and Data</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/execution/">Execution Models</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Timestamps</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#time-units">Time Units</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#unix-timestamps">Unix Timestamps</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#data-frequencies">Data Frequencies</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#performance-metrics-and-annualization">Performance Metrics and Annualization</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#example-converting-data-granularity">Example: Converting Data Granularity</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#practical-considerations">Practical Considerations</a>
+    <li class="toctree-l2"><a class="reference internal" href="#time-representation">Time Representation</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#data-alignment">Data Alignment</a>
+    <li class="toctree-l3"><a class="reference internal" href="#the-wu_timestamp-structure">The WU_TimeStamp Structure</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#market-hours">Market Hours</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#utc-vs-local-time">UTC vs Local Time</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#gaps-in-data">Gaps in Data</a>
+    <li class="toctree-l3"><a class="reference internal" href="#why-this-design">Why This Design?</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#tips-for-setting-up-data">Tips for Setting Up Data</a>
+    <li class="toctree-l2"><a class="reference internal" href="#understanding-time-units">Understanding Time Units</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#time-unit-examples">Time Unit Examples</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#example-workflow">Example Workflow</a>
+    <li class="toctree-l3"><a class="reference internal" href="#usage-patterns-by-data-frequency">Usage Patterns by Data Frequency</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#see-also">See Also</a>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#unix-timestamps-in-practice">Unix Timestamps in Practice</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#data-frequencies">Data Frequencies</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#daily-bars">Daily Bars</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#hourly-bars">Hourly Bars</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#minute-data">Minute Data</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#time-arithmetic-and-calculations">Time Arithmetic and Calculations</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#the-calculation-process">The Calculation Process</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#limitations">Limitations</a>
     </li>
     </ul>
                   </li>
@@ -100,16 +110,11 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../indicators/">Indicators</a>
                   </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Design Notes</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../design/architecture/">Architecture</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../risk-metrics/">Risk Metrics</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../design/execution/">Execution Models</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../portfolio-configuration/">Portfolio Configuration</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../design/position_sizing/">Position Sizing</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../design/timestamps/">Timestamps</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Examples</span></p>
@@ -151,7 +156,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Guides</li>
-      <li class="breadcrumb-item active">Timestamps and Data</li>
+      <li class="breadcrumb-item active">Timestamps</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -160,18 +165,33 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="understanding-timestamps-and-data-frequencies">Understanding Timestamps and Data Frequencies<a class="headerlink" href="#understanding-timestamps-and-data-frequencies" title="Permanent link">&para;</a></h1>
-<p>Timestamps are fundamental to backtesting. They determine when data occurred, enable proper historical ordering, and affect how metrics like Sharpe ratio get annualized. This guide explains Wu's timestamp model.</p>
-<h2 id="time-units">Time Units<a class="headerlink" href="#time-units" title="Permanent link">&para;</a></h2>
-<p>Wu always manages Unix timestamps (time since January 1, 1970 UTC), but you specify the unit in which these timestamps are expressed. The same timestamp value can represent different moments in time depending on its unit.</p>
+                <h1 id="timestamps-and-time-units">Timestamps and Time Units<a class="headerlink" href="#timestamps-and-time-units" title="Permanent link">&para;</a></h1>
+<p>Timestamps are fundamental to backtesting. They determine when data occurred, enable proper historical ordering, and affect how metrics like Sharpe ratio get annualized. This guide explains Wu's timestamp model from both user and implementation perspectives.</p>
+<h2 id="time-representation">Time Representation<a class="headerlink" href="#time-representation" title="Permanent link">&para;</a></h2>
+<p>Wu uses a flexible timestamp representation that supports different time granularities without conversion overhead.</p>
+<h3 id="the-wu_timestamp-structure">The WU_TimeStamp Structure<a class="headerlink" href="#the-wu_timestamp-structure" title="Permanent link">&para;</a></h3>
 <pre class="codehilite"><code class="language-c">typedef enum {
     WU_TIME_UNIT_SECONDS = 0,
     WU_TIME_UNIT_MILLIS = 1,
     WU_TIME_UNIT_MICROS = 2,
     WU_TIME_UNIT_NANOS = 3
 } WU_TimeUnit;
+
+typedef struct WU_TimeStamp_ {
+    int64_t mark;
+    WU_TimeUnit units;
+} WU_TimeStamp;
 </code></pre>
 
+<p>The <code>mark</code> field holds the actual time value. The <code>units</code> field specifies the scale. This design avoids forcing a single time representation across the entire system.</p>
+<h3 id="why-this-design">Why This Design?<a class="headerlink" href="#why-this-design" title="Permanent link">&para;</a></h3>
+<p><strong>Why not always use nanoseconds?</strong> Different data sources use different scales. Daily data from many providers uses Unix seconds. Converting everything to a single scale requires overhead and potential precision loss. Letting each data source keep its natural representation is simpler.</p>
+<p><strong>Why not floating point?</strong> Integer arithmetic is exact. No rounding errors when computing differences. No precision loss when comparing timestamps. The unit field handles scale explicitly rather than relying on implicit floating-point magnitude.</p>
+<p><strong>Why store the unit?</strong> It makes the representation self-describing. When debugging, you can see immediately whether a timestamp is in seconds or milliseconds. It also enables runtime validation that operations on timestamps use compatible units.</p>
+<hr />
+<h2 id="understanding-time-units">Understanding Time Units<a class="headerlink" href="#understanding-time-units" title="Permanent link">&para;</a></h2>
+<p>Wu always manages Unix timestamps (time since January 1, 1970 UTC), but you specify the unit in which these timestamps are expressed. The same timestamp value can represent different moments in time depending on its unit.</p>
+<h3 id="time-unit-examples">Time Unit Examples<a class="headerlink" href="#time-unit-examples" title="Permanent link">&para;</a></h3>
 <p>For example, the same timestamp value <code>1704067200</code> means:
 - 1704067200 seconds = January 1, 2024 00:00:00 UTC
 - 1704067200 milliseconds = January 20, 1970 18:01:07 UTC (almost immediately after epoch)
@@ -184,13 +204,37 @@
 );
 </code></pre>
 
-<p>This tells Wu how to interpret the numeric timestamps in your data and allows it to properly scale time-based metrics like Sharpe ratio and volatility calculations.</p>
-<h2 id="unix-timestamps">Unix Timestamps<a class="headerlink" href="#unix-timestamps" title="Permanent link">&para;</a></h2>
+<h3 id="usage-patterns-by-data-frequency">Usage Patterns by Data Frequency<a class="headerlink" href="#usage-patterns-by-data-frequency" title="Permanent link">&para;</a></h3>
+<p><strong>Daily data</strong> typically uses seconds with Unix epoch timestamps:</p>
+<pre class="codehilite"><code class="language-c">WU_TimeStamp ts = {
+    .mark = 1678896000,  // Unix timestamp for March 15, 2023
+    .units = WU_TIME_UNIT_SECONDS
+};
+</code></pre>
+
+<p><strong>Intraday data</strong> might use milliseconds for minute or second bars:</p>
+<pre class="codehilite"><code class="language-c">WU_TimeStamp ts = {
+    .mark = 1678896000000,  // Milliseconds since epoch
+    .units = WU_TIME_UNIT_MILLIS
+};
+</code></pre>
+
+<p><strong>High-frequency data</strong> can use microseconds or nanoseconds for tick-level precision:</p>
+<pre class="codehilite"><code class="language-c">WU_TimeStamp ts = {
+    .mark = 1678896000000000000,  // Nanoseconds since epoch
+    .units = WU_TIME_UNIT_NANOS
+};
+</code></pre>
+
+<hr />
+<h2 id="unix-timestamps-in-practice">Unix Timestamps in Practice<a class="headerlink" href="#unix-timestamps-in-practice" title="Permanent link">&para;</a></h2>
 <p>Most commonly, timestamps are Unix epoch values—seconds since January 1, 1970 UTC. This is what financial data tools like <code>yf</code> produce with <code>--date_format:unix</code>.</p>
-<p>For example:
-- January 1, 2024 00:00:00 UTC = 1704067200
-- January 1, 2020 00:00:00 UTC = 1577836800
-- December 31, 2010 00:00:00 UTC = 1293840000</p>
+<p>For example:</p>
+<ul>
+<li>January 1, 2024 00:00:00 UTC = 1704067200</li>
+<li>January 1, 2020 00:00:00 UTC = 1577836800</li>
+<li>December 31, 2010 00:00:00 UTC = 1293840000</li>
+</ul>
 <p><strong>CSV Format</strong>:</p>
 <pre class="codehilite"><code>Timestamp,Open,High,Low,Close,Volume
 1577836800,100.5,101.2,100.0,100.8,1000000
@@ -199,174 +243,51 @@
 </code></pre>
 
 <p>The timestamps should be in the first column. Wu's CSV reader parses them as numeric values and combines them with the time unit you specified.</p>
+<hr />
 <h2 id="data-frequencies">Data Frequencies<a class="headerlink" href="#data-frequencies" title="Permanent link">&para;</a></h2>
 <p>Your timestamps are always Unix values, but the frequency at which you receive data differs:</p>
-<p><strong>Daily Bars</strong>: One candle per trading day. Timestamps typically represent market close time (4 PM ET for US equities).</p>
+<h3 id="daily-bars">Daily Bars<a class="headerlink" href="#daily-bars" title="Permanent link">&para;</a></h3>
+<p>One candle per trading day. Timestamps typically represent market close time (4 PM ET for US equities).</p>
 <pre class="codehilite"><code class="language-c">// 1704067200 = Jan 1, 2024 00:00:00 UTC
 // 1704153600 = Jan 2, 2024 00:00:00 UTC  (1 day = 86400 seconds later)
 WU_TimeUnit time_unit = WU_TIME_UNIT_SECONDS;
 </code></pre>
 
 <p>The delta between consecutive timestamps is approximately 86400 seconds (one trading day).</p>
-<p><strong>Hourly Bars</strong>: One candle per hour. Useful for intraday strategies.</p>
+<h3 id="hourly-bars">Hourly Bars<a class="headerlink" href="#hourly-bars" title="Permanent link">&para;</a></h3>
+<p>One candle per hour. Useful for intraday strategies.</p>
 <pre class="codehilite"><code class="language-c">// 1704067200 = Jan 1, 2024 00:00:00 UTC
 // 1704070800 = Jan 1, 2024 01:00:00 UTC  (1 hour = 3600 seconds later)
 WU_TimeUnit time_unit = WU_TIME_UNIT_SECONDS;
 </code></pre>
 
-<p><strong>Minute Data</strong>: One candle per minute.</p>
+<h3 id="minute-data">Minute Data<a class="headerlink" href="#minute-data" title="Permanent link">&para;</a></h3>
+<p>One candle per minute.</p>
 <pre class="codehilite"><code class="language-c">// 1704067200 = Jan 1, 2024 00:00:00 UTC
 // 1704067260 = Jan 1, 2024 00:01:00 UTC  (1 minute = 60 seconds later)
 WU_TimeUnit time_unit = WU_TIME_UNIT_SECONDS;
 </code></pre>
 
-<p><strong>Tick Data</strong>: Individual transactions at millisecond or microsecond precision.</p>
-<pre class="codehilite"><code class="language-c">// Use milliseconds if your data comes at that granularity
-WU_TimeUnit time_unit = WU_TIME_UNIT_MILLIS;
-
-// Or microseconds for very high-frequency data
-WU_TimeUnit time_unit = WU_TIME_UNIT_MICROS;
-</code></pre>
-
-<p>Always use the same time unit across your entire backtest and dataset. Wu will properly scale time-dependent metrics based on the unit you specify.</p>
-<h2 id="performance-metrics-and-annualization">Performance Metrics and Annualization<a class="headerlink" href="#performance-metrics-and-annualization" title="Permanent link">&para;</a></h2>
-<p>Risk metrics like Sharpe ratio and Sortino ratio depend on proper time scaling. A Sharpe ratio of 1.0 on daily data means something different from one on hourly data.</p>
-<p>Wu automatically scales these metrics based on the time unit of your data. The library tracks the time span of your backtest and annualizes metrics to a standard year:</p>
-<pre class="codehilite"><code class="language-c">WU_SharpeRatio sharpe = wu_sharpe_ratio_new();
-// Wu annualizes based on WU_TIME_UNIT_SECONDS (252 trading days/year × 86400 seconds/day)
-</code></pre>
-
-<p>The annualization factors are:</p>
-<ul>
-<li><strong>Daily data</strong> (WU_TIME_UNIT_SECONDS, ~86400 sec intervals): 252 trading days per year</li>
-<li><strong>Hourly data</strong> (WU_TIME_UNIT_SECONDS, ~3600 sec intervals): 252 × 6.5 = 1,638 trading hours per year</li>
-<li><strong>Minute data</strong> (WU_TIME_UNIT_SECONDS, ~60 sec intervals): 252 × 6.5 × 60 = 98,280 trading minutes per year</li>
-</ul>
-<p>These conventions (252 trading days/year, 6.5 trading hours/day) are standard in finance.</p>
-<p><strong>Why This Matters</strong>:</p>
-<p>Consider two strategies with identical 10% returns:</p>
+<h2 id="time-arithmetic-and-calculations">Time Arithmetic and Calculations<a class="headerlink" href="#time-arithmetic-and-calculations" title="Permanent link">&para;</a></h2>
+<p>When calculating time-based metrics, Wu converts timestamps to a common unit internally. For example, calculating borrowing interest on short positions requires knowing how long the position was held.</p>
+<h3 id="the-calculation-process">The Calculation Process<a class="headerlink" href="#the-calculation-process" title="Permanent link">&para;</a></h3>
 <ol>
-<li>Daily strategy over 252 trading days (1 year of daily bars)</li>
-<li>Minute-level strategy over the same calendar period (98,280 minute bars)</li>
+<li>Check that both timestamps use the same unit</li>
+<li>Compute the difference in that unit</li>
+<li>Convert to seconds</li>
+<li>Convert seconds to years (dividing by 365.25 × 86400)</li>
+<li>Apply the annual rate</li>
 </ol>
-<p>Both show 10% returns, but the minute strategy has many more opportunities to generate returns. Without proper time scaling, you'd compare them incorrectly. Wu handles this automatically once you specify the time unit correctly.</p>
-<h2 id="example-converting-data-granularity">Example: Converting Data Granularity<a class="headerlink" href="#example-converting-data-granularity" title="Permanent link">&para;</a></h2>
-<p>Suppose you have minute-level data and want to aggregate it to daily bars:</p>
-<pre class="codehilite"><code class="language-bash"># Raw minute data (raw_data.csv)
-1577836800,100.5,101.2,100.0,100.8,1000
-1577836860,100.8,101.5,100.5,101.2,1100
-1577836920,101.2,102.0,100.8,101.8,950
-... (390 more minutes in this day) ...
-1577923200,100.9,101.3,100.1,101.0,1050
-
-# After aggregation into daily bars (daily_data.csv)
-1577836800,100.5,102.1,100.0,101.0,500000
-1577923200,101.0,102.5,100.5,101.8,480000
-</code></pre>
-
-<p>The aggregation process groups minute bars and computes:
-- Open: first minute's open
-- High: maximum high across all minutes
-- Low: minimum low across all minutes
-- Close: last minute's close
-- Volume: sum of volumes</p>
-<p>Then use the aggregated file with the correct time unit:</p>
-<pre class="codehilite"><code class="language-c">WU_Reader reader = wu_csv_reader_new(file,
-    WU_DATA_TYPE_CANDLE,
-    WU_TIME_UNIT_SECONDS,    // Time unit matches your data (daily bars)
-    true
-);
-</code></pre>
-
-<p>Wu will properly annualize metrics based on daily bar frequency (252 trading days per year).</p>
-<h2 id="practical-considerations">Practical Considerations<a class="headerlink" href="#practical-considerations" title="Permanent link">&para;</a></h2>
-<h3 id="data-alignment">Data Alignment<a class="headerlink" href="#data-alignment" title="Permanent link">&para;</a></h3>
-<p>Ensure your timestamps are in the time unit you specify:</p>
-<pre class="codehilite"><code class="language-c">// If your CSV has daily bars with Unix timestamps in seconds:
-WU_TimeUnit time_unit = WU_TIME_UNIT_SECONDS;
-
-// If your CSV has tick data with timestamps in milliseconds:
-WU_TimeUnit time_unit = WU_TIME_UNIT_MILLIS;
-</code></pre>
-
-<p>Mismatch between your data and specified unit causes incorrect metric calculations.</p>
-<h3 id="market-hours">Market Hours<a class="headerlink" href="#market-hours" title="Permanent link">&para;</a></h3>
-<p>Daily data typically timestamps bars at market close (4 PM ET for US equities). Some tools use market open. Ensure consistency across all data sources.</p>
-<pre class="codehilite"><code class="language-bash"># Using yf to download data with Unix timestamps
-yf history -s:spy --lookback:1y --format:csv --date_format:unix
-
-# Produces timestamps at market close time (4 PM ET)
-# 1704067200 = Jan 1, 2024 00:00 UTC
-</code></pre>
-
-<h3 id="utc-vs-local-time">UTC vs Local Time<a class="headerlink" href="#utc-vs-local-time" title="Permanent link">&para;</a></h3>
-<p>Wu uses UTC internally. If your data is in local time, convert it first:</p>
-<pre class="codehilite"><code class="language-bash"># EST/EDT local time to UTC
-# EST is UTC-5, EDT is UTC-4
-
-# 1:00 PM EST = 18:00 UTC
-# 1:00 PM EDT = 17:00 UTC
-</code></pre>
-
-<p>Financial tools like <code>yf</code> output UTC by default, so this is usually not an issue.</p>
-<h3 id="gaps-in-data">Gaps in Data<a class="headerlink" href="#gaps-in-data" title="Permanent link">&para;</a></h3>
-<p>Markets are closed on weekends and holidays. Daily data has gaps:</p>
-<pre class="codehilite"><code>1704067200  (Friday close)
-1704240000  (Monday close, 2 calendar days later)
-</code></pre>
-
-<p>This is normal. Wu handles gaps correctly. Gaps don't affect statistics—they just mean fewer periods elapsed.</p>
-<p>Intraday data (hourly or minute) shouldn't have gaps during trading hours unless trading 24/7 futures.</p>
-<h2 id="tips-for-setting-up-data">Tips for Setting Up Data<a class="headerlink" href="#tips-for-setting-up-data" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p><strong>Verify Your Timestamps</strong>: Print the first few and last few rows to confirm they're in the right order and frequency.</p>
-</li>
-<li>
-<p><strong>Match Time Units</strong>: The time unit you pass to <code>wu_csv_reader_new</code> must match your data's granularity.</p>
-</li>
-<li>
-<p><strong>Use Unix Epoch</strong>: It's the standard. Tools like <code>yf</code> produce it directly.</p>
-</li>
-<li>
-<p><strong>Handle Timezone</strong>: Ensure all your data is in the same timezone (preferably UTC).</p>
-</li>
-<li>
-<p><strong>Document Your Data</strong>: Note the frequency, timezone, and whether bars close at market close or open.</p>
-</li>
-</ol>
-<h2 id="example-workflow">Example Workflow<a class="headerlink" href="#example-workflow" title="Permanent link">&para;</a></h2>
-<pre class="codehilite"><code class="language-bash"># 1. Pull data in the right format
-yf history -s:spy --lookback:5y \
-    --format:csv \
-    --date_format:unix &gt; spy.csv
-
-# 2. Verify the format
-head -5 spy.csv
-# Output:
-# Timestamp,Open,High,Low,Close,Volume
-# 1577836800,100.5,101.2,100.0,100.8,1000000
-# ...
-
-# 3. Use in Wu with correct time unit
-// In your C code:
-WU_Reader reader = wu_csv_reader_new(file,
-    WU_DATA_TYPE_CANDLE,
-    WU_TIME_UNIT_DAYS,    // Daily bars
-    true                  // Skip header
-);
-
-// Performance metrics are now properly annualized
-</code></pre>
-
-<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
-<p>For API details, see the <a href="https://jailop.codeberg.page/wutrader/docs/html/">Doxygen API Reference</a>.</p>
-<p>For a complete working example with real data, see the <a href="../../tutorial/">Tutorial</a>.</p>
+<p>This conversion happens inside the portfolio implementation. Users only need to ensure their data uses consistent time units.</p>
+<h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h2>
+<p><strong>No timezone handling</strong>: All timestamps are assumed to be in a consistent timezone. Wu doesn't do timezone conversion or daylight saving time adjustments. Preprocess your data to use UTC or a consistent local time.</p>
+<p><strong>No date arithmetic</strong>: Wu doesn't parse or format dates. It works with integer time values. Use external tools to convert between human-readable dates and Unix timestamps.</p>
+<p><strong>No calendar awareness</strong>: The year conversion (dividing by 365.25 days) is approximate. It doesn't account for leap seconds, market holidays, or trading hour adjustments. For borrowing cost calculations this is acceptable, but for precise calendar arithmetic you'd need additional logic.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../portfolio-configuration/" class="btn btn-neutral float-left" title="Portfolio Configuration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../design/execution/" class="btn btn-neutral float-left" title="Execution Models"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../data-formats/" class="btn btn-neutral float-right" title="Data Formats">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -394,7 +315,7 @@ WU_Reader reader = wu_csv_reader_new(file,
         </span>
     
     
-      <span><a href="../../portfolio-configuration/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../design/execution/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../data-formats/" style="color: #fcfcfc">Next &raquo;</a></span>
@@ -405,6 +326,7 @@ WU_Reader reader = wu_csv_reader_new(file,
     <script>var base_url = "../..";</script>
     <script src="../../js/theme_extra.js"></script>
     <script src="../../js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       <script src="../../search/main.js"></script>
     <script>
         jQuery(function () {

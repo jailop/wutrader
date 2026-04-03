@@ -24,8 +24,6 @@ markdown_extensions:
       guess_lang: false
   - def_list
   - footnotes
-  - pymdownx.arithmatex:
-      generic: true
 
 nav:
   - Home: index.md

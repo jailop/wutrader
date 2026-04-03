@@ -94,16 +94,47 @@ $(function(){initNavTree('sortino_8c.html','',''); });
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;math.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="wu_8h_source.html">wu.h</a>&quot;</code><br />
 </div>
 <p><a href="sortino_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ac88e129a8070e8bcb938a6dd5a680771" id="r_ac88e129a8070e8bcb938a6dd5a680771"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ac88e129a8070e8bcb938a6dd5a680771">SORTINO_MIN_OBSERVATIONS</a>&#160;&#160;&#160;30</td></tr>
+<tr class="memdesc:ac88e129a8070e8bcb938a6dd5a680771"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Sortino Ratio is a variation of the Sharpe Ratio that differentiates between harmful volatility (downside) and total volatility.  <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a76fdd7d61041caf5359045b1a8d3fdfe" id="r_a76fdd7d61041caf5359045b1a8d3fdfe"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#a76fdd7d61041caf5359045b1a8d3fdfe">wu_sortino_ratio_update</a> (WU_SortinoRatio self, <a class="el" href="structWU__PerformanceUpdate.html">WU_PerformanceUpdate</a> perf)</td></tr>
+<tr class="memdesc:a76fdd7d61041caf5359045b1a8d3fdfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the Sortino Ratio calculation with a new portfolio value.  <br /></td></tr>
 <tr class="memitem:a80f0441c6f1d219224e200b64d09cdbd" id="r_a80f0441c6f1d219224e200b64d09cdbd"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a80f0441c6f1d219224e200b64d09cdbd">wu_sortino_ratio_free</a> (WU_SortinoRatio self)</td></tr>
+<tr class="memdesc:a80f0441c6f1d219224e200b64d09cdbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees resources allocated by the Sortino Ratio object.  <br /></td></tr>
 <tr class="memitem:a98c4ec568a8c1f7659586ca231057ae9" id="r_a98c4ec568a8c1f7659586ca231057ae9"><td class="memItemLeft">WU_SortinoRatio&#160;</td><td class="memItemRight"><a class="el" href="#a98c4ec568a8c1f7659586ca231057ae9">wu_sortino_ratio_new</a> (double initial_value, double risk_free_rate)</td></tr>
+<tr class="memdesc:a98c4ec568a8c1f7659586ca231057ae9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new Sortino Ratio calculator.  <br /></td></tr>
 </table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a id="ac88e129a8070e8bcb938a6dd5a680771" name="ac88e129a8070e8bcb938a6dd5a680771"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac88e129a8070e8bcb938a6dd5a680771">&#9670;&#160;</a></span>SORTINO_MIN_OBSERVATIONS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SORTINO_MIN_OBSERVATIONS&#160;&#160;&#160;30</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The Sortino Ratio is a variation of the Sharpe Ratio that differentiates between harmful volatility (downside) and total volatility. </p>
+<p>It uses only the standard deviation of negative returns (downside deviation) in the denominator.</p>
+<p>Formula: Sortino = (R_p - R_f) / σ_d where:</p>
+<p>R_p = mean portfolio return (annualized) R_f = risk-free rate (annualized) σ_d = downside deviation (annualized) Minimum number of observations required for statistically meaningful Sortino ratio calculation. Below this threshold, the ratio is unreliable. </p>
+
+<p class="definition">Definition at line <a class="el" href="sortino_8c_source.html#l00024">24</a> of file <a class="el" href="sortino_8c_source.html">sortino.c</a>.</p>
+
+</div>
+</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a80f0441c6f1d219224e200b64d09cdbd" name="a80f0441c6f1d219224e200b64d09cdbd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a80f0441c6f1d219224e200b64d09cdbd">&#9670;&#160;</a></span>wu_sortino_ratio_free()</h2>
@@ -128,7 +159,9 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sortino_8c_source.html#l00034">34</a> of file <a class="el" href="sortino_8c_source.html">sortino.c</a>.</p>
+<p>Frees resources allocated by the Sortino Ratio object. </p>
+
+<p class="definition">Definition at line <a class="el" href="sortino_8c_source.html#l00095">95</a> of file <a class="el" href="sortino_8c_source.html">sortino.c</a>.</p>
 
 </div>
 </div>
@@ -151,7 +184,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sortino_8c_source.html#l00040">40</a> of file <a class="el" href="sortino_8c_source.html">sortino.c</a>.</p>
+<p>Creates a new Sortino Ratio calculator. </p>
+
+<p class="definition">Definition at line <a class="el" href="sortino_8c_source.html#l00105">105</a> of file <a class="el" href="sortino_8c_source.html">sortino.c</a>.</p>
 
 </div>
 </div>
@@ -182,7 +217,9 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sortino_8c_source.html#l00005">5</a> of file <a class="el" href="sortino_8c_source.html">sortino.c</a>.</p>
+<p>Updates the Sortino Ratio calculation with a new portfolio value. </p>
+
+<p class="definition">Definition at line <a class="el" href="sortino_8c_source.html#l00029">29</a> of file <a class="el" href="sortino_8c_source.html">sortino.c</a>.</p>
 
 </div>
 </div>

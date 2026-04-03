@@ -32,9 +32,10 @@ var NAVTREEINDEX0 =
 "basic_8c.html#afdc70fc18d096957c96e3f135c54892a":[1,0,1,1,0,4],
 "basic_8c_source.html":[1,0,1,1,0],
 "calmar_8c.html":[1,0,1,4,0],
-"calmar_8c.html#a426c72be9ae083e0b05308fe52bd67ed":[1,0,1,4,0,1],
-"calmar_8c.html#a4928ba0a20ba41609ce48d232fb10d90":[1,0,1,4,0,0],
-"calmar_8c.html#a6c6fbae8408c3da640fdd73db5b07a32":[1,0,1,4,0,2],
+"calmar_8c.html#a426c72be9ae083e0b05308fe52bd67ed":[1,0,1,4,0,2],
+"calmar_8c.html#a4928ba0a20ba41609ce48d232fb10d90":[1,0,1,4,0,1],
+"calmar_8c.html#a6c6fbae8408c3da640fdd73db5b07a32":[1,0,1,4,0,3],
+"calmar_8c.html#a76796011c97bf2d79d2f8be53e127e62":[1,0,1,4,0,0],
 "calmar_8c_source.html":[1,0,1,4,0],
 "classes.html":[0,1],
 "crossover_8c.html":[1,0,1,5,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "portfolios_8h_source.html":[1,0,0,0,2],
 "positions_8h.html":[1,0,0,0,3],
 "positions_8h.html#a03624d91b8c78e5c9bb9633bbd41c2ce":[1,0,0,0,3,4],
-"positions_8h.html#a1dbedbc3d130b8378ece87fc6dcf6060":[1,0,0,0,3,9],
-"positions_8h.html#a5b390c420a649a4d4f8fff1afdedbde4":[1,0,0,0,3,5]
+"positions_8h.html#a1dbedbc3d130b8378ece87fc6dcf6060":[1,0,0,0,3,9]
 };

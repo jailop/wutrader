@@ -94,16 +94,46 @@ $(function(){initNavTree('sharpe_8c.html','',''); });
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;math.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="wu_8h_source.html">wu.h</a>&quot;</code><br />
 </div>
 <p><a href="sharpe_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a0067302302da6eafbcf0637b7613e4f2" id="r_a0067302302da6eafbcf0637b7613e4f2"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a0067302302da6eafbcf0637b7613e4f2">SHARPE_MIN_OBSERVATIONS</a>&#160;&#160;&#160;30</td></tr>
+<tr class="memdesc:a0067302302da6eafbcf0637b7613e4f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Sharpe Ratio measures risk-adjusted return by comparing excess return (over risk-free rate) to total volatility (standard deviation).  <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a93f194b460efb7ae92cecaaa375fdc1d" id="r_a93f194b460efb7ae92cecaaa375fdc1d"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#a93f194b460efb7ae92cecaaa375fdc1d">wu_sharpe_ratio_update</a> (WU_SharpeRatio self, <a class="el" href="structWU__PerformanceUpdate.html">WU_PerformanceUpdate</a> perf)</td></tr>
+<tr class="memdesc:a93f194b460efb7ae92cecaaa375fdc1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the Sharpe Ratio calculation with a new portfolio value.  <br /></td></tr>
 <tr class="memitem:aae886663ca94d6bc2d0a97ac87fd2d12" id="r_aae886663ca94d6bc2d0a97ac87fd2d12"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#aae886663ca94d6bc2d0a97ac87fd2d12">wu_sharpe_ratio_free</a> (WU_SharpeRatio self)</td></tr>
+<tr class="memdesc:aae886663ca94d6bc2d0a97ac87fd2d12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees resources allocated by the Sharpe Ratio object.  <br /></td></tr>
 <tr class="memitem:a56794f6853bba619166efb88e8285a81" id="r_a56794f6853bba619166efb88e8285a81"><td class="memItemLeft">WU_SharpeRatio&#160;</td><td class="memItemRight"><a class="el" href="#a56794f6853bba619166efb88e8285a81">wu_sharpe_ratio_new</a> (double initial_value, double risk_free_rate)</td></tr>
+<tr class="memdesc:a56794f6853bba619166efb88e8285a81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new Sharpe Ratio calculator.  <br /></td></tr>
 </table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a id="a0067302302da6eafbcf0637b7613e4f2" name="a0067302302da6eafbcf0637b7613e4f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0067302302da6eafbcf0637b7613e4f2">&#9670;&#160;</a></span>SHARPE_MIN_OBSERVATIONS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SHARPE_MIN_OBSERVATIONS&#160;&#160;&#160;30</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The Sharpe Ratio measures risk-adjusted return by comparing excess return (over risk-free rate) to total volatility (standard deviation). </p>
+<p>Formula: Sharpe = (R_p - R_f) / σ_p where:</p>
+<p>R_p = mean portfolio return (annualized) R_f = risk-free rate (annualized) σ_p = portfolio standard deviation (annualized) Minimum number of observations required for statistically meaningful Sharpe ratio calculation. Below this threshold, the ratio is unreliable. </p>
+
+<p class="definition">Definition at line <a class="el" href="sharpe_8c_source.html#l00022">22</a> of file <a class="el" href="sharpe_8c_source.html">sharpe.c</a>.</p>
+
+</div>
+</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="aae886663ca94d6bc2d0a97ac87fd2d12" name="aae886663ca94d6bc2d0a97ac87fd2d12"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aae886663ca94d6bc2d0a97ac87fd2d12">&#9670;&#160;</a></span>wu_sharpe_ratio_free()</h2>
@@ -128,7 +158,9 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sharpe_8c_source.html#l00036">36</a> of file <a class="el" href="sharpe_8c_source.html">sharpe.c</a>.</p>
+<p>Frees resources allocated by the Sharpe Ratio object. </p>
+
+<p class="definition">Definition at line <a class="el" href="sharpe_8c_source.html#l00096">96</a> of file <a class="el" href="sharpe_8c_source.html">sharpe.c</a>.</p>
 
 </div>
 </div>
@@ -151,7 +183,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sharpe_8c_source.html#l00042">42</a> of file <a class="el" href="sharpe_8c_source.html">sharpe.c</a>.</p>
+<p>Creates a new Sharpe Ratio calculator. </p>
+
+<p class="definition">Definition at line <a class="el" href="sharpe_8c_source.html#l00106">106</a> of file <a class="el" href="sharpe_8c_source.html">sharpe.c</a>.</p>
 
 </div>
 </div>
@@ -182,7 +216,17 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sharpe_8c_source.html#l00006">6</a> of file <a class="el" href="sharpe_8c_source.html">sharpe.c</a>.</p>
+<p>Updates the Sharpe Ratio calculation with a new portfolio value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>The Sharpe Ratio object </td></tr>
+    <tr><td class="paramname">perf</td><td>Performance update containing portfolio value and timestamp </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The updated Sharpe Ratio value, or NAN if insufficient data </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="sharpe_8c_source.html#l00031">31</a> of file <a class="el" href="sharpe_8c_source.html">sharpe.c</a>.</p>
 
 </div>
 </div>

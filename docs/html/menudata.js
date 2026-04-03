@@ -115,5 +115,7 @@ var menudata={children:[
 {text:"w",url:"globals_eval.html#index_w"}]},
 {text:"Macros",url:"globals_defs.html",children:[
 {text:"_",url:"globals_defs.html#index__5F"},
+{text:"c",url:"globals_defs.html#index_c"},
 {text:"n",url:"globals_defs.html#index_n"},
+{text:"s",url:"globals_defs.html#index_s"},
 {text:"w",url:"globals_defs.html#index_w"}]}]}]}]}

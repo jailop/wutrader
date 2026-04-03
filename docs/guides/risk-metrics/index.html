@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Jaime Lopez" /><link rel="canonical" href="https://jailop.codeberg.page/wutrader/guides/risk-metrics/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Risk Metrics - Wu Trading Library</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Risk Metrics";
+        var mkdocs_page_input_path = "guides/risk-metrics.md";
+        var mkdocs_page_url = "/wutrader/guides/risk-metrics/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/c.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Wu Trading Library
+        </a>
+        <div class="version">
+          0.2.0
+        </div><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../installation/">Installation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../features/">Features</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../tutorial/">Tutorial</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Guides</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/architecture/">Architecture</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/execution/">Execution Models</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../timestamps/">Timestamps</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../data-formats/">Data Formats</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../indicators/">Indicators</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Risk Metrics</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#why-risk-adjusted-metrics-matter">Why Risk-Adjusted Metrics Matter</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sharpe-ratio-return-per-unit-of-total-risk">Sharpe Ratio: Return per Unit of Total Risk</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#the-formula">The Formula</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-the-sharpe-ratio">Using the Sharpe Ratio</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-sharpe-penalizes">What Sharpe Penalizes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sortino-ratio-return-per-unit-of-downside-risk">Sortino Ratio: Return per Unit of Downside Risk</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#the-formula_1">The Formula</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-the-sortino-ratio">Using the Sortino Ratio</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-sortino-excels">When Sortino Excels</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#calmar-ratio-return-per-unit-of-maximum-pain">Calmar Ratio: Return per Unit of Maximum Pain</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#the-formula_2">The Formula</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-the-calmar-ratio">Using the Calmar Ratio</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-calmar-matters">Why Calmar Matters</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#comparing-the-three-metrics">Comparing the Three Metrics</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example">Practical Example</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#correlation-between-metrics">Correlation Between Metrics</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#annualization-how-wu-scales-metrics">Annualization: How Wu Scales Metrics</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#the-annualization-process">The Annualization Process</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#reading-the-metrics-a-practical-guide">Reading the Metrics: A Practical Guide</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#portfolio-stats-integration">Portfolio Stats Integration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#interpreting-values">Interpreting Values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#warning-signs">Warning Signs</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#implementation-details">Implementation Details</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#statistical-considerations">Statistical Considerations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#performance-characteristics">Performance Characteristics</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#thread-safety">Thread Safety</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../portfolio-configuration/">Portfolio Configuration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../design/position_sizing/">Position Sizing</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Examples</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../examples/crossover/">Crossover Strategy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../examples/pairs_trading/">Pairs Trading</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Cheatsheets</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../cheatsheets/">Indicators</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../faq/">FAQ</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://jailop.codeberg.page/wutrader/docs/html/">API Reference</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://codeberg.org/jailop/wu">Repository</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Wu Trading Library</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Guides</li>
+      <li class="breadcrumb-item active">Risk Metrics</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="performance-metrics-risk-adjusted-returns">Performance Metrics: Risk-Adjusted Returns<a class="headerlink" href="#performance-metrics-risk-adjusted-returns" title="Permanent link">&para;</a></h1>
+<p>Understanding raw returns tells only part of a strategy's story. A strategy that earns 20% annually with catastrophic 50% drawdowns differs fundamentally from one that earns 15% with minimal volatility. Risk-adjusted metrics like Sharpe, Sortino, and Calmar ratios help you evaluate returns in context of the risks taken to achieve them.</p>
+<p>This guide explains Wu's three key performance metrics: <strong>Sharpe Ratio</strong>, <strong>Sortino Ratio</strong>, and <strong>Calmar Ratio</strong>. Each measures the relationship between returns and risk, but they define and penalize risk differently.</p>
+<hr />
+<h2 id="why-risk-adjusted-metrics-matter">Why Risk-Adjusted Metrics Matter<a class="headerlink" href="#why-risk-adjusted-metrics-matter" title="Permanent link">&para;</a></h2>
+<p>Consider two strategies over one year:</p>
+<p><strong>Strategy A</strong>: 20% return, but with wild swings—up 40% one month, down 30% the next. Maximum drawdown: 35%.</p>
+<p><strong>Strategy B</strong>: 15% return, but smooth, consistent monthly gains of ~1.2%. Maximum drawdown: 5%.</p>
+<p>Raw returns favor Strategy A. But risk-adjusted analysis might favor Strategy B. If you had to withdraw funds during that 35% drawdown, Strategy A could lock in catastrophic losses. Strategy B's smoothness allows predictable withdrawals and compound growth.</p>
+<p>Risk-adjusted metrics quantify this tradeoff, enabling comparison across strategies with different return and risk profiles.</p>
+<hr />
+<h2 id="sharpe-ratio-return-per-unit-of-total-risk">Sharpe Ratio: Return per Unit of Total Risk<a class="headerlink" href="#sharpe-ratio-return-per-unit-of-total-risk" title="Permanent link">&para;</a></h2>
+<p>The Sharpe Ratio measures excess return (over the risk-free rate) per unit of total volatility. It is the most widely-used risk-adjusted performance metric.</p>
+<h3 id="the-formula">The Formula<a class="headerlink" href="#the-formula" title="Permanent link">&para;</a></h3>
+<p>$$
+\text{Sharpe Ratio} = \frac{R_p - R_f}{\sigma_p}
+$$</p>
+<p>Where:</p>
+<ul>
+<li>$R_p$: Average portfolio return (annualized)</li>
+<li>$R_f$: Risk-free rate (annualized)</li>
+<li>$\sigma_p$: Standard deviation of portfolio returns (annualized)</li>
+<li>$R_p - R_f$: Excess return over risk-free rate</li>
+</ul>
+<p>Higher Sharpe ratios indicate better risk-adjusted performance. A Sharpe of 1.0 means you are earning 1 unit of excess return for each unit of volatility. Above 1.0 is generally considered good; above 2.0 is exceptional.</p>
+<h3 id="using-the-sharpe-ratio">Using the Sharpe Ratio<a class="headerlink" href="#using-the-sharpe-ratio" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-c">#include &quot;wu.h&quot;
+
+// Create a Sharpe ratio tracker
+// Parameters: initial_portfolio_value, annual_risk_free_rate
+WU_SharpeRatio sharpe = wu_sharpe_ratio_new(100000.0, 0.05);  // 5% risk-free rate
+
+// Update with each portfolio value change
+WU_PerformanceUpdate perf = {
+    .portfolio_value = current_value,  // Current portfolio value
+    .timestamp = {
+        .mark = current_timestamp,    // Unix timestamp
+        .units = WU_TIME_UNIT_SECONDS // Time unit of your data
+    }
+};
+
+// Update the ratio (returns current Sharpe value)
+double current_sharpe = wu_indicator_update(sharpe, perf);
+
+// Or retrieve current value without updating
+double sharpe_value = wu_indicator_get(sharpe);
+
+// Clean up when done
+wu_indicator_delete(sharpe);
+</code></pre>
+
+<p>The Sharpe ratio updates incrementally as new portfolio values arrive. It calculates period-to-period simple returns, maintains running statistics (mean and standard deviation), and annualizes based on the observed data frequency.</p>
+<p><strong>Important</strong>: The Sharpe ratio requires at least <strong>30 observations</strong> before returning a valid value. Below this threshold, it returns <code>NAN</code> to avoid statistically unreliable calculations.</p>
+<h3 id="what-sharpe-penalizes">What Sharpe Penalizes<a class="headerlink" href="#what-sharpe-penalizes" title="Permanent link">&para;</a></h3>
+<p>The Sharpe ratio penalizes <strong>all volatility equally</strong>—both upside and downside. Large positive spikes hurt your Sharpe just as much as large negative ones. This can seem counterintuitive: why penalize positive surprises?</p>
+<p>The rationale is that volatility represents uncertainty. Even positive volatility makes the strategy harder to stick with and suggests the model does not fully capture the underlying dynamics. However, this symmetry creates tension for strategies with positively-skewed returns (many small losses, few large gains).</p>
+<hr />
+<h2 id="sortino-ratio-return-per-unit-of-downside-risk">Sortino Ratio: Return per Unit of Downside Risk<a class="headerlink" href="#sortino-ratio-return-per-unit-of-downside-risk" title="Permanent link">&para;</a></h2>
+<p>The Sortino Ratio addresses Sharpe's symmetry problem. It only penalizes downside volatility—the returns that actually hurt your portfolio.</p>
+<h3 id="the-formula_1">The Formula<a class="headerlink" href="#the-formula_1" title="Permanent link">&para;</a></h3>
+<p>$$
+\text{Sortino Ratio} = \frac{R_p - R_f}{\sigma_d}
+$$</p>
+<p>Where:</p>
+<ul>
+<li>$\sigma_d$: <strong>Downside deviation</strong> (standard deviation of returns below target)</li>
+</ul>
+<p>The denominator changes from total standard deviation to downside deviation, calculated as:</p>
+<p>$$
+\sigma_d = \sqrt{\frac{1}{n} \sum_{r_i &lt; \text{target}} (r_i - \text{target})^2}
+$$</p>
+<p>Only returns below the target (typically the risk-free rate or zero) count. Returns above target are ignored—they do not hurt your Sortino.</p>
+<h3 id="using-the-sortino-ratio">Using the Sortino Ratio<a class="headerlink" href="#using-the-sortino-ratio" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-c">#include &quot;wu.h&quot;
+
+// Create a Sortino ratio tracker
+// Parameters: initial_portfolio_value, annual_risk_free_rate
+WU_SortinoRatio sortino = wu_sortino_ratio_new(100000.0, 0.05);
+
+// Update with portfolio values (same interface as Sharpe)
+WU_PerformanceUpdate perf = {
+    .portfolio_value = current_value,
+    .timestamp = {
+        .mark = current_timestamp,
+        .units = WU_TIME_UNIT_SECONDS
+    }
+};
+
+double current_sortino = wu_indicator_update(sortino, perf);
+
+// Clean up
+wu_indicator_delete(sortino);
+</code></pre>
+
+<p>The API mirrors the Sharpe ratio exactly. The difference is internal: Sortino tracks downside deviation separately, counting only returns below the risk-free rate threshold.</p>
+<p><strong>Important</strong>: Like Sharpe, Sortino requires <strong>30 observations</strong> for valid calculation.</p>
+<h3 id="when-sortino-excels">When Sortino Excels<a class="headerlink" href="#when-sortino-excels" title="Permanent link">&para;</a></h3>
+<p>Use Sortino when your strategy has <strong>asymmetric returns</strong>:</p>
+<ul>
+<li><strong>Trend following</strong>: Many small losses, few large winners</li>
+<li><strong>Option selling</strong>: Consistent small gains, occasional large losses</li>
+<li><strong>High-frequency trading</strong>: Many small trades with positive expectancy</li>
+</ul>
+<p>These strategies often look poor on Sharpe (high total volatility) but strong on Sortino (downside is contained).</p>
+<p>Consider a strategy with monthly returns: +1%, +2%, +1%, -8%, +3%. The -8% month dominates the Sharpe calculation. But if your model predicts exactly this distribution—small consistent gains with occasional stops—Sortino better captures the risk you are actually taking.</p>
+<hr />
+<h2 id="calmar-ratio-return-per-unit-of-maximum-pain">Calmar Ratio: Return per Unit of Maximum Pain<a class="headerlink" href="#calmar-ratio-return-per-unit-of-maximum-pain" title="Permanent link">&para;</a></h2>
+<p>The Calmar Ratio takes a different approach entirely. Instead of volatility, it uses <strong>maximum drawdown</strong>—the worst peak-to-trough decline—as the risk measure.</p>
+<h3 id="the-formula_2">The Formula<a class="headerlink" href="#the-formula_2" title="Permanent link">&para;</a></h3>
+<p>$$
+\text{Calmar Ratio} = \frac{R_p}{|\text{MDD}|}
+$$</p>
+<p>Where:</p>
+<ul>
+<li>$R_p$: Annualized portfolio return</li>
+<li>$\text{MDD}$: Maximum drawdown (most negative value from peak to trough)</li>
+</ul>
+<p>Unlike Sharpe and Sortino, Calmar does not assume normal distributions or statistical properties. It asks a simple question: how much annual return do you generate per unit of worst-case historical loss?</p>
+<h3 id="using-the-calmar-ratio">Using the Calmar Ratio<a class="headerlink" href="#using-the-calmar-ratio" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-c">#include &quot;wu.h&quot;
+
+// Create a Calmar ratio tracker
+// Parameter: initial_portfolio_value
+WU_CalmarRatio calmar = wu_calmar_ratio_new(100000.0);
+
+// Update with portfolio values
+WU_PerformanceUpdate perf = {
+    .portfolio_value = current_value,
+    .timestamp = {
+        .mark = current_timestamp,
+        .units = WU_TIME_UNIT_SECONDS
+    }
+};
+
+double current_calmar = wu_indicator_update(calmar, perf);
+
+// Clean up
+wu_indicator_delete(calmar);
+</code></pre>
+
+<p>Calmar requires <strong>30 observations</strong> before calculating, like the other metrics. It internally tracks maximum drawdown using the <code>WU_MaxDrawdown</code> indicator, which monitors the peak-to-trough decline from the highest portfolio value seen.</p>
+<h3 id="why-calmar-matters">Why Calmar Matters<a class="headerlink" href="#why-calmar-matters" title="Permanent link">&para;</a></h3>
+<p>Maximum drawdown represents <strong>real pain</strong>—the loss you would experience if you invested at the worst possible time. Unlike volatility, which is abstract, drawdown is concrete: "If I had invested at the peak, I would be down X%."</p>
+<p>Calmar excels for:</p>
+<ul>
+<li><strong>Tail-risk-sensitive strategies</strong>: Where avoiding catastrophic losses matters more than smooth returns</li>
+<li><strong>Long-term investors</strong>: Who must endure drawdowns without panic-selling</li>
+<li><strong>Strategies with non-normal distributions</strong>: Where standard deviation poorly captures risk</li>
+</ul>
+<p>A Calmar of 2.0 means you have historically earned 2% annually for every 1% of maximum drawdown. Higher is better; above 1.0 suggests the strategy compensates adequately for its worst-case risk.</p>
+<hr />
+<h2 id="comparing-the-three-metrics">Comparing the Three Metrics<a class="headerlink" href="#comparing-the-three-metrics" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Risk Measure</th>
+<th>Penalizes</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sharpe</strong></td>
+<td>Total volatility ($\sigma$)</td>
+<td>All large deviations</td>
+<td>Comparing strategies with similar return distributions</td>
+</tr>
+<tr>
+<td><strong>Sortino</strong></td>
+<td>Downside deviation ($\sigma_d$)</td>
+<td>Only returns below target</td>
+<td>Asymmetric returns, trend following</td>
+</tr>
+<tr>
+<td><strong>Calmar</strong></td>
+<td>Maximum drawdown</td>
+<td>Worst peak-to-trough decline</td>
+<td>Avoiding catastrophic losses, long-term investing</td>
+</tr>
+</tbody>
+</table>
+<h3 id="practical-example">Practical Example<a class="headerlink" href="#practical-example" title="Permanent link">&para;</a></h3>
+<p>Consider a strategy with these monthly returns:</p>
+<table>
+<thead>
+<tr>
+<th>Month</th>
+<th>Return</th>
+<th>Cumulative</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>+2%</td>
+<td>+2%</td>
+</tr>
+<tr>
+<td>2</td>
+<td>+3%</td>
+<td>+5%</td>
+</tr>
+<tr>
+<td>3</td>
+<td>-15%</td>
+<td>-10%</td>
+</tr>
+<tr>
+<td>4</td>
+<td>+4%</td>
+<td>-6%</td>
+</tr>
+<tr>
+<td>5</td>
+<td>+5%</td>
+<td>-1%</td>
+</tr>
+<tr>
+<td>6</td>
+<td>+3%</td>
+<td>+2%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sharpe</strong>: Penalizes that -15% month heavily. Even though the strategy recovers, the volatility appears high.</p>
+<p><strong>Sortino</strong>: Penalizes only the negative returns (-15%, and months 3-4 while cumulative is negative). The strong recovery in months 5-6 does not count against it.</p>
+<p><strong>Calmar</strong>: Focuses on the 10% drawdown from peak (month 2) to trough (month 4). The 6-month annualized return of ~4% gives a Calmar of 0.4—not great, but captures that the strategy recovered.</p>
+<h3 id="correlation-between-metrics">Correlation Between Metrics<a class="headerlink" href="#correlation-between-metrics" title="Permanent link">&para;</a></h3>
+<p>In practice, Sharpe and Sortino often correlate highly (&gt;0.9) for strategies with symmetric returns. They diverge when strategies show skewness or kurtosis.</p>
+<p>Calmar can diverge significantly. A strategy might have good Sharpe/Sortino (controlled volatility) but terrible Calmar (one catastrophic event). This is why many practitioners use Calmar alongside one of the volatility-based metrics.</p>
+<hr />
+<h2 id="annualization-how-wu-scales-metrics">Annualization: How Wu Scales Metrics<a class="headerlink" href="#annualization-how-wu-scales-metrics" title="Permanent link">&para;</a></h2>
+<p>All three metrics are annualized for comparability. A Sharpe of 1.0 on daily data means something different from 1.0 on monthly data without annualization.</p>
+<h3 id="the-annualization-process">The Annualization Process<a class="headerlink" href="#the-annualization-process" title="Permanent link">&para;</a></h3>
+<p>Wu calculates metrics using this process:</p>
+<ol>
+<li>
+<p><strong>Compute period-to-period returns</strong>: $r_t = \frac{P_t - P_{t-1}}{P_{t-1}}$</p>
+</li>
+<li>
+<p><strong>Track time span</strong>: $\Delta t = t_n - t_1$ (in time units)</p>
+</li>
+<li>
+<p><strong>Calculate periods per year</strong>:
+   $$
+   \text{periods per year} = \frac{\text{annualization factor} \times n}{\Delta t}
+   $$</p>
+</li>
+<li>
+<p><strong>Annualize volatility</strong> (square-root-of-time rule):
+   $$
+   \sigma_{\text{annual}} = \sigma_{\text{period}} \times \sqrt{\text{periods per year}}
+   $$</p>
+</li>
+<li>
+<p><strong>Annualize return</strong> (simple annualization):
+   $$
+   R_{\text{annual}} = R_{\text{total}} \times \text{periods per year}
+   $$</p>
+</li>
+</ol>
+<p>The annualization factor depends on your time unit:</p>
+<pre class="codehilite"><code class="language-c">// From wu/timeutils.h
+double wu_annualization_factor(WU_TimeUnit unit);
+
+// WU_TIME_UNIT_SECONDS: ~31,557,600 (seconds per calendar year)
+// WU_TIME_UNIT_MILLIS: ~3.15576e9 (milliseconds per year)
+// etc.
+</code></pre>
+
+<p><strong>Important</strong>: The annualization assumes your data spans the entire period without gaps. For trading data, market holidays and weekends create gaps. Wu uses calendar time, not trading time. This means:</p>
+<ul>
+<li>Daily data with 252 trading days gets annualized as ~365 calendar days</li>
+<li>This produces slightly different results than trading-day annualization</li>
+</ul>
+<p>If you need precise trading-day annualization, pre-process your data or adjust the time units accordingly.</p>
+<hr />
+<h2 id="reading-the-metrics-a-practical-guide">Reading the Metrics: A Practical Guide<a class="headerlink" href="#reading-the-metrics-a-practical-guide" title="Permanent link">&para;</a></h2>
+<h3 id="portfolio-stats-integration">Portfolio Stats Integration<a class="headerlink" href="#portfolio-stats-integration" title="Permanent link">&para;</a></h3>
+<p>When running backtests, Wu automatically calculates these metrics and includes them in portfolio statistics:</p>
+<pre class="codehilite"><code class="language-c">// After backtest completes, access stats
+WU_PortfolioStats stats = portfolio-&gt;stats;
+
+// Access metrics directly
+double sharpe = wu_indicator_get(stats-&gt;sharpe_ratio);
+double sortino = wu_indicator_get(stats-&gt;sortino_ratio);
+double calmar = wu_indicator_get(stats-&gt;calmar_ratio);
+double mdd = wu_indicator_get(stats-&gt;max_drawdown);
+
+// Or output as JSON
+char* json = wu_portfolio_stats_to_json(stats, true);
+printf(&quot;%s\n&quot;, json);
+free(json);
+</code></pre>
+
+<h3 id="interpreting-values">Interpreting Values<a class="headerlink" href="#interpreting-values" title="Permanent link">&para;</a></h3>
+<p><strong>Sharpe Ratio Guidelines</strong>:</p>
+<ul>
+<li><code>&lt; 0</code>: Worse than risk-free rate after volatility adjustment</li>
+<li><code>0 - 0.5</code>: Poor—returns barely compensate for risk</li>
+<li><code>0.5 - 1.0</code>: Acceptable—modest risk-adjusted returns</li>
+<li><code>1.0 - 2.0</code>: Good—solid risk-adjusted performance</li>
+<li><code>&gt; 2.0</code>: Excellent—rare in practice</li>
+</ul>
+<p><strong>Sortino Ratio</strong>: Typically 20-50% higher than Sharpe for strategies with positive skew. Similar interpretation thresholds apply.</p>
+<p><strong>Calmar Ratio Guidelines</strong>:</p>
+<ul>
+<li><code>&lt; 0.5</code>: Poor—insufficient return for the drawdown risk</li>
+<li><code>0.5 - 1.0</code>: Moderate—marginal compensation for max pain</li>
+<li><code>1.0 - 2.0</code>: Good—adequate return for worst-case scenario</li>
+<li><code>&gt; 2.0</code>: Excellent—strong drawdown-adjusted returns</li>
+</ul>
+<p><strong>Maximum Drawdown Guidelines</strong>:</p>
+<ul>
+<li><code>&lt; -0.10</code> (10%): Conservative</li>
+<li><code>-0.10</code> to <code>-0.20</code> (10-20%): Moderate</li>
+<li><code>-0.20</code> to <code>-0.30</code> (20-30%): Aggressive</li>
+<li><code>&gt; -0.30</code> (30%+): Very aggressive</li>
+</ul>
+<h3 id="warning-signs">Warning Signs<a class="headerlink" href="#warning-signs" title="Permanent link">&para;</a></h3>
+<p>Watch for these red flags:</p>
+<p><strong>Sharpe &gt;&gt; Sortino</strong>: Strategy has significant downside volatility. The volatility-based Sharpe looks good, but the Sortino reveals asymmetry.</p>
+<p><strong>Calmar &lt;&lt; Sharpe</strong>: Strategy has smooth returns but catastrophic tail risk. One bad event dominates the maximum drawdown.</p>
+<p><strong>All metrics declining over time</strong>: Strategy performance is degrading. Early success is not being replicated.</p>
+<p><strong>Extremely high Sharpe (&gt;3)</strong>: Likely overfitting, data issues, or look-ahead bias. Verify carefully.</p>
+<hr />
+<h2 id="implementation-details">Implementation Details<a class="headerlink" href="#implementation-details" title="Permanent link">&para;</a></h2>
+<h3 id="statistical-considerations">Statistical Considerations<a class="headerlink" href="#statistical-considerations" title="Permanent link">&para;</a></h3>
+<p><strong>Minimum Observations</strong>: All three metrics require 30 observations before calculating. Below this threshold, <code>NAN</code> is returned. This ensures statistical reliability—the standard deviation and mean of small samples are noisy.</p>
+<p><strong>Sample vs Population</strong>: Wu uses <strong>sample standard deviation</strong> (degrees of freedom = 1) for Sharpe and Sortino calculations. This is standard practice for statistical inference.</p>
+<p><strong>Zero Return Handling</strong>: If all returns are identical (zero volatility), the ratio returns <code>NAN</code> to avoid division by zero. This is correct—no ratio can be calculated with no variation.</p>
+<p><strong>Risk-Free Rate</strong>: The annualized risk-free rate you provide (e.g., 0.05 for 5%) is converted to a per-period rate internally. Ensure your input is annualized, not per-period.</p>
+<h3 id="performance-characteristics">Performance Characteristics<a class="headerlink" href="#performance-characteristics" title="Permanent link">&para;</a></h3>
+<p>All three indicators update in <strong>O(1)</strong> time per observation—constant time regardless of history length. They maintain running statistics:</p>
+<ul>
+<li><strong>Sharpe</strong>: Tracks running mean and variance (Welford's algorithm)</li>
+<li><strong>Sortino</strong>: Tracks running mean and sum of squared negative returns</li>
+<li><strong>Calmar</strong>: Delegates to <code>WU_MaxDrawdown</code>, which tracks current peak</li>
+</ul>
+<p>Memory usage is <strong>O(1)</strong>—fixed size regardless of data stream length.</p>
+<h3 id="thread-safety">Thread Safety<a class="headerlink" href="#thread-safety" title="Permanent link">&para;</a></h3>
+<p>The indicators are <strong>not thread-safe</strong>. Each indicator instance should be accessed by only one thread at a time. If you need concurrent access, create separate instances or add external synchronization.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../indicators/" class="btn btn-neutral float-left" title="Indicators"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../portfolio-configuration/" class="btn btn-neutral float-right" title="Portfolio Configuration">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://codeberg.org/jailop/wu" class="fa fa-code-fork" style="color: #fcfcfc"> codeberg/wu</a>
+        </span>
+    
+    
+      <span><a href="../indicators/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../portfolio-configuration/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

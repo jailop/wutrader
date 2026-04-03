@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"positions_8h.html#a5b390c420a649a4d4f8fff1afdedbde4":[1,0,0,0,3,5],
 "positions_8h.html#a7102826d76376dc80e7237b645591b54":[1,0,0,0,3,3],
 "positions_8h.html#a7dc270a9448ada5e486890994e9afd91":[1,0,0,0,3,11],
 "positions_8h.html#aa60a6afb2af7e73f2d3848b68db0e930":[1,0,0,0,3,10],
@@ -60,9 +61,10 @@ var NAVTREEINDEX1 =
 "runners_8h.html#aef675fb6b27cc1427e0a9a2e16f61f2e":[1,0,0,0,5,3],
 "runners_8h_source.html":[1,0,0,0,5],
 "sharpe_8c.html":[1,0,1,4,1],
-"sharpe_8c.html#a56794f6853bba619166efb88e8285a81":[1,0,1,4,1,1],
-"sharpe_8c.html#a93f194b460efb7ae92cecaaa375fdc1d":[1,0,1,4,1,2],
-"sharpe_8c.html#aae886663ca94d6bc2d0a97ac87fd2d12":[1,0,1,4,1,0],
+"sharpe_8c.html#a0067302302da6eafbcf0637b7613e4f2":[1,0,1,4,1,0],
+"sharpe_8c.html#a56794f6853bba619166efb88e8285a81":[1,0,1,4,1,2],
+"sharpe_8c.html#a93f194b460efb7ae92cecaaa375fdc1d":[1,0,1,4,1,3],
+"sharpe_8c.html#aae886663ca94d6bc2d0a97ac87fd2d12":[1,0,1,4,1,1],
 "sharpe_8c_source.html":[1,0,1,4,1],
 "sma_8c.html":[1,0,1,0,8],
 "sma_8c.html#a90c0334e9213e954833d2276a928e6ff":[1,0,1,0,8,0],
@@ -70,9 +72,10 @@ var NAVTREEINDEX1 =
 "sma_8c.html#aeb598e0f2832c9ba456d9a910b6bc494":[1,0,1,0,8,1],
 "sma_8c_source.html":[1,0,1,0,8],
 "sortino_8c.html":[1,0,1,4,2],
-"sortino_8c.html#a76fdd7d61041caf5359045b1a8d3fdfe":[1,0,1,4,2,2],
-"sortino_8c.html#a80f0441c6f1d219224e200b64d09cdbd":[1,0,1,4,2,0],
-"sortino_8c.html#a98c4ec568a8c1f7659586ca231057ae9":[1,0,1,4,2,1],
+"sortino_8c.html#a76fdd7d61041caf5359045b1a8d3fdfe":[1,0,1,4,2,3],
+"sortino_8c.html#a80f0441c6f1d219224e200b64d09cdbd":[1,0,1,4,2,1],
+"sortino_8c.html#a98c4ec568a8c1f7659586ca231057ae9":[1,0,1,4,2,2],
+"sortino_8c.html#ac88e129a8070e8bcb938a6dd5a680771":[1,0,1,4,2,0],
 "sortino_8c_source.html":[1,0,1,4,2],
 "stats_8c.html":[1,0,1,1,2],
 "stats_8c.html#a0e43b71b13cec96a7bb827bf93a7dc4b":[1,0,1,1,2,3],
@@ -246,8 +249,5 @@ var NAVTREEINDEX1 =
 "structWU__PortfolioParams.html":[0,0,20],
 "structWU__PortfolioParams.html#a34bd73870032179ce81e562f5d550404":[0,0,20,0],
 "structWU__PortfolioParams.html#a401d1a52a094e06dbdd8c8de1d680355":[0,0,20,2],
-"structWU__PortfolioParams.html#a5a9767b92bf9812992b63b1aa6b4dba9":[0,0,20,4],
-"structWU__PortfolioParams.html#a62ea823455d640d3c44a33ea3ab169ef":[0,0,20,3],
-"structWU__PortfolioParams.html#a91fe2c540c1181066f24825807491ff5":[0,0,20,5],
-"structWU__PortfolioParams.html#ab8b34c777b55b2943804759abb345eb4":[0,0,20,1]
+"structWU__PortfolioParams.html#a5a9767b92bf9812992b63b1aa6b4dba9":[0,0,20,4]
 };

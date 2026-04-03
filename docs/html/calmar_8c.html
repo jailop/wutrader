@@ -94,16 +94,47 @@ $(function(){initNavTree('calmar_8c.html','',''); });
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;math.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="wu_8h_source.html">wu.h</a>&quot;</code><br />
 </div>
 <p><a href="calmar_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a76796011c97bf2d79d2f8be53e127e62" id="r_a76796011c97bf2d79d2f8be53e127e62"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a76796011c97bf2d79d2f8be53e127e62">CALMAR_MIN_OBSERVATIONS</a>&#160;&#160;&#160;30</td></tr>
+<tr class="memdesc:a76796011c97bf2d79d2f8be53e127e62"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Calmar Ratio measures risk-adjusted return by comparing annualized returns to the maximum drawdown.  <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a6c6fbae8408c3da640fdd73db5b07a32" id="r_a6c6fbae8408c3da640fdd73db5b07a32"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#a6c6fbae8408c3da640fdd73db5b07a32">wu_calmar_ratio_update</a> (WU_CalmarRatio self, <a class="el" href="structWU__PerformanceUpdate.html">WU_PerformanceUpdate</a> perf)</td></tr>
+<tr class="memdesc:a6c6fbae8408c3da640fdd73db5b07a32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the Calmar Ratio calculation with a new portfolio value.  <br /></td></tr>
 <tr class="memitem:a4928ba0a20ba41609ce48d232fb10d90" id="r_a4928ba0a20ba41609ce48d232fb10d90"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a4928ba0a20ba41609ce48d232fb10d90">wu_calmar_ratio_free</a> (WU_CalmarRatio self)</td></tr>
+<tr class="memdesc:a4928ba0a20ba41609ce48d232fb10d90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees resources allocated by the Calmar Ratio object.  <br /></td></tr>
 <tr class="memitem:a426c72be9ae083e0b05308fe52bd67ed" id="r_a426c72be9ae083e0b05308fe52bd67ed"><td class="memItemLeft">WU_CalmarRatio&#160;</td><td class="memItemRight"><a class="el" href="#a426c72be9ae083e0b05308fe52bd67ed">wu_calmar_ratio_new</a> (double initial_value)</td></tr>
 </table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a id="a76796011c97bf2d79d2f8be53e127e62" name="a76796011c97bf2d79d2f8be53e127e62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76796011c97bf2d79d2f8be53e127e62">&#9670;&#160;</a></span>CALMAR_MIN_OBSERVATIONS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CALMAR_MIN_OBSERVATIONS&#160;&#160;&#160;30</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The Calmar Ratio measures risk-adjusted return by comparing annualized returns to the maximum drawdown. </p>
+<p>Unlike Sharpe/Sortino, it uses maximum drawdown as the risk measure instead of volatility.</p>
+<p>Formula: Calmar = Annualized_Return / |Maximum_Drawdown| where:</p>
+<p>Annualized_Return = (Total_Return)^(1/years) - 1 [compound] or Total_Return * periods_per_year [simple]</p>
+<p>This implementation uses simple annualization for consistency with other risk metrics in this library. Minimum observations required before calculating Calmar ratio. This ensures we have enough data for a meaningful drawdown measurement. </p>
+
+<p class="definition">Definition at line <a class="el" href="calmar_8c_source.html#l00025">25</a> of file <a class="el" href="calmar_8c_source.html">calmar.c</a>.</p>
+
+</div>
+</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a4928ba0a20ba41609ce48d232fb10d90" name="a4928ba0a20ba41609ce48d232fb10d90"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4928ba0a20ba41609ce48d232fb10d90">&#9670;&#160;</a></span>wu_calmar_ratio_free()</h2>
@@ -128,7 +159,9 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="calmar_8c_source.html#l00053">53</a> of file <a class="el" href="calmar_8c_source.html">calmar.c</a>.</p>
+<p>Frees resources allocated by the Calmar Ratio object. </p>
+
+<p class="definition">Definition at line <a class="el" href="calmar_8c_source.html#l00104">104</a> of file <a class="el" href="calmar_8c_source.html">calmar.c</a>.</p>
 
 </div>
 </div>
@@ -147,7 +180,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="calmar_8c_source.html#l00059">59</a> of file <a class="el" href="calmar_8c_source.html">calmar.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="calmar_8c_source.html#l00112">112</a> of file <a class="el" href="calmar_8c_source.html">calmar.c</a>.</p>
 
 </div>
 </div>
@@ -178,7 +211,17 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="calmar_8c_source.html#l00005">5</a> of file <a class="el" href="calmar_8c_source.html">calmar.c</a>.</p>
+<p>Updates the Calmar Ratio calculation with a new portfolio value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>The Calmar Ratio object </td></tr>
+    <tr><td class="paramname">perf</td><td>Performance update containing portfolio value and timestamp </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The updated Calmar Ratio value, or NAN if insufficient data </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="calmar_8c_source.html#l00034">34</a> of file <a class="el" href="calmar_8c_source.html">calmar.c</a>.</p>
 
 </div>
 </div>

@@ -1,5 +1,8 @@
 var NAVTREEINDEX2 =
 {
+"structWU__PortfolioParams.html#a62ea823455d640d3c44a33ea3ab169ef":[0,0,20,3],
+"structWU__PortfolioParams.html#a91fe2c540c1181066f24825807491ff5":[0,0,20,5],
+"structWU__PortfolioParams.html#ab8b34c777b55b2943804759abb345eb4":[0,0,20,1],
 "structWU__PortfolioStats__.html":[0,0,21],
 "structWU__PortfolioStats__.html#a0bf8b5ee945d3f34fd2098ce737eb2cb":[0,0,21,6],
 "structWU__PortfolioStats__.html#a12a511811ae93565ec164d3fd4aefb4b":[0,0,21,10],
