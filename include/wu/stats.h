@@ -4,23 +4,24 @@
 #include <time.h>
 #include "indicators.h"
 
-/* Composite ratio indicators (moved from indicators.h so combined types live in stats.h)
- * These combine lower-level indicators and time tracking to compute annualized metrics.
+/**
+ * Sharpe ratio is the relation between the risk-free rate discounted
+ * retuns and the volatility of an investment. It is an annualizated
+ * average.
  */
-
 typedef struct WU_SharpeRatio_ {
     double (*update)(struct WU_SharpeRatio_* self, WU_PerformanceUpdate perf);
     void (*delete)(struct WU_SharpeRatio_* self);
-    double value;           // Current Sharpe ratio
+    double value;
     WU_Mean mean;
     WU_StDev stdev;
-    double risk_free_rate;  // Annual risk-free rate
-    double initial_value;   // Initial portfolio value used for return calc
-    double prev_value;      // Previous portfolio value for return calc
-    int64_t count;          // Number of returns observed
-    int64_t start_time;     // First timestamp observed
-    int64_t end_time;       // Last timestamp observed
-    WU_TimeUnit time_unit;  // Time unit for period calculations
+    double risk_free_rate;
+    double initial_value;
+    double prev_value;
+    int64_t count;
+    int64_t start_time;
+    int64_t end_time;
+    WU_TimeUnit time_unit;
 }* WU_SharpeRatio;
 
 WU_SharpeRatio wu_sharpe_ratio_new(double initial_value, double risk_free_rate);

@@ -1,10 +1,12 @@
-# Understanding Timestamps and Data Frequencies
+# Timestamps and Time Units
 
-Timestamps are fundamental to backtesting. They determine when data occurred, enable proper historical ordering, and affect how metrics like Sharpe ratio get annualized. This guide explains Wu's timestamp model.
+Timestamps are fundamental to backtesting. They determine when data occurred, enable proper historical ordering, and affect how metrics like Sharpe ratio get annualized. This guide explains Wu's timestamp model from both user and implementation perspectives.
 
-## Time Units
+## Time Representation
 
-Wu always manages Unix timestamps (time since January 1, 1970 UTC), but you specify the unit in which these timestamps are expressed. The same timestamp value can represent different moments in time depending on its unit.
+Wu uses a flexible timestamp representation that supports different time granularities without conversion overhead.
+
+### The WU_TimeStamp Structure
 
 ```c
 typedef enum {
@@ -13,7 +15,30 @@ typedef enum {
     WU_TIME_UNIT_MICROS = 2,
     WU_TIME_UNIT_NANOS = 3
 } WU_TimeUnit;
+
+typedef struct WU_TimeStamp_ {
+    int64_t mark;
+    WU_TimeUnit units;
+} WU_TimeStamp;
 ```
+
+The `mark` field holds the actual time value. The `units` field specifies the scale. This design avoids forcing a single time representation across the entire system.
+
+### Why This Design?
+
+**Why not always use nanoseconds?** Different data sources use different scales. Daily data from many providers uses Unix seconds. Converting everything to a single scale requires overhead and potential precision loss. Letting each data source keep its natural representation is simpler.
+
+**Why not floating point?** Integer arithmetic is exact. No rounding errors when computing differences. No precision loss when comparing timestamps. The unit field handles scale explicitly rather than relying on implicit floating-point magnitude.
+
+**Why store the unit?** It makes the representation self-describing. When debugging, you can see immediately whether a timestamp is in seconds or milliseconds. It also enables runtime validation that operations on timestamps use compatible units.
+
+---
+
+## Understanding Time Units
+
+Wu always manages Unix timestamps (time since January 1, 1970 UTC), but you specify the unit in which these timestamps are expressed. The same timestamp value can represent different moments in time depending on its unit.
+
+### Time Unit Examples
 
 For example, the same timestamp value `1704067200` means:
 - 1704067200 seconds = January 1, 2024 00:00:00 UTC
@@ -30,13 +55,43 @@ WU_Reader reader = (WU_Reader)wu_csv_reader_new(file,
 );
 ```
 
-This tells Wu how to interpret the numeric timestamps in your data and allows it to properly scale time-based metrics like Sharpe ratio and volatility calculations.
+### Usage Patterns by Data Frequency
 
-## Unix Timestamps
+**Daily data** typically uses seconds with Unix epoch timestamps:
+
+```c
+WU_TimeStamp ts = {
+    .mark = 1678896000,  // Unix timestamp for March 15, 2023
+    .units = WU_TIME_UNIT_SECONDS
+};
+```
+
+**Intraday data** might use milliseconds for minute or second bars:
+
+```c
+WU_TimeStamp ts = {
+    .mark = 1678896000000,  // Milliseconds since epoch
+    .units = WU_TIME_UNIT_MILLIS
+};
+```
+
+**High-frequency data** can use microseconds or nanoseconds for tick-level precision:
+
+```c
+WU_TimeStamp ts = {
+    .mark = 1678896000000000000,  // Nanoseconds since epoch
+    .units = WU_TIME_UNIT_NANOS
+};
+```
+
+---
+
+## Unix Timestamps in Practice
 
 Most commonly, timestamps are Unix epoch values—seconds since January 1, 1970 UTC. This is what financial data tools like `yf` produce with `--date_format:unix`.
 
 For example:
+
 - January 1, 2024 00:00:00 UTC = 1704067200
 - January 1, 2020 00:00:00 UTC = 1577836800
 - December 31, 2010 00:00:00 UTC = 1293840000
@@ -52,11 +107,15 @@ Timestamp,Open,High,Low,Close,Volume
 
 The timestamps should be in the first column. Wu's CSV reader parses them as numeric values and combines them with the time unit you specified.
 
+---
+
 ## Data Frequencies
 
 Your timestamps are always Unix values, but the frequency at which you receive data differs:
 
-**Daily Bars**: One candle per trading day. Timestamps typically represent market close time (4 PM ET for US equities).
+### Daily Bars
+
+One candle per trading day. Timestamps typically represent market close time (4 PM ET for US equities).
 
 ```c
 // 1704067200 = Jan 1, 2024 00:00:00 UTC
@@ -66,7 +125,9 @@ WU_TimeUnit time_unit = WU_TIME_UNIT_SECONDS;
 
 The delta between consecutive timestamps is approximately 86400 seconds (one trading day).
 
-**Hourly Bars**: One candle per hour. Useful for intraday strategies.
+### Hourly Bars
+
+One candle per hour. Useful for intraday strategies.
 
 ```c
 // 1704067200 = Jan 1, 2024 00:00:00 UTC
@@ -74,7 +135,9 @@ The delta between consecutive timestamps is approximately 86400 seconds (one tra
 WU_TimeUnit time_unit = WU_TIME_UNIT_SECONDS;
 ```
 
-**Minute Data**: One candle per minute.
+### Minute Data
+
+One candle per minute.
 
 ```c
 // 1704067200 = Jan 1, 2024 00:00:00 UTC
@@ -82,177 +145,24 @@ WU_TimeUnit time_unit = WU_TIME_UNIT_SECONDS;
 WU_TimeUnit time_unit = WU_TIME_UNIT_SECONDS;
 ```
 
-**Tick Data**: Individual transactions at millisecond or microsecond precision.
+## Time Arithmetic and Calculations
 
-```c
-// Use milliseconds if your data comes at that granularity
-WU_TimeUnit time_unit = WU_TIME_UNIT_MILLIS;
+When calculating time-based metrics, Wu converts timestamps to a common unit internally. For example, calculating borrowing interest on short positions requires knowing how long the position was held.
 
-// Or microseconds for very high-frequency data
-WU_TimeUnit time_unit = WU_TIME_UNIT_MICROS;
-```
+### The Calculation Process
 
-Always use the same time unit across your entire backtest and dataset. Wu will properly scale time-dependent metrics based on the unit you specify.
+1. Check that both timestamps use the same unit
+2. Compute the difference in that unit
+3. Convert to seconds
+4. Convert seconds to years (dividing by 365.25 × 86400)
+5. Apply the annual rate
 
-## Performance Metrics and Annualization
+This conversion happens inside the portfolio implementation. Users only need to ensure their data uses consistent time units.
 
-Risk metrics like Sharpe ratio and Sortino ratio depend on proper time scaling. A Sharpe ratio of 1.0 on daily data means something different from one on hourly data.
+## Limitations
 
-Wu automatically scales these metrics based on the time unit of your data. The library tracks the time span of your backtest and annualizes metrics to a standard year:
+**No timezone handling**: All timestamps are assumed to be in a consistent timezone. Wu doesn't do timezone conversion or daylight saving time adjustments. Preprocess your data to use UTC or a consistent local time.
 
-```c
-WU_SharpeRatio sharpe = wu_sharpe_ratio_new();
-// Wu annualizes based on WU_TIME_UNIT_SECONDS (252 trading days/year × 86400 seconds/day)
-```
+**No date arithmetic**: Wu doesn't parse or format dates. It works with integer time values. Use external tools to convert between human-readable dates and Unix timestamps.
 
-The annualization factors are:
-
-- **Daily data** (WU_TIME_UNIT_SECONDS, ~86400 sec intervals): 252 trading days per year
-- **Hourly data** (WU_TIME_UNIT_SECONDS, ~3600 sec intervals): 252 × 6.5 = 1,638 trading hours per year
-- **Minute data** (WU_TIME_UNIT_SECONDS, ~60 sec intervals): 252 × 6.5 × 60 = 98,280 trading minutes per year
-
-These conventions (252 trading days/year, 6.5 trading hours/day) are standard in finance.
-
-**Why This Matters**:
-
-Consider two strategies with identical 10% returns:
-
-1. Daily strategy over 252 trading days (1 year of daily bars)
-2. Minute-level strategy over the same calendar period (98,280 minute bars)
-
-Both show 10% returns, but the minute strategy has many more opportunities to generate returns. Without proper time scaling, you'd compare them incorrectly. Wu handles this automatically once you specify the time unit correctly.
-
-## Example: Converting Data Granularity
-
-Suppose you have minute-level data and want to aggregate it to daily bars:
-
-```bash
-# Raw minute data (raw_data.csv)
-1577836800,100.5,101.2,100.0,100.8,1000
-1577836860,100.8,101.5,100.5,101.2,1100
-1577836920,101.2,102.0,100.8,101.8,950
-... (390 more minutes in this day) ...
-1577923200,100.9,101.3,100.1,101.0,1050
-
-# After aggregation into daily bars (daily_data.csv)
-1577836800,100.5,102.1,100.0,101.0,500000
-1577923200,101.0,102.5,100.5,101.8,480000
-```
-
-The aggregation process groups minute bars and computes:
-- Open: first minute's open
-- High: maximum high across all minutes
-- Low: minimum low across all minutes
-- Close: last minute's close
-- Volume: sum of volumes
-
-Then use the aggregated file with the correct time unit:
-
-```c
-WU_Reader reader = wu_csv_reader_new(file,
-    WU_DATA_TYPE_CANDLE,
-    WU_TIME_UNIT_SECONDS,    // Time unit matches your data (daily bars)
-    true
-);
-```
-
-Wu will properly annualize metrics based on daily bar frequency (252 trading days per year).
-
-## Practical Considerations
-
-### Data Alignment
-
-Ensure your timestamps are in the time unit you specify:
-
-```c
-// If your CSV has daily bars with Unix timestamps in seconds:
-WU_TimeUnit time_unit = WU_TIME_UNIT_SECONDS;
-
-// If your CSV has tick data with timestamps in milliseconds:
-WU_TimeUnit time_unit = WU_TIME_UNIT_MILLIS;
-```
-
-Mismatch between your data and specified unit causes incorrect metric calculations.
-
-### Market Hours
-
-Daily data typically timestamps bars at market close (4 PM ET for US equities). Some tools use market open. Ensure consistency across all data sources.
-
-```bash
-# Using yf to download data with Unix timestamps
-yf history -s:spy --lookback:1y --format:csv --date_format:unix
-
-# Produces timestamps at market close time (4 PM ET)
-# 1704067200 = Jan 1, 2024 00:00 UTC
-```
-
-### UTC vs Local Time
-
-Wu uses UTC internally. If your data is in local time, convert it first:
-
-```bash
-# EST/EDT local time to UTC
-# EST is UTC-5, EDT is UTC-4
-
-# 1:00 PM EST = 18:00 UTC
-# 1:00 PM EDT = 17:00 UTC
-```
-
-Financial tools like `yf` output UTC by default, so this is usually not an issue.
-
-### Gaps in Data
-
-Markets are closed on weekends and holidays. Daily data has gaps:
-
-```
-1704067200  (Friday close)
-1704240000  (Monday close, 2 calendar days later)
-```
-
-This is normal. Wu handles gaps correctly. Gaps don't affect statistics—they just mean fewer periods elapsed.
-
-Intraday data (hourly or minute) shouldn't have gaps during trading hours unless trading 24/7 futures.
-
-## Tips for Setting Up Data
-
-1. **Verify Your Timestamps**: Print the first few and last few rows to confirm they're in the right order and frequency.
-
-2. **Match Time Units**: The time unit you pass to `wu_csv_reader_new` must match your data's granularity.
-
-3. **Use Unix Epoch**: It's the standard. Tools like `yf` produce it directly.
-
-4. **Handle Timezone**: Ensure all your data is in the same timezone (preferably UTC).
-
-5. **Document Your Data**: Note the frequency, timezone, and whether bars close at market close or open.
-
-## Example Workflow
-
-```bash
-# 1. Pull data in the right format
-yf history -s:spy --lookback:5y \
-    --format:csv \
-    --date_format:unix > spy.csv
-
-# 2. Verify the format
-head -5 spy.csv
-# Output:
-# Timestamp,Open,High,Low,Close,Volume
-# 1577836800,100.5,101.2,100.0,100.8,1000000
-# ...
-
-# 3. Use in Wu with correct time unit
-// In your C code:
-WU_Reader reader = wu_csv_reader_new(file,
-    WU_DATA_TYPE_CANDLE,
-    WU_TIME_UNIT_DAYS,    // Daily bars
-    true                  // Skip header
-);
-
-// Performance metrics are now properly annualized
-```
-
-## See Also
-
-For API details, see the [Doxygen API Reference](https://jailop.codeberg.page/wutrader/docs/html/).
-
-For a complete working example with real data, see the [Tutorial](../tutorial.md).
+**No calendar awareness**: The year conversion (dividing by 365.25 days) is approximate. It doesn't account for leap seconds, market holidays, or trading hour adjustments. For borrowing cost calculations this is acceptable, but for precise calendar arithmetic you'd need additional logic.
