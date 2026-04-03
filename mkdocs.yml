@@ -13,6 +13,9 @@ theme:
     - c
     - python
 
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
 markdown_extensions:
   - toc:
       permalink: true
@@ -21,6 +24,8 @@ markdown_extensions:
       guess_lang: false
   - def_list
   - footnotes
+  - pymdownx.arithmatex:
+      generic: true
 
 nav:
   - Home: index.md
@@ -28,15 +33,14 @@ nav:
   - Features: features.md
   - Tutorial: tutorial.md
   - Guides:
-    - Portfolio Configuration: portfolio-configuration.md
-    - Timestamps and Data: guides/timestamps.md
-    - Data Formats: guides/data-formats.md
-    - Indicators: guides/indicators.md
-  - Design Notes:
     - Architecture: design/architecture.md
     - Execution Models: design/execution.md
+    - Timestamps: guides/timestamps.md
+    - Data Formats: guides/data-formats.md
+    - Indicators: guides/indicators.md
+    - Risk Metrics: guides/risk-metrics.md
+    - Portfolio Configuration: portfolio-configuration.md
     - Position Sizing: design/position_sizing.md
-    - Timestamps: design/timestamps.md
   - Examples:
     - Crossover Strategy: examples/crossover.md
     - Pairs Trading: examples/pairs_trading.md

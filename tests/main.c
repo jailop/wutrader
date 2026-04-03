@@ -78,6 +78,8 @@ extern void test_mean_basic(void);
 extern void test_downside_basic(void);
 // extern void test_pnlstats_basic(void);
 extern void test_sharpe_basic(void);
+extern void test_sharpe_with_volatility(void);
+extern void test_sharpe_insufficient_data(void);
 
 int main(void) {
     CU_pSuite sma_suite = NULL;
@@ -338,7 +340,9 @@ int main(void) {
     if (CU_add_test(stats_suite, "test_mean_basic", test_mean_basic) == NULL ||
         CU_add_test(stats_suite, "test_downside_basic", test_downside_basic) == NULL ||
         // CU_add_test(stats_suite, "test_pnlstats_basic", test_pnlstats_basic) == NULL ||
-        CU_add_test(stats_suite, "test_sharpe_basic", test_sharpe_basic) == NULL) {
+        CU_add_test(stats_suite, "test_sharpe_basic", test_sharpe_basic) == NULL ||
+        CU_add_test(stats_suite, "test_sharpe_with_volatility", test_sharpe_with_volatility) == NULL ||
+        CU_add_test(stats_suite, "test_sharpe_insufficient_data", test_sharpe_insufficient_data) == NULL) {
         CU_cleanup_registry();
         return CU_get_error();
     }
