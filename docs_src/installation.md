@@ -2,16 +2,16 @@
 
 ## Building from Source
 
-### Requirements
+Requirements:
 
 - C11 compatible compiler (gcc or clang)
 - Make
 - CUnit (for running tests)
 - Doxygen (optional, for API documentation)
 
-### Build Steps
+Build Steps:
 
-Clone the repository and build:
+Clone the repository and build.
 
 ```bash
 git clone https://codeberg.org/jailop/wutrader.git
@@ -20,27 +20,28 @@ make
 ```
 
 This builds:
+
 - `lib/libwu.so` - Shared library
 - `lib/libwu.a` - Static library
 - Example programs in `examples/`
 - Test runner in `tests/`
 
-### Running Tests
+Running Tests:
 
 ```bash
 make run_tests
 ```
 
-### System Installation
+System Installation:
 
-Install to `/usr/local`:
+Install to `/usr/local`.
 
 ```bash
 sudo make install
 sudo ldconfig
 ```
 
-Install to custom location:
+Install to custom location.
 
 ```bash
 make install PREFIX=/custom/path
@@ -52,7 +53,7 @@ Uninstall:
 sudo make uninstall
 ```
 
-### Generating Documentation
+## Generating Documentation
 
 Build Doxygen API documentation:
 
