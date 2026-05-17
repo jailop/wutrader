@@ -52,18 +52,8 @@
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Installation</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#building-from-source">Building from Source</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#build-steps">Build Steps</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#running-tests">Running Tests</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#system-installation">System Installation</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#generating-documentation">Generating Documentation</a>
-    </li>
-        </ul>
+    <li class="toctree-l2"><a class="reference internal" href="#generating-documentation">Generating Documentation</a>
     </li>
     </ul>
                 </li>
@@ -144,36 +134,38 @@
               
                 <h1 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h1>
 <h2 id="building-from-source">Building from Source<a class="headerlink" href="#building-from-source" title="Permanent link">&para;</a></h2>
-<h3 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h3>
+<p>Requirements:</p>
 <ul>
 <li>C11 compatible compiler (gcc or clang)</li>
 <li>Make</li>
 <li>CUnit (for running tests)</li>
 <li>Doxygen (optional, for API documentation)</li>
 </ul>
-<h3 id="build-steps">Build Steps<a class="headerlink" href="#build-steps" title="Permanent link">&para;</a></h3>
-<p>Clone the repository and build:</p>
+<p>Build Steps:</p>
+<p>Clone the repository and build.</p>
 <pre class="codehilite"><code class="language-bash">git clone https://codeberg.org/jailop/wutrader.git
 cd wutrader
 make
 </code></pre>
 
-<p>This builds:
-- <code>lib/libwu.so</code> - Shared library
-- <code>lib/libwu.a</code> - Static library
-- Example programs in <code>examples/</code>
-- Test runner in <code>tests/</code></p>
-<h3 id="running-tests">Running Tests<a class="headerlink" href="#running-tests" title="Permanent link">&para;</a></h3>
+<p>This builds:</p>
+<ul>
+<li><code>lib/libwu.so</code> - Shared library</li>
+<li><code>lib/libwu.a</code> - Static library</li>
+<li>Example programs in <code>examples/</code></li>
+<li>Test runner in <code>tests/</code></li>
+</ul>
+<p>Running Tests:</p>
 <pre class="codehilite"><code class="language-bash">make run_tests
 </code></pre>
 
-<h3 id="system-installation">System Installation<a class="headerlink" href="#system-installation" title="Permanent link">&para;</a></h3>
-<p>Install to <code>/usr/local</code>:</p>
+<p>System Installation:</p>
+<p>Install to <code>/usr/local</code>.</p>
 <pre class="codehilite"><code class="language-bash">sudo make install
 sudo ldconfig
 </code></pre>
 
-<p>Install to custom location:</p>
+<p>Install to custom location.</p>
 <pre class="codehilite"><code class="language-bash">make install PREFIX=/custom/path
 </code></pre>
 
@@ -181,7 +173,7 @@ sudo ldconfig
 <pre class="codehilite"><code class="language-bash">sudo make uninstall
 </code></pre>
 
-<h3 id="generating-documentation">Generating Documentation<a class="headerlink" href="#generating-documentation" title="Permanent link">&para;</a></h3>
+<h2 id="generating-documentation">Generating Documentation<a class="headerlink" href="#generating-documentation" title="Permanent link">&para;</a></h2>
 <p>Build Doxygen API documentation:</p>
 <pre class="codehilite"><code class="language-bash">make docs
 </code></pre>

@@ -135,16 +135,35 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="wu-low-level-backtesting-library">Wu - Low Level Backtesting Library<a class="headerlink" href="#wu-low-level-backtesting-library" title="Permanent link">&para;</a></h1>
-<p>This is a personal project—a backtesting library for trading strategies written in C. I use it for learning, experimenting with different designs, and exploring ideas in algorithmic trading. It provides core abstractions: indicators, strategies, data readers, a portfolio, and a runner, that compose together.</p>
-<p>It is not a production-ready product. It lacks sophisticated risk metrics, realistic execution modeling, market microstructure simulation, and a proper out-of-sample validation framework. Use it for learning and experimentation; do not use it for live trading.</p>
+<p>This is a personal project—a backtesting library for trading strategies
+written in C. I use it for learning, experimenting with different
+designs, and exploring ideas in algorithmic trading. It provides core
+abstractions that compose together.</p>
+<p>It is not a production-ready product. It only includes a few trading 
+metrics and execution order modeling is far from realistic. Don't use it
+for live trading.</p>
 <h2 id="core-components">Core Components<a class="headerlink" href="#core-components" title="Permanent link">&para;</a></h2>
-<p>The library provides an architecture for implementing components that can be combined into a backtesting system:</p>
-<p><strong>Indicators:</strong> These serve as building blocks for technical analysis and performance metrics. They maintain internal state and update incrementally as new data arrives.</p>
-<p><strong>Strategies:</strong> These generate trading signals by consuming market data, updating internal indicators, and producing buy/sell/hold decisions.</p>
-<p><strong>Data Readers:</strong> Generic data feeders for CSV and JSON inputs that can be used to ingest data from files, databases, or network streams.</p>
-<p><strong>Portfolios:</strong> These enable simulation to manage cash, execute trades, and track positions across multiple assets. The basic portfolio implementation supports long and short positions, transaction costs, borrowing costs, and basic risk management and execution policies.</p>
-<p><strong>Runner:</strong> This orchestrates the backtest loop, coordinating readers, strategies, and portfolios. It handles data synchronization and component lifecycle.</p>
-<p>The implemented components serve as examples that can be extended or used as a reference for implementing custom modules.</p>
+<p>The library provides an architecture for implementing components that
+can be combined into a backtesting system:</p>
+<ul>
+<li>Indicators: These serve as building blocks for technical analysis and
+  performance metrics. They maintain internal state and update as new
+  data arrives.</li>
+<li>Strategies: These generate trading signals by consuming market data
+  and updating internal indicators.</li>
+<li>Data Readers: Data feeders for CSV and JSON inputs that can be used to
+  ingest data from files, databases, or network streams.</li>
+<li>Portfolios: These enable simulation to manage cash, execute trades,
+  and track positions. The basic portfolio implementation supports long
+  and short positions, transaction costs, borrowing costs, and basic
+  risk management and execution policies.</li>
+<li>Runner: This orchestrates the backtest loop, coordinating readers,
+  strategies, and portfolios. It handles data synchronization and
+  component lifecycle.</li>
+</ul>
+<p>The implemented components included in the library serve as examples
+that can be extended or used as a reference for implementing custom
+modules.</p>
 <h2 id="design-principles">Design Principles<a class="headerlink" href="#design-principles" title="Permanent link">&para;</a></h2>
 <p>Components carry state explicitly in structs. No hidden globals. When
 debugging, you can inspect memory directly. Struct definitions show all
@@ -152,9 +171,16 @@ parameters and internal state.</p>
 <p>The components compose freely. Swap a CSV file reader for a database reader.
 Replace a strategy implementation. Use portfolio code without the runner.
 Nothing enforces rigid patterns.</p>
-<p>Every component uses function pointers for generic behavior and polymorphism without overhead. This lets you implement custom components with different execution logic or risk models, and plug them into an automated runner.</p>
+<p>Every component uses function pointers for generic behavior and
+polymorphism without overhead. This lets you implement custom components
+with different execution logic or risk models, and plug them into an
+automated runner.</p>
 <h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
-<p>If you have any questions or suggestions, I’m more than happy to hear them. If you’d like to review the code or propose changes, I’d really appreciate that. If you find the project interesting and want to brainstorm design ideas or explore concepts together, please don’t hesitate to reach out.</p>
+<p>If you have any questions or suggestions, I’m more than happy to hear
+them. If you’d like to review the code or propose changes, I’d really
+appreciate that. If you find the project interesting and want to
+brainstorm design ideas or explore concepts together, please don’t
+hesitate to reach out.</p>
 <p>Email: jailop AT protonmail DOT com</p>
               
             </div>
@@ -209,5 +235,5 @@ Nothing enforces rigid patterns.</p>
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2026-04-03 03:43:12.313913+00:00
+Build Date UTC : 2026-05-17 17:39:41.771546+00:00
 -->
